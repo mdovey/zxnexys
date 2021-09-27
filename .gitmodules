@@ -1,0 +1,3 @@
+[submodule "ZX_Spectrum_Next_FPGA"]
+	path = ZX_Spectrum_Next_FPGA
+	url = https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA.git
