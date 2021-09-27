@@ -60,24 +60,7 @@ architecture rtl of dpram2 is
 
    type ram_t is array (0 to 2**addr_width_g-1) of bit_vector(data_width_g-1 downto 0);
 
-   impure function InitRamFromFile (RamFileName : in string) return ram_t is
-      file     RamFile     : text is in RamFileName;
-      variable RamFileLine : line;
-      variable RAM         : ram_t;
-      variable RAM_0       : ram_t := (others => (others => '0'));
-   begin
-      if RamFileName = "init/none.bin.txt" then
-         return RAM_0;
-      else
-         for I in ram_t'range loop
-            readline (RamFile, RamFileLine);
-            read (RamFileLine, RAM(I));
-         end loop;
-         return RAM;
-      end if;
-   end function;
-
-   signal ram_q : ram_t := InitRamFromFile(init_file_g);
+   signal ram_q : ram_t := (others => (others => '0'));
 
    signal read_addr_a_q : unsigned(addr_width_g-1 downto 0);
    signal read_addr_b_q : unsigned(addr_width_g-1 downto 0);
