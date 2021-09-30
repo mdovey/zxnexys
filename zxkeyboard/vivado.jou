@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2021.1.1 (64-bit)
+# SW Build 3286242 on Wed Jul 28 13:10:47 MDT 2021
+# IP Build 3279568 on Wed Jul 28 16:48:48 MDT 2021
+# Start of session at: Wed Sep 29 13:29:41 2021
+# Process ID: 24620
+# Current directory: V:/zxnext/zxkeyboard
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent42128 V:\zxnext\zxkeyboard\zxkeyboard.xpr
+# Log file: V:/zxnext/zxkeyboard/vivado.log
+# Journal file: V:/zxnext/zxkeyboard\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project V:/zxnext/zxkeyboard/zxkeyboard.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_project
+open_project V:/zxnext/zxaudio/zxaudio.xpr
+update_compile_order -fileset sources_1
