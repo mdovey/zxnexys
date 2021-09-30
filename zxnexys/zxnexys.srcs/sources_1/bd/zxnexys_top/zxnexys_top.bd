@@ -663,6 +663,13 @@
           "pmod_i2s2_0/sdout"
         ]
       },
+      "zxclock_0_clk_14": {
+        "ports": [
+          "zxclock_0/clk_14",
+          "zxvideo_0/clk_14",
+          "zxnext_0/i_CLK_14"
+        ]
+      },
       "zxclock_0_clk_28_n": {
         "ports": [
           "zxclock_0/clk_28_n",
@@ -674,13 +681,6 @@
         "ports": [
           "zxclock_0/clk_7",
           "zxnext_0/i_CLK_7"
-        ]
-      },
-      "zxclock_0_clk_14": {
-        "ports": [
-          "zxclock_0/clk_14",
-          "zxvideo_0/clk_14",
-          "zxnext_0/i_CLK_14"
         ]
       },
       "zxclock_0_clk_28": {
