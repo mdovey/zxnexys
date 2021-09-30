@@ -1,0 +1,79 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Thu Sep 30 11:47:55 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxclock_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxclock_0_0 (specnext.com:specnext:zxclock:1.0) from (Rev. 13) to (Rev. 15)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Thu Sep 30 11:47:45 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxclock_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxclock_0_0 (specnext.com:specnext:zxclock:1.0) from (Rev. 12) to (Rev. 13)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Thu Sep 30 11:39:50 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxclock_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxclock_0_0 (specnext.com:specnext:zxclock:1.0) from (Rev. 11) to (Rev. 12)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Thu Sep 30 11:08:01 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxclock_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxclock_0_0 (specnext.com:specnext:zxclock:1.0) from (Rev. 10) to (Rev. 11)
+

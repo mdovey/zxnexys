@@ -1,31 +1,46 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-594,-162",
+   "Default View_TopLeft":"-139,-53",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port ddr2_sdram -pg 1 -lvl 1 -x 40 -y 160 -defaultsOSRD
-preplace port JA -pg 1 -lvl 1 -x 40 -y 20 -defaultsOSRD
-preplace port JB -pg 1 -lvl 1 -x 40 -y 40 -defaultsOSRD
-preplace port PS2_CLK -pg 1 -lvl 1 -x 40 -y 60 -defaultsOSRD
-preplace port PS2_DATA -pg 1 -lvl 1 -x 40 -y 80 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
-preplace port port-id_sys_clock -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port ddr2_sdram -pg 1 -lvl 4 -x 950 -y 160 -defaultsOSRD
+preplace port JA -pg 1 -lvl 4 -x 950 -y 20 -defaultsOSRD
+preplace port JB -pg 1 -lvl 4 -x 950 -y 40 -defaultsOSRD
+preplace port PS2_CLK -pg 1 -lvl 4 -x 950 -y 60 -defaultsOSRD
+preplace port PS2_DATA -pg 1 -lvl 4 -x 950 -y 80 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 440 -defaultsOSRD
+preplace port port-id_sys_clock -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
 preplace port port-id_BTNL -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
 preplace port port-id_BTNR -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port port-id_VGA_HS -pg 1 -lvl 1 -x 40 -y 260 -defaultsOSRD
-preplace port port-id_VGA_VS -pg 1 -lvl 1 -x 40 -y 280 -defaultsOSRD
-preplace port port-id_SD_RESET -pg 1 -lvl 1 -x 40 -y 240 -defaultsOSRD
-preplace port port-id_SD_CD -pg 1 -lvl 1 -x 40 -y 180 -defaultsOSRD
-preplace port port-id_SD_CLK -pg 1 -lvl 1 -x 40 -y 200 -defaultsOSRD
-preplace port port-id_SD_CMD -pg 1 -lvl 1 -x 40 -y 220 -defaultsOSRD
-preplace portBus VGA_R -pg 1 -lvl 1 -x 40 -y 140 -defaultsOSRD
-preplace portBus VGA_G -pg 1 -lvl 1 -x 40 -y 120 -defaultsOSRD
-preplace portBus VGA_B -pg 1 -lvl 1 -x 40 -y 100 -defaultsOSRD
+preplace port port-id_VGA_HS -pg 1 -lvl 4 -x 950 -y 260 -defaultsOSRD
+preplace port port-id_VGA_VS -pg 1 -lvl 4 -x 950 -y 280 -defaultsOSRD
+preplace port port-id_SD_RESET -pg 1 -lvl 4 -x 950 -y 240 -defaultsOSRD
+preplace port port-id_SD_CD -pg 1 -lvl 4 -x 950 -y 180 -defaultsOSRD
+preplace port port-id_SD_CLK -pg 1 -lvl 4 -x 950 -y 200 -defaultsOSRD
+preplace port port-id_SD_CMD -pg 1 -lvl 4 -x 950 -y 220 -defaultsOSRD
+preplace portBus VGA_R -pg 1 -lvl 4 -x 950 -y 140 -defaultsOSRD
+preplace portBus VGA_G -pg 1 -lvl 4 -x 950 -y 120 -defaultsOSRD
+preplace portBus VGA_B -pg 1 -lvl 4 -x 950 -y 100 -defaultsOSRD
 preplace portBus SD_DAT -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
-levelinfo -pg 1 0 40
-pagesize -pg 1 -db -bbox -sgen -140 0 170 300
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -x 420 -y 110 -defaultsOSRD
+preplace inst sys_reset_200 -pg 1 -lvl 3 -x 760 -y 390 -defaultsOSRD
+preplace inst sys_reset_28 -pg 1 -lvl 3 -x 760 -y 210 -defaultsOSRD
+preplace inst zxclock_0 -pg 1 -lvl 1 -x 180 -y 390 -defaultsOSRD
+preplace netloc sys_clock_1 1 0 2 NJ 120 NJ
+preplace netloc Net 1 1 2 310 270 590
+preplace netloc clk_wiz_0_clk_200_b 1 0 3 50 250 NJ 250 560
+preplace netloc clk_wiz_0_clk_28_n_b 1 0 3 60 260 NJ 260 550
+preplace netloc clk_wiz_0_clk_28_ub 1 0 3 30 230 300J 240 540
+preplace netloc clk_wiz_0_clk_14_ub 1 0 3 40 240 320J 230 530
+preplace netloc clk_wiz_0_clk_7_ub 1 0 3 20 220 NJ 220 520
+preplace netloc clk_wiz_0_locked 1 2 1 570 60n
+preplace netloc zxclock_0_clk_200 1 1 2 NJ 330 580
+preplace netloc zxclock_0_clk_28 1 1 2 NJ 350 N
+preplace netloc reset_1 1 0 1 NJ 440
+levelinfo -pg 1 0 180 420 760 950
+pagesize -pg 1 -db -bbox -sgen -140 0 1080 520
 "
 }
 
