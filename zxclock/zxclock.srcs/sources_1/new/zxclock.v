@@ -27,6 +27,8 @@ module zxclock (
     output clk_14,
     output clk_7,
     output clk_cpu,
+    
+    output reset_n,
 
     input [1:0] cpu_speed,
     input cpu_clk_lsb,
@@ -36,7 +38,11 @@ module zxclock (
     input clk_28_n_b,
     input clk_28_ub,
     input clk_14_ub,
-    input clk_7_ub
+    input clk_7_ub,
+    
+    input ext_reset_n,
+    input hardware_reset
+    
     );
     
     reg clk_3m5_cont;

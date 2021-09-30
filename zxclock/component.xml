@@ -77,7 +77,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_28.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_28.ASSOCIATED_RESET"/>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -222,6 +222,12 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_28_N.ASSOCIATED_RESET">reset_n:ext_reset_n</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>clk_200_b</spirit:name>
@@ -255,6 +261,72 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>hardware_reset</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hardware_reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.HARDWARE_RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>reset_n</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>reset_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET_N.POLARITY">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>ext_reset_n</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>ext_reset_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.EXT_RESET_N.POLARITY">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -270,7 +342,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2f2a4a5f</spirit:value>
+            <spirit:value>9ad2ff7a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -286,7 +358,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2f2a4a5f</spirit:value>
+            <spirit:value>9ad2ff7a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -373,6 +445,19 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>clk_cpu</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>reset_n</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -501,6 +586,32 @@
           </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
+      <spirit:port>
+        <spirit:name>ext_reset_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hardware_reset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
     </spirit:ports>
   </spirit:model>
   <spirit:fileSets>
@@ -509,7 +620,7 @@
       <spirit:file>
         <spirit:name>zxclock.srcs/sources_1/new/zxclock.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_2f2a4a5f</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_9ad2ff7a</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -569,8 +680,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxclock_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>9</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-09-30T06:35:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>10</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-09-30T09:29:25Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4e9e9c06_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1155598e_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
@@ -684,13 +795,32 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@411299d5_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@659f062_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@e8e121d_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43af9746_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2136551e_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c877ca1_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66256154_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7caef0ce_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55264ab7_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a3f9680_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1003b31f_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9f15d4c_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48e811ad_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1936b6d6_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d5405bf_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3554688d_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35b9f4c7_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@127ccd05_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79b0cde7_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71e483b0_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10ae34e_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@111f4cf7_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="c145b6d2"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="60170c7b"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="27e1dcd7"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="af908dd6"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1f9a806c"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="462beed2"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="0724a4d3"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
