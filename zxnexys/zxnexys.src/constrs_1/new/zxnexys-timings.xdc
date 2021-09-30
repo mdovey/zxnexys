@@ -17,9 +17,3 @@
 #set_multicycle_path -from [get_clocks CLK_CPU]  -to [get_clocks $clk_mem] -setup 2
 #set_multicycle_path -from [get_clocks CLK_CPU]  -to [get_clocks $clk_mem] -hold 1
 
-
-set_multicycle_path -setup -from [get_clocks -of_objects [get_pins zxnexys_top_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1]] -to [get_clocks -of_objects [get_pins zxnexys_top_i/zxram_0/inst/Inst_DDR/u_ddr_mig/u_ddr2_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT]] 2
-set_multicycle_path -hold -from [get_clocks -of_objects [get_pins zxnexys_top_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1]] -to [get_clocks -of_objects [get_pins zxnexys_top_i/zxram_0/inst/Inst_DDR/u_ddr_mig/u_ddr2_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT]] 1
-
-set_multicycle_path -setup -from [get_clocks -of_objects [get_pins zxnexys_top_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1B]] -to [get_clocks -of_objects [get_pins zxnexys_top_i/zxram_0/inst/Inst_DDR/u_ddr_mig/u_ddr2_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT]] 2
-set_multicycle_path -hold -from [get_clocks -of_objects [get_pins zxnexys_top_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1B]] -to [get_clocks -of_objects [get_pins zxnexys_top_i/zxram_0/inst/Inst_DDR/u_ddr_mig/u_ddr2_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT]] 1

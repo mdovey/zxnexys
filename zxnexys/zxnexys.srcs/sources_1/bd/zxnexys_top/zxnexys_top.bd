@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB7B75B19EE75D41A",
+      "boundary_crc": "0x74FD385CC07CDBAE",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys_top",
       "name": "zxnexys_top",
@@ -20,7 +20,8 @@
       "zxmouse_0": "",
       "zxnvmemory_0": "",
       "zxram_0": "",
-      "zxvideo_0": ""
+      "zxvideo_0": "",
+      "zxnext_0": ""
     },
     "interface_ports": {
       "ddr2_sdram": {
@@ -167,7 +168,7 @@
       "SD_RESET": {
         "direction": "O"
       },
-      "SD_CLK": {
+      "SD_SCK": {
         "direction": "O"
       },
       "SD_CMD": {
@@ -364,6 +365,12 @@
         "xci_name": "zxnexys_top_zxvideo_0_0",
         "xci_path": "ip\\zxnexys_top_zxvideo_0_0\\zxnexys_top_zxvideo_0_0.xci",
         "inst_hier_path": "zxvideo_0"
+      },
+      "zxnext_0": {
+        "vlnv": "specnext.com:specnext:zxnext:1.0",
+        "xci_name": "zxnexys_top_zxnext_0_0",
+        "xci_path": "ip\\zxnexys_top_zxnext_0_0\\zxnexys_top_zxnext_0_0.xci",
+        "inst_hier_path": "zxnext_0"
       }
     },
     "interface_nets": {
@@ -389,6 +396,54 @@
         "interface_ports": [
           "JA",
           "zxmouse_0/pmod_ps2"
+        ]
+      },
+      "zxnext_0_audio": {
+        "interface_ports": [
+          "zxaudio_0/audio",
+          "zxnext_0/audio"
+        ]
+      },
+      "zxnext_0_keyboard": {
+        "interface_ports": [
+          "zxkeyboard_0/keyboard",
+          "zxnext_0/keyboard"
+        ]
+      },
+      "zxnext_0_mouse": {
+        "interface_ports": [
+          "zxmouse_0/mouse",
+          "zxnext_0/mouse"
+        ]
+      },
+      "zxnext_0_nv_memory": {
+        "interface_ports": [
+          "zxnvmemory_0/nv_memory",
+          "zxnext_0/nv_memory"
+        ]
+      },
+      "zxnext_0_ram_port_a": {
+        "interface_ports": [
+          "zxram_0/ram_port_a",
+          "zxnext_0/ram_port_a"
+        ]
+      },
+      "zxnext_0_ram_port_b": {
+        "interface_ports": [
+          "zxram_0/ram_port_b",
+          "zxnext_0/ram_port_b"
+        ]
+      },
+      "zxnext_0_speaker": {
+        "interface_ports": [
+          "zxaudio_0/speaker",
+          "zxnext_0/speaker"
+        ]
+      },
+      "zxnext_0_video": {
+        "interface_ports": [
+          "zxvideo_0/video",
+          "zxnext_0/video"
         ]
       },
       "zxram_0_ddr": {
@@ -502,10 +557,17 @@
           "zxram_0/reset_28_n"
         ]
       },
+      "sys_reset_28_mb_reset": {
+        "ports": [
+          "sys_reset_28/mb_reset",
+          "zxnext_0/i_RESET"
+        ]
+      },
       "zxclock_0_clk_14": {
         "ports": [
           "zxclock_0/clk_14",
-          "zxvideo_0/clk_14"
+          "zxvideo_0/clk_14",
+          "zxnext_0/i_CLK_14"
         ]
       },
       "zxclock_0_clk_28": {
@@ -517,7 +579,8 @@
           "zxmouse_0/clk_28",
           "zxkeyboard_0/clk_28",
           "zxaudio_0/clk_28",
-          "sys_reset_28/slowest_sync_clk"
+          "sys_reset_28/slowest_sync_clk",
+          "zxnext_0/i_CLK_28"
         ]
       },
       "zxclock_0_clk_200": {
@@ -530,7 +593,38 @@
       "zxclock_0_clk_28_n": {
         "ports": [
           "zxclock_0/clk_28_n",
-          "zxkeyboard_0/clk_28_n"
+          "zxkeyboard_0/clk_28_n",
+          "zxnext_0/i_CLK_28_n"
+        ]
+      },
+      "zxclock_0_clk_7": {
+        "ports": [
+          "zxclock_0/clk_7",
+          "zxnext_0/i_CLK_7"
+        ]
+      },
+      "zxclock_0_clk_cpu": {
+        "ports": [
+          "zxclock_0/clk_cpu",
+          "zxnext_0/i_CLK_CPU"
+        ]
+      },
+      "zxnext_0_o_RESET_HARD": {
+        "ports": [
+          "zxnext_0/o_RESET_HARD",
+          "zxclock_0/hardware_reset"
+        ]
+      },
+      "zxnext_0_o_RESET_PERIPHERAL": {
+        "ports": [
+          "zxnext_0/o_RESET_PERIPHERAL",
+          "sys_reset_28/aux_reset_in"
+        ]
+      },
+      "zxnext_0_o_RESET_SOFT": {
+        "ports": [
+          "zxnext_0/o_RESET_SOFT",
+          "sys_reset_28/mb_debug_sys_rst"
         ]
       },
       "zxnvmemory_0_sd0_cmd": {
@@ -548,7 +642,7 @@
       "zxnvmemory_0_sd0_sclk": {
         "ports": [
           "zxnvmemory_0/sd0_sclk",
-          "SD_CLK"
+          "SD_SCK"
         ]
       },
       "zxvideo_0_b": {

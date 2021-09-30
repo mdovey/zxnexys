@@ -67,6 +67,14 @@
             <spirit:name>o_CPU_CONTEND</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>machine_timing</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_MACHINE_TIMING</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -3398,8 +3406,8 @@
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-09-29T15:25:47Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-09-30T11:46:19Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1e646157_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4713ce11_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
@@ -3517,11 +3525,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@69d54d2d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@59db3703_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3a219c49_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1357f103_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61ef07f9_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2440aa11_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c46a91e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@226fb6a1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@496677c8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c5926ef_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7456d881_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1055f91a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@310b3ff5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ac0affa_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36dbffde_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="361296c4"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0194ac41"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5b90374d"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="49fd3390"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="3f89a8c9"/>
