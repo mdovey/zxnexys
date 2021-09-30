@@ -49,9 +49,9 @@ module zxclock (
     wire clk0;
     wire clk1;
 
-
     assign clk_200 = clk_200_b;
     assign clk_28_n = clk_28_n_b;
+    assign reset_n = ~hardware_reset && ext_reset_n;
     
 
    // BUFG: Global Clock Simple Buffer
