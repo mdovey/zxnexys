@@ -32,9 +32,9 @@ use UNISIM.VComponents.all;
 
 entity zxnext_top_issue2 is
    generic (
-      g_machine_id      : unsigned(7 downto 0)  := X"0A";   -- 10 = ZX Spectrum Next
-      g_version         : unsigned(7 downto 0)  := X"31";   -- 3.01
-      g_sub_version     : unsigned(7 downto 0)  := X"0B"    -- .11
+      g_machine_id      : std_logic_vector(7 downto 0)  := X"0A";   -- 10 = ZX Spectrum Next
+      g_version         : std_logic_vector(7 downto 0)  := X"31";   -- 3.01
+      g_sub_version     : std_logic_vector(7 downto 0)  := X"0B"    -- .11
    );
    port (
       -- Clocks
@@ -802,23 +802,6 @@ begin
    ------------------------------------------------------------
    -- CLOCKS --------------------------------------------------
    ------------------------------------------------------------
-   
-   pll : pll_top
-   port map
-   (
-      SSTEP       => reset_poweron,      -- todo: change to single cycle assertion
-      STATE       => zxn_video_mode,     -- VGA 0-6, HDMI
-      RST         => '0',
-      CLKIN       => clock_50_i,
-      SRDY        => open,
-    
-      CLK0OUT     => CLK_28,             -- 28 MHz
-      CLK1OUT     => CLK_28_n,           -- 28 Mhz inverted
-      CLK2OUT     => CLK_14,             -- 14 MHz
-      CLK3OUT     => CLK_7,              -- 7 MHz
-      CLK4OUT     => CLK_HDMI,           -- 28 * 5
-      CLK5OUT     => CLK_HDMI_n          -- 28 * 5 inverted
-   );
    
    -- cpu clock selection
 

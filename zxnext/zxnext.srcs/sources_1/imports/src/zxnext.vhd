@@ -31,9 +31,9 @@ use work.Z80N_pack.all;
 entity zxnext is
    generic
    (
-      g_machine_id         : unsigned(7 downto 0);
-      g_version            : unsigned(7 downto 0);
-      g_sub_version        : unsigned(7 downto 0)
+      g_machine_id         : std_logic_vector(7 downto 0) := X"7A";
+      g_version            : std_logic_vector(7 downto 0) := X"31";
+      g_sub_version        : std_logic_vector(7 downto 0) := X"0B"
    );
    port (
       -- CLOCK
