@@ -1,6 +1,38 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Fri Oct  1 00:10:04 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxrtc_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_top_zxrtc_0_0 (specnext.com:specnext:zxrtc:1.0) from (Rev. 2) to (Rev. 3)
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_top_zxrtc_0_0'.
+
+
+-Upgrade has removed interface 'specnext_rtc'
+
+-Upgrade has added interface 'rtc' (specnext.com:specnext:rtc:1.0)
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
 | Date         : Thu Sep 30 20:31:53 2021
 | Host         : AW13R3 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip
