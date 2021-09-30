@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x29E1C00D3EEAE9AB",
+      "boundary_crc": "0xB7B75B19EE75D41A",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys_top",
       "name": "zxnexys_top",
@@ -14,7 +14,13 @@
       "clk_wiz_0": "",
       "sys_reset_200": "",
       "sys_reset_28": "",
-      "zxclock_0": ""
+      "zxclock_0": "",
+      "zxaudio_0": "",
+      "zxkeyboard_0": "",
+      "zxmouse_0": "",
+      "zxnvmemory_0": "",
+      "zxram_0": "",
+      "zxvideo_0": ""
     },
     "interface_ports": {
       "ddr2_sdram": {
@@ -161,9 +167,6 @@
       "SD_RESET": {
         "direction": "O"
       },
-      "SD_CD": {
-        "direction": "O"
-      },
       "SD_CLK": {
         "direction": "O"
       },
@@ -174,6 +177,9 @@
         "direction": "I",
         "left": "3",
         "right": "0"
+      },
+      "SD_CD": {
+        "direction": "I"
       }
     },
     "components": {
@@ -322,15 +328,117 @@
         "xci_name": "zxnexys_top_zxclock_0_0",
         "xci_path": "ip\\zxnexys_top_zxclock_0_0\\zxnexys_top_zxclock_0_0.xci",
         "inst_hier_path": "zxclock_0"
+      },
+      "zxaudio_0": {
+        "vlnv": "specnext.com:specnext:zxaudio:1.0",
+        "xci_name": "zxnexys_top_zxaudio_0_0",
+        "xci_path": "ip\\zxnexys_top_zxaudio_0_0\\zxnexys_top_zxaudio_0_0.xci",
+        "inst_hier_path": "zxaudio_0"
+      },
+      "zxkeyboard_0": {
+        "vlnv": "specnext.com:specnext:zxkeyboard:1.0",
+        "xci_name": "zxnexys_top_zxkeyboard_0_0",
+        "xci_path": "ip\\zxnexys_top_zxkeyboard_0_0\\zxnexys_top_zxkeyboard_0_0.xci",
+        "inst_hier_path": "zxkeyboard_0"
+      },
+      "zxmouse_0": {
+        "vlnv": "specnext.com:specnext:zxmouse:1.0",
+        "xci_name": "zxnexys_top_zxmouse_0_0",
+        "xci_path": "ip\\zxnexys_top_zxmouse_0_0\\zxnexys_top_zxmouse_0_0.xci",
+        "inst_hier_path": "zxmouse_0"
+      },
+      "zxnvmemory_0": {
+        "vlnv": "specnext.com:specnext:zxnvmemory:1.0",
+        "xci_name": "zxnexys_top_zxnvmemory_0_0",
+        "xci_path": "ip\\zxnexys_top_zxnvmemory_0_0\\zxnexys_top_zxnvmemory_0_0.xci",
+        "inst_hier_path": "zxnvmemory_0"
+      },
+      "zxram_0": {
+        "vlnv": "specnext.com:specnext:zxram:1.0",
+        "xci_name": "zxnexys_top_zxram_0_0",
+        "xci_path": "ip\\zxnexys_top_zxram_0_0\\zxnexys_top_zxram_0_0.xci",
+        "inst_hier_path": "zxram_0"
+      },
+      "zxvideo_0": {
+        "vlnv": "specnext.com:specnext:zxvideo:1.0",
+        "xci_name": "zxnexys_top_zxvideo_0_0",
+        "xci_path": "ip\\zxnexys_top_zxvideo_0_0\\zxnexys_top_zxvideo_0_0.xci",
+        "inst_hier_path": "zxvideo_0"
+      }
+    },
+    "interface_nets": {
+      "zxaudio_0_pmod_i2s2": {
+        "interface_ports": [
+          "JB",
+          "zxaudio_0/pmod_i2s2"
+        ]
+      },
+      "zxkeyboard_0_ps2_clk": {
+        "interface_ports": [
+          "PS2_CLK",
+          "zxkeyboard_0/ps2_clk"
+        ]
+      },
+      "zxkeyboard_0_ps2_data": {
+        "interface_ports": [
+          "PS2_DATA",
+          "zxkeyboard_0/ps2_data"
+        ]
+      },
+      "zxmouse_0_pmod_ps2": {
+        "interface_ports": [
+          "JA",
+          "zxmouse_0/pmod_ps2"
+        ]
+      },
+      "zxram_0_ddr": {
+        "interface_ports": [
+          "ddr2_sdram",
+          "zxram_0/ddr"
+        ]
       }
     },
     "nets": {
+      "BTNL_1": {
+        "ports": [
+          "BTNL",
+          "zxkeyboard_0/divmmc"
+        ]
+      },
+      "BTNR_1": {
+        "ports": [
+          "BTNR",
+          "zxkeyboard_0/multiface"
+        ]
+      },
       "Net": {
         "ports": [
           "zxclock_0/reset_n",
           "sys_reset_28/ext_reset_in",
           "sys_reset_200/ext_reset_in",
           "clk_wiz_0/resetn"
+        ]
+      },
+      "Net1": {
+        "ports": [
+          "sys_reset_28/peripheral_reset",
+          "zxvideo_0/reset",
+          "zxnvmemory_0/reset",
+          "zxmouse_0/reset",
+          "zxkeyboard_0/reset",
+          "zxaudio_0/reset"
+        ]
+      },
+      "SD_CD_1": {
+        "ports": [
+          "SD_CD",
+          "zxnvmemory_0/sd0_cd"
+        ]
+      },
+      "SD_DAT_1": {
+        "ports": [
+          "SD_DAT",
+          "zxnvmemory_0/sd0_dat"
         ]
       },
       "clk_wiz_0_clk_14_ub": {
@@ -382,16 +490,95 @@
           "clk_wiz_0/clk_in1"
         ]
       },
+      "sys_reset_200_interconnect_aresetn": {
+        "ports": [
+          "sys_reset_200/interconnect_aresetn",
+          "zxram_0/reset_200_n"
+        ]
+      },
+      "sys_reset_28_interconnect_aresetn": {
+        "ports": [
+          "sys_reset_28/interconnect_aresetn",
+          "zxram_0/reset_28_n"
+        ]
+      },
+      "zxclock_0_clk_14": {
+        "ports": [
+          "zxclock_0/clk_14",
+          "zxvideo_0/clk_14"
+        ]
+      },
       "zxclock_0_clk_28": {
         "ports": [
           "zxclock_0/clk_28",
-          "sys_reset_200/slowest_sync_clk"
+          "zxvideo_0/clk_28",
+          "zxram_0/clk_28",
+          "zxnvmemory_0/clk_28",
+          "zxmouse_0/clk_28",
+          "zxkeyboard_0/clk_28",
+          "zxaudio_0/clk_28",
+          "sys_reset_28/slowest_sync_clk"
         ]
       },
       "zxclock_0_clk_200": {
         "ports": [
           "zxclock_0/clk_200",
-          "sys_reset_28/slowest_sync_clk"
+          "zxram_0/clk_200",
+          "sys_reset_200/slowest_sync_clk"
+        ]
+      },
+      "zxclock_0_clk_28_n": {
+        "ports": [
+          "zxclock_0/clk_28_n",
+          "zxkeyboard_0/clk_28_n"
+        ]
+      },
+      "zxnvmemory_0_sd0_cmd": {
+        "ports": [
+          "zxnvmemory_0/sd0_cmd",
+          "SD_CMD"
+        ]
+      },
+      "zxnvmemory_0_sd0_reset": {
+        "ports": [
+          "zxnvmemory_0/sd0_reset",
+          "SD_RESET"
+        ]
+      },
+      "zxnvmemory_0_sd0_sclk": {
+        "ports": [
+          "zxnvmemory_0/sd0_sclk",
+          "SD_CLK"
+        ]
+      },
+      "zxvideo_0_b": {
+        "ports": [
+          "zxvideo_0/b",
+          "VGA_B"
+        ]
+      },
+      "zxvideo_0_g": {
+        "ports": [
+          "zxvideo_0/g",
+          "VGA_G"
+        ]
+      },
+      "zxvideo_0_hs": {
+        "ports": [
+          "zxvideo_0/hs",
+          "VGA_HS"
+        ]
+      },
+      "zxvideo_0_r": {
+        "ports": [
+          "zxvideo_0/r",
+          "VGA_R"
+        ]
+      },
+      "zxvideo_0_vs": {
+        "ports": [
+          "zxvideo_0/vs",
+          "VGA_VS"
         ]
       }
     }
