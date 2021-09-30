@@ -47,8 +47,9 @@ module zxram(
     inout [1:0] ddr2_dqs_p,
     inout [1:0] ddr2_dqs_n,
 
-    input                             clk_200,
-    input                             reset  
+    input       clk_28,
+    input       clk_200,
+    input       reset  
     );
     
     localparam  CMD_WRITE                = 3'b000;
@@ -69,22 +70,6 @@ module zxram(
     reg rd_end; 
     reg [63:0] rd_data_1;
     reg [63:0] rd_data_2;
-
-//	reg      [20:0] ram_a_addr_i1;
-//	reg             ram_a_req_i1;
-//	reg             ram_a_rd_n_i1;
-//	reg       [7:0] ram_a_do_i1;
-
-//	reg      [20:0] ram_b_addr_i1;
-//	reg             ram_b_req_t_i1;	
-
-//	reg      [20:0] ram_a_addr_i2;
-//	reg             ram_a_req_i2;
-//	reg             ram_a_rd_n_i2;
-//	reg       [7:0] ram_a_do_i2;
-
-//	reg      [20:0] ram_b_addr_i2;
-//	reg             ram_b_req_t_i2;	
 
     reg [26:0]                 app_addr;
     reg [2:0]                  app_cmd;
@@ -148,25 +133,12 @@ module zxram(
             ram_b_req_t_int1 <= ram_b_req_t_int;
    end 
 
-   always @(posedge ui_clk)
+   always @(posedge clk_28)
    begin
        ram_a_di_o <= ram_a_di_int;
        ram_b_di_o <= ram_b_di_int;
        cpu_wait_o <= cpu_wait_int;
    end 
-
-
-//   always @(posedge ui_clk_i)
-//   begin
-//        ram_a_addr_int <= ram_a_addr_i1;
-//        ram_a_req_int <= ram_a_req_i1;
-//        ram_a_rd_n_int <= ram_a_rd_n_i1;
-//        ram_a_do_int <= ram_a_do_i1;
-//        ram_b_addr_int <= ram_b_addr_i1;
-//        ram_b_req_t_int <= ram_b_req_t_i1;
-//        if (ram_b_req_int == 1'b1) 
-//            ram_b_req_t_int1 <= ram_b_req_t_int;        
-//   end    
 
    always @(posedge ui_clk)
       if (reset == 1'b1) 
@@ -289,7 +261,7 @@ module zxram(
       .ddr2_odt(ddr2_odt),
       // Inputs
       .sys_clk_i(clk_200),
-      .sys_rst(reset_200_n),
+      .sys_rst(~reset),
       // user interface signals
       .app_addr(app_addr),
       .app_cmd(app_cmd),

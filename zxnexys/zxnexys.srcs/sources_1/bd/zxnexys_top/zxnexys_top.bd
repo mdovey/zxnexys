@@ -663,6 +663,13 @@
           "pmod_i2s2_0/sdout"
         ]
       },
+      "zxclock_0_clk_28_n": {
+        "ports": [
+          "zxclock_0/clk_28_n",
+          "zxkeyboard_0/clk_28_n",
+          "zxnext_0/i_CLK_28_n"
+        ]
+      },
       "zxclock_0_clk_7": {
         "ports": [
           "zxclock_0/clk_7",
@@ -686,7 +693,8 @@
           "zxvideo_0/clk_28",
           "zxnext_0/i_CLK_28",
           "zxsdcard_0/clk_28",
-          "zxsdcard_1/clk_28"
+          "zxsdcard_1/clk_28",
+          "zxram_0/clk_28"
         ]
       },
       "zxclock_0_clk_200": {
@@ -694,13 +702,6 @@
           "zxclock_0/clk_200",
           "sys_reset_200/slowest_sync_clk",
           "zxram_0/clk_200"
-        ]
-      },
-      "zxclock_0_clk_28_n": {
-        "ports": [
-          "zxclock_0/clk_28_n",
-          "zxkeyboard_0/clk_28_n",
-          "zxnext_0/i_CLK_28_n"
         ]
       },
       "zxclock_0_clk_cpu": {
