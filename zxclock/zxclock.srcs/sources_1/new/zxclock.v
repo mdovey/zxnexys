@@ -33,6 +33,7 @@ module zxclock (
     input [1:0] cpu_speed,
     input cpu_clk_lsb,
     input cpu_contend,
+    input [2:0] machine_timing,
 
     input clk_200_b,
     input clk_28_n_b,

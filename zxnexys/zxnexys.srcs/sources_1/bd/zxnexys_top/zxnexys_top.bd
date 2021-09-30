@@ -14,14 +14,14 @@
       "clk_wiz_0": "",
       "sys_reset_200": "",
       "sys_reset_28": "",
-      "zxclock_0": "",
       "zxaudio_0": "",
       "zxkeyboard_0": "",
       "zxmouse_0": "",
       "zxnvmemory_0": "",
       "zxram_0": "",
       "zxvideo_0": "",
-      "zxnext_0": ""
+      "zxnext_0": "",
+      "zxclock_0": ""
     },
     "interface_ports": {
       "ddr2_sdram": {
@@ -324,12 +324,6 @@
         "xci_path": "ip\\zxnexys_top_proc_sys_reset_0_2\\zxnexys_top_proc_sys_reset_0_2.xci",
         "inst_hier_path": "sys_reset_28"
       },
-      "zxclock_0": {
-        "vlnv": "specnext.com:specnext:zxclock:1.0",
-        "xci_name": "zxnexys_top_zxclock_0_0",
-        "xci_path": "ip\\zxnexys_top_zxclock_0_0\\zxnexys_top_zxclock_0_0.xci",
-        "inst_hier_path": "zxclock_0"
-      },
       "zxaudio_0": {
         "vlnv": "specnext.com:specnext:zxaudio:1.0",
         "xci_name": "zxnexys_top_zxaudio_0_0",
@@ -371,6 +365,12 @@
         "xci_name": "zxnexys_top_zxnext_0_0",
         "xci_path": "ip\\zxnexys_top_zxnext_0_0\\zxnexys_top_zxnext_0_0.xci",
         "inst_hier_path": "zxnext_0"
+      },
+      "zxclock_0": {
+        "vlnv": "specnext.com:specnext:zxclock:1.0",
+        "xci_name": "zxnexys_top_zxclock_0_0",
+        "xci_path": "ip\\zxnexys_top_zxclock_0_0\\zxnexys_top_zxclock_0_0.xci",
+        "inst_hier_path": "zxclock_0"
       }
     },
     "interface_nets": {
@@ -402,6 +402,12 @@
         "interface_ports": [
           "zxaudio_0/audio",
           "zxnext_0/audio"
+        ]
+      },
+      "zxnext_0_cpu_clock": {
+        "interface_ports": [
+          "zxclock_0/cpu_clock",
+          "zxnext_0/cpu_clock"
         ]
       },
       "zxnext_0_keyboard": {
@@ -563,6 +569,12 @@
           "zxnext_0/i_RESET"
         ]
       },
+      "zxclock_0_clk_7": {
+        "ports": [
+          "zxclock_0/clk_7",
+          "zxnext_0/i_CLK_7"
+        ]
+      },
       "zxclock_0_clk_14": {
         "ports": [
           "zxclock_0/clk_14",
@@ -595,12 +607,6 @@
           "zxclock_0/clk_28_n",
           "zxkeyboard_0/clk_28_n",
           "zxnext_0/i_CLK_28_n"
-        ]
-      },
-      "zxclock_0_clk_7": {
-        "ports": [
-          "zxclock_0/clk_7",
-          "zxnext_0/i_CLK_7"
         ]
       },
       "zxclock_0_clk_cpu": {
