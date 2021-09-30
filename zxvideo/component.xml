@@ -654,12 +654,12 @@
         <xilinx:family xilinx:lifeCycle="Production">kintexu</xilinx:family>
       </xilinx:supportedFamilies>
       <xilinx:taxonomies>
-        <xilinx:taxonomy>/UserIP</xilinx:taxonomy>
+        <xilinx:taxonomy>/specnext</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>zxvideo_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-09-30T09:24:49Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-09-30T14:51:38Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@c23a471_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@c40a0b0_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
@@ -687,6 +687,19 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@205a459a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2362b75f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@186cf26a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60e0a0fe_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23164afa_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f74cac7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3033a149_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@170d238b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2fc8aa06_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d65e41b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@adb2f63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38f2c20a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a6039c2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b3171e7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39b5a958_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52b9bbf3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -27,31 +27,14 @@ module zxmouse(
     output [3:0] wheel,
     input ps2_mode,
     input [2:0] control,
+
+    input clk_i,
+    output clk_o,
+    output clk_t,
     
-    input out1_I,
-    input out2_I,
-    input out3_I,
-    input out4_I,
-    input out7_I,
-    input out8_I,
-    input out9_I,
-    input out10_I,
-    output out1_O,
-    output out2_O,
-    output out3_O,
-    output out4_O,
-    output out7_O,
-    output out8_O,
-    output out9_O,
-    output out10_O,
-    output out1_T,
-    output out2_T,
-    output out3_T,
-    output out4_T,
-    output out7_T,
-    output out8_T,
-    output out9_T,
-    output out10_T,
+    input data_i,
+    output data_o,
+    output data_t,        
     
     input clk_28,
     input reset
@@ -61,16 +44,19 @@ module zxmouse(
     wire [7:0] mouse_wheel;
     
     assign wheel = mouse_wheel[3:0];
+    
+    assign clk_t = ~clk_o;      //  ps2_clk_io <= ps2_kbd_clock_out when (ps2_kbd_clock_out_en = '1' and zxn_ps2_mode = '0') else '0' when (ps2_mouse_clock_out = '0' and zxn_ps2_mode = '1') else 'Z'; 
+    assign data_t = ~data_o;    //  ps2_data_io <= ps2_kbd_data_out when (ps2_kbd_data_out_en = '1' and zxn_ps2_mode = '0') else '0' when (ps2_mouse_data_out = '0' and zxn_ps2_mode = '1') else 'Z';
  
     ps2_mouse mouse (
         .reset(reset),
         .clk(clk_28_div[7]),
         
-        .ps2mdat_i(out1_I),
-        .ps2mclk_i(out3_I),
+        .ps2mdat_i(data_i),
+        .ps2mclk_i(clk_i),
         
-        .ps2mdat_o(out1_O),
-        .ps2mclk_o(out3_O),
+        .ps2mdat_o(data_o),
+        .ps2mclk_o(clk_o),
         
         .control_i(control),
         

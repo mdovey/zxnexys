@@ -48,9 +48,7 @@ module zxram(
     inout [1:0] ddr2_dqs_n,
 
     input                             clk_200,
-    input                             clk_28,
-    input                             reset_200_n,  
-    input                             reset_28_n  
+    input                             reset  
     );
     
     localparam  CMD_WRITE                = 3'b000;
@@ -64,8 +62,6 @@ module zxram(
     localparam  stWaitCen                = 3'b110;
     localparam  stWaitError              = 3'b111;
     
-    wire rst;
-
     reg [2:0] cState;
     reg [2:0] nState;  
 
@@ -132,8 +128,6 @@ module zxram(
 
 	wire            ram_b_req_int;
 	
-    assign rst            = ui_rst || ~reset_28_n;
-
     assign ram_b_req_int  = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
    
     assign app_wdf_mask = 8'b1111_1110;
@@ -154,7 +148,7 @@ module zxram(
             ram_b_req_t_int1 <= ram_b_req_t_int;
    end 
 
-   always @(posedge clk_28)
+   always @(posedge ui_clk)
    begin
        ram_a_di_o <= ram_a_di_int;
        ram_b_di_o <= ram_b_di_int;
@@ -175,7 +169,7 @@ module zxram(
 //   end    
 
    always @(posedge ui_clk)
-      if (rst == 1'b1) 
+      if (reset == 1'b1) 
       begin 
          cState <= stIdle;
          active_port <= 1'b0;
@@ -267,7 +261,7 @@ module zxram(
    end
    
    always @(posedge ui_clk)
-         if (rst == 1'b1)
+         if (reset == 1'b1)
          begin
             ram_a_di_int <= 8'h0;
             ram_b_di_int <= 8'h0;
