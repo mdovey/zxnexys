@@ -112,6 +112,19 @@ module zxram(
 	reg             n_active_port;
 
 	wire            ram_b_req_int;
+
+	reg      [20:0] ram_a_addr_buf;
+	reg             ram_a_req_buf;
+	reg             ram_a_rd_n_buf;
+	reg       [7:0] ram_a_do_buf;
+
+	reg      [20:0] ram_b_addr_buf;
+	reg             ram_b_req_t_buf;	
+
+	reg      [7:0] ram_a_di_buf;
+	reg      [7:0] ram_b_di_buf;
+    reg            cpu_wait_buf;
+	
 	
     assign ram_b_req_int  = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
    
@@ -123,21 +136,33 @@ module zxram(
 
    always @(posedge ui_clk)
    begin
-        ram_a_addr_int <= ram_a_addr_i;
-        ram_a_req_int <= ram_a_req_i;
-        ram_a_rd_n_int <= ram_a_rd_n_i;
-        ram_a_do_int <= ram_a_do_i;
-        ram_b_addr_int <= ram_b_addr_i;
-        ram_b_req_t_int <= ram_b_req_t_i;
+        ram_a_addr_buf <= ram_a_addr_i;
+        ram_a_req_buf <= ram_a_req_i;
+        ram_a_rd_n_buf <= ram_a_rd_n_i;
+        ram_a_do_buf <= ram_a_do_i;
+        ram_b_addr_buf <= ram_b_addr_i;
+        ram_b_req_t_buf <= ram_b_req_t_i;
+
+        ram_a_addr_int <= ram_a_addr_buf;
+        ram_a_req_int <= ram_a_req_buf;
+        ram_a_rd_n_int <= ram_a_rd_n_buf;
+        ram_a_do_int <= ram_a_do_buf;
+        ram_b_addr_int <= ram_b_addr_buf;
+        ram_b_req_t_int <= ram_b_req_t_buf;
+
         if (ram_b_req_int == 1'b1) 
             ram_b_req_t_int1 <= ram_b_req_t_int;
    end 
 
-   always @(posedge clk_28)
+   always @(clk_28)
    begin
-       ram_a_di_o <= ram_a_di_int;
-       ram_b_di_o <= ram_b_di_int;
-       cpu_wait_o <= cpu_wait_int;
+       ram_a_di_buf <= ram_a_di_int;
+       ram_b_di_buf <= ram_b_di_int;
+       cpu_wait_buf <= cpu_wait_int;
+
+       ram_a_di_o <= ram_a_di_buf;
+       ram_b_di_o <= ram_b_di_buf;
+       cpu_wait_o <= cpu_wait_buf;
    end 
 
    always @(posedge ui_clk)
