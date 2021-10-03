@@ -23,6 +23,11 @@
 /zxclock/zxclock.ip_user_files
 /zxclock/zxclock.runs
 /zxclock/zxclock.sim
+/zxdebug/zxdebug.cache
+/zxdebug/zxdebug.gen
+/zxdebug/zxdebug.ip_user_files
+/zxdebug/zxdebug.runs
+/zxdebug/zxdebug.sim
 /zxkeyboard/zxkeyboard.cache  
 /zxkeyboard/zxkeyboard.gen
 /zxkeyboard/zxkeyboard.ip_user_files
@@ -58,5 +63,3 @@
 /zxvideo/zxvideo.ip_user_files
 /zxvideo/zxvideo.runs
 /zxvideo/zxvideo.sim
-
-/ip/ledsegment

@@ -1,6 +1,197 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 12:44:18 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxram_0_0 (specnext.com:specnext:zxram:1.0) from (Rev. 26) to (Rev. 27)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 12:41:10 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_top_zxram_0_0 (specnext.com:specnext:zxram:1.0) from (Rev. 25) to (Rev. 26)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_top_zxram_0_0'.
+
+
+-Upgrade has added interface 'clk_28' (xilinx.com:signal:clock:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_top_zxram_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'clk_28'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 12:27:44 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxram_0_0 (specnext.com:specnext:zxram:1.0) from (Rev. 24) to (Rev. 25)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 12:18:50 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_top_zxram_0_0 (specnext.com:specnext:zxram:1.0) from (Rev. 23) to (Rev. 24)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_top_zxram_0_0'.
+
+
+-Upgrade has removed interface 'clk_28'
+
+-Upgrade has added interface 'clk_cpu' (xilinx.com:signal:clock:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_top_zxram_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'clk_28'
+
+-Upgrade has added port 'clk_cpu'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 12:18:50 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxdebug_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxdebug_0_0 (specnext.com:specnext:zxdebug:1.0) from (Rev. 4) to (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 11:52:39 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxdebug_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxdebug_0_0 (specnext.com:specnext:zxdebug:1.0) from (Rev. 3) to (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sun Oct  3 11:48:48 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxdebug_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_top_zxdebug_0_0 (specnext.com:specnext:zxdebug:1.0) from (Rev. 2) to (Rev. 3)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
 | Date         : Sat Oct  2 23:59:05 2021
 | Host         : AW13R3 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

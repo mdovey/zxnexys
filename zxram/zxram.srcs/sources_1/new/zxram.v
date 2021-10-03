@@ -63,10 +63,12 @@ module zxram(
 	input               ram_b_req_t_i,
 	output reg  [7:0]   ram_b_di_o,
 
-    output reg          aresetn,
+    output              aresetn,
 
     input               init_calib_complete,
     input               mmcm_locked,
+
+    input               clk_cpu,
 
     input               ui_clk,
     input               ui_reset,
@@ -128,71 +130,81 @@ module zxram(
     reg [1:0]       s_rresp;
     reg [1:0]       s_bresp;
     
-    wire            rst;
-
-    assign ARCACHE  = 4'b0011;
-    assign ARPROT   = 3'b000;
-    assign ARLEN    = 8'b0000_0000;
-    assign AWCACHE  = 4'b0011;
-    assign AWPROT   = 3'b000;
-    assign AWLEN    = 8'b0000_0000;
+    reg             reset_int;
+    reg             ui_reset_int;
     
-	assign cpu_wait_int = ~(cState == stIdle || cState == stWaitCen);
-    assign ram_b_req_int  = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
-    assign rst = reset || ui_reset;
+    wire             rst;
+
+    assign ARCACHE          = 4'b0011;
+    assign ARPROT           = 3'b000;
+    assign ARLEN            = 8'b0000_0000;
+    assign AWCACHE          = 4'b0011;
+    assign AWPROT           = 3'b000;
+    assign AWLEN            = 8'b0000_0000;
+    
+    assign rst              = reset_int || ui_reset_int;
+    assign aresetn          = ~reset_int;
+
+	assign cpu_wait_int     = ~(cState == stIdle || cState == stWaitCen);
+    assign ram_b_req_int    = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
+
+
+
+    always @(posedge clk_28)
+        ui_reset_int        <= ui_reset; 
 
     always @(posedge ui_clk)
-        aresetn = ~reset; 
+        reset_int           <= reset; 
 
     always @(posedge ui_clk)
     begin
-        ram_a_addr_buf <= ram_a_addr_i;
-        ram_a_req_buf <= ram_a_req_i;
-        ram_a_rd_n_buf <= ram_a_rd_n_i;
-        ram_a_do_buf <= ram_a_do_i;
-        ram_b_addr_buf <= ram_b_addr_i;
-        ram_b_req_t_buf <= ram_b_req_t_i;
+        ram_a_addr_buf      <= ram_a_addr_i;
+        ram_a_req_buf       <= ram_a_req_i;
+        ram_a_rd_n_buf      <= ram_a_rd_n_i;
+        ram_a_do_buf        <= ram_a_do_i;
+        ram_b_addr_buf      <= ram_b_addr_i;
+        ram_b_req_t_buf     <= ram_b_req_t_i;
 
-        ram_a_addr_int <= ram_a_addr_buf;
-        ram_a_req_int <= ram_a_req_buf;
-        ram_a_rd_n_int <= ram_a_rd_n_buf;
-        ram_a_do_int <= ram_a_do_buf;
-        ram_b_addr_int <= ram_b_addr_buf;
-        ram_b_req_t_int <= ram_b_req_t_buf;
+        ram_a_addr_int      <= ram_a_addr_buf;
+        ram_a_req_int       <= ram_a_req_buf;
+        ram_a_rd_n_int      <= ram_a_rd_n_buf;
+        ram_a_do_int        <= ram_a_do_buf;
+        ram_b_addr_int      <= ram_b_addr_buf;
+        ram_b_req_t_int     <= ram_b_req_t_buf;
 
         if (ram_b_req_int == 1'b1) 
             ram_b_req_t_int1 <= ram_b_req_t_int;
     end 
 
-    always @(negedge clk_28)
+    always @(negedge clk_cpu)
     begin
-        ram_a_di_buf <= ram_a_di_int;
-        ram_b_di_buf <= ram_b_di_int;
-        cpu_wait_buf <= cpu_wait_int;
+        ram_a_di_buf        <= ram_a_di_int;
+        ram_b_di_buf        <= ram_b_di_int;
+        cpu_wait_buf        <= cpu_wait_int;
 
-        ram_a_di_o <= ram_a_di_buf;
-        ram_b_di_o <= ram_b_di_buf;
-        cpu_wait_o <= cpu_wait_buf;
+        ram_a_di_o          <= ram_a_di_buf;
+        ram_b_di_o          <= ram_b_di_buf;
+        cpu_wait_o          <= cpu_wait_buf;
     end 
 
     always @(posedge ui_clk)
         if (rst == 1'b1) 
         begin 
-            cState <= stIdle;
-            c_active_port <= 1'b0;
+            cState          <= stIdle;
+            c_active_port   <= 1'b0;
         end else begin
-            cState <= nState;
-            c_active_port <= n_active_port;
+            cState          <= nState;
+            c_active_port   <= n_active_port;
         end
 
     always @(posedge ui_clk)
     begin
-        arready_int <= ARREADY;
-        rvalid_int <= RVALID;
-        rready_int <= RREADY;
-        awready_int <= AWREADY;
-        wready_int <= WREADY;
-        bvalid_int <= BVALID;
+        arready_int         <= ARREADY;
+        rvalid_int          <= RVALID;
+        rready_int          <= RREADY;
+        awready_int         <= AWREADY;
+        wready_int          <= WREADY;
+        bvalid_int          <= BVALID;
     end
 
 

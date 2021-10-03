@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD76EF8BE089BED38",
+      "boundary_crc": "0x4189FAFF23E70E43",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys_top",
       "name": "zxnexys_top",
@@ -25,6 +25,7 @@
       "pmod_xsd_1": "",
       "mig_7series_0": "",
       "zxclock_0": "",
+      "zxdebug_0": "",
       "zxram_0": ""
     },
     "interface_ports": {
@@ -176,6 +177,26 @@
       },
       "BTNC": {
         "direction": "I"
+      },
+      "CA": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "AN": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "LED": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "SW": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
       }
     },
     "components": {
@@ -402,11 +423,37 @@
         "xci_path": "ip\\zxnexys_top_zxclock_0_0\\zxnexys_top_zxclock_0_0.xci",
         "inst_hier_path": "zxclock_0"
       },
+      "zxdebug_0": {
+        "vlnv": "specnext.com:specnext:zxdebug:1.0",
+        "xci_name": "zxnexys_top_zxdebug_0_0",
+        "xci_path": "ip\\zxnexys_top_zxdebug_0_0\\zxnexys_top_zxdebug_0_0.xci",
+        "inst_hier_path": "zxdebug_0"
+      },
       "zxram_0": {
         "vlnv": "specnext.com:specnext:zxram:1.0",
         "xci_name": "zxnexys_top_zxram_0_0",
         "xci_path": "ip\\zxnexys_top_zxram_0_0\\zxnexys_top_zxram_0_0.xci",
-        "inst_hier_path": "zxram_0"
+        "inst_hier_path": "zxram_0",
+        "interface_ports": {
+          "axi_ddr": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "axi_ddr",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0x07FFFFFF",
+              "width": "27"
+            }
+          }
+        },
+        "addressing": {
+          "address_spaces": {
+            "axi_ddr": {
+              "range": "128M",
+              "width": "27"
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -432,6 +479,24 @@
         "interface_ports": [
           "JC",
           "pmod_xsd_1/pmod_xsd"
+        ]
+      },
+      "zxdebug_0_out_ram_port_a": {
+        "interface_ports": [
+          "zxram_0/ram_port_a",
+          "zxdebug_0/out_ram_port_a"
+        ]
+      },
+      "zxdebug_0_out_ram_port_b": {
+        "interface_ports": [
+          "zxram_0/ram_port_b",
+          "zxdebug_0/out_ram_port_b"
+        ]
+      },
+      "zxdebug_0_out_video": {
+        "interface_ports": [
+          "zxdebug_0/out_video",
+          "zxvideo_0/video"
         ]
       },
       "zxkeyboard_0_ps2_clk": {
@@ -484,14 +549,14 @@
       },
       "zxnext_0_ram_port_a": {
         "interface_ports": [
-          "zxnext_0/ram_port_a",
-          "zxram_0/ram_port_a"
+          "zxdebug_0/in_ram_port_a",
+          "zxnext_0/ram_port_a"
         ]
       },
       "zxnext_0_ram_port_b": {
         "interface_ports": [
-          "zxnext_0/ram_port_b",
-          "zxram_0/ram_port_b"
+          "zxdebug_0/in_ram_port_b",
+          "zxnext_0/ram_port_b"
         ]
       },
       "zxnext_0_sdcard": {
@@ -508,7 +573,7 @@
       },
       "zxnext_0_video": {
         "interface_ports": [
-          "zxvideo_0/video",
+          "zxdebug_0/in_video",
           "zxnext_0/video"
         ]
       },
@@ -553,7 +618,14 @@
           "zxmouse_0/reset",
           "zxvideo_0/reset",
           "zxsdcard_0/reset",
+          "zxdebug_0/reset",
           "zxram_0/reset"
+        ]
+      },
+      "SW_1": {
+        "ports": [
+          "SW",
+          "zxdebug_0/sw"
         ]
       },
       "clk_wiz_0_clk_14_ub": {
@@ -682,6 +754,12 @@
           "pmod_i2s2_0/sdout"
         ]
       },
+      "zxclock_0_clk_7": {
+        "ports": [
+          "zxclock_0/clk_7",
+          "zxnext_0/i_CLK_7"
+        ]
+      },
       "zxclock_0_clk_14": {
         "ports": [
           "zxclock_0/clk_14",
@@ -699,6 +777,7 @@
           "zxvideo_0/clk_28",
           "zxnext_0/i_CLK_28",
           "zxsdcard_0/clk_28",
+          "zxdebug_0/clk_28",
           "zxram_0/clk_28"
         ]
       },
@@ -716,16 +795,35 @@
           "zxnext_0/i_CLK_28_n"
         ]
       },
-      "zxclock_0_clk_7": {
-        "ports": [
-          "zxclock_0/clk_7",
-          "zxnext_0/i_CLK_7"
-        ]
-      },
       "zxclock_0_clk_cpu": {
         "ports": [
           "zxclock_0/clk_cpu",
-          "zxnext_0/i_CLK_CPU"
+          "zxdebug_0/cpu_clk_i"
+        ]
+      },
+      "zxdebug_0_an": {
+        "ports": [
+          "zxdebug_0/an",
+          "AN"
+        ]
+      },
+      "zxdebug_0_ca": {
+        "ports": [
+          "zxdebug_0/ca",
+          "CA"
+        ]
+      },
+      "zxdebug_0_cpu_clk_o": {
+        "ports": [
+          "zxdebug_0/cpu_clk_o",
+          "zxnext_0/i_CLK_CPU",
+          "zxram_0/clk_cpu"
+        ]
+      },
+      "zxdebug_0_led": {
+        "ports": [
+          "zxdebug_0/led",
+          "LED"
         ]
       },
       "zxnext_0_o_RESET_HARD": {
@@ -805,6 +903,21 @@
           "zxvideo_0/vs",
           "VGA_VS"
         ]
+      }
+    },
+    "addressing": {
+      "/zxram_0": {
+        "address_spaces": {
+          "axi_ddr": {
+            "segments": {
+              "SEG_mig_7series_0_memaddr": {
+                "address_block": "/mig_7series_0/memmap/memaddr",
+                "offset": "0x0000000",
+                "range": "128M"
+              }
+            }
+          }
+        }
       }
     }
   }
