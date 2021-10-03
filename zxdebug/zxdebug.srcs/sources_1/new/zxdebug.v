@@ -20,10 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module zxdebug #(
-    parameter SEL_WIDTH = 5,
-    parameter DIV_WIDTH = 1'b1 << SEL_WIDTH
-    ) (
+module zxdebug (
     input       [20:0]  in_ram_a_addr,
 	input               in_ram_a_req,
 	input               in_ram_a_rd_n,
@@ -74,21 +71,14 @@ module zxdebug #(
     output              out_hdmi_reset,
     output              out_hdmi_audio_en,
 
-    input               cpu_clk_i,
-    output              cpu_clk_o,
-
     output      [7:0]   ca,
     output      [7:0]   an,
     output      [15:0]  led,
-    input       [15:0]  sw,
 
     input               clk_28,
     input               reset
     );
 
-    reg [DIV_WIDTH:0] div;
-
-    reg         [3:0]   clk_divisor;
     reg         [31:0]  led_display;
     reg         [15:0]  leds;
 
@@ -117,11 +107,9 @@ module zxdebug #(
     assign out_hdmi_reset      = in_hdmi_reset;
     assign out_hdmi_audio_en   = in_hdmi_audio_en;
 
-    assign cpu_clk_o           = div[clk_divisor];
-
     assign led                 = leds;
     
-    always @(clk_28)
+    always @(posedge clk_28)
     begin
         led_display[31:16]      <= in_ram_a_addr[15:0];
         led_display[15:8]       <= out_ram_a_di;
@@ -134,17 +122,12 @@ module zxdebug #(
         leds[12:12]             <= in_vblank_n;
         leds[13:13]             <= in_hblank_n;
         leds[14:14]             <= out_cpu_wait;
-        leds[15:15]             <= cpu_clk_o;
-    
-        clk_divisor             <= sw[3:0];
+        leds[15:15]             <= reset;
     end
-    
-    always @(cpu_clk_i)
-        div <= div + 1;
 
     ledsegment_wrapper_0 leddisplay (
         .clock_i(clk_28),
-        .resetn_i(~reset),
+        .resetn_i(1'b1),
         .anodes(an),
         .cathodes(ca),
         .value_i(led_display)

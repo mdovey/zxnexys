@@ -117,6 +117,48 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>sd_reset</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>sd_reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>sdcard_enable_n</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="sdcard_enable" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="sdcard_enable_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>enable_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>enable_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.SDCARD_ENABLE_N.NUM_READ_OUTSTANDING"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.SDCARD_ENABLE_N.NUM_WRITE_OUTSTANDING"/>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -422,8 +464,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxsdcard_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-09-30T16:32:01Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-10-03T15:25:11Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4222ec8c_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@16b7dadc_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
@@ -501,11 +543,30 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@267885e1_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@692ff96e_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7d762be2_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@739e10d5_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59b868eb_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10d4ac9f_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@588fcaa6_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bd21787_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e1815a_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75bca12b_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b26f61e_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45402e05_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36e0e859_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@263f10e4_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70424d47_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@514f936b_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ab85e90_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45195d4b_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32478ad3_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3016115_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@621f8493_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29beede0_ARCHIVE_LOCATION">v:/zxnext/zxsdcard</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a49511a6"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="397b3c88"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="11711d05"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="a13364a3"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="7254c849"/>

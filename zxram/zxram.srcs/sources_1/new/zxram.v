@@ -122,69 +122,66 @@ module zxram(
     reg             wready_int;
     reg             bvalid_int;
 
-    reg [3:0]       cState;
-    reg [3:0]       nState;  
+    reg      [3:0]  cState;
+    reg      [3:0]  nState;  
     reg             c_active_port;
     reg             n_active_port;
     
-    reg [1:0]       s_rresp;
-    reg [1:0]       s_bresp;
+    reg      [1:0]  s_rresp;
+    reg      [1:0]  s_bresp;
     
     reg             reset_int;
     reg             ui_reset_int;
     
-    wire             rst;
+    wire            rst;
 
-    assign ARCACHE          = 4'b0011;
-    assign ARPROT           = 3'b000;
-    assign ARLEN            = 8'b0000_0000;
-    assign AWCACHE          = 4'b0011;
-    assign AWPROT           = 3'b000;
-    assign AWLEN            = 8'b0000_0000;
+    assign ARCACHE              = 4'b0011;
+    assign ARPROT               = 3'b000;
+    assign ARLEN                = 8'b0000_0000;
+    assign AWCACHE              = 4'b0011;
+    assign AWPROT               = 3'b000;
+    assign AWLEN                = 8'b0000_0000;
     
-    assign rst              = reset_int || ui_reset_int;
-    assign aresetn          = ~reset_int;
+    assign rst                  = reset_int || ui_reset_int;
+    assign aresetn              = ~reset_int;
 
-	assign cpu_wait_int     = ~(cState == stIdle || cState == stWaitCen);
-    assign ram_b_req_int    = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
+	assign cpu_wait_int         = ~(cState == stIdle || cState == stWaitCen);
+    assign ram_b_req_int        = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
 
 
-
-    always @(posedge clk_28)
-        ui_reset_int        <= ui_reset; 
-
-    always @(posedge ui_clk)
-        reset_int           <= reset; 
 
     always @(posedge ui_clk)
     begin
-        ram_a_addr_buf      <= ram_a_addr_i;
-        ram_a_req_buf       <= ram_a_req_i;
-        ram_a_rd_n_buf      <= ram_a_rd_n_i;
-        ram_a_do_buf        <= ram_a_do_i;
-        ram_b_addr_buf      <= ram_b_addr_i;
-        ram_b_req_t_buf     <= ram_b_req_t_i;
+        ui_reset_int            <= ui_reset; 
+        reset_int               <= reset;
 
-        ram_a_addr_int      <= ram_a_addr_buf;
-        ram_a_req_int       <= ram_a_req_buf;
-        ram_a_rd_n_int      <= ram_a_rd_n_buf;
-        ram_a_do_int        <= ram_a_do_buf;
-        ram_b_addr_int      <= ram_b_addr_buf;
-        ram_b_req_t_int     <= ram_b_req_t_buf;
+        ram_a_addr_buf          <= ram_a_addr_i;
+        ram_a_req_buf           <= ram_a_req_i;
+        ram_a_rd_n_buf          <= ram_a_rd_n_i;
+        ram_a_do_buf            <= ram_a_do_i;
+        ram_b_addr_buf          <= ram_b_addr_i;
+        ram_b_req_t_buf         <= ram_b_req_t_i;
+
+        ram_a_addr_int          <= ram_a_addr_buf;
+        ram_a_req_int           <= ram_a_req_buf;
+        ram_a_rd_n_int          <= ram_a_rd_n_buf;
+        ram_a_do_int            <= ram_a_do_buf;
+        ram_b_addr_int          <= ram_b_addr_buf;
+        ram_b_req_t_int         <= ram_b_req_t_buf;
 
         if (ram_b_req_int == 1'b1) 
-            ram_b_req_t_int1 <= ram_b_req_t_int;
+            ram_b_req_t_int1    <= ram_b_req_t_int;
     end 
 
     always @(negedge clk_cpu)
     begin
-        ram_a_di_buf        <= ram_a_di_int;
-        ram_b_di_buf        <= ram_b_di_int;
-        cpu_wait_buf        <= cpu_wait_int;
+        ram_a_di_buf            <= ram_a_di_int;
+        ram_b_di_buf            <= ram_b_di_int;
+        cpu_wait_buf            <= cpu_wait_int;
 
-        ram_a_di_o          <= ram_a_di_buf;
-        ram_b_di_o          <= ram_b_di_buf;
-        cpu_wait_o          <= cpu_wait_buf;
+        ram_a_di_o              <= ram_a_di_buf;
+        ram_b_di_o              <= ram_b_di_buf;
+        cpu_wait_o              <= cpu_wait_buf;
     end 
 
     always @(posedge ui_clk)
@@ -226,21 +223,21 @@ module zxram(
                      end else
                         nState <= stIdle;  
             stRead1:  
-                nState <= arready_int ? stRead2 : stRead1;
+                nState <= arready_int ? stRead2  : stRead1;
             stRead2:  
-                nState <= rvalid_int ? stRead3 : stRead2;
+                nState <= rvalid_int  ? stRead3  : stRead2;
             stRead3:  
-                nState <= rready_int ? stWaitCen : stRead3;
+                nState <= rready_int  ? stIdle   : stRead3;
             stWrite1: 
                 nState <= awready_int ? stWrite2 : stWrite1;
             stWrite2:
-                nState <= wready_int ? stWrite3 : stWrite2;
+                nState <= wready_int  ? stWrite3 : stWrite2;
             stWrite3:
-                nState <= bvalid_int ? stWrite4 : stWrite3;
+                nState <= bvalid_int  ? stWrite4 : stWrite3;
             stWrite4:
-                nState <= BREADY ? stWaitCen : stWrite4;
-            stWaitCen:
-                nState <= ((ram_a_req_int == 1'b0 && c_active_port == 1'b1) || (ram_b_req_int == 1'b0 && c_active_port == 1'b0)) ? stIdle : stWaitCen;
+                nState <= BREADY      ? stIdle   : stWrite4;
+//            stWaitCen:
+//                nState <= ((ram_a_req_int == 1'b0 && c_active_port == 1'b1) || (ram_b_req_int == 1'b0 && c_active_port == 1'b0)) ? stIdle : stWaitCen;
             default:
                 nState <= stIdle;
         endcase  

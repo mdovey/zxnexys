@@ -21,39 +21,32 @@
 
 
 module zxclock (
-    output clk_200,
     output clk_28,
     output clk_28_n,
     output clk_14,
     output clk_7,
+
     output clk_cpu,
     
-    output reset_n,
-
     input [1:0] cpu_speed,
     input cpu_clk_lsb,
     input cpu_contend,
     input [2:0] machine_timing,
 
-    input clk_200_b,
-    input clk_28_n_b,
+    input clk_28_n_ub,
     input clk_28_ub,
     input clk_14_ub,
-    input clk_7_ub,
-    
-    input ext_reset,
-    input hardware_reset
-    
+    input clk_7_ub
     );
     
     reg clk_3m5_cont;
     wire clk0;
     wire clk1;
 
-    assign clk_200 = clk_200_b;
-    assign clk_28_n = clk_28_n_b;
-    assign reset_n = !(hardware_reset || ext_reset);
-    
+   BUFG bufg_clk_28_n (
+      .O(clk_28_n), // 1-bit output: Clock output
+      .I(clk_28_n_ub)  // 1-bit input: Clock input
+   );
 
    // BUFG: Global Clock Simple Buffer
    //       Artix-7

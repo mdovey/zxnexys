@@ -53,6 +53,11 @@
 /zxram/zxram.ip_user_files
 /zxram/zxram.runs
 /zxram/zxram.sim
+/zxreset/zxreset.cache
+/zxreset/zxreset.gen
+/zxreset/zxreset.ip_user_files
+/zxreset/zxreset.runs
+/zxreset/zxreset.sim
 /zxsdcard/zxsdcard.cache
 /zxsdcard/zxsdcard.gen
 /zxsdcard/zxsdcard.ip_user_files
