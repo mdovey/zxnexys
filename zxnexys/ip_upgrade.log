@@ -1,0 +1,40 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
+| Date         : Sat Oct  2 23:59:05 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+--------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_top_zxclock_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_top_zxclock_0_0 (specnext.com:specnext:zxclock:1.0) from (Rev. 18) to (Rev. 20)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_top_zxclock_0_0'.
+
+
+-Upgrade has removed interface 'ext_reset_n'
+
+-Upgrade has added interface 'ext_reset' (xilinx.com:signal:reset:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_top_zxclock_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ext_reset_n'
+
+-Upgrade has added port 'ext_reset'
+
+

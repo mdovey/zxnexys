@@ -21,79 +21,79 @@
 
 
 module zxram(
-	input      [20:0] ram_a_addr_i,
-	input             ram_a_req_i,
-	input             ram_a_rd_n_i,
-	input       [7:0] ram_a_do_i,
-	output reg      [7:0] ram_a_di_o,
-	output reg           cpu_wait_o,
+    output reg          ARVALID,
+    input               ARREADY,
+    input               RVALID,
+    output reg          RREADY,
 
-	input      [20:0] ram_b_addr_i,
-	input             ram_b_req_t_i,
-	output reg  [7:0] ram_b_di_o,
+    output reg          AWVALID,
+    input               AWREADY,
+    output reg          WVALID,
+    input               WREADY,
+    input               BVALID,
+    input               RLAST,
+    output reg          BREADY,
+    input       [1:0]   RRESP,
+    
+    output reg  [26:0]  ARADDR,
+    input       [31:0]  RDATA,
 
-    output [12:0] ddr2_addr,
-    output [2:0] ddr2_ba,
-    output ddr2_ras_n,
-    output ddr2_cas_n,
-    output ddr2_we_n,
-    output [0:0] ddr2_ck_p,
-    output [0:0] ddr2_ck_n,
-    output [0:0] ddr2_cke,
-    output [0:0] ddr2_cs_n,
-    output [1:0] ddr2_dm,
-    output [0:0] ddr2_odt,
-    inout [15:0] ddr2_dq,
-    inout [1:0] ddr2_dqs_p,
-    inout [1:0] ddr2_dqs_n,
+    output reg  [26:0]  AWADDR,
+    output reg  [31:0]  WDATA,
+    output reg          WLAST,
+    output reg  [3:0]   WSTRB,
+    input       [1:0]   BRESP,
+    
+    output      [3:0]   ARCACHE,
+    output      [2:0]   ARPROT,
+    output      [7:0]   ARLEN,
 
-    input       clk_28,
-    input       clk_200,
-    input       reset  
+    output      [3:0]   AWCACHE,
+    output      [2:0]   AWPROT,
+    output      [7:0]   AWLEN,
+
+	input       [20:0]  ram_a_addr_i,
+	input               ram_a_req_i,
+	input               ram_a_rd_n_i,
+	input       [7:0]   ram_a_do_i,
+	output reg  [7:0]   ram_a_di_o,
+	output reg          cpu_wait_o,
+
+	input       [20:0]  ram_b_addr_i,
+	input               ram_b_req_t_i,
+	output reg  [7:0]   ram_b_di_o,
+
+    output reg          aresetn,
+
+    input               init_calib_complete,
+    input               mmcm_locked,
+
+    input               ui_clk,
+    input               ui_reset,
+
+    input               clk_28,
+    input               reset  
     );
+
+    localparam  stIdle                      = 4'b0000;
+    localparam  stRead1                     = 4'b0001;
+    localparam  stRead2                     = 4'b0010;
+    localparam  stRead3                     = 4'b0011;
+    localparam  stWrite1                    = 4'b1001;
+    localparam  stWrite2                    = 4'b1010;
+    localparam  stWrite3                    = 4'b1011;
+    localparam  stWrite4                    = 4'b1100;
+    localparam  stWaitCen                   = 4'b1000;
+    localparam  stError                     = 4'b1111;
     
-    localparam  CMD_WRITE                = 3'b000;
-    localparam  CMD_READ                 = 3'b001;
+	reg      [20:0] ram_a_addr_buf;
+	reg             ram_a_req_buf;
+	reg             ram_a_rd_n_buf;
+	reg       [7:0] ram_a_do_buf;
 
-    localparam  stIdle                   = 3'b000;
-    localparam  stSetCmd                 = 3'b001;
-    localparam  stCheckRdy               = 3'b010;
-    localparam  stWaitRdy                = 3'b011;
-    localparam  stWaitRead               = 3'b101;
-    localparam  stWaitCen                = 3'b110;
-    localparam  stWaitError              = 3'b111;
+	reg      [20:0] ram_b_addr_buf;
+	reg             ram_b_req_t_buf;	
     
-    reg [2:0] cState;
-    reg [2:0] nState;  
-
-    reg rd_vld; 
-    reg rd_end; 
-    reg [63:0] rd_data_1;
-    reg [63:0] rd_data_2;
-
-    reg [26:0]                 app_addr;
-    reg [2:0]                  app_cmd;
-    reg                        app_en;
-    reg [63:0]                 app_wdf_data;
-    reg                        app_wdf_end;
-    wire [7:0]                 app_wdf_mask;
-    reg                        app_wdf_wren;
-    wire [63:0]                app_rd_data;
-    wire                       app_rd_data_end;
-    wire                       app_rd_data_valid;
-    wire                       app_rdy;
-    wire                       app_wdf_rdy;
-    wire                       app_sr_req;
-    wire                       app_ref_req;
-    wire                       app_zq_req;
-    wire                       app_sr_active;
-    wire                       app_ref_ack;
-    wire                       app_zq_ack;
-
-    wire ui_clk;             
-    wire ui_rst;             
-    wire init_calib_complete;
-     
 	reg      [20:0] ram_a_addr_int;
 	reg             ram_a_req_int;
 	reg             ram_a_rd_n_int;
@@ -103,39 +103,49 @@ module zxram(
 	reg             ram_b_req_t_int;	
 	reg             ram_b_req_t_int1;
 
-	reg      [7:0] ram_a_di_int;
-	reg      [7:0] ram_b_di_int;
-    reg            cpu_wait_int;
-    reg            n_cpu_wait_int;
-		
-	reg             active_port;
-	reg             n_active_port;
-
 	wire            ram_b_req_int;
 
-	reg      [20:0] ram_a_addr_buf;
-	reg             ram_a_req_buf;
-	reg             ram_a_rd_n_buf;
-	reg       [7:0] ram_a_do_buf;
+	reg      [7:0]  ram_a_di_buf;
+	reg      [7:0]  ram_b_di_buf;
+    reg             cpu_wait_buf;
 
-	reg      [20:0] ram_b_addr_buf;
-	reg             ram_b_req_t_buf;	
+	reg      [7:0]  ram_a_di_int;
+	reg      [7:0]  ram_b_di_int;
+    wire            cpu_wait_int;
 
-	reg      [7:0] ram_a_di_buf;
-	reg      [7:0] ram_b_di_buf;
-    reg            cpu_wait_buf;
-	
-	
-    assign ram_b_req_int  = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
-   
-    assign app_wdf_mask = 8'b1111_1110;
+    reg             arready_int;
+    reg             rvalid_int;
+    reg             rready_int;
+    reg             awready_int;
+    reg             wready_int;
+    reg             bvalid_int;
+
+    reg [3:0]       cState;
+    reg [3:0]       nState;  
+    reg             c_active_port;
+    reg             n_active_port;
     
-    assign app_sr_req   = 1'b0;
-    assign app_ref_req  = 1'b0;
-    assign app_zq_req   = 1'b0;    
+    reg [1:0]       s_rresp;
+    reg [1:0]       s_bresp;
+    
+    wire            rst;
 
-   always @(posedge ui_clk)
-   begin
+    assign ARCACHE  = 4'b0011;
+    assign ARPROT   = 3'b000;
+    assign ARLEN    = 8'b0000_0000;
+    assign AWCACHE  = 4'b0011;
+    assign AWPROT   = 3'b000;
+    assign AWLEN    = 8'b0000_0000;
+    
+	assign cpu_wait_int = ~(cState == stIdle || cState == stWaitCen);
+    assign ram_b_req_int  = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
+    assign rst = reset || ui_reset;
+
+    always @(posedge ui_clk)
+        aresetn = ~reset; 
+
+    always @(posedge ui_clk)
+    begin
         ram_a_addr_buf <= ram_a_addr_i;
         ram_a_req_buf <= ram_a_req_i;
         ram_a_rd_n_buf <= ram_a_rd_n_i;
@@ -152,166 +162,146 @@ module zxram(
 
         if (ram_b_req_int == 1'b1) 
             ram_b_req_t_int1 <= ram_b_req_t_int;
-   end 
+    end 
 
-   always @(clk_28)
-   begin
-       ram_a_di_buf <= ram_a_di_int;
-       ram_b_di_buf <= ram_b_di_int;
-       cpu_wait_buf <= cpu_wait_int;
+    always @(negedge clk_28)
+    begin
+        ram_a_di_buf <= ram_a_di_int;
+        ram_b_di_buf <= ram_b_di_int;
+        cpu_wait_buf <= cpu_wait_int;
 
-       ram_a_di_o <= ram_a_di_buf;
-       ram_b_di_o <= ram_b_di_buf;
-       cpu_wait_o <= cpu_wait_buf;
-   end 
+        ram_a_di_o <= ram_a_di_buf;
+        ram_b_di_o <= ram_b_di_buf;
+        cpu_wait_o <= cpu_wait_buf;
+    end 
 
-   always @(posedge ui_clk)
-      if (reset == 1'b1) 
-      begin 
-         cState <= stIdle;
-         active_port <= 1'b0;
-         cpu_wait_int <= 1'b1;
-      end else begin
-         cState <= nState;
-         active_port <= n_active_port;
-         cpu_wait_int <= n_cpu_wait_int;
-      end
+    always @(posedge ui_clk)
+        if (rst == 1'b1) 
+        begin 
+            cState <= stIdle;
+            c_active_port <= 1'b0;
+        end else begin
+            cState <= nState;
+            c_active_port <= n_active_port;
+        end
 
-   always @(cState, init_calib_complete, app_rdy, app_wdf_rdy, ram_a_req_int, ram_b_req_int, ram_a_rd_n_int, active_port, cpu_wait_int, app_cmd, rd_end, rd_vld)
-   begin
-      nState <= cState;
-      n_active_port <= active_port;
-      n_cpu_wait_int <= cpu_wait_int;
-      case (cState)
-        stIdle:
-            if (init_calib_complete == 1'b1 && app_rdy == 1'b1 && app_wdf_rdy == 1'b1)
-                 if (ram_a_req_int == 1'b1 || ram_b_req_int == 1'b1) 
-                 begin
-                    nState <= stSetCmd;
-                    n_cpu_wait_int <= 1'b1;
-                    if (ram_a_req_int == 1'b1)
-                        n_active_port <= 1'b1;
-                    else 
+    always @(posedge ui_clk)
+    begin
+        arready_int <= ARREADY;
+        rvalid_int <= RVALID;
+        rready_int <= RREADY;
+        awready_int <= AWREADY;
+        wready_int <= WREADY;
+        bvalid_int <= BVALID;
+    end
+
+
+    always @(cState, c_active_port, init_calib_complete, mmcm_locked, ram_a_req_int, ram_b_req_int, ram_a_rd_n_int, arready_int, rvalid_int, rready_int, awready_int, wready_int, bvalid_int, BREADY)
+    begin
+        nState <= cState;
+        n_active_port <= c_active_port;
+        case (cState)
+            stIdle:
+                if (init_calib_complete == 1'b1 && mmcm_locked == 1'b1)
+                     if (ram_a_req_int == 1'b1)
+                     begin
                         n_active_port <= 1'b0;
-                 end else
-                    n_cpu_wait_int <= 1'b0;
-            else         
-                    n_cpu_wait_int <= 1'b1;
-         stSetCmd:
-                nState <= stCheckRdy;
-         stCheckRdy:
-            if (app_rdy == 1'b0)
-               nState <= stWaitRdy;
-            else
-               if (app_cmd == CMD_READ)
-                   nState <= stWaitRead;
-               else    
-                   nState <= stWaitCen;
-         stWaitRdy:
-            if (app_rdy == 1'b1)
-               if (app_cmd == CMD_READ)
-                   nState <= stWaitRead;
-               else    
-                   nState <= stWaitCen;
-         stWaitRead: 
-            if (rd_end == 1'b1 && rd_vld == 1'b1)     
-                   nState <= stWaitCen;
-         stWaitCen:
-            if ((ram_a_req_int == 1'b0 && active_port == 1'b1) || (ram_b_req_int == 1'b0 && active_port == 1'b0))
-               nState <= stIdle;
-         default:
-            nState <= stIdle;
-     endcase  
-   end       
+                        nState <= ram_a_rd_n_int ? stWrite1 : stRead1;
+                     end else if (ram_b_req_int == 1'b1) 
+                     begin
+                        n_active_port <= 1'b1;
+                        nState <= stRead1;
+                     end else
+                        nState <= stIdle;  
+            stRead1:  
+                nState <= arready_int ? stRead2 : stRead1;
+            stRead2:  
+                nState <= rvalid_int ? stRead3 : stRead2;
+            stRead3:  
+                nState <= rready_int ? stWaitCen : stRead3;
+            stWrite1: 
+                nState <= awready_int ? stWrite2 : stWrite1;
+            stWrite2:
+                nState <= wready_int ? stWrite3 : stWrite2;
+            stWrite3:
+                nState <= bvalid_int ? stWrite4 : stWrite3;
+            stWrite4:
+                nState <= BREADY ? stWaitCen : stWrite4;
+            stWaitCen:
+                nState <= ((ram_a_req_int == 1'b0 && c_active_port == 1'b1) || (ram_b_req_int == 1'b0 && c_active_port == 1'b0)) ? stIdle : stWaitCen;
+            default:
+                nState <= stIdle;
+        endcase  
+    end        
 
-   always @(posedge ui_clk)
-         if (cState == stIdle || cState == stWaitCen)
-         begin
-            app_wdf_wren <= 1'b0;
-            app_wdf_end <= 1'b0;
-            app_en <= 1'b0;
-         end else if (cState == stSetCmd)
-            if (ram_a_rd_n_int == 1'd1 && active_port == 1'b1)
+    always @(posedge ui_clk)
+        case (cState)
+            stIdle:
             begin
-               app_cmd <= CMD_WRITE;
-               app_wdf_wren <= 1'b1;
-               app_wdf_end <= 1'b1;
-               app_en <= 1'b1;
-            end else begin
-               app_cmd <= CMD_READ;
-               app_en <= 1'b1;
+                RREADY <= 1'b0;
+                BREADY <= 1'b0;
+                ARADDR <= {27{1'b0}};
+                ARVALID <= 1'b0;         
+                AWADDR <= {27{1'b0}};
+                AWVALID <= 1'b0;
+                WDATA <= {32{1'b0}};
+                WLAST <= 1'b0;
+                WVALID <= 1'b0;
+                WSTRB <= 4'b0000;
             end
+            stRead1:
+            begin  
+                ARADDR[26:21] <= {6{1'b0}};
+                ARADDR[20:0] <= c_active_port ? ram_b_addr_int : ram_a_addr_int;
+                ARVALID <= 1'b1;
+            end
+            stRead2:
+            begin
+                ARADDR <= {27{1'b0}};
+                ARVALID <= 1'b0;         
+            end
+            stRead3:
+            begin
+                if (c_active_port)
+                    ram_b_di_int <= RDATA[7:0];
+                else   
+                    ram_a_di_int <= RDATA[7:0];
+                s_rresp <= RRESP;
+                RREADY <= 1'b1;
+            end
+            stWrite1: 
+            begin
+                AWADDR[26:21] <= {6{1'b0}};
+                AWADDR[20:0] <= ram_a_addr_int;
+                AWVALID <= 1'b1;
+            end
+            stWrite2:
+            begin
+                AWADDR <= {27{1'b0}};
+                AWVALID <= 1'b0;
+                WDATA[31:8] <= {24{1'b0}};
+                WDATA[7:0] <= ram_a_do_i;
+                WLAST <= 1'b1;
+                WVALID <= 1'b1;
+                WSTRB <= 4'b0001;
+            end
+            stWrite3:
+            begin
+                WDATA <= {32{1'b0}};
+                WLAST <= 1'b0;
+                WVALID <= 1'b0;
+                WSTRB <= 4'b0000;
+            end
+            stWrite4:
+            begin
+                s_bresp <= BRESP;
+                BREADY <= 1'b1;
+            end
+            stWaitCen:
+            begin
+                RREADY <= 1'b0;
+                BREADY <= 1'b0;
+            end
+        endcase  
 
-   always @(posedge ui_clk)
-       if (cState == stCheckRdy)
-       begin
-            app_wdf_data <= {{56{1'b0}}, ram_a_do_int}; 
-            app_addr <= (active_port == 1'b1) ? ram_a_addr_int : ram_b_addr_int;
-       end         
-
-   always @(posedge ui_clk)
-   begin
-         rd_vld <= app_rd_data_valid;
-         rd_end <= app_rd_data_end;
-         rd_data_1 <= app_rd_data;
-         rd_data_2 <= rd_data_1;
-   end
-   
-   always @(posedge ui_clk)
-         if (reset == 1'b1)
-         begin
-            ram_a_di_int <= 8'h0;
-            ram_b_di_int <= 8'h0;
-         end else if (cState == stWaitCen) // && rd_vld == 1'b1 && rd_end == 1'b1)
-            if (active_port == 1'b1)
-                ram_a_di_int <= rd_data_2[7:0];
-            else    
-                ram_b_di_int <= rd_data_2[7:0];
-
-
-    ddr Inst_DDR (
-      .ddr2_dq(ddr2_dq),
-      .ddr2_dqs_p(ddr2_dqs_p),
-      .ddr2_dqs_n(ddr2_dqs_n),
-      .ddr2_addr(ddr2_addr),
-      .ddr2_ba(ddr2_ba),
-      .ddr2_ras_n(ddr2_ras_n),
-      .ddr2_cas_n(ddr2_cas_n),
-      .ddr2_we_n(ddr2_we_n),
-      .ddr2_ck_p(ddr2_ck_p),
-      .ddr2_ck_n(ddr2_ck_n),
-      .ddr2_cke(ddr2_cke),
-      .ddr2_cs_n(ddr2_cs_n),
-      .ddr2_dm(ddr2_dm),
-      .ddr2_odt(ddr2_odt),
-      // Inputs
-      .sys_clk_i(clk_200),
-      .sys_rst(~reset),
-      // user interface signals
-      .app_addr(app_addr),
-      .app_cmd(app_cmd),
-      .app_en (app_en),
-      .app_wdf_data(app_wdf_data),
-      .app_wdf_end(app_wdf_end),
-      .app_wdf_mask(app_wdf_mask),
-      .app_wdf_wren(app_wdf_wren),
-      .app_rd_data(app_rd_data),
-      .app_rd_data_end(app_rd_data_end),
-      .app_rd_data_valid(app_rd_data_valid),
-      .app_rdy(app_rdy),
-      .app_wdf_rdy(app_wdf_rdy),
-      .app_sr_req(app_sr_req),
-      .app_sr_active(app_sr_active),
-      .app_ref_req(app_ref_req),
-      .app_ref_ack(app_ref_ack),
-      .app_zq_req(app_zq_req),
-      .app_zq_ack(app_zq_ack),
-
-      .ui_clk(ui_clk),
-      .ui_clk_sync_rst(ui_rst),
-
-      .init_calib_complete(init_calib_complete)        
-    );
-
-    
 endmodule

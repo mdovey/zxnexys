@@ -81,8 +81,8 @@ set_property CFGBVS VCCO [current_design]
 #set_property -dict { PACKAGE_PIN U13   IOSTANDARD LVCMOS33 } [get_ports { AN[7] }]; #IO_L23N_T3_A02_D18_14 Sch=an[7]
 
 ##Buttons
-set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports CPU_RESETN]
-#set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
+#set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports CPU_RESETN]
+set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports { BTNC }]; #IO_L9P_T1_DQS_14 Sch=btnc
 #set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTNU }]; #IO_L4N_T0_D05_14 Sch=btnu
 set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports BTNL]
 set_property -dict {PACKAGE_PIN M17 IOSTANDARD LVCMOS33} [get_ports BTNR]
@@ -157,14 +157,14 @@ set_property -dict {PACKAGE_PIN B11 IOSTANDARD LVCMOS33} [get_ports VGA_HS]
 set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports VGA_VS]
 
 ##Micro SD Connector
-set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports SD_RESET]
-set_property -dict {PACKAGE_PIN A1 IOSTANDARD LVCMOS33} [get_ports SD_CD]
-set_property -dict {PACKAGE_PIN B1 IOSTANDARD LVCMOS33} [get_ports SD_SCK]
-set_property -dict {PACKAGE_PIN C1 IOSTANDARD LVCMOS33} [get_ports SD_CMD]
-set_property -dict {PACKAGE_PIN C2 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[0]}]
-set_property -dict {PACKAGE_PIN E1 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[1]}]
-set_property -dict {PACKAGE_PIN F1 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[2]}]
-set_property -dict {PACKAGE_PIN D2 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[3]}]
+#set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports SD_RESET]
+#set_property -dict {PACKAGE_PIN A1 IOSTANDARD LVCMOS33} [get_ports SD_CD]
+#set_property -dict {PACKAGE_PIN B1 IOSTANDARD LVCMOS33} [get_ports SD_SCK]
+#set_property -dict {PACKAGE_PIN C1 IOSTANDARD LVCMOS33} [get_ports SD_CMD]
+#set_property -dict {PACKAGE_PIN C2 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[0]}]
+#set_property -dict {PACKAGE_PIN E1 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[1]}]
+#set_property -dict {PACKAGE_PIN F1 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[2]}]
+#set_property -dict {PACKAGE_PIN D2 IOSTANDARD LVCMOS33} [get_ports {SD_DAT[3]}]
 
 ##Accelerometer
 #set_property -dict { PACKAGE_PIN E15   IOSTANDARD LVCMOS33 } [get_ports { ACL_MISO }]; #IO_L11P_T1_SRCC_15 Sch=acl_miso
