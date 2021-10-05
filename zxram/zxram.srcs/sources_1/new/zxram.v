@@ -68,12 +68,12 @@ module zxram(
     input               init_calib_complete,
     input               mmcm_locked,
 
+    input               clk_cpux2,
     input               clk_cpu,
 
     input               ui_clk,
     input               ui_reset,
 
-    input               clk_28,
     input               reset  
     );
 
@@ -107,13 +107,13 @@ module zxram(
 
 	wire            ram_b_req_int;
 
-	reg      [7:0]  ram_a_di_buf;
-	reg      [7:0]  ram_b_di_buf;
-    reg             cpu_wait_buf;
-
 	reg      [7:0]  ram_a_di_int;
 	reg      [7:0]  ram_b_di_int;
-    wire            cpu_wait_int;
+    reg             cpu_wait_int;
+
+	reg      [7:0]  ram_a_di_buf;
+	reg      [7:0]  ram_b_di_buf;
+    reg 	        cpu_wait_buf;
 
     reg             arready_int;
     reg             rvalid_int;
@@ -145,10 +145,7 @@ module zxram(
     assign rst                  = reset_int || ui_reset_int;
     assign aresetn              = ~reset_int;
 
-	assign cpu_wait_int         = ~(cState == stIdle || cState == stWaitCen);
     assign ram_b_req_int        = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
-
-
 
     always @(posedge ui_clk)
     begin
@@ -175,13 +172,21 @@ module zxram(
 
     always @(negedge clk_cpu)
     begin
-        ram_a_di_buf            <= ram_a_di_int;
-        ram_b_di_buf            <= ram_b_di_int;
-        cpu_wait_buf            <= cpu_wait_int;
+        ram_a_di_buf           <= ram_a_di_int;
+        ram_a_di_o             <= ram_a_di_buf;
 
-        ram_a_di_o              <= ram_a_di_buf;
-        ram_b_di_o              <= ram_b_di_buf;
-        cpu_wait_o              <= cpu_wait_buf;
+        ram_b_di_buf           <= ram_b_di_int;
+        ram_b_di_o             <= ram_b_di_buf;
+    end 
+
+    always @(negedge clk_cpux2)
+    begin
+        cpu_wait_buf           <= cpu_wait_int;
+    end 
+
+    always @(posedge clk_cpux2)
+    begin
+        cpu_wait_o             <= cpu_wait_buf;
     end 
 
     always @(posedge ui_clk)
@@ -247,69 +252,78 @@ module zxram(
         case (cState)
             stIdle:
             begin
-                RREADY <= 1'b0;
-                BREADY <= 1'b0;
-                ARADDR <= {27{1'b0}};
-                ARVALID <= 1'b0;         
-                AWADDR <= {27{1'b0}};
-                AWVALID <= 1'b0;
-                WDATA <= {32{1'b0}};
-                WLAST <= 1'b0;
-                WVALID <= 1'b0;
-                WSTRB <= 4'b0000;
+				cpu_wait_int 		<= 1'b0;
+                RREADY 				<= 1'b0;
+                BREADY 				<= 1'b0;
+                ARADDR 				<= {27{1'b0}};
+                ARVALID 			<= 1'b0;         
+                AWADDR 				<= {27{1'b0}};
+                AWVALID 			<= 1'b0;
+                WDATA 				<= {32{1'b0}};
+                WLAST 				<= 1'b0;
+                WVALID 				<= 1'b0;
+                WSTRB 				<= 4'b0000;
             end
             stRead1:
             begin  
-                ARADDR[26:21] <= {6{1'b0}};
-                ARADDR[20:0] <= c_active_port ? ram_b_addr_int : ram_a_addr_int;
-                ARVALID <= 1'b1;
+				cpu_wait_int 		<= 1'b1;
+                ARADDR[26:21] 		<= {6{1'b0}};
+                ARADDR[20:0] 		<= c_active_port ? ram_b_addr_int : ram_a_addr_int;
+                ARVALID 			<= 1'b1;
             end
             stRead2:
             begin
-                ARADDR <= {27{1'b0}};
-                ARVALID <= 1'b0;         
+				cpu_wait_int 		<= 1'b1;
+                ARADDR 				<= {27{1'b0}};
+                ARVALID 			<= 1'b0;         
             end
             stRead3:
             begin
+				cpu_wait_int 		<= 1'b1;
                 if (c_active_port)
-                    ram_b_di_int <= RDATA[7:0];
+                    ram_b_di_int 	<= RDATA[7:0];
                 else   
-                    ram_a_di_int <= RDATA[7:0];
-                s_rresp <= RRESP;
-                RREADY <= 1'b1;
+                    ram_a_di_int 	<= RDATA[7:0];
+                s_rresp 			<= RRESP;
+                RREADY 				<= 1'b1;
             end
             stWrite1: 
             begin
-                AWADDR[26:21] <= {6{1'b0}};
-                AWADDR[20:0] <= ram_a_addr_int;
-                AWVALID <= 1'b1;
+				cpu_wait_int 		<= 1'b1;
+                AWADDR[26:21] 		<= {6{1'b0}};
+                AWADDR[20:0] 		<= ram_a_addr_int;
+                AWVALID 			<= 1'b1;
             end
             stWrite2:
             begin
-                AWADDR <= {27{1'b0}};
-                AWVALID <= 1'b0;
-                WDATA[31:8] <= {24{1'b0}};
-                WDATA[7:0] <= ram_a_do_i;
-                WLAST <= 1'b1;
-                WVALID <= 1'b1;
-                WSTRB <= 4'b0001;
+				cpu_wait_int 		<= 1'b1;
+                AWADDR 				<= {27{1'b0}};
+                AWVALID 			<= 1'b0;
+                WDATA[31:8] 		<= {24{1'b0}};
+                WDATA[7:0] 			<= ram_a_do_i;
+                WLAST 				<= 1'b1;
+                WVALID 				<= 1'b1;
+                WSTRB 				<= 4'b0001;
             end
             stWrite3:
             begin
-                WDATA <= {32{1'b0}};
-                WLAST <= 1'b0;
-                WVALID <= 1'b0;
-                WSTRB <= 4'b0000;
+				cpu_wait_int 		<= 1'b1;
+                WDATA 				<= {32{1'b0}};
+                WLAST 				<= 1'b0;
+                WVALID				<= 1'b0;
+                WSTRB 				<= 4'b0000;
             end
             stWrite4:
             begin
-                s_bresp <= BRESP;
-                BREADY <= 1'b1;
+				cpu_wait_int 		<= 1'b1;
+                s_bresp 			<= BRESP;
+                BREADY 				<= 1'b1;
             end
             stWaitCen:
             begin
-                RREADY <= 1'b0;
-                BREADY <= 1'b0;
+				cpu_wait_int 		<= 1'b0;
+                RREADY 				<= 1'b0;
+                BREADY 				<= 1'b0;
             end
         endcase  
 

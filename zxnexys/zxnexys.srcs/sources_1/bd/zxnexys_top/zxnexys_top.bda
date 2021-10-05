@@ -21,16 +21,6 @@
   <key attr.name="vert_type" attr.type="string" for="node" id="VT"/>
   <graph edgedefault="undirected" id="G" parse.edgeids="canonical" parse.nodeids="canonical" parse.order="nodesfirst">
     <node id="n0">
-      <data key="VH">2</data>
-      <data key="VM">zxnexys_top</data>
-      <data key="VT">VR</data>
-    </node>
-    <node id="n1">
-      <data key="TU">active</data>
-      <data key="VH">2</data>
-      <data key="VT">PM</data>
-    </node>
-    <node id="n2">
       <data key="BA">0x0000000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x7FFFFFF</data>
@@ -48,15 +38,25 @@
       <data key="TU">memory</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n3">
+    <node id="n1">
       <data key="VM">zxnexys_top</data>
       <data key="VT">BC</data>
     </node>
-    <edge id="e0" source="n3" target="n0">
+    <node id="n2">
+      <data key="TU">active</data>
+      <data key="VH">2</data>
+      <data key="VT">PM</data>
+    </node>
+    <node id="n3">
+      <data key="VH">2</data>
+      <data key="VM">zxnexys_top</data>
+      <data key="VT">VR</data>
+    </node>
+    <edge id="e0" source="n1" target="n3">
     </edge>
-    <edge id="e1" source="n0" target="n1">
+    <edge id="e1" source="n3" target="n2">
     </edge>
-    <edge id="e2" source="n2" target="n1">
+    <edge id="e2" source="n0" target="n2">
       <data key="EH">2</data>
     </edge>
   </graph>
