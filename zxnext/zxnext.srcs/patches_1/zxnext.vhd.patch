@@ -1,0 +1,35 @@
+diff --git "a/cores/zxnext/src/zxnext.vhd" "b/cores/zxnext/src/zxnext.vhd"
+index a5e2b4f..d1ed973 100644
+--- "a/cores/zxnext/src/zxnext.vhd"
++++ "b/cores/zxnext/src/zxnext.vhd"
+@@ -31,9 +31,9 @@ use work.Z80N_pack.all;
+ entity zxnext is
+    generic
+    (
+-      g_machine_id         : unsigned(7 downto 0);
+-      g_version            : unsigned(7 downto 0);
+-      g_sub_version        : unsigned(7 downto 0)
++      g_machine_id         : std_logic_vector(7 downto 0) := X"7A";
++      g_version            : std_logic_vector(7 downto 0) := X"31";
++      g_sub_version        : std_logic_vector(7 downto 0) := X"0B"
+    );
+    port (
+       -- CLOCK
+@@ -174,6 +174,8 @@ entity zxnext is
+       o_RAM_A_RD_n         : out std_logic;                       -- '0' for read, '1' for write
+       i_RAM_A_DI           : in std_logic_vector(7 downto 0);     -- data read from memory
+       o_RAM_A_DO           : out std_logic_vector(7 downto 0);    -- data written to memory
++
++      i_CPU_WAIT           : in std_logic := '0';
+       
+       -- Port B is read only (LAYER 2)
+       
+@@ -1729,7 +1731,7 @@ begin
+ 
+    expbus_disable_int <= '1' when expbus_eff_en = '0' or expbus_eff_disable_io = '1' or im2_ieo = '0' or nr_c4_int_en_0_expbus = '0' else '0';
+ 
+-   z80_wait_n <= '0' when (ula_wait_n = '0') or (ulap_wait_n = '0') or (sram_wait_n = '0') or (i_BUS_WAIT_n = '0' and expbus_eff_en = '1') else '1';
++   z80_wait_n <= '0' when (ula_wait_n = '0') or (ulap_wait_n = '0') or (sram_wait_n = '0') or (i_BUS_WAIT_n = '0' and expbus_eff_en = '1') or (i_CPU_WAIT = '1') else '1';
+    z80_int_n <= (pulse_int_n or not expbus_disable_int) and im2_int_n and (i_BUS_INT_n or expbus_disable_int);
+    z80_nmi_n <= nmi_generate_n;
+    z80_busrq_n <= dma_busrq_n;

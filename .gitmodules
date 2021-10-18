@@ -4,6 +4,4 @@
 [submodule "tbblue"]
 	path = tbblue
 	url = https://gitlab.com/thesmog358/tbblue.git
-[submodule "ZXNext_MISTer"]
-	path = ZXNext_MISTer
-	url = https://github.com/MiSTer-devel/ZXNext_MISTer.git
+

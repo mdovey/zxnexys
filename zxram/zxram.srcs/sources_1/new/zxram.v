@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 29.09.2021 01:16:28
+// Create Date: 11.10.2021 21:21:37
 // Design Name: 
 // Module Name: zxram
 // Project Name: 
@@ -20,311 +20,275 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module zxram(
-    output reg          ARVALID,
-    input               ARREADY,
-    input               RVALID,
-    output reg          RREADY,
+module zxram #(
+   parameter SYNC_STAGES = 3,
+   parameter PIPELINE_STAGES = 1,
+   parameter INIT = 1'b1
+)(
+    output              M_AXI_ARVALID,
+    input               M_AXI_ARREADY,
+    input               M_AXI_RVALID,
+    output              M_AXI_RREADY,
 
-    output reg          AWVALID,
-    input               AWREADY,
-    output reg          WVALID,
-    input               WREADY,
-    input               BVALID,
-    input               RLAST,
-    output reg          BREADY,
-    input       [1:0]   RRESP,
+    output              M_AXI_AWVALID,
+    input               M_AXI_AWREADY,
+    output              M_AXI_WVALID,
+    input               M_AXI_WREADY,
+    input               M_AXI_BVALID,
+    input               M_AXI_RLAST,
+    output              M_AXI_BREADY,
+    input       [1:0]   M_AXI_RRESP,
     
-    output reg  [26:0]  ARADDR,
-    input       [31:0]  RDATA,
+    output      [26:0]  M_AXI_ARADDR,
+    input       [31:0]  M_AXI_RDATA,
 
-    output reg  [26:0]  AWADDR,
-    output reg  [31:0]  WDATA,
-    output reg          WLAST,
-    output reg  [3:0]   WSTRB,
-    input       [1:0]   BRESP,
+    output      [26:0]  M_AXI_AWADDR,
+    output      [31:0]  M_AXI_WDATA,
+    output              M_AXI_WLAST,
+    output      [3:0]   M_AXI_WSTRB,
+    input       [1:0]   M_AXI_BRESP,
     
-    output      [3:0]   ARCACHE,
-    output      [2:0]   ARPROT,
-    output      [7:0]   ARLEN,
+    output      [3:0]   M_AXI_ARCACHE,
+    output      [2:0]   M_AXI_ARPROT,
+    output      [7:0]   M_AXI_ARLEN,
 
-    output      [3:0]   AWCACHE,
-    output      [2:0]   AWPROT,
-    output      [7:0]   AWLEN,
+    output      [3:0]   M_AXI_AWCACHE,
+    output      [2:0]   M_AXI_AWPROT,
+    output      [7:0]   M_AXI_AWLEN,
 
+    output      [1:0]   M_AXI_ARBURST,
+    output      [0:0]   M_AXI_ARLOCK,
+    output      [3:0]   M_AXI_ARQOS,
+    output      [3:0]   M_AXI_ARREGION,
+    output      [2:0]   M_AXI_ARSIZE,
+    output      [1:0]   M_AXI_AWBURST,
+    output      [0:0]   M_AXI_AWLOCK,
+    output      [3:0]   M_AXI_AWQOS,
+    output      [3:0]   M_AXI_AWREGION,
+    output      [2:0]   M_AXI_AWSIZE,
+    
 	input       [20:0]  ram_a_addr_i,
 	input               ram_a_req_i,
+	input               ram_a_rd_i,
 	input               ram_a_rd_n_i,
 	input       [7:0]   ram_a_do_i,
-	output reg  [7:0]   ram_a_di_o,
-	output reg          cpu_wait_o,
+	output      [7:0]   ram_a_di_o,
+	output              cpu_wait_o,
 
 	input       [20:0]  ram_b_addr_i,
 	input               ram_b_req_t_i,
-	output reg  [7:0]   ram_b_di_o,
+	output      [7:0]   ram_b_di_o,
 
     output              aresetn,
 
-    input               init_calib_complete,
-    input               mmcm_locked,
+(*X_INTERFACE_PARAMETER = "ASSOCIATED_RESET :" *) 	
+	input               clk_peripheral,
 
-    input               clk_cpux2,
-    input               clk_cpu,
+(*X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_memory" *) 	
+	input               clk_memory,
+    input               reset_memory,
 
-    input               ui_clk,
-    input               ui_reset,
-
-    input               reset  
+(*X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_ui:aresetn" *)
+    input               clk_ui,
+    input               reset_ui
     );
 
-    localparam  stIdle                      = 4'b0000;
-    localparam  stRead1                     = 4'b0001;
-    localparam  stRead2                     = 4'b0010;
-    localparam  stRead3                     = 4'b0011;
-    localparam  stWrite1                    = 4'b1001;
-    localparam  stWrite2                    = 4'b1010;
-    localparam  stWrite3                    = 4'b1011;
-    localparam  stWrite4                    = 4'b1100;
-    localparam  stWaitCen                   = 4'b1000;
-    localparam  stError                     = 4'b1111;
+    wire                ARVALID;
+    wire                ARREADY;
+    wire                RVALID;
+    wire                RREADY;
+
+    wire                AWVALID;
+    wire                AWREADY;
+    wire                WVALID;
+    wire                WREADY;
+    wire                BVALID;
+    wire                RLAST;
+    wire                BREADY;
+    wire        [1:0]   RRESP;
     
-	reg      [20:0] ram_a_addr_buf;
-	reg             ram_a_req_buf;
-	reg             ram_a_rd_n_buf;
-	reg       [7:0] ram_a_do_buf;
+    wire        [26:0]  ARADDR;
+    wire        [31:0]  RDATA;
 
-	reg      [20:0] ram_b_addr_buf;
-	reg             ram_b_req_t_buf;	
+    wire        [26:0]  AWADDR;
+    wire        [31:0]  WDATA;
+    wire                WLAST;
+    wire        [3:0]   WSTRB;
+    wire        [1:0]   BRESP;
     
-	reg      [20:0] ram_a_addr_int;
-	reg             ram_a_req_int;
-	reg             ram_a_rd_n_int;
-	reg       [7:0] ram_a_do_int;
+    wire        [3:0]   ARCACHE;
+    wire        [2:0]   ARPROT;
+    wire        [7:0]   ARLEN;
 
-	reg      [20:0] ram_b_addr_int;
-	reg             ram_b_req_t_int;	
-	reg             ram_b_req_t_int1;
+    wire        [3:0]   AWCACHE;
+    wire        [2:0]   AWPROT;
+    wire        [7:0]   AWLEN;
 
-	wire            ram_b_req_int;
-
-	reg      [7:0]  ram_a_di_int;
-	reg      [7:0]  ram_b_di_int;
-    reg             cpu_wait_int;
-
-	reg      [7:0]  ram_a_di_buf;
-	reg      [7:0]  ram_b_di_buf;
-    reg 	        cpu_wait_buf;
-
-    reg             arready_int;
-    reg             rvalid_int;
-    reg             rready_int;
-    reg             awready_int;
-    reg             wready_int;
-    reg             bvalid_int;
-
-    reg      [3:0]  cState;
-    reg      [3:0]  nState;  
-    reg             c_active_port;
-    reg             n_active_port;
+    wire        [1:0]   ARBURST;
+    wire        [0:0]   ARLOCK;
+    wire        [3:0]   ARQOS;
+    wire        [3:0]   ARREGION;
+    wire        [2:0]   ARSIZE;
+    wire        [1:0]   AWBURST;
+    wire        [0:0]   AWLOCK;
+    wire        [3:0]   AWQOS;
+    wire        [3:0]   AWREGION;
+    wire        [2:0]   AWSIZE;
     
-    reg      [1:0]  s_rresp;
-    reg      [1:0]  s_bresp;
+    wire				areset;
     
-    reg             reset_int;
-    reg             ui_reset_int;
+    assign aresetn = ~areset;
+
+	async_input_sync #(
+	   .SYNC_STAGES(SYNC_STAGES),
+	   .PIPELINE_STAGES(PIPELINE_STAGES),
+	   .INIT(INIT)
+	) sync_areset (
+	   .clk(clk_ui),
+	   .async_in(reset_memory),
+	   .sync_out(areset)
+	);
+
+    ram_controller #(
+	   .SYNC_STAGES(SYNC_STAGES),
+	   .PIPELINE_STAGES(PIPELINE_STAGES),
+	   .INIT(INIT)
+	) ram_controller_0 (
+        .ARVALID(ARVALID),
+        .ARREADY(ARREADY),
+        .RVALID(RVALID),
+        .RREADY(RREADY),
+        
+        .AWVALID(AWVALID),
+        .AWREADY(AWREADY),
+        .WVALID(WVALID),
+        .WREADY(WREADY),
+        .BVALID(BVALID),
+        .RLAST(RLAST),
+        .BREADY(BREADY),
+        .RRESP(RRESP),
+        
+        .ARADDR(ARADDR),
+        .RDATA(RDATA),
+        
+        .AWADDR(AWADDR),
+        .WDATA(WDATA),
+        .WLAST(WLAST),
+        .WSTRB(WSTRB),
+        .BRESP(BRESP),
+        
+        .ARCACHE(ARCACHE),
+        .ARPROT(ARPROT),
+        .ARLEN(ARLEN),
+        
+        .AWCACHE(AWCACHE),
+        .AWPROT(AWPROT),
+        .AWLEN(AWLEN),
+
+        .ARBURST(ARBURST),
+        .ARLOCK(ARLOCK),
+        .ARQOS(ARQOS),
+        .ARREGION(ARREGION),
+        .ARSIZE(ARSIZE),
+        .AWBURST(AWBURST),
+        .AWLOCK(AWLOCK),
+        .AWQOS(AWQOS),
+        .AWREGION(AWREGION),
+        .AWSIZE(AWSIZE),
+        
+        .ram_a_addr_i(ram_a_addr_i),
+        .ram_a_req_i(ram_a_req_i),
+        .ram_a_rd_i(ram_a_rd_i & ~ram_a_rd_n_i),
+        .ram_a_do_i(ram_a_do_i),
+        .ram_a_di_o(ram_a_di_o),
+        .cpu_wait_o(cpu_wait_o),
     
-    wire            rst;
-
-    assign ARCACHE              = 4'b0011;
-    assign ARPROT               = 3'b000;
-    assign ARLEN                = 8'b0000_0000;
-    assign AWCACHE              = 4'b0011;
-    assign AWPROT               = 3'b000;
-    assign AWLEN                = 8'b0000_0000;
+        .ram_b_addr_i(ram_b_addr_i),
+        .ram_b_req_t_i(ram_b_req_t_i),
+        .ram_b_di_o(ram_b_di_o),
     
-    assign rst                  = reset_int || ui_reset_int;
-    assign aresetn              = ~reset_int;
+        .clk_peripheral(clk_peripheral),
+        .clk_memory(clk_memory),
+        .areset(reset_memory)
+    );
+    
+    axi_clock_converter_0 axi_clock_convert_0(
+        .m_axi_araddr(M_AXI_ARADDR),
+        .m_axi_arburst(M_AXI_ARBURST),
+        .m_axi_arcache(M_AXI_ARCACHE),
+        .m_axi_arlen(M_AXI_ARLEN),
+        .m_axi_arlock(M_AXI_ARLOCK),
+        .m_axi_arprot(M_AXI_ARPROT),
+        .m_axi_arqos(M_AXI_ARQOS),
+        .m_axi_arready(M_AXI_ARREADY),
+        .m_axi_arregion(M_AXI_ARREGION),
+        .m_axi_arsize(M_AXI_ARSIZE),
+        .m_axi_arvalid(M_AXI_ARVALID),
+        .m_axi_awaddr(M_AXI_AWADDR),
+        .m_axi_awburst(M_AXI_AWBURST),
+        .m_axi_awcache(M_AXI_AWCACHE),
+        .m_axi_awlen(M_AXI_AWLEN),
+        .m_axi_awlock(M_AXI_AWCLOCK),
+        .m_axi_awprot(M_AXI_AWPROT),
+        .m_axi_awqos(M_AXI_AWQOS),
+        .m_axi_awready(M_AXI_AWREADY),
+        .m_axi_awregion(M_AXI_AWREGION),
+        .m_axi_awsize(M_AXI_AWSIZE),
+        .m_axi_awvalid(M_AXI_AWVALID),
+        .m_axi_bready(M_AXI_BREADY),
+        .m_axi_bresp(M_AXI_BRESP),
+        .m_axi_bvalid(M_AXI_BVALID),
+        .m_axi_rdata(M_AXI_RDATA),
+        .m_axi_rlast(M_AXI_RLAST),
+        .m_axi_rready(M_AXI_RREADY),
+        .m_axi_rresp(M_AXI_RRESP),
+        .m_axi_rvalid(M_AXI_RVALID),
+        .m_axi_wdata(M_AXI_WDATA),
+        .m_axi_wlast(M_AXI_WLAST),
+        .m_axi_wready(M_AXI_WREADY),
+        .m_axi_wstrb(M_AXI_WSTRB),
+        .m_axi_wvalid(M_AXI_WVALID),
 
-    assign ram_b_req_int        = (ram_b_req_t_int ^ ram_b_req_t_int1) & ~ram_a_req_int;
+        .s_axi_araddr(ARADDR),
+        .s_axi_arburst(ARBURST),
+        .s_axi_arcache(ARCACHE),
+        .s_axi_arlen(ARLEN),
+        .s_axi_arlock(ARLOCK),
+        .s_axi_arprot(ARPROT),
+        .s_axi_arqos(ARQOS),
+        .s_axi_arready(ARREADY),
+        .s_axi_arregion(ARREGION),
+        .s_axi_arsize(ARSIZE),
+        .s_axi_arvalid(ARVALID),
+        .s_axi_awaddr(AWADDR),
+        .s_axi_awburst(AWBURST),
+        .s_axi_awcache(AWCACHE),
+        .s_axi_awlen(AWLEN),
+        .s_axi_awlock(AWLOCK),
+        .s_axi_awprot(AWPROT),
+        .s_axi_awqos(AWQOS),
+        .s_axi_awready(AWREADY),
+        .s_axi_awregion(AWREGION),
+        .s_axi_awsize(AWSIZE),
+        .s_axi_awvalid(AWVALID),
+        .s_axi_bready(BREADY),
+        .s_axi_bresp(BRESP),
+        .s_axi_bvalid(BVALID),
+        .s_axi_rdata(RDATA),
+        .s_axi_rlast(RLAST),
+        .s_axi_rready(RREADY),
+        .s_axi_rresp(RRESP),
+        .s_axi_rvalid(RVALID),
+        .s_axi_wdata(WDATA),
+        .s_axi_wlast(WLAST),
+        .s_axi_wready(WREADY),
+        .s_axi_wstrb(WSTRB),
+        .s_axi_wvalid(WVALID),
 
-    always @(posedge ui_clk)
-    begin
-        ui_reset_int            <= ui_reset; 
-        reset_int               <= reset;
-
-        ram_a_addr_buf          <= ram_a_addr_i;
-        ram_a_req_buf           <= ram_a_req_i;
-        ram_a_rd_n_buf          <= ram_a_rd_n_i;
-        ram_a_do_buf            <= ram_a_do_i;
-        ram_b_addr_buf          <= ram_b_addr_i;
-        ram_b_req_t_buf         <= ram_b_req_t_i;
-
-        ram_a_addr_int          <= ram_a_addr_buf;
-        ram_a_req_int           <= ram_a_req_buf;
-        ram_a_rd_n_int          <= ram_a_rd_n_buf;
-        ram_a_do_int            <= ram_a_do_buf;
-        ram_b_addr_int          <= ram_b_addr_buf;
-        ram_b_req_t_int         <= ram_b_req_t_buf;
-
-        if (ram_b_req_int == 1'b1) 
-            ram_b_req_t_int1    <= ram_b_req_t_int;
-    end 
-
-    always @(negedge clk_cpu)
-    begin
-        ram_a_di_buf           <= ram_a_di_int;
-        ram_a_di_o             <= ram_a_di_buf;
-
-        ram_b_di_buf           <= ram_b_di_int;
-        ram_b_di_o             <= ram_b_di_buf;
-    end 
-
-    always @(negedge clk_cpux2)
-    begin
-        cpu_wait_buf           <= cpu_wait_int;
-    end 
-
-    always @(posedge clk_cpux2)
-    begin
-        cpu_wait_o             <= cpu_wait_buf;
-    end 
-
-    always @(posedge ui_clk)
-        if (rst == 1'b1) 
-        begin 
-            cState          <= stIdle;
-            c_active_port   <= 1'b0;
-        end else begin
-            cState          <= nState;
-            c_active_port   <= n_active_port;
-        end
-
-    always @(posedge ui_clk)
-    begin
-        arready_int         <= ARREADY;
-        rvalid_int          <= RVALID;
-        rready_int          <= RREADY;
-        awready_int         <= AWREADY;
-        wready_int          <= WREADY;
-        bvalid_int          <= BVALID;
-    end
-
-
-    always @(cState, c_active_port, init_calib_complete, mmcm_locked, ram_a_req_int, ram_b_req_int, ram_a_rd_n_int, arready_int, rvalid_int, rready_int, awready_int, wready_int, bvalid_int, BREADY)
-    begin
-        nState <= cState;
-        n_active_port <= c_active_port;
-        case (cState)
-            stIdle:
-                if (init_calib_complete == 1'b1 && mmcm_locked == 1'b1)
-                     if (ram_a_req_int == 1'b1)
-                     begin
-                        n_active_port <= 1'b0;
-                        nState <= ram_a_rd_n_int ? stWrite1 : stRead1;
-                     end else if (ram_b_req_int == 1'b1) 
-                     begin
-                        n_active_port <= 1'b1;
-                        nState <= stRead1;
-                     end else
-                        nState <= stIdle;  
-            stRead1:  
-                nState <= arready_int ? stRead2  : stRead1;
-            stRead2:  
-                nState <= rvalid_int  ? stRead3  : stRead2;
-            stRead3:  
-                nState <= rready_int  ? stIdle   : stRead3;
-            stWrite1: 
-                nState <= awready_int ? stWrite2 : stWrite1;
-            stWrite2:
-                nState <= wready_int  ? stWrite3 : stWrite2;
-            stWrite3:
-                nState <= bvalid_int  ? stWrite4 : stWrite3;
-            stWrite4:
-                nState <= BREADY      ? stIdle   : stWrite4;
-//            stWaitCen:
-//                nState <= ((ram_a_req_int == 1'b0 && c_active_port == 1'b1) || (ram_b_req_int == 1'b0 && c_active_port == 1'b0)) ? stIdle : stWaitCen;
-            default:
-                nState <= stIdle;
-        endcase  
-    end        
-
-    always @(posedge ui_clk)
-        case (cState)
-            stIdle:
-            begin
-				cpu_wait_int 		<= 1'b0;
-                RREADY 				<= 1'b0;
-                BREADY 				<= 1'b0;
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
-                AWADDR 				<= {27{1'b0}};
-                AWVALID 			<= 1'b0;
-                WDATA 				<= {32{1'b0}};
-                WLAST 				<= 1'b0;
-                WVALID 				<= 1'b0;
-                WSTRB 				<= 4'b0000;
-            end
-            stRead1:
-            begin  
-				cpu_wait_int 		<= 1'b1;
-                ARADDR[26:21] 		<= {6{1'b0}};
-                ARADDR[20:0] 		<= c_active_port ? ram_b_addr_int : ram_a_addr_int;
-                ARVALID 			<= 1'b1;
-            end
-            stRead2:
-            begin
-				cpu_wait_int 		<= 1'b1;
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
-            end
-            stRead3:
-            begin
-				cpu_wait_int 		<= 1'b1;
-                if (c_active_port)
-                    ram_b_di_int 	<= RDATA[7:0];
-                else   
-                    ram_a_di_int 	<= RDATA[7:0];
-                s_rresp 			<= RRESP;
-                RREADY 				<= 1'b1;
-            end
-            stWrite1: 
-            begin
-				cpu_wait_int 		<= 1'b1;
-                AWADDR[26:21] 		<= {6{1'b0}};
-                AWADDR[20:0] 		<= ram_a_addr_int;
-                AWVALID 			<= 1'b1;
-            end
-            stWrite2:
-            begin
-				cpu_wait_int 		<= 1'b1;
-                AWADDR 				<= {27{1'b0}};
-                AWVALID 			<= 1'b0;
-                WDATA[31:8] 		<= {24{1'b0}};
-                WDATA[7:0] 			<= ram_a_do_i;
-                WLAST 				<= 1'b1;
-                WVALID 				<= 1'b1;
-                WSTRB 				<= 4'b0001;
-            end
-            stWrite3:
-            begin
-				cpu_wait_int 		<= 1'b1;
-                WDATA 				<= {32{1'b0}};
-                WLAST 				<= 1'b0;
-                WVALID				<= 1'b0;
-                WSTRB 				<= 4'b0000;
-            end
-            stWrite4:
-            begin
-				cpu_wait_int 		<= 1'b1;
-                s_bresp 			<= BRESP;
-                BREADY 				<= 1'b1;
-            end
-            stWaitCen:
-            begin
-				cpu_wait_int 		<= 1'b0;
-                RREADY 				<= 1'b0;
-                BREADY 				<= 1'b0;
-            end
-        endcase  
-
+        .m_axi_aclk(clk_ui),
+        .m_axi_aresetn(~reset_ui),
+        .s_axi_aclk(clk_memory),
+        .s_axi_aresetn(~reset_memory)
+    );
+    
 endmodule

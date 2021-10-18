@@ -60,7 +60,7 @@ entity ps2_keyb is
       o_ps2_func_keys_n : out std_logic_vector(7 downto 0);
       -- programmable keymap
       i_keymap_addr     : in std_logic_vector(8 downto 0);
-      i_keymap_data     : in std_logic_vector(7 downto 0);
+      i_keymap_data     : in std_logic_vector(8 downto 0);
       i_keymap_we       : in std_logic
    );
 end entity;
@@ -215,7 +215,7 @@ begin
    (
       clock_i     => i_CLK_n,
       addr_wr_i   => i_keymap_addr,
-      data_i      => '0' & i_keymap_data,
+      data_i      => i_keymap_data,
       we_i        => i_keymap_we,
       --
       addr_rd_i   => ps2_key_extend & ps2_receive_data,

@@ -21,34 +21,34 @@
 
 
 module zxkeyboard(
-    input clk_i,
-    output clk_o,
-    output clk_t,
+    input 			clk_i,
+    output 			clk_o,
+    output 			clk_t,
     
-    input data_i,
-    output data_o,
-    output data_t,
+    input 			data_i,
+    output 			data_o,
+    output 			data_t,
 
-    input divmmc,
-    input multiface,
+    input 			divmmc,
+    input 			multiface,
 
-    output [10:1] spkey_function,
-    output [1:0] spkey_buttons,
-    input cancel,
-    input [7:0] row,
-    output [4:0] column,
-    output [15:0] extended_keys,
-    input [8:0] keymap_addr,
-    input [7:0] keymap_data,
-    input keymap_we,
-    input joymap_we,
+    output 	[10:1]	spkey_function,
+    output 	[1:0] 	spkey_buttons,
+    input 			cancel,
+    input 	[7:0] 	row,
+    output 	[4:0] 	column,
+    output 	[15:0] 	extended_keys,
+    input 	[8:0] 	keymap_addr,
+    input 	[8:0] 	keymap_data,
+    input 			keymap_we,
+    input 			joymap_we,
     
-    input clk_28,
-    input clk_28_n,
-    input reset
+    input 			clk_peripheral,
+    input 			clk_peripheral_n,
+    input 			reset
     );
     
-    reg [17:0] clk_28_div;
+    reg [17:0] clk_div;
     
     wire [2:0] ps2_row;
     wire [6:0] ps2_column;
@@ -64,14 +64,14 @@ module zxkeyboard(
     assign spkey_buttons = {divmmc, multiface};
     assign spkey_function = {membrane_fnkeys[10] | ~ps2_mmc_n | divmmc, membrane_fnkeys[9] | ~ps2_mf_n | multiface, membrane_fnkeys[8:1] | ~ps2_func_keys_n[8:1]}; 
 
-    assign fnkeys_enable = (clk_28_div[17:0] == {18{1'b1}}) ? 1'b1 : 1'b0;      // 9.36ms period for debounce
-    assign membrane_enable = (clk_28_div[8:7] == 2'b11) ? 1'b1 : 1'b0;         // complete scan every 2.5 scanlines (0.018ms per row)
+    assign fnkeys_enable = (clk_div[17:0] == {18{1'b1}}) ? 1'b1 : 1'b0;      // 9.36ms period for debounce
+    assign membrane_enable = (clk_div[8:7] == 2'b11) ? 1'b1 : 1'b0;         // complete scan every 2.5 scanlines (0.018ms per row)
 
     
     ps2_keyb #(.CLK_KHZ(218)) keyb (
-      .i_CLK(clk_28),
-      .i_CLK_n(clk_28_n),
-      .i_CLK_PS2(clk_28_div[6]),    // ps2 module cannot handle 28MHz clock
+      .i_CLK(clk_peripheral),
+      .i_CLK_n(clk_peripheral_n),
+      .i_CLK_PS2(clk_div[6]),    // ps2 module cannot handle 28MHz clock
       .i_reset(reset),
       // ps2 interface
       .i_ps2_clk_in(clk_i),
@@ -98,7 +98,7 @@ module zxkeyboard(
       .CLOCK_EN_PERIOD_MS(10),      // debounce period is 9.6ms
       .BUTTON_PERIOD_MS(1000)      // button held for less than 1s constitutes a short press
       ) fnkeys (   
-      .i_CLK(clk_28),
+      .i_CLK(clk_peripheral),
       .i_CLK_EN(fnkeys_enable),
       
       .i_reset(reset),
@@ -116,7 +116,7 @@ module zxkeyboard(
    );
 
    membrane memb (
-      .i_CLK(clk_28),
+      .i_CLK(clk_peripheral),
       .i_CLK_EN(membrane_enable),
       
       .i_reset(reset),
@@ -132,7 +132,7 @@ module zxkeyboard(
       .o_extended_keys(extended_keys)
    );    
     
-   always @(posedge clk_28)
-        clk_28_div <= clk_28_div + 1'b1;
+   always @(posedge clk_peripheral)
+        clk_div <= clk_div + 1'b1;
          
 endmodule

@@ -36,7 +36,7 @@ module zxaudio(
     output sclk,
     output sdout,
     
-    input clk_28,
+    input clk_peripheral,
     input reset
     );
     
@@ -44,7 +44,7 @@ module zxaudio(
     
     reg [3:0] clk_div;
     
-    assign mclk = clk_28;
+    assign mclk = clk_peripheral;
     assign psg_en = (clk_div == 4'b1110) ? 1'b1 : 1'b0;
     
     i2s_master #(
@@ -54,7 +54,7 @@ module zxaudio(
         .LR_WIDTH_MBIT(3)
     ) i2s_m (
         .i_reset(reset),
-        .i_CLK(clk_28),
+        .i_CLK(clk_peripheral),
         .i_CLK_DIV(0),
         .o_i2s_sck(sclk), 
         .o_i2s_ws(lrck),   
@@ -64,7 +64,7 @@ module zxaudio(
     i2s_transmit #(
         .LR_WIDTH(12) 
     ) i2s_t (
-        .i_CLK(clk_28),
+        .i_CLK(clk_peripheral),
         .i_reset(reset),
         .i_i2s_sck(sclk), 
         .i_i2s_ws(lrck),   
@@ -74,7 +74,7 @@ module zxaudio(
         .i_i2s_R(audio_right[12] == 1'b1 ? {12{1'b1}} : audio_right[11:0])
     );       
     
-    always @(posedge clk_28)
+    always @(posedge clk_peripheral)
         clk_div <= clk_div + 1;
     
 endmodule

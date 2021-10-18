@@ -21,8 +21,11 @@
 
 
 module zxtape(
-    output ear,
-    input mic
+    output 	ear,
+    input 	mic,
+    
+    input	clk_peripheral,
+    input	reset
     );
     
     assign ear = mic;

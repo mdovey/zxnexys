@@ -241,10 +241,10 @@ ISE properties and sources and mapped into the current project:-
 Section (3.1) - Target Device
 -----------------------------
 
-Default Part = xc7vx485tffg1157-1
-Family       = virtex7
-Package      = ffg1157
-Speed Grade  = -1
+Default Part = xc7a12ticsg325-1L
+Family       = artix7
+Package      = csg325
+Speed Grade  = -1L
 
 
 Section (3.2) - Filesets
@@ -295,307 +295,307 @@ FILE_TYPE = Coefficient Files
 LIBRARY   = xil_defaultlib
 
 NAME      = t80n_pack.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/cpu/t80n_pack.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80n_pack.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = debounce.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/misc/debounce.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/misc/debounce.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = im2_device.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/im2_device.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_device.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = t80n_mcode.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/cpu/t80n_mcode.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80n_mcode.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = t80n_alu.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/cpu/t80n_alu.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80n_alu.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = uart_tx.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/serial/uart_tx.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart_tx.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = uart_rx.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/serial/uart_rx.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart_rx.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = fifop.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/serial/fifop.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/fifop.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = tdpram.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/ram/tdpram.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/ram/tdpram.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = im2_peripheral.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/im2_peripheral.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_peripheral.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = ctc_chan.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/ctc_chan.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/ctc_chan.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = t80n.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/cpu/t80n.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80n.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = ym2149.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/ym2149.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/ym2149.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = i2s_transmit.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/i2s/i2s_transmit.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/i2s/i2s_transmit.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = i2s_slave.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/i2s/i2s_slave.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/i2s/i2s_slave.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = i2s_receive.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/i2s/i2s_receive.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/i2s/i2s_receive.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = zxula_timing.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/zxula_timing.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/zxula_timing.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = zxula.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/zxula.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/zxula.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = tilemap.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/tilemap.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/tilemap.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = sprites.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/sprites.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/sprites.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = lores.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/lores.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/lores.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = layer2.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/layer2.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/layer2.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = hdmidelay.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/hdmi/hdmidelay.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/hdmi/hdmidelay.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = hdmidataencoder.v
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/hdmi/hdmidataencoder.v
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/hdmi/hdmidataencoder.v
 FILE_TYPE = Verilog
 LIBRARY   = xil_defaultlib
 
 NAME      = encoder.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/hdmi/encoder.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/hdmi/encoder.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = uart.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/serial/uart.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = spi_master.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/serial/spi_master.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/spi_master.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = bootrom.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/rom/bootrom.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/rom/bootrom.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = dpram2.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/ram/dpram2.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/ram/dpram2.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = pll_drp.v
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/pll/pll_drp.v
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/pll/pll_drp.v
 FILE_TYPE = Verilog
 LIBRARY   = xil_defaultlib
 
 NAME      = ps2_iobase.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/keyboard/ps2_iobase.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/keyboard/ps2_iobase.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = keymaps.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/keyboard/keymaps.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/keyboard/keymaps.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = peripherals.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/peripherals.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/peripherals.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = multiface.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/multiface.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/multiface.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = im2_control.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/im2_control.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_control.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = dma.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/dma.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/dma.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = divmmc.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/divmmc.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/divmmc.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = ctc.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/ctc.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/ctc.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = copper.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/device/copper.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/copper.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = t80na.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/cpu/t80na.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80na.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = turbosound.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/turbosound.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/turbosound.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = soundrive.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/soundrive.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/soundrive.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = i2s.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/i2s.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/i2s.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = audio_mixer.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/audio_mixer.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/audio_mixer.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = zxnext.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/zxnext.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/zxnext.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = scan_convert.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/vga/scan_convert.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/vga/scan_convert.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = hdmi_out_xilinx.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/hdmi/xilinx/hdmi_out_xilinx.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/hdmi/xilinx/hdmi_out_xilinx.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = hdmi_frame.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/hdmi/hdmi_frame.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/hdmi/hdmi_frame.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = hdmi.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/video/hdmi/hdmi.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/video/hdmi/hdmi.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = pll_top.v
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/pll/pll_top.v
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/pll/pll_top.v
 FILE_TYPE = Verilog
 LIBRARY   = xil_defaultlib
 
 NAME      = flashboot.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/misc/flashboot.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/misc/flashboot.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = asymmetrical_debounce.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/misc/asymmetrical_debounce.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/misc/asymmetrical_debounce.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = ps2_mouse.v
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/ps2_mouse.v
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/ps2_mouse.v
 FILE_TYPE = Verilog
 LIBRARY   = xil_defaultlib
 
 NAME      = membrane_stick.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/membrane/membrane_stick.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/membrane/membrane_stick.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = membrane.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/membrane/membrane.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/membrane/membrane.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = emu_fnkeys.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/membrane/emu_fnkeys.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/membrane/emu_fnkeys.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = md6_joystick_connector_x2.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/md6_joystick_connector_x2.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/md6_joystick_connector_x2.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = ps2_keyb.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/input/keyboard/ps2_keyb.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/keyboard/ps2_keyb.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = dac.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/audio/dac.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/audio/dac.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = zxnext_top_issue2.vhd
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/zxnext_top_issue2.vhd
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/zxnext_top_issue2.vhd
 FILE_TYPE = VHDL
 LIBRARY   = xil_defaultlib
 
 NAME      = pll_drp_func.h
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/sources_1/imports/src/pll/pll_drp_func.h
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/pll/pll_drp_func.h
 FILE_TYPE = Verilog Header
 LIBRARY   = xil_defaultlib
 
@@ -610,7 +610,7 @@ Note: During the import operation, any constraint file(s) that are found in the 
 
 File(s):-
 NAME      = zxnext_pins_issue2.ucf
-FILE PATH = V:/zxnext/zxnext/zxnext.srcs/constrs_1/imports/src/zxnext_pins_issue2.ucf
+FILE PATH = V:/zxnext/ZX_Spectrum_Next_FPGA/cores/zxnext/src/zxnext_pins_issue2.ucf
 FILE_TYPE = Unknown
 
 
@@ -631,7 +631,7 @@ Section (3.3) - Design Runs(s)
 
 <synth_1>
 FLOW      = Vivado Synthesis 2021
-PART      = xc7vx485tffg1157-1
+PART      = xc7a12ticsg325-1L
 SRCSET    = sources_1
 CONSTRSET = constrs_1
 STRATEGY  = Vivado Synthesis Defaults
@@ -644,7 +644,7 @@ Note: The current run uses Vivado Strategies; hence no ISE run options will be m
 
 <impl_1>
 FLOW      = Vivado Implementation 2021
-PART      = xc7vx485tffg1157-1
+PART      = xc7a12ticsg325-1L
 SRCSET    = sources_1
 CONSTRSET = constrs_1
 STRATEGY  = Vivado Implementation Defaults

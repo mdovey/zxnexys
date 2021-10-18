@@ -256,7 +256,6 @@
       <spirit:logicalName>ieo</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
@@ -331,7 +330,6 @@
       <spirit:logicalName>nmi_debounce_disable</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>

@@ -21,10 +21,10 @@
 
 
 module zxrtc(
-    output scl_in,
-    output sda_in,
-    input scl_out,
-    input sda_out,
+    output 	scl_in,
+    output 	sda_in,
+    input 	scl_out,
+    input 	sda_out,
     
     input   scl_i,
     output  scl_o,
@@ -32,7 +32,10 @@ module zxrtc(
     
     input   sda_i,
     output  sda_o,
-    output  sda_t
+    output  sda_t,
+    
+    input	clk_peripheral,
+    input	reset
     );
     
     assign scl_in   = scl_i;

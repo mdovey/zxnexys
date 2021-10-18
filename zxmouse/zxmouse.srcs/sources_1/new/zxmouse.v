@@ -36,11 +36,11 @@ module zxmouse(
     output data_o,
     output data_t,        
     
-    input clk_28,
+    input clk_peripheral,
     input reset
     );
     
-    reg [7:0] clk_28_div;
+    reg [7:0] clk_div;
     wire [7:0] mouse_wheel;
     
     assign wheel = mouse_wheel[3:0];
@@ -50,7 +50,7 @@ module zxmouse(
  
     ps2_mouse mouse (
         .reset(reset),
-        .clk(clk_28_div[7]),
+        .clk(clk_div[7]),
         
         .ps2mdat_i(data_i),
         .ps2mclk_i(clk_i),
@@ -69,7 +69,7 @@ module zxmouse(
         .mthird(button[2])
     );   
     
-    always @(posedge clk_28)
-        clk_28_div <= clk_28_div + 1'b1; 
+    always @(posedge clk_peripheral)
+        clk_div <= clk_div + 1'b1; 
 
 endmodule

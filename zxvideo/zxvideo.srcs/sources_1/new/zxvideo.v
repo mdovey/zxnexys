@@ -21,37 +21,37 @@
 
 
 module zxvideo (
-    output reg [3:0] r,
-    output reg [3:0] g,
-    output reg [3:0] b,
-    output reg hs,
-    output reg vs,
+    output	reg	[3:0] 	r,
+    output	reg [3:0] 	g,
+    output	reg [3:0] 	b,
+    output	reg			hs,
+    output	reg 		vs,
 
-    input [8:0] rgb,
-    input csync_n,
-    input vsync_n,
-    input hsync_n,
-    input vblank_n,
-    input hblank_n,
-    input freq_50_60,
-    input [1:0] scanlines,
-    input scandouble,
-    input [2:0] video_mode,
-    input [2:0] machine_timing,
-    input hdmi_reset,
-    input hdmi_audio_en,
+    input 		[8:0] 	rgb,
+    input 				csync_n,
+    input 				vsync_n,
+    input 				hsync_n,
+    input 				vblank_n,
+    input 				hblank_n,
+    input 				freq_50_60,
+    input 		[1:0] 	scanlines,
+    input 				scandouble,
+    input 		[2:0] 	video_mode,
+    input 		[2:0] 	machine_timing,
+    input 				hdmi_reset,
+    input 				hdmi_audio_en,
 
-    input clk_14,
-    input clk_28,
-    input reset
+    input 				clk_video,
+    input 				clk_peripheral,
+    input 				reset
     );
 
-    wire [10:0] ha_value; 
-    wire [8:0] video_15;
-    wire [8:0] video_31;
-    wire hsync;
-    wire vsync;
-    wire blank;
+    wire 		[10:0]	ha_value; 
+    wire 		[8:0] 	video_15;
+    wire 		[8:0] 	video_31;
+    wire 				hsync;
+    wire 				vsync;
+    wire 				blank;
     
     assign ha_value = (machine_timing[1] == 0) ? 48 : 0; // 48k = 000 or 001, Pentagon = 100
     
@@ -71,8 +71,8 @@ module zxvideo (
         .vD(284*2),           // visible video
         .vpad(0*2)            // create V black border
     ) sc (
-        .CLK(clk_14),
-        .CLK_x2(clk_28),
+        .CLK(clk_video),
+        .CLK_x2(clk_peripheral),
         
         .hA(ha_value),
         .I_VIDEO(rgb),
@@ -89,7 +89,7 @@ module zxvideo (
     );
 
 
-    always @(negedge clk_28)
+    always @(negedge clk_peripheral)
     begin
         if (scandouble) 
         begin
