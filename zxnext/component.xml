@@ -1086,7 +1086,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e1c3259d</spirit:value>
+            <spirit:value>08c63c5a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1108,7 +1108,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e1c3259d</spirit:value>
+            <spirit:value>08c63c5a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2738,7 +2738,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="std_logic_vector(7 downto 0)">
         <spirit:name>g_machine_id</spirit:name>
         <spirit:displayName>G Machine Id</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.g_machine_id" spirit:bitStringLength="8">&quot;01111010&quot;</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.g_machine_id" spirit:bitStringLength="8">&quot;00001010&quot;</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector(7 downto 0)">
         <spirit:name>g_version</spirit:name>
@@ -2951,7 +2951,7 @@
       <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/zxnext.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b18a78aa</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_19ccbf82</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -3188,7 +3188,7 @@
     <spirit:parameter>
       <spirit:name>g_machine_id</spirit:name>
       <spirit:displayName>G Machine Id</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_machine_id" spirit:choiceRef="choice_pairs_9127bb6b" spirit:bitStringLength="8">&quot;01111010&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_machine_id" spirit:choiceRef="choice_pairs_9127bb6b" spirit:bitStringLength="8">&quot;00001010&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>g_version</spirit:name>
@@ -3218,8 +3218,8 @@
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>43</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-16T14:25:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>45</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-10-18T12:05:03Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@31277bd8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@54452072_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
@@ -3870,15 +3870,38 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@569b0bd_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2cf29f57_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3ec3e148_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63e2db05_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a617695_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fe99355_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18f56e26_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d3a93d1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@753330d3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@177afce5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59896084_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39d437d1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c1724ea_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@646e58e0_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a497e8f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e6ed6a5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5cb24395_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e9cbe55_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b5b0280_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58d8d1b7_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55395547_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72835598_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4037c80a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13a9592f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2db48b70_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a09faae_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d8550d8b"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="eefaecf8"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d014868c"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="95a55d9b"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="3f89a8c9"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="5924e867"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="35137edd"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="6bdd86c2"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

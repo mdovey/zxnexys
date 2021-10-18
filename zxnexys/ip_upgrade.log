@@ -1,6 +1,60 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Oct 18 13:06:16 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxnext_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxnext_0_0 (specnext.com:specnext:zxnext:1.0) from (Rev. 43) to (Rev. 45)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration. Attempting partial upgrade to set as many user parameters as possible. Please check the parameters whose values were not applied.
+
+Unable to set the value '"01111010"' on parameter 'G Machine Id' due to the following failure - 
+Value '"01111010"' is out of the range for parameter 'G Machine Id(g_machine_id)' for BD Cell 'zxnexys_zxnext_0_0' . Valid values are - "00000001", "00000010", "00000101", "00000110", "00000111", "00001011", "00001000", "00001010", "11111010", "10001010", "10011010", "10101010", "10111010", "11001010", "11011010", "11101010"
+. Restoring to an old valid value of '"00001010"'
+
+
+3. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv specnext.com:specnext:zxnext:1.0 -user_name zxnexys_zxnext_0_0
+set_property -dict "\
+  CONFIG.Component_Name {zxnexys_zxnext_0_0} \
+  CONFIG.g_machine_id {"01111010"} \
+  CONFIG.g_sub_version {"00000101"} \
+  CONFIG.g_version {"00110001"} \
+  CONFIG.mb_reset.NUM_READ_OUTSTANDING {} \
+  CONFIG.mb_reset.NUM_WRITE_OUTSTANDING {} \
+  CONFIG.video.NUM_READ_OUTSTANDING {} \
+  CONFIG.video.NUM_WRITE_OUTSTANDING {} " [get_ips zxnexys_zxnext_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Mon Oct 18 12:29:57 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

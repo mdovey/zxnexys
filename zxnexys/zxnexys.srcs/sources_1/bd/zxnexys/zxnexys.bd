@@ -14,13 +14,13 @@
       "clk_wiz_0": "",
       "mig_7series_0": "",
       "zxvideo_0": "",
-      "zxnext_0": "",
       "mig_reset_0": "",
       "zxram_0": "",
       "zxreset_0": "",
       "zxclock_0": "",
       "zxleddisplay_0": "",
-      "zxleds_0": ""
+      "zxleds_0": "",
+      "zxnext_0": ""
     },
     "interface_ports": {
       "ddr2_sdram": {
@@ -348,17 +348,6 @@
         "xci_path": "ip\\zxnexys_zxvideo_0_0\\zxnexys_zxvideo_0_0.xci",
         "inst_hier_path": "zxvideo_0"
       },
-      "zxnext_0": {
-        "vlnv": "specnext.com:specnext:zxnext:1.0",
-        "xci_name": "zxnexys_zxnext_0_0",
-        "xci_path": "ip\\zxnexys_zxnext_0_0\\zxnexys_zxnext_0_0.xci",
-        "inst_hier_path": "zxnext_0",
-        "parameters": {
-          "g_sub_version": {
-            "value": "\"00000101\""
-          }
-        }
-      },
       "mig_reset_0": {
         "vlnv": "xilinx.com:module_ref:mig_reset:1.0",
         "xci_name": "zxnexys_mig_reset_0_0",
@@ -462,6 +451,20 @@
         "xci_name": "zxnexys_zxleds_0_0",
         "xci_path": "ip\\zxnexys_zxleds_0_0\\zxnexys_zxleds_0_0.xci",
         "inst_hier_path": "zxleds_0"
+      },
+      "zxnext_0": {
+        "vlnv": "specnext.com:specnext:zxnext:1.0",
+        "xci_name": "zxnexys_zxnext_0_0",
+        "xci_path": "ip\\zxnexys_zxnext_0_0\\zxnexys_zxnext_0_0.xci",
+        "inst_hier_path": "zxnext_0",
+        "parameters": {
+          "g_machine_id": {
+            "value": "\"10001010\""
+          },
+          "g_sub_version": {
+            "value": "\"00000101\""
+          }
+        }
       }
     },
     "interface_nets": {
