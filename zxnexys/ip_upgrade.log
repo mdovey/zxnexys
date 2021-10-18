@@ -1,6 +1,104 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Oct 18 17:42:28 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxnext_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxnext_0_0 (specnext.com:specnext:zxnext:1.0) from (Rev. 46) to (Rev. 48)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Oct 18 17:37:41 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxnext_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxnext_0_0 (specnext.com:specnext:zxnext:1.0) from (Rev. 45) to (Rev. 46)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxnext_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'o_KEYMAP_DATA' width 9 differs from original width 8
+
+-Upgrade has removed port 'i_RESET'
+
+-Upgrade has removed port 'o_BUS_IEO'
+
+-Upgrade has removed port 'o_JOYMAP_WE'
+
+-Upgrade has removed port 'o_JOY_IO_MODE_EN'
+
+-Upgrade has removed port 'o_JOY_LEFT_TYPE'
+
+-Upgrade has removed port 'o_JOY_RIGHT_TYPE'
+
+-Upgrade has removed port 'o_RAM_A_RD_n'
+
+-Upgrade has added port 'i_RESET_HARD'
+
+-Upgrade has added port 'i_RESET_SOFT'
+
+-Upgrade has added port 'o_JOY_IO_MODE'
+
+-Upgrade has added port 'o_JOY_IO_MODE_LR'
+
+-Upgrade has added port 'o_RAM_A_RD'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Oct 18 16:05:18 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxnext_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of zxnexys_zxnext_0_0 (specnext.com:specnext:zxnext:1.0 (Rev. 45)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Mon Oct 18 13:06:16 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

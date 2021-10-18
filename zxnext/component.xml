@@ -197,14 +197,6 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>ieo</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_BUS_IEO</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>rd_n</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -333,14 +325,6 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>io_mode_en</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_JOY_IO_MODE_EN</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>right</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -365,18 +349,18 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>left_type</spirit:name>
+            <spirit:name>io_mode</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>o_JOY_LEFT_TYPE</spirit:name>
+            <spirit:name>o_JOY_IO_MODE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>right_type</spirit:name>
+            <spirit:name>io_mode_lr</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>o_JOY_RIGHT_TYPE</spirit:name>
+            <spirit:name>o_JOY_IO_MODE_LR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -393,14 +377,6 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_KBD_CANCEL</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>joymap_we</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_JOYMAP_WE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -557,14 +533,6 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>reset_mb</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_RESET</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>reset_soft_req</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -585,6 +553,22 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_RESET_PERIPHERAL</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>reset_mb_hard</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>i_RESET_HARD</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>reset_mb_soft</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>i_RESET_SOFT</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -735,10 +719,10 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>ram_rd_n</spirit:name>
+            <spirit:name>ram_rd</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>o_RAM_A_RD_n</spirit:name>
+            <spirit:name>o_RAM_A_RD</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -1086,7 +1070,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>08c63c5a</spirit:value>
+            <spirit:value>d92082c7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1108,7 +1092,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>08c63c5a</spirit:value>
+            <spirit:value>d92082c7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1256,7 +1240,20 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>i_RESET</spirit:name>
+        <spirit:name>i_RESET_HARD</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>i_RESET_SOFT</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1457,7 +1454,7 @@
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:left spirit:format="long">8</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1471,19 +1468,6 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>o_KEYMAP_WE</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>o_JOYMAP_WE</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1536,7 +1520,24 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>o_JOY_IO_MODE_EN</spirit:name>
+        <spirit:name>o_JOY_IO_MODE</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>o_JOY_IO_MODE_LR</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -1555,40 +1556,6 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>o_JOY_LEFT_TYPE</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>o_JOY_RIGHT_TYPE</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -2214,7 +2181,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>o_RAM_A_RD_n</spirit:name>
+        <spirit:name>o_RAM_A_RD</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -2556,19 +2523,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>o_BUS_IEO</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>i_BUS_ROMCS_n</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -2738,7 +2692,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="std_logic_vector(7 downto 0)">
         <spirit:name>g_machine_id</spirit:name>
         <spirit:displayName>G Machine Id</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.g_machine_id" spirit:bitStringLength="8">&quot;00001010&quot;</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.g_machine_id" spirit:bitStringLength="8">&quot;01111010&quot;</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="std_logic_vector(7 downto 0)">
         <spirit:name>g_version</spirit:name>
@@ -2748,7 +2702,7 @@
       <spirit:modelParameter spirit:dataType="std_logic_vector(7 downto 0)">
         <spirit:name>g_sub_version</spirit:name>
         <spirit:displayName>G Sub Version</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.g_sub_version" spirit:bitStringLength="8">&quot;00001011&quot;</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.g_sub_version" spirit:bitStringLength="8">&quot;00001000&quot;</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -2793,19 +2747,11 @@
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80n_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/misc/debounce.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_device.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2817,23 +2763,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart_tx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart_rx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/fifop.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/ram/tdpram.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_peripheral.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2901,15 +2835,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/peripherals.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/multiface.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2951,7 +2877,7 @@
       <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/zxnext.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_19ccbf82</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_3591b098</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -2993,19 +2919,11 @@
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/cpu/t80n_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/misc/debounce.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_device.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -3017,23 +2935,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart_tx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/uart_rx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/fifop.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/ram/tdpram.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_peripheral.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -3101,15 +3007,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/peripherals.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/multiface.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/device/im2_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -3188,7 +3086,7 @@
     <spirit:parameter>
       <spirit:name>g_machine_id</spirit:name>
       <spirit:displayName>G Machine Id</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_machine_id" spirit:choiceRef="choice_pairs_9127bb6b" spirit:bitStringLength="8">&quot;00001010&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_machine_id" spirit:choiceRef="choice_pairs_9127bb6b" spirit:bitStringLength="8">&quot;01111010&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>g_version</spirit:name>
@@ -3198,7 +3096,7 @@
     <spirit:parameter>
       <spirit:name>g_sub_version</spirit:name>
       <spirit:displayName>G Sub Version</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_sub_version" spirit:bitStringLength="8">&quot;00001011&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_sub_version" spirit:bitStringLength="8">&quot;00001000&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -3218,8 +3116,8 @@
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>45</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-18T12:05:03Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>48</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-10-18T16:41:31Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@31277bd8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@54452072_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
@@ -3893,15 +3791,45 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@13a9592f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2db48b70_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7a09faae_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1214a2d1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@510fe7af_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70c30126_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17364c8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dc854a4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4e69b4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68754a5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ed03321_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21f9a7d2_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6da572ba_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f686213_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6830b970_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56002c30_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16fdb839_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@308fe9de_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ad3e1c2_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31d2d4d1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@127753f4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b13ae17_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68019adb_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5afc150c_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8e94ef1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fc01750_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b44700e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b5ee87a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43271e43_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18d820f3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@663f111_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@729e2f9_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ee21d15_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="d8550d8b"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d014868c"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="95a55d9b"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="35137edd"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="6bdd86c2"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ea432d5d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="49778220"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="d07e09a0"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="34e09e2b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="32bfe9c9"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

@@ -39,24 +39,24 @@
       <data key="VT">AC</data>
     </node>
     <node id="n1">
-      <data key="VH">2</data>
-      <data key="VM">zxnexys</data>
-      <data key="VT">VR</data>
-    </node>
-    <node id="n2">
       <data key="TU">active</data>
       <data key="VH">2</data>
       <data key="VT">PM</data>
+    </node>
+    <node id="n2">
+      <data key="VH">2</data>
+      <data key="VM">zxnexys</data>
+      <data key="VT">VR</data>
     </node>
     <node id="n3">
       <data key="VM">zxnexys</data>
       <data key="VT">BC</data>
     </node>
-    <edge id="e0" source="n3" target="n1">
+    <edge id="e0" source="n3" target="n2">
     </edge>
-    <edge id="e1" source="n1" target="n2">
+    <edge id="e1" source="n2" target="n1">
     </edge>
-    <edge id="e2" source="n0" target="n2">
+    <edge id="e2" source="n0" target="n1">
       <data key="EH">2</data>
     </edge>
   </graph>

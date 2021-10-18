@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5D5A6898965FED4B",
+      "boundary_crc": "0x2D0601720E873877",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys",
       "name": "zxnexys",
@@ -19,7 +19,8 @@
       "zxreset_0": "",
       "zxclock_0": "",
       "zxleddisplay_0": "",
-      "zxleds_0": "",
+      "zxsdcard_0": "",
+      "pmod_xsd_0": "",
       "zxnext_0": ""
     },
     "interface_ports": {
@@ -77,6 +78,11 @@
             "value_src": "default"
           }
         }
+      },
+      "JC": {
+        "mode": "Master",
+        "vlnv_bus_definition": "digilentinc.com:interface:pmod:1.0",
+        "vlnv": "digilentinc.com:interface:pmod_rtl:1.0"
       }
     },
     "ports": {
@@ -153,11 +159,6 @@
       },
       "VGA_VS": {
         "direction": "O"
-      },
-      "LED": {
-        "direction": "O",
-        "left": "15",
-        "right": "0"
       }
     },
     "components": {
@@ -446,11 +447,17 @@
         "xci_path": "ip\\zxnexys_zxleddisplay_0_0\\zxnexys_zxleddisplay_0_0.xci",
         "inst_hier_path": "zxleddisplay_0"
       },
-      "zxleds_0": {
-        "vlnv": "specnext.com:specnext:zxleds:1.0",
-        "xci_name": "zxnexys_zxleds_0_0",
-        "xci_path": "ip\\zxnexys_zxleds_0_0\\zxnexys_zxleds_0_0.xci",
-        "inst_hier_path": "zxleds_0"
+      "zxsdcard_0": {
+        "vlnv": "specnext.com:specnext:zxsdcard:1.0",
+        "xci_name": "zxnexys_zxsdcard_0_0",
+        "xci_path": "ip\\zxnexys_zxsdcard_0_0\\zxnexys_zxsdcard_0_0.xci",
+        "inst_hier_path": "zxsdcard_0"
+      },
+      "pmod_xsd_0": {
+        "vlnv": "specnext.com:specnext:pmod_xsd:1.0",
+        "xci_name": "zxnexys_pmod_xsd_0_0",
+        "xci_path": "ip\\zxnexys_pmod_xsd_0_0\\zxnexys_pmod_xsd_0_0.xci",
+        "inst_hier_path": "pmod_xsd_0"
       },
       "zxnext_0": {
         "vlnv": "specnext.com:specnext:zxnext:1.0",
@@ -474,6 +481,12 @@
           "mig_7series_0/DDR2"
         ]
       },
+      "pmod_xsd_0_pmod_xsd": {
+        "interface_ports": [
+          "JC",
+          "pmod_xsd_0/pmod_xsd"
+        ]
+      },
       "zxclock_0_mb_clock": {
         "interface_ports": [
           "zxclock_0/mb_clock",
@@ -486,15 +499,9 @@
           "zxnext_0/mb_clock"
         ]
       },
-      "zxleds_0_ram_port_a_out": {
-        "interface_ports": [
-          "zxleds_0/ram_port_a_out",
-          "zxram_0/ram_port_a"
-        ]
-      },
       "zxnext_0_ram_port_a": {
         "interface_ports": [
-          "zxleds_0/ram_port_a_in",
+          "zxram_0/ram_port_a",
           "zxnext_0/ram_port_a"
         ]
       },
@@ -502,6 +509,18 @@
         "interface_ports": [
           "zxram_0/ram_port_b",
           "zxnext_0/ram_port_b"
+        ]
+      },
+      "zxnext_0_sd0_enable": {
+        "interface_ports": [
+          "zxnext_0/sd0_enable",
+          "zxsdcard_0/sdcard_enable_n"
+        ]
+      },
+      "zxnext_0_sdcard": {
+        "interface_ports": [
+          "zxnext_0/sdcard",
+          "zxsdcard_0/sdcard_in"
         ]
       },
       "zxnext_0_video": {
@@ -610,6 +629,18 @@
           "mig_7series_0/sys_rst"
         ]
       },
+      "pmod_xsd_0_sd_cd": {
+        "ports": [
+          "pmod_xsd_0/sd_cd",
+          "zxsdcard_0/sd_cd"
+        ]
+      },
+      "pmod_xsd_0_sd_cmd": {
+        "ports": [
+          "pmod_xsd_0/sd_cmd",
+          "zxsdcard_0/sd_cmd"
+        ]
+      },
       "reset_1": {
         "ports": [
           "reset",
@@ -649,19 +680,14 @@
           "zxclock_0/clk_peripheral",
           "zxvideo_0/clk_peripheral",
           "zxram_0/clk_peripheral",
-          "zxreset_0/clk_peripheral"
+          "zxreset_0/clk_peripheral",
+          "zxsdcard_0/clk_peripheral"
         ]
       },
       "zxclock_0_clk_video": {
         "ports": [
           "zxclock_0/clk_video",
           "zxvideo_0/clk_video"
-        ]
-      },
-      "zxleds_0_led": {
-        "ports": [
-          "zxleds_0/led",
-          "LED"
         ]
       },
       "zxram_0_aresetn": {
@@ -679,7 +705,21 @@
       "zxreset_0_reset_peripheral": {
         "ports": [
           "zxreset_0/reset_peripheral",
-          "zxvideo_0/reset"
+          "zxvideo_0/reset",
+          "zxsdcard_0/reset"
+        ]
+      },
+      "zxsdcard_0_sd_reset_n": {
+        "ports": [
+          "zxsdcard_0/sd_reset_n",
+          "pmod_xsd_0/sd_reset_n"
+        ]
+      },
+      "zxsdcard_0_sd_sck": {
+        "ports": [
+          "zxsdcard_0/sd_sck",
+          "pmod_xsd_0/sd_sck",
+          "pmod_xsd_0/sd_dat"
         ]
       },
       "zxvideo_0_b": {
