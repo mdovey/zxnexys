@@ -55,7 +55,7 @@ module zxaudio(
     ) i2s_m (
         .i_reset(reset),
         .i_CLK(clk_peripheral),
-        .i_CLK_DIV(0),
+        .i_CLK_DIV(7'b0000110),
         .o_i2s_sck(sclk), 
         .o_i2s_ws(lrck),   
         .o_i2s_wsp(wsp)

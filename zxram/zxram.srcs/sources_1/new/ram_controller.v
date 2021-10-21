@@ -103,7 +103,7 @@ module ram_controller #(
 	wire			reset_peripheral;
 
 	reg      [20:0] ram_a_addr_int;
-	wire            ram_a_req_int;
+	reg             ram_a_req_int;
 	reg             ram_a_rd_int;
 	reg       [7:0] ram_a_do_int;
 
@@ -111,11 +111,10 @@ module ram_controller #(
 	reg             ram_b_req_t_int;	
 	reg             ram_b_req_t_int1;
 	wire            ram_b_req_i;
-	wire            ram_b_req_int;
+	reg             ram_b_req_int;
 
 	reg      [7:0]  ram_a_di_int;
 	reg      [7:0]  ram_b_di_int;
-    wire            cpu_wait_int;
 
     reg             arready_int;
     reg             rvalid_int;
@@ -128,6 +127,8 @@ module ram_controller #(
         
     reg      [1:0]  s_rresp;
     reg      [1:0]  s_bresp;
+    
+    reg             busy;
     
     assign ARCACHE              = 4'b0011;
     assign ARPROT               = 3'b000;
@@ -148,8 +149,6 @@ module ram_controller #(
     assign AWSIZE               = 3'b0000;
 
     assign ram_b_req_i          = ram_b_req_t_int ^ ram_b_req_t_int1;
-    assign busy                 = ~(cState == stIdle || cState == stWaitACen || cState == stWaitBCen || cState == stWaitAWrite);
-
 
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
@@ -190,26 +189,44 @@ module ram_controller #(
         ram_b_req_t_int         <= ram_b_req_t_i;
         ram_b_req_t_int1        <= ram_b_req_t_int;
     end
-
+    
     always @(posedge clk_peripheral)
     if (reset_peripheral)
+    begin
+        ram_a_req_int           <=  1'b0;
+        ram_b_req_int           <=  1'b0;
+    end else begin
+        if (busy)
+        begin
+            ram_a_req_int       <=  1'b0;
+            ram_b_req_int       <=  1'b0;
+        end else begin
+            ram_a_req_int       <=  ram_a_req_i;
+            ram_b_req_int       <=  ram_b_req_i;
+        end
+    end
+
+    always @(negedge clk_memory)
+    if (reset_memory)
     begin
         cpu_wait_o             <= 1'b1;
         ram_a_di_o             <= {8{1'b0}};
         ram_b_di_o             <= {8{1'b0}};
-    end else if (busy) 
-        cpu_wait_o             <= 1'b1;
-    else begin
-        cpu_wait_o             <= 1'b0;
+    end else
+    begin
+        cpu_wait_o             <= busy;
         ram_a_di_o             <= ram_a_di_int;
         ram_b_di_o             <= ram_b_di_int;
     end 
 
     always @(posedge clk_memory)
         if (reset_memory) 
-        begin 
+        begin
+            busy            <= 1'b0; 
             cState          <= stIdle;
         end else begin
+            busy            <=    ~((cState == stIdle || cState == stWaitACen || cState == stWaitBCen || cState == stWaitAWrite)
+                                 && (nState == stIdle || nState == stWaitACen || nState == stWaitBCen || nState == stWaitAWrite));                                           
             cState          <= nState;
         end
 
@@ -377,38 +394,6 @@ module ram_controller #(
                 BREADY 				<= 1'b0;
             end
         endcase  
-
-   // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-   //       Clock Enable (posedge clk).
-   //       Artix-7
-   // Xilinx HDL Language Template, version 2021.1
-
-   FDCE #(
-      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
-   ) FDCE_inst_a (
-      .Q(ram_a_req_int),      // 1-bit Data output
-      .C(clk_peripheral),      // 1-bit Clock input
-      .CE(~busy),    // 1-bit Clock enable input
-      .CLR(busy),  // 1-bit Asynchronous clear input
-      .D(ram_a_req_i)       // 1-bit Data input
-   );
-
-   // End of FDCE_inst instantiation   // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-   //       Clock Enable (posedge clk).
-   //       Artix-7
-   // Xilinx HDL Language Template, version 2021.1
-
-   FDCE #(
-      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
-   ) FDCE_inst_b (
-      .Q(ram_b_req_int),      // 1-bit Data output
-      .C(clk_peripheral),      // 1-bit Clock input
-      .CE(~busy),    // 1-bit Clock enable input
-      .CLR(busy),  // 1-bit Asynchronous clear input
-      .D(ram_b_req_i)       // 1-bit Data input
-   );
-
-   // End of FDCE_inst instantiation
 
 endmodule
 

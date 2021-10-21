@@ -27,7 +27,6 @@ module zxleds(
 	input               in_ram_a_rd_n_i,
 	input       [7:0]   in_ram_a_do_i,
 	output      [7:0]   in_ram_a_di_o,
-	output              in_cpu_wait_o,
 
 	output      [20:0]  out_ram_a_addr_i,
 	output              out_ram_a_req_i,
@@ -35,7 +34,6 @@ module zxleds(
 	output              out_ram_a_rd_n_i,
 	output      [7:0]   out_ram_a_do_i,
 	input       [7:0]   out_ram_a_di_o,
-	input               out_cpu_wait_o,
 
     output      [15:0]  led
     );
@@ -48,7 +46,5 @@ module zxleds(
 	assign out_ram_a_rd_n_i = in_ram_a_rd_n_i; 
 	assign out_ram_a_do_i   = in_ram_a_do_i;
     assign in_ram_a_di_o    = out_ram_a_di_o;
-    assign in_cpu_wait_o    = out_cpu_wait_o;
-    
     
 endmodule

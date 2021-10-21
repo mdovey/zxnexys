@@ -60,13 +60,12 @@ module zxkeyboard(
     wire [10:1] membrane_fnkeys;
     wire fnkeys_enable;
     wire membrane_enable;
-    
+
     assign spkey_buttons = {divmmc, multiface};
-    assign spkey_function = {membrane_fnkeys[10] | ~ps2_mmc_n | divmmc, membrane_fnkeys[9] | ~ps2_mf_n | multiface, membrane_fnkeys[8:1] | ~ps2_func_keys_n[8:1]}; 
+    assign spkey_function = {membrane_fnkeys[10] | ~ps2_mmc_n | divmmc, membrane_fnkeys[9] | ~ps2_mf_n | multiface, membrane_fnkeys[8:1] | ~ps2_func_keys_n[8:1]};
 
     assign fnkeys_enable = (clk_div[17:0] == {18{1'b1}}) ? 1'b1 : 1'b0;      // 9.36ms period for debounce
     assign membrane_enable = (clk_div[8:7] == 2'b11) ? 1'b1 : 1'b0;         // complete scan every 2.5 scanlines (0.018ms per row)
-
     
     ps2_keyb #(.CLK_KHZ(218)) keyb (
       .i_CLK(clk_peripheral),
@@ -91,7 +90,9 @@ module zxkeyboard(
       // programmable keymap
       .i_keymap_addr(keymap_addr),
       .i_keymap_data(keymap_data),
-      .i_keymap_we(keymap_we)
+      .i_keymap_we(keymap_we),
+      
+      .o_ps2_current_keycode(o_ps2_current_keycode)      
    );
 
    emu_fnkeys #(

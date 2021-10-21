@@ -4,8 +4,8 @@ proc init_gui { IPINST } {
   #Adding Page
   set Page_0 [ipgui::add_page $IPINST -name "Page 0"]
   ipgui::add_param $IPINST -name "g_machine_id" -parent ${Page_0} -widget comboBox
-  ipgui::add_param $IPINST -name "g_sub_version" -parent ${Page_0}
   ipgui::add_param $IPINST -name "g_version" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "g_sub_version" -parent ${Page_0}
 
 
 }

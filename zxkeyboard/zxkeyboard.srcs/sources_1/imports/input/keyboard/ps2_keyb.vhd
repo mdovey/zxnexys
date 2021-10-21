@@ -61,7 +61,9 @@ entity ps2_keyb is
       -- programmable keymap
       i_keymap_addr     : in std_logic_vector(8 downto 0);
       i_keymap_data     : in std_logic_vector(8 downto 0);
-      i_keymap_we       : in std_logic
+      i_keymap_we       : in std_logic;
+      
+      o_ps2_current_keycode    : std_logic_vector(9 downto 0)
    );
 end entity;
 
@@ -247,26 +249,25 @@ begin
    -- The reset may not be seen inside this module because it operates on a much slower clock.
    -- The module needs to be rewritten and replaced, possibly merging keyboard and mouse.
    
-   ps2_alt0: entity work.ps2_iobase
-   generic map (
-      clkfreq_g      => CLK_KHZ
-   )
+   ps2_alt0: entity work.Ps2Interface
    port map (
-      clock_i        => i_CLK_PS2,
-      reset_i        => i_reset,
-      enable_i       => '1',
-      ps2_clk_i      => i_ps2_clk_in, 
-      ps2_data_i     => i_ps2_data_in, 
-      ps2_clk_o      => o_ps2_clk_out, 
-      ps2_data_o     => o_ps2_data_out, 
-      ps2_data_out   => o_ps2_data_out_en, 
-      ps2_clk_out    => o_ps2_clk_out_en, 
-      data_rdy_i     => ps2_send_valid,
-      data_i         => X"55",
-      send_rdy_o     => open,
-      data_rdy_o     => ps2_receive_valid,
-      data_o         => ps2_receive_data,
-      sigsending_o   => open
+      clk        => i_CLK,
+      rst        => i_reset,
+
+      PS2_Clk_I      => i_ps2_clk_in, 
+      PS2_Data_I     => i_ps2_data_in, 
+      PS2_Clk_O      => o_ps2_clk_out, 
+      PS2_Data_O     => o_ps2_data_out, 
+      PS2_Data_T     => o_ps2_data_out_en, 
+      PS2_Clk_T      => o_ps2_clk_out_en, 
+      write_data     => ps2_send_valid,
+      tx_data        => X"55",
+      read_data      => ps2_receive_valid,
+      ack            => open,
+      rx_data        => ps2_receive_data,
+      busy           => open,
+      err_par        => open,
+      err_nack       => open
    );
    
    process (i_CLK)

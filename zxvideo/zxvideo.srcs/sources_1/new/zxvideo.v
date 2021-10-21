@@ -53,7 +53,7 @@ module zxvideo (
     wire 				vsync;
     wire 				blank;
     
-    assign ha_value = (machine_timing[1] == 0) ? 48 : 0; // 48k = 000 or 001, Pentagon = 100
+    assign ha_value = (machine_timing[1] == 0) ? 48 : 64; // 48k = 000 or 001, Pentagon = 100
     
     scan_convert #(
         .cstart(38*2),        //  -- composite sync start

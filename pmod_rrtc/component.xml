@@ -778,8 +778,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_rrtc_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-09-30T21:46:23Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-10-21T15:16:25Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2bc02ec2_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4924bb07_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
@@ -795,10 +795,21 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@5004d2da_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@50662215_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@287e0390_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b575c43_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79e002b0_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1783e7e0_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2199e0f3_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a22a471_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6087651a_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47a798dd_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45bc259c_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58ab2fb_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c125d05_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@730af52_ARCHIVE_LOCATION">v:/zxnext/pmod_rrtc</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.1.1</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="bbf170cf"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="313daa7a"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="21dd072c"/>

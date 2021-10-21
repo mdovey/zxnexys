@@ -73,11 +73,12 @@ module zxram #(
 	input               ram_a_rd_n_i,
 	input       [7:0]   ram_a_do_i,
 	output      [7:0]   ram_a_di_o,
-	output              cpu_wait_o,
 
 	input       [20:0]  ram_b_addr_i,
 	input               ram_b_req_t_i,
 	output      [7:0]   ram_b_di_o,
+
+	output              cpu_wait_n,
 
     output              aresetn,
 
@@ -135,9 +136,11 @@ module zxram #(
     wire        [3:0]   AWREGION;
     wire        [2:0]   AWSIZE;
     
+    wire                cpu_wait_o;
     wire				areset;
     
-    assign aresetn = ~areset;
+    assign cpu_wait_n   = ~cpu_wait_o;
+    assign aresetn      = ~areset;
 
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
@@ -201,18 +204,19 @@ module zxram #(
         .ram_a_rd_i(ram_a_rd_i & ~ram_a_rd_n_i),
         .ram_a_do_i(ram_a_do_i),
         .ram_a_di_o(ram_a_di_o),
-        .cpu_wait_o(cpu_wait_o),
     
         .ram_b_addr_i(ram_b_addr_i),
         .ram_b_req_t_i(ram_b_req_t_i),
         .ram_b_di_o(ram_b_di_o),
+
+        .cpu_wait_o(cpu_wait_o),
     
         .clk_peripheral(clk_peripheral),
         .clk_memory(clk_memory),
         .areset(reset_memory)
     );
     
-    axi_clock_converter_0 axi_clock_convert_0(
+    axi_clock_converter_0 (
         .m_axi_araddr(M_AXI_ARADDR),
         .m_axi_arburst(M_AXI_ARBURST),
         .m_axi_arcache(M_AXI_ARCACHE),
