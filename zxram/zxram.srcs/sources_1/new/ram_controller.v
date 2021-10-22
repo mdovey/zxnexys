@@ -90,28 +90,24 @@ module ram_controller #(
     localparam  stReadB1                    = 4'b0101;
     localparam  stReadB2                    = 4'b0110;
     localparam  stReadB3                    = 4'b0111;
-    localparam  stWaitAWrite                = 4'b1000;
     localparam  stWriteA1                   = 4'b1001;
     localparam  stWriteA2                   = 4'b1010;
     localparam  stWriteA3                   = 4'b1011;
     localparam  stWriteA4                   = 4'b1100;
-    localparam  stWaitACen                  = 4'b1101;
-    localparam  stWaitBCen                  = 4'b1110;
-    localparam  stError                     = 4'b1111;
 
 	wire			reset_memory;
 	wire			reset_peripheral;
 
 	reg      [20:0] ram_a_addr_int;
-	reg             ram_a_req_int;
+	wire            ram_a_req_int;
 	reg             ram_a_rd_int;
 	reg       [7:0] ram_a_do_int;
 
 	reg      [20:0] ram_b_addr_int;
 	reg             ram_b_req_t_int;	
-	reg             ram_b_req_t_int1;
+	
 	wire            ram_b_req_i;
-	reg             ram_b_req_int;
+	wire            ram_b_req_int;
 
 	reg      [7:0]  ram_a_di_int;
 	reg      [7:0]  ram_b_di_int;
@@ -128,7 +124,7 @@ module ram_controller #(
     reg      [1:0]  s_rresp;
     reg      [1:0]  s_bresp;
     
-    reg             busy;
+    wire            busy;
     
     assign ARCACHE              = 4'b0011;
     assign ARPROT               = 3'b000;
@@ -148,7 +144,9 @@ module ram_controller #(
     assign AWREGION             = 4'b0000;
     assign AWSIZE               = 3'b0000;
 
-    assign ram_b_req_i          = ram_b_req_t_int ^ ram_b_req_t_int1;
+    assign busy                 = ~(cState == stIdle);                                           
+
+    assign ram_b_req_i          = (ram_b_req_t_i ^ ram_b_req_t_int) & ~ram_a_req_i;
 
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
@@ -178,34 +176,16 @@ module ram_controller #(
         ram_a_do_int            <= {8{1'b0}};
         ram_b_addr_int          <= {20{1'b0}};
         ram_b_req_t_int         <= 1'b0;
-         
-        ram_b_req_t_int1        <= 1'b0;
     end else begin
         ram_a_addr_int          <= ram_a_addr_i;
         ram_a_rd_int            <= ram_a_rd_i;
         ram_a_do_int            <= ram_a_do_i;
 
         ram_b_addr_int          <= ram_b_addr_i;
-        ram_b_req_t_int         <= ram_b_req_t_i;
-        ram_b_req_t_int1        <= ram_b_req_t_int;
+        if (ram_b_req_i == 1'b1)
+            ram_b_req_t_int     <= ram_b_req_t_i;
     end
     
-    always @(posedge clk_peripheral)
-    if (reset_peripheral)
-    begin
-        ram_a_req_int           <=  1'b0;
-        ram_b_req_int           <=  1'b0;
-    end else begin
-        if (busy)
-        begin
-            ram_a_req_int       <=  1'b0;
-            ram_b_req_int       <=  1'b0;
-        end else begin
-            ram_a_req_int       <=  ram_a_req_i;
-            ram_b_req_int       <=  ram_b_req_i;
-        end
-    end
-
     always @(negedge clk_memory)
     if (reset_memory)
     begin
@@ -221,14 +201,9 @@ module ram_controller #(
 
     always @(posedge clk_memory)
         if (reset_memory) 
-        begin
-            busy            <= 1'b0; 
             cState          <= stIdle;
-        end else begin
-            busy            <=    ~((cState == stIdle || cState == stWaitACen || cState == stWaitBCen || cState == stWaitAWrite)
-                                 && (nState == stIdle || nState == stWaitACen || nState == stWaitBCen || nState == stWaitAWrite));                                           
+        else      
             cState          <= nState;
-        end
 
     always @(posedge clk_memory)
         if (reset_memory) 
@@ -262,16 +237,13 @@ module ram_controller #(
             stReadA2:  
                 nState <= rvalid_int  ? stReadA3      : stReadA2;
             stReadA3:  
-                nState <= RREADY      ? stWaitAWrite   : stReadA3;
-            stWaitAWrite:                                                   // for write ram_a_rd_int asserts to 0 on following clock
-                nState <= (ram_a_req_int == 1'b0) ? stIdle :
-                          (ram_a_rd_int ?     stWaitAWrite : stWriteA1);
+                nState <= RREADY      ? stIdle        : stReadA3;
             stReadB1:  
                 nState <= arready_int ? stReadB2      : stReadB1;
             stReadB2:  
                 nState <= rvalid_int  ? stReadB3      : stReadB2;
             stReadB3:  
-                nState <= RREADY      ? stWaitBCen    : stReadB3;
+                nState <= RREADY      ? stIdle        : stReadB3;
             stWriteA1: 
                 nState <= awready_int ? stWriteA2     : stWriteA1;
             stWriteA2:
@@ -279,11 +251,7 @@ module ram_controller #(
             stWriteA3:
                 nState <= bvalid_int  ? stWriteA4     : stWriteA3;
             stWriteA4:
-                nState <= BREADY      ? stWaitACen    : stWriteA4;
-            stWaitACen:
-                nState <= (ram_a_req_int == 1'b0) ? stIdle : stWaitACen;
-            stWaitBCen:
-                nState <= (ram_b_req_int == 1'b0) ? stIdle : stWaitBCen;
+                nState <= BREADY      ? stIdle        : stWriteA4;
             default:
                 nState <= stIdle;
         endcase  
@@ -383,17 +351,39 @@ module ram_controller #(
                 s_bresp 			<= BRESP;
                 BREADY 				<= 1'b1;
             end
-            stWaitACen:
-            begin
-                RREADY 				<= 1'b0;
-                BREADY 				<= 1'b0;
-            end
-            stWaitBCen:
-            begin
-                RREADY 				<= 1'b0;
-                BREADY 				<= 1'b0;
-            end
         endcase  
+
+   // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
+   //       Clock Enable (posedge clk).
+   //       Artix-7
+   // Xilinx HDL Language Template, version 2021.1
+
+   FDCE #(
+      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+   ) FDCE_inst_a (
+      .Q(ram_a_req_int),      // 1-bit Data output
+      .C(clk_peripheral),      // 1-bit Clock input
+      .CE(~busy),    // 1-bit Clock enable input
+      .CLR(busy),  // 1-bit Asynchronous clear input
+      .D(ram_a_req_i)       // 1-bit Data input
+   );
+
+   // End of FDCE_inst instantiation   // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
+   //       Clock Enable (posedge clk).
+   //       Artix-7
+   // Xilinx HDL Language Template, version 2021.1
+
+   FDCE #(
+      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
+   ) FDCE_inst_b (
+      .Q(ram_b_req_int),      // 1-bit Data output
+      .C(clk_peripheral),      // 1-bit Clock input
+      .CE(~busy),    // 1-bit Clock enable input
+      .CLR(busy),  // 1-bit Asynchronous clear input
+      .D(ram_b_req_i)       // 1-bit Data input
+   );
+
+   // End of FDCE_inst instantiation
 
 endmodule
 
