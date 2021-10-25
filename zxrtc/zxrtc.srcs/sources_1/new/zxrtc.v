@@ -39,11 +39,11 @@ module zxrtc(
     );
     
     assign scl_in   = scl_i;
-    assign scl_o    = scl_out;
+    assign scl_o    = 1'b0;
     assign scl_t    = ~scl_out;     //    i2c_scl_io <= '0' when zxn_i2c_scl_n_o = '0' else 'Z';
 
     assign sda_in   = sda_i;
-    assign sda_o    = sda_out;
+    assign sda_o    = 1'b0;
     assign sda_t    = ~sda_out;     //    i2c_sda_io <= '0' when zxn_i2c_sda_n_o = '0' else 'Z';
     
 endmodule

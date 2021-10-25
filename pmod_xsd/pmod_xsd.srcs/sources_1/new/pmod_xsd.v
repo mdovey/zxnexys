@@ -49,27 +49,30 @@ module pmod_xsd(
     input 			sd_reset_n,
     output 			sd_cd,
     input 			sd_sck,
-    output 			sd_cmd,
-    input 	[3:0]	sd_dat,
+    input 			sd_cmd,
+    output 	     	sd_dat0,
+    input 	     	sd_dat1,
+    input 	     	sd_dat2,
+    input 	     	sd_dat3,
     output			sd_wp    
     );
     
-    assign out1_O 		= sd_dat[3];
+    assign out1_O 		= 1'b0;
     assign out1_T 		= 1'b1;
 
-    assign sd_cmd		= out2_I;
-    assign out2_T 		= 1'b0;
+    assign out2_O		= sd_dat3 ? 1'b0 : sd_cmd;
+    assign out2_T 		= 1'b1;
 
-    assign out3_O		= sd_dat[0];
-    assign out3_T		= 1'b1;
+    assign sd_dat0      = out3_I;
+    assign out3_T		= 1'b0;
 
-    assign out4_O 		= sd_sck;
+    assign out4_O 		= sd_dat3 ? 1'b0 : sd_sck;
     assign out4_T 		= 1'b1;
 
-    assign out7_O		= sd_dat[1];
+    assign out7_O		= sd_dat1;
     assign out7_T		= 1'b1;
 
-    assign out8_O		= sd_dat[2];
+    assign out8_O		= sd_dat2;
     assign out8_T		= 1'b1;
 
     assign sd_cd 		= out9_I;

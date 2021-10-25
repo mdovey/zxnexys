@@ -243,17 +243,17 @@ ATTRIBUTE X_INTERFACE_INFO of PS2_Clk_T    :SIGNAL is "xilinx.com:interface:gpio
 
 -- upper limit for 100us delay counter.
 -- 10000 * 10ns = 100us
-constant DELAY_100US : std_logic_vector(13 downto 0):= "10011100010000";
+constant DELAY_100US : std_logic_vector(13 downto 0):= "00100111000100";
                                                  -- 10000 clock periods
 -- upper limit for 20us delay counter.
 -- 2000 * 10ns = 20us
-constant DELAY_20US  : std_logic_vector(10 downto 0) := "11111010000";
+constant DELAY_20US  : std_logic_vector(10 downto 0) := "00111110100";
                                                   -- 2000 clock periods
 -- upper limit for 63clk delay counter.
-constant DELAY_63CLK : std_logic_vector(6 downto 0)  := "1111111";
+constant DELAY_63CLK : std_logic_vector(6 downto 0)  := "0011111";
                                                     -- 63 clock periods
 -- delay from debouncing ps2_clk and ps2_data signals
-constant DEBOUNCE_DELAY : std_logic_vector(6 downto 0)  := "1111111";
+constant DEBOUNCE_DELAY : std_logic_vector(6 downto 0)  := "0011111";
 
 -- number of bits in a frame
 constant NUMBITS: std_logic_vector(3 downto 0) := "1011"; -- 11

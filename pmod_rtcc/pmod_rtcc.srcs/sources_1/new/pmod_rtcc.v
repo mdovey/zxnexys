@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module pmod_rrtc(
+module pmod_rtcc(
     input out1_I,
     input out2_I,
     input out3_I,
@@ -55,11 +55,12 @@ module pmod_rrtc(
     input sda_t
     );
     
-    assign sda_i = out4_I;
-    assign out4_O = sda_o;
-    assign out4_T = sda_t;
-    assign scl_i = out3_I;
-    assign out3_O = scl_o;
-    assign out3_T = scl_t;
+    assign scl_i    = out3_I;
+    assign out3_O   = scl_o;
+    assign out3_T   = scl_t;
+    
+    assign sda_i    = out4_I;
+    assign out4_O   = sda_o;
+    assign out4_T   = sda_t;
 
 endmodule

@@ -72,60 +72,54 @@ module ram_controller #(
 	input               ram_a_rd_i,
 	input       [7:0]   ram_a_do_i,
 	output reg  [7:0]   ram_a_di_o,
-	output reg          cpu_wait_o,
 
 	input       [20:0]  ram_b_addr_i,
 	input               ram_b_req_t_i,
 	output reg  [7:0]   ram_b_di_o,
+
+	output reg          cpu_wait_n,
 
 	input               clk_peripheral,
 	input               clk_memory,
     input               areset 
     );
 
-    localparam  stIdle                      = 4'b0000; 
-    localparam  stReadA1                    = 4'b0001;
-    localparam  stReadA2                    = 4'b0010;
-    localparam  stReadA3                    = 4'b0011;
-    localparam  stReadB1                    = 4'b0101;
-    localparam  stReadB2                    = 4'b0110;
-    localparam  stReadB3                    = 4'b0111;
-    localparam  stWriteA1                   = 4'b1001;
-    localparam  stWriteA2                   = 4'b1010;
-    localparam  stWriteA3                   = 4'b1011;
-    localparam  stWriteA4                   = 4'b1100;
+    localparam  stIdle                      = 5'b00000; 
+
+    localparam  PortA                       = 2'b01;
+    localparam  PortB                       = 2'b10;
+
+    localparam  Read                        = 1'b0;
+    localparam  Write                       = 1'b1;
+
+    localparam  stReadA0                    = {PortA, Read, 2'b00};
+    localparam  stReadA1                    = {PortA, Read, 2'b01};
+    localparam  stReadA2                    = {PortA, Read, 2'b10};
+    
+    localparam  stReadB0                    = {PortB, Read, 2'b00};
+    localparam  stReadB1                    = {PortB, Read, 2'b01};
+    localparam  stReadB2                    = {PortB, Read, 2'b10};
+
+    localparam  stWriteA0                   = {PortA, Write, 2'b00};
+    localparam  stWriteA1                   = {PortA, Write, 2'b01};
+    localparam  stWriteA2                   = {PortA, Write, 2'b10};
+    localparam  stWriteA3                   = {PortA, Write, 2'b11};
 
 	wire			reset_memory;
 	wire			reset_peripheral;
 
-	reg      [20:0] ram_a_addr_int;
-	wire            ram_a_req_int;
-	reg             ram_a_rd_int;
-	reg       [7:0] ram_a_do_int;
-
-	reg      [20:0] ram_b_addr_int;
-	reg             ram_b_req_t_int;	
-	
 	wire            ram_b_req_i;
-	wire            ram_b_req_int;
+	reg             ram_b_req_t_int;	
 
-	reg      [7:0]  ram_a_di_int;
-	reg      [7:0]  ram_b_di_int;
-
-    reg             arready_int;
-    reg             rvalid_int;
-    reg             awready_int;
-    reg             wready_int;
-    reg             bvalid_int;
-
-    reg      [3:0]  cState;
-    reg      [3:0]  nState;  
+    reg      [4:0]  cState;
+    reg      [4:0]  nState;  
         
     reg      [1:0]  s_rresp;
     reg      [1:0]  s_bresp;
     
     wire            busy;
-    
+    wire            trigger;
+   
     assign ARCACHE              = 4'b0011;
     assign ARPROT               = 3'b000;
     assign ARLEN                = 8'b0000_0000;
@@ -144,10 +138,10 @@ module ram_controller #(
     assign AWREGION             = 4'b0000;
     assign AWSIZE               = 3'b0000;
 
-    assign busy                 = ~(cState == stIdle);                                           
+    assign busy                 = ~(cState      == stIdle);
 
     assign ram_b_req_i          = (ram_b_req_t_i ^ ram_b_req_t_int) & ~ram_a_req_i;
-
+    
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
 	   .PIPELINE_STAGES(PIPELINE_STAGES),
@@ -168,92 +162,51 @@ module ram_controller #(
 	   .sync_out(reset_memory)
 	);
 
-    always @(posedge clk_peripheral)
-    if (reset_peripheral)
-    begin
-        ram_a_addr_int          <= {20{1'b0}};
-        ram_a_rd_int            <= 1'b1;
-        ram_a_do_int            <= {8{1'b0}};
-        ram_b_addr_int          <= {20{1'b0}};
-        ram_b_req_t_int         <= 1'b0;
-    end else begin
-        ram_a_addr_int          <= ram_a_addr_i;
-        ram_a_rd_int            <= ram_a_rd_i;
-        ram_a_do_int            <= ram_a_do_i;
-
-        ram_b_addr_int          <= ram_b_addr_i;
-        if (ram_b_req_i == 1'b1)
-            ram_b_req_t_int     <= ram_b_req_t_i;
-    end
-    
-    always @(negedge clk_memory)
-    if (reset_memory)
-    begin
-        cpu_wait_o             <= 1'b1;
-        ram_a_di_o             <= {8{1'b0}};
-        ram_b_di_o             <= {8{1'b0}};
-    end else
-    begin
-        cpu_wait_o             <= busy;
-        ram_a_di_o             <= ram_a_di_int;
-        ram_b_di_o             <= ram_b_di_int;
-    end 
-
     always @(posedge clk_memory)
         if (reset_memory) 
             cState          <= stIdle;
         else      
             cState          <= nState;
 
-    always @(posedge clk_memory)
+    always @(negedge clk_memory)
         if (reset_memory) 
-        begin
-			arready_int         <= 1'b0;
-			rvalid_int          <= 1'b0;
-			awready_int         <= 1'b0;
-			wready_int          <= 1'b0;
-			bvalid_int          <= 1'b0;
-        end else begin 
-			arready_int         <= ARREADY;
-			rvalid_int          <= RVALID;
-			awready_int         <= AWREADY;
-			wready_int          <= WREADY;
-			bvalid_int          <= BVALID;
-        end
-
-    always @(cState, ram_a_req_int, ram_b_req_int, ram_a_rd_int, arready_int, rvalid_int, RREADY, awready_int, wready_int, bvalid_int, BREADY)
+            cpu_wait_n      <= 1'b0;
+        else      
+            cpu_wait_n      <= ~busy;
+               
+    always @(cState, trigger, ram_a_req_i, ram_b_req_i, ram_a_rd_i, ARREADY, RVALID, RREADY, AWREADY, WREADY, BVALID, BREADY)
     begin
         nState <= cState;
         case (cState)
             stIdle:
-                 if (ram_a_req_int)
-                    nState <= ram_a_rd_int ? stReadA1 : stWriteA1;
-                 else if (ram_b_req_int)
-                    nState <= stReadB1;
+                 if (~trigger)
+                    nState <= stIdle;
+                 else if (ram_a_req_i)
+                    nState <= ram_a_rd_i ? stReadA0 : stWriteA0;
+                 else if (ram_b_req_i)
+                    nState <= stReadB0;
                  else
                     nState <= stIdle;
+            stReadA0:  
+                nState <= ARREADY ? stReadA1    : stReadA0;
             stReadA1:  
-                nState <= arready_int ? stReadA2      : stReadA1;
+                nState <= RVALID  ? stReadA2    : stReadA1;
             stReadA2:  
-                nState <= rvalid_int  ? stReadA3      : stReadA2;
-            stReadA3:  
-                nState <= RREADY      ? stIdle        : stReadA3;
+                nState <= RREADY  ? stIdle      : stReadA2;
+            stReadB0:  
+                nState <= ARREADY ? stReadB1    : stReadB0;
             stReadB1:  
-                nState <= arready_int ? stReadB2      : stReadB1;
+                nState <= RVALID  ? stReadB2    : stReadB1;
             stReadB2:  
-                nState <= rvalid_int  ? stReadB3      : stReadB2;
-            stReadB3:  
-                nState <= RREADY      ? stIdle        : stReadB3;
-            stWriteA1: 
-                nState <= awready_int ? stWriteA2     : stWriteA1;
+                nState <= RREADY  ? stIdle      : stReadB2;
+            stWriteA0: 
+                nState <= AWREADY ? stWriteA1   : stWriteA0;
+            stWriteA1:
+                nState <= WREADY  ? stWriteA2   : stWriteA1;
             stWriteA2:
-                nState <= wready_int  ? stWriteA3     : stWriteA2;
+                nState <= BVALID  ? stWriteA3   : stWriteA2;
             stWriteA3:
-                nState <= bvalid_int  ? stWriteA4     : stWriteA3;
-            stWriteA4:
-                nState <= BREADY      ? stIdle        : stWriteA4;
-            default:
-                nState <= stIdle;
+                nState <= BREADY  ? stIdle      : stWriteA3;
         endcase  
     end        
 
@@ -272,119 +225,110 @@ module ram_controller #(
                 WVALID 				<= 1'b0;
                 WSTRB 				<= 4'b0000;
             end
-            stReadA1:
+            stReadA0:
             begin  
                 ARADDR[26:21] 		<= {6{1'b0}};
-                ARADDR[20:2] 		<= ram_a_addr_int[20:2];
+                ARADDR[20:2] 		<= ram_a_addr_i[20:2];
                 ARADDR[1:0] 		<= {2{1'b0}};
                 ARVALID 			<= 1'b1;
+                RREADY 				<= 1'b0;
+            end
+            stReadA1:
+            begin
+                ARADDR 				<= {27{1'b0}};
+                ARVALID 			<= 1'b0;         
             end
             stReadA2:
             begin
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
-            end
-            stReadA3:
-            begin
-                case (ram_a_addr_int[1:0])
-                    2'b00:  ram_a_di_int <= RDATA[7:0];
-                    2'b01:  ram_a_di_int <= RDATA[15:8];
-                    2'b10:  ram_a_di_int <= RDATA[23:16];
-                    2'b11:  ram_a_di_int <= RDATA[31:24];
+                case (ram_a_addr_i[1:0])
+                    2'b00:  ram_a_di_o <= RDATA[7:0];
+                    2'b01:  ram_a_di_o <= RDATA[15:8];
+                    2'b10:  ram_a_di_o <= RDATA[23:16];
+                    2'b11:  ram_a_di_o <= RDATA[31:24];
                 endcase    
                 s_rresp 			<= RRESP;
                 RREADY 				<= 1'b1;
             end
-            stReadB1:
+            stReadB0:
             begin  
                 ARADDR[26:21] 		<= {6{1'b0}};
-                ARADDR[20:2] 		<= ram_b_addr_int[20:2];
+                ARADDR[20:2] 		<= ram_b_addr_i[20:2];
                 ARADDR[1:0] 		<= {2{1'b0}};
                 ARVALID 			<= 1'b1;
+                RREADY 				<= 1'b0;
+                ram_b_req_t_int     <= ram_b_req_t_i;
+            end
+            stReadB1:
+            begin
+                ARADDR 				<= {27{1'b0}};
+                ARVALID 			<= 1'b0;         
             end
             stReadB2:
             begin
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
-            end
-            stReadB3:
-            begin
-                case (ram_b_addr_int[1:0])
-                    2'b00:  ram_b_di_int <= RDATA[7:0];
-                    2'b01:  ram_b_di_int <= RDATA[15:8];
-                    2'b10:  ram_b_di_int <= RDATA[23:16];
-                    2'b11:  ram_b_di_int <= RDATA[31:24];
+                case (ram_b_addr_i[1:0])
+                    2'b00:  ram_b_di_o <= RDATA[7:0];
+                    2'b01:  ram_b_di_o <= RDATA[15:8];
+                    2'b10:  ram_b_di_o <= RDATA[23:16];
+                    2'b11:  ram_b_di_o <= RDATA[31:24];
                 endcase    
                 s_rresp 			<= RRESP;
                 RREADY 				<= 1'b1;
             end
-            stWriteA1: 
+            stWriteA0: 
             begin
                 AWADDR[26:21] 		<= {6{1'b0}};
-                AWADDR[20:2] 		<= ram_a_addr_int[20:2];
+                AWADDR[20:2] 		<= ram_a_addr_i[20:2];
                 AWADDR[1:0] 		<= {2{1'b0}};
                 AWVALID 			<= 1'b1;
+                BREADY 				<= 1'b0;
             end
-            stWriteA2:
+            stWriteA1:
             begin
                 AWADDR 				<= {27{1'b0}};
                 AWVALID 			<= 1'b0;
-                WDATA               <= {4{ram_a_do_int}};
+                WDATA               <= {4{ram_a_do_i}};
                 WLAST 				<= 1'b1;
                 WVALID 				<= 1'b1;
-                case (ram_a_addr_int[1:0])
+                case (ram_a_addr_i[1:0])
                     2'b00:  WSTRB   <= 4'b0001;
                     2'b01:  WSTRB 	<= 4'b0010;
                     2'b10:  WSTRB 	<= 4'b0100;
                     2'b11:  WSTRB 	<= 4'b1000;
                 endcase   
             end
-            stWriteA3:
+            stWriteA2:
             begin
                 WDATA 				<= {32{1'b0}};
                 WLAST 				<= 1'b0;
                 WVALID				<= 1'b0;
                 WSTRB 				<= 4'b0000;
             end
-            stWriteA4:
+            stWriteA3:
             begin
+                ram_a_di_o          <= ram_a_do_i;
                 s_bresp 			<= BRESP;
                 BREADY 				<= 1'b1;
             end
         endcase  
-
+   
    // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
    //       Clock Enable (posedge clk).
    //       Artix-7
    // Xilinx HDL Language Template, version 2021.1
 
    FDCE #(
-      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
-   ) FDCE_inst_a (
-      .Q(ram_a_req_int),      // 1-bit Data output
+      .INIT(1'b0), // Initial value of register (1'b0 or 1'b1)
+      .IS_C_INVERTED(1'b0)
+   ) FDCE_trigger (
+      .Q(trigger),      // 1-bit Data output
       .C(clk_peripheral),      // 1-bit Clock input
       .CE(~busy),    // 1-bit Clock enable input
       .CLR(busy),  // 1-bit Asynchronous clear input
-      .D(ram_a_req_i)       // 1-bit Data input
+      .D(1'b1)       // 1-bit Data input
    );
 
-   // End of FDCE_inst instantiation   // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
-   //       Clock Enable (posedge clk).
-   //       Artix-7
-   // Xilinx HDL Language Template, version 2021.1
-
-   FDCE #(
-      .INIT(1'b0) // Initial value of register (1'b0 or 1'b1)
-   ) FDCE_inst_b (
-      .Q(ram_b_req_int),      // 1-bit Data output
-      .C(clk_peripheral),      // 1-bit Clock input
-      .CE(~busy),    // 1-bit Clock enable input
-      .CLR(busy),  // 1-bit Asynchronous clear input
-      .D(ram_b_req_i)       // 1-bit Data input
-   );
-
-   // End of FDCE_inst instantiation
-
+   // End of FDCE_trigger instantiation
+   
 endmodule
 
 

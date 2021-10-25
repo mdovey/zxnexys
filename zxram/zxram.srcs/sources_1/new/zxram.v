@@ -136,10 +136,8 @@ module zxram #(
     wire        [3:0]   AWREGION;
     wire        [2:0]   AWSIZE;
     
-    wire                cpu_wait_o;
     wire				areset;
     
-    assign cpu_wait_n   = ~cpu_wait_o;
     assign aresetn      = ~areset;
 
 	async_input_sync #(
@@ -209,7 +207,7 @@ module zxram #(
         .ram_b_req_t_i(ram_b_req_t_i),
         .ram_b_di_o(ram_b_di_o),
 
-        .cpu_wait_o(cpu_wait_o),
+        .cpu_wait_n(cpu_wait_n),
     
         .clk_peripheral(clk_peripheral),
         .clk_memory(clk_memory),

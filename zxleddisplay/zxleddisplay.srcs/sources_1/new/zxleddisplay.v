@@ -75,6 +75,9 @@ module zxleddisplay #(
     output 				out_hdmi_reset,
     output 				out_hdmi_audio_en,
 
+    input               in_cpu_wait_n,
+    output              out_cpu_wait_n,
+    
     output [7:0] an,
     output [7:0] ca,
     
@@ -106,6 +109,8 @@ module zxleddisplay #(
     assign out_v_machine_timing = in_v_machine_timing;
     assign out_hdmi_reset       = in_hdmi_reset;
     assign out_hdmi_audio_en    = in_hdmi_audio_en;
+    
+    assign out_cpu_wait_n       = in_cpu_wait_n;
 
     reg     [DIV+2:0]     div;
     reg     [2:0]         sel;
@@ -129,10 +134,10 @@ module zxleddisplay #(
 
     always @(posedge in_mb_clk_28)
         case (in_cpu_speed)
-            2'b00:  display[1]  <= 5'h0_5;
-            2'b01:  display[1]  <= 5'h0_0;
-            2'b10:  display[1]  <= 5'h0_4;
-            2'b11:  display[1]  <= 5'h0_8;
+            2'b00:  display[1]  <= in_cpu_wait_n ? 5'h0_5 : 5'h1_5;
+            2'b01:  display[1]  <= in_cpu_wait_n ? 5'h0_0 : 5'h1_0;
+            2'b10:  display[1]  <= in_cpu_wait_n ? 5'h0_4 : 5'h1_4;
+            2'b11:  display[1]  <= in_cpu_wait_n ? 5'h0_8 : 5'h1_8;
         endcase
 
     always @(posedge in_mb_clk_28)

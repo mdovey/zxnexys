@@ -4,7 +4,18 @@ proc init_gui { IPINST } {
   #Adding Page
   ipgui::add_page $IPINST -name "Page 0"
 
+  ipgui::add_param $IPINST -name "MicroSD"
+  ipgui::add_param $IPINST -name "Terminal"
 
+}
+
+proc update_PARAM_VALUE.MicroSD { PARAM_VALUE.MicroSD } {
+	# Procedure called to update MicroSD when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.MicroSD { PARAM_VALUE.MicroSD } {
+	# Procedure called to validate MicroSD
+	return true
 }
 
 proc update_PARAM_VALUE.POWERDOWN_BITS { PARAM_VALUE.POWERDOWN_BITS } {
@@ -31,6 +42,15 @@ proc update_PARAM_VALUE.STARTUP_BITS { PARAM_VALUE.STARTUP_BITS } {
 
 proc validate_PARAM_VALUE.STARTUP_BITS { PARAM_VALUE.STARTUP_BITS } {
 	# Procedure called to validate STARTUP_BITS
+	return true
+}
+
+proc update_PARAM_VALUE.Terminal { PARAM_VALUE.Terminal } {
+	# Procedure called to update Terminal when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.Terminal { PARAM_VALUE.Terminal } {
+	# Procedure called to validate Terminal
 	return true
 }
 

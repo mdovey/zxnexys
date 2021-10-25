@@ -21,8 +21,8 @@
 
 
 module zxreset #(
-    parameter MEM_DELAY         = 14,
-    parameter CPU_DELAY         = 14,
+    parameter MEM_DELAY         = 23,
+    parameter CPU_DELAY         = 23,
     parameter SYNC_STAGES       = 3,
     parameter PIPELINE_STAGES   = 1
 )(
@@ -67,11 +67,11 @@ module zxreset #(
 	assign mem_locked       = &mem_counter; 
 	assign cpu_locked       = &cpu_counter;
 	
-	assign reset_mb			= reset_mb_hard  | reset_mb_soft;
-	assign reset_mb_hard	= ~cpu_locked    | hard_reset; 	
-	assign reset_mb_soft	= ~cpu_locked    | hard_reset      | soft_reset; 
-	assign reset_memory_int = ~mem_locked    | hard_reset      | soft_reset;
-	assign reset_peripheral	= ~clk_locked    | hard_reset      | peripheral_reset; 	
+	assign reset_mb			= reset_mb_hard    | reset_mb_soft;
+	assign reset_mb_hard	= ~cpu_locked      | hard_reset; 	
+	assign reset_mb_soft	= ~cpu_locked      | hard_reset      | soft_reset; 
+	assign reset_memory_int = ~mem_locked      | hard_reset      | soft_reset;
+	assign reset_peripheral	= ~clk_locked_sync | hard_reset      | peripheral_reset; 	
 
     always @(posedge clk_peripheral)
         if (~clk_locked_sync)

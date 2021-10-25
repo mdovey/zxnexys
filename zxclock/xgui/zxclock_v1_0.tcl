@@ -6,7 +6,17 @@ proc init_gui { IPINST } {
 
   ipgui::add_param $IPINST -name "SYNC_STAGES"
   ipgui::add_param $IPINST -name "PIPELINE_STAGES"
+  ipgui::add_param $IPINST -name "CPU_Wait_Enabled"
 
+}
+
+proc update_PARAM_VALUE.CPU_Wait_Enabled { PARAM_VALUE.CPU_Wait_Enabled } {
+	# Procedure called to update CPU_Wait_Enabled when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.CPU_Wait_Enabled { PARAM_VALUE.CPU_Wait_Enabled } {
+	# Procedure called to validate CPU_Wait_Enabled
+	return true
 }
 
 proc update_PARAM_VALUE.PIPELINE_STAGES { PARAM_VALUE.PIPELINE_STAGES } {

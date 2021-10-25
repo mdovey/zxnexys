@@ -26,6 +26,8 @@ module zxclock #(
 )(
     output              clk_cpu,
 
+    input               cpu_wait_n,
+
     input   	[1:0]  	cpu_speed,
     input           	cpu_clk_lsb,
     input       	    cpu_contend,
@@ -113,50 +115,77 @@ module zxclock #(
 
 	// End of BUFG_inst instantiation    
 
-    // BUFGMUX_1: Global Clock Mux Buffer with Output State 1
-    //            Artix-7
+    // BUFGCTRL: Global Clock Control Buffer
+    //           Artix-7
     // Xilinx HDL Language Template, version 2021.1
     
-    BUFGMUX_1 #(
+    BUFGCTRL #(
+    .SIM_DEVICE("7SERIES"),
+    .INIT_OUT(1),           // Initial value of BUFGCTRL output ($VALUES;)
+    .PRESELECT_I0("FALSE"), // BUFGCTRL output uses I0 input ($VALUES;)
+    .PRESELECT_I1("FALSE")  // BUFGCTRL output uses I1 input ($VALUES;)
     )
-    BUFGMUX_1_clk0 (
-        .O(clk0),   // 1-bit output: Clock output
-        .I0(clk_3m5_cont), // 1-bit input: Clock input (S=0)
-        .I1(clk_7), // 1-bit input: Clock input (S=1)
-        .S(cpu_speed[0])    // 1-bit input: Clock select
+    BUFGCTRL_clk0 (
+        .O(clk0),             // 1-bit output: Clock output
+        .CE0(cpu_wait_n),         // 1-bit input: Clock enable input for I0
+        .CE1(cpu_wait_n),         // 1-bit input: Clock enable input for I1
+        .I0(clk_3m5_cont),           // 1-bit input: Primary clock
+        .I1(clk_7),           // 1-bit input: Secondary clock
+        .IGNORE0(1'b0), // 1-bit input: Clock ignore input for I0
+        .IGNORE1(1'b0), // 1-bit input: Clock ignore input for I1
+        .S0(~cpu_speed[0]),           // 1-bit input: Clock select for I0
+        .S1(cpu_speed[0])            // 1-bit input: Clock select for I1
     );
-    
-    // End of BUFGMUX_1_inst instantiation
-    
-    // BUFGMUX_1: Global Clock Mux Buffer with Output State 1
-    //            Artix-7
+
+    // End of BUFGCTRL_inst instantiation
+
+    // BUFGCTRL: Global Clock Control Buffer
+    //           Artix-7
     // Xilinx HDL Language Template, version 2021.1
     
-    BUFGMUX_1 #(
+    BUFGCTRL #(
+    .SIM_DEVICE("7SERIES"),
+    .INIT_OUT(1),           // Initial value of BUFGCTRL output ($VALUES;)
+    .PRESELECT_I0("FALSE"), // BUFGCTRL output uses I0 input ($VALUES;)
+    .PRESELECT_I1("FALSE")  // BUFGCTRL output uses I1 input ($VALUES;)
     )
-    BUFGMUX_1_clk1 (
-        .O(clk1),   // 1-bit output: Clock output
-        .I0(clk_14), // 1-bit input: Clock input (S=0)
-        .I1(clk_28), // 1-bit input: Clock input (S=1)
-        .S(cpu_speed[0])    // 1-bit input: Clock select
+    BUFGCTRL_clk1 (
+        .O(clk1),             // 1-bit output: Clock output
+        .CE0(cpu_wait_n),         // 1-bit input: Clock enable input for I0
+        .CE1(cpu_wait_n),         // 1-bit input: Clock enable input for I1
+        .I0(clk_14),           // 1-bit input: Primary clock
+        .I1(clk_28),           // 1-bit input: Secondary clock
+        .IGNORE0(1'b0), // 1-bit input: Clock ignore input for I0
+        .IGNORE1(1'b0), // 1-bit input: Clock ignore input for I1
+        .S0(~cpu_speed[0]),           // 1-bit input: Clock select for I0
+        .S1(cpu_speed[0])            // 1-bit input: Clock select for I1
     );
+
+    // End of BUFGCTRL_inst instantiation
     
-    // End of BUFGMUX_1_inst instantiation
-    
-    // BUFGMUX_1: Global Clock Mux Buffer with Output State 1
-    //            Artix-7
+    // BUFGCTRL: Global Clock Control Buffer
+    //           Artix-7
     // Xilinx HDL Language Template, version 2021.1
     
-    BUFGMUX_1 #(
+    BUFGCTRL #(
+    .SIM_DEVICE("7SERIES"),
+    .INIT_OUT(1),           // Initial value of BUFGCTRL output ($VALUES;)
+    .PRESELECT_I0("FALSE"), // BUFGCTRL output uses I0 input ($VALUES;)
+    .PRESELECT_I1("FALSE")  // BUFGCTRL output uses I1 input ($VALUES;)
     )
-    BUFGMUX_1_clk_cpu (
-        .O(clk_cpu),   // 1-bit output: Clock output
-        .I0(clk0), // 1-bit input: Clock input (S=0)
-        .I1(clk1), // 1-bit input: Clock input (S=1)
-        .S(cpu_speed[1])    // 1-bit input: Clock select
+    BUFGCTRL_clk_cpu (
+        .O(clk_cpu),             // 1-bit output: Clock output
+        .CE0(cpu_wait_n),         // 1-bit input: Clock enable input for I0
+        .CE1(cpu_wait_n),         // 1-bit input: Clock enable input for I1
+        .I0(clk0),           // 1-bit input: Primary clock
+        .I1(clk1),           // 1-bit input: Secondary clock
+        .IGNORE0(1'b0), // 1-bit input: Clock ignore input for I0
+        .IGNORE1(1'b0), // 1-bit input: Clock ignore input for I1
+        .S0(~cpu_speed[1]),           // 1-bit input: Clock select for I0
+        .S1(cpu_speed[1])            // 1-bit input: Clock select for I1
     );
     
-    // End of BUFGMUX_1_inst instantiation
+    // End of BUFGCTRL_inst instantiation
 
 	always @(posedge clk_7)
     	if (cpu_clk_lsb == 1'b1 && cpu_contend == 1'b0)

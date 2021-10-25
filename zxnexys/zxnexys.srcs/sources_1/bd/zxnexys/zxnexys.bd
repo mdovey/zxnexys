@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x658AF02EADA579CF",
+      "boundary_crc": "0x611D271D0FA4915C",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys",
       "name": "zxnexys",
@@ -14,19 +14,21 @@
       "clk_wiz_0": "",
       "mig_7series_0": "",
       "mig_reset_0": "",
-      "zxclock_0": "",
       "pmod_i2s2_0": "",
       "zxleds_0": "",
-      "zxsdcard_0": "",
-      "zxleddisplay_0": "",
       "zxvideo_0": "",
-      "zxkeyboard_0": "",
       "throttle_0": "",
       "zxaudio_0": "",
       "zxnext_0": "",
-      "pmod_rrtc_0": "",
-      "zxrtc_0": "",
+      "pmod_rtcc_0": "",
+      "zxkeyboard_0": "",
+      "zxleddisplay_0": "",
       "zxreset_0": "",
+      "zxrtc_0": "",
+      "zxsdcard_0": "",
+      "zxsdcard_1": "",
+      "zxclock_0": "",
+      "pmod_xsd_0": "",
       "zxram_0": ""
     },
     "interface_ports": {
@@ -101,6 +103,11 @@
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       },
       "JA": {
+        "mode": "Master",
+        "vlnv_bus_definition": "digilentinc.com:interface:pmod:1.0",
+        "vlnv": "digilentinc.com:interface:pmod_rtl:1.0"
+      },
+      "JD": {
         "mode": "Master",
         "vlnv_bus_definition": "digilentinc.com:interface:pmod:1.0",
         "vlnv": "digilentinc.com:interface:pmod_rtl:1.0"
@@ -319,6 +326,18 @@
           "CLKOUT6_USED": {
             "value": "true"
           },
+          "CLKOUT7_JITTER": {
+            "value": "149.337"
+          },
+          "CLKOUT7_PHASE_ERROR": {
+            "value": "122.577"
+          },
+          "CLKOUT7_REQUESTED_OUT_FREQ": {
+            "value": "100.000"
+          },
+          "CLKOUT7_USED": {
+            "value": "false"
+          },
           "CLK_IN1_BOARD_INTERFACE": {
             "value": "sys_clock"
           },
@@ -366,6 +385,9 @@
           },
           "MMCM_CLKOUT5_DIVIDE": {
             "value": "100"
+          },
+          "MMCM_CLKOUT6_DIVIDE": {
+            "value": "1"
           },
           "NUM_OUT_CLKS": {
             "value": "6"
@@ -458,12 +480,6 @@
           }
         }
       },
-      "zxclock_0": {
-        "vlnv": "specnext.com:specnext:zxclock:1.0",
-        "xci_name": "zxnexys_zxclock_0_2",
-        "xci_path": "ip\\zxnexys_zxclock_0_2\\zxnexys_zxclock_0_2.xci",
-        "inst_hier_path": "zxclock_0"
-      },
       "pmod_i2s2_0": {
         "vlnv": "sepcnext.com:specnext:pmod_i2s2:1.0",
         "xci_name": "zxnexys_pmod_i2s2_0_0",
@@ -476,29 +492,11 @@
         "xci_path": "ip\\zxnexys_zxleds_0_0\\zxnexys_zxleds_0_0.xci",
         "inst_hier_path": "zxleds_0"
       },
-      "zxsdcard_0": {
-        "vlnv": "specnext.com:specnext:zxsdcard:1.0",
-        "xci_name": "zxnexys_zxsdcard_0_0",
-        "xci_path": "ip\\zxnexys_zxsdcard_0_0\\zxnexys_zxsdcard_0_0.xci",
-        "inst_hier_path": "zxsdcard_0"
-      },
-      "zxleddisplay_0": {
-        "vlnv": "xilinx.com:user:zxleddisplay:1.0",
-        "xci_name": "zxnexys_zxleddisplay_0_0",
-        "xci_path": "ip\\zxnexys_zxleddisplay_0_0\\zxnexys_zxleddisplay_0_0.xci",
-        "inst_hier_path": "zxleddisplay_0"
-      },
       "zxvideo_0": {
         "vlnv": "specnext.com:specnext:zxvideo:1.0",
         "xci_name": "zxnexys_zxvideo_0_0",
         "xci_path": "ip\\zxnexys_zxvideo_0_0\\zxnexys_zxvideo_0_0.xci",
         "inst_hier_path": "zxvideo_0"
-      },
-      "zxkeyboard_0": {
-        "vlnv": "specnext.com:specnext:zxkeyboard:1.0",
-        "xci_name": "zxnexys_zxkeyboard_0_0",
-        "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
-        "inst_hier_path": "zxkeyboard_0"
       },
       "throttle_0": {
         "vlnv": "xilinx.com:module_ref:throttle:1.0",
@@ -627,7 +625,7 @@
         "inst_hier_path": "zxnext_0",
         "parameters": {
           "g_machine_id": {
-            "value": "\"10001010\""
+            "value": "\"00001010\""
           },
           "g_sub_version": {
             "value": "\"00001000\""
@@ -637,11 +635,37 @@
           }
         }
       },
-      "pmod_rrtc_0": {
-        "vlnv": "specnext.com:specnext:pmod_rrtc:1.0",
-        "xci_name": "zxnexys_pmod_rrtc_0_0",
-        "xci_path": "ip\\zxnexys_pmod_rrtc_0_0\\zxnexys_pmod_rrtc_0_0.xci",
-        "inst_hier_path": "pmod_rrtc_0"
+      "pmod_rtcc_0": {
+        "vlnv": "xilinx.com:user:pmod_rtcc:1.0",
+        "xci_name": "zxnexys_pmod_rtcc_0_0",
+        "xci_path": "ip\\zxnexys_pmod_rtcc_0_0\\zxnexys_pmod_rtcc_0_0.xci",
+        "inst_hier_path": "pmod_rtcc_0"
+      },
+      "zxkeyboard_0": {
+        "vlnv": "specnext.com:specnext:zxkeyboard:1.0",
+        "xci_name": "zxnexys_zxkeyboard_0_0",
+        "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
+        "inst_hier_path": "zxkeyboard_0"
+      },
+      "zxleddisplay_0": {
+        "vlnv": "xilinx.com:user:zxleddisplay:1.0",
+        "xci_name": "zxnexys_zxleddisplay_0_0",
+        "xci_path": "ip\\zxnexys_zxleddisplay_0_0\\zxnexys_zxleddisplay_0_0.xci",
+        "inst_hier_path": "zxleddisplay_0"
+      },
+      "zxreset_0": {
+        "vlnv": "specnext.com:specnext:zxreset:1.0",
+        "xci_name": "zxnexys_zxreset_0_4",
+        "xci_path": "ip\\zxnexys_zxreset_0_4\\zxnexys_zxreset_0_4.xci",
+        "inst_hier_path": "zxreset_0",
+        "parameters": {
+          "CPU_DELAY": {
+            "value": "24"
+          },
+          "MEM_DELAY": {
+            "value": "24"
+          }
+        }
       },
       "zxrtc_0": {
         "vlnv": "specnext.com:specnext:zxrtc:1.0",
@@ -649,11 +673,49 @@
         "xci_path": "ip\\zxnexys_zxrtc_0_0\\zxnexys_zxrtc_0_0.xci",
         "inst_hier_path": "zxrtc_0"
       },
-      "zxreset_0": {
-        "vlnv": "specnext.com:specnext:zxreset:1.0",
-        "xci_name": "zxnexys_zxreset_0_4",
-        "xci_path": "ip\\zxnexys_zxreset_0_4\\zxnexys_zxreset_0_4.xci",
-        "inst_hier_path": "zxreset_0"
+      "zxsdcard_0": {
+        "vlnv": "specnext.com:specnext:zxsdcard:1.0",
+        "xci_name": "zxnexys_zxsdcard_0_0",
+        "xci_path": "ip\\zxnexys_zxsdcard_0_0\\zxnexys_zxsdcard_0_0.xci",
+        "inst_hier_path": "zxsdcard_0",
+        "parameters": {
+          "Terminal": {
+            "value": "false"
+          }
+        }
+      },
+      "zxsdcard_1": {
+        "vlnv": "specnext.com:specnext:zxsdcard:1.0",
+        "xci_name": "zxnexys_zxsdcard_1_0",
+        "xci_path": "ip\\zxnexys_zxsdcard_1_0\\zxnexys_zxsdcard_1_0.xci",
+        "inst_hier_path": "zxsdcard_1",
+        "parameters": {
+          "MicroSD": {
+            "value": "false"
+          }
+        }
+      },
+      "zxclock_0": {
+        "vlnv": "specnext.com:specnext:zxclock:1.0",
+        "xci_name": "zxnexys_zxclock_0_2",
+        "xci_path": "ip\\zxnexys_zxclock_0_2\\zxnexys_zxclock_0_2.xci",
+        "inst_hier_path": "zxclock_0",
+        "parameters": {
+          "CPU_Wait_Enabled": {
+            "value": "false"
+          }
+        }
+      },
+      "pmod_xsd_0": {
+        "vlnv": "specnext.com:specnext:pmod_xsd:1.0",
+        "xci_name": "zxnexys_pmod_xsd_0_0",
+        "xci_path": "ip\\zxnexys_pmod_xsd_0_0\\zxnexys_pmod_xsd_0_0.xci",
+        "inst_hier_path": "pmod_xsd_0",
+        "parameters": {
+          "MicroSD": {
+            "value": "false"
+          }
+        }
       },
       "zxram_0": {
         "vlnv": "specnext.com:specnext:zxram:1.0",
@@ -695,10 +757,16 @@
           "pmod_i2s2_0/pmod_i2s2"
         ]
       },
-      "pmod_rrtc_0_pmod_rrtc": {
+      "pmod_rtcc_0_pmod_rtcc": {
         "interface_ports": [
           "JA",
-          "pmod_rrtc_0/pmod_rrtc"
+          "pmod_rtcc_0/pmod_rtcc"
+        ]
+      },
+      "pmod_xsd_0_pmod_xsd": {
+        "interface_ports": [
+          "JD",
+          "pmod_xsd_0/pmod_xsd"
         ]
       },
       "throttle_0_mb_clock_out": {
@@ -723,6 +791,12 @@
         "interface_ports": [
           "PS2_DATA",
           "zxkeyboard_0/ps2_data"
+        ]
+      },
+      "zxleddisplay_0_cpu_wait_out": {
+        "interface_ports": [
+          "zxleddisplay_0/cpu_wait_out",
+          "zxnext_0/cpu_wait"
         ]
       },
       "zxleddisplay_0_mb_clock_out": {
@@ -779,6 +853,12 @@
           "zxsdcard_0/sdcard_enable_n"
         ]
       },
+      "zxnext_0_sd1_enable": {
+        "interface_ports": [
+          "zxsdcard_1/sdcard_enable_n",
+          "zxnext_0/sd1_enable"
+        ]
+      },
       "zxnext_0_sdcard": {
         "interface_ports": [
           "zxnext_0/sdcard",
@@ -803,10 +883,10 @@
           "mig_7series_0/S_AXI"
         ]
       },
-      "zxram_0_cpu_wait1": {
+      "zxram_0_cpu_wait": {
         "interface_ports": [
           "zxram_0/cpu_wait",
-          "zxnext_0/cpu_wait"
+          "zxleddisplay_0/cpu_wait_in"
         ]
       },
       "zxreset_0_mb_reset": {
@@ -817,14 +897,20 @@
       },
       "zxrtc_0_scl": {
         "interface_ports": [
-          "pmod_rrtc_0/scl",
+          "pmod_rtcc_0/scl",
           "zxrtc_0/scl"
         ]
       },
       "zxrtc_0_sda": {
         "interface_ports": [
-          "pmod_rrtc_0/sda",
+          "pmod_rtcc_0/sda",
           "zxrtc_0/sda"
+        ]
+      },
+      "zxsdcard_0_sdcard_out": {
+        "interface_ports": [
+          "zxsdcard_0/sdcard_out",
+          "zxsdcard_1/sdcard_in"
         ]
       }
     },
@@ -945,6 +1031,24 @@
           "mig_7series_0/sys_rst"
         ]
       },
+      "pmod_xsd_0_sd_cd": {
+        "ports": [
+          "pmod_xsd_0/sd_cd",
+          "zxsdcard_1/sd_cd"
+        ]
+      },
+      "pmod_xsd_0_sd_dat0": {
+        "ports": [
+          "pmod_xsd_0/sd_dat0",
+          "zxsdcard_1/sd_dat0"
+        ]
+      },
+      "pmod_xsd_0_sd_wp": {
+        "ports": [
+          "pmod_xsd_0/sd_wp",
+          "zxsdcard_1/sd_wp"
+        ]
+      },
       "reset_1": {
         "ports": [
           "reset",
@@ -1006,12 +1110,13 @@
       "zxclock_0_clk_peripheral": {
         "ports": [
           "zxclock_0/clk_peripheral",
-          "zxsdcard_0/clk_peripheral",
           "zxvideo_0/clk_peripheral",
-          "zxkeyboard_0/clk_peripheral",
           "zxaudio_0/clk_peripheral",
-          "zxrtc_0/clk_peripheral",
+          "zxkeyboard_0/clk_peripheral",
           "zxreset_0/clk_peripheral",
+          "zxrtc_0/clk_peripheral",
+          "zxsdcard_0/clk_peripheral",
+          "zxsdcard_1/clk_peripheral",
           "zxram_0/clk_peripheral"
         ]
       },
@@ -1027,16 +1132,16 @@
           "zxvideo_0/clk_video"
         ]
       },
-      "zxleds_0_led": {
-        "ports": [
-          "zxleds_0/led",
-          "LED"
-        ]
-      },
       "zxram_0_aresetn": {
         "ports": [
           "zxram_0/aresetn",
           "mig_7series_0/aresetn"
+        ]
+      },
+      "zxreset_0_led": {
+        "ports": [
+          "zxleds_0/led",
+          "LED"
         ]
       },
       "zxreset_0_reset_memory": {
@@ -1048,11 +1153,12 @@
       "zxreset_0_reset_peripheral": {
         "ports": [
           "zxreset_0/reset_peripheral",
-          "zxsdcard_0/reset",
           "zxvideo_0/reset",
-          "zxkeyboard_0/reset",
           "zxaudio_0/reset",
-          "zxrtc_0/reset"
+          "zxkeyboard_0/reset",
+          "zxrtc_0/reset",
+          "zxsdcard_0/reset",
+          "zxsdcard_1/reset"
         ]
       },
       "zxsdcard_0_sd_cmd": {
@@ -1089,6 +1195,42 @@
         "ports": [
           "zxsdcard_0/sd_sck",
           "SD_SCK"
+        ]
+      },
+      "zxsdcard_1_sd_cmd": {
+        "ports": [
+          "zxsdcard_1/sd_cmd",
+          "pmod_xsd_0/sd_cmd"
+        ]
+      },
+      "zxsdcard_1_sd_dat1": {
+        "ports": [
+          "zxsdcard_1/sd_dat1",
+          "pmod_xsd_0/sd_dat1"
+        ]
+      },
+      "zxsdcard_1_sd_dat2": {
+        "ports": [
+          "zxsdcard_1/sd_dat2",
+          "pmod_xsd_0/sd_dat2"
+        ]
+      },
+      "zxsdcard_1_sd_dat3": {
+        "ports": [
+          "zxsdcard_1/sd_dat3",
+          "pmod_xsd_0/sd_dat3"
+        ]
+      },
+      "zxsdcard_1_sd_reset_n": {
+        "ports": [
+          "zxsdcard_1/sd_reset_n",
+          "pmod_xsd_0/sd_reset_n"
+        ]
+      },
+      "zxsdcard_1_sd_sck": {
+        "ports": [
+          "zxsdcard_1/sd_sck",
+          "pmod_xsd_0/sd_sck"
         ]
       },
       "zxvideo_0_b": {
