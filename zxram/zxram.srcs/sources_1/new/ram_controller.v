@@ -77,7 +77,7 @@ module ram_controller #(
 	input               ram_b_req_t_i,
 	output reg  [7:0]   ram_b_di_o,
 
-	output reg          cpu_wait_n,
+	output              cpu_wait_n,
 
 	input               clk_peripheral,
 	input               clk_memory,
@@ -117,8 +117,10 @@ module ram_controller #(
     reg      [1:0]  s_rresp;
     reg      [1:0]  s_bresp;
     
-    wire            busy;
     wire            trigger;
+    wire            buzy;
+
+    assign ram_b_req_i          = (ram_b_req_t_i ^ ram_b_req_t_int) & ~ram_a_req_i;
    
     assign ARCACHE              = 4'b0011;
     assign ARPROT               = 3'b000;
@@ -138,10 +140,8 @@ module ram_controller #(
     assign AWREGION             = 4'b0000;
     assign AWSIZE               = 3'b0000;
 
-    assign busy                 = ~(cState      == stIdle);
-
-    assign ram_b_req_i          = (ram_b_req_t_i ^ ram_b_req_t_int) & ~ram_a_req_i;
-    
+    assign busy                 = (cState != stIdle);
+        
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
 	   .PIPELINE_STAGES(PIPELINE_STAGES),
@@ -167,12 +167,6 @@ module ram_controller #(
             cState          <= stIdle;
         else      
             cState          <= nState;
-
-    always @(negedge clk_memory)
-        if (reset_memory) 
-            cpu_wait_n      <= 1'b0;
-        else      
-            cpu_wait_n      <= ~busy;
                
     always @(cState, trigger, ram_a_req_i, ram_b_req_i, ram_a_rd_i, ARREADY, RVALID, RREADY, AWREADY, WREADY, BVALID, BREADY)
     begin
@@ -181,8 +175,10 @@ module ram_controller #(
             stIdle:
                  if (~trigger)
                     nState <= stIdle;
-                 else if (ram_a_req_i)
-                    nState <= ram_a_rd_i ? stReadA0 : stWriteA0;
+                 else if (ram_a_req_i & ~ram_a_rd_i)
+                    nState <= stWriteA0;
+                 else if (ram_a_req_i &  ram_a_rd_i)
+                    nState <= stReadA0;
                  else if (ram_b_req_i)
                     nState <= stReadB0;
                  else
@@ -214,54 +210,55 @@ module ram_controller #(
         case (cState)
             stIdle:
             begin
-                RREADY 				<= 1'b0;
-                BREADY 				<= 1'b0;
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
-                AWADDR 				<= {27{1'b0}};
-                AWVALID 			<= 1'b0;
-                WDATA 				<= {32{1'b0}};
-                WLAST 				<= 1'b0;
-                WVALID 				<= 1'b0;
-                WSTRB 				<= 4'b0000;
+                RREADY 				    <= 1'b0;
+                BREADY 				    <= 1'b0;
+                ARADDR 				    <= {27{1'b0}};
+                ARVALID 			    <= 1'b0;         
+                AWADDR 				    <= {27{1'b0}};
+                AWVALID 			    <= 1'b0;
+                WDATA 				    <= {32{1'b0}};
+                WLAST 				    <= 1'b0;
+                WVALID 				    <= 1'b0;
+                WSTRB 				    <= 4'b0000;
             end
             stReadA0:
             begin  
-                ARADDR[26:21] 		<= {6{1'b0}};
-                ARADDR[20:2] 		<= ram_a_addr_i[20:2];
-                ARADDR[1:0] 		<= {2{1'b0}};
-                ARVALID 			<= 1'b1;
-                RREADY 				<= 1'b0;
+                ARADDR[26:21] 		    <= {6{1'b0}};
+                ARADDR[20:2] 		    <= ram_a_addr_i[20:2];
+                ARADDR[1:0] 		    <= {2{1'b0}};
+                ARVALID 			    <= 1'b1;
+                RREADY 				    <= 1'b0;
             end
             stReadA1:
             begin
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
+                ARADDR 				    <= {27{1'b0}};
+                ARVALID 			    <= 1'b0;         
             end
             stReadA2:
             begin
                 case (ram_a_addr_i[1:0])
-                    2'b00:  ram_a_di_o <= RDATA[7:0];
-                    2'b01:  ram_a_di_o <= RDATA[15:8];
-                    2'b10:  ram_a_di_o <= RDATA[23:16];
-                    2'b11:  ram_a_di_o <= RDATA[31:24];
+                    2'b00:  ram_a_di_o  <= RDATA[7:0];
+                    2'b01:  ram_a_di_o  <= RDATA[15:8];
+                    2'b10:  ram_a_di_o  <= RDATA[23:16];
+                    2'b11:  ram_a_di_o  <= RDATA[31:24];
                 endcase    
-                s_rresp 			<= RRESP;
-                RREADY 				<= 1'b1;
+                s_rresp 			    <= RRESP;
+                RREADY 				    <= 1'b1;
             end
             stReadB0:
             begin  
-                ARADDR[26:21] 		<= {6{1'b0}};
-                ARADDR[20:2] 		<= ram_b_addr_i[20:2];
-                ARADDR[1:0] 		<= {2{1'b0}};
-                ARVALID 			<= 1'b1;
-                RREADY 				<= 1'b0;
                 ram_b_req_t_int     <= ram_b_req_t_i;
+            
+                ARADDR[26:21] 		    <= {6{1'b0}};
+                ARADDR[20:2] 		    <= ram_b_addr_i[20:2];
+                ARADDR[1:0] 		    <= {2{1'b0}};
+                ARVALID 			    <= 1'b1;
+                RREADY 				    <= 1'b0;
             end
             stReadB1:
             begin
-                ARADDR 				<= {27{1'b0}};
-                ARVALID 			<= 1'b0;         
+                ARADDR 				    <= {27{1'b0}};
+                ARVALID 			    <= 1'b0;         
             end
             stReadB2:
             begin
@@ -271,43 +268,42 @@ module ram_controller #(
                     2'b10:  ram_b_di_o <= RDATA[23:16];
                     2'b11:  ram_b_di_o <= RDATA[31:24];
                 endcase    
-                s_rresp 			<= RRESP;
-                RREADY 				<= 1'b1;
+                s_rresp 			    <= RRESP;
+                RREADY 				    <= 1'b1;
             end
             stWriteA0: 
             begin
-                AWADDR[26:21] 		<= {6{1'b0}};
-                AWADDR[20:2] 		<= ram_a_addr_i[20:2];
-                AWADDR[1:0] 		<= {2{1'b0}};
-                AWVALID 			<= 1'b1;
-                BREADY 				<= 1'b0;
+                AWADDR[26:21] 		    <= {6{1'b0}};
+                AWADDR[20:2] 		    <= ram_a_addr_i[20:2];
+                AWADDR[1:0] 		    <= {2{1'b0}};
+                AWVALID 			    <= 1'b1;
+                BREADY 				    <= 1'b0;
             end
             stWriteA1:
             begin
-                AWADDR 				<= {27{1'b0}};
-                AWVALID 			<= 1'b0;
-                WDATA               <= {4{ram_a_do_i}};
-                WLAST 				<= 1'b1;
-                WVALID 				<= 1'b1;
+                AWADDR 				    <= {27{1'b0}};
+                AWVALID 			    <= 1'b0;
+                WDATA                   <= {4{ram_a_do_i}};
+                WLAST 				    <= 1'b1;
+                WVALID 				    <= 1'b1;
                 case (ram_a_addr_i[1:0])
-                    2'b00:  WSTRB   <= 4'b0001;
-                    2'b01:  WSTRB 	<= 4'b0010;
-                    2'b10:  WSTRB 	<= 4'b0100;
-                    2'b11:  WSTRB 	<= 4'b1000;
+                    2'b00:  WSTRB       <= 4'b0001;
+                    2'b01:  WSTRB 	    <= 4'b0010;
+                    2'b10:  WSTRB 	    <= 4'b0100;
+                    2'b11:  WSTRB 	    <= 4'b1000;
                 endcase   
             end
             stWriteA2:
             begin
-                WDATA 				<= {32{1'b0}};
-                WLAST 				<= 1'b0;
-                WVALID				<= 1'b0;
-                WSTRB 				<= 4'b0000;
+                WDATA 				    <= {32{1'b0}};
+                WLAST 				    <= 1'b0;
+                WVALID				    <= 1'b0;
+                WSTRB 				    <= 4'b0000;
             end
             stWriteA3:
             begin
-                ram_a_di_o          <= ram_a_do_i;
-                s_bresp 			<= BRESP;
-                BREADY 				<= 1'b1;
+                s_bresp 			    <= BRESP;
+                BREADY 				    <= 1'b1;
             end
         endcase  
    
@@ -319,10 +315,28 @@ module ram_controller #(
    FDCE #(
       .INIT(1'b0), // Initial value of register (1'b0 or 1'b1)
       .IS_C_INVERTED(1'b0)
+   ) FDCE_cpu_wait_n (
+      .Q(cpu_wait_n),      // 1-bit Data output
+      .C(clk_peripheral),      // 1-bit Clock input
+      .CE(1'b1),    // 1-bit Clock enable input
+      .CLR(busy),  // 1-bit Asynchronous clear input
+      .D(1'b1)       // 1-bit Data input
+   );
+
+   // End of FDCE_trigger instantiation
+
+   // FDCE: Single Data Rate D Flip-Flop with Asynchronous Clear and
+   //       Clock Enable (posedge clk).
+   //       Artix-7
+   // Xilinx HDL Language Template, version 2021.1
+
+   FDCE #(
+      .INIT(1'b0), // Initial value of register (1'b0 or 1'b1)
+      .IS_C_INVERTED(1'b1)
    ) FDCE_trigger (
       .Q(trigger),      // 1-bit Data output
       .C(clk_peripheral),      // 1-bit Clock input
-      .CE(~busy),    // 1-bit Clock enable input
+      .CE(1'b1),    // 1-bit Clock enable input
       .CLR(busy),  // 1-bit Asynchronous clear input
       .D(1'b1)       // 1-bit Data input
    );

@@ -43,7 +43,7 @@ module zxclock #(
     output				clk_peripheral_n,
     output				clk_video,
     
-	input				clk_140,
+	input				clk_140_n,
     input           	clk_28_n,
     input           	clk_28,
     input           	clk_14,
@@ -66,7 +66,7 @@ module zxclock #(
 	
 	BUFG BUFG_clk_memory (
 		.O(clk_memory), // 1-bit output: Clock output
-		.I(clk_140)  // 1-bit input: Clock input
+		.I(clk_140_n)  // 1-bit input: Clock input
 	);
 	
 	// End of BUFG_inst instantiation

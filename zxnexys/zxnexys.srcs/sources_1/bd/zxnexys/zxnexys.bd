@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x611D271D0FA4915C",
+      "boundary_crc": "0x98BDAF6E893B3CD1",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys",
       "name": "zxnexys",
@@ -17,9 +17,7 @@
       "pmod_i2s2_0": "",
       "zxleds_0": "",
       "zxvideo_0": "",
-      "throttle_0": "",
       "zxaudio_0": "",
-      "zxnext_0": "",
       "pmod_rtcc_0": "",
       "zxkeyboard_0": "",
       "zxleddisplay_0": "",
@@ -27,8 +25,9 @@
       "zxrtc_0": "",
       "zxsdcard_0": "",
       "zxsdcard_1": "",
-      "zxclock_0": "",
       "pmod_xsd_0": "",
+      "zxnext_0": "",
+      "zxclock_0": "",
       "zxram_0": ""
     },
     "interface_ports": {
@@ -222,11 +221,6 @@
         "direction": "O",
         "left": "15",
         "right": "0"
-      },
-      "SW": {
-        "direction": "I",
-        "left": "1",
-        "right": "0"
       }
     },
     "components": {
@@ -256,6 +250,9 @@
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
             "value": "140"
+          },
+          "CLKOUT2_REQUESTED_PHASE": {
+            "value": "0"
           },
           "CLKOUT2_USED": {
             "value": "true"
@@ -345,7 +342,7 @@
             "value": "clk_200"
           },
           "CLK_OUT2_PORT": {
-            "value": "clk_140"
+            "value": "clk_140_n"
           },
           "CLK_OUT3_PORT": {
             "value": "clk_28_n"
@@ -367,6 +364,9 @@
           },
           "MMCM_CLKOUT1_DIVIDE": {
             "value": "5"
+          },
+          "MMCM_CLKOUT1_PHASE": {
+            "value": "0.000"
           },
           "MMCM_CLKOUT2_DIVIDE": {
             "value": "25"
@@ -498,142 +498,11 @@
         "xci_path": "ip\\zxnexys_zxvideo_0_0\\zxnexys_zxvideo_0_0.xci",
         "inst_hier_path": "zxvideo_0"
       },
-      "throttle_0": {
-        "vlnv": "xilinx.com:module_ref:throttle:1.0",
-        "xci_name": "zxnexys_throttle_0_0",
-        "xci_path": "ip\\zxnexys_throttle_0_0\\zxnexys_throttle_0_0.xci",
-        "inst_hier_path": "throttle_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "throttle",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "mb_clock_in": {
-            "mode": "Slave",
-            "vlnv_bus_definition": "specnext.com:specnext:mb_clock:1.0",
-            "vlnv": "specnext.com:specnext:mb_clock_rtl:1.0",
-            "port_maps": {
-              "speed": {
-                "physical_name": "in_cpu_speed",
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "clk_lsb": {
-                "physical_name": "in_cpu_clk_lsb",
-                "direction": "O"
-              },
-              "contend": {
-                "physical_name": "in_cpu_contend",
-                "direction": "O"
-              },
-              "machine_timing": {
-                "physical_name": "in_machine_timing",
-                "direction": "O",
-                "left": "2",
-                "right": "0"
-              },
-              "cpu_clk": {
-                "physical_name": "in_clk_cpu",
-                "direction": "I"
-              },
-              "clk_28": {
-                "physical_name": "in_mb_clk_28",
-                "direction": "I"
-              },
-              "clk_28_n": {
-                "physical_name": "in_mb_clk_28_n",
-                "direction": "I"
-              },
-              "clk_14": {
-                "physical_name": "in_mb_clk_14",
-                "direction": "I"
-              },
-              "clk_7": {
-                "physical_name": "in_mb_clk_7",
-                "direction": "I"
-              }
-            }
-          },
-          "mb_clock_out": {
-            "mode": "Master",
-            "vlnv_bus_definition": "specnext.com:specnext:mb_clock:1.0",
-            "vlnv": "specnext.com:specnext:mb_clock_rtl:1.0",
-            "port_maps": {
-              "speed": {
-                "physical_name": "out_cpu_speed",
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "clk_lsb": {
-                "physical_name": "out_cpu_clk_lsb",
-                "direction": "I"
-              },
-              "contend": {
-                "physical_name": "out_cpu_contend",
-                "direction": "I"
-              },
-              "machine_timing": {
-                "physical_name": "out_machine_timing",
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              },
-              "cpu_clk": {
-                "physical_name": "out_clk_cpu",
-                "direction": "O"
-              },
-              "clk_28": {
-                "physical_name": "out_mb_clk_28",
-                "direction": "O"
-              },
-              "clk_28_n": {
-                "physical_name": "out_mb_clk_28_n",
-                "direction": "O"
-              },
-              "clk_14": {
-                "physical_name": "out_mb_clk_14",
-                "direction": "O"
-              },
-              "clk_7": {
-                "physical_name": "out_mb_clk_7",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "throttle": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          }
-        }
-      },
       "zxaudio_0": {
         "vlnv": "specnext.com:specnext:zxaudio:1.0",
         "xci_name": "zxnexys_zxaudio_0_0",
         "xci_path": "ip\\zxnexys_zxaudio_0_0\\zxnexys_zxaudio_0_0.xci",
         "inst_hier_path": "zxaudio_0"
-      },
-      "zxnext_0": {
-        "vlnv": "specnext.com:specnext:zxnext:1.0",
-        "xci_name": "zxnexys_zxnext_0_0",
-        "xci_path": "ip\\zxnexys_zxnext_0_0\\zxnexys_zxnext_0_0.xci",
-        "inst_hier_path": "zxnext_0",
-        "parameters": {
-          "g_machine_id": {
-            "value": "\"00001010\""
-          },
-          "g_sub_version": {
-            "value": "\"00001000\""
-          },
-          "g_version": {
-            "value": "\"00110001\""
-          }
-        }
       },
       "pmod_rtcc_0": {
         "vlnv": "xilinx.com:user:pmod_rtcc:1.0",
@@ -695,17 +564,6 @@
           }
         }
       },
-      "zxclock_0": {
-        "vlnv": "specnext.com:specnext:zxclock:1.0",
-        "xci_name": "zxnexys_zxclock_0_2",
-        "xci_path": "ip\\zxnexys_zxclock_0_2\\zxnexys_zxclock_0_2.xci",
-        "inst_hier_path": "zxclock_0",
-        "parameters": {
-          "CPU_Wait_Enabled": {
-            "value": "false"
-          }
-        }
-      },
       "pmod_xsd_0": {
         "vlnv": "specnext.com:specnext:pmod_xsd:1.0",
         "xci_name": "zxnexys_pmod_xsd_0_0",
@@ -713,6 +571,34 @@
         "inst_hier_path": "pmod_xsd_0",
         "parameters": {
           "MicroSD": {
+            "value": "false"
+          }
+        }
+      },
+      "zxnext_0": {
+        "vlnv": "specnext.com:specnext:zxnext:1.0",
+        "xci_name": "zxnexys_zxnext_0_0",
+        "xci_path": "ip\\zxnexys_zxnext_0_0\\zxnexys_zxnext_0_0.xci",
+        "inst_hier_path": "zxnext_0",
+        "parameters": {
+          "g_machine_id": {
+            "value": "\"00001010\""
+          },
+          "g_sub_version": {
+            "value": "\"00001011\""
+          },
+          "g_version": {
+            "value": "\"00110001\""
+          }
+        }
+      },
+      "zxclock_0": {
+        "vlnv": "specnext.com:specnext:zxclock:1.0",
+        "xci_name": "zxnexys_zxclock_0_2",
+        "xci_path": "ip\\zxnexys_zxclock_0_2\\zxnexys_zxclock_0_2.xci",
+        "inst_hier_path": "zxclock_0",
+        "parameters": {
+          "CPU_Wait_Enabled": {
             "value": "false"
           }
         }
@@ -769,12 +655,6 @@
           "pmod_xsd_0/pmod_xsd"
         ]
       },
-      "throttle_0_mb_clock_out": {
-        "interface_ports": [
-          "throttle_0/mb_clock_out",
-          "zxnext_0/mb_clock"
-        ]
-      },
       "zxclock_0_mb_clock": {
         "interface_ports": [
           "zxclock_0/mb_clock",
@@ -801,8 +681,8 @@
       },
       "zxleddisplay_0_mb_clock_out": {
         "interface_ports": [
-          "throttle_0/mb_clock_in",
-          "zxleddisplay_0/mb_clock_out"
+          "zxleddisplay_0/mb_clock_out",
+          "zxnext_0/mb_clock"
         ]
       },
       "zxleddisplay_0_video_out": {
@@ -951,28 +831,22 @@
           "zxsdcard_0/sd_dat0"
         ]
       },
-      "SW_1": {
-        "ports": [
-          "SW",
-          "throttle_0/throttle"
-        ]
-      },
       "clk_wiz_0_clk_14": {
         "ports": [
           "clk_wiz_0/clk_14",
           "zxclock_0/clk_14"
         ]
       },
+      "clk_wiz_0_clk_140_n": {
+        "ports": [
+          "clk_wiz_0/clk_140_n",
+          "zxclock_0/clk_140_n"
+        ]
+      },
       "clk_wiz_0_clk_28": {
         "ports": [
           "clk_wiz_0/clk_28",
           "zxclock_0/clk_28"
-        ]
-      },
-      "clk_wiz_0_clk_140": {
-        "ports": [
-          "clk_wiz_0/clk_140",
-          "zxclock_0/clk_140"
         ]
       },
       "clk_wiz_0_clk_200": {
