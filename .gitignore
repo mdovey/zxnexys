@@ -73,6 +73,11 @@
 /zxram/zxram.ip_user_files
 /zxram/zxram.runs
 /zxram/zxram.sim
+/zxram2/zxram2.cache
+/zxram2/zxram2.gen
+/zxram2/zxram2.ip_user_files
+/zxram2/zxram2.runs
+/zxram2/zxram2.sim
 /zxreset/zxreset.cache
 /zxreset/zxreset.gen
 /zxreset/zxreset.ip_user_files

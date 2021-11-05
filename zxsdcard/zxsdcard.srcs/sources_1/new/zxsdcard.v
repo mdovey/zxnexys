@@ -72,7 +72,7 @@ module zxsdcard#(
     assign sd_dat3      = (cState == stStartUp | cState == stPowerUp) ? 1'b0 : enable_n;
     assign sd_reset_n   = (cState == stStartUp | cState == stReady | cState == stPowerUp) ? 1'b0 : 1'b1;
     
-    always @(posedge clk_peripheral)
+    always @(posedge clk_peripheral, posedge reset)
         if (reset)
             cState  <=  stPowerDown;
         else

@@ -25,17 +25,17 @@
       <data key="VT">BC</data>
     </node>
     <node id="n1">
-      <data key="BA">0x0000000</data>
+      <data key="BA">0x80000000</data>
       <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x7FFFFFF</data>
+      <data key="HA">0x87FFFFFF</data>
       <data key="HP">C_HIGHADDR</data>
-      <data key="MA">M_AXI</data>
-      <data key="MX">/zxram_0</data>
-      <data key="MI">M_AXI</data>
+      <data key="MA">axi_mig</data>
+      <data key="MX">/ram_0/zxram_0</data>
+      <data key="MI">axi_mig</data>
       <data key="MS">SEG_mig_7series_0_memaddr</data>
-      <data key="MV">specnext.com:specnext:zxram:1.0</data>
+      <data key="MV">specnext.com:specnext:zxram:2.0</data>
       <data key="TM">both</data>
-      <data key="SX">/mig_7series_0</data>
+      <data key="SX">/ram_0/mig_7series_0</data>
       <data key="SI">S_AXI</data>
       <data key="SS">memaddr</data>
       <data key="SV">xilinx.com:ip:mig_7series:4.2</data>
@@ -43,20 +43,20 @@
       <data key="VT">AC</data>
     </node>
     <node id="n2">
-      <data key="VH">2</data>
-      <data key="VM">zxnexys</data>
-      <data key="VT">VR</data>
-    </node>
-    <node id="n3">
       <data key="TU">active</data>
       <data key="VH">2</data>
       <data key="VT">PM</data>
     </node>
-    <edge id="e0" source="n0" target="n2">
+    <node id="n3">
+      <data key="VH">2</data>
+      <data key="VM">zxnexys</data>
+      <data key="VT">VR</data>
+    </node>
+    <edge id="e0" source="n0" target="n3">
     </edge>
-    <edge id="e1" source="n2" target="n3">
+    <edge id="e1" source="n3" target="n2">
     </edge>
-    <edge id="e2" source="n1" target="n3">
+    <edge id="e2" source="n1" target="n2">
       <data key="EH">2</data>
     </edge>
   </graph>

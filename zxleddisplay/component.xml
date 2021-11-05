@@ -28,462 +28,20 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>mb_clock_in</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock_rtl" spirit:version="1.0"/>
+      <spirit:name>clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
       <spirit:slave/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>clk_28</spirit:name>
+            <spirit:name>CLK</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>in_mb_clk_28</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_14</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_mb_clk_14</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>machine_timing</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_machine_timing</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_lsb</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_cpu_clk_lsb</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_28_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_mb_clk_28_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>speed</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_cpu_speed</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>contend</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_cpu_contend</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_clk</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_clk_cpu</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_7</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_mb_clk_7</spirit:name>
+            <spirit:name>clk</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>mb_clock_out</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_28</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_mb_clk_28</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_14</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_mb_clk_14</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>machine_timing</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_machine_timing</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_lsb</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_cpu_clk_lsb</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_28_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_mb_clk_28_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>speed</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_cpu_speed</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>contend</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_cpu_contend</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_clk</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_clk_cpu</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>clk_7</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_mb_clk_7</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>in_hdmi_reset</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_hdmi_reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>out_hdmi_reset</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_hdmi_reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>video_in</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>scanlines</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_scanlines</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>scandouble</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_scandouble</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>freq_50_60</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_freq_50_60</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>machine_timing</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_v_machine_timing</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hblank_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_hblank_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>video_mode</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_video_mode</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>rgb</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_rgb</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>vblank_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_vblank_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>csync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_csync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hsync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_hsync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hdmi_audio_en</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_hdmi_audio_en</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>vsync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_vsync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hdmi_reset</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_hdmi_reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>video_out</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>scanlines</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_scanlines</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>scandouble</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_scandouble</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>freq_50_60</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_freq_50_60</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>machine_timing</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_v_machine_timing</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hblank_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_hblank_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>video_mode</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_video_mode</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>rgb</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_rgb</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>vblank_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_vblank_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>csync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_csync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hsync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_hsync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hdmi_audio_en</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_hdmi_audio_en</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>vsync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_vsync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hdmi_reset</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_hdmi_reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>cpu_wait_in</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="cpu_wait" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="cpu_wait_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_wait_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>in_cpu_wait_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>cpu_wait_out</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="cpu_wait" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="cpu_wait_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_wait_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out_cpu_wait_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CPU_WAIT_OUT.NUM_READ_OUTSTANDING"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CPU_WAIT_OUT.NUM_WRITE_OUTSTANDING"/>
-        </spirit:parameter>
-      </spirit:parameters>
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
@@ -500,7 +58,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dfc2d86c</spirit:value>
+            <spirit:value>3a5142a7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -516,7 +74,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dfc2d86c</spirit:value>
+            <spirit:value>3a5142a7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -537,373 +95,7 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>in_clk_cpu</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_cpu_speed</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_cpu_clk_lsb</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_cpu_contend</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_machine_timing</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_mb_clk_28</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_mb_clk_28_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_mb_clk_14</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_mb_clk_7</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_clk_cpu</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_cpu_speed</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_cpu_clk_lsb</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_cpu_contend</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_machine_timing</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_mb_clk_28</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_mb_clk_28_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_mb_clk_14</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_mb_clk_7</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_rgb</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">8</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_csync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_vsync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_hsync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_vblank_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_hblank_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_freq_50_60</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_scanlines</spirit:name>
+        <spirit:name>cpu_speed</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
@@ -920,7 +112,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_scandouble</spirit:name>
+        <spirit:name>cpu_wait_n</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -933,11 +125,11 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_video_mode</spirit:name>
+        <spirit:name>aw_address</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:left spirit:format="long">20</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -950,11 +142,11 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_v_machine_timing</spirit:name>
+        <spirit:name>ar_address</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:left spirit:format="long">20</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -967,37 +159,11 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>in_hdmi_reset</spirit:name>
+        <spirit:name>br_address</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_hdmi_audio_en</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_rgb</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">8</spirit:left>
+            <spirit:left spirit:format="long">20</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
@@ -1010,87 +176,9 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out_csync_n</spirit:name>
+        <spirit:name>sel_address</spirit:name>
         <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_vsync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_hsync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_vblank_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_hblank_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_freq_50_60</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_scanlines</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:direction>in</spirit:direction>
           <spirit:vector>
             <spirit:left spirit:format="long">1</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
@@ -1098,105 +186,6 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_scandouble</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_video_mode</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_v_machine_timing</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_hdmi_reset</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_hdmi_audio_en</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>in_cpu_wait_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>out_cpu_wait_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -1238,6 +227,19 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>sys_reset_n</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -1255,7 +257,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
         <spirit:name>DIV</spirit:name>
         <spirit:displayName>Div</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DIV">16</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DIV">18</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1265,7 +267,7 @@
       <spirit:file>
         <spirit:name>zxleddisplay.srcs/sources_1/new/zxleddisplay.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_dfc2d86c</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_3a5142a7</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1290,7 +292,7 @@
     <spirit:parameter>
       <spirit:name>DIV</spirit:name>
       <spirit:displayName>Div</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DIV">16</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.DIV">18</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -1309,8 +311,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxleddisplay_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>7</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-22T22:28:05Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>18</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-05T13:40:31Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@531d0883_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@29254685_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
@@ -1388,15 +390,130 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@31b51aed_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@61b105a2_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@78fa6f5a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3babbb1d_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c935763_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2df6c5ac_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12b8c23c_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51ddee10_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46dbc61f_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@82c4ff1_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@508159b0_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ac7ad96_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d8c0109_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6060ea61_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4947633a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@590ddd82_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2424937e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46d3882a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37daf7bb_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3531403d_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18ac62ee_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3eec136d_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d7aef88_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4715c894_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fb147ea_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a4b8b5c_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38a4f398_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22d2dfdc_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61af0f8e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7226720a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11e2205a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32e9f6b_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31847f62_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c739625_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@646486fb_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7865223e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66c73d00_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@271b07c0_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@627c61cf_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@587e2476_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c505d46_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4034df5_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3193ea09_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f8c045b_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@276e1b1a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a65a0df_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bbec150_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56bfa129_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11e60bb0_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26e5eb87_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6eb37f0b_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c49990f_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@129b69d1_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51331ff4_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cab9dde_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f77d48e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@221248f_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48c29aa3_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@246a1fef_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8e693ab_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73f9dbdd_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21bacb0b_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a329bf4_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c8ba9cb_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@381937b9_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fa09276_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e6a2731_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e6bc03e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@363e2f6a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fe3cd93_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d7de54e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ed03623_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@281bfd67_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d3d7bd_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54f37e9d_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ff2ebfd_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@591836b1_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53a58ad2_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fb9d94e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39b16659_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66f1abc8_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ab9a7e3_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c92febd_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3283d8a8_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f9c947d_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ed80a68_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c58c8e5_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40d8a9c4_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c353808_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@951e857_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4765aa48_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dc58336_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@785cacba_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f889fee_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a4691e_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52116930_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@398ec5bc_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@244b3e90_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7843c8c7_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f2532c1_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46170022_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31325cb7_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b0ae8cc_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59bc86bf_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@583823c4_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fcbe583_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bd36ba_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f2064a9_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e24010_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@688c2d6d_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f2310e2_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d3c2e74_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ff95a02_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18e410eb_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bd9aabb_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@479900a_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d7ef244_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d6b84fd_ARCHIVE_LOCATION">v:/zxnext/zxleddisplay</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a4cec853"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="fc330ede"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="f7dd375e"/>
-      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="5bf43c3a"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="1438d079"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="c711930a"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8440c107"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="29066e77"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="47e1b17a"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="7c2e410c"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

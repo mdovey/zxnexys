@@ -21,18 +21,14 @@
 
 
 module zxreset #(
-    parameter MEM_DELAY         = 23,
     parameter CPU_DELAY         = 23,
     parameter SYNC_STAGES       = 3,
     parameter PIPELINE_STAGES   = 1
 )(
-    output     	reset_mb,
     output  	reset_mb_hard,
     output  	reset_mb_soft,
 
     output  	reset_peripheral,
-
-    output  	reset_memory,
     
     input 		in_reset_hard,
     input 		in_reset_soft,
@@ -45,7 +41,6 @@ module zxreset #(
     input       mem_locked_0,
     input       mem_locked_1,
 
-    input 		clk_memory,
     input 		clk_peripheral,
     
     input       sys_reset_n
@@ -61,26 +56,16 @@ module zxreset #(
 	wire mem_locked;
 	wire cpu_locked;
 	
-	reg [MEM_DELAY:0]  mem_counter;
 	reg [CPU_DELAY:0]  cpu_counter;
 	
-	assign mem_locked       = &mem_counter; 
 	assign cpu_locked       = &cpu_counter;
-	
-	assign reset_mb			= reset_mb_hard    | reset_mb_soft;
+
 	assign reset_mb_hard	= ~cpu_locked      | hard_reset; 	
 	assign reset_mb_soft	= ~cpu_locked      | hard_reset      | soft_reset; 
-	assign reset_memory_int = ~mem_locked      | hard_reset      | soft_reset;
-	assign reset_peripheral	= ~clk_locked_sync | hard_reset      | peripheral_reset; 	
+	assign reset_peripheral	= ~clk_locked      | hard_reset      | peripheral_reset; 	
 
     always @(posedge clk_peripheral)
         if (~clk_locked_sync)
-            mem_counter    <= {MEM_DELAY+1{1'b0}};
-        else if (~mem_locked)
-            mem_counter    <= mem_counter + 1;    
-
-    always @(posedge clk_peripheral)
-        if (~mem_locked_sync)
             cpu_counter    <= {CPU_DELAY+1{1'b0}};
         else if (~cpu_locked)
             cpu_counter    <= cpu_counter + 1;    
@@ -91,18 +76,8 @@ module zxreset #(
 	   .INIT(1'b0)
 	) sync_clk_locked (
 	   .clk(clk_peripheral),
-	   .async_in(clk_locked & sys_reset_n),
+	   .async_in(mem_locked_0 & mem_locked_1 & clk_locked & sys_reset_n),
 	   .sync_out(clk_locked_sync)
-	);
-
-	async_input_sync #(
-	   .SYNC_STAGES(SYNC_STAGES),
-	   .PIPELINE_STAGES(PIPELINE_STAGES),
-	   .INIT(1'b0)
-	) sync_mem_locked (
-	   .clk(clk_peripheral),
-	   .async_in(mem_locked_0 & mem_locked_1),
-	   .sync_out(mem_locked_sync)
 	);
 
 	async_input_sync #(
@@ -114,7 +89,7 @@ module zxreset #(
 	   .async_in(in_reset_hard | btn_reset_hard),
 	   .sync_out(hard_reset)
 	);
-	
+
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
 	   .PIPELINE_STAGES(PIPELINE_STAGES),
@@ -133,16 +108,6 @@ module zxreset #(
 	   .clk(clk_peripheral),
 	   .async_in(in_reset_peripheral),
 	   .sync_out(peripheral_reset)
-	);
-	
-	async_input_sync #(
-	   .SYNC_STAGES(SYNC_STAGES),
-	   .PIPELINE_STAGES(PIPELINE_STAGES),
-	   .INIT(1'b1)
-	) sync_memory (
-	   .clk(clk_memory),
-	   .async_in(reset_memory_int),
-	   .sync_out(reset_memory)
 	);
 
 endmodule

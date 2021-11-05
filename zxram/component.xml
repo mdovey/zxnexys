@@ -506,28 +506,6 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>clk_peripheral</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_peripheral</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET"/>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_memory</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -574,7 +552,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bd493036</spirit:value>
+            <spirit:value>fad4d48b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -593,7 +571,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bd493036</spirit:value>
+            <spirit:value>fad4d48b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1344,12 +1322,16 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>aresetn</spirit:name>
+        <spirit:name>status_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -1357,9 +1339,9 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_peripheral</spirit:name>
+        <spirit:name>aresetn</spirit:name>
         <spirit:wire>
-          <spirit:direction>in</spirit:direction>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -1461,7 +1443,7 @@
       <spirit:file>
         <spirit:name>zxram.srcs/sources_1/new/zxram.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_5b63a407</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_06e8077d</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1568,8 +1550,8 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>113</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-27T07:09:28Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>121</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-10-27T14:00:50Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5b44fcad_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@38a0a40d_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
@@ -2894,14 +2876,127 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@38911443_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@711f7319_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4f8633d6_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@669d730c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f0efac7_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22684be6_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f7053fc_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47888587_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fffa80d_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b87f8fb_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bf11ae0_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47667980_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11171138_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@624eab06_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fd72fad_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@789af871_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4dbb74f3_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73e0bea5_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74ac0511_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27b2c1d0_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bd7ccc3_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@486ceccb_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63b3b522_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35cd6e41_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f6d86c4_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b38968_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44798f76_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4581ab73_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4165042f_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d7740b2_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ef6faac_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c5fc85e_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8a7a727_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6140f093_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4080c23a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f91f9f8_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ae958e1_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b986f60_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fbbe92c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7aa8d42_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35d7e36a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ab2f9da_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bf38e38_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b4c57f5_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50cc6145_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4684e3aa_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7992e9f0_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@388a73f6_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bb0d1ff_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58725fc9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a4d9ae5_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ee042f_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@624f5c56_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@aeb0f8c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@789f250_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c017723_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3994da7c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@292e8763_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@707c4685_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5db8c764_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dbc003a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1095c09b_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f3d14ee_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5405d7e9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@753448b9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cdad016_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4795e170_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12975164_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2868a50a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195736bd_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@761e6623_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6986a18_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@261e2e2d_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63907fab_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a452ace_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39a95bc6_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31599f69_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fe59d30_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b4c5580_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68357fff_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@537d8c45_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c75e985_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16659877_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5382149a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d994299_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54461d44_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@681a54e5_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21bd7900_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1223b39f_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5875dcc9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6741db3c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2314a809_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32fc1e50_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b1a71f9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@560770c9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@381c3017_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c8b7cd0_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4aba262a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72c9809a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4303de2c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70931077_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1129f118_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3419edca_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@615eb288_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e68831e_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f41037f_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c0b5663_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55abe08c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7689ae68_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2713a52a_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@628fd1a7_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@281a89a9_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35cc679c_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37414c83_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74376459_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35badb18_ARCHIVE_LOCATION">v:/zxnext/zxram</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a56cf08f"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="92c13ab6"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="f50adb7b"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="45db7864"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="6f634683"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b41d1347"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="3a585157"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="9c76f4c0"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="01419f86"/>
     </xilinx:packagingInfo>

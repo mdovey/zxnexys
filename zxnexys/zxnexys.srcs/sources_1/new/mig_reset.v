@@ -24,36 +24,40 @@ module mig_reset #(
    parameter SYNC_STAGES = 3,
    parameter PIPELINE_STAGES = 1
 ) (
-(* X_INTERFACE_PARAMETER="POLARITY ACTIVE_HIGH" *)
-    output reset_out,
-    input clk,
+(* X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *)
+    output aresetn,
+
+(* X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *)
+    output sys_reset,
+
+    input clk_sys,
+    input clk_ui,
     input reset_sys_n,
     input locked
 );
 
-    wire    reset_n_int;
-    wire    locked_int;
+    wire    reset_n;
     
-    assign  reset_out   = ~(locked_int & reset_n_int);
+    assign  reset_n =   reset_sys_n & locked;
 
     async_input_sync #(
        .SYNC_STAGES(SYNC_STAGES),
        .PIPELINE_STAGES(PIPELINE_STAGES),
        .INIT(1'b0)
-    ) sync_reset (
-       .clk(clk),
-       .async_in(reset_sys_n),
-       .sync_out(reset_n_int)
+    ) sync_aresetn (
+       .clk(clk_ui),
+       .async_in(reset_n),
+       .sync_out(aresetn)
     );
-    
+
     async_input_sync #(
        .SYNC_STAGES(SYNC_STAGES),
        .PIPELINE_STAGES(PIPELINE_STAGES),
        .INIT(1'b0)
-    ) sync_locked (
-       .clk(clk),
-       .async_in(locked),
-       .sync_out(locked_int)
+    ) sync_sys_reset (
+       .clk(clk_sys),
+       .async_in(reset_n),
+       .sync_out(sys_reset)
     );
     
 endmodule

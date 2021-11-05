@@ -80,10 +80,9 @@ module zxram #(
 
 	output              cpu_wait_n,
 
-    output              aresetn,
+	output      [3:0]   status_o,	
 
-(*X_INTERFACE_PARAMETER = "ASSOCIATED_RESET :" *) 	
-	input               clk_peripheral,
+    output              aresetn,
 
 (*X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_memory" *) 	
 	input               clk_memory,
@@ -208,10 +207,11 @@ module zxram #(
         .ram_b_di_o(ram_b_di_o),
 
         .cpu_wait_n(cpu_wait_n),
+        
+        .status_o(status_o),
     
-        .clk_peripheral(clk_peripheral),
         .clk_memory(clk_memory),
-        .areset(reset_memory)
+        .reset_memory(reset_memory)
     );
     
     axi_clock_converter_0 (

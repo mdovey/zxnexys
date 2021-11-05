@@ -20,13 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module zxclock #(
-   parameter SYNC_STAGES = 3,
-   parameter PIPELINE_STAGES = 1
-)(
+module zxclock(
     output              clk_cpu,
-
-    input               cpu_wait_n,
 
     input   	[1:0]  	cpu_speed,
     input           	cpu_clk_lsb,
@@ -42,8 +37,11 @@ module zxclock #(
     output				clk_peripheral,
     output				clk_peripheral_n,
     output				clk_video,
+
+    output      [1:0]   monitor_cpu_speed,
+    output      [2:0]   monitor_machine_timing,
     
-	input				clk_140_n,
+    input           	clk_140,
     input           	clk_28_n,
     input           	clk_28,
     input           	clk_14,
@@ -54,19 +52,21 @@ module zxclock #(
 	wire				clk1;
 
 	reg			     	clk_3m5_cont;
-	reg [31:0]			leds;
     
-	assign clk_peripheral	= mb_clk_28;
-	assign clk_peripheral_n	= mb_clk_28_n;
-	assign clk_video		= mb_clk_14;
-	
+    assign monitor_cpu_speed      = cpu_speed;  
+    assign monitor_machine_timing = machine_timing;  
+    
+	assign clk_peripheral	    = mb_clk_28;
+	assign clk_peripheral_n	    = mb_clk_28_n;
+	assign clk_video		    = mb_clk_14;
+
 	// BUFG: Global Clock Simple Buffer
 	//       Artix-7
 	// Xilinx HDL Language Template, version 2021.1
 	
-	BUFG BUFG_clk_memory (
+	BUFG BUFG_clk_140 (
 		.O(clk_memory), // 1-bit output: Clock output
-		.I(clk_140_n)  // 1-bit input: Clock input
+		.I(clk_140)  // 1-bit input: Clock input
 	);
 	
 	// End of BUFG_inst instantiation
@@ -127,8 +127,8 @@ module zxclock #(
     )
     BUFGCTRL_clk0 (
         .O(clk0),             // 1-bit output: Clock output
-        .CE0(cpu_wait_n),         // 1-bit input: Clock enable input for I0
-        .CE1(cpu_wait_n),         // 1-bit input: Clock enable input for I1
+        .CE0(1'b1),         // 1-bit input: Clock enable input for I0
+        .CE1(1'b1),         // 1-bit input: Clock enable input for I1
         .I0(clk_3m5_cont),           // 1-bit input: Primary clock
         .I1(clk_7),           // 1-bit input: Secondary clock
         .IGNORE0(1'b0), // 1-bit input: Clock ignore input for I0
@@ -151,8 +151,8 @@ module zxclock #(
     )
     BUFGCTRL_clk1 (
         .O(clk1),             // 1-bit output: Clock output
-        .CE0(cpu_wait_n),         // 1-bit input: Clock enable input for I0
-        .CE1(cpu_wait_n),         // 1-bit input: Clock enable input for I1
+        .CE0(1'b1),         // 1-bit input: Clock enable input for I0
+        .CE1(1'b1),         // 1-bit input: Clock enable input for I1
         .I0(clk_14),           // 1-bit input: Primary clock
         .I1(clk_28),           // 1-bit input: Secondary clock
         .IGNORE0(1'b0), // 1-bit input: Clock ignore input for I0
@@ -175,8 +175,8 @@ module zxclock #(
     )
     BUFGCTRL_clk_cpu (
         .O(clk_cpu),             // 1-bit output: Clock output
-        .CE0(cpu_wait_n),         // 1-bit input: Clock enable input for I0
-        .CE1(cpu_wait_n),         // 1-bit input: Clock enable input for I1
+        .CE0(1'b1),         // 1-bit input: Clock enable input for I0
+        .CE1(1'b1),         // 1-bit input: Clock enable input for I1
         .I0(clk0),           // 1-bit input: Primary clock
         .I1(clk1),           // 1-bit input: Secondary clock
         .IGNORE0(1'b0), // 1-bit input: Clock ignore input for I0
@@ -187,7 +187,7 @@ module zxclock #(
     
     // End of BUFGCTRL_inst instantiation
 
-	always @(posedge clk_7)
+	always @(posedge mb_clk_7)
     	if (cpu_clk_lsb == 1'b1 && cpu_contend == 1'b0)
         	clk_3m5_cont <= 1'b0;
         else if (cpu_clk_lsb == 1'b0)

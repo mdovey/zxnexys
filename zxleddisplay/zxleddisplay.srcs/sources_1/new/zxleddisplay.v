@@ -21,155 +21,104 @@
 
 
 module zxleddisplay #(
-    parameter   DIV =   16
+    parameter   DIV =   18
 )(
-    input               in_clk_cpu,
+  
+    input       [1:0]   cpu_speed,
+    input               cpu_wait_n,
 
-    output   	[1:0]  	in_cpu_speed,
-    output           	in_cpu_clk_lsb,
-    output       	    in_cpu_contend,
-    output   	[2:0]   in_machine_timing,
+    input       [20:0]  aw_address,
+    input       [20:0]  ar_address,
+    input       [20:0]  br_address,
+  
+    input       [1:0]   sel_address,
+  
+    output      [7:0]   an,
+    output      [7:0]   ca,
 
-    input           	in_mb_clk_28,
-    input           	in_mb_clk_28_n,
-    input           	in_mb_clk_14,
-    input           	in_mb_clk_7,
-        
-    output              out_clk_cpu,
-
-    input   	[1:0]  	out_cpu_speed,
-    input           	out_cpu_clk_lsb,
-    input       	    out_cpu_contend,
-    input   	[2:0]   out_machine_timing,
-
-    output           	out_mb_clk_28,
-    output           	out_mb_clk_28_n,
-    output           	out_mb_clk_14,
-    output           	out_mb_clk_7,
-
-    input 		[8:0] 	in_rgb,
-    input 				in_csync_n,
-    input 				in_vsync_n,
-    input 				in_hsync_n,
-    input 				in_vblank_n,
-    input 				in_hblank_n,
-    input 				in_freq_50_60,
-    input 		[1:0] 	in_scanlines,
-    input 				in_scandouble,
-    input 		[2:0] 	in_video_mode,
-    input 		[2:0] 	in_v_machine_timing,
-    input 				in_hdmi_reset,
-    input 				in_hdmi_audio_en,
-
-    output 		[8:0] 	out_rgb,
-    output 				out_csync_n,
-    output 				out_vsync_n,
-    output 				out_hsync_n,
-    output 				out_vblank_n,
-    output 				out_hblank_n,
-    output 				out_freq_50_60,
-    output 		[1:0] 	out_scanlines,
-    output 				out_scandouble,
-    output 		[2:0] 	out_video_mode,
-    output 		[2:0] 	out_v_machine_timing,
-    output 				out_hdmi_reset,
-    output 				out_hdmi_audio_en,
-
-    input               in_cpu_wait_n,
-    output              out_cpu_wait_n,
-    
-    output [7:0] an,
-    output [7:0] ca,
-    
-    input sys_reset_n
+    input               clk,    
+    input               sys_reset_n
     );
-
-    assign out_clk_cpu          = in_clk_cpu;
-
-    assign in_cpu_speed         = out_cpu_speed;
-    assign in_cpu_clk_lsb       = out_cpu_clk_lsb;
-    assign in_cpu_contend       = out_cpu_contend;
-    assign in_machine_timing    = out_machine_timing;
-    
-    assign out_mb_clk_28        = in_mb_clk_28;
-    assign out_mb_clk_28_n      = in_mb_clk_28_n;
-    assign out_mb_clk_14        = in_mb_clk_14;
-    assign out_mb_clk_7         = in_mb_clk_7;
-
-    assign out_rgb              = in_rgb;
-    assign out_csync_n          = in_csync_n;
-    assign out_vsync_n          = in_vsync_n;
-    assign out_hsync_n          = in_hsync_n;
-    assign out_vblank_n         = in_vblank_n;
-    assign out_hblank_n         = in_hblank_n;
-    assign out_freq_50_60       = in_freq_50_60;
-    assign out_scanlines        = in_scanlines;
-    assign out_scandouble       = in_scandouble;
-    assign out_video_mode       = in_video_mode;
-    assign out_v_machine_timing = in_v_machine_timing;
-    assign out_hdmi_reset       = in_hdmi_reset;
-    assign out_hdmi_audio_en    = in_hdmi_audio_en;
-    
-    assign out_cpu_wait_n       = in_cpu_wait_n;
 
     reg     [DIV+2:0]     div;
     reg     [2:0]         sel;
     
     reg     [4:0]         display [7:0];
     
-    
     reg     [7:0]       a;
     reg     [7:0]       c;
+    
+    wire    [20:0]      bw_address;
+    wire    [20:0]      address;
     
     assign an   = (sys_reset_n) ? a : 8'b1111_1111;
     assign ca   = (sys_reset_n) ? c : 8'b1111_1111;
     
-    always @(posedge in_mb_clk_28)
-        case (in_cpu_speed)
+function [20:0] select(
+    input [1:0]  sel,
+    input [20:0] addr0,
+    input [20:0] addr1,
+    input [20:0] addr2,
+    input [20:0] addr3
+);
+case (sel)
+    2'b00   : select = addr0;
+    2'b01   : select = addr1;
+    2'b10   : select = addr2;
+    2'b11   : select = addr3;
+    default : select = addr0;
+endcase
+endfunction    
+    
+    assign bw_address = {20{1'b0}};
+    assign address = select(sel_address, bw_address, br_address, aw_address, ar_address);
+    
+    always @(posedge clk)
+        case (cpu_speed)
             2'b00:  display[0]  <= 5'h1_3;
             2'b01:  display[0]  <= 5'h1_7;
             2'b10:  display[0]  <= 5'h0_1;
             2'b11:  display[0]  <= 5'h0_2;
         endcase
 
-    always @(posedge in_mb_clk_28)
-        case (in_cpu_speed)
-            2'b00:  display[1]  <= in_cpu_wait_n ? 5'h0_5 : 5'h1_5;
-            2'b01:  display[1]  <= in_cpu_wait_n ? 5'h0_0 : 5'h1_0;
-            2'b10:  display[1]  <= in_cpu_wait_n ? 5'h0_4 : 5'h1_4;
-            2'b11:  display[1]  <= in_cpu_wait_n ? 5'h0_8 : 5'h1_8;
+    always @(posedge clk)
+        case (cpu_speed)
+            2'b00:  display[1]  <= cpu_wait_n ? 5'h0_5 : 5'h1_5;
+            2'b01:  display[1]  <= cpu_wait_n ? 5'h0_0 : 5'h1_0;
+            2'b10:  display[1]  <= cpu_wait_n ? 5'h0_4 : 5'h1_4;
+            2'b11:  display[1]  <= cpu_wait_n ? 5'h0_8 : 5'h1_8;
         endcase
 
-    always @(posedge in_mb_clk_28)
-        display[2]  <= 2'b00000;
+    always @(posedge clk)
+        display[2]  <= {4'b0000, address[20:20]};
 
-    always @(posedge in_mb_clk_28)
-        display[3]  <= {2'b00, in_machine_timing};
+    always @(posedge clk)
+        display[3]  <= {1'b0, address[19:16]};
 
-    always @(posedge in_mb_clk_28)
-        display[4]  <= 2'b00000;
+    always @(posedge clk)
+        display[4]  <= {1'b0, address[15:12]};
 
-    always @(posedge in_mb_clk_28)
-        display[5]  <= {2'b00, in_video_mode};
+    always @(posedge clk)
+        display[5]  <= {1'b0, address[11:8]};
 
-    always @(posedge in_mb_clk_28)
-        display[6]  <= 2'b00000;
+    always @(posedge clk)
+        display[6]  <= {1'b0, address[7:4]};
 
-    always @(posedge in_mb_clk_28)
-        display[7]  <= {in_freq_50_60, in_scandouble, in_scanlines};
+    always @(posedge clk)
+        display[7]  <= {1'b0, address[3:0]};
 
-    always @(posedge in_mb_clk_28)
+    always @(posedge clk)
         div <= div + 1;
         
     always @(posedge div[DIV-1])
         case (div[DIV+2:DIV])
             3'b000:    a     <= 8'b0111_1111;
             3'b001:    a     <= 8'b1011_1111;
-            3'b010:    a     <= 8'b1111_1111;
+            3'b010:    a     <= 8'b1101_1111;
             3'b011:    a     <= 8'b1110_1111;
-            3'b100:    a     <= 8'b1111_1111;
+            3'b100:    a     <= 8'b1111_0111;
             3'b101:    a     <= 8'b1111_1011;
-            3'b110:    a     <= 8'b1111_1111;
+            3'b110:    a     <= 8'b1111_1101;
             3'b111:    a     <= 8'b1111_1110;
         endcase
 
