@@ -415,6 +415,14 @@
             <spirit:name>ram_a_do</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>wait_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>cpu_wait_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -450,22 +458,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>cpu_wait</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="cpu_wait" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="cpu_wait_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_wait_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>cpu_wait_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_memory</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -484,28 +476,6 @@
         <spirit:parameter>
           <spirit:name>ASSOCIATED_BUSIF</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_BUSIF"/>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>clk_peripheral</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_peripheral</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF">ram_port_b:ram_port_a</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -530,6 +500,93 @@
           <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_BUSIF">cpu_wait</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk_peripheral</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_peripheral</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>monitor_memory</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="spectnext" spirit:name="monitor_memory" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="spectnext" spirit:name="monitor_memory_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>aw_address</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_aw_addr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ar_address</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_ar_addr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>br_state</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_br_state</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>aw_state</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_aw_state</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>br_address</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_br_addr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ar_state</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_ar_state</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>wait_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_wait_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.monitor_memory" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:addressSpaces>
@@ -568,7 +625,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bc5e5f23</spirit:value>
+            <spirit:value>e70a9281</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -599,7 +656,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>17216aa5</spirit:value>
+            <spirit:value>68523a4e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1395,11 +1452,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_ar_addr" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_ar_addr">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1419,11 +1479,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_ar_state" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_ar_state">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1443,11 +1506,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_aw_addr" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_aw_addr">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1467,11 +1533,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_aw_state" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_aw_state">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1491,11 +1560,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_br_addr" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_br_addr">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1515,11 +1587,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_br_state" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_br_state">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1535,11 +1610,14 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.monitor_wait_n" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.monitor_wait_n">false</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -1699,10 +1777,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_input_logic_0_0/synth/zxram2_input_logic_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_reset_logic_0_0/synth/zxram2_reset_logic_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1711,15 +1785,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_input_logic_0_0/synth/zxram2_input_logic_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/write.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/input_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1734,6 +1808,18 @@
       <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/output_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.srcs/sources_1/new/input_logic.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/synth/zxram2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/bd/zxram2/ip/zxram2_s00_data_fifo_0/zxram2_s00_data_fifo_0.xci</spirit:name>
@@ -1766,10 +1852,6 @@
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/synth/zxram2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/zxram2_ooc.xdc</spirit:name>
         <spirit:userFileType>xdc</spirit:userFileType>
         <spirit:userFileType>SCOPED_TO_REF_zxram2</spirit:userFileType>
@@ -1778,7 +1860,7 @@
       <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/hdl/zxram2_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_1cfa3f88</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_48f1b910</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1846,10 +1928,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_input_logic_0_0/sim/zxram2_input_logic_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_reset_logic_0_0/sim/zxram2_reset_logic_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1858,15 +1936,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_input_logic_0_0/sim/zxram2_input_logic_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/write.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/input_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1881,6 +1959,18 @@
       <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/output_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.srcs/sources_1/new/input_logic.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/sim/zxram2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:define>
+          <spirit:name>processing_order</spirit:name>
+          <spirit:value>early</spirit:value>
+        </spirit:define>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/bd/zxram2/ip/zxram2_s00_data_fifo_0/zxram2_s00_data_fifo_0.xci</spirit:name>
@@ -1913,10 +2003,6 @@
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/sim/zxram2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/hdl/zxram2_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1925,7 +2011,7 @@
       <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_clock_converter_2_1__ref_view_fileset</spirit:name>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
-          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_clock_converter" xilinx:version="2.1">
+          <xilinx:componentRef xsi:type="xilinx:componentRefType" xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_clock_converter" xilinx:version="2.1">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -2006,8 +2092,8 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>75</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-05T15:56:40Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>83</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-06T17:33:24Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@298d75f6_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d4fdad5_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
@@ -2947,14 +3033,123 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@6cbcacad_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3f94b66a_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6257a1f8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e86149_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c9fbea_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48a418b0_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14e577d0_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@aa7f816_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44640496_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3067c6ba_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14e9b9d3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1241be50_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8aa3f20_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ee90e88_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51ecd874_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78a0b437_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@738be44e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c5bc362_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70897ecb_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ac9bba3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b4a9315_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d52b22d_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@179e5287_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50321b74_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@519bcf76_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d928fd3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4519d13b_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52a38478_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39a00080_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74434ba7_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@799beb5a_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24649272_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38dc4716_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e2842a2_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c1cc467_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bd22f53_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38ef4630_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26a4295e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71db489e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76a689fe_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d19c671_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e69ba06_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34683032_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@555470ec_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4810a5dc_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5268ba_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20cbf7bc_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e92b5da_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d7c38d2_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c06bfd4_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a0b9600_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d634a_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2848cf56_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5323643_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@115f8439_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78a82559_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26a10332_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d90f493_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6aa481d5_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4386fb9e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9128728_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c16dc75_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@193409cb_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ad8f85a_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e76a2e5_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19913bec_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64e66d56_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@117f6ad_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13e403de_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50d411b8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11465c64_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@665892d2_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58d85fc9_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ca6c602_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@198094b8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dd2bd4a_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1612ee35_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c3b0701_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4dd034a0_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@301a746c_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4286d3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a680e17_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6079b5d7_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d677f37_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@428e6fbd_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@422a7de3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49fddd1_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4eb944c0_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@692389e6_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d5e1b4f_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6982e1e8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4eb78ad7_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b43ed24_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3761c17c_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@430eaef7_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22bd6fb3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@445dea9d_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e471e3c_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@596aa3d8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c6af8ef_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3696b959_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c873e90_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e65b2ba_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d9f0a8d_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d11c68e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cd50f8e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75e50c_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b9187cd_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bd1f5f7_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@514ee17b_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f1b4d7d_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@713176ec_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="6f5090b6"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="9d0e9883"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="886e4d03"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6c29e4ec"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="8402dee5"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="10a14be6"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="3dda17fc"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="bf9d720c"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

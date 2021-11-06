@@ -30,9 +30,9 @@
       "read_a": "",
       "read_b": "",
       "write_a": "",
-      "input_logic_0": "",
       "reset_logic_0": "",
-      "output_logic_0": ""
+      "output_logic_0": "",
+      "input_logic_0": ""
     },
     "interface_ports": {
       "axi_mig": {
@@ -277,31 +277,6 @@
           }
         }
       },
-      "clk_peripheral": {
-        "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "zxram2_clk_peripheral",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "28000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
-      },
       "clk_peripheral_n": {
         "type": "clk",
         "direction": "I",
@@ -356,6 +331,31 @@
         "direction": "O",
         "left": "2",
         "right": "0"
+      },
+      "clk_peripheral": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "zxram2_clk_peripheral",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "28000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -365,6 +365,9 @@
         "inst_hier_path": "axi_interconnect_0",
         "xci_name": "zxram2_axi_interconnect_0_0",
         "parameters": {
+          "ENABLE_ADVANCED_OPTIONS": {
+            "value": "1"
+          },
           "NUM_MI": {
             "value": "1"
           },
@@ -377,10 +380,16 @@
           "S01_HAS_DATA_FIFO": {
             "value": "2"
           },
+          "S02_ARB_PRIORITY": {
+            "value": "0"
+          },
           "S02_HAS_DATA_FIFO": {
             "value": "2"
           },
           "STRATEGY": {
+            "value": "2"
+          },
+          "SYNCHRONIZATION_STAGES": {
             "value": "2"
           }
         },
@@ -498,6 +507,15 @@
               "NUM_SI": {
                 "value": "3"
               },
+              "S00_ARB_PRIORITY": {
+                "value": "0"
+              },
+              "S01_ARB_PRIORITY": {
+                "value": "0"
+              },
+              "S02_ARB_PRIORITY": {
+                "value": "0"
+              },
               "STRATEGY": {
                 "value": "2"
               }
@@ -594,6 +612,11 @@
                 "xci_name": "zxram2_auto_cc_0",
                 "xci_path": "ip\\zxram2_auto_cc_0\\zxram2_auto_cc_0.xci",
                 "inst_hier_path": "axi_interconnect_0/s00_couplers/auto_cc",
+                "parameters": {
+                  "SYNCHRONIZATION_STAGES": {
+                    "value": "2"
+                  }
+                },
                 "interface_ports": {
                   "S_AXI": {
                     "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
@@ -722,6 +745,11 @@
                 "xci_name": "zxram2_auto_cc_1",
                 "xci_path": "ip\\zxram2_auto_cc_1\\zxram2_auto_cc_1.xci",
                 "inst_hier_path": "axi_interconnect_0/s01_couplers/auto_cc",
+                "parameters": {
+                  "SYNCHRONIZATION_STAGES": {
+                    "value": "2"
+                  }
+                },
                 "interface_ports": {
                   "S_AXI": {
                     "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
@@ -850,6 +878,11 @@
                 "xci_name": "zxram2_auto_cc_2",
                 "xci_path": "ip\\zxram2_auto_cc_2\\zxram2_auto_cc_2.xci",
                 "inst_hier_path": "axi_interconnect_0/s02_couplers/auto_cc",
+                "parameters": {
+                  "SYNCHRONIZATION_STAGES": {
+                    "value": "2"
+                  }
+                },
                 "interface_ports": {
                   "S_AXI": {
                     "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
@@ -1948,51 +1981,6 @@
           }
         }
       },
-      "input_logic_0": {
-        "vlnv": "xilinx.com:module_ref:input_logic:1.0",
-        "xci_name": "zxram2_input_logic_0_0",
-        "xci_path": "ip\\zxram2_input_logic_0_0\\zxram2_input_logic_0_0.xci",
-        "inst_hier_path": "input_logic_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "input_logic",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "ram_a_req": {
-            "direction": "I"
-          },
-          "ram_a_rd_n": {
-            "direction": "I"
-          },
-          "ram_b_req_t": {
-            "direction": "I"
-          },
-          "we_a": {
-            "direction": "O"
-          },
-          "re_a": {
-            "direction": "O"
-          },
-          "re_b": {
-            "direction": "O"
-          },
-          "clk_peripheral": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxram2_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
       "reset_logic_0": {
         "vlnv": "xilinx.com:module_ref:reset_logic:1.0",
         "xci_name": "zxram2_reset_logic_0_0",
@@ -2129,6 +2117,51 @@
             }
           }
         }
+      },
+      "input_logic_0": {
+        "vlnv": "xilinx.com:module_ref:input_logic:1.0",
+        "xci_name": "zxram2_input_logic_0_0",
+        "xci_path": "ip\\zxram2_input_logic_0_0\\zxram2_input_logic_0_0.xci",
+        "inst_hier_path": "input_logic_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "input_logic",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "ram_a_req": {
+            "direction": "I"
+          },
+          "ram_a_rd_n": {
+            "direction": "I"
+          },
+          "ram_b_req_t": {
+            "direction": "I"
+          },
+          "we_a": {
+            "direction": "O"
+          },
+          "re_a": {
+            "direction": "O"
+          },
+          "re_b": {
+            "direction": "O"
+          },
+          "clk_memory": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "140000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxram2_clk_memory",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -2189,13 +2222,13 @@
           "read_a/clk_memory",
           "read_b/clk_memory",
           "write_a/clk_memory",
-          "reset_logic_0/clk_memory"
+          "reset_logic_0/clk_memory",
+          "input_logic_0/clk_memory"
         ]
       },
       "clk_peripheral_1": {
         "ports": [
-          "clk_peripheral",
-          "input_logic_0/clk_peripheral"
+          "clk_peripheral"
         ]
       },
       "clk_peripheral_n_1": {

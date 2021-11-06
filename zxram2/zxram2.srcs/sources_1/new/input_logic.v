@@ -29,20 +29,17 @@ module input_logic(
     output              re_a,
     output              re_b,
 
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
-    input               clk_peripheral    
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
+    input               clk_memory   
 );
 
     reg     ram_b_req_t_int;
-    wire    ram_b_req;
-    
-    assign  ram_b_req   = (ram_b_req_t ^  ram_b_req_t_int) & ~ram_a_req;
 
     assign we_a         =  ram_a_req   &  ram_a_rd_n;    
     assign re_a         =  ram_a_req   & ~ram_a_rd_n;
-    assign re_b         =  ram_b_req; 
+    assign re_b         =  ram_b_req_t ^  ram_b_req_t_int; 
 
-    always @(posedge clk_peripheral)
-        ram_b_req_t_int <=  ram_b_req ? ram_b_req_t : ram_b_req_t_int;
+    always @(posedge clk_memory)
+        ram_b_req_t_int <= ram_b_req_t;
 
 endmodule

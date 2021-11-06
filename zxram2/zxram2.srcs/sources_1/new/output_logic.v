@@ -42,7 +42,7 @@ module output_logic(
 	
 	wire               ready;
 	
-    assign ready       = (aw_ready & ar_ready & br_ready);	
+    assign ready       = aw_ready & ar_ready;	
 
     always @(posedge clk_peripheral_n)
     begin
