@@ -1,75 +1,73 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.9",
-   "Default View_TopLeft":"-280,0",
+   "Default View_ScaleFactor":"0.355556",
+   "Default View_TopLeft":"-577,0",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port axi_mig -pg 1 -lvl 4 -x 1140 -y 270 -defaultsOSRD
-preplace port port-id_ram_a_req -pg 1 -lvl 0 -x -30 -y 430 -defaultsOSRD
-preplace port port-id_ram_a_rd_n -pg 1 -lvl 0 -x -30 -y 460 -defaultsOSRD
-preplace port port-id_ram_b_req_t -pg 1 -lvl 0 -x -30 -y 520 -defaultsOSRD
-preplace port port-id_cpu_wait_n -pg 1 -lvl 4 -x 1140 -y 600 -defaultsOSRD
-preplace port port-id_clk_ui -pg 1 -lvl 0 -x -30 -y 130 -defaultsOSRD
-preplace port port-id_reset_ui -pg 1 -lvl 0 -x -30 -y 70 -defaultsOSRD
-preplace port port-id_monitor_wait_n -pg 1 -lvl 4 -x 1140 -y 630 -defaultsOSRD
-preplace port port-id_clk_memory -pg 1 -lvl 0 -x -30 -y 100 -defaultsOSRD
-preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x -30 -y 550 -defaultsOSRD
-preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -30 -y 490 -defaultsOSRD
-preplace portBus ram_a_addr -pg 1 -lvl 0 -x -30 -y 170 -defaultsOSRD
-preplace portBus ram_b_addr -pg 1 -lvl 0 -x -30 -y 400 -defaultsOSRD
-preplace portBus ram_a_do -pg 1 -lvl 0 -x -30 -y 720 -defaultsOSRD
-preplace portBus ram_a_di -pg 1 -lvl 4 -x 1140 -y 540 -defaultsOSRD
-preplace portBus ram_b_di -pg 1 -lvl 4 -x 1140 -y 570 -defaultsOSRD
-preplace portBus monitor_ar_addr -pg 1 -lvl 4 -x 1140 -y 450 -defaultsOSRD
-preplace portBus monitor_ar_state -pg 1 -lvl 4 -x 1140 -y 480 -defaultsOSRD
-preplace portBus monitor_aw_addr -pg 1 -lvl 4 -x 1140 -y 730 -defaultsOSRD
-preplace portBus monitor_aw_state -pg 1 -lvl 4 -x 1140 -y 760 -defaultsOSRD
-preplace portBus monitor_br_addr -pg 1 -lvl 4 -x 1140 -y 670 -defaultsOSRD
-preplace portBus monitor_br_state -pg 1 -lvl 4 -x 1140 -y 700 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 930 -y 270 -defaultsOSRD
-preplace inst read_a -pg 1 -lvl 2 -x 520 -y 210 -defaultsOSRD
-preplace inst read_b -pg 1 -lvl 2 -x 520 -y 520 -defaultsOSRD
-preplace inst write_a -pg 1 -lvl 2 -x 520 -y 720 -defaultsOSRD
+preplace port axi_mig -pg 1 -lvl 4 -x 1160 -y 270 -defaultsOSRD
+preplace port port-id_ram_a_req -pg 1 -lvl 0 -x 0 -y 450 -defaultsOSRD
+preplace port port-id_ram_a_rd_n -pg 1 -lvl 0 -x 0 -y 470 -defaultsOSRD
+preplace port port-id_ram_b_req_t -pg 1 -lvl 0 -x 0 -y 490 -defaultsOSRD
+preplace port port-id_cpu_wait_n -pg 1 -lvl 4 -x 1160 -y 590 -defaultsOSRD
+preplace port port-id_clk_ui -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_reset_ui -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port port-id_monitor_wait_n -pg 1 -lvl 4 -x 1160 -y 610 -defaultsOSRD
+preplace port port-id_clk_memory -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
+preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x 0 -y 510 -defaultsOSRD
+preplace portBus ram_a_addr -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace portBus ram_b_addr -pg 1 -lvl 0 -x 0 -y 390 -defaultsOSRD
+preplace portBus ram_a_do -pg 1 -lvl 0 -x 0 -y 710 -defaultsOSRD
+preplace portBus ram_a_di -pg 1 -lvl 4 -x 1160 -y 550 -defaultsOSRD
+preplace portBus ram_b_di -pg 1 -lvl 4 -x 1160 -y 570 -defaultsOSRD
+preplace portBus monitor_ar_addr -pg 1 -lvl 4 -x 1160 -y 450 -defaultsOSRD
+preplace portBus monitor_ar_state -pg 1 -lvl 4 -x 1160 -y 470 -defaultsOSRD
+preplace portBus monitor_aw_addr -pg 1 -lvl 4 -x 1160 -y 720 -defaultsOSRD
+preplace portBus monitor_aw_state -pg 1 -lvl 4 -x 1160 -y 740 -defaultsOSRD
+preplace portBus monitor_br_addr -pg 1 -lvl 4 -x 1160 -y 680 -defaultsOSRD
+preplace portBus monitor_br_state -pg 1 -lvl 4 -x 1160 -y 700 -defaultsOSRD
 preplace inst reset_logic_0 -pg 1 -lvl 1 -x 160 -y 90 -defaultsOSRD
-preplace inst output_logic_0 -pg 1 -lvl 3 -x 930 -y 570 -defaultsOSRD
-preplace inst input_logic_0 -pg 1 -lvl 1 -x 160 -y 490 -defaultsOSRD
-preplace netloc ARESETN_1 1 1 2 NJ 100 770
-preplace netloc M00_ACLK_1 1 0 3 30 170 350J 110 750
-preplace netloc arbitrator_0_wait_n 1 3 1 1090 590n
-preplace netloc clk_memory_1 1 0 3 10 220 310 310 760
-preplace netloc clk_peripheral_1 1 0 1 N 490
-preplace netloc clk_peripheral_n_1 1 0 3 10 580 340J 420 710
-preplace netloc input_logic_0_re_a 1 1 1 320 200n
-preplace netloc input_logic_0_re_b 1 1 1 N 510
-preplace netloc input_logic_0_we_a 1 1 1 290 470n
+preplace inst output_logic_0 -pg 1 -lvl 3 -x 960 -y 570 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 960 -y 270 -defaultsOSRD
+preplace inst read_a -pg 1 -lvl 2 -x 520 -y 210 -defaultsOSRD
+preplace inst read_b -pg 1 -lvl 2 -x 520 -y 510 -defaultsOSRD
+preplace inst write_a -pg 1 -lvl 2 -x 520 -y 710 -defaultsOSRD
+preplace inst input_logic_0 -pg 1 -lvl 1 -x 160 -y 480 -defaultsOSRD
+preplace netloc ARESETN_1 1 1 2 NJ 100 760
+preplace netloc M00_ACLK_1 1 0 3 30 170 310J 110 750
+preplace netloc arbitrator_0_wait_n 1 3 1 1140 590n
+preplace netloc clk_memory_1 1 0 3 30 10 320 310 770
+preplace netloc clk_peripheral_n_1 1 0 3 30 570 350J 410 700
+preplace netloc input_logic_0_re_a 1 1 1 330 200n
+preplace netloc input_logic_0_re_b 1 1 1 N 500
+preplace netloc input_logic_0_we_a 1 1 1 290 460n
 preplace netloc logic_controller_0_aresetn 1 1 2 300 320 780
-preplace netloc output_logic_0_data_a_o 1 3 1 1110J 540n
+preplace netloc output_logic_0_data_a_o 1 3 1 NJ 550
 preplace netloc output_logic_0_data_b_o 1 3 1 NJ 570
-preplace netloc ram_a_addr_1 1 0 2 20J 180 350
-preplace netloc ram_a_do_1 1 0 2 NJ 720 NJ
-preplace netloc ram_a_rd_n_1 1 0 1 -10J 460n
-preplace netloc ram_a_req_1 1 0 1 0J 430n
-preplace netloc ram_b_addr_1 1 0 2 NJ 400 330J
-preplace netloc ram_b_req_t_1 1 0 1 -10J 500n
+preplace netloc ram_a_addr_1 1 0 2 20J 180 360
+preplace netloc ram_a_do_1 1 0 2 NJ 710 NJ
+preplace netloc ram_a_rd_n_1 1 0 1 NJ 470
+preplace netloc ram_a_req_1 1 0 1 NJ 450
+preplace netloc ram_b_addr_1 1 0 2 NJ 390 340J
+preplace netloc ram_b_req_t_1 1 0 1 NJ 490
 preplace netloc read_a_data 1 2 1 690 190n
-preplace netloc read_a_monitor_addr 1 2 2 710J 90 1110J
-preplace netloc read_a_monitor_state 1 2 2 700J 80 1120J
-preplace netloc read_a_ready 1 2 1 730 210n
-preplace netloc read_b_data 1 2 1 720 500n
-preplace netloc read_b_monitor_addr 1 2 2 700J 450 1100J
-preplace netloc read_b_monitor_state 1 2 2 760J 460 1080J
-preplace netloc read_b_ready 1 2 1 680 520n
+preplace netloc read_a_monitor_addr 1 2 2 680J 80 1140J
+preplace netloc read_a_monitor_state 1 2 2 700J 90 1130J
+preplace netloc read_a_ready 1 2 1 720 210n
+preplace netloc read_b_data 1 2 1 710 490n
+preplace netloc read_b_monitor_addr 1 2 2 770J 450 1120J
+preplace netloc read_b_monitor_state 1 2 2 780J 460 1110J
+preplace netloc read_b_ready 1 2 1 680 510n
 preplace netloc reset_ui_1 1 0 1 NJ 70
-preplace netloc write_a_monitor_addr 1 2 2 NJ 730 NJ
-preplace netloc write_a_monitor_state 1 2 2 720J 760 NJ
+preplace netloc write_a_monitor_addr 1 2 2 NJ 720 NJ
+preplace netloc write_a_monitor_state 1 2 2 NJ 740 NJ
 preplace netloc write_a_ready 1 2 1 780 560n
 preplace netloc axi_interconnect_0_M00_AXI 1 3 1 NJ 270
 preplace netloc read_0_interface_aximm 1 2 1 N 170
-preplace netloc read_1_interface_aximm 1 2 1 720 190n
+preplace netloc read_1_interface_aximm 1 2 1 730 190n
 preplace netloc write_0_interface_aximm 1 2 1 740 150n
-levelinfo -pg 1 -30 160 520 930 1140
-pagesize -pg 1 -db -bbox -sgen -200 -20 1340 820
+levelinfo -pg 1 0 160 520 960 1160
+pagesize -pg 1 -db -bbox -sgen -170 0 1360 810
 "
 }
 0

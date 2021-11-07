@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module read(
+module read (
     output reg          ARVALID,
     input               ARREADY,
     input               RVALID,

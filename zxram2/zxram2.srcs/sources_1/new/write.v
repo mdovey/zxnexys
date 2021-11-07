@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module write(
+module write (
     output reg          AWVALID,
     input               AWREADY,
     output reg          WVALID,
