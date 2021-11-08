@@ -140,7 +140,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d21bfb47</spirit:value>
+            <spirit:value>8b227e65</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -156,7 +156,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d21bfb47</spirit:value>
+            <spirit:value>8b227e65</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -384,7 +384,7 @@
       <spirit:file>
         <spirit:name>zxaudio.srcs/sources_1/new/zxaudio.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_7070eed6</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_d7a9602d</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -452,8 +452,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxaudio_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>8</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-21T14:46:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>9</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-07T22:01:22Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@515ade48_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3bbdaaa1_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
@@ -559,12 +559,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@5d727333_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6248d9c9_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2074f2a1_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2af4bf69_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1253fcb0_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f42aac3_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b5bade4_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1eba9d27_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@284429c0_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@80ddbc1_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cfefd1c_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@608cbfc6_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51cc19d3_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56e3708a_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="15348277"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="83811dbb"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a7fa880e"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="cf89d174"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="d3585d29"/>
     </xilinx:packagingInfo>

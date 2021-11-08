@@ -50,7 +50,7 @@ module zxaudio(
     i2s_master #(
         .CLK_DIV_PRE(0),  
         .CLK_DIV_MBIT(7),
-        .LR_WIDTH(12),
+        .LR_WIDTH(13),
         .LR_WIDTH_MBIT(3)
     ) i2s_m (
         .i_reset(reset),
@@ -62,7 +62,7 @@ module zxaudio(
     );
     
     i2s_transmit #(
-        .LR_WIDTH(12) 
+        .LR_WIDTH(13) 
     ) i2s_t (
         .i_CLK(clk_peripheral),
         .i_reset(reset),
@@ -70,8 +70,8 @@ module zxaudio(
         .i_i2s_ws(lrck),   
         .i_i2s_wsp(wsp),
         .o_i2s_sd(sdout),
-        .i_i2s_L(audio_left[12] == 1'b1 ? {12{1'b1}} : audio_left[11:0]), 
-        .i_i2s_R(audio_right[12] == 1'b1 ? {12{1'b1}} : audio_right[11:0])
+        .i_i2s_L({~audio_left[12:12], audio_left[11:0]}), 
+        .i_i2s_R({~audio_right[12:12], audio_right[11:0]})
     );       
     
     always @(posedge clk_peripheral)

@@ -229,6 +229,37 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>monitor_clock</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="monitor_clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="monitor_clock_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>machine_timing</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_machine_timing</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>cpu_speed</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>monitor_cpu_speed</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.monitor_clock" xilinx:dependency="$Monitor">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -654,8 +685,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxclock_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>58</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-05T12:05:33Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>59</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-07T22:02:00Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@375bf411_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2217f84b_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
@@ -1338,13 +1369,24 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@63abb645_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3a2e9459_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7dad9be_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c9650bf_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7de03f6a_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b1ea8e2_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@771f2590_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f9d8bf_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1da1cd16_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18f080a8_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@211a3286_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@155049e1_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ed4fb9d_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1184c6ba_ARCHIVE_LOCATION">v:/zxnext/zxclock</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="3f32c940"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="470efb5a"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7a5a1a84"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="b636f9d1"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="7e02f61c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f5b1508c"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

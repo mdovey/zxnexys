@@ -28,9 +28,9 @@ module write (
     output reg          BREADY,
 
     output reg  [26:0]  AWADDR,
-    output reg  [31:0]  WDATA,
+    output reg  [127:0] WDATA,
     output reg          WLAST,
-    output reg  [3:0]   WSTRB,
+    output reg  [15:0]  WSTRB,
     input       [1:0]   BRESP,
     
     output      [3:0]   AWCACHE,
@@ -47,7 +47,7 @@ module write (
 	input               en,
 	input       [7:0]   data,
 
-	output             ready,
+	output              ready,
 	
 	output      [20:0]  monitor_addr,
 	output      [2:0]   monitor_state,
@@ -132,34 +132,46 @@ module write (
                 AWVALID 			    <= 1'b0;
                 WLAST 				    <= 1'b0;
                 WVALID 				    <= 1'b0;
-                WSTRB 				    <= 4'b0000;
+                WSTRB 				    <= 4'b0000_0000_0000_0000;
             end
             stWrite0: 
             begin
                 AWADDR[26:21] 		    <= {6{1'b0}};
-                AWADDR[20:2] 		    <= address_sync[20:2];
-                AWADDR[1:0] 		    <= {2{1'b0}};
+                AWADDR[20:4] 		    <= address_sync[20:4];
+                AWADDR[3:0] 		    <= {4{1'b0}};
                 AWVALID 			    <= 1'b1;
                 BREADY 				    <= 1'b0;
             end
             stWrite1:
             begin
                 AWVALID 			    <= 1'b0;
-                WDATA                   <= {4{data_sync}};
+                WDATA                   <= {16{data_sync}};
                 WLAST 				    <= 1'b1;
                 WVALID 				    <= 1'b1;
-                case (address[1:0])
-                    2'b00:  WSTRB       <= 4'b0001;
-                    2'b01:  WSTRB 	    <= 4'b0010;
-                    2'b10:  WSTRB 	    <= 4'b0100;
-                    2'b11:  WSTRB 	    <= 4'b1000;
+                case (address_sync[3:0])
+                    4'b0000:  WSTRB     <= 16'b0000_0000_0000_0001;
+                    4'b0001:  WSTRB     <= 16'b0000_0000_0000_0010;
+                    4'b0010:  WSTRB     <= 16'b0000_0000_0000_0100;
+                    4'b0011:  WSTRB     <= 16'b0000_0000_0000_1000;
+                    4'b0100:  WSTRB     <= 16'b0000_0000_0001_0000;
+                    4'b0101:  WSTRB     <= 16'b0000_0000_0010_0000;
+                    4'b0110:  WSTRB     <= 16'b0000_0000_0100_0000;
+                    4'b0111:  WSTRB     <= 16'b0000_0000_1000_0000;
+                    4'b1000:  WSTRB     <= 16'b0000_0001_0000_0000;
+                    4'b1001:  WSTRB     <= 16'b0000_0010_0000_0000;
+                    4'b1010:  WSTRB     <= 16'b0000_0100_0000_0000;
+                    4'b1011:  WSTRB     <= 16'b0000_1000_0000_0000;
+                    4'b1100:  WSTRB     <= 16'b0001_0000_0000_0000;
+                    4'b1101:  WSTRB     <= 16'b0010_0000_0000_0000;
+                    4'b1110:  WSTRB     <= 16'b0100_0000_0000_0000;
+                    4'b1111:  WSTRB     <= 16'b1000_0000_0000_0000;
                 endcase   
             end
             stWrite2:
             begin
                 WLAST 				    <= 1'b0;
                 WVALID				    <= 1'b0;
-                WSTRB 				    <= 4'b0000;
+                WSTRB 				    <= 4'b0000_0000_0000_0000;
             end
             stWrite3:
             begin

@@ -30,7 +30,7 @@ module mig_reset #(
 (* X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *)
     output sys_reset,
 
-    input clk_sys,
+    input clk_200,
     input clk_ui,
     input reset_sys_n,
     input locked
@@ -55,7 +55,7 @@ module mig_reset #(
        .PIPELINE_STAGES(PIPELINE_STAGES),
        .INIT(1'b0)
     ) sync_sys_reset (
-       .clk(clk_sys),
+       .clk(clk_200),
        .async_in(reset_n),
        .sync_out(sys_reset)
     );

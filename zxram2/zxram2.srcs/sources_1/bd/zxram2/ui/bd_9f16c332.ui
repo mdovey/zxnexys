@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.355556",
-   "Default View_TopLeft":"-577,0",
+   "Default View_ScaleFactor":"0.77037",
+   "Default View_TopLeft":"-195,379",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -28,15 +28,15 @@ preplace portBus monitor_br_addr -pg 1 -lvl 4 -x 1160 -y 680 -defaultsOSRD
 preplace portBus monitor_br_state -pg 1 -lvl 4 -x 1160 -y 700 -defaultsOSRD
 preplace inst reset_logic_0 -pg 1 -lvl 1 -x 160 -y 90 -defaultsOSRD
 preplace inst output_logic_0 -pg 1 -lvl 3 -x 960 -y 570 -defaultsOSRD
+preplace inst input_logic_0 -pg 1 -lvl 1 -x 160 -y 480 -defaultsOSRD
 preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 960 -y 270 -defaultsOSRD
+preplace inst write_a -pg 1 -lvl 2 -x 520 -y 710 -defaultsOSRD
 preplace inst read_a -pg 1 -lvl 2 -x 520 -y 210 -defaultsOSRD
 preplace inst read_b -pg 1 -lvl 2 -x 520 -y 510 -defaultsOSRD
-preplace inst write_a -pg 1 -lvl 2 -x 520 -y 710 -defaultsOSRD
-preplace inst input_logic_0 -pg 1 -lvl 1 -x 160 -y 480 -defaultsOSRD
-preplace netloc ARESETN_1 1 1 2 NJ 100 760
-preplace netloc M00_ACLK_1 1 0 3 30 170 310J 110 750
+preplace netloc ARESETN_1 1 1 2 NJ 100 770
+preplace netloc M00_ACLK_1 1 0 3 30 170 310J 110 760
 preplace netloc arbitrator_0_wait_n 1 3 1 1140 590n
-preplace netloc clk_memory_1 1 0 3 30 10 320 310 770
+preplace netloc clk_memory_1 1 0 3 30 10 320 310 750
 preplace netloc clk_peripheral_n_1 1 0 3 30 570 350J 410 700
 preplace netloc input_logic_0_re_a 1 1 1 330 200n
 preplace netloc input_logic_0_re_b 1 1 1 N 500
@@ -63,9 +63,9 @@ preplace netloc write_a_monitor_addr 1 2 2 NJ 720 NJ
 preplace netloc write_a_monitor_state 1 2 2 NJ 740 NJ
 preplace netloc write_a_ready 1 2 1 780 560n
 preplace netloc axi_interconnect_0_M00_AXI 1 3 1 NJ 270
-preplace netloc read_0_interface_aximm 1 2 1 N 170
-preplace netloc read_1_interface_aximm 1 2 1 730 190n
-preplace netloc write_0_interface_aximm 1 2 1 740 150n
+preplace netloc read_a_interface_aximm 1 2 1 N 170
+preplace netloc read_b_interface_aximm 1 2 1 730 190n
+preplace netloc write_a_interface_aximm 1 2 1 740 150n
 levelinfo -pg 1 0 160 520 960 1160
 pagesize -pg 1 -db -bbox -sgen -170 0 1360 810
 "
