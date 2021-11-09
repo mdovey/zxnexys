@@ -45,9 +45,9 @@
     <MemoryDevice>DDR2_SDRAM/Components/MT47H64M16HR-25E</MemoryDevice>
     <TimePeriod>3333</TimePeriod>
     <VccAuxIO>1.8V</VccAuxIO>
-    <PHYRatio>4:1</PHYRatio>
+    <PHYRatio>2:1</PHYRatio>
     <InputClkFreq>200.02</InputClkFreq>
-    <UIExtraClocks>1</UIExtraClocks>
+    <UIExtraClocks>0</UIExtraClocks>
     <MMCM_VCO>1200</MMCM_VCO>
     <MMCMClkOut0> 1.000</MMCMClkOut0>
     <MMCMClkOut1>1</MMCMClkOut1>
@@ -145,7 +145,7 @@
       <C0_C_RD_WR_ARB_ALGORITHM>RD_PRI_REG</C0_C_RD_WR_ARB_ALGORITHM>
       <C0_S_AXI_ADDR_WIDTH>27</C0_S_AXI_ADDR_WIDTH>
       <C0_S_AXI_DATA_WIDTH>64</C0_S_AXI_DATA_WIDTH>
-      <C0_S_AXI_ID_WIDTH>2</C0_S_AXI_ID_WIDTH>
+      <C0_S_AXI_ID_WIDTH>4</C0_S_AXI_ID_WIDTH>
       <C0_S_AXI_SUPPORTS_NARROW_BURST>1</C0_S_AXI_SUPPORTS_NARROW_BURST>
     </AXIParameters>
   </Controller>

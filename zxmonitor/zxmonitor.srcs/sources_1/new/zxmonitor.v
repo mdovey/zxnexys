@@ -28,13 +28,11 @@ module zxmonitor #(
 
     input               cpu_wait_n,
 
-    input       [20:0]  aw_address,
-    input       [20:0]  ar_address,
-    input       [20:0]  br_address,
+    input       [20:0]  port_a_address,
+    input       [20:0]  port_b_address,
 
-	input       [2:0]   aw_state,
-	input       [2:0]   ar_state,
-	input       [2:0]   br_state,
+	input       [12:0]  audio_l,
+	input       [12:0]  audio_r,
   
     input       [15:0]  sw,
   
@@ -46,8 +44,6 @@ module zxmonitor #(
     input               sys_reset_n
     );
     
-    assign led              = {1'b0, machine_timing, 1'b0, aw_state, 1'b0, ar_state, 1'b0, br_state};
-
     reg     [DIV+2:0]     div;
     reg     [2:0]         sel;
     
@@ -56,30 +52,13 @@ module zxmonitor #(
     reg     [7:0]       a;
     reg     [7:0]       c;
     
-    wire    [20:0]      bw_address;
     wire    [20:0]      address;
     
     assign an   = (sys_reset_n) ? a : 8'b1111_1111;
     assign ca   = (sys_reset_n) ? c : 8'b1111_1111;
-    
-    function [20:0] select(
-        input [1:0]  sel,
-        input [20:0] addr0,
-        input [20:0] addr1,
-        input [20:0] addr2,
-        input [20:0] addr3
-    );
-        case (sel)
-            2'b00   : select = addr0;
-            2'b01   : select = addr1;
-            2'b10   : select = addr2;
-            2'b11   : select = addr3;
-            default : select = addr0;
-        endcase
-    endfunction    
         
-    assign bw_address = {20{1'b0}};
-    assign address = select(sw[1:0], bw_address, br_address, aw_address, ar_address);
+    assign address      = sw[0] ? port_b_address : port_a_address;
+    assign led[15:0]    = sw[1] ? {3'b000, audio_r} : {3'b000, audio_l}; 
     
     always @(posedge clk_200)
         case (cpu_speed)

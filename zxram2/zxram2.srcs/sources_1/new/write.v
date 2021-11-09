@@ -28,7 +28,7 @@ module write (
     output reg          BREADY,
 
     output reg  [26:0]  AWADDR,
-    output reg  [127:0] WDATA,
+    output reg  [63:0]  WDATA,
     output reg          WLAST,
     output reg  [15:0]  WSTRB,
     input       [1:0]   BRESP,
@@ -49,8 +49,9 @@ module write (
 
 	output              ready,
 	
-	output      [20:0]  monitor_addr,
-	output      [2:0]   monitor_state,
+	output reg  [20:0]  write_address,
+	output      [7:0]   write_data,
+	output              write_signal,
 	
     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
     (* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET aresetn" *)	
@@ -78,9 +79,6 @@ module write (
     reg      [2:0]  cState;
     reg      [2:0]  nState;  
 
-    assign          monitor_addr  = AWADDR;
-    assign          monitor_state = cState;
-
     assign AWCACHE              = 4'b0011;
     assign AWPROT               = 3'b000;
     assign AWLEN                = 8'b0000_0000;
@@ -92,6 +90,9 @@ module write (
     assign AWSIZE               = 3'b0000;
 
     assign ready                = (cState == stIdle) | (cState == stWait);
+    
+    assign write_data           = WDATA[7:0];
+    assign write_signal         = (cState == stWrite2) | (cState == stWrite3);
 
     always @(posedge clk_memory, negedge aresetn)
         cState          <= (~aresetn) ? stIdle : nState;
@@ -132,15 +133,16 @@ module write (
                 AWVALID 			    <= 1'b0;
                 WLAST 				    <= 1'b0;
                 WVALID 				    <= 1'b0;
-                WSTRB 				    <= 4'b0000_0000_0000_0000;
+                WSTRB 				    <= 8'b0000_0000;
             end
             stWrite0: 
             begin
                 AWADDR[26:21] 		    <= {6{1'b0}};
-                AWADDR[20:4] 		    <= address_sync[20:4];
-                AWADDR[3:0] 		    <= {4{1'b0}};
+                AWADDR[20:3] 		    <= address_sync[20:3];
+                AWADDR[2:0] 		    <= {3{1'b0}};
                 AWVALID 			    <= 1'b1;
                 BREADY 				    <= 1'b0;
+                write_address           <= address_sync;
             end
             stWrite1:
             begin
@@ -148,30 +150,22 @@ module write (
                 WDATA                   <= {16{data_sync}};
                 WLAST 				    <= 1'b1;
                 WVALID 				    <= 1'b1;
-                case (address_sync[3:0])
-                    4'b0000:  WSTRB     <= 16'b0000_0000_0000_0001;
-                    4'b0001:  WSTRB     <= 16'b0000_0000_0000_0010;
-                    4'b0010:  WSTRB     <= 16'b0000_0000_0000_0100;
-                    4'b0011:  WSTRB     <= 16'b0000_0000_0000_1000;
-                    4'b0100:  WSTRB     <= 16'b0000_0000_0001_0000;
-                    4'b0101:  WSTRB     <= 16'b0000_0000_0010_0000;
-                    4'b0110:  WSTRB     <= 16'b0000_0000_0100_0000;
-                    4'b0111:  WSTRB     <= 16'b0000_0000_1000_0000;
-                    4'b1000:  WSTRB     <= 16'b0000_0001_0000_0000;
-                    4'b1001:  WSTRB     <= 16'b0000_0010_0000_0000;
-                    4'b1010:  WSTRB     <= 16'b0000_0100_0000_0000;
-                    4'b1011:  WSTRB     <= 16'b0000_1000_0000_0000;
-                    4'b1100:  WSTRB     <= 16'b0001_0000_0000_0000;
-                    4'b1101:  WSTRB     <= 16'b0010_0000_0000_0000;
-                    4'b1110:  WSTRB     <= 16'b0100_0000_0000_0000;
-                    4'b1111:  WSTRB     <= 16'b1000_0000_0000_0000;
+                case (address_sync[2:0])
+                    3'b000:  WSTRB      <= 8'b0000_0001;
+                    3'b001:  WSTRB      <= 8'b0000_0010;
+                    3'b010:  WSTRB      <= 8'b0000_0100;
+                    3'b011:  WSTRB      <= 8'b0000_1000;
+                    3'b100:  WSTRB      <= 8'b0001_0000;
+                    3'b101:  WSTRB      <= 8'b0010_0000;
+                    3'b110:  WSTRB      <= 8'b0100_0000;
+                    3'b111:  WSTRB      <= 8'b1000_0000;
                 endcase   
             end
             stWrite2:
             begin
                 WLAST 				    <= 1'b0;
                 WVALID				    <= 1'b0;
-                WSTRB 				    <= 4'b0000_0000_0000_0000;
+                WSTRB 				    <= 8'b0000_0000;
             end
             stWrite3:
             begin

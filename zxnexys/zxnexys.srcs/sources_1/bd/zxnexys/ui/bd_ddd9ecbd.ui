@@ -3,135 +3,122 @@
    "Color Coded_ExpandedHierarchyInLayout":"",
    "Color Coded_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port JC -pg 1 -lvl 7 -x 2070 -y 910 -defaultsOSRD
-preplace port PS2_CLK -pg 1 -lvl 7 -x 2070 -y 1110 -defaultsOSRD
-preplace port PS2_DATA -pg 1 -lvl 7 -x 2070 -y 1130 -defaultsOSRD
-preplace port JA -pg 1 -lvl 7 -x 2070 -y 780 -defaultsOSRD
-preplace port JD -pg 1 -lvl 7 -x 2070 -y 250 -defaultsOSRD
-preplace port ddr2_sdram -pg 1 -lvl 7 -x 2070 -y 540 -defaultsOSRD
-preplace port port-id_sys_clock -pg 1 -lvl 0 -x 0 -y 560 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
-preplace port port-id_BTNU -pg 1 -lvl 0 -x 0 -y 880 -defaultsOSRD
-preplace port port-id_BTND -pg 1 -lvl 0 -x 0 -y 860 -defaultsOSRD
-preplace port port-id_VGA_HS -pg 1 -lvl 7 -x 2070 -y 1330 -defaultsOSRD
-preplace port port-id_VGA_VS -pg 1 -lvl 7 -x 2070 -y 1350 -defaultsOSRD
-preplace port port-id_BTNL -pg 1 -lvl 0 -x 0 -y 1120 -defaultsOSRD
-preplace port port-id_BTNR -pg 1 -lvl 0 -x 0 -y 1140 -defaultsOSRD
-preplace port port-id_SD_CD -pg 1 -lvl 0 -x 0 -y 1500 -defaultsOSRD
-preplace port port-id_SD_SCK -pg 1 -lvl 7 -x 2070 -y 1490 -defaultsOSRD
-preplace port port-id_SD_CMD -pg 1 -lvl 7 -x 2070 -y 1510 -defaultsOSRD
-preplace port port-id_SD_RESET -pg 1 -lvl 7 -x 2070 -y 1470 -defaultsOSRD
-preplace port port-id_SD_DAT0 -pg 1 -lvl 0 -x 0 -y 1520 -defaultsOSRD
-preplace port port-id_SD_DAT1 -pg 1 -lvl 7 -x 2070 -y 1530 -defaultsOSRD
-preplace port port-id_SD_DAT2 -pg 1 -lvl 7 -x 2070 -y 1550 -defaultsOSRD
-preplace port port-id_SD_DAT3 -pg 1 -lvl 7 -x 2070 -y 1570 -defaultsOSRD
-preplace portBus AN -pg 1 -lvl 7 -x 2070 -y 380 -defaultsOSRD
-preplace portBus CA -pg 1 -lvl 7 -x 2070 -y 400 -defaultsOSRD
-preplace portBus VGA_R -pg 1 -lvl 7 -x 2070 -y 1270 -defaultsOSRD
-preplace portBus VGA_G -pg 1 -lvl 7 -x 2070 -y 1290 -defaultsOSRD
-preplace portBus VGA_B -pg 1 -lvl 7 -x 2070 -y 1310 -defaultsOSRD
-preplace portBus LED -pg 1 -lvl 7 -x 2070 -y 420 -defaultsOSRD
-preplace portBus SW -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 550 -defaultsOSRD
-preplace inst pmod_i2s2_0 -pg 1 -lvl 6 -x 1870 -y 910 -defaultsOSRD
-preplace inst zxvideo_0 -pg 1 -lvl 5 -x 1530 -y 1310 -defaultsOSRD
-preplace inst pmod_rtcc_0 -pg 1 -lvl 5 -x 1530 -y 780 -defaultsOSRD
-preplace inst zxrtc_0 -pg 1 -lvl 4 -x 1080 -y 730 -defaultsOSRD
-preplace inst pmod_xsd_0 -pg 1 -lvl 5 -x 1530 -y 130 -defaultsOSRD
-preplace inst zxkeyboard_0 -pg 1 -lvl 5 -x 1530 -y 1120 -defaultsOSRD
-preplace inst zxsdcard_0 -pg 1 -lvl 5 -x 1530 -y 1510 -defaultsOSRD
-preplace inst zxsdcard_1 -pg 1 -lvl 6 -x 1870 -y 130 -defaultsOSRD
-preplace inst zxreset_0 -pg 1 -lvl 2 -x 390 -y 920 -defaultsOSRD
-preplace inst zxaudio_0 -pg 1 -lvl 4 -x 1080 -y 910 -defaultsOSRD
-preplace inst zxclock_0 -pg 1 -lvl 2 -x 390 -y 550 -defaultsOSRD
-preplace inst zxnext_0 -pg 1 -lvl 3 -x 700 -y 910 -defaultsOSRD
-preplace inst mig_7series_0 -pg 1 -lvl 5 -x 1530 -y 580 -defaultsOSRD
-preplace inst mig_reset_0 -pg 1 -lvl 4 -x 1080 -y 300 -defaultsOSRD
-preplace inst zxmonitor_0 -pg 1 -lvl 5 -x 1530 -y 400 -defaultsOSRD
-preplace inst zxram_0 -pg 1 -lvl 4 -x 1080 -y 540 -defaultsOSRD
-preplace netloc BTND_1 1 0 2 NJ 860 NJ
-preplace netloc BTNL_1 1 0 5 NJ 1120 NJ 1120 NJ 1120 NJ 1120 1290J
-preplace netloc BTNR_1 1 0 5 NJ 1140 NJ 1140 NJ 1140 NJ 1140 1360J
-preplace netloc BTNU_1 1 0 2 NJ 880 NJ
-preplace netloc SD_CD_1 1 0 5 NJ 1500 NJ 1500 NJ 1500 NJ 1500 NJ
-preplace netloc SD_DAT0_1 1 0 5 NJ 1520 NJ 1520 NJ 1520 NJ 1520 NJ
-preplace netloc SW_1 1 0 5 NJ 200 NJ 200 NJ 200 NJ 200 1340J
-preplace netloc clk_wiz_0_clk_14 1 1 1 N 570
-preplace netloc clk_wiz_0_clk_28 1 1 1 N 550
-preplace netloc clk_wiz_0_clk_28_n 1 1 1 N 530
-preplace netloc clk_wiz_0_clk_7 1 1 1 N 590
-preplace netloc clk_wiz_0_clk_140 1 1 1 N 510
-preplace netloc clk_wiz_0_clk_200 1 1 4 210J 430 540J 440 860 390 1300
-preplace netloc clk_wiz_0_locked 1 1 3 220 440 530J 450 870
-preplace netloc mig_7series_0_init_calib_complete 1 1 5 240 420 NJ 420 NJ 420 1240J 700 1670
-preplace netloc mig_7series_0_mmcm_locked 1 1 5 230 410 NJ 410 NJ 410 1280J 690 1680
-preplace netloc mig_7series_0_ui_clk 1 3 3 930 400 1290J 680 1690
-preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 3 930 650 1230J 710 1700
-preplace netloc mig_reset_0_aresetn 1 4 1 1310 290n
-preplace netloc mig_reset_0_sys_reset 1 4 1 1320 310n
-preplace netloc pmod_xsd_0_sd_cd 1 5 1 1670 110n
-preplace netloc pmod_xsd_0_sd_dat0 1 5 1 1670 130n
-preplace netloc pmod_xsd_0_sd_wp 1 5 1 1720 150n
-preplace netloc reset_1 1 0 5 20 430 200 400 NJ 400 850 210 1330
-preplace netloc sys_clock_1 1 0 1 NJ 560
-preplace netloc zxaudio_0_lrck 1 4 2 NJ 900 N
-preplace netloc zxaudio_0_mclk 1 4 2 NJ 880 N
-preplace netloc zxaudio_0_sclk 1 4 2 NJ 920 N
-preplace netloc zxaudio_0_sdout 1 4 2 NJ 940 N
-preplace netloc zxclock_0_clk_memory 1 2 2 NJ 540 860
-preplace netloc zxclock_0_clk_peripheral 1 1 5 250 780 530 570 900 810 1260 260 1670J
-preplace netloc zxclock_0_clk_peripheral_n 1 2 3 NJ 580 920 1150 NJ
-preplace netloc zxclock_0_clk_video 1 2 3 540 1300 NJ 1300 NJ
-preplace netloc zxmonitor_0_an 1 5 2 NJ 380 NJ
-preplace netloc zxmonitor_0_ca 1 5 2 NJ 400 NJ
-preplace netloc zxmonitor_0_led 1 5 2 NJ 420 NJ
-preplace netloc zxreset_0_reset_peripheral 1 2 4 570 700 880 820 1270 270 1680J
-preplace netloc zxsdcard_0_sd_cmd 1 5 2 NJ 1510 NJ
-preplace netloc zxsdcard_0_sd_dat1 1 5 2 NJ 1530 NJ
-preplace netloc zxsdcard_0_sd_dat2 1 5 2 NJ 1550 NJ
-preplace netloc zxsdcard_0_sd_dat3 1 5 2 NJ 1570 NJ
-preplace netloc zxsdcard_0_sd_reset_n 1 5 2 NJ 1470 NJ
-preplace netloc zxsdcard_0_sd_sck 1 5 2 NJ 1490 NJ
-preplace netloc zxsdcard_1_sd_cmd 1 4 3 1340 10 NJ 10 2050
-preplace netloc zxsdcard_1_sd_dat1 1 4 3 1370 280 NJ 280 2020
-preplace netloc zxsdcard_1_sd_dat2 1 4 3 1380 290 NJ 290 2010
-preplace netloc zxsdcard_1_sd_dat3 1 4 3 1390 300 NJ 300 2000
-preplace netloc zxsdcard_1_sd_reset_n 1 4 3 1350 240 1720J 260 2040
-preplace netloc zxsdcard_1_sd_sck 1 4 3 1360 250 1690J 270 2030
-preplace netloc zxvideo_0_b 1 5 2 NJ 1310 NJ
-preplace netloc zxvideo_0_g 1 5 2 NJ 1290 NJ
-preplace netloc zxvideo_0_hs 1 5 2 NJ 1330 NJ
-preplace netloc zxvideo_0_r 1 5 2 NJ 1270 NJ
-preplace netloc zxvideo_0_vs 1 5 2 NJ 1350 NJ
-preplace netloc mig_7series_0_DDR2 1 5 2 NJ 540 NJ
-preplace netloc pmod_i2s2_0_pmod_i2s2 1 6 1 NJ 910
-preplace netloc pmod_rtcc_0_pmod_rtcc 1 5 2 NJ 780 NJ
-preplace netloc pmod_xsd_0_pmod_xsd 1 5 2 1740J 250 NJ
-preplace netloc zxclock_0_monitor_clock 1 2 3 550J 430 NJ 430 1230
-preplace netloc zxkeyboard_0_ps2_clk 1 5 2 NJ 1110 NJ
-preplace netloc zxkeyboard_0_ps2_data 1 5 2 NJ 1130 NJ
-preplace netloc zxleddisplay_0_mb_clock_out 1 2 1 560 500n
-preplace netloc zxnext_0_audio 1 3 1 890 760n
-preplace netloc zxnext_0_keyboard 1 3 2 840 1070 NJ
-preplace netloc zxnext_0_ram_port_a 1 3 1 850 490n
-preplace netloc zxnext_0_ram_port_b 1 3 1 870 510n
-preplace netloc zxnext_0_rtc 1 3 1 910 710n
-preplace netloc zxnext_0_sd0_enable 1 3 2 880J 1000 1250
-preplace netloc zxnext_0_sd1_enable 1 3 3 830J 1010 NJ 1010 1710
-preplace netloc zxnext_0_sdcard 1 3 2 NJ 1020 1230
-preplace netloc zxnext_0_speaker 1 3 1 930 900n
-preplace netloc zxnext_0_video 1 3 2 NJ 1060 1240
-preplace netloc zxram_0_axi_mig 1 4 1 N 550
-preplace netloc zxram_0_monitor_memory 1 4 1 1250 380n
-preplace netloc zxreset_0_mb_reset 1 2 1 N 910
-preplace netloc zxrtc_0_scl 1 4 1 1240 720n
-preplace netloc zxrtc_0_sda 1 4 1 1230 740n
-preplace netloc zxsdcard_0_sdcard_out 1 5 1 1730 90n
-levelinfo -pg 1 0 110 390 700 1080 1530 1870 2070
-pagesize -pg 1 -db -bbox -sgen -120 0 2200 1630
+preplace port JB -pg 1 -lvl 6 -x 1720 -y 570 -defaultsOSRD
+preplace port PS2_CLK -pg 1 -lvl 6 -x 1720 -y 860 -defaultsOSRD
+preplace port PS2_DATA -pg 1 -lvl 6 -x 1720 -y 880 -defaultsOSRD
+preplace port JA -pg 1 -lvl 6 -x 1720 -y 710 -defaultsOSRD
+preplace port ddr2_sdram -pg 1 -lvl 6 -x 1720 -y 110 -defaultsOSRD
+preplace port port-id_sys_clock -pg 1 -lvl 0 -x 0 -y 480 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 350 -defaultsOSRD
+preplace port port-id_BTNU -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace port port-id_BTND -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace port port-id_VGA_HS -pg 1 -lvl 6 -x 1720 -y 1080 -defaultsOSRD
+preplace port port-id_VGA_VS -pg 1 -lvl 6 -x 1720 -y 1100 -defaultsOSRD
+preplace port port-id_BTNL -pg 1 -lvl 0 -x 0 -y 920 -defaultsOSRD
+preplace port port-id_BTNR -pg 1 -lvl 0 -x 0 -y 940 -defaultsOSRD
+preplace port port-id_SD_CD -pg 1 -lvl 0 -x 0 -y 1240 -defaultsOSRD
+preplace port port-id_SD_SCK -pg 1 -lvl 6 -x 1720 -y 1220 -defaultsOSRD
+preplace port port-id_SD_CMD -pg 1 -lvl 6 -x 1720 -y 1240 -defaultsOSRD
+preplace port port-id_SD_RESET -pg 1 -lvl 6 -x 1720 -y 1200 -defaultsOSRD
+preplace port port-id_SD_DAT0 -pg 1 -lvl 0 -x 0 -y 1260 -defaultsOSRD
+preplace port port-id_SD_DAT1 -pg 1 -lvl 6 -x 1720 -y 1260 -defaultsOSRD
+preplace port port-id_SD_DAT2 -pg 1 -lvl 6 -x 1720 -y 1280 -defaultsOSRD
+preplace port port-id_SD_DAT3 -pg 1 -lvl 6 -x 1720 -y 1300 -defaultsOSRD
+preplace portBus AN -pg 1 -lvl 6 -x 1720 -y 360 -defaultsOSRD
+preplace portBus CA -pg 1 -lvl 6 -x 1720 -y 380 -defaultsOSRD
+preplace portBus VGA_R -pg 1 -lvl 6 -x 1720 -y 1020 -defaultsOSRD
+preplace portBus VGA_G -pg 1 -lvl 6 -x 1720 -y 1040 -defaultsOSRD
+preplace portBus VGA_B -pg 1 -lvl 6 -x 1720 -y 1060 -defaultsOSRD
+preplace portBus LED -pg 1 -lvl 6 -x 1720 -y 400 -defaultsOSRD
+preplace portBus SW -pg 1 -lvl 0 -x 0 -y 900 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 470 -defaultsOSRD
+preplace inst pmod_i2s2_0 -pg 1 -lvl 5 -x 1540 -y 570 -defaultsOSRD
+preplace inst zxvideo_0 -pg 1 -lvl 5 -x 1540 -y 1060 -defaultsOSRD
+preplace inst pmod_rtcc_0 -pg 1 -lvl 5 -x 1540 -y 710 -defaultsOSRD
+preplace inst zxrtc_0 -pg 1 -lvl 4 -x 1160 -y 710 -defaultsOSRD
+preplace inst zxkeyboard_0 -pg 1 -lvl 5 -x 1540 -y 870 -defaultsOSRD
+preplace inst zxsdcard_0 -pg 1 -lvl 5 -x 1540 -y 1250 -defaultsOSRD
+preplace inst zxreset_0 -pg 1 -lvl 2 -x 370 -y 210 -defaultsOSRD
+preplace inst zxaudio_0 -pg 1 -lvl 4 -x 1160 -y 560 -defaultsOSRD
+preplace inst zxclock_0 -pg 1 -lvl 2 -x 370 -y 470 -defaultsOSRD
+preplace inst zxnext_0 -pg 1 -lvl 3 -x 720 -y 680 -defaultsOSRD
+preplace inst mig_7series_0 -pg 1 -lvl 5 -x 1540 -y 150 -defaultsOSRD
+preplace inst mig_reset_0 -pg 1 -lvl 4 -x 1160 -y 110 -defaultsOSRD
+preplace inst zxmonitor_0 -pg 1 -lvl 5 -x 1540 -y 380 -defaultsOSRD
+preplace inst zxram_0 -pg 1 -lvl 4 -x 1160 -y 330 -defaultsOSRD
+preplace netloc BTND_1 1 0 2 NJ 150 NJ
+preplace netloc BTNL_1 1 0 5 NJ 920 NJ 920 NJ 920 1010J 840 NJ
+preplace netloc BTNR_1 1 0 5 NJ 940 NJ 940 NJ 940 NJ 940 1380J
+preplace netloc BTNU_1 1 0 2 NJ 170 NJ
+preplace netloc SD_CD_1 1 0 5 NJ 1240 NJ 1240 NJ 1240 NJ 1240 NJ
+preplace netloc SD_DAT0_1 1 0 5 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ
+preplace netloc SW_1 1 0 5 NJ 900 NJ 900 540J 910 860J 970 1370J
+preplace netloc clk_wiz_0_clk_14 1 1 1 N 490
+preplace netloc clk_wiz_0_clk_28 1 1 1 N 470
+preplace netloc clk_wiz_0_clk_28_n 1 1 1 N 450
+preplace netloc clk_wiz_0_clk_7 1 1 1 N 510
+preplace netloc clk_wiz_0_clk_140 1 1 1 N 430
+preplace netloc clk_wiz_0_clk_200 1 1 4 210 350 NJ 350 990 440 1330
+preplace netloc clk_wiz_0_locked 1 1 3 200 90 NJ 90 960J
+preplace netloc mig_7series_0_init_calib_complete 1 1 5 210 10 NJ 10 NJ 10 NJ 10 1700
+preplace netloc mig_7series_0_mmcm_locked 1 1 5 220 20 NJ 20 NJ 20 NJ 20 1670
+preplace netloc mig_7series_0_ui_clk 1 3 3 1000 200 1400J 260 1680
+preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 3 1010 210 1390J 250 1690
+preplace netloc mig_reset_0_aresetn 1 4 1 1400 100n
+preplace netloc mig_reset_0_sys_reset 1 4 1 1310 120n
+preplace netloc reset_1 1 0 5 20 340 210 340 NJ 340 950 450 1360
+preplace netloc sys_clock_1 1 0 1 NJ 480
+preplace netloc zxaudio_0_lrck 1 4 1 1320 550n
+preplace netloc zxaudio_0_mclk 1 4 1 1320 530n
+preplace netloc zxaudio_0_sclk 1 4 1 1320 570n
+preplace netloc zxaudio_0_sdout 1 4 1 1320 590n
+preplace netloc zxclock_0_clk_memory 1 2 2 530J 330 880
+preplace netloc zxclock_0_clk_peripheral 1 1 4 220 360 510 430 910 950 1400
+preplace netloc zxclock_0_clk_peripheral_n 1 2 3 560J 440 980 960 1390J
+preplace netloc zxclock_0_clk_video 1 2 3 570 450 880J 1050 NJ
+preplace netloc zxmonitor_0_an 1 5 1 NJ 360
+preplace netloc zxmonitor_0_ca 1 5 1 NJ 380
+preplace netloc zxmonitor_0_led 1 5 1 NJ 400
+preplace netloc zxnext_0_o_AUDIO_L 1 3 2 930 460 1340J
+preplace netloc zxnext_0_o_AUDIO_R 1 3 2 940 470 1350J
+preplace netloc zxreset_0_reset_peripheral 1 2 3 N 220 960 830 1310
+preplace netloc zxsdcard_0_sd_cmd 1 5 1 NJ 1240
+preplace netloc zxsdcard_0_sd_dat1 1 5 1 NJ 1260
+preplace netloc zxsdcard_0_sd_dat2 1 5 1 NJ 1280
+preplace netloc zxsdcard_0_sd_dat3 1 5 1 NJ 1300
+preplace netloc zxsdcard_0_sd_reset_n 1 5 1 NJ 1200
+preplace netloc zxsdcard_0_sd_sck 1 5 1 NJ 1220
+preplace netloc zxvideo_0_b 1 5 1 NJ 1060
+preplace netloc zxvideo_0_g 1 5 1 NJ 1040
+preplace netloc zxvideo_0_hs 1 5 1 NJ 1080
+preplace netloc zxvideo_0_r 1 5 1 NJ 1020
+preplace netloc zxvideo_0_vs 1 5 1 NJ 1100
+preplace netloc mig_7series_0_DDR2 1 5 1 NJ 110
+preplace netloc pmod_i2s2_0_pmod_i2s2 1 5 1 NJ 570
+preplace netloc pmod_rtcc_0_pmod_rtcc 1 5 1 NJ 710
+preplace netloc zxclock_0_monitor_clock 1 2 3 520J 230 980J 220 1370
+preplace netloc zxkeyboard_0_ps2_clk 1 5 1 NJ 860
+preplace netloc zxkeyboard_0_ps2_data 1 5 1 NJ 880
+preplace netloc zxleddisplay_0_mb_clock_out 1 2 1 540 420n
+preplace netloc zxnext_0_audio 1 3 1 950 510n
+preplace netloc zxnext_0_keyboard 1 3 2 900J 820 N
+preplace netloc zxnext_0_ram_port_a 1 3 1 890 280n
+preplace netloc zxnext_0_ram_port_b 1 3 1 920 300n
+preplace netloc zxnext_0_rtc 1 3 1 970 690n
+preplace netloc zxnext_0_sd0_enable 1 3 2 890 800 1350J
+preplace netloc zxnext_0_sdcard 1 3 2 NJ 810 1340
+preplace netloc zxnext_0_speaker 1 3 1 950 550n
+preplace netloc zxnext_0_video 1 3 2 870 930 1320J
+preplace netloc zxram_0_axi_mig 1 4 1 1320 120n
+preplace netloc zxram_0_monitor_memory 1 4 1 1340 320n
+preplace netloc zxreset_0_mb_reset 1 2 1 550 200n
+preplace netloc zxrtc_0_scl 1 4 1 N 700
+preplace netloc zxrtc_0_sda 1 4 1 N 720
+levelinfo -pg 1 0 110 370 720 1160 1540 1720
+pagesize -pg 1 -db -bbox -sgen -120 0 1850 1360
 ",
-   "Color Coded_ScaleFactor":"0.176687",
-   "Color Coded_TopLeft":"-1324,0",
+   "Color Coded_ScaleFactor":"0.458824",
+   "Color Coded_TopLeft":"-464,0",
    "Default View_ScaleFactor":"0.536691",
    "Default View_TopLeft":"-315,0",
    "ExpandedHierarchyInLayout":"",

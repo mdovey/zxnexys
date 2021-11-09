@@ -31,10 +31,9 @@ module output_logic(
 
     input               aw_ready,
     input               ar_ready,
-    input               br_ready,
 
 (* ASYNC_REG = "TRUE" *)
-    output reg          wait_n,
+    output reg          wait_a_n,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral_n CLK" *)
     input               clk_peripheral_n        
@@ -52,7 +51,7 @@ module output_logic(
 	
     always @(posedge clk_peripheral_n, negedge ready)
     begin
-        wait_n          <= (~ready) ? 1'b0 : 1'b1;
+        wait_a_n          <= (~ready) ? 1'b0 : 1'b1;
     end   	    
 
 endmodule

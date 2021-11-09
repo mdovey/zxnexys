@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE978AFEFB39AB06E",
+      "boundary_crc": "0x48A2172496077FC3",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys.gen/sources_1/bd/zxnexys",
       "name": "zxnexys",
@@ -16,10 +16,8 @@
       "zxvideo_0": "",
       "pmod_rtcc_0": "",
       "zxrtc_0": "",
-      "pmod_xsd_0": "",
       "zxkeyboard_0": "",
       "zxsdcard_0": "",
-      "zxsdcard_1": "",
       "zxreset_0": "",
       "zxaudio_0": "",
       "zxclock_0": "",
@@ -30,7 +28,7 @@
       "zxram_0": ""
     },
     "interface_ports": {
-      "JC": {
+      "JB": {
         "mode": "Master",
         "vlnv_bus_definition": "digilentinc.com:interface:pmod:1.0",
         "vlnv": "digilentinc.com:interface:pmod_rtl:1.0"
@@ -46,11 +44,6 @@
         "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       },
       "JA": {
-        "mode": "Master",
-        "vlnv_bus_definition": "digilentinc.com:interface:pmod:1.0",
-        "vlnv": "digilentinc.com:interface:pmod_rtl:1.0"
-      },
-      "JD": {
         "mode": "Master",
         "vlnv_bus_definition": "digilentinc.com:interface:pmod:1.0",
         "vlnv": "digilentinc.com:interface:pmod_rtl:1.0"
@@ -443,17 +436,6 @@
         "xci_path": "ip\\zxnexys_zxrtc_0_0\\zxnexys_zxrtc_0_0.xci",
         "inst_hier_path": "zxrtc_0"
       },
-      "pmod_xsd_0": {
-        "vlnv": "specnext.com:specnext:pmod_xsd:1.0",
-        "xci_name": "zxnexys_pmod_xsd_0_0",
-        "xci_path": "ip\\zxnexys_pmod_xsd_0_0\\zxnexys_pmod_xsd_0_0.xci",
-        "inst_hier_path": "pmod_xsd_0",
-        "parameters": {
-          "MicroSD": {
-            "value": "false"
-          }
-        }
-      },
       "zxkeyboard_0": {
         "vlnv": "specnext.com:specnext:zxkeyboard:1.0",
         "xci_name": "zxnexys_zxkeyboard_0_0",
@@ -467,18 +449,7 @@
         "inst_hier_path": "zxsdcard_0",
         "parameters": {
           "Terminal": {
-            "value": "false"
-          }
-        }
-      },
-      "zxsdcard_1": {
-        "vlnv": "specnext.com:specnext:zxsdcard:1.0",
-        "xci_name": "zxnexys_zxsdcard_1_0",
-        "xci_path": "ip\\zxnexys_zxsdcard_1_0\\zxnexys_zxsdcard_1_0.xci",
-        "inst_hier_path": "zxsdcard_1",
-        "parameters": {
-          "MicroSD": {
-            "value": "false"
+            "value": "true"
           }
         }
       },
@@ -536,14 +507,11 @@
           "BOARD_MIG_PARAM": {
             "value": "ddr2_sdram"
           },
-          "MIG_DONT_TOUCH_PARAM": {
-            "value": "Custom"
-          },
           "RESET_BOARD_INTERFACE": {
             "value": "Custom"
           },
           "XML_INPUT_FILE": {
-            "value": "mig_a.prj"
+            "value": "mig_b.prj"
           }
         }
       },
@@ -599,7 +567,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "75007501",
+                "value": "150015002",
                 "value_src": "default_prop"
               },
               "PHASE": {
@@ -674,7 +642,7 @@
       },
       "pmod_i2s2_0_pmod_i2s2": {
         "interface_ports": [
-          "JC",
+          "JB",
           "pmod_i2s2_0/pmod_i2s2"
         ]
       },
@@ -682,12 +650,6 @@
         "interface_ports": [
           "JA",
           "pmod_rtcc_0/pmod_rtcc"
-        ]
-      },
-      "pmod_xsd_0_pmod_xsd": {
-        "interface_ports": [
-          "JD",
-          "pmod_xsd_0/pmod_xsd"
         ]
       },
       "zxclock_0_monitor_clock": {
@@ -750,12 +712,6 @@
           "zxsdcard_0/sdcard_enable_n"
         ]
       },
-      "zxnext_0_sd1_enable": {
-        "interface_ports": [
-          "zxsdcard_1/sdcard_enable_n",
-          "zxnext_0/sd1_enable"
-        ]
-      },
       "zxnext_0_sdcard": {
         "interface_ports": [
           "zxnext_0/sdcard",
@@ -802,12 +758,6 @@
         "interface_ports": [
           "pmod_rtcc_0/sda",
           "zxrtc_0/sda"
-        ]
-      },
-      "zxsdcard_0_sdcard_out": {
-        "interface_ports": [
-          "zxsdcard_0/sdcard_out",
-          "zxsdcard_1/sdcard_in"
         ]
       }
     },
@@ -936,24 +886,6 @@
           "mig_7series_0/sys_rst"
         ]
       },
-      "pmod_xsd_0_sd_cd": {
-        "ports": [
-          "pmod_xsd_0/sd_cd",
-          "zxsdcard_1/sd_cd"
-        ]
-      },
-      "pmod_xsd_0_sd_dat0": {
-        "ports": [
-          "pmod_xsd_0/sd_dat0",
-          "zxsdcard_1/sd_dat0"
-        ]
-      },
-      "pmod_xsd_0_sd_wp": {
-        "ports": [
-          "pmod_xsd_0/sd_wp",
-          "zxsdcard_1/sd_wp"
-        ]
-      },
       "reset_1": {
         "ports": [
           "reset",
@@ -1006,7 +938,6 @@
           "zxrtc_0/clk_peripheral",
           "zxkeyboard_0/clk_peripheral",
           "zxsdcard_0/clk_peripheral",
-          "zxsdcard_1/clk_peripheral",
           "zxreset_0/clk_peripheral",
           "zxaudio_0/clk_peripheral"
         ]
@@ -1042,6 +973,18 @@
           "LED"
         ]
       },
+      "zxnext_0_o_AUDIO_L": {
+        "ports": [
+          "zxnext_0/o_AUDIO_L",
+          "zxmonitor_0/audio_l"
+        ]
+      },
+      "zxnext_0_o_AUDIO_R": {
+        "ports": [
+          "zxnext_0/o_AUDIO_R",
+          "zxmonitor_0/audio_r"
+        ]
+      },
       "zxreset_0_reset_peripheral": {
         "ports": [
           "zxreset_0/reset_peripheral",
@@ -1049,7 +992,6 @@
           "zxrtc_0/reset",
           "zxkeyboard_0/reset",
           "zxsdcard_0/reset",
-          "zxsdcard_1/reset",
           "zxaudio_0/reset"
         ]
       },
@@ -1087,42 +1029,6 @@
         "ports": [
           "zxsdcard_0/sd_sck",
           "SD_SCK"
-        ]
-      },
-      "zxsdcard_1_sd_cmd": {
-        "ports": [
-          "zxsdcard_1/sd_cmd",
-          "pmod_xsd_0/sd_cmd"
-        ]
-      },
-      "zxsdcard_1_sd_dat1": {
-        "ports": [
-          "zxsdcard_1/sd_dat1",
-          "pmod_xsd_0/sd_dat1"
-        ]
-      },
-      "zxsdcard_1_sd_dat2": {
-        "ports": [
-          "zxsdcard_1/sd_dat2",
-          "pmod_xsd_0/sd_dat2"
-        ]
-      },
-      "zxsdcard_1_sd_dat3": {
-        "ports": [
-          "zxsdcard_1/sd_dat3",
-          "pmod_xsd_0/sd_dat3"
-        ]
-      },
-      "zxsdcard_1_sd_reset_n": {
-        "ports": [
-          "zxsdcard_1/sd_reset_n",
-          "pmod_xsd_0/sd_reset_n"
-        ]
-      },
-      "zxsdcard_1_sd_sck": {
-        "ports": [
-          "zxsdcard_1/sd_sck",
-          "pmod_xsd_0/sd_sck"
         ]
       },
       "zxvideo_0_b": {

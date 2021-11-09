@@ -19,9 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module read #(
-    parameter           CACHE_DEPTH =   0
-)(
+module read (
     output reg          ARVALID,
     input               ARREADY,
     input               RVALID,
@@ -31,7 +29,7 @@ module read #(
     input       [1:0]   RRESP,
     
     output reg  [26:0]  ARADDR,
-    input       [127:0] RDATA,
+    input       [63:0]  RDATA,
 
     
     output      [3:0]   ARCACHE,
@@ -50,9 +48,10 @@ module read #(
 	output reg  [7:0]   data,
 
 	output              ready,
-	
-	output      [20:0]  monitor_addr,
-	output      [2:0]   monitor_state,
+
+    input       [20:0]  write_address,
+    input       [7:0]   write_data,
+    input               write_signal,
 	
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET aresetn" *)	
@@ -78,10 +77,7 @@ module read #(
     reg      [2:0]     cState;
     reg      [2:0]     nState;  
     
-    reg      [127:0]   cache;
-    
-    assign monitor_addr         = ARADDR;
-    assign monitor_state        = cState;
+    reg      [63:0]    cache;
    
     assign ARCACHE              = 4'b0011;
     assign ARPROT               = 3'b000;
@@ -109,7 +105,7 @@ module read #(
         nState         <= cState;
         case (cState)
             stIdle:
-                if (CACHE_DEPTH == 1 && ARADDR[20:4] == address_sync[20:4])
+                if (ARADDR[20:3] == address_sync[20:3])
                     nState <= en_sync   ? stRead3    : stIdle;
                 else
                     nState <= en_sync   ? stRead0    : stIdle;
@@ -133,13 +129,24 @@ module read #(
             stIdle:
             begin
                 RREADY 				    <= 1'b0;
-                ARVALID 			    <= 1'b0;         
+                ARVALID 			    <= 1'b0;
+                if (write_signal && ARADDR[20:3] == write_address[20:3])
+                case (write_address[2:0])
+                    3'b000:  cache[7:0]     <= write_data;
+                    3'b001:  cache[15:8]    <= write_data;
+                    3'b010:  cache[23:16]   <= write_data;
+                    3'b011:  cache[31:24]   <= write_data;
+                    3'b100:  cache[39:32]   <= write_data;
+                    3'b101:  cache[47:40]   <= write_data;
+                    3'b110:  cache[55:48]   <= write_data;
+                    3'b111:  cache[63:56]   <= write_data;
+                endcase    
             end
             stRead0:
             begin  
                 ARADDR[26:21] 		    <= {6{1'b0}};
-                ARADDR[20:4] 		    <= address_sync[20:4];
-                ARADDR[3:0] 		    <= {4{1'b0}};
+                ARADDR[20:3] 		    <= address_sync[20:3];
+                ARADDR[2:0] 		    <= {3{1'b0}};
                 ARVALID 			    <= 1'b1;
                 RREADY 				    <= 1'b0;
             end
@@ -154,26 +161,32 @@ module read #(
             end
             stRead3:
             begin
-                case (address_sync[3:0])
-                    4'b0000:  data        <= cache[7:0];
-                    4'b0001:  data        <= cache[15:8];
-                    4'b0010:  data        <= cache[23:16];
-                    4'b0011:  data        <= cache[31:24];
-                    4'b0100:  data        <= cache[39:32];
-                    4'b0101:  data        <= cache[47:40];
-                    4'b0110:  data        <= cache[55:48];
-                    4'b0111:  data        <= cache[63:56];
-                    4'b1000:  data        <= cache[71:64];
-                    4'b1001:  data        <= cache[79:72];
-                    4'b1010:  data        <= cache[87:80];
-                    4'b1011:  data        <= cache[95:88];
-                    4'b1100:  data        <= cache[103:96];
-                    4'b1101:  data        <= cache[111:104];
-                    4'b1110:  data        <= cache[119:112];
-                    4'b1111:  data        <= cache[127:120];
+                case (address_sync[2:0])
+                    3'b000:  data        <= cache[7:0];
+                    3'b001:  data        <= cache[15:8];
+                    3'b010:  data        <= cache[23:16];
+                    3'b011:  data        <= cache[31:24];
+                    3'b100:  data        <= cache[39:32];
+                    3'b101:  data        <= cache[47:40];
+                    3'b110:  data        <= cache[55:48];
+                    3'b111:  data        <= cache[63:56];
                 endcase    
                 RREADY 				    <= 1'b0;
             end
-        endcase  
+            stWait:
+            begin
+                if (write_signal && ARADDR[20:3] == write_address[20:3])
+                case (write_address[2:0])
+                    3'b000:  cache[7:0]     <= write_data;
+                    3'b001:  cache[15:8]    <= write_data;
+                    3'b010:  cache[23:16]   <= write_data;
+                    3'b011:  cache[31:24]   <= write_data;
+                    3'b100:  cache[39:32]   <= write_data;
+                    3'b101:  cache[47:40]   <= write_data;
+                    3'b110:  cache[55:48]   <= write_data;
+                    3'b111:  cache[63:56]   <= write_data;
+                endcase
+            end
+        endcase
 
 endmodule

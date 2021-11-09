@@ -83,13 +83,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="175"/>
-    <Option Name="WTModelSimExportSim" Val="175"/>
-    <Option Name="WTQuestaExportSim" Val="175"/>
-    <Option Name="WTIesExportSim" Val="175"/>
-    <Option Name="WTVcsExportSim" Val="175"/>
-    <Option Name="WTRivieraExportSim" Val="175"/>
-    <Option Name="WTActivehdlExportSim" Val="175"/>
+    <Option Name="WTXSimExportSim" Val="179"/>
+    <Option Name="WTModelSimExportSim" Val="179"/>
+    <Option Name="WTQuestaExportSim" Val="179"/>
+    <Option Name="WTIesExportSim" Val="179"/>
+    <Option Name="WTVcsExportSim" Val="179"/>
+    <Option Name="WTRivieraExportSim" Val="179"/>
+    <Option Name="WTActivehdlExportSim" Val="179"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -119,23 +119,11 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_7series_0_0/zxnexys_mig_7series_0_0.xci">
-          <Proxy FileSetName="zxnexys_mig_7series_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxreset_0_4/zxnexys_zxreset_0_4.xci">
-          <Proxy FileSetName="zxnexys_zxreset_0_4"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_reset_0_0/zxnexys_mig_reset_0_0.xci">
-          <Proxy FileSetName="zxnexys_mig_reset_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnext_0_0/zxnexys_zxnext_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxnext_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxsdcard_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxram_0_0/zxnexys_zxram_0_0.xci">
           <Proxy FileSetName="zxnexys_zxram_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxaudio_0_0/zxnexys_zxaudio_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxaudio_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/zxnexys/hdl/zxnexys_wrapper.v">
@@ -145,13 +133,13 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_b.prj">
+      <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_a.prj">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="ScopedToCell" Val="zxnexys_mig_7series_0_0"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_a.prj">
+      <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_b.prj">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="ScopedToCell" Val="zxnexys_mig_7series_0_0"/>
@@ -199,33 +187,9 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
-    <FileSet Name="zxnexys_zxreset_0_4" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxreset_0_4" RelGenDir="$PGENDIR/zxnexys_zxreset_0_4">
+    <FileSet Name="zxnexys_zxsdcard_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxsdcard_0_0" RelGenDir="$PGENDIR/zxnexys_zxsdcard_0_0">
       <Config>
-        <Option Name="TopModule" Val="zxnexys_zxreset_0_4"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="zxnexys_zxaudio_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxaudio_0_0" RelGenDir="$PGENDIR/zxnexys_zxaudio_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxnexys_zxaudio_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="zxnexys_zxnext_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxnext_0_0" RelGenDir="$PGENDIR/zxnexys_zxnext_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxnexys_zxnext_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="zxnexys_mig_7series_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_mig_7series_0_0" RelGenDir="$PGENDIR/zxnexys_mig_7series_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxnexys_mig_7series_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="zxnexys_mig_reset_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_mig_reset_0_0" RelGenDir="$PGENDIR/zxnexys_mig_reset_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxnexys_mig_reset_0_0"/>
+        <Option Name="TopModule" Val="zxnexys_zxsdcard_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -265,49 +229,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxnexys_zxreset_0_4_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxreset_0_4" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxreset_0_4" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxreset_0_4_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxreset_0_4_synth_1">
+    <Run Id="zxnexys_zxsdcard_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxsdcard_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxsdcard_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxsdcard_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxsdcard_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxaudio_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxaudio_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxaudio_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxaudio_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxaudio_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxnext_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxnext_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxnext_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxnext_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxnext_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_mig_7series_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_mig_7series_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_mig_7series_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_mig_7series_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_mig_7series_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_mig_reset_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_mig_reset_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_mig_reset_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_mig_reset_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_mig_reset_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -345,77 +271,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxnexys_zxreset_0_4_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxreset_0_4" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxreset_0_4_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxreset_0_4_impl_1">
+    <Run Id="zxnexys_zxsdcard_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxsdcard_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxsdcard_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxsdcard_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxaudio_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxaudio_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxaudio_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxaudio_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxnext_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxnext_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxnext_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxnext_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_mig_7series_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_mig_7series_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_mig_7series_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_mig_7series_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_mig_reset_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_mig_reset_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_mig_reset_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_mig_reset_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

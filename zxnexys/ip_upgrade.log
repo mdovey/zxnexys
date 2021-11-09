@@ -1,6 +1,561 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 15:33:18 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 115) to (Rev. 116)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 14:05:02 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 112) to (Rev. 115)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxram_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_mig_arid' width 4 differs from original width 3
+
+-Upgraded port 'axi_mig_awid' width 4 differs from original width 3
+
+-Upgraded port 'axi_mig_bid' width 4 differs from original width 3
+
+-Upgraded port 'axi_mig_rid' width 4 differs from original width 3
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 13:31:59 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 111) to (Rev. 112)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 12:15:02 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 110) to (Rev. 111)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 11:42:02 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 109) to (Rev. 110)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 09:35:14 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 107) to (Rev. 109)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 07:45:31 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 106) to (Rev. 107)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Tue Nov  9 00:12:42 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 105) to (Rev. 106)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxram_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_mig_araddr' width 27 differs from original width 32
+
+-Upgraded port 'axi_mig_arid' width 3 differs from original width 4
+
+-Upgraded port 'axi_mig_awaddr' width 27 differs from original width 32
+
+-Upgraded port 'axi_mig_awid' width 3 differs from original width 4
+
+-Upgraded port 'axi_mig_bid' width 3 differs from original width 4
+
+-Upgraded port 'axi_mig_rid' width 3 differs from original width 4
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 22:23:19 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 104) to (Rev. 105)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 22:12:51 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 103) to (Rev. 104)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxram_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_mig_araddr' width 32 differs from original width 27
+
+-Upgraded port 'axi_mig_awaddr' width 32 differs from original width 27
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 16:56:44 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxmonitor_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxmonitor_0_0 (specnext.com:specnext:zxmonitor:1.0) from (Rev. 4) to (Rev. 6)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxmonitor_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ar_address'
+
+-Upgrade has removed port 'ar_state'
+
+-Upgrade has removed port 'aw_address'
+
+-Upgrade has removed port 'aw_state'
+
+-Upgrade has removed port 'br_address'
+
+-Upgrade has removed port 'br_state'
+
+-Upgrade has added port 'audio_l'
+
+-Upgrade has added port 'audio_r'
+
+-Upgrade has added port 'port_a_address'
+
+-Upgrade has added port 'port_b_address'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 16:42:42 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 102) to (Rev. 103)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxram_0_0'.
+
+
+-Upgrade has added interface 'clk_memory' (xilinx.com:signal:clock:1.0)
+
+-Upgrade has added interface 'clk_peripheral_n' (xilinx.com:signal:clock:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxram_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_mig_arid' width 4 differs from original width 3
+
+-Upgraded port 'axi_mig_awid' width 4 differs from original width 3
+
+-Upgraded port 'axi_mig_bid' width 4 differs from original width 3
+
+-Upgraded port 'axi_mig_rid' width 4 differs from original width 3
+
+-Upgrade has removed port 'monitor_ar_addr'
+
+-Upgrade has removed port 'monitor_ar_state'
+
+-Upgrade has removed port 'monitor_aw_addr'
+
+-Upgrade has removed port 'monitor_aw_state'
+
+-Upgrade has removed port 'monitor_br_addr'
+
+-Upgrade has removed port 'monitor_br_state'
+
+-Upgrade has added port 'monitor_a_addr'
+
+-Upgrade has added port 'montor_b_addr'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 15:43:56 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 100) to (Rev. 102)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 14:37:26 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 99) to (Rev. 100)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 13:52:51 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 97) to (Rev. 99)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 13:16:16 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 95) to (Rev. 97)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 11:38:40 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 94) to (Rev. 95)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxram_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_mig_arid' width 3 differs from original width 2
+
+-Upgraded port 'axi_mig_awid' width 3 differs from original width 2
+
+-Upgraded port 'axi_mig_bid' width 3 differs from original width 2
+
+-Upgraded port 'axi_mig_rid' width 3 differs from original width 2
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 10:39:33 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 92) to (Rev. 94)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Nov  8 09:16:51 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 91) to (Rev. 92)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxram_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'axi_mig_rdata' width 64 differs from original width 128
+
+-Upgraded port 'axi_mig_wdata' width 64 differs from original width 128
+
+-Upgraded port 'axi_mig_wstrb' width 8 differs from original width 16
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Mon Nov  8 00:12:20 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip
