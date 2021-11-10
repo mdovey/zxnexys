@@ -1,6 +1,48 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed Nov 10 12:21:44 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 125) to (Rev. 126)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed Nov 10 11:37:49 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 123) to (Rev. 125)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Wed Nov 10 10:08:46 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

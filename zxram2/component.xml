@@ -593,7 +593,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a06edd40</spirit:value>
+            <spirit:value>1eae8ed2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -630,7 +630,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4f51029b</spirit:value>
+            <spirit:value>6668801e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1565,15 +1565,11 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_reset_logic_0_0/synth/zxram2_reset_logic_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_input_logic_0_0/synth/zxram2_input_logic_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_output_logic_0_0/synth/zxram2_output_logic_0_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b_c6_0/synth/zxram2_read_b_c6_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1581,7 +1577,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_0_0/synth/zxram2_read_0_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b1_0/synth/zxram2_read_b1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1589,11 +1585,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_1_0/synth/zxram2_read_1_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_0_0/synth/zxram2_read_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b1_0/synth/zxram2_read_b1_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_1_0/synth/zxram2_read_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1602,10 +1598,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b1_2/synth/zxram2_read_b1_2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b2_0/synth/zxram2_read_b2_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1621,7 +1613,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b_c6_0/synth/zxram2_read_b_c6_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b2_0/synth/zxram2_read_b2_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_reset_logic_0_0/synth/zxram2_reset_logic_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_output_logic_0_0/synth/zxram2_output_logic_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1634,15 +1634,11 @@
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/reset_logic.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/input_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/output_logic.v</spirit:name>
+        <spirit:name>zxram2.srcs/sources_1/new/read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1650,7 +1646,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/read.v</spirit:name>
+        <spirit:name>zxram2.srcs/sources_1/new/reset_logic.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.srcs/sources_1/new/output_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1798,7 +1798,7 @@
       <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/hdl/zxram2_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_09306555</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_679ec951</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1874,15 +1874,11 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_reset_logic_0_0/sim/zxram2_reset_logic_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_input_logic_0_0/sim/zxram2_input_logic_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_output_logic_0_0/sim/zxram2_output_logic_0_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b_c6_0/sim/zxram2_read_b_c6_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1890,7 +1886,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_0_0/sim/zxram2_read_0_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b1_0/sim/zxram2_read_b1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1898,11 +1894,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_1_0/sim/zxram2_read_1_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_0_0/sim/zxram2_read_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b1_0/sim/zxram2_read_b1_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_1_0/sim/zxram2_read_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1911,10 +1907,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b1_2/sim/zxram2_read_b1_2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b2_0/sim/zxram2_read_b2_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1930,7 +1922,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b_c6_0/sim/zxram2_read_b_c6_0.v</spirit:name>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_read_b2_0/sim/zxram2_read_b2_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_reset_logic_0_0/sim/zxram2_reset_logic_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.gen/sources_1/bd/zxram2/ip/zxram2_output_logic_0_0/sim/zxram2_output_logic_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1943,15 +1943,11 @@
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/reset_logic.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxram2.srcs/sources_1/new/input_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/output_logic.v</spirit:name>
+        <spirit:name>zxram2.srcs/sources_1/new/read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1959,7 +1955,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxram2.srcs/sources_1/new/read.v</spirit:name>
+        <spirit:name>zxram2.srcs/sources_1/new/reset_logic.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxram2.srcs/sources_1/new/output_logic.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2208,8 +2208,8 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>123</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-10T10:07:22Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>126</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-10T12:20:37Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@298d75f6_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d4fdad5_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
@@ -3856,13 +3856,41 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@434bc2c4_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@390057b8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@eff1ab_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@652cd43e_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bc6a2f1_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63133b2a_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cad742c_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29dc6fe4_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33adff71_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bc8746d_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5283d39_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a2db165_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a2e2953_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63a2da77_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3348bee8_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@771e0d91_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3943a92d_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d675eaa_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cb178ab_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e0b02f3_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1fd12c08_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d9cbc51_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1135f256_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f5682f9_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@149ca8db_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3096d3a4_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b83034_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c2e417f_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@555c31ae_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3715ba06_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bff846b_ARCHIVE_LOCATION">v:/zxnext/zxram2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="aa7c86e5"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="886e4d03"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6c0257d0"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e8af9f7d"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="64571564"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="bf9d720c"/>
     </xilinx:packagingInfo>

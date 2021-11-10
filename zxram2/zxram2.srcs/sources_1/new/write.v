@@ -69,12 +69,12 @@ module write (
     localparam      stWrite2    = 3'b110; 
     localparam      stWrite3    = 3'b111; 
 
-(* ASYNC_REG = "TRUE" *)
-	reg      [20:0] address_sync;
-(* ASYNC_REG = "TRUE" *)
-	reg             en_sync;
-(* ASYNC_REG = "TRUE" *)
-	reg      [7:0]  data_sync;
+//(* ASYNC_REG = "TRUE" *)
+//	reg      [20:0] address_sync;
+//(* ASYNC_REG = "TRUE" *)
+//	reg             en_sync;
+//(* ASYNC_REG = "TRUE" *)
+//	reg      [7:0]  data_sync;
 	
     reg      [2:0]  cState;
     reg      [2:0]  nState;  
@@ -97,19 +97,19 @@ module write (
     always @(posedge clk_memory, negedge aresetn)
         cState          <= (~aresetn) ? stIdle : nState;
 
-    always @(posedge clk_memory)
-    begin
-	   address_sync    <= address;
-	   en_sync         <= en;
-	   data_sync       <= data;
-    end
+//    always @(posedge clk_memory)
+//    begin
+//	   address_sync    <= address;
+//	   en_sync         <= en;
+//	   data_sync       <= data;
+//    end
             
-    always @(cState, en_sync, AWREADY, WREADY, BVALID, BREADY)
+    always @(cState, en, AWREADY, WREADY, BVALID, BREADY)
     begin
         nState <= cState;
         case (cState)
             stIdle:
-                nState <= en_sync           ? stWrite0   : stIdle;
+                nState <= en                ? stWrite0   : stIdle;
             stWrite0: 
                 nState <= AWREADY           ? stWrite1   : stWrite0;
             stWrite1:
@@ -119,7 +119,7 @@ module write (
             stWrite3:
                 nState <= BREADY            ? stWait     : stWrite3;
             stWait:
-                nState <= ~en_sync          ? stIdle     : stWait;
+                nState <= ~en               ? stIdle     : stWait;
             default:
                 nState <= stIdle;
         endcase  
@@ -138,19 +138,19 @@ module write (
             stWrite0: 
             begin
                 AWADDR[26:21] 		    <= {6{1'b0}};
-                AWADDR[20:3] 		    <= address_sync[20:3];
+                AWADDR[20:3] 		    <= address[20:3];
                 AWADDR[2:0] 		    <= {3{1'b0}};
                 AWVALID 			    <= 1'b1;
                 BREADY 				    <= 1'b0;
-                write_address           <= address_sync;
+                write_address           <= address;
             end
             stWrite1:
             begin
                 AWVALID 			    <= 1'b0;
-                WDATA                   <= {16{data_sync}};
+                WDATA                   <= {16{data}};
                 WLAST 				    <= 1'b1;
                 WVALID 				    <= 1'b1;
-                case (address_sync[2:0])
+                case (address[2:0])
                     3'b000:  WSTRB      <= 8'b0000_0001;
                     3'b001:  WSTRB      <= 8'b0000_0010;
                     3'b010:  WSTRB      <= 8'b0000_0100;

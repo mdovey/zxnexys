@@ -26,7 +26,7 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c3</data>
+      <data key="MX">/read_b_c4</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -44,10 +44,10 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c7</data>
+      <data key="MX">/write_a</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
-      <data key="MV">xilinx.com:module_ref:read:1.0</data>
+      <data key="MV">xilinx.com:module_ref:write:1.0</data>
       <data key="TM">both</data>
       <data key="SX">/</data>
       <data key="SI">axi_mig</data>
@@ -62,7 +62,7 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c4</data>
+      <data key="MX">/read_b_c3</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -80,7 +80,7 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c1</data>
+      <data key="MX">/read_b_c0</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -98,7 +98,7 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c6</data>
+      <data key="MX">/read_a</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -116,7 +116,7 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c5</data>
+      <data key="MX">/read_b_c2</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -129,6 +129,11 @@
       <data key="VT">AC</data>
     </node>
     <node id="n6">
+      <data key="VH">2</data>
+      <data key="VM">zxram2</data>
+      <data key="VT">VR</data>
+    </node>
+    <node id="n7">
       <data key="BA">0x0000000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x01FFFFF</data>
@@ -146,31 +151,13 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n7">
-      <data key="BA">0x0000000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x01FFFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c0</data>
-      <data key="MI">interface_aximm</data>
-      <data key="MS">SEG_axi_mig_Reg</data>
-      <data key="MV">xilinx.com:module_ref:read:1.0</data>
-      <data key="TM">both</data>
-      <data key="SX">/</data>
-      <data key="SI">axi_mig</data>
-      <data key="SS">Reg</data>
-      <data key="SV">::zxram2_imp:</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
     <node id="n8">
       <data key="BA">0x0000000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_a</data>
+      <data key="MX">/read_b_c7</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -188,7 +175,7 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/read_b_c2</data>
+      <data key="MX">/read_b_c5</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
       <data key="MV">xilinx.com:module_ref:read:1.0</data>
@@ -206,10 +193,10 @@
       <data key="HA">0x01FFFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">interface_aximm</data>
-      <data key="MX">/write_a</data>
+      <data key="MX">/read_b_c1</data>
       <data key="MI">interface_aximm</data>
       <data key="MS">SEG_axi_mig_Reg</data>
-      <data key="MV">xilinx.com:module_ref:write:1.0</data>
+      <data key="MV">xilinx.com:module_ref:read:1.0</data>
       <data key="TM">both</data>
       <data key="SX">/</data>
       <data key="SI">axi_mig</data>
@@ -219,6 +206,28 @@
       <data key="VT">AC</data>
     </node>
     <node id="n11">
+      <data key="BA">0x0000000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x01FFFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">interface_aximm</data>
+      <data key="MX">/read_b_c6</data>
+      <data key="MI">interface_aximm</data>
+      <data key="MS">SEG_axi_mig_Reg</data>
+      <data key="MV">xilinx.com:module_ref:read:1.0</data>
+      <data key="TM">both</data>
+      <data key="SX">/</data>
+      <data key="SI">axi_mig</data>
+      <data key="SS">Reg</data>
+      <data key="SV">::zxram2_imp:</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n12">
+      <data key="VM">zxram2</data>
+      <data key="VT">BC</data>
+    </node>
+    <node id="n13">
       <data key="BA">0x0000000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x01FFFFF</data>
@@ -236,58 +245,49 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n12">
+    <node id="n14">
       <data key="TU">active</data>
       <data key="VH">2</data>
       <data key="VT">PM</data>
     </node>
-    <node id="n13">
-      <data key="VM">zxram2</data>
-      <data key="VT">BC</data>
-    </node>
-    <node id="n14">
-      <data key="VH">2</data>
-      <data key="VM">zxram2</data>
-      <data key="VT">VR</data>
-    </node>
-    <edge id="e0" source="n13" target="n14">
+    <edge id="e0" source="n12" target="n6">
     </edge>
-    <edge id="e1" source="n14" target="n12">
+    <edge id="e1" source="n6" target="n14">
     </edge>
-    <edge id="e2" source="n10" target="n12">
+    <edge id="e2" source="n4" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e3" source="n8" target="n12">
+    <edge id="e3" source="n13" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e4" source="n11" target="n12">
+    <edge id="e4" source="n7" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e5" source="n6" target="n12">
+    <edge id="e5" source="n3" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e6" source="n7" target="n12">
+    <edge id="e6" source="n5" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e7" source="n9" target="n12">
+    <edge id="e7" source="n0" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e8" source="n2" target="n12">
+    <edge id="e8" source="n9" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e9" source="n5" target="n12">
+    <edge id="e9" source="n2" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e10" source="n0" target="n12">
+    <edge id="e10" source="n10" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e11" source="n3" target="n12">
+    <edge id="e11" source="n11" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e12" source="n4" target="n12">
+    <edge id="e12" source="n8" target="n14">
       <data key="EH">2</data>
     </edge>
-    <edge id="e13" source="n1" target="n12">
+    <edge id="e13" source="n1" target="n14">
       <data key="EH">2</data>
     </edge>
   </graph>

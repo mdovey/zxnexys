@@ -139,6 +139,12 @@
           <Attr Name="ScopedToCell" Val="zxnexys_mig_7series_0_0"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_b.prj">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="ScopedToCell" Val="zxnexys_mig_7series_0_0"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="zxnexys_wrapper"/>

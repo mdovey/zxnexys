@@ -69,10 +69,10 @@ module read (
     localparam          stRead2     = 3'b110; 
     localparam          stRead3     = 3'b111; 
 
-(* ASYNC_REG = "TRUE" *)
-	reg      [20:0]    address_sync;
-(* ASYNC_REG = "TRUE" *)
-	reg                en_sync;
+//(* ASYNC_REG = "TRUE" *)
+//	reg      [20:0]    address_sync;
+//(* ASYNC_REG = "TRUE" *)
+//	reg                en_sync;
 
     reg      [2:0]     cState;
     reg      [2:0]     nState;  
@@ -94,21 +94,21 @@ module read (
     always @(posedge clk_memory, negedge aresetn)
         cState         <= (~aresetn) ? stIdle : nState;
 
-    always @(posedge clk_memory)
-    begin
-	    address_sync   <= address;
-	    en_sync        <= en;
-    end
+//    always @(posedge clk_memory)
+//    begin
+//	    address_sync   <= address;
+//	    en_sync        <= en;
+//    end
                
-    always @(cState, en_sync, ARREADY, RVALID, RREADY, ARADDR[20:3], address_sync[20:3])
+    always @(cState, en, ARREADY, RVALID, RREADY, ARADDR[20:3], address[20:3])
     begin
         nState         <= cState;
         case (cState)
             stIdle:
-                if (ARADDR[20:3] == address_sync[20:3])
-                    nState <= en_sync   ? stRead3    : stIdle;
+                if (ARADDR[20:3] == address[20:3])
+                    nState <= en        ? stRead3    : stIdle;
                 else
-                    nState <= en_sync   ? stRead0    : stIdle;
+                    nState <= en        ? stRead0    : stIdle;
             stRead0:  
                 nState <= ARREADY       ? stRead1    : stRead0;
             stRead1:  
@@ -118,7 +118,7 @@ module read (
             stRead3:
                 nState <= ~RREADY       ? stWait     : stRead3;
             stWait:  
-                nState <= ~en_sync      ? stIdle     : stWait;
+                nState <= ~en           ? stIdle     : stWait;
             default:
                 nState <= stIdle;
         endcase  
@@ -145,7 +145,7 @@ module read (
             stRead0:
             begin  
                 ARADDR[26:21] 		    <= {6{1'b0}};
-                ARADDR[20:3] 		    <= address_sync[20:3];
+                ARADDR[20:3] 		    <= address[20:3];
                 ARADDR[2:0] 		    <= {3{1'b0}};
                 ARVALID 			    <= 1'b1;
                 RREADY 				    <= 1'b0;
@@ -161,7 +161,7 @@ module read (
             end
             stRead3:
             begin
-                case (address_sync[2:0])
+                case (address[2:0])
                     3'b000:  data        <= cache[7:0];
                     3'b001:  data        <= cache[15:8];
                     3'b010:  data        <= cache[23:16];
