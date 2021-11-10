@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Mon Nov  8 16:55:46 2021">
+<application name="pa" timeStamp="Wed Nov 10 14:51:30 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="b3b38c64939a43aab9c8fbf62e95143c" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -19,23 +19,24 @@ This means code written to parse this file will need to be revisited each subseq
 <item name="Java Command Handlers">
 <property name="AddBusInterfaceHandler" value="2" type="JavaHandler"/>
 <property name="ExitApp" value="1" type="JavaHandler"/>
-<property name="IPPackagerHandler" value="4" type="JavaHandler"/>
+<property name="IPPackagerHandler" value="5" type="JavaHandler"/>
 <property name="IPPackagerWizardHandler" value="1" type="JavaHandler"/>
 <property name="OpenProject" value="2" type="JavaHandler"/>
-<property name="ToolsSettings" value="4" type="JavaHandler"/>
+<property name="ToolsSettings" value="5" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
 <property name="AbstractCombinedPanel_ADD_ELEMENT" value="1" type="GuiHandlerData"/>
-<property name="BaseDialog_APPLY" value="3" type="GuiHandlerData"/>
+<property name="BaseDialog_APPLY" value="4" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="3" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="16" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="17" type="GuiHandlerData"/>
 <property name="BoardChooser_BOARD_TABLE" value="1" type="GuiHandlerData"/>
 <property name="BusParameterFacetTable_BUS_PARAMETER_FACET_TABLE" value="3" type="GuiHandlerData"/>
+<property name="CmdMsgDialog_OK" value="1" type="GuiHandlerData"/>
 <property name="DefineModulesDialog_DEFINE_MODULES_AND_SPECIFY_IO_PORTS" value="1" type="GuiHandlerData"/>
 <property name="EditInterfaceDialog_MOVE_SELECTED_PARAMETERS_TO_RIGHT" value="1" type="GuiHandlerData"/>
 <property name="EditInterfaceDialog_RECOMMENDED_PARAMETERS_TREE" value="2" type="GuiHandlerData"/>
 <property name="EditInterfaceDialog_TABBED_PANE" value="4" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="14" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="19" type="GuiHandlerData"/>
 <property name="IdentificationContentPanel_LIBRARY" value="1" type="GuiHandlerData"/>
 <property name="IdentificationContentPanel_VENDOR" value="2" type="GuiHandlerData"/>
 <property name="InterfaceConfigurationPanel_MODE" value="2" type="GuiHandlerData"/>
@@ -48,28 +49,28 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="InterfacePortMappingPanel_IPS_PHYSICAL_PORTS" value="11" type="GuiHandlerData"/>
 <property name="InterfacePortMappingPanel_MAP_PORTS" value="11" type="GuiHandlerData"/>
 <property name="MainMenuMgr_EDIT" value="2" type="GuiHandlerData"/>
-<property name="MainMenuMgr_FILE" value="14" type="GuiHandlerData"/>
-<property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="7" type="GuiHandlerData"/>
-<property name="MainMenuMgr_PROJECT" value="8" type="GuiHandlerData"/>
-<property name="MainMenuMgr_TOOLS" value="10" type="GuiHandlerData"/>
-<property name="MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT" value="3" type="GuiHandlerData"/>
-<property name="MultiFileChooser_ADD_DIRECTORIES" value="1" type="GuiHandlerData"/>
+<property name="MainMenuMgr_FILE" value="16" type="GuiHandlerData"/>
+<property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="9" type="GuiHandlerData"/>
+<property name="MainMenuMgr_PROJECT" value="9" type="GuiHandlerData"/>
+<property name="MainMenuMgr_TOOLS" value="12" type="GuiHandlerData"/>
+<property name="MessageBanner_CHANGES_DETECTED_IN_VIVADO_PROJECT_THAT" value="4" type="GuiHandlerData"/>
+<property name="MultiFileChooser_ADD_DIRECTORIES" value="2" type="GuiHandlerData"/>
 <property name="NewIpWizard_IP_DEFINITION_SOURCE_LOCATION" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_IP_PACKAGER_WIZARD" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_OPEN_PROJECT" value="2" type="GuiHandlerData"/>
 <property name="PACommandNames_PACKAGER_ADD_BUS_INTERFACE" value="2" type="GuiHandlerData"/>
 <property name="PAViews_CODE" value="1" type="GuiHandlerData"/>
-<property name="PackagerStepsPanel_PACKAGER_STEPS_LIST" value="10" type="GuiHandlerData"/>
+<property name="PackagerStepsPanel_PACKAGER_STEPS_LIST" value="12" type="GuiHandlerData"/>
 <property name="PortAndInterfaceFacetTable_ASSOCIATE_CLOCKS" value="2" type="GuiHandlerData"/>
 <property name="PortAndInterfaceFacetTable_AUTO_INFER_SINGLE_BIT_INTERFACE" value="2" type="GuiHandlerData"/>
 <property name="PortAndInterfaceFacetTable_EDIT_INTERFACE" value="3" type="GuiHandlerData"/>
 <property name="PortAndInterfaceFacetTable_PORT_AND_INTERFACE_FACET_TABLE" value="30" type="GuiHandlerData"/>
 <property name="PortAndInterfaceFacetTable_REMOVE_INTERFACE" value="3" type="GuiHandlerData"/>
 <property name="RDICommands_CUSTOM_COMMANDS" value="3" type="GuiHandlerData"/>
-<property name="RDICommands_SETTINGS" value="4" type="GuiHandlerData"/>
+<property name="RDICommands_SETTINGS" value="5" type="GuiHandlerData"/>
 <property name="ReviewContentPanel_PACKAGE_IP" value="2" type="GuiHandlerData"/>
-<property name="ReviewContentPanel_RE_PACKAGE_IP" value="3" type="GuiHandlerData"/>
-<property name="SettingsDialog_OPTIONS_TREE" value="3" type="GuiHandlerData"/>
+<property name="ReviewContentPanel_RE_PACKAGE_IP" value="4" type="GuiHandlerData"/>
+<property name="SettingsDialog_OPTIONS_TREE" value="5" type="GuiHandlerData"/>
 <property name="SettingsDialog_PROJECT_TREE" value="3" type="GuiHandlerData"/>
 <property name="SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT" value="3" type="GuiHandlerData"/>
 <property name="TaxonomyChooserPanel_ADD_NEW_IP_CATEGORY" value="1" type="GuiHandlerData"/>

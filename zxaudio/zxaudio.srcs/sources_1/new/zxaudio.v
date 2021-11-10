@@ -20,7 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module zxaudio(
+module zxaudio #(
+	parameter CLK_RATE = 28000000,
+    parameter AUDIO_RATE = 48000,
+    parameter AUDIO_DW = 13
+)(
     input speaker_en,
     input speaker_beep,
     input speaker_ear,
@@ -31,6 +35,8 @@ module zxaudio(
       
     output psg_en,
 
+    input  dbl_audio_rate,
+
     output mclk,
     output lrck,
     output sclk,
@@ -38,43 +44,54 @@ module zxaudio(
     
     input clk_peripheral,
     input reset
-    );
+);
+ 
+    localparam CE_RATE = AUDIO_RATE*AUDIO_DW*8;
     
-    wire wsp;
+    wire [31:0] real_ce = dbl_audio_rate ? {CE_RATE[30:0],1'b0} : CE_RATE[31:0];
+
+    reg mclk_ce;
+  	reg [31:0] cnt;
+  	
+  	assign mclk  = clk_peripheral;
     
-    reg [3:0] clk_div;
+    always @(posedge clk_peripheral) 
+    begin
+	    mclk_ce = 0;
+	    cnt = cnt + real_ce;
+	    if(cnt >= CLK_RATE) 
+	    begin
+		    cnt = cnt - CLK_RATE;
+		    mclk_ce = 1;
+	    end
+    end
+
+    reg i2s_ce;
+	reg div;
     
-    assign mclk = clk_peripheral;
-    assign psg_en = (clk_div == 4'b1110) ? 1'b1 : 1'b0;
+    always @(posedge clk_peripheral) begin
+        i2s_ce <= 0;
+        if(mclk_ce) begin
+            div <= ~div;
+            i2s_ce <= div;
+        end
+    end
     
-    i2s_master #(
-        .CLK_DIV_PRE(0),  
-        .CLK_DIV_MBIT(7),
-        .LR_WIDTH(13),
-        .LR_WIDTH_MBIT(3)
-    ) i2s_m (
-        .i_reset(reset),
-        .i_CLK(clk_peripheral),
-        .i_CLK_DIV(7'b0000110),
-        .o_i2s_sck(sclk), 
-        .o_i2s_ws(lrck),   
-        .o_i2s_wsp(wsp)
-    );
-    
-    i2s_transmit #(
-        .LR_WIDTH(13) 
-    ) i2s_t (
-        .i_CLK(clk_peripheral),
-        .i_reset(reset),
-        .i_i2s_sck(sclk), 
-        .i_i2s_ws(lrck),   
-        .i_i2s_wsp(wsp),
-        .o_i2s_sd(sdout),
-        .i_i2s_L({~audio_left[12:12], audio_left[11:0]}), 
-        .i_i2s_R({~audio_right[12:12], audio_right[11:0]})
-    );       
-    
-    always @(posedge clk_peripheral)
-        clk_div <= clk_div + 1;
+i2s #(
+    .AUDIO_DW(AUDIO_DW)
+) i2s (
+	.reset(reset),
+
+	.clk(clk_peripheral),
+	.ce(i2s_ce),
+
+	.sclk(sclk),
+	.lrclk(lrck),
+	.sdata(sdout),
+
+	.left_chan(audio_left),
+	.right_chan(audio_right)
+);
+
     
 endmodule

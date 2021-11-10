@@ -140,7 +140,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8b227e65</spirit:value>
+            <spirit:value>46d26806</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -156,7 +156,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8b227e65</spirit:value>
+            <spirit:value>46d26806</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -170,7 +170,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f64a5dae</spirit:value>
+            <spirit:value>69c6335e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -291,6 +291,19 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>dbl_audio_rate</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>mclk</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -369,33 +382,42 @@
         </spirit:wire>
       </spirit:port>
     </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>CLK_RATE</spirit:name>
+        <spirit:displayName>Clk Rate</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLK_RATE">28000000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>AUDIO_RATE</spirit:name>
+        <spirit:displayName>Audio Rate</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.AUDIO_RATE">48000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>AUDIO_DW</spirit:name>
+        <spirit:displayName>Audio Dw</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.AUDIO_DW">13</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
   </spirit:model>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxaudio.srcs/sources_1/imports/zxnext/old/zxnexys/zxnexys.srcs/sources_1/imports/i2s/i2s_master.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxaudio.srcs/sources_1/imports/zxnext/old/zxnexys/zxnexys.srcs/sources_1/imports/i2s/i2s_transmit.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:name>zxaudio.srcs/sources_1/new/i2s.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxaudio.srcs/sources_1/new/zxaudio.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_d7a9602d</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_1e4ec37d</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxaudio.srcs/sources_1/imports/zxnext/old/zxnexys/zxnexys.srcs/sources_1/imports/i2s/i2s_master.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxaudio.srcs/sources_1/imports/zxnext/old/zxnexys/zxnexys.srcs/sources_1/imports/i2s/i2s_transmit.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:name>zxaudio.srcs/sources_1/new/i2s.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxaudio.srcs/sources_1/new/zxaudio.v</spirit:name>
@@ -407,7 +429,7 @@
       <spirit:file>
         <spirit:name>xgui/zxaudio_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_69c6335e</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -417,6 +439,21 @@
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">zxaudio_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>CLK_RATE</spirit:name>
+      <spirit:displayName>Clk Rate</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLK_RATE">28000000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>AUDIO_RATE</spirit:name>
+      <spirit:displayName>Audio Rate</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.AUDIO_RATE">48000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>AUDIO_DW</spirit:name>
+      <spirit:displayName>Audio Dw</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.AUDIO_DW">13</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -452,8 +489,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxaudio_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>9</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-07T22:01:22Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>10</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-10T13:07:40Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@515ade48_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3bbdaaa1_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
@@ -570,14 +607,26 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@608cbfc6_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@51cc19d3_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@56e3708a_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37440baa_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2455d13f_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@708e3bd6_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64cc8244_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33a58be2_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3bdce999_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d0dab96_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f7025b2_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@711aeab7_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f01e20a_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b8ad06a_ARCHIVE_LOCATION">v:/zxnext/zxaudio</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="15348277"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a7fa880e"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="cf89d174"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="d3585d29"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="bb73d0c6"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="2f5b2ff1"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="951c4d50"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="93eb50c2"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

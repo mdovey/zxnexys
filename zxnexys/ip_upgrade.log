@@ -1,6 +1,59 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed Nov 10 14:53:39 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxmonitor_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxmonitor_0_0 (specnext.com:specnext:zxmonitor:1.0) from (Rev. 6) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed Nov 10 13:10:59 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxaudio_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxaudio_0_0 (specnext.com:specnext:zxaudio:1.0) from (Rev. 9) to (Rev. 10)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxaudio_0_0'. These changes may impact your design.
+
+
+-Upgrade has added port 'dbl_audio_rate'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Wed Nov 10 12:21:44 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

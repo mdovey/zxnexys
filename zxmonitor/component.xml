@@ -433,8 +433,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxmonitor_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>6</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-08T16:55:29Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-10T14:51:11Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@192c0b29_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2685a3c_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
@@ -497,6 +497,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@41fedc34_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@42885a7f_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@47b57827_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b14dff_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78215a1e_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b061d9c_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c7b0c16_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@733e5ba6_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16a9a5d7_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7abd625c_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f2c5f4f_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4983fe9_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@df4a07f_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39aa321d_ARCHIVE_LOCATION">v:/zxnext/zxmonitor</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
