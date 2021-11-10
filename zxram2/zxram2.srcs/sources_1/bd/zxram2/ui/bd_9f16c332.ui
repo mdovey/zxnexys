@@ -1,104 +1,104 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.367347",
-   "Default View_TopLeft":"-1867,0",
+   "Default View_ScaleFactor":"1.4455",
+   "Default View_TopLeft":"-21,1303",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port axi_mig -pg 1 -lvl 4 -x 1460 -y 1610 -defaultsOSRD
+preplace port axi_mig -pg 1 -lvl 4 -x 1470 -y 1570 -defaultsOSRD
 preplace port port-id_ram_a_req -pg 1 -lvl 0 -x -20 -y 2510 -defaultsOSRD
 preplace port port-id_ram_a_rd_n -pg 1 -lvl 0 -x -20 -y 2530 -defaultsOSRD
 preplace port port-id_ram_b_req_t -pg 1 -lvl 0 -x -20 -y 2550 -defaultsOSRD
-preplace port port-id_cpu_wait_n -pg 1 -lvl 4 -x 1460 -y 2640 -defaultsOSRD
+preplace port port-id_cpu_wait_n -pg 1 -lvl 4 -x 1470 -y 2640 -defaultsOSRD
 preplace port port-id_clk_ui -pg 1 -lvl 0 -x -20 -y 210 -defaultsOSRD
 preplace port port-id_reset_ui -pg 1 -lvl 0 -x -20 -y 170 -defaultsOSRD
-preplace port port-id_monitor_wait_n -pg 1 -lvl 4 -x 1460 -y 2660 -defaultsOSRD
+preplace port port-id_monitor_wait_n -pg 1 -lvl 4 -x 1470 -y 2660 -defaultsOSRD
 preplace port port-id_clk_memory -pg 1 -lvl 0 -x -20 -y 190 -defaultsOSRD
 preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x -20 -y 2570 -defaultsOSRD
 preplace portBus ram_a_addr -pg 1 -lvl 0 -x -20 -y 2730 -defaultsOSRD
 preplace portBus ram_b_addr -pg 1 -lvl 0 -x -20 -y 1220 -defaultsOSRD
 preplace portBus ram_a_do -pg 1 -lvl 0 -x -20 -y 2840 -defaultsOSRD
-preplace portBus ram_a_di -pg 1 -lvl 4 -x 1460 -y 2600 -defaultsOSRD
-preplace portBus ram_b_di -pg 1 -lvl 4 -x 1460 -y 2620 -defaultsOSRD
-preplace portBus monitor_a_addr -pg 1 -lvl 4 -x 1460 -y 2520 -defaultsOSRD
-preplace portBus montor_b_addr -pg 1 -lvl 4 -x 1460 -y 2210 -defaultsOSRD
+preplace portBus ram_a_di -pg 1 -lvl 4 -x 1470 -y 2600 -defaultsOSRD
+preplace portBus ram_b_di -pg 1 -lvl 4 -x 1470 -y 2620 -defaultsOSRD
+preplace portBus monitor_a_addr -pg 1 -lvl 4 -x 1470 -y 2520 -defaultsOSRD
+preplace portBus montor_b_addr -pg 1 -lvl 4 -x 1470 -y 2210 -defaultsOSRD
 preplace inst reset_logic_0 -pg 1 -lvl 1 -x 290 -y 190 -defaultsOSRD
 preplace inst input_logic_0 -pg 1 -lvl 1 -x 290 -y 2540 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 1290 -y 1610 -defaultsOSRD
-preplace inst output_logic_0 -pg 1 -lvl 3 -x 1290 -y 2620 -defaultsOSRD
-preplace inst read_a -pg 1 -lvl 2 -x 820 -y 2580 -defaultsOSRD
-preplace inst read_b0_1 -pg 1 -lvl 2 -x 820 -y 380 -defaultsOSRD
-preplace inst read_b0_0 -pg 1 -lvl 2 -x 820 -y 120 -defaultsOSRD
-preplace inst read_b1_0 -pg 1 -lvl 2 -x 820 -y 620 -defaultsOSRD
-preplace inst read_b1_1 -pg 1 -lvl 2 -x 820 -y 1120 -defaultsOSRD
-preplace inst read_b1_2 -pg 1 -lvl 2 -x 820 -y 1360 -defaultsOSRD
-preplace inst read_b1_3 -pg 1 -lvl 2 -x 820 -y 870 -defaultsOSRD
-preplace inst read_b1_7 -pg 1 -lvl 2 -x 820 -y 2340 -defaultsOSRD
-preplace inst read_b1_4 -pg 1 -lvl 2 -x 820 -y 1600 -defaultsOSRD
-preplace inst read_b1_5 -pg 1 -lvl 2 -x 820 -y 1840 -defaultsOSRD
-preplace inst read_b1_6 -pg 1 -lvl 2 -x 820 -y 2080 -defaultsOSRD
-preplace inst pipeline_2_8_0 -pg 1 -lvl 1 -x 290 -y 1320 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 3 -x 1300 -y 1570 -defaultsOSRD
+preplace inst output_logic_0 -pg 1 -lvl 3 -x 1300 -y 2620 -defaultsOSRD
 preplace inst write_a -pg 1 -lvl 2 -x 820 -y 2840 -defaultsOSRD
-preplace netloc ARESETN_1 1 1 2 600J 1480 1130
-preplace netloc M00_ACLK_1 1 0 3 0 280 610J 740 1100
-preplace netloc Net 1 1 2 640 2720 1010
-preplace netloc arbitrator_0_wait_n 1 3 1 1440 2640n
-preplace netloc clk_memory_1 1 0 3 10 270 570 2200 1090
-preplace netloc clk_peripheral_n_1 1 0 3 50 2700 NJ 2700 1120
+preplace inst read_a -pg 1 -lvl 2 -x 820 -y 2580 -defaultsOSRD
+preplace inst read_b_p1 -pg 1 -lvl 2 -x 820 -y 2340 -defaultsOSRD
+preplace inst read_b_p0 -pg 1 -lvl 2 -x 820 -y 2080 -defaultsOSRD
+preplace inst read_b_c0 -pg 1 -lvl 2 -x 820 -y 120 -defaultsOSRD
+preplace inst read_b_c2 -pg 1 -lvl 2 -x 820 -y 620 -defaultsOSRD
+preplace inst read_b_c4 -pg 1 -lvl 2 -x 820 -y 1360 -defaultsOSRD
+preplace inst read_b_c5 -pg 1 -lvl 2 -x 820 -y 870 -defaultsOSRD
+preplace inst read_b_c3 -pg 1 -lvl 2 -x 820 -y 1120 -defaultsOSRD
+preplace inst read_b_c1 -pg 1 -lvl 2 -x 820 -y 380 -defaultsOSRD
+preplace inst read_b_c6 -pg 1 -lvl 2 -x 820 -y 1600 -defaultsOSRD
+preplace inst read_b_c7 -pg 1 -lvl 2 -x 820 -y 1840 -defaultsOSRD
+preplace inst p2_c8_0 -pg 1 -lvl 1 -x 290 -y 1320 -defaultsOSRD
+preplace netloc ARESETN_1 1 1 2 590J 240 1110
+preplace netloc M00_ACLK_1 1 0 3 0 740 NJ 740 1100
+preplace netloc Net 1 1 2 630 2720 1030
+preplace netloc arbitrator_0_wait_n 1 3 1 1450 2640n
+preplace netloc clk_memory_1 1 0 3 10 280 580 2200 1090
+preplace netloc clk_peripheral_n_1 1 0 3 50 2700 NJ 2700 1130
 preplace netloc input_logic_0_re_a 1 1 1 N 2540
-preplace netloc input_logic_0_re_b 1 1 1 540 80n
+preplace netloc input_logic_0_re_b 1 1 1 550 80n
 preplace netloc input_logic_0_we_a 1 1 1 490 2520n
-preplace netloc logic_controller_0_aresetn 1 1 2 530 2210 1000
+preplace netloc logic_controller_0_aresetn 1 1 2 520 2210 1000
 preplace netloc output_logic_0_data_a_o 1 3 1 NJ 2600
 preplace netloc output_logic_0_data_b_o 1 3 1 NJ 2620
-preplace netloc pipeline_2_8_0_channel0_0_address 1 1 1 490 60n
-preplace netloc pipeline_2_8_0_channel0_1_address 1 1 1 550 320n
-preplace netloc pipeline_2_8_0_channel1_0_address 1 1 1 580 560n
-preplace netloc pipeline_2_8_0_channel1_1_address 1 1 1 590 1060n
-preplace netloc pipeline_2_8_0_channel1_2_address 1 1 1 N 1300
-preplace netloc pipeline_2_8_0_channel1_3_address 1 1 1 500 810n
-preplace netloc pipeline_2_8_0_channel1_4_address 1 1 1 560 1340n
-preplace netloc pipeline_2_8_0_channel1_5_address 1 1 1 550 1360n
-preplace netloc pipeline_2_8_0_channel1_6_address 1 1 1 520 1380n
-preplace netloc pipeline_2_8_0_channel1_7_address 1 1 1 510 1400n
-preplace netloc pipeline_2_8_0_data 1 1 2 500 2710 1100J
-preplace netloc ram_a_addr_2 1 0 4 NJ 2730 610 2460 1000J 2520 NJ
+preplace netloc p2_c8_0_channel_c0_address 1 1 1 490 60n
+preplace netloc p2_c8_0_channel_c1_address 1 1 1 510 320n
+preplace netloc p2_c8_0_channel_c2_address 1 1 1 560 560n
+preplace netloc p2_c8_0_channel_c3_address 1 1 1 500 1060n
+preplace netloc p2_c8_0_channel_c4_address 1 1 1 600 1300n
+preplace netloc p2_c8_0_channel_c5_address 1 1 1 590 810n
+preplace netloc p2_c8_0_channel_c6_address 1 1 1 560 1380n
+preplace netloc p2_c8_0_channel_c7_address 1 1 1 530 1400n
+preplace netloc p2_c8_0_channel_p0_address 1 1 1 570 1220n
+preplace netloc p2_c8_0_channel_p1_address 1 1 1 540 1240n
+preplace netloc p2_c8_0_data 1 1 2 500 2710 1110J
+preplace netloc ram_a_addr_2 1 0 4 NJ 2730 600 2460 990J 2520 NJ
 preplace netloc ram_a_do_1 1 0 2 NJ 2840 NJ
 preplace netloc ram_a_rd_n_1 1 0 1 NJ 2530
 preplace netloc ram_a_req_1 1 0 1 NJ 2510
-preplace netloc ram_b_addr_1 1 0 4 0 1160 560J 1240 1040J 2210 NJ
+preplace netloc ram_b_addr_1 1 0 4 0 1150 600J 1240 1030J 2210 NJ
 preplace netloc ram_b_req_t_1 1 0 1 NJ 2550
 preplace netloc read_a_data 1 2 1 N 2580
-preplace netloc read_a_ready 1 2 1 1000 2600n
-preplace netloc read_b0_0_data 1 0 3 20 290 500J 240 1120
-preplace netloc read_b0_1_data 1 0 3 30 300 520J 260 990
-preplace netloc read_b1_0_data 1 0 3 40 310 510J 250 1000
-preplace netloc read_b1_1_data 1 0 3 80 750 NJ 750 1000
-preplace netloc read_b1_2_data 1 0 3 10 500 NJ 500 1020
-preplace netloc read_b1_3_data 1 0 3 50 990 NJ 990 990
-preplace netloc read_b1_4_data 1 0 3 70 1720 NJ 1720 990
-preplace netloc read_b1_5_data 1 0 3 80 1960 NJ 1960 990
-preplace netloc read_b1_6_data 1 0 3 60 1000 NJ 1000 1010
-preplace netloc read_b1_7_data 1 0 3 90 2220 NJ 2220 990
+preplace netloc read_a_ready 1 2 1 1010 2600n
+preplace netloc read_b_c0_data 1 0 3 50 270 500J 250 1100
+preplace netloc read_b_c1_data 1 0 3 60 290 510J 260 1100
+preplace netloc read_b_c2_data 1 0 3 70 500 NJ 500 1100
+preplace netloc read_b_c3_data 1 0 3 80 750 NJ 750 1010
+preplace netloc read_b_c4_data 1 0 3 90 1000 NJ 1000 990
+preplace netloc read_b_c5_data 1 0 3 40 990 NJ 990 990
+preplace netloc read_b_c6_data 1 0 3 80 1490 600J 1480 990
+preplace netloc read_b_c7_data 1 0 3 90 1720 NJ 1720 990
+preplace netloc read_b_p0_data 1 0 3 20 1960 NJ 1960 990
+preplace netloc read_b_p1_data 1 0 3 30 2220 NJ 2220 990
 preplace netloc reset_ui_1 1 0 1 NJ 170
-preplace netloc write_a_ready 1 2 1 1130 2620n
-preplace netloc write_a_write_address 1 1 2 620 2730 1000
-preplace netloc write_a_write_data 1 1 2 630 2740 990
-preplace netloc axi_interconnect_0_M00_AXI 1 3 1 NJ 1610
-preplace netloc read_a0_interface_aximm 1 2 1 1060 1240n
-preplace netloc read_b0_interface_aximm 1 2 1 1130 100n
-preplace netloc read_b1_4_interface_aximm 1 2 1 1020 1380n
-preplace netloc read_b1_5_interface_aximm 1 2 1 1030 1400n
-preplace netloc read_b1_6_interface_aximm 1 2 1 1050 1420n
-preplace netloc read_b1_7_interface_aximm 1 2 1 1120 1440n
-preplace netloc read_b1_interface_aximm 1 2 1 1120 360n
-preplace netloc read_b2_interface_aximm 1 2 1 1110 600n
-preplace netloc read_b3_interface_aximm 1 2 1 1080 1100n
-preplace netloc read_b4_interface_aximm 1 2 1 N 1340
-preplace netloc read_b5_interface_aximm 1 2 1 1090 850n
-preplace netloc write_a_interface_aximm 1 2 1 1070 1220n
-levelinfo -pg 1 -20 290 820 1290 1460
-pagesize -pg 1 -db -bbox -sgen -190 0 1650 2940
+preplace netloc write_a_ready 1 2 1 1140 2620n
+preplace netloc write_a_write_address 1 1 2 610 2730 1000
+preplace netloc write_a_write_data 1 1 2 620 2740 990
+preplace netloc S10_AXI_1 1 2 1 1020 1380n
+preplace netloc axi_interconnect_0_M00_AXI 1 3 1 NJ 1570
+preplace netloc read_a0_interface_aximm 1 2 1 1050 1200n
+preplace netloc read_b0_0_interface_aximm 1 2 1 1010 1220n
+preplace netloc read_b0_1_interface_aximm 1 2 1 1060 1240n
+preplace netloc read_b0_2_interface_aximm 1 2 1 1140 100n
+preplace netloc read_b0_3_interface_aximm 1 2 1 1130 360n
+preplace netloc read_b1_0_interface_aximm 1 2 1 1120 600n
+preplace netloc read_b1_1_interface_aximm 1 2 1 1080 1100n
+preplace netloc read_b1_2_interface_aximm 1 2 1 N 1340
+preplace netloc read_b1_3_interface_aximm 1 2 1 1090 850n
+preplace netloc read_b_c7_interface_aximm 1 2 1 1040 1400n
+preplace netloc write_a_interface_aximm 1 2 1 1070 1180n
+levelinfo -pg 1 -20 290 820 1300 1470
+pagesize -pg 1 -db -bbox -sgen -190 0 1660 2940
 "
 }
 0

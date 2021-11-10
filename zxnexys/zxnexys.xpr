@@ -83,13 +83,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="179"/>
-    <Option Name="WTModelSimExportSim" Val="179"/>
-    <Option Name="WTQuestaExportSim" Val="179"/>
-    <Option Name="WTIesExportSim" Val="179"/>
-    <Option Name="WTVcsExportSim" Val="179"/>
-    <Option Name="WTRivieraExportSim" Val="179"/>
-    <Option Name="WTActivehdlExportSim" Val="179"/>
+    <Option Name="WTXSimExportSim" Val="181"/>
+    <Option Name="WTModelSimExportSim" Val="181"/>
+    <Option Name="WTQuestaExportSim" Val="181"/>
+    <Option Name="WTIesExportSim" Val="181"/>
+    <Option Name="WTVcsExportSim" Val="181"/>
+    <Option Name="WTRivieraExportSim" Val="181"/>
+    <Option Name="WTActivehdlExportSim" Val="181"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -134,12 +134,6 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_a.prj">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="ScopedToCell" Val="zxnexys_mig_7series_0_0"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/bd/zxnexys/ip/zxnexys_mig_7series_0_0/mig_b.prj">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="ScopedToCell" Val="zxnexys_mig_7series_0_0"/>
@@ -231,9 +225,7 @@
     </Run>
     <Run Id="zxnexys_zxsdcard_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxsdcard_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxsdcard_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxsdcard_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxsdcard_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -273,9 +265,7 @@
     </Run>
     <Run Id="zxnexys_zxsdcard_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxsdcard_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxsdcard_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxsdcard_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

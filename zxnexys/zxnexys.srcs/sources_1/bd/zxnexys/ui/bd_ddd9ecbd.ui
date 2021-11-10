@@ -3,34 +3,34 @@
    "Color Coded_ExpandedHierarchyInLayout":"",
    "Color Coded_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port JB -pg 1 -lvl 6 -x 1720 -y 570 -defaultsOSRD
-preplace port PS2_CLK -pg 1 -lvl 6 -x 1720 -y 860 -defaultsOSRD
-preplace port PS2_DATA -pg 1 -lvl 6 -x 1720 -y 880 -defaultsOSRD
-preplace port JA -pg 1 -lvl 6 -x 1720 -y 710 -defaultsOSRD
-preplace port ddr2_sdram -pg 1 -lvl 6 -x 1720 -y 110 -defaultsOSRD
-preplace port port-id_sys_clock -pg 1 -lvl 0 -x 0 -y 480 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 350 -defaultsOSRD
-preplace port port-id_BTNU -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
-preplace port port-id_BTND -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
-preplace port port-id_VGA_HS -pg 1 -lvl 6 -x 1720 -y 1080 -defaultsOSRD
-preplace port port-id_VGA_VS -pg 1 -lvl 6 -x 1720 -y 1100 -defaultsOSRD
-preplace port port-id_BTNL -pg 1 -lvl 0 -x 0 -y 920 -defaultsOSRD
-preplace port port-id_BTNR -pg 1 -lvl 0 -x 0 -y 940 -defaultsOSRD
-preplace port port-id_SD_CD -pg 1 -lvl 0 -x 0 -y 1240 -defaultsOSRD
-preplace port port-id_SD_SCK -pg 1 -lvl 6 -x 1720 -y 1220 -defaultsOSRD
-preplace port port-id_SD_CMD -pg 1 -lvl 6 -x 1720 -y 1240 -defaultsOSRD
-preplace port port-id_SD_RESET -pg 1 -lvl 6 -x 1720 -y 1200 -defaultsOSRD
-preplace port port-id_SD_DAT0 -pg 1 -lvl 0 -x 0 -y 1260 -defaultsOSRD
-preplace port port-id_SD_DAT1 -pg 1 -lvl 6 -x 1720 -y 1260 -defaultsOSRD
-preplace port port-id_SD_DAT2 -pg 1 -lvl 6 -x 1720 -y 1280 -defaultsOSRD
-preplace port port-id_SD_DAT3 -pg 1 -lvl 6 -x 1720 -y 1300 -defaultsOSRD
-preplace portBus AN -pg 1 -lvl 6 -x 1720 -y 360 -defaultsOSRD
-preplace portBus CA -pg 1 -lvl 6 -x 1720 -y 380 -defaultsOSRD
-preplace portBus VGA_R -pg 1 -lvl 6 -x 1720 -y 1020 -defaultsOSRD
-preplace portBus VGA_G -pg 1 -lvl 6 -x 1720 -y 1040 -defaultsOSRD
-preplace portBus VGA_B -pg 1 -lvl 6 -x 1720 -y 1060 -defaultsOSRD
-preplace portBus LED -pg 1 -lvl 6 -x 1720 -y 400 -defaultsOSRD
-preplace portBus SW -pg 1 -lvl 0 -x 0 -y 900 -defaultsOSRD
+preplace port JB -pg 1 -lvl 6 -x 1730 -y 570 -defaultsOSRD
+preplace port PS2_CLK -pg 1 -lvl 6 -x 1730 -y 860 -defaultsOSRD
+preplace port PS2_DATA -pg 1 -lvl 6 -x 1730 -y 880 -defaultsOSRD
+preplace port JA -pg 1 -lvl 6 -x 1730 -y 710 -defaultsOSRD
+preplace port ddr2_sdram -pg 1 -lvl 6 -x 1730 -y 110 -defaultsOSRD
+preplace port port-id_sys_clock -pg 1 -lvl 0 -x -10 -y 480 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -10 -y 350 -defaultsOSRD
+preplace port port-id_BTNU -pg 1 -lvl 0 -x -10 -y 170 -defaultsOSRD
+preplace port port-id_BTND -pg 1 -lvl 0 -x -10 -y 150 -defaultsOSRD
+preplace port port-id_VGA_HS -pg 1 -lvl 6 -x 1730 -y 1080 -defaultsOSRD
+preplace port port-id_VGA_VS -pg 1 -lvl 6 -x 1730 -y 1100 -defaultsOSRD
+preplace port port-id_BTNL -pg 1 -lvl 0 -x -10 -y 920 -defaultsOSRD
+preplace port port-id_BTNR -pg 1 -lvl 0 -x -10 -y 940 -defaultsOSRD
+preplace port port-id_SD_CD -pg 1 -lvl 0 -x -10 -y 1240 -defaultsOSRD
+preplace port port-id_SD_SCK -pg 1 -lvl 6 -x 1730 -y 1220 -defaultsOSRD
+preplace port port-id_SD_CMD -pg 1 -lvl 6 -x 1730 -y 1240 -defaultsOSRD
+preplace port port-id_SD_RESET -pg 1 -lvl 6 -x 1730 -y 1200 -defaultsOSRD
+preplace port port-id_SD_DAT0 -pg 1 -lvl 0 -x -10 -y 1260 -defaultsOSRD
+preplace port port-id_SD_DAT1 -pg 1 -lvl 6 -x 1730 -y 1260 -defaultsOSRD
+preplace port port-id_SD_DAT2 -pg 1 -lvl 6 -x 1730 -y 1280 -defaultsOSRD
+preplace port port-id_SD_DAT3 -pg 1 -lvl 6 -x 1730 -y 1300 -defaultsOSRD
+preplace portBus AN -pg 1 -lvl 6 -x 1730 -y 360 -defaultsOSRD
+preplace portBus CA -pg 1 -lvl 6 -x 1730 -y 380 -defaultsOSRD
+preplace portBus VGA_R -pg 1 -lvl 6 -x 1730 -y 1020 -defaultsOSRD
+preplace portBus VGA_G -pg 1 -lvl 6 -x 1730 -y 1040 -defaultsOSRD
+preplace portBus VGA_B -pg 1 -lvl 6 -x 1730 -y 1060 -defaultsOSRD
+preplace portBus LED -pg 1 -lvl 6 -x 1730 -y 400 -defaultsOSRD
+preplace portBus SW -pg 1 -lvl 0 -x -10 -y 900 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 470 -defaultsOSRD
 preplace inst pmod_i2s2_0 -pg 1 -lvl 5 -x 1540 -y 570 -defaultsOSRD
 preplace inst zxvideo_0 -pg 1 -lvl 5 -x 1540 -y 1060 -defaultsOSRD
@@ -66,7 +66,7 @@ preplace netloc mig_7series_0_ui_clk 1 3 3 1000 200 1400J 260 1680
 preplace netloc mig_7series_0_ui_clk_sync_rst 1 3 3 1010 210 1390J 250 1690
 preplace netloc mig_reset_0_aresetn 1 4 1 1400 100n
 preplace netloc mig_reset_0_sys_reset 1 4 1 1310 120n
-preplace netloc reset_1 1 0 5 20 340 210 340 NJ 340 950 450 1360
+preplace netloc reset_1 1 0 5 10 340 210 340 NJ 340 950 450 1360
 preplace netloc sys_clock_1 1 0 1 NJ 480
 preplace netloc zxaudio_0_lrck 1 4 1 1320 550n
 preplace netloc zxaudio_0_mclk 1 4 1 1320 530n
@@ -114,11 +114,11 @@ preplace netloc zxram_0_monitor_memory 1 4 1 1340 320n
 preplace netloc zxreset_0_mb_reset 1 2 1 550 200n
 preplace netloc zxrtc_0_scl 1 4 1 N 700
 preplace netloc zxrtc_0_sda 1 4 1 N 720
-levelinfo -pg 1 0 110 370 720 1160 1540 1720
-pagesize -pg 1 -db -bbox -sgen -120 0 1850 1360
+levelinfo -pg 1 -10 110 370 720 1160 1540 1730
+pagesize -pg 1 -db -bbox -sgen -130 0 1860 1360
 ",
    "Color Coded_ScaleFactor":"0.458824",
-   "Color Coded_TopLeft":"-464,0",
+   "Color Coded_TopLeft":"-462,0",
    "Default View_ScaleFactor":"0.536691",
    "Default View_TopLeft":"-315,0",
    "ExpandedHierarchyInLayout":"",

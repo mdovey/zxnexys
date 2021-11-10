@@ -62,7 +62,7 @@ module read (
     input               aresetn
 );
 
-    localparam          stIdle      = 3'b000; 
+    localparam          stIdle      = 3'b000;
     localparam          stWait      = 3'b011; 
     localparam          stRead0     = 3'b100; 
     localparam          stRead1     = 3'b101; 
@@ -100,7 +100,7 @@ module read (
 	    en_sync        <= en;
     end
                
-    always @(cState, en_sync, ARREADY, RVALID, RREADY)
+    always @(cState, en_sync, ARREADY, RVALID, RREADY, ARADDR[20:3], address_sync[20:3])
     begin
         nState         <= cState;
         case (cState)
@@ -110,15 +110,15 @@ module read (
                 else
                     nState <= en_sync   ? stRead0    : stIdle;
             stRead0:  
-                nState <= ARREADY   ? stRead1    : stRead0;
+                nState <= ARREADY       ? stRead1    : stRead0;
             stRead1:  
-                nState <= RVALID    ? stRead2    : stRead1;
+                nState <= RVALID        ? stRead2    : stRead1;
             stRead2:  
-                nState <= RREADY    ? stRead3    : stRead2;
+                nState <= RREADY        ? stRead3    : stRead2;
             stRead3:
-                nState <= ~RREADY   ? stWait     : stRead3;
+                nState <= ~RREADY       ? stWait     : stRead3;
             stWait:  
-                nState <= ~en_sync  ? stIdle     : stWait;
+                nState <= ~en_sync      ? stIdle     : stWait;
             default:
                 nState <= stIdle;
         endcase  
