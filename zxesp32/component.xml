@@ -174,6 +174,12 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>clk_peripheral</spirit:name>
@@ -212,7 +218,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>458eaa8f</spirit:value>
+            <spirit:value>eab89acd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -228,7 +234,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>458eaa8f</spirit:value>
+            <spirit:value>eab89acd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -503,7 +509,7 @@
       <spirit:file>
         <spirit:name>zxesp32.srcs/sources_1/new/zxesp32.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_458eaa8f</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_eab89acd</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -563,8 +569,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxesp32_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-14T14:21:19Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-29T10:20:26Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@59025256_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@133de59e_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
@@ -595,13 +601,35 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@739356e7_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2927530b_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5ebfbc3_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b8bbfeb_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b799595_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28b8e35_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45c5afed_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@174350a8_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54228d1c_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24a1c279_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a456555_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65138831_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ca5c485_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67f4125b_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66debc53_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35678fe6_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ab1a002_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a181fda_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c5c57e8_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15d7e650_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d0ed02f_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f3a07e_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28194727_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32f65fb9_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@518535c0_ARCHIVE_LOCATION">v:/zxnext/zxesp32</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.1.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="8bd5e70e"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6d283de8"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="b6dba28a"/>
+      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ec2bb244"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1e5b0099"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="44ba02ef"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2277389a"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

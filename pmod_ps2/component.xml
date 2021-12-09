@@ -6,206 +6,6 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>pmod_ps2</spirit:name>
-      <spirit:busType spirit:vendor="digilentinc.com" spirit:library="interface" spirit:name="pmod" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="digilentinc.com" spirit:library="interface" spirit:name="pmod_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN1_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out1_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN7_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out7_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN2_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out2_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN8_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out8_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN3_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out3_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN9_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out9_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN10_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out10_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN4_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out4_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN3_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out3_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN4_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out4_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN1_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out1_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN2_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out2_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN10_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out10_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN8_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out8_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN9_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out9_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN10_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out10_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN9_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out9_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN4_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out4_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN7_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out7_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN1_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out1_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN7_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out7_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN2_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out2_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN8_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out8_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>PIN3_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>out3_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>ps2_clk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
@@ -269,6 +69,206 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>pmod_ps2</spirit:name>
+      <spirit:busType spirit:vendor="digilentinc.com" spirit:library="interface" spirit:name="pmod" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="digilentinc.com" spirit:library="interface" spirit:name="pmod_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN1_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin1_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN1_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin1_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN1_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin1_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN2_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin2_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN2_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin2_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN2_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin2_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN3_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin3_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN3_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin3_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN3_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin3_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN4_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin4_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN4_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin4_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN4_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin4_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN7_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin7_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN7_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin7_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN7_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin7_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN8_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin8_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN8_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin8_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN8_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin8_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN9_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin9_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN9_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin9_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN9_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin9_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN10_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin10_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN10_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin10_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>PIN10_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>pin10_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -284,7 +284,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>db54173a</spirit:value>
+            <spirit:value>836d4c21</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -300,7 +300,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>db54173a</spirit:value>
+            <spirit:value>836d4c21</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -321,7 +321,7 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>out1_I</spirit:name>
+        <spirit:name>pin1_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -334,7 +334,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out2_I</spirit:name>
+        <spirit:name>pin2_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -347,7 +347,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out3_I</spirit:name>
+        <spirit:name>pin3_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -360,7 +360,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out4_I</spirit:name>
+        <spirit:name>pin4_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -373,7 +373,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out7_I</spirit:name>
+        <spirit:name>pin7_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -386,7 +386,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out8_I</spirit:name>
+        <spirit:name>pin8_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -399,7 +399,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out9_I</spirit:name>
+        <spirit:name>pin9_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -412,7 +412,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out10_I</spirit:name>
+        <spirit:name>pin10_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -425,7 +425,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out1_O</spirit:name>
+        <spirit:name>pin1_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -438,7 +438,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out2_O</spirit:name>
+        <spirit:name>pin2_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -451,7 +451,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out3_O</spirit:name>
+        <spirit:name>pin3_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -464,7 +464,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out4_O</spirit:name>
+        <spirit:name>pin4_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -477,7 +477,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out7_O</spirit:name>
+        <spirit:name>pin7_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -490,7 +490,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out8_O</spirit:name>
+        <spirit:name>pin8_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -503,7 +503,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out9_O</spirit:name>
+        <spirit:name>pin9_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -516,7 +516,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out10_O</spirit:name>
+        <spirit:name>pin10_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -529,7 +529,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out1_T</spirit:name>
+        <spirit:name>pin1_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -542,7 +542,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out2_T</spirit:name>
+        <spirit:name>pin2_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -555,7 +555,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out3_T</spirit:name>
+        <spirit:name>pin3_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -568,7 +568,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out4_T</spirit:name>
+        <spirit:name>pin4_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -581,7 +581,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out7_T</spirit:name>
+        <spirit:name>pin7_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -594,7 +594,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out8_T</spirit:name>
+        <spirit:name>pin8_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -607,7 +607,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out9_T</spirit:name>
+        <spirit:name>pin9_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -620,7 +620,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>out10_T</spirit:name>
+        <spirit:name>pin10_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -718,7 +718,7 @@
       <spirit:file>
         <spirit:name>pmod_ps2.srcs/sources_1/new/pmod_ps2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_db54173a</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_836d4c21</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -778,8 +778,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_ps2_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-09-30T15:34:34Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>18</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-11-29T20:06:09Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@54e2e598_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@db5c2d6_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
@@ -805,13 +805,176 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d41a9c6_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@48d7f512_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@55ea6758_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66c804d7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4abfe385_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@128ee89_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38914439_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fd8d0f7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48c5b55c_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bbb8fc7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1483a125_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4611e7a3_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52507408_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@840d0ab_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3311731b_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@793bd528_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@424312bd_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32dfd971_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@708fea96_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f1fb27_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e6a9d90_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@87c671b_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d88731c_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7985626a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77268f0e_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f68ca7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b555653_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e593dea_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37b18a18_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bddded_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7523e64d_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c417302_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a56398f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c3cacb9_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37908316_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fcba113_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11b37240_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ef87221_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16cc83c7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14a87a9f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a5e2fe7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@500cf77f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a2f5d9b_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28ce0df2_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@84d95df_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54367932_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6725b480_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ffca7f2_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b5dee47_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63b3d9e7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8fc49db_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7069c86a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@524d6f36_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@493292b6_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e43588e_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49605c13_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@eba673a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e10eeb5_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c8eeb42_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@719ecf43_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@661c03c5_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2984f1f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d1f80cd_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41d36953_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6db40485_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7238dcd_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17fbd1a4_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f6cf622_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c5d8455_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@361f5084_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cd9aa02_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23cf921_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ffbc0a3_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79e921a2_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67964e37_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54f9f2e2_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a71b187_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@382a9383_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3de9c4e2_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ee98068_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39ab5c18_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6db7608f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71bca0bd_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64af3790_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68f261e3_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ada9a80_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1be238c2_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ca9cba8_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48f0484a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4796af86_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@550d2f1a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3875481_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34973c89_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@550b076f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26935abe_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f87939a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3573a412_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@708f8276_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ec89d27_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fcd2227_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@181ab001_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67ac7b9a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@601c9db0_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@388f44ce_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3efa2a63_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e8a9d3d_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30894279_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@530f5271_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c5c6898_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bb2fe23_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15684d44_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a77961c_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33620215_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32a899ab_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ca71ffa_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55d3c92_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a797587_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d7c80e3_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4060870e_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fd3d554_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a119d7f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c2af2f8_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18914682_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b3396e3_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@677dc58e_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65f45012_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7578a372_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59390623_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c279f2a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c298d9f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c68d58f_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73dbcc1a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77ff874b_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bd6569c_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7cb305f8_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26893fe1_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c5b2a50_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@406544db_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c6e5b22_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72552619_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7145e16_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66e04a89_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ff0672d_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dd98ede_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2caa23cf_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46a46193_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c1d586c_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6167f7a3_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8d66915_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d31f4a7_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1df4dea0_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23853692_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26c100_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53f0e8f8_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c3201b8_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ddcf19a_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@778ea0cb_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a0f4151_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76e42826_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e7fb7fa_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@285d4355_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@669e1012_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2830c170_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54a035ef_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73c1a6fd_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@178f4a52_ARCHIVE_LOCATION">v:/zxnext/pmod_ps2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.1.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="91d2c9da"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1f092a6b"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="093504bd"/>
+      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2f35efec"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="3fab0e40"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b8475ac5"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="eef59f1f"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

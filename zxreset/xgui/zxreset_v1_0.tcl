@@ -2,21 +2,36 @@
 proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "Component_Name"
   #Adding Page
-  ipgui::add_page $IPINST -name "Page 0"
+  set Page_0 [ipgui::add_page $IPINST -name "Page 0" -display_name {Resets}]
+  ipgui::add_param $IPINST -name "HARD_SYS_RESET" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "HARD_RESET_DELAY" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "SOFT_RESET_DELAY" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "PERIPHERAL_RESET_DELAY" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "MEM_LOCKS" -parent ${Page_0}
 
-  ipgui::add_param $IPINST -name "CPU_DELAY"
-  ipgui::add_param $IPINST -name "SYNC_STAGES"
-  ipgui::add_param $IPINST -name "PIPELINE_STAGES"
-  ipgui::add_param $IPINST -name "MEM_LOCKS"
+  #Adding Page
+  set Sync [ipgui::add_page $IPINST -name "Sync"]
+  ipgui::add_param $IPINST -name "SYNC_STAGES" -parent ${Sync}
+  ipgui::add_param $IPINST -name "PIPELINE_STAGES" -parent ${Sync}
+
 
 }
 
-proc update_PARAM_VALUE.CPU_DELAY { PARAM_VALUE.CPU_DELAY } {
-	# Procedure called to update CPU_DELAY when any of the dependent parameters in the arguments change
+proc update_PARAM_VALUE.HARD_RESET_DELAY { PARAM_VALUE.HARD_RESET_DELAY } {
+	# Procedure called to update HARD_RESET_DELAY when any of the dependent parameters in the arguments change
 }
 
-proc validate_PARAM_VALUE.CPU_DELAY { PARAM_VALUE.CPU_DELAY } {
-	# Procedure called to validate CPU_DELAY
+proc validate_PARAM_VALUE.HARD_RESET_DELAY { PARAM_VALUE.HARD_RESET_DELAY } {
+	# Procedure called to validate HARD_RESET_DELAY
+	return true
+}
+
+proc update_PARAM_VALUE.HARD_SYS_RESET { PARAM_VALUE.HARD_SYS_RESET } {
+	# Procedure called to update HARD_SYS_RESET when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.HARD_SYS_RESET { PARAM_VALUE.HARD_SYS_RESET } {
+	# Procedure called to validate HARD_SYS_RESET
 	return true
 }
 
@@ -29,12 +44,30 @@ proc validate_PARAM_VALUE.MEM_LOCKS { PARAM_VALUE.MEM_LOCKS } {
 	return true
 }
 
+proc update_PARAM_VALUE.PERIPHERAL_RESET_DELAY { PARAM_VALUE.PERIPHERAL_RESET_DELAY } {
+	# Procedure called to update PERIPHERAL_RESET_DELAY when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.PERIPHERAL_RESET_DELAY { PARAM_VALUE.PERIPHERAL_RESET_DELAY } {
+	# Procedure called to validate PERIPHERAL_RESET_DELAY
+	return true
+}
+
 proc update_PARAM_VALUE.PIPELINE_STAGES { PARAM_VALUE.PIPELINE_STAGES } {
 	# Procedure called to update PIPELINE_STAGES when any of the dependent parameters in the arguments change
 }
 
 proc validate_PARAM_VALUE.PIPELINE_STAGES { PARAM_VALUE.PIPELINE_STAGES } {
 	# Procedure called to validate PIPELINE_STAGES
+	return true
+}
+
+proc update_PARAM_VALUE.SOFT_RESET_DELAY { PARAM_VALUE.SOFT_RESET_DELAY } {
+	# Procedure called to update SOFT_RESET_DELAY when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.SOFT_RESET_DELAY { PARAM_VALUE.SOFT_RESET_DELAY } {
+	# Procedure called to validate SOFT_RESET_DELAY
 	return true
 }
 
@@ -58,8 +91,23 @@ proc update_MODELPARAM_VALUE.PIPELINE_STAGES { MODELPARAM_VALUE.PIPELINE_STAGES 
 	set_property value [get_property value ${PARAM_VALUE.PIPELINE_STAGES}] ${MODELPARAM_VALUE.PIPELINE_STAGES}
 }
 
-proc update_MODELPARAM_VALUE.CPU_DELAY { MODELPARAM_VALUE.CPU_DELAY PARAM_VALUE.CPU_DELAY } {
+proc update_MODELPARAM_VALUE.HARD_SYS_RESET { MODELPARAM_VALUE.HARD_SYS_RESET PARAM_VALUE.HARD_SYS_RESET } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.CPU_DELAY}] ${MODELPARAM_VALUE.CPU_DELAY}
+	set_property value [get_property value ${PARAM_VALUE.HARD_SYS_RESET}] ${MODELPARAM_VALUE.HARD_SYS_RESET}
+}
+
+proc update_MODELPARAM_VALUE.HARD_RESET_DELAY { MODELPARAM_VALUE.HARD_RESET_DELAY PARAM_VALUE.HARD_RESET_DELAY } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.HARD_RESET_DELAY}] ${MODELPARAM_VALUE.HARD_RESET_DELAY}
+}
+
+proc update_MODELPARAM_VALUE.SOFT_RESET_DELAY { MODELPARAM_VALUE.SOFT_RESET_DELAY PARAM_VALUE.SOFT_RESET_DELAY } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.SOFT_RESET_DELAY}] ${MODELPARAM_VALUE.SOFT_RESET_DELAY}
+}
+
+proc update_MODELPARAM_VALUE.PERIPHERAL_RESET_DELAY { MODELPARAM_VALUE.PERIPHERAL_RESET_DELAY PARAM_VALUE.PERIPHERAL_RESET_DELAY } {
+	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
+	set_property value [get_property value ${PARAM_VALUE.PERIPHERAL_RESET_DELAY}] ${MODELPARAM_VALUE.PERIPHERAL_RESET_DELAY}
 }
 

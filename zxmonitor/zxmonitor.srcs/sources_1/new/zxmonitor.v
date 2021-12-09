@@ -21,29 +21,27 @@
 
 
 module zxmonitor #(
-    parameter   DIV =   18
+    parameter   DIV =   18,
+    parameter   DECAY = 24
 )(
     input       [1:0]   cpu_speed,
   	input       [2:0]   machine_timing,
 
     input               cpu_wait_n,
 
-    input       [20:0]  port_a_address,
-    input       [20:0]  port_b_address,
-
-	input       [12:0]  audio_l,
-	input       [12:0]  audio_r,
-  
-    input       [15:0]  sw,
-  
+    input       [20:0]  address,
+    
+    input       [15:0]  audio,
+    
     output      [7:0]   an,
     output      [7:0]   ca,
-    output      [15:0]  led,
-
+    output reg  [15:0]  led,
+    
     input               clk_200,    
     input               sys_reset_n
     );
     
+    reg     [DECAY-1:0]   decay;
     reg     [DIV+2:0]     div;
     reg     [2:0]         sel;
     
@@ -51,14 +49,16 @@ module zxmonitor #(
     
     reg     [7:0]       a;
     reg     [7:0]       c;
+    reg     [6:0]       l;
     
-    wire    [20:0]      address;
-    
-    assign an   = (sys_reset_n) ? a : 8'b1111_1111;
-    assign ca   = (sys_reset_n) ? c : 8'b1111_1111;
-        
-    assign address      = sw[0] ? port_b_address : port_a_address;
-    assign led[15:0]    = sw[1] ? {3'b000, audio_r} : {3'b000, audio_l}; 
+    assign an       = (sys_reset_n) ? a : 8'b1111_1111;
+    assign ca       = (sys_reset_n) ? c : 8'b1111_1111;
+
+    always @(posedge clk_200)
+        decay   <= decay + 1;
+
+    always @(posedge decay[DECAY-1])
+        led       <=  (led >> 1) | ((1 << audio[14:11]) - 1);    
     
     always @(posedge clk_200)
         case (cpu_speed)
@@ -101,7 +101,7 @@ module zxmonitor #(
         case (div[DIV+2:DIV])
             3'b000:    a     <= 8'b0111_1111;
             3'b001:    a     <= 8'b1011_1111;
-            3'b010:    a     <= 8'b1101_1111;
+            3'b010:    a     <= address[20:20] ? 8'b1101_1111 :  8'b1111_1111;
             3'b011:    a     <= 8'b1110_1111;
             3'b100:    a     <= 8'b1111_0111;
             3'b101:    a     <= 8'b1111_1011;

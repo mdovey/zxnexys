@@ -220,6 +220,7 @@
         <spirit:onSlave>
           <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
+          <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
         <spirit:defaultValue>1</spirit:defaultValue>
       </spirit:wire>
@@ -234,6 +235,7 @@
         <spirit:onSlave>
           <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
+          <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
         <spirit:defaultValue>1</spirit:defaultValue>
       </spirit:wire>
@@ -248,6 +250,7 @@
         <spirit:onSlave>
           <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
+          <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
         <spirit:defaultValue>1</spirit:defaultValue>
       </spirit:wire>

@@ -28,6 +28,8 @@ module i2s
 	input      clk,
 	input      ce,
 
+ 
+    output     mclk,
 	output reg sclk,
 	output reg lrclk,
 	output reg sdata,
@@ -35,6 +37,8 @@ module i2s
 	input [AUDIO_DW-1:0]	left_chan,
 	input [AUDIO_DW-1:0]	right_chan
 );
+
+    assign mclk = clk;
 
 	reg  [7:0] bit_cnt;
 	reg msclk;

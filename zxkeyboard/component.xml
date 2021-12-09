@@ -248,7 +248,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d149ef81</spirit:value>
+            <spirit:value>d16485c5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -264,7 +264,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d149ef81</spirit:value>
+            <spirit:value>d16485c5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -278,7 +278,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f64a5dae</spirit:value>
+            <spirit:value>df88e809</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -373,7 +373,17 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.divmmc" xilinx:dependency="$External_Buttons">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>multiface</spirit:name>
@@ -386,7 +396,17 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.multiface" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.External_Buttons&apos;))">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>spkey_function</spirit:name>
@@ -674,7 +694,7 @@
       <spirit:file>
         <spirit:name>xgui/zxkeyboard_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_df88e809</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -684,6 +704,10 @@
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">zxkeyboard_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>External_Buttons</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.External_Buttons">false</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -719,8 +743,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxkeyboard_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>16</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-10-29T23:58:37Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>20</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-07T11:55:46Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4fa11cdb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@422e18b4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
@@ -911,14 +935,62 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@730fe4d6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@bcc85e5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@34dd2831_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e899487_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10d3f1e0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@114fad59_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7001282b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59ce4fb6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7453fdf1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78661395_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@384cddb9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f796f42_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d17f55_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3142ece0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6364b40c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ab53b7a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d64f807_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ed55c31_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7253ecb9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f541c84_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@612a8ba2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c1c07c1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cc8b752_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@774d323a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49eb9762_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@99e78d4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dd0a820_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56e444a9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b35e8de_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60e7e960_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e62567d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a17b785_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3af80d22_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22696058_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@233c23aa_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43e5a0fd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@505114f4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@644bb560_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@300c020e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71d9e5a7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55a12d75_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b62d6e9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50270783_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bdae5ca_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e71b2f0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@554fc1ad_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6092f3ed_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bdb9575_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@476965f6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c491bbd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ba10bfc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.1</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="064888a7"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="fac3fd8e"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="9e189870"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="5a4172c5"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="21794501"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b0fc5c1b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2c0688aa"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
