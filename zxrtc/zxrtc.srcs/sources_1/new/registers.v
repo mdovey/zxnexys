@@ -105,11 +105,9 @@ begin
 end
 
 always @(posedge clk_peripheral)
-begin
-    if (~underflow) 
-        data[rd_data[13:8]] <= rd_data[7:0];
     if (update_en)
         data[wr_reg_i]      <= wr_data_i;
-end
+    else if (~underflow) 
+        data[rd_data[13:8]] <= rd_data[7:0];
 
 endmodule

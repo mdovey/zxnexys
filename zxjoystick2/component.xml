@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>specnext.com</spirit:vendor>
+  <spirit:library>specnext</spirit:library>
+  <spirit:name>zxjoystick</spirit:name>
+  <spirit:version>2.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>joystick</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="joystick" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="joystick_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>io_mode_en</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>io_mode_en</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>right</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>right</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>io_mode_pin_7</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>io_mode_pin_7</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>left</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>left</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>left_type</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>left_type</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>right_type</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>right_type</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>reset</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk_peripheral</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_peripheral</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>zxjoystick</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>2fb24e30</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>zxjoystick</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>2fb24e30</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>5ed96bd9</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>left</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">10</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>right</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">10</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>io_mode_en</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>io_mode_pin_7</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>left_type</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>right_type</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>btnc</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>btnu</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>btnd</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>btnl</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>btnr</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sclk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sclk" xilinx:dependency="$PMOD_JSTK2">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mosi</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.mosi" xilinx:dependency="$PMOD_JSTK2">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>miso</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.miso" xilinx:dependency="$PMOD_JSTK2">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>sel</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.sel" xilinx:dependency="$PMOD_JSTK2">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>clk_peripheral</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>reset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>BUTTON_JOYSTICK</spirit:name>
+        <spirit:displayName>Button Joystick</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.BUTTON_JOYSTICK">0</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_pairs_f182bfba</spirit:name>
+      <spirit:enumeration spirit:text="Right">0</spirit:enumeration>
+      <spirit:enumeration spirit:text="Left">1</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>zxjoystick2.srcs/sources_1/new/btn_jstk.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxjoystick2.srcs/sources_1/new/pmod_jstk2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/spi_master.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxjoystick2.srcs/sources_1/new/zxjoystick.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_9ae3d8af</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>zxjoystick2.srcs/sources_1/new/btn_jstk.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxjoystick2.srcs/sources_1/new/pmod_jstk2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/serial/spi_master.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxjoystick2.srcs/sources_1/new/zxjoystick.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/zxjoystick_v2_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_5ed96bd9</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>zxjoystick_v2_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">zxjoystick_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>BUTTON_JOYSTICK</spirit:name>
+      <spirit:displayName>Button Joystick</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.BUTTON_JOYSTICK" spirit:choiceRef="choice_pairs_f182bfba">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>PMOD_JSTK2</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PMOD_JSTK2">false</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artix7l</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">aartix7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">artixuplus</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Production">zynquplus</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/specnext</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>zxjoystick_v2_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-09T11:37:01Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78f7434a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76a03dcb_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63298559_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1854adfa_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9639956_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4717cea0_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48b00b1d_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45108c38_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74669c2a_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a938930_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43a0efe2_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6db8c134_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3487a9c5_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4742e811_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cde239a_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45844882_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1eef73a9_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36620036_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76f24a6_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d9691c6_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6686dfd1_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bec2bce_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ede1e66_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51d052f0_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72e9c626_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c4f128f_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e22ab6c_ARCHIVE_LOCATION">v:/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45893639_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3437bec6_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3078a1d9_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55511911_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@469dc3fa_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2894ffed_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12babd9_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4166d126_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ebfac5c_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b9f748d_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35d77183_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3118132b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10d64603_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@cdf9527_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cff7151_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43065daa_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44f6f2fc_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50dabb3c_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@414601b7_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a4377c8_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7769b386_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7dfc4c3b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71b87f96_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f8d10d2_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7900984f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79b59ed2_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44ee897d_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ec5cefe_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15f31127_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fc11d41_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3437c37c_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4170e6a2_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33878f40_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b0e2142_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@cf6ee8f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d4671a0_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@100c6441_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5400388a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dcc433a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c1dc6dc_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ed58d8b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b87b788_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53e8d92c_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fa07bbc_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e6ae76b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7619f722_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26a69de3_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@642217be_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4be21380_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d66c580_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6aa656e7_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41b020e7_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16598036_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@142b4cc_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dc2e08f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52bd761b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24179887_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19b71e6a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@152b5887_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1aece81c_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1aeced27_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7447b49b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@230548ff_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a4e7a866"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9c9168e3"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="77eb7cad"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="0ea85c81"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a870751d"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>
