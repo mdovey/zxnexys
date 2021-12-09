@@ -85,7 +85,6 @@
           <spirit:isReset>true</spirit:isReset>
         </spirit:qualifier>
         <spirit:onMaster>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>

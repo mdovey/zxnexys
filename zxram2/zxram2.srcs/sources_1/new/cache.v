@@ -20,6 +20,41 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+module cache_1 #(
+    parameter   SEL     =   14
+)( 
+        input       [20:0]  address,
+
+        output      [20:0]  channel0_address,
+        output      [20:0]  channel1_address,
+        
+        input       [7:0]   channel0_data,
+        input       [7:0]   channel1_data,
+        
+        output      [7:0]   data,
+        
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
+        input               clk_memory  
+    );
+    
+    reg [20-SEL:0]           last_bank;
+    reg [20-SEL:0]           bank;
+    
+    assign data             = (address[20:3] == channel0_address[20:3]) ? channel0_data :
+                                                                          channel1_data;
+
+    assign channel0_address = {bank, {SEL-3{1'b0}}, address[2:0]};
+    assign channel1_address = address;
+
+    always @(negedge clk_memory)
+    begin
+        last_bank   <= address[20:SEL];
+        if (address[20:SEL] != last_bank && address[20:SEL] != last_bank+1)
+            bank    <= address[20:SEL];
+    end
+
+endmodule
+
 module cache_8 #(
     parameter   SEL     =   3
 )( 

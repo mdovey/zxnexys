@@ -1,0 +1,37 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Fri Nov 26 16:12:03 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'tb_ledsegment_wrapper_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of tb_ledsegment_wrapper_0_0 (xilinx.com:user:ledsegment_wrapper:1.0) from (Rev. 3) to (Rev. 4)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Thu Nov 25 23:17:41 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'tb_PmodRTCC_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of tb_PmodRTCC_0_0 (digilentinc.com:IP:PmodRTCC:1.0) from (Rev. 18) to (Rev. 19)
+

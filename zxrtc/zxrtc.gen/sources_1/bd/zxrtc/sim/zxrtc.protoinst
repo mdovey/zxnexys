@@ -1,0 +1,31 @@
+{
+	"version": "1.0",
+	"modules": {
+		"zxrtc": {
+			"proto_instances": {
+				"/axi_controller_0/interface_aximm": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk_peripheral"},
+						"ARADDR": { "actual": "ARADDR"},
+						"ARESET": { "actual": "reset"},
+						"ARREADY": { "actual": "ARREADY"},
+						"ARVALID": { "actual": "ARVALID"},
+						"AWADDR": { "actual": "AWADDR"},
+						"AWREADY": { "actual": "AWREADY"},
+						"AWVALID": { "actual": "AWVALID"},
+						"BREADY": { "actual": "BREADY"},
+						"BVALID": { "actual": "BVALID"},
+						"RDATA": { "actual": "RDATA"},
+						"RREADY": { "actual": "RREADY"},
+						"RVALID": { "actual": "RVALID"},
+						"WDATA": { "actual": "WDATA"},
+						"WREADY": { "actual": "WREADY"},
+						"WSTRB": { "actual": "WSTRB"},
+						"WVALID": { "actual": "WVALID"}
+					}
+				}
+			}
+		}
+	}
+}

@@ -2,7 +2,14 @@
 proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "Component_Name"
   #Adding Page
-  ipgui::add_page $IPINST -name "Page 0"
+  set Page_0 [ipgui::add_page $IPINST -name "Page 0" -display_name {Audio}]
+  ipgui::add_param $IPINST -name "CLK_RATE" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "AUDIO_RATE" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "AUDIO_DW" -parent ${Page_0}
+
+  #Adding Page
+  set Monitor [ipgui::add_page $IPINST -name "Monitor"]
+  ipgui::add_param $IPINST -name "Monitor" -parent ${Monitor}
 
 
 }
@@ -31,6 +38,15 @@ proc update_PARAM_VALUE.CLK_RATE { PARAM_VALUE.CLK_RATE } {
 
 proc validate_PARAM_VALUE.CLK_RATE { PARAM_VALUE.CLK_RATE } {
 	# Procedure called to validate CLK_RATE
+	return true
+}
+
+proc update_PARAM_VALUE.Monitor { PARAM_VALUE.Monitor } {
+	# Procedure called to update Monitor when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.Monitor { PARAM_VALUE.Monitor } {
+	# Procedure called to validate Monitor
 	return true
 }
 
