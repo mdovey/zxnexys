@@ -12,10 +12,8 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
 set_property CFGBVS VCCO [current_design]
 
 ## Clock signal
-set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports sys_clock]
-create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports sys_clock]
-set_clock_groups -name Clock_Domains -asynchronous -group [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT0]] -group [get_clocks [list [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT5]] [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT4]] [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT3]] [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT2]] [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT1]]]] -group [get_clocks -of_objects [get_pins zxnexys_i/mig_7series_0/u_zxnexys_mig_7series_0_0_mig/u_ddr2_infrastructure/gen_mmcm.mmcm_i/CLKFBOUT]] -group [get_clocks -of_objects [get_pins zxnexys_i/clk_wiz_0/inst/mmcm_adv_inst/CLKOUT6]]
-
+set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports SYS_CLOCK]
+create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports SYS_CLOCK]
 
 ##Switches
 #set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports {SW[0]}]
