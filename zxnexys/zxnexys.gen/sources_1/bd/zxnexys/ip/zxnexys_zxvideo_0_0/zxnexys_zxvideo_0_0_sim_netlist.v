@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu Dec  9 17:51:03 2021
+// Date        : Sat Dec 11 02:29:03 2021
 // Host        : JL69XDHR2 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxvideo_0_0 -prefix
-//               zxnexys_zxvideo_0_0_ zxnexys_zxvideo_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               v:/zxnext/zxnexys/zxnexys.gen/sources_1/bd/zxnexys/ip/zxnexys_zxvideo_0_0/zxnexys_zxvideo_0_0_sim_netlist.v
 // Design      : zxnexys_zxvideo_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,95 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "zxnexys_zxvideo_0_0,zxvideo,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "zxvideo,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxvideo_0_0
+   (r,
+    g,
+    b,
+    hs,
+    vs,
+    rgb,
+    csync_n,
+    vsync_n,
+    hsync_n,
+    vblank_n,
+    hblank_n,
+    freq_50_60,
+    scanlines,
+    scandouble,
+    video_mode,
+    machine_timing,
+    hdmi_reset,
+    hdmi_audio_en,
+    clk_video,
+    clk_peripheral,
+    reset);
+  output [3:0]r;
+  output [3:0]g;
+  output [3:0]b;
+  output hs;
+  output vs;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video rgb" *) input [8:0]rgb;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video csync_n" *) input csync_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video vsync_n" *) input vsync_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hsync_n" *) input hsync_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video vblank_n" *) input vblank_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hblank_n" *) input hblank_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video freq_50_60" *) input freq_50_60;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scanlines" *) input [1:0]scanlines;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *) input scandouble;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video video_mode" *) input [2:0]video_mode;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *) input [2:0]machine_timing;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hdmi_reset" *) input hdmi_reset;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hdmi_audio_en" *) input hdmi_audio_en;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_video CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_video, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_video, INSERT_VIP 0" *) input clk_video;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+
+  wire \<const0> ;
+  wire [2:0]\^b ;
+  wire clk_peripheral;
+  wire clk_video;
+  wire csync_n;
+  wire [2:0]\^g ;
+  wire hs;
+  wire hsync_n;
+  wire [2:0]machine_timing;
+  wire [2:0]\^r ;
+  wire [8:0]rgb;
+  wire scandouble;
+  wire [1:0]scanlines;
+  wire vs;
+  wire vsync_n;
+
+  assign b[3] = \<const0> ;
+  assign b[2:0] = \^b [2:0];
+  assign g[3] = \<const0> ;
+  assign g[2:0] = \^g [2:0];
+  assign r[3] = \<const0> ;
+  assign r[2:0] = \^r [2:0];
+  GND GND
+       (.G(\<const0> ));
+  zxnexys_zxvideo_0_0_zxvideo inst
+       (.b(\^b ),
+        .clk_peripheral(clk_peripheral),
+        .clk_video(clk_video),
+        .csync_n(csync_n),
+        .g(\^g ),
+        .hs(hs),
+        .hsync_n(hsync_n),
+        .machine_timing(machine_timing[1]),
+        .r(\^r ),
+        .rgb(rgb),
+        .scandouble(scandouble),
+        .scanlines(scanlines),
+        .vs(vs),
+        .vsync_n(vsync_n));
+endmodule
+
+(* ORIG_REF_NAME = "dpram2" *) 
 module zxnexys_zxvideo_0_0_dpram2
    (ram_q_reg_0,
     ram_q_reg_1,
@@ -341,6 +430,7 @@ module zxnexys_zxvideo_0_0_dpram2
         .WEBWE({1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
+(* ORIG_REF_NAME = "s_fix" *) 
 module zxnexys_zxvideo_0_0_s_fix
    (hs,
     h_sync,
@@ -3018,6 +3108,7 @@ module zxnexys_zxvideo_0_0_s_fix_0
         .O(vs));
 endmodule
 
+(* ORIG_REF_NAME = "scan_convert" *) 
 module zxnexys_zxvideo_0_0_scan_convert
    (O_HSYNC_reg_0,
     D,
@@ -4716,94 +4807,7 @@ module zxnexys_zxvideo_0_0_scan_convert
         .R(impar_312_out));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxvideo_0_0,zxvideo,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "zxvideo,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxvideo_0_0
-   (r,
-    g,
-    b,
-    hs,
-    vs,
-    rgb,
-    csync_n,
-    vsync_n,
-    hsync_n,
-    vblank_n,
-    hblank_n,
-    freq_50_60,
-    scanlines,
-    scandouble,
-    video_mode,
-    machine_timing,
-    hdmi_reset,
-    hdmi_audio_en,
-    clk_video,
-    clk_peripheral,
-    reset);
-  output [3:0]r;
-  output [3:0]g;
-  output [3:0]b;
-  output hs;
-  output vs;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video rgb" *) input [8:0]rgb;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video csync_n" *) input csync_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video vsync_n" *) input vsync_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hsync_n" *) input hsync_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video vblank_n" *) input vblank_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hblank_n" *) input hblank_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video freq_50_60" *) input freq_50_60;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scanlines" *) input [1:0]scanlines;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *) input scandouble;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video video_mode" *) input [2:0]video_mode;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *) input [2:0]machine_timing;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hdmi_reset" *) input hdmi_reset;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hdmi_audio_en" *) input hdmi_audio_en;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_video CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_video, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_video, INSERT_VIP 0" *) input clk_video;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-
-  wire \<const0> ;
-  wire [2:0]\^b ;
-  wire clk_peripheral;
-  wire clk_video;
-  wire csync_n;
-  wire [2:0]\^g ;
-  wire hs;
-  wire hsync_n;
-  wire [2:0]machine_timing;
-  wire [2:0]\^r ;
-  wire [8:0]rgb;
-  wire scandouble;
-  wire [1:0]scanlines;
-  wire vs;
-  wire vsync_n;
-
-  assign b[3] = \<const0> ;
-  assign b[2:0] = \^b [2:0];
-  assign g[3] = \<const0> ;
-  assign g[2:0] = \^g [2:0];
-  assign r[3] = \<const0> ;
-  assign r[2:0] = \^r [2:0];
-  GND GND
-       (.G(\<const0> ));
-  zxnexys_zxvideo_0_0_zxvideo inst
-       (.b(\^b ),
-        .clk_peripheral(clk_peripheral),
-        .clk_video(clk_video),
-        .csync_n(csync_n),
-        .g(\^g ),
-        .hs(hs),
-        .hsync_n(hsync_n),
-        .machine_timing(machine_timing[1]),
-        .r(\^r ),
-        .rgb(rgb),
-        .scandouble(scandouble),
-        .scanlines(scanlines),
-        .vs(vs),
-        .vsync_n(vsync_n));
-endmodule
-
+(* ORIG_REF_NAME = "zxvideo" *) 
 module zxnexys_zxvideo_0_0_zxvideo
    (r,
     g,
