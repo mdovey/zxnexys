@@ -85,11 +85,8 @@ module pmod_rtcc (
 (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 iic SDA_O" *)
     input sda_o,
 (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 iic SDA_T" *)
-    input sda_t,
-    
-    input       iic2intc_irpt,
-    input [0:0] gpo
-    );
+    input sda_t
+);
 
 	assign pin1_t	= 1'b1;
 	assign pin2_t	= 1'b1;
