@@ -77,7 +77,6 @@
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
           <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
@@ -92,7 +91,6 @@
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
           <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
@@ -107,7 +105,6 @@
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
           <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
@@ -152,7 +149,6 @@
           <spirit:width>3</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>3</spirit:width>
           <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
@@ -185,7 +181,6 @@
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
           <spirit:direction>in</spirit:direction>
         </spirit:onSlave>
@@ -200,7 +195,6 @@
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
-          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
           <spirit:direction>in</spirit:direction>
         </spirit:onSlave>

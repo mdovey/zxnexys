@@ -3,7 +3,7 @@
   <spirit:vendor>specnext.com</spirit:vendor>
   <spirit:library>specnext</spirit:library>
   <spirit:name>zxrtc</spirit:name>
-  <spirit:version>1.0</spirit:version>
+  <spirit:version>1.1</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>reset</spirit:name>
@@ -54,144 +54,6 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>axi_rtc</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="aximm_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>BVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_bvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_rready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>BREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_bready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>AWREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_awready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>AWVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_awvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>WDATA</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_wdata</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_rvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ARADDR</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_araddr</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ARREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_arready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>AWADDR</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_awaddr</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>WREADY</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_wready</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>WVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_wvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ARVALID</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_arvalid</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>WSTRB</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_wstrb</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RDATA</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>axi_rtc_rdata</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.AXI_RTC.NUM_READ_OUTSTANDING"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.AXI_RTC.NUM_WRITE_OUTSTANDING"/>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>rtc</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="rtc" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="rtc_rtl" spirit:version="1.0"/>
@@ -231,6 +93,62 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>iic_rtc</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="iic" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="iic_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>SCL_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rtc_scl_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>SDA_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rtc_sda_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>SDA_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rtc_sda_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>SDA_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rtc_sda_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>SCL_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rtc_scl_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>SCL_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rtc_scl_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:addressSpaces>
     <spirit:addressSpace>
@@ -256,12 +174,15 @@
           <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_iic_2_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8042f68a</spirit:value>
+            <spirit:value>b4c2ce48</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -275,12 +196,15 @@
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_fifo_generator_13_2__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_iic_2_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9d3b4100</spirit:value>
+            <spirit:value>9d8596ed</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -301,221 +225,6 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>axi_rtc_araddr</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">8</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_arready</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_arvalid</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_awaddr</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">8</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_awready</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_awvalid</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_bready</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_bvalid</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_rdata</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_rready</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_rvalid</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_wdata</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">31</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_wready</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_wstrb</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">3</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>axi_rtc_wvalid</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>clk_peripheral</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -532,6 +241,84 @@
         <spirit:name>reset</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rtc_scl_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rtc_scl_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rtc_scl_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rtc_sda_i</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rtc_sda_o</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>rtc_sda_t</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>wire</spirit:typeName>
@@ -599,7 +386,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_axi_controller_0_0/synth/zxrtc_axi_controller_0_0.v</spirit:name>
+        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_rtc_0_0/synth/zxrtc_rtc_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -607,7 +394,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_rtc_0_0/synth/zxrtc_rtc_0_0.v</spirit:name>
+        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_axi_controller_0_0/synth/zxrtc_axi_controller_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_resets_0_0/synth/zxrtc_resets_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -621,11 +412,24 @@
         <spirit:userFileType>CELL_NAME_fifo_generator_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>zxrtc.srcs/sources_1/imports/MISTer/rtc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxrtc.srcs/sources_1/bd/zxrtc/ip/zxrtc_axi_iic_0_0/zxrtc_axi_iic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_iic_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxrtc.srcs/sources_1/new/registers.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>zxrtc.srcs/sources_1/new/axi_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxrtc.srcs/sources_1/new/registers.v</spirit:name>
+        <spirit:name>zxrtc.srcs/sources_1/new/resets.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -641,7 +445,7 @@
       <spirit:file>
         <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/hdl/zxrtc_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_8bb42507</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_2e5d7cc2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -655,9 +459,19 @@
       </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_iic_2_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_iic" xilinx:version="2.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_axi_controller_0_0/sim/zxrtc_axi_controller_0_0.v</spirit:name>
+        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_rtc_0_0/sim/zxrtc_rtc_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -665,7 +479,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_rtc_0_0/sim/zxrtc_rtc_0_0.v</spirit:name>
+        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_axi_controller_0_0/sim/zxrtc_axi_controller_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_resets_0_0/sim/zxrtc_resets_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -679,11 +497,24 @@
         <spirit:userFileType>CELL_NAME_fifo_generator_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>zxrtc.srcs/sources_1/imports/MISTer/rtc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxrtc.srcs/sources_1/bd/zxrtc/ip/zxrtc_axi_iic_0_0/zxrtc_axi_iic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_iic_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxrtc.srcs/sources_1/new/registers.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>zxrtc.srcs/sources_1/new/axi_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxrtc.srcs/sources_1/new/registers.v</spirit:name>
+        <spirit:name>zxrtc.srcs/sources_1/new/resets.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -706,9 +537,19 @@
       </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_iic_2_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_iic" xilinx:version="2.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/zxrtc_v1_0.tcl</spirit:name>
+        <spirit:name>xgui/zxrtc_v1_1.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
         <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
@@ -736,8 +577,8 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>87</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-11T13:19:52Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>91</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T18:07:32Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@24afdb29_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@f0e259d_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
@@ -1740,14 +1581,101 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@963e235_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5c037bad_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@78e3742b_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cb5ba9e_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47bc15e6_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60f83a64_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46907a67_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a3df141_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e0bf7b_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c8cb3b6_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@297a54db_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d0dc85e_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70a0a7c7_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b3a6070_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ff0f45e_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4686ac91_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ce86cba_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47eac65f_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@259cc83d_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@305817eb_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2830f884_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@795a5dba_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7150951e_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4740f00f_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56ea5a9d_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4898588f_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13442197_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c83e137_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fde3a05_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@133ddeaf_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fd03b74_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65d40d4d_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2336fd95_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@364114ef_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@276e6844_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d0835a1_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f241198_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@318bd9f1_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74523e77_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75bc99ef_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a23c8a3_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a8747a6_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7656432d_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e68eaf2_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e25a2c2_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b0d9f2f_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c2071a6_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c184747_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f03a543_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@134e4258_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25ea1bc4_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@121c9535_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@600a7451_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c56ecf0_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2faf48_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f6d981f_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1781fda8_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b7c1add_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@151e7890_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@474a6bf6_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c17e5ef_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26df3e05_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7dd3fa99_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51b8ae77_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18af7709_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@198004ee_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@732462ab_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b6924f1_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c7e1092_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@694b7205_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@766f87c9_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54a1a927_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e673fc5_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c7d70a1_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e7dbc3e_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28afa6fe_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72ed8976_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ee9983d_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76b495f1_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3dbdc13b_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15fdc860_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b37a96e_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1869d218_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@787efb74_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2fb6b9f5_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10c04360_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c05b1e7_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9fd6bcd_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@98682ae_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5581e4b0_ARCHIVE_LOCATION">v:/zxnext/zxrtc</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5a372db1"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ab0c46e1"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="b8b5d663"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="44c3f582"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="c3261aa6"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b72de006"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="5e81f1f8"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2ff8f23b"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
