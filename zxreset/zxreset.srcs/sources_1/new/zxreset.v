@@ -21,9 +21,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module zxreset #(
-    parameter HARD_RESET_DELAY          = 26,
     parameter SOFT_RESET_DELAY          = 25,
     parameter PERIPHERAL_RESET_DELAY    = 24,
+    parameter MEMORY_RESET_DELAY        = 20,
     parameter SYNC_STAGES               = 3,
     parameter PIPELINE_STAGES           = 1
 )(
@@ -34,10 +34,6 @@ module zxreset #(
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_peripheral  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
     output  	reset_peripheral,
-
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_peripheral_n  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
-    output  	reset_peripheral_n,
         
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  in_reset_hard  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
@@ -57,20 +53,25 @@ module zxreset #(
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_mb_soft:reset_peripheral:reset_peripheral_n" *)
     input 		clk_peripheral,
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  sys_reset_n_out  RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  memory_reset_n  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
+    output      memory_reset,
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  cpu_reset_n  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
-    output      sys_reset_n_out,
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  sys_reset_n_in  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
-    input       sys_reset_n_in
+    input       cpu_resetn
 );
     
 	wire hard_reset;
 	wire soft_reset;
 	wire peripheral_reset;
-	
-	assign sys_reset_n_out     = ~in_reset_hard;	
-	assign reset_peripheral_n  = ~reset_peripheral;
+
+	delay #(
+	   .DELAY(MEMORY_RESET_DELAY)
+	) delay_memory (
+	   .reset(hard_reset),
+	   .out(memory_reset),
+	   .clk(clk_peripheral)
+	);
     
 	delay #(
 	   .DELAY(SOFT_RESET_DELAY)
@@ -91,7 +92,7 @@ module zxreset #(
 	async_input_sync #(
 	   .SYNC_STAGES(SYNC_STAGES),
 	   .PIPELINE_STAGES(PIPELINE_STAGES),
-	   .INIT(1'b0)
+	   .INIT(1'b1)
 	) sync_sys_ready (
 	   .clk(clk_peripheral),
 	   .async_in(~mem_locked_0 | ~mem_locked_1 | ~clk_locked | in_reset_hard),

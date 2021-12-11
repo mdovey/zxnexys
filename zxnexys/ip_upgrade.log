@@ -1,6 +1,229 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 23:26:09 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxreset_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxreset_0_0 from specnext.com:specnext:zxreset:1.0 (Rev. 84) to specnext.com:specnext:zxreset:1.1 (Rev. 86)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxreset_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'cpu_reset_n'
+
+-Upgrade has removed port 'memory_reset_n'
+
+-Upgrade has added port 'cpu_resetn'
+
+-Upgrade has added port 'memory_reset'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 23:18:46 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxreset_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxreset_0_0 (specnext.com:specnext:zxreset:1.0) from (Rev. 83) to (Rev. 84)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxreset_0_0'.
+
+
+-Upgrade has removed interface 'reset_peripheral_n'
+
+-Upgrade has removed interface 'sys_reset_n_in'
+
+-Upgrade has removed interface 'sys_reset_n_out'
+
+-Upgrade has added interface 'cpu_reset_n' (xilinx.com:signal:reset:1.0)
+
+-Upgrade has added interface 'memory_reset_n' (xilinx.com:signal:reset:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxreset_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'reset_peripheral_n'
+
+-Upgrade has removed port 'sys_reset_n_in'
+
+-Upgrade has removed port 'sys_reset_n_out'
+
+-Upgrade has added port 'cpu_reset_n'
+
+-Upgrade has added port 'memory_reset_n'
+
+
+4. Customization warnings
+-------------------------
+
+Parameter 'HARD_RESET_DELAY' is no longer present on the upgraded IP 'zxnexys_zxreset_0_0', and cannot be set to '26'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv specnext.com:specnext:zxreset:1.0 -user_name zxnexys_zxreset_0_0
+set_property -dict "\
+  CONFIG.Component_Name {zxnexys_zxreset_0_0} \
+  CONFIG.MEM_LOCKS {2} \
+  CONFIG.PERIPHERAL_RESET_DELAY {24} \
+  CONFIG.PIPELINE_STAGES {1} \
+  CONFIG.SOFT_RESET_DELAY {25} \
+  CONFIG.SYNC_STAGES {3} \
+  CONFIG.clk_peripheral.ASSOCIATED_BUSIF {} \
+  CONFIG.clk_peripheral.ASSOCIATED_PORT {} \
+  CONFIG.clk_peripheral.ASSOCIATED_RESET {reset_mb_soft:reset_peripheral:reset_peripheral_n} \
+  CONFIG.clk_peripheral.CLK_DOMAIN {zxnexys_zxclock_0_0_clk_peripheral} \
+  CONFIG.clk_peripheral.FREQ_HZ {100000000} \
+  CONFIG.clk_peripheral.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.clk_peripheral.INSERT_VIP {0} \
+  CONFIG.clk_peripheral.PHASE {0.0} \
+  CONFIG.in_reset_hard.INSERT_VIP {0} \
+  CONFIG.in_reset_hard.POLARITY {ACTIVE_HIGH} \
+  CONFIG.in_reset_peripheral.INSERT_VIP {0} \
+  CONFIG.in_reset_peripheral.POLARITY {ACTIVE_HIGH} \
+  CONFIG.in_reset_soft.INSERT_VIP {0} \
+  CONFIG.in_reset_soft.POLARITY {ACTIVE_HIGH} \
+  CONFIG.mb_reset.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_mb_soft.INSERT_VIP {0} \
+  CONFIG.reset_mb_soft.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_peripheral.INSERT_VIP {0} \
+  CONFIG.reset_peripheral.POLARITY {ACTIVE_HIGH} " [get_ips zxnexys_zxreset_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 23:04:06 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxrtc_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxrtc_0_0 (specnext.com:specnext:zxrtc:1.1) from (Rev. 93) to (Rev. 94)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 23:04:06 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxaudio_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxaudio_0_1 (specnext.com:specnext:zxaudio:2.0) from (Rev. 82) to (Rev. 83)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 22:23:41 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxrtc_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxrtc_0_0 (specnext.com:specnext:zxrtc:1.1) from (Rev. 91) to (Rev. 93)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 22:23:41 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxaudio_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxaudio_0_1 (specnext.com:specnext:zxaudio:2.0) from (Rev. 81) to (Rev. 82)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 | Date         : Sat Dec 11 20:59:12 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

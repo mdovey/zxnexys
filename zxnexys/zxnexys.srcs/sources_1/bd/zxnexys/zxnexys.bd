@@ -13,26 +13,26 @@
     "design_tree": {
       "clk_wiz_0": "",
       "mig_7series_0": "",
-      "mig_reset_0": "",
       "pmod_esp32_0": "",
       "pmod_input_0": "",
       "pmod_xsd_0": "",
-      "zxaudio_0": "",
       "zxclock_0": "",
       "zxesp32_0": "",
       "zxjoystick_0": "",
       "zxmonitor_0": "",
       "zxmouse_0": "",
-      "zxreset_0": "",
       "zxsdcard_0": "",
       "zxsdcard_1": "",
       "zxnext_0": "",
       "zxram_0": "",
-      "zxrtc_0": "",
       "zxkeyboard_0": "",
       "zxvideo_0": "",
       "pmod_i2s2_0": "",
-      "pmod_rtcc_0": ""
+      "pmod_rtcc_0": "",
+      "zxaudio_0": "",
+      "zxrtc_0": "",
+      "zxreset_0": "",
+      "mig_reset_0": ""
     },
     "interface_ports": {
       "JA": {
@@ -415,6 +415,9 @@
           "USE_BOARD_FLOW": {
             "value": "true"
           },
+          "USE_RESET": {
+            "value": "false"
+          },
           "USE_SAFE_CLOCK_STARTUP": {
             "value": "false"
           }
@@ -434,86 +437,6 @@
           },
           "XML_INPUT_FILE": {
             "value": "mig_a.prj"
-          }
-        }
-      },
-      "mig_reset_0": {
-        "vlnv": "xilinx.com:module_ref:mig_reset:1.0",
-        "xci_name": "zxnexys_mig_reset_0_0",
-        "xci_path": "ip\\zxnexys_mig_reset_0_0\\zxnexys_mig_reset_0_0.xci",
-        "inst_hier_path": "mig_reset_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "mig_reset",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "aresetn": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "sys_reset": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "clk_200": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "100000000",
-                "value_src": "default_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxnexys_zxclock_0_0_clk_system",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "clk_ui": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "150015002",
-                "value_src": "default_prop"
-              },
-              "PHASE": {
-                "value": "0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxnexys_mig_7series_0_0_ui_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset_sys_n": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "const_prop"
-              }
-            }
-          },
-          "locked": {
-            "direction": "I"
           }
         }
       },
@@ -545,17 +468,6 @@
         "parameters": {
           "MicroSD": {
             "value": "false"
-          }
-        }
-      },
-      "zxaudio_0": {
-        "vlnv": "specnext.com:specnext:zxaudio:2.0",
-        "xci_name": "zxnexys_zxaudio_0_1",
-        "xci_path": "ip\\zxnexys_zxaudio_0_1\\zxnexys_zxaudio_0_1.xci",
-        "inst_hier_path": "zxaudio_0",
-        "parameters": {
-          "PMOD_I2S2": {
-            "value": "true"
           }
         }
       },
@@ -601,23 +513,6 @@
         "xci_name": "zxnexys_zxmouse_0_0",
         "xci_path": "ip\\zxnexys_zxmouse_0_0\\zxnexys_zxmouse_0_0.xci",
         "inst_hier_path": "zxmouse_0"
-      },
-      "zxreset_0": {
-        "vlnv": "specnext.com:specnext:zxreset:1.0",
-        "xci_name": "zxnexys_zxreset_0_0",
-        "xci_path": "ip\\zxnexys_zxreset_0_0\\zxnexys_zxreset_0_0.xci",
-        "inst_hier_path": "zxreset_0",
-        "parameters": {
-          "HARD_RESET_DELAY": {
-            "value": "26"
-          },
-          "PERIPHERAL_RESET_DELAY": {
-            "value": "24"
-          },
-          "SOFT_RESET_DELAY": {
-            "value": "25"
-          }
-        }
       },
       "zxsdcard_0": {
         "vlnv": "specnext.com:specnext:zxsdcard:1.0",
@@ -673,12 +568,6 @@
           }
         }
       },
-      "zxrtc_0": {
-        "vlnv": "specnext.com:specnext:zxrtc:1.1",
-        "xci_name": "zxnexys_zxrtc_0_0",
-        "xci_path": "ip\\zxnexys_zxrtc_0_0\\zxnexys_zxrtc_0_0.xci",
-        "inst_hier_path": "zxrtc_0"
-      },
       "zxkeyboard_0": {
         "vlnv": "specnext.com:specnext:zxkeyboard:1.1",
         "xci_name": "zxnexys_zxkeyboard_0_0",
@@ -702,6 +591,117 @@
         "xci_name": "zxnexys_pmod_rtcc_0_0",
         "xci_path": "ip\\zxnexys_pmod_rtcc_0_0\\zxnexys_pmod_rtcc_0_0.xci",
         "inst_hier_path": "pmod_rtcc_0"
+      },
+      "zxaudio_0": {
+        "vlnv": "specnext.com:specnext:zxaudio:2.0",
+        "xci_name": "zxnexys_zxaudio_0_1",
+        "xci_path": "ip\\zxnexys_zxaudio_0_1\\zxnexys_zxaudio_0_1.xci",
+        "inst_hier_path": "zxaudio_0",
+        "parameters": {
+          "PMOD_I2S2": {
+            "value": "true"
+          }
+        }
+      },
+      "zxrtc_0": {
+        "vlnv": "specnext.com:specnext:zxrtc:1.1",
+        "xci_name": "zxnexys_zxrtc_0_0",
+        "xci_path": "ip\\zxnexys_zxrtc_0_0\\zxnexys_zxrtc_0_0.xci",
+        "inst_hier_path": "zxrtc_0"
+      },
+      "zxreset_0": {
+        "vlnv": "specnext.com:specnext:zxreset:1.1",
+        "xci_name": "zxnexys_zxreset_0_0",
+        "xci_path": "ip\\zxnexys_zxreset_0_0\\zxnexys_zxreset_0_0.xci",
+        "inst_hier_path": "zxreset_0",
+        "parameters": {
+          "PERIPHERAL_RESET_DELAY": {
+            "value": "24"
+          },
+          "SOFT_RESET_DELAY": {
+            "value": "25"
+          }
+        }
+      },
+      "mig_reset_0": {
+        "vlnv": "xilinx.com:module_ref:mig_reset:1.0",
+        "xci_name": "zxnexys_mig_reset_0_0",
+        "xci_path": "ip\\zxnexys_mig_reset_0_0\\zxnexys_mig_reset_0_0.xci",
+        "inst_hier_path": "mig_reset_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mig_reset",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "aresetn": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "sys_reset_n": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "memory_reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "locked": {
+            "direction": "I"
+          },
+          "clk_200": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxnexys_zxclock_0_0_clk_system",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_ui": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "150015002",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxnexys_mig_7series_0_0_ui_clk",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -932,7 +932,7 @@
       "CPU_RESETN_1": {
         "ports": [
           "CPU_RESETN",
-          "zxreset_0/sys_reset_n_in"
+          "zxreset_0/cpu_resetn"
         ]
       },
       "SD_CD_1": {
@@ -998,8 +998,8 @@
       "clk_wiz_0_locked": {
         "ports": [
           "clk_wiz_0/locked",
-          "mig_reset_0/locked",
-          "zxreset_0/clk_locked"
+          "zxreset_0/clk_locked",
+          "mig_reset_0/locked"
         ]
       },
       "mig_7series_0_init_calib_complete": {
@@ -1017,8 +1017,8 @@
       "mig_7series_0_ui_clk": {
         "ports": [
           "mig_7series_0/ui_clk",
-          "mig_reset_0/clk_ui",
-          "zxram_0/clk_ui"
+          "zxram_0/clk_ui",
+          "mig_reset_0/clk_ui"
         ]
       },
       "mig_7series_0_ui_clk_sync_rst": {
@@ -1035,7 +1035,7 @@
       },
       "mig_reset_0_sys_reset": {
         "ports": [
-          "mig_reset_0/sys_reset",
+          "mig_reset_0/sys_reset_n",
           "mig_7series_0/sys_rst"
         ]
       },
@@ -1144,17 +1144,17 @@
       "zxclock_0_clk_peripheral": {
         "ports": [
           "zxclock_0/clk_peripheral",
-          "zxaudio_0/clk_peripheral",
           "zxesp32_0/clk_peripheral",
           "zxjoystick_0/clk_peripheral",
           "zxmonitor_0/clk_peripheral",
           "zxmouse_0/clk_peripheral",
-          "zxreset_0/clk_peripheral",
           "zxsdcard_0/clk_peripheral",
           "zxsdcard_1/clk_peripheral",
-          "zxrtc_0/clk_peripheral",
           "zxkeyboard_0/clk_peripheral",
-          "zxvideo_0/clk_peripheral"
+          "zxvideo_0/clk_peripheral",
+          "zxaudio_0/clk_peripheral",
+          "zxrtc_0/clk_peripheral",
+          "zxreset_0/clk_peripheral"
         ]
       },
       "zxclock_0_clk_peripheral_n": {
@@ -1220,25 +1220,24 @@
           "LED"
         ]
       },
+      "zxreset_0_memory_reset": {
+        "ports": [
+          "zxreset_0/memory_reset",
+          "mig_reset_0/memory_reset"
+        ]
+      },
       "zxreset_0_reset_peripheral": {
         "ports": [
           "zxreset_0/reset_peripheral",
-          "zxaudio_0/reset",
           "zxesp32_0/reset",
           "zxjoystick_0/reset",
           "zxmonitor_0/reset",
           "zxmouse_0/reset",
           "zxsdcard_0/reset",
           "zxsdcard_1/reset",
-          "zxrtc_0/reset",
-          "zxkeyboard_0/reset"
-        ]
-      },
-      "zxreset_0_sys_reset_n_out": {
-        "ports": [
-          "zxreset_0/sys_reset_n_out",
-          "mig_reset_0/reset_sys_n",
-          "clk_wiz_0/resetn"
+          "zxkeyboard_0/reset",
+          "zxaudio_0/reset",
+          "zxrtc_0/reset"
         ]
       },
       "zxsdcard_0_sd_cmd": {

@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-//
 // Copyright (C) 2021  Matthew J. Dovey
 //
 // This program is free software: you can redistribute it and/or modify
@@ -15,22 +14,28 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-// 
-// Create Date: 01.12.2021 19:46:17
-// Module Name: scaler
+
+// Create Date: 11.12.2021 13:22:07
+// Module Name: resets
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module scaler #(
-    parameter   AUDIO_DW_IN     =   13,
-    parameter   AUDIO_DW_OUT    =   16
-)(
-    input       [AUDIO_DW_IN-1:0]   din,
-    output      [AUDIO_DW_OUT-1:0]  dout
-);
-    
-//    assign  dout  = { din[AUDIO_DW_IN-1] == 1'b1 ? {AUDIO_DW_IN-2{1'b1}} :  din[AUDIO_DW_IN-2:0], {(AUDIO_DW_OUT-AUDIO_DW_IN+1){1'b0}}};   
-    assign  dout  = {din[AUDIO_DW_IN-1:0], {(AUDIO_DW_OUT-AUDIO_DW_IN){1'b0}}};   
+module rtc_reset (
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET reset:reset_n" *)	
+    input 		clk_peripheral,
 
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_n  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    output reg  reset_n,
+    
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
+    input	    reset
+    );
+    
+    always @(posedge clk_peripheral, posedge reset)
+        reset_n <= reset ? 1'b0 : 1'b1;
+    
 endmodule

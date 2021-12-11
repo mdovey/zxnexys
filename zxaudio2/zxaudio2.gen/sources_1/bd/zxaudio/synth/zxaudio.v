@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Dec 11 12:41:51 2021
+//Date        : Sat Dec 11 22:19:31 2021
 //Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 //Command     : generate_target zxaudio.bd
 //Design      : zxaudio
@@ -55,6 +55,7 @@ module zxaudio
   wire [15:0]DC_blocker_0_dout;
   wire [15:0]DC_blocker_1_dout;
   wire [12:0]audio_left_1;
+  wire audio_reset_0_rstn;
   wire [12:0]audio_right_1;
   wire clk_peripheral_1;
   wire clk_peripheral_2;
@@ -74,7 +75,6 @@ module zxaudio
   wire pwm_enable_0_tape_sd;
   wire reset_1;
   wire reset_2;
-  wire resets_0_reset_o_n;
   wire sigma_delta_dac_0_DACout;
   wire sigma_delta_dac_1_DACout;
 
@@ -98,6 +98,17 @@ module zxaudio
   assign tape_ear = ear_0_ear;
   assign tape_pwm = sigma_delta_dac_1_DACout;
   assign tape_sd = pwm_enable_0_tape_sd;
+  zxaudio_audio_reset_0_0 audio_reset_0
+       (.clk(clk_peripheral_1),
+        .reset(reset_2),
+        .rst(reset_1),
+        .rstn(audio_reset_0_rstn));
+  zxaudio_audio_scaler_0_0 audio_scaler_0
+       (.din(audio_left_1),
+        .dout(DC_blocker_0_dout));
+  zxaudio_audio_scaler_0_1 audio_scaler_1
+       (.din(audio_right_1),
+        .dout(DC_blocker_1_dout));
   zxaudio_ear_0_0 ear_0
        (.clk(clk_peripheral_1),
         .din(mono_2_mono_out),
@@ -108,7 +119,7 @@ module zxaudio
         .mclk(clk_peripheral_1),
         .r_data_rx(i2s_transceiver_0_r_data_rx),
         .r_data_tx(DC_blocker_1_dout),
-        .reset_n(resets_0_reset_o_n),
+        .reset_n(audio_reset_0_rstn),
         .sclk(i2s_transceiver_0_sclk),
         .sd_rx(linein_sdin_1),
         .sd_tx(i2s_transceiver_0_sd_tx),
@@ -130,17 +141,6 @@ module zxaudio
   zxaudio_pwm_enable_0_0 pwm_enable_0
        (.audio_sd(pwm_enable_0_audio_sd),
         .tape_sd(pwm_enable_0_tape_sd));
-  zxaudio_resets_0_0 resets_0
-       (.clk(clk_peripheral_1),
-        .reset(reset_2),
-        .rst(reset_1),
-        .rstn(resets_0_reset_o_n));
-  zxaudio_scaler_0_0 scaler_0
-       (.din(audio_left_1),
-        .dout(DC_blocker_0_dout));
-  zxaudio_scaler_0_1 scaler_1
-       (.din(audio_right_1),
-        .dout(DC_blocker_1_dout));
   zxaudio_sigma_delta_dac_0_2 sigma_delta_dac_0
        (.CLK(clk_peripheral_1),
         .DACin(mono_0_mono_out),

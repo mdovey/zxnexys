@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
+//
 // Copyright (C) 2021  Matthew J. Dovey
 //
 // This program is free software: you can redistribute it and/or modify
@@ -14,28 +15,35 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-// Create Date: 11.12.2021 13:22:07
+// 
+// Create Date: 01.12.2021 20:40:15
 // Module Name: resets
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module resets(
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
-(* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET reset:reset_n" *)	
-    input 		clk_peripheral,
+module audio_reset (
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)  
+    input   reset,
+    
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)  
+(* ASYNC_REG = "TRUE" *)
+    output reg rst,
 
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_n  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
-    output reg  reset_n,
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)  
+(* ASYNC_REG = "TRUE" *)
+    output reg rstn,
+
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET rst:rstn" *)
+    input clk
+);
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input	    reset
-    );
-    
-    always @(posedge clk_peripheral, posedge reset)
-        reset_n <= reset ? 1'b0 : 1'b1;
+    always @(posedge clk)
+    begin
+        rst  <=  reset;
+        rstn <= ~reset;
+    end
     
 endmodule
+

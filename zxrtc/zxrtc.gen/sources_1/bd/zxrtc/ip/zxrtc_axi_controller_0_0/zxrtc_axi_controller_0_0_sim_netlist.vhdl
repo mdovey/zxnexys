@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Dec 11 13:34:26 2021
+-- Date        : Sat Dec 11 22:58:03 2021
 -- Host        : JL69XDHR2 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top zxrtc_axi_controller_0_0 -prefix
---               zxrtc_axi_controller_0_0_ zxrtc_axi_controller_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               v:/zxnext/zxrtc/zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_axi_controller_0_0/zxrtc_axi_controller_0_0_sim_netlist.vhdl
 -- Design      : zxrtc_axi_controller_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -39,6 +39,8 @@ entity zxrtc_axi_controller_0_0_read is
     \ARADDR_reg[8]_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     RDATA : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxrtc_axi_controller_0_0_read : entity is "read";
 end zxrtc_axi_controller_0_0_read;
 
 architecture STRUCTURE of zxrtc_axi_controller_0_0_read is
@@ -538,6 +540,8 @@ entity zxrtc_axi_controller_0_0_write is
     \AWADDR_reg[8]_0\ : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \WDATA_reg[9]_0\ : in STD_LOGIC_VECTOR ( 9 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxrtc_axi_controller_0_0_write : entity is "write";
 end zxrtc_axi_controller_0_0_write;
 
 architecture STRUCTURE of zxrtc_axi_controller_0_0_write is
@@ -1264,6 +1268,8 @@ entity zxrtc_axi_controller_0_0_axi_controller is
     ARREADY : in STD_LOGIC;
     RVALID : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxrtc_axi_controller_0_0_axi_controller : entity is "axi_controller";
 end zxrtc_axi_controller_0_0_axi_controller;
 
 architecture STRUCTURE of zxrtc_axi_controller_0_0_axi_controller is
