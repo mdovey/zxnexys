@@ -11,8 +11,6 @@
       "validated": "true"
     },
     "design_tree": {
-      "sigma_delta_dac_0": "",
-      "sigma_delta_dac_1": "",
       "pwm_enable_0": "",
       "i2s_transceiver_0": "",
       "psg_0": "",
@@ -22,7 +20,9 @@
       "mic_0": "",
       "scaler_0": "",
       "scaler_1": "",
-      "ear_0": ""
+      "ear_0": "",
+      "sigma_delta_dac_0": "",
+      "sigma_delta_dac_1": ""
     },
     "ports": {
       "lineout_mclk": {
@@ -317,114 +317,6 @@
       }
     },
     "components": {
-      "sigma_delta_dac_0": {
-        "vlnv": "xilinx.com:module_ref:sigma_delta_dac:1.0",
-        "xci_name": "zxaudio_sigma_delta_dac_0_2",
-        "xci_path": "ip\\zxaudio_sigma_delta_dac_0_2\\zxaudio_sigma_delta_dac_0_2.xci",
-        "inst_hier_path": "sigma_delta_dac_0",
-        "parameters": {
-          "MSBI": {
-            "value": "15"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "sigma_delta_dac",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "DACout": {
-            "direction": "O"
-          },
-          "DACin": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "CLK": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "RESET",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "22580650",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxaudio_clk_audio",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "RESET": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "const_prop"
-              }
-            }
-          }
-        }
-      },
-      "sigma_delta_dac_1": {
-        "vlnv": "xilinx.com:module_ref:sigma_delta_dac:1.0",
-        "xci_name": "zxaudio_sigma_delta_dac_0_3",
-        "xci_path": "ip\\zxaudio_sigma_delta_dac_0_3\\zxaudio_sigma_delta_dac_0_3.xci",
-        "inst_hier_path": "sigma_delta_dac_1",
-        "parameters": {
-          "MSBI": {
-            "value": "15"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "sigma_delta_dac",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "DACout": {
-            "direction": "O"
-          },
-          "DACin": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "CLK": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "RESET",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "22580650",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxaudio_clk_audio",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "RESET": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "const_prop"
-              }
-            }
-          }
-        }
-      },
       "pwm_enable_0": {
         "vlnv": "xilinx.com:module_ref:pwm_enable:1.0",
         "xci_name": "zxaudio_pwm_enable_0_0",
@@ -847,6 +739,114 @@
             }
           }
         }
+      },
+      "sigma_delta_dac_0": {
+        "vlnv": "xilinx.com:module_ref:sigma_delta_dac:1.0",
+        "xci_name": "zxaudio_sigma_delta_dac_0_2",
+        "xci_path": "ip\\zxaudio_sigma_delta_dac_0_2\\zxaudio_sigma_delta_dac_0_2.xci",
+        "inst_hier_path": "sigma_delta_dac_0",
+        "parameters": {
+          "MSBI": {
+            "value": "15"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sigma_delta_dac",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "DACout": {
+            "direction": "O"
+          },
+          "DACin": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "22580650",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxaudio_clk_audio",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
+              }
+            }
+          }
+        }
+      },
+      "sigma_delta_dac_1": {
+        "vlnv": "xilinx.com:module_ref:sigma_delta_dac:1.0",
+        "xci_name": "zxaudio_sigma_delta_dac_0_3",
+        "xci_path": "ip\\zxaudio_sigma_delta_dac_0_3\\zxaudio_sigma_delta_dac_0_3.xci",
+        "inst_hier_path": "sigma_delta_dac_1",
+        "parameters": {
+          "MSBI": {
+            "value": "15"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "sigma_delta_dac",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "DACout": {
+            "direction": "O"
+          },
+          "DACin": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "RESET",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "22580650",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxaudio_clk_audio",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "RESET": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
@@ -881,11 +881,11 @@
           "clk_audio",
           "lineout_mclk",
           "linein_mclk",
-          "sigma_delta_dac_0/CLK",
-          "sigma_delta_dac_1/CLK",
           "i2s_transceiver_0/mclk",
           "resets_0/clk",
-          "ear_0/clk"
+          "ear_0/clk",
+          "sigma_delta_dac_0/CLK",
+          "sigma_delta_dac_1/CLK"
         ]
       },
       "clk_peripheral_2": {
@@ -983,8 +983,8 @@
       "reset_1": {
         "ports": [
           "resets_0/rst",
-          "sigma_delta_dac_1/RESET",
-          "sigma_delta_dac_0/RESET"
+          "sigma_delta_dac_0/RESET",
+          "sigma_delta_dac_1/RESET"
         ]
       },
       "reset_2": {

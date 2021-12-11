@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec  9 00:53:06 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 10:18:35 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxaudio" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -103,11 +103,11 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="External_Ports" PORT="lineout_mclk"/>
         <CONNECTION INSTANCE="External_Ports" PORT="linein_mclk"/>
-        <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="CLK"/>
-        <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="CLK"/>
         <CONNECTION INSTANCE="i2s_transceiver_0" PORT="mclk"/>
         <CONNECTION INSTANCE="resets_0" PORT="clk"/>
         <CONNECTION INSTANCE="ear_0" PORT="clk"/>
+        <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="CLK"/>
+        <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="CLK"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -371,8 +371,8 @@
         </PORT>
         <PORT DIR="O" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="resets_0_rst">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="RESET"/>
             <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="RESET"/>
+            <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="RESET"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rstn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="resets_0_rstn">

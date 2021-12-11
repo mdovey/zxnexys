@@ -1,0 +1,4 @@
+Source: Digikey
+Link: https://forum.digikey.com/t/i2s-transceiver-vhdl/12845
+License:
+
