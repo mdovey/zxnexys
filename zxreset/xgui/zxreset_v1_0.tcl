@@ -3,7 +3,6 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "Component_Name"
   #Adding Page
   set Page_0 [ipgui::add_page $IPINST -name "Page 0" -display_name {Resets}]
-  ipgui::add_param $IPINST -name "HARD_SYS_RESET" -parent ${Page_0}
   ipgui::add_param $IPINST -name "HARD_RESET_DELAY" -parent ${Page_0}
   ipgui::add_param $IPINST -name "SOFT_RESET_DELAY" -parent ${Page_0}
   ipgui::add_param $IPINST -name "PERIPHERAL_RESET_DELAY" -parent ${Page_0}
@@ -23,15 +22,6 @@ proc update_PARAM_VALUE.HARD_RESET_DELAY { PARAM_VALUE.HARD_RESET_DELAY } {
 
 proc validate_PARAM_VALUE.HARD_RESET_DELAY { PARAM_VALUE.HARD_RESET_DELAY } {
 	# Procedure called to validate HARD_RESET_DELAY
-	return true
-}
-
-proc update_PARAM_VALUE.HARD_SYS_RESET { PARAM_VALUE.HARD_SYS_RESET } {
-	# Procedure called to update HARD_SYS_RESET when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.HARD_SYS_RESET { PARAM_VALUE.HARD_SYS_RESET } {
-	# Procedure called to validate HARD_SYS_RESET
 	return true
 }
 
@@ -89,11 +79,6 @@ proc update_MODELPARAM_VALUE.SYNC_STAGES { MODELPARAM_VALUE.SYNC_STAGES PARAM_VA
 proc update_MODELPARAM_VALUE.PIPELINE_STAGES { MODELPARAM_VALUE.PIPELINE_STAGES PARAM_VALUE.PIPELINE_STAGES } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.PIPELINE_STAGES}] ${MODELPARAM_VALUE.PIPELINE_STAGES}
-}
-
-proc update_MODELPARAM_VALUE.HARD_SYS_RESET { MODELPARAM_VALUE.HARD_SYS_RESET PARAM_VALUE.HARD_SYS_RESET } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.HARD_SYS_RESET}] ${MODELPARAM_VALUE.HARD_SYS_RESET}
 }
 
 proc update_MODELPARAM_VALUE.HARD_RESET_DELAY { MODELPARAM_VALUE.HARD_RESET_DELAY PARAM_VALUE.HARD_RESET_DELAY } {

@@ -1,35 +1,32 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// Copyright (C) 2021  Matthew J. Dovey
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // 
 // Create Date: 03.10.2021 14:59:40
-// Design Name: 
 // Module Name: zxreset
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
 module zxreset #(
-    parameter HARD_SYS_RESET            = 0,  
     parameter HARD_RESET_DELAY          = 26,
     parameter SOFT_RESET_DELAY          = 25,
     parameter PERIPHERAL_RESET_DELAY    = 24,
     parameter SYNC_STAGES               = 3,
     parameter PIPELINE_STAGES           = 1
 )(
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_mb_hard  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    output  	reset_mb_hard,
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_mb_soft  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
     output  	reset_mb_soft,
@@ -57,7 +54,7 @@ module zxreset #(
     input       mem_locked_1,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
-(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_mb_hard:reset_mb_soft:reset_peripheral:reset_peripheral_n" *)
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_mb_soft:reset_peripheral:reset_peripheral_n" *)
     input 		clk_peripheral,
     
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  sys_reset_n_out  RST" *)
@@ -72,16 +69,8 @@ module zxreset #(
 	wire soft_reset;
 	wire peripheral_reset;
 	
-	assign sys_reset_n_out     = (HARD_SYS_RESET == 1 ? sys_reset_n_in : 1'b1 ) & ~in_reset_hard;	
+	assign sys_reset_n_out     = ~in_reset_hard;	
 	assign reset_peripheral_n  = ~reset_peripheral;
-
-	delay #(
-	   .DELAY(HARD_RESET_DELAY)
-	) delay_hard (
-	   .reset(hard_reset),
-	   .out(reset_mb_hard),
-	   .clk(clk_peripheral)
-	);
     
 	delay #(
 	   .DELAY(SOFT_RESET_DELAY)
@@ -105,7 +94,7 @@ module zxreset #(
 	   .INIT(1'b0)
 	) sync_sys_ready (
 	   .clk(clk_peripheral),
-	   .async_in(~mem_locked_0 | ~mem_locked_1 | ~clk_locked | in_reset_hard | ~sys_reset_n_out),
+	   .async_in(~mem_locked_0 | ~mem_locked_1 | ~clk_locked | in_reset_hard),
 	   .sync_out(hard_reset)
 	);
 
