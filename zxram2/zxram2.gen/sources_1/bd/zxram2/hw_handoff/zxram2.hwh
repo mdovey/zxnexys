@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec  8 12:44:36 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 13:04:49 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxram2" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -36,9 +36,9 @@
     </PORT>
     <PORT CLKFREQUENCY="150015000" DIR="I" NAME="clk_ui" SIGIS="clk" SIGNAME="External_Ports_clk_ui">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="reset_logic_0" PORT="clk_ui"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="M00_ACLK"/>
+        <CONNECTION INSTANCE="reset_logic_0" PORT="clk_ui"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="reset_ui" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset_ui">
@@ -63,25 +63,25 @@
     </PORT>
     <PORT CLKFREQUENCY="140000000" DIR="I" NAME="clk_memory" SIGIS="clk" SIGNAME="External_Ports_clk_memory">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="reset_logic_0" PORT="clk_memory"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S03_ACLK"/>
+        <CONNECTION INSTANCE="bram_read_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="bram_write_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="bram_write_1" PORT="clk_memory"/>
         <CONNECTION INSTANCE="input_logic_0" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="write_a" PORT="clk_memory"/>
         <CONNECTION INSTANCE="read_a" PORT="clk_memory"/>
         <CONNECTION INSTANCE="read_b1" PORT="clk_memory"/>
         <CONNECTION INSTANCE="read_b0" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="bram_write_0" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="bram_write_1" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="bram_read_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="reset_logic_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="write_a" PORT="clk_memory"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral_n">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="output_logic_0" PORT="clk_peripheral_n"/>
         <CONNECTION INSTANCE="input_logic_0" PORT="clk_peripheral_n"/>
+        <CONNECTION INSTANCE="output_logic_0" PORT="clk_peripheral_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="1" NAME="axi_mig_awid" RIGHT="0" SIGIS="undef" SIGNAME="axi_interconnect_0_M00_AXI_awid">
@@ -2240,15 +2240,15 @@
         </PORT>
         <PORT DIR="O" NAME="re_b" SIGIS="undef" SIGNAME="input_logic_0_re_b">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="read_b0" PORT="en"/>
-            <CONNECTION INSTANCE="read_b1" PORT="en"/>
             <CONNECTION INSTANCE="bram_read_0" PORT="en"/>
+            <CONNECTION INSTANCE="read_b1" PORT="en"/>
+            <CONNECTION INSTANCE="read_b0" PORT="en"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="20" NAME="ram_a_addr_reg" RIGHT="0" SIGIS="undef" SIGNAME="input_logic_0_ram_a_addr_reg">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="write_a" PORT="addr"/>
             <CONNECTION INSTANCE="read_a" PORT="addr"/>
+            <CONNECTION INSTANCE="write_a" PORT="addr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="20" NAME="ram_b_addr_reg" RIGHT="0" SIGIS="undef" SIGNAME="input_logic_0_ram_b_addr_reg">
@@ -2929,10 +2929,10 @@
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S03_ARESETN"/>
-            <CONNECTION INSTANCE="write_a" PORT="aresetn"/>
             <CONNECTION INSTANCE="read_a" PORT="aresetn"/>
             <CONNECTION INSTANCE="read_b1" PORT="aresetn"/>
             <CONNECTION INSTANCE="read_b0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="write_a" PORT="aresetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="aresetn_ui" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="reset_logic_0_aresetn_ui">

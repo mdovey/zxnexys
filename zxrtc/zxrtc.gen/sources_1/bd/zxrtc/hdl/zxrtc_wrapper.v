@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Thu Dec  9 10:55:21 2021
+//Date        : Sat Dec 11 13:39:26 2021
 //Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 //Command     : generate_target zxrtc_wrapper.bd
 //Design      : zxrtc_wrapper
@@ -10,89 +10,57 @@
 `timescale 1 ps / 1 ps
 
 module zxrtc_wrapper
-   (axi_rtc_araddr,
-    axi_rtc_arready,
-    axi_rtc_arvalid,
-    axi_rtc_awaddr,
-    axi_rtc_awready,
-    axi_rtc_awvalid,
-    axi_rtc_bready,
-    axi_rtc_bvalid,
-    axi_rtc_rdata,
-    axi_rtc_rready,
-    axi_rtc_rvalid,
-    axi_rtc_wdata,
-    axi_rtc_wready,
-    axi_rtc_wstrb,
-    axi_rtc_wvalid,
-    clk_peripheral,
+   (clk_peripheral,
     reset,
+    rtc_iic_scl_io,
+    rtc_iic_sda_io,
     scl_i,
     scl_o,
     sda_i,
     sda_o);
-  output [8:0]axi_rtc_araddr;
-  input axi_rtc_arready;
-  output axi_rtc_arvalid;
-  output [8:0]axi_rtc_awaddr;
-  input axi_rtc_awready;
-  output axi_rtc_awvalid;
-  output axi_rtc_bready;
-  input axi_rtc_bvalid;
-  input [31:0]axi_rtc_rdata;
-  output axi_rtc_rready;
-  input axi_rtc_rvalid;
-  output [31:0]axi_rtc_wdata;
-  input axi_rtc_wready;
-  output [3:0]axi_rtc_wstrb;
-  output axi_rtc_wvalid;
   input clk_peripheral;
   input reset;
+  inout rtc_iic_scl_io;
+  inout rtc_iic_sda_io;
   input scl_i;
   output scl_o;
   input sda_i;
   output sda_o;
 
-  wire [8:0]axi_rtc_araddr;
-  wire axi_rtc_arready;
-  wire axi_rtc_arvalid;
-  wire [8:0]axi_rtc_awaddr;
-  wire axi_rtc_awready;
-  wire axi_rtc_awvalid;
-  wire axi_rtc_bready;
-  wire axi_rtc_bvalid;
-  wire [31:0]axi_rtc_rdata;
-  wire axi_rtc_rready;
-  wire axi_rtc_rvalid;
-  wire [31:0]axi_rtc_wdata;
-  wire axi_rtc_wready;
-  wire [3:0]axi_rtc_wstrb;
-  wire axi_rtc_wvalid;
   wire clk_peripheral;
   wire reset;
+  wire rtc_iic_scl_i;
+  wire rtc_iic_scl_io;
+  wire rtc_iic_scl_o;
+  wire rtc_iic_scl_t;
+  wire rtc_iic_sda_i;
+  wire rtc_iic_sda_io;
+  wire rtc_iic_sda_o;
+  wire rtc_iic_sda_t;
   wire scl_i;
   wire scl_o;
   wire sda_i;
   wire sda_o;
 
+  IOBUF rtc_iic_scl_iobuf
+       (.I(rtc_iic_scl_o),
+        .IO(rtc_iic_scl_io),
+        .O(rtc_iic_scl_i),
+        .T(rtc_iic_scl_t));
+  IOBUF rtc_iic_sda_iobuf
+       (.I(rtc_iic_sda_o),
+        .IO(rtc_iic_sda_io),
+        .O(rtc_iic_sda_i),
+        .T(rtc_iic_sda_t));
   zxrtc zxrtc_i
-       (.axi_rtc_araddr(axi_rtc_araddr),
-        .axi_rtc_arready(axi_rtc_arready),
-        .axi_rtc_arvalid(axi_rtc_arvalid),
-        .axi_rtc_awaddr(axi_rtc_awaddr),
-        .axi_rtc_awready(axi_rtc_awready),
-        .axi_rtc_awvalid(axi_rtc_awvalid),
-        .axi_rtc_bready(axi_rtc_bready),
-        .axi_rtc_bvalid(axi_rtc_bvalid),
-        .axi_rtc_rdata(axi_rtc_rdata),
-        .axi_rtc_rready(axi_rtc_rready),
-        .axi_rtc_rvalid(axi_rtc_rvalid),
-        .axi_rtc_wdata(axi_rtc_wdata),
-        .axi_rtc_wready(axi_rtc_wready),
-        .axi_rtc_wstrb(axi_rtc_wstrb),
-        .axi_rtc_wvalid(axi_rtc_wvalid),
-        .clk_peripheral(clk_peripheral),
+       (.clk_peripheral(clk_peripheral),
         .reset(reset),
+        .rtc_iic_scl_i(rtc_iic_scl_i),
+        .rtc_iic_scl_o(rtc_iic_scl_o),
+        .rtc_iic_scl_t(rtc_iic_scl_t),
+        .rtc_iic_sda_i(rtc_iic_sda_i),
+        .rtc_iic_sda_o(rtc_iic_sda_o),
+        .rtc_iic_sda_t(rtc_iic_sda_t),
         .scl_i(scl_i),
         .scl_o(scl_o),
         .sda_i(sda_i),
