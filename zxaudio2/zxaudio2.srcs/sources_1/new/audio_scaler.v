@@ -16,34 +16,21 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // 
-// Create Date: 01.12.2021 20:40:15
-// Module Name: resets
+// Create Date: 01.12.2021 19:46:17
+// Module Name: scaler
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module resets(
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)  
-    input   reset,
-    
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)  
-(* ASYNC_REG = "TRUE" *)
-    output reg rst,
-
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)  
-(* ASYNC_REG = "TRUE" *)
-    output reg rstn,
-
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
-(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET rst:rstn" *)
-    input clk
+module audio_scaler #(
+    parameter   AUDIO_DW_IN     =   13,
+    parameter   AUDIO_DW_OUT    =   16
+)(
+    input       [AUDIO_DW_IN-1:0]   din,
+    output      [AUDIO_DW_OUT-1:0]  dout
 );
     
-    always @(posedge clk)
-    begin
-        rst  <=  reset;
-        rstn <= ~reset;
-    end
-    
-endmodule
+//    assign  dout  = { din[AUDIO_DW_IN-1] == 1'b1 ? {AUDIO_DW_IN-2{1'b1}} :  din[AUDIO_DW_IN-2:0], {(AUDIO_DW_OUT-AUDIO_DW_IN+1){1'b0}}};   
+    assign  dout  = {din[AUDIO_DW_IN-1:0], {(AUDIO_DW_OUT-AUDIO_DW_IN){1'b0}}};   
 
+endmodule

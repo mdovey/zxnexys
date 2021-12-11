@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Dec 11 13:34:26 2021
+// Date        : Sat Dec 11 22:58:02 2021
 // Host        : JL69XDHR2 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top zxrtc_axi_controller_0_0 -prefix
-//               zxrtc_axi_controller_0_0_ zxrtc_axi_controller_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               v:/zxnext/zxrtc/zxrtc.gen/sources_1/bd/zxrtc/ip/zxrtc_axi_controller_0_0/zxrtc_axi_controller_0_0_sim_netlist.v
 // Design      : zxrtc_axi_controller_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,151 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "zxrtc_axi_controller_0_0,axi_controller,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "axi_controller,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxrtc_axi_controller_0_0
+   (AWVALID,
+    AWREADY,
+    WVALID,
+    WREADY,
+    BVALID,
+    BREADY,
+    AWADDR,
+    WDATA,
+    WSTRB,
+    ARVALID,
+    ARREADY,
+    RVALID,
+    RREADY,
+    ARADDR,
+    RDATA,
+    wr_data,
+    wr_en,
+    wr_ack,
+    rd_data,
+    rd_en,
+    empty,
+    clk_peripheral,
+    reset);
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWVALID" *) output AWVALID;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWREADY" *) input AWREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WVALID" *) output WVALID;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WREADY" *) input WREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BVALID" *) input BVALID;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BREADY" *) output BREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWADDR" *) output [8:0]AWADDR;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WDATA" *) output [31:0]WDATA;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WSTRB" *) output [3:0]WSTRB;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARVALID" *) output ARVALID;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARREADY" *) input ARREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RVALID" *) input RVALID;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RREADY" *) output RREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR" *) output [8:0]ARADDR;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 28000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 0, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN zxrtc_clk_peripheral, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [31:0]RDATA;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 fifo_write WR_DATA" *) output [13:0]wr_data;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 fifo_write WR_EN" *) output wr_en;
+  input wr_ack;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 fifo_read RD_DATA" *) (* X_INTERFACE_MODE = "MASTER" *) input [14:0]rd_data;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 fifo_read RD_EN" *) output rd_en;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 fifo_read EMPTY" *) input empty;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, ASSOCIATED_BUSIF interface_aximm, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxrtc_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+
+  wire \<const0> ;
+  wire \<const1> ;
+  wire [8:2]\^ARADDR ;
+  wire ARREADY;
+  wire ARVALID;
+  wire [8:2]\^AWADDR ;
+  wire AWVALID;
+  wire BREADY;
+  wire BVALID;
+  wire [31:0]RDATA;
+  wire RREADY;
+  wire RVALID;
+  wire [9:0]\^WDATA ;
+  wire WREADY;
+  wire WVALID;
+  wire clk_peripheral;
+  wire empty;
+  wire [14:0]rd_data;
+  wire rd_en;
+  wire reset;
+  wire wr_ack;
+  wire [13:0]wr_data;
+  wire wr_en;
+
+  assign ARADDR[8] = \^ARADDR [8];
+  assign ARADDR[7] = \<const0> ;
+  assign ARADDR[6:5] = \^ARADDR [6:5];
+  assign ARADDR[4] = \<const0> ;
+  assign ARADDR[3:2] = \^ARADDR [3:2];
+  assign ARADDR[1] = \<const0> ;
+  assign ARADDR[0] = \<const0> ;
+  assign AWADDR[8] = \^AWADDR [8];
+  assign AWADDR[7] = \<const0> ;
+  assign AWADDR[6:5] = \^AWADDR [6:5];
+  assign AWADDR[4] = \<const0> ;
+  assign AWADDR[3:2] = \^AWADDR [3:2];
+  assign AWADDR[1] = \<const0> ;
+  assign AWADDR[0] = \<const0> ;
+  assign WDATA[31] = \<const0> ;
+  assign WDATA[30] = \<const0> ;
+  assign WDATA[29] = \<const0> ;
+  assign WDATA[28] = \<const0> ;
+  assign WDATA[27] = \<const0> ;
+  assign WDATA[26] = \<const0> ;
+  assign WDATA[25] = \<const0> ;
+  assign WDATA[24] = \<const0> ;
+  assign WDATA[23] = \<const0> ;
+  assign WDATA[22] = \<const0> ;
+  assign WDATA[21] = \<const0> ;
+  assign WDATA[20] = \<const0> ;
+  assign WDATA[19] = \<const0> ;
+  assign WDATA[18] = \<const0> ;
+  assign WDATA[17] = \<const0> ;
+  assign WDATA[16] = \<const0> ;
+  assign WDATA[15] = \<const0> ;
+  assign WDATA[14] = \<const0> ;
+  assign WDATA[13] = \<const0> ;
+  assign WDATA[12] = \<const0> ;
+  assign WDATA[11] = \<const0> ;
+  assign WDATA[10] = \<const0> ;
+  assign WDATA[9:0] = \^WDATA [9:0];
+  assign WSTRB[3] = \<const1> ;
+  assign WSTRB[2] = \<const1> ;
+  assign WSTRB[1] = \<const1> ;
+  assign WSTRB[0] = \<const1> ;
+  GND GND
+       (.G(\<const0> ));
+  VCC VCC
+       (.P(\<const1> ));
+  zxrtc_axi_controller_0_0_axi_controller inst
+       (.ARADDR({\^ARADDR [8],\^ARADDR [6:5],\^ARADDR [3:2]}),
+        .ARREADY(ARREADY),
+        .ARVALID(ARVALID),
+        .AWADDR({\^AWADDR [8],\^AWADDR [6:5],\^AWADDR [3:2]}),
+        .AWVALID(AWVALID),
+        .BREADY_reg(BREADY),
+        .BVALID(BVALID),
+        .RDATA(RDATA[7:0]),
+        .RREADY_reg(RREADY),
+        .RVALID(RVALID),
+        .WDATA(\^WDATA ),
+        .WREADY(WREADY),
+        .WVALID(WVALID),
+        .clk_peripheral(clk_peripheral),
+        .empty(empty),
+        .rd_data(rd_data),
+        .rd_en(rd_en),
+        .reset(reset),
+        .wr_ack(wr_ack),
+        .wr_data(wr_data),
+        .wr_en(wr_en));
+endmodule
+
+(* ORIG_REF_NAME = "axi_controller" *) 
 module zxrtc_axi_controller_0_0_axi_controller
    (AWADDR,
     WDATA,
@@ -1464,6 +1609,7 @@ module zxrtc_axi_controller_0_0_axi_controller
         .wr_ack(wr_ack));
 endmodule
 
+(* ORIG_REF_NAME = "read" *) 
 module zxrtc_axi_controller_0_0_read
    (RREADY_reg_0,
     ARVALID,
@@ -1864,6 +2010,7 @@ module zxrtc_axi_controller_0_0_read
         .S(Q[5]));
 endmodule
 
+(* ORIG_REF_NAME = "write" *) 
 module zxrtc_axi_controller_0_0_write
    (BREADY_reg_0,
     AWVALID,
@@ -2511,150 +2658,6 @@ module zxrtc_axi_controller_0_0_write
         .D(WVALID_i_1_n_0),
         .Q(WVALID),
         .R(1'b0));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "zxrtc_axi_controller_0_0,axi_controller,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "axi_controller,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxrtc_axi_controller_0_0
-   (AWVALID,
-    AWREADY,
-    WVALID,
-    WREADY,
-    BVALID,
-    BREADY,
-    AWADDR,
-    WDATA,
-    WSTRB,
-    ARVALID,
-    ARREADY,
-    RVALID,
-    RREADY,
-    ARADDR,
-    RDATA,
-    wr_data,
-    wr_en,
-    wr_ack,
-    rd_data,
-    rd_en,
-    empty,
-    clk_peripheral,
-    reset);
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWVALID" *) output AWVALID;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWREADY" *) input AWREADY;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WVALID" *) output WVALID;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WREADY" *) input WREADY;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BVALID" *) input BVALID;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BREADY" *) output BREADY;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWADDR" *) output [8:0]AWADDR;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WDATA" *) output [31:0]WDATA;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WSTRB" *) output [3:0]WSTRB;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARVALID" *) output ARVALID;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARREADY" *) input ARREADY;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RVALID" *) input RVALID;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RREADY" *) output RREADY;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR" *) output [8:0]ARADDR;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 28000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 0, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN zxrtc_clk_peripheral, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [31:0]RDATA;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 fifo_write WR_DATA" *) output [13:0]wr_data;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_write:1.0 fifo_write WR_EN" *) output wr_en;
-  input wr_ack;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 fifo_read RD_DATA" *) (* X_INTERFACE_MODE = "MASTER" *) input [14:0]rd_data;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 fifo_read RD_EN" *) output rd_en;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:fifo_read:1.0 fifo_read EMPTY" *) input empty;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, ASSOCIATED_BUSIF interface_aximm, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxrtc_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-
-  wire \<const0> ;
-  wire \<const1> ;
-  wire [8:2]\^ARADDR ;
-  wire ARREADY;
-  wire ARVALID;
-  wire [8:2]\^AWADDR ;
-  wire AWVALID;
-  wire BREADY;
-  wire BVALID;
-  wire [31:0]RDATA;
-  wire RREADY;
-  wire RVALID;
-  wire [9:0]\^WDATA ;
-  wire WREADY;
-  wire WVALID;
-  wire clk_peripheral;
-  wire empty;
-  wire [14:0]rd_data;
-  wire rd_en;
-  wire reset;
-  wire wr_ack;
-  wire [13:0]wr_data;
-  wire wr_en;
-
-  assign ARADDR[8] = \^ARADDR [8];
-  assign ARADDR[7] = \<const0> ;
-  assign ARADDR[6:5] = \^ARADDR [6:5];
-  assign ARADDR[4] = \<const0> ;
-  assign ARADDR[3:2] = \^ARADDR [3:2];
-  assign ARADDR[1] = \<const0> ;
-  assign ARADDR[0] = \<const0> ;
-  assign AWADDR[8] = \^AWADDR [8];
-  assign AWADDR[7] = \<const0> ;
-  assign AWADDR[6:5] = \^AWADDR [6:5];
-  assign AWADDR[4] = \<const0> ;
-  assign AWADDR[3:2] = \^AWADDR [3:2];
-  assign AWADDR[1] = \<const0> ;
-  assign AWADDR[0] = \<const0> ;
-  assign WDATA[31] = \<const0> ;
-  assign WDATA[30] = \<const0> ;
-  assign WDATA[29] = \<const0> ;
-  assign WDATA[28] = \<const0> ;
-  assign WDATA[27] = \<const0> ;
-  assign WDATA[26] = \<const0> ;
-  assign WDATA[25] = \<const0> ;
-  assign WDATA[24] = \<const0> ;
-  assign WDATA[23] = \<const0> ;
-  assign WDATA[22] = \<const0> ;
-  assign WDATA[21] = \<const0> ;
-  assign WDATA[20] = \<const0> ;
-  assign WDATA[19] = \<const0> ;
-  assign WDATA[18] = \<const0> ;
-  assign WDATA[17] = \<const0> ;
-  assign WDATA[16] = \<const0> ;
-  assign WDATA[15] = \<const0> ;
-  assign WDATA[14] = \<const0> ;
-  assign WDATA[13] = \<const0> ;
-  assign WDATA[12] = \<const0> ;
-  assign WDATA[11] = \<const0> ;
-  assign WDATA[10] = \<const0> ;
-  assign WDATA[9:0] = \^WDATA [9:0];
-  assign WSTRB[3] = \<const1> ;
-  assign WSTRB[2] = \<const1> ;
-  assign WSTRB[1] = \<const1> ;
-  assign WSTRB[0] = \<const1> ;
-  GND GND
-       (.G(\<const0> ));
-  VCC VCC
-       (.P(\<const1> ));
-  zxrtc_axi_controller_0_0_axi_controller inst
-       (.ARADDR({\^ARADDR [8],\^ARADDR [6:5],\^ARADDR [3:2]}),
-        .ARREADY(ARREADY),
-        .ARVALID(ARVALID),
-        .AWADDR({\^AWADDR [8],\^AWADDR [6:5],\^AWADDR [3:2]}),
-        .AWVALID(AWVALID),
-        .BREADY_reg(BREADY),
-        .BVALID(BVALID),
-        .RDATA(RDATA[7:0]),
-        .RREADY_reg(RREADY),
-        .RVALID(RVALID),
-        .WDATA(\^WDATA ),
-        .WREADY(WREADY),
-        .WVALID(WVALID),
-        .clk_peripheral(clk_peripheral),
-        .empty(empty),
-        .rd_data(rd_data),
-        .rd_en(rd_en),
-        .reset(reset),
-        .wr_ack(wr_ack),
-        .wr_data(wr_data),
-        .wr_en(wr_en));
 endmodule
 `ifndef GLBL
 `define GLBL

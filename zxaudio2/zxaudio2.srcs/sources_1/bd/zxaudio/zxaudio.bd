@@ -20,9 +20,9 @@
       "mono_1": "",
       "psg_0": "",
       "pwm_enable_0": "",
-      "resets_0": "",
-      "scaler_0": "",
-      "scaler_1": ""
+      "audio_scaler_0": "",
+      "audio_scaler_1": "",
+      "audio_reset_0": ""
     },
     "ports": {
       "lineout_mclk": {
@@ -691,14 +691,66 @@
           }
         }
       },
-      "resets_0": {
-        "vlnv": "xilinx.com:module_ref:resets:1.0",
-        "xci_name": "zxaudio_resets_0_0",
-        "xci_path": "ip\\zxaudio_resets_0_0\\zxaudio_resets_0_0.xci",
-        "inst_hier_path": "resets_0",
+      "audio_scaler_0": {
+        "vlnv": "xilinx.com:module_ref:audio_scaler:1.0",
+        "xci_name": "zxaudio_audio_scaler_0_0",
+        "xci_path": "ip\\zxaudio_audio_scaler_0_0\\zxaudio_audio_scaler_0_0.xci",
+        "inst_hier_path": "audio_scaler_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "resets",
+          "ref_name": "audio_scaler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "din": {
+            "direction": "I",
+            "left": "12",
+            "right": "0",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "audio_scaler_1": {
+        "vlnv": "xilinx.com:module_ref:audio_scaler:1.0",
+        "xci_name": "zxaudio_audio_scaler_0_1",
+        "xci_path": "ip\\zxaudio_audio_scaler_0_1\\zxaudio_audio_scaler_0_1.xci",
+        "inst_hier_path": "audio_scaler_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "audio_scaler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "din": {
+            "direction": "I",
+            "left": "12",
+            "right": "0"
+          },
+          "dout": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "audio_reset_0": {
+        "vlnv": "xilinx.com:module_ref:audio_reset:1.0",
+        "xci_name": "zxaudio_audio_reset_0_0",
+        "xci_path": "ip\\zxaudio_audio_reset_0_0\\zxaudio_audio_reset_0_0.xci",
+        "inst_hier_path": "audio_reset_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "audio_reset",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -751,71 +803,19 @@
             }
           }
         }
-      },
-      "scaler_0": {
-        "vlnv": "xilinx.com:module_ref:scaler:1.0",
-        "xci_name": "zxaudio_scaler_0_0",
-        "xci_path": "ip\\zxaudio_scaler_0_0\\zxaudio_scaler_0_0.xci",
-        "inst_hier_path": "scaler_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "scaler",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "din": {
-            "direction": "I",
-            "left": "12",
-            "right": "0",
-            "parameters": {
-              "LAYERED_METADATA": {
-                "value": "undef",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "dout": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "scaler_1": {
-        "vlnv": "xilinx.com:module_ref:scaler:1.0",
-        "xci_name": "zxaudio_scaler_0_1",
-        "xci_path": "ip\\zxaudio_scaler_0_1\\zxaudio_scaler_0_1.xci",
-        "inst_hier_path": "scaler_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "scaler",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "din": {
-            "direction": "I",
-            "left": "12",
-            "right": "0"
-          },
-          "dout": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
       }
     },
     "nets": {
       "DC_blocker_0_dout": {
         "ports": [
-          "scaler_0/dout",
+          "audio_scaler_0/dout",
           "i2s_transceiver_0/l_data_tx",
           "mono_0/left_in"
         ]
       },
       "DC_blocker_1_dout": {
         "ports": [
-          "scaler_1/dout",
+          "audio_scaler_1/dout",
           "i2s_transceiver_0/r_data_tx",
           "mono_0/right_in"
         ]
@@ -823,13 +823,19 @@
       "audio_left_1": {
         "ports": [
           "audio_left",
-          "scaler_0/din"
+          "audio_scaler_0/din"
+        ]
+      },
+      "audio_reset_0_rstn": {
+        "ports": [
+          "audio_reset_0/rstn",
+          "i2s_transceiver_0/reset_n"
         ]
       },
       "audio_right_1": {
         "ports": [
           "audio_right",
-          "scaler_1/din"
+          "audio_scaler_1/din"
         ]
       },
       "clk_peripheral_1": {
@@ -841,7 +847,7 @@
           "sigma_delta_dac_1/CLK",
           "i2s_transceiver_0/mclk",
           "ear_0/clk",
-          "resets_0/clk"
+          "audio_reset_0/clk"
         ]
       },
       "clk_peripheral_2": {
@@ -938,7 +944,7 @@
       },
       "reset_1": {
         "ports": [
-          "resets_0/rst",
+          "audio_reset_0/rst",
           "sigma_delta_dac_0/RESET",
           "sigma_delta_dac_1/RESET"
         ]
@@ -946,13 +952,7 @@
       "reset_2": {
         "ports": [
           "reset",
-          "resets_0/reset"
-        ]
-      },
-      "resets_0_reset_o_n": {
-        "ports": [
-          "resets_0/rstn",
-          "i2s_transceiver_0/reset_n"
+          "audio_reset_0/reset"
         ]
       },
       "sigma_delta_dac_0_DACout": {

@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Dec 11 14:09:32 2021
+//Date        : Sat Dec 11 22:12:51 2021
 //Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 //Command     : generate_target zxrtc.bd
 //Design      : zxrtc
@@ -69,12 +69,12 @@ module zxrtc
   wire i2c_agent_0_fifo_write_WR_EN;
   wire [7:0]registers_0_rd_data_o;
   wire reset_1;
-  wire resets_0_reset_n;
   wire [7:0]rtc_0_data_o;
   wire [5:0]rtc_0_rd_reg_o;
   wire rtc_0_sda_o;
   wire rtc_0_update_t;
   wire [5:0]rtc_0_wr_reg_o;
+  wire rtc_reset_0_reset_n;
   wire rtc_scl_i_1;
   wire rtc_sda_i_1;
   wire scl_i_1;
@@ -119,7 +119,7 @@ module zxrtc
   zxrtc_axi_iic_0_0 axi_iic_0
        (.s_axi_aclk(clk_peripheral_1),
         .s_axi_araddr(axi_controller_0_interface_aximm_ARADDR),
-        .s_axi_aresetn(resets_0_reset_n),
+        .s_axi_aresetn(rtc_reset_0_reset_n),
         .s_axi_arready(axi_controller_0_interface_aximm_ARREADY),
         .s_axi_arvalid(axi_controller_0_interface_aximm_ARVALID),
         .s_axi_awaddr(axi_controller_0_interface_aximm_AWADDR),
@@ -167,10 +167,6 @@ module zxrtc
         .wr_data_i(rtc_0_data_o),
         .wr_en(i2c_agent_0_fifo_write_WR_EN),
         .wr_reg_i(rtc_0_wr_reg_o));
-  zxrtc_resets_0_0 resets_0
-       (.clk_peripheral(clk_peripheral_1),
-        .reset(reset_1),
-        .reset_n(resets_0_reset_n));
   zxrtc_rtc_0_0 rtc_0
        (.clk(clk_peripheral_1),
         .data_i(registers_0_rd_data_o),
@@ -182,4 +178,8 @@ module zxrtc
         .sda_o(rtc_0_sda_o),
         .update_t(rtc_0_update_t),
         .wr_reg_o(rtc_0_wr_reg_o));
+  zxrtc_rtc_reset_0_0 rtc_reset_0
+       (.clk_peripheral(clk_peripheral_1),
+        .reset(reset_1),
+        .reset_n(rtc_reset_0_reset_n));
 endmodule

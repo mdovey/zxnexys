@@ -17,7 +17,7 @@
       "registers_0": "",
       "axi_controller_0": "",
       "axi_iic_0": "",
-      "resets_0": ""
+      "rtc_reset_0": ""
     },
     "ports": {
       "clk_peripheral": {
@@ -621,14 +621,14 @@
         "xci_path": "ip\\zxrtc_axi_iic_0_0\\zxrtc_axi_iic_0_0.xci",
         "inst_hier_path": "axi_iic_0"
       },
-      "resets_0": {
-        "vlnv": "xilinx.com:module_ref:resets:1.0",
-        "xci_name": "zxrtc_resets_0_0",
-        "xci_path": "ip\\zxrtc_resets_0_0\\zxrtc_resets_0_0.xci",
-        "inst_hier_path": "resets_0",
+      "rtc_reset_0": {
+        "vlnv": "xilinx.com:module_ref:rtc_reset:1.0",
+        "xci_name": "zxrtc_rtc_reset_0_0",
+        "xci_path": "ip\\zxrtc_rtc_reset_0_0\\zxrtc_rtc_reset_0_0.xci",
+        "inst_hier_path": "rtc_reset_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "resets",
+          "ref_name": "rtc_reset",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -743,7 +743,7 @@
           "registers_0/clk_peripheral",
           "axi_controller_0/clk_peripheral",
           "axi_iic_0/s_axi_aclk",
-          "resets_0/clk_peripheral"
+          "rtc_reset_0/clk_peripheral"
         ]
       },
       "fifo_generator_1_underflow": {
@@ -769,13 +769,7 @@
           "reset",
           "rtc_0/reset",
           "axi_controller_0/reset",
-          "resets_0/reset"
-        ]
-      },
-      "resets_0_reset_n": {
-        "ports": [
-          "resets_0/reset_n",
-          "axi_iic_0/s_axi_aresetn"
+          "rtc_reset_0/reset"
         ]
       },
       "rtc_0_data_o": {
@@ -806,6 +800,12 @@
         "ports": [
           "rtc_0/wr_reg_o",
           "registers_0/wr_reg_i"
+        ]
+      },
+      "rtc_reset_0_reset_n": {
+        "ports": [
+          "rtc_reset_0/reset_n",
+          "axi_iic_0/s_axi_aresetn"
         ]
       },
       "rtc_scl_i_1": {

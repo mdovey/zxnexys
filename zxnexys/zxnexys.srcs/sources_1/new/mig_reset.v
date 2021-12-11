@@ -1,21 +1,23 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+// 
+// Copyright (C) 2021  Matthew J. Dovey
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // 
 // Create Date: 15.10.2021 00:21:18
-// Design Name: 
 // Module Name: mig_reset
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -24,21 +26,27 @@ module mig_reset #(
    parameter SYNC_STAGES = 3,
    parameter PIPELINE_STAGES = 1
 ) (
-(* X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  aresetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
     output aresetn,
 
-(* X_INTERFACE_PARAMETER="POLARITY ACTIVE_LOW" *)
-    output sys_reset,
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  sys_reset_n  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    output sys_reset_n,
+
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  memory_reset  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
+    
+    input memory_reset,
+    input locked,
 
     input clk_200,
-    input clk_ui,
-    input reset_sys_n,
-    input locked
+    input clk_ui
 );
 
     wire    reset_n;
     
-    assign  reset_n =   reset_sys_n & locked;
+    assign  reset_n =   ~memory_reset & locked;
 
     async_input_sync #(
        .SYNC_STAGES(SYNC_STAGES),
@@ -57,7 +65,7 @@ module mig_reset #(
     ) sync_sys_reset (
        .clk(clk_200),
        .async_in(reset_n),
-       .sync_out(sys_reset)
+       .sync_out(sys_reset_n)
     );
     
 endmodule

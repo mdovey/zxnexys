@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 14:09:32 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 22:12:52 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxrtc" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -12,14 +12,14 @@
         <CONNECTION INSTANCE="registers_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="axi_controller_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aclk"/>
-        <CONNECTION INSTANCE="resets_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="rtc_reset_0" PORT="clk_peripheral"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
       <CONNECTIONS>
         <CONNECTION INSTANCE="rtc_0" PORT="reset"/>
         <CONNECTION INSTANCE="axi_controller_0" PORT="reset"/>
-        <CONNECTION INSTANCE="resets_0" PORT="reset"/>
+        <CONNECTION INSTANCE="rtc_reset_0" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="scl_i" SIGIS="undef" SIGNAME="External_Ports_scl_i">
@@ -1050,9 +1050,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="s_axi_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="resets_0_reset_n">
+        <PORT DIR="I" NAME="s_axi_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="rtc_reset_0_reset_n">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="resets_0" PORT="reset_n"/>
+            <CONNECTION INSTANCE="rtc_reset_0" PORT="reset_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="iic2intc_irpt" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
@@ -2167,31 +2167,6 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/resets_0" HWVERSION="1.0" INSTANCE="resets_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="resets" VLNV="xilinx.com:module_ref:resets:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="zxrtc_resets_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="reset_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="resets_0_reset_n">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/rtc_0" HWVERSION="1.0" INSTANCE="rtc_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="rtc" VLNV="xilinx.com:module_ref:rtc:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -2247,6 +2222,31 @@
         <PORT DIR="O" NAME="sda_o" SIGIS="undef" SIGNAME="rtc_0_sda_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="sda_o"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/rtc_reset_0" HWVERSION="1.0" INSTANCE="rtc_reset_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="rtc_reset" VLNV="xilinx.com:module_ref:rtc_reset:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="zxrtc_rtc_reset_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="reset_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="rtc_reset_0_reset_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
