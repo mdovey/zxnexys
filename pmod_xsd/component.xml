@@ -250,7 +250,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b837344e</spirit:value>
+            <spirit:value>a92bc2d7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -714,7 +714,7 @@
       <spirit:file>
         <spirit:name>xgui/pmod_xsd_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b837344e</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a92bc2d7</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -764,8 +764,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_xsd_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>20</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-29T20:16:14Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>21</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-09T16:52:36Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@535160_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@153d6144_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
@@ -988,12 +988,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d1dae8f_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@346c4f2b_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7a7d7225_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3df22a52_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d87fe00_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@626cdb55_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e269c30_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a58dc03_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f754466_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e08ad9c_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15f6e203_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@658ce398_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22b592e7_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77e7a6b_ARCHIVE_LOCATION">v:/zxnext/pmod_xsd</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="28f2cbec"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ce71cc1e"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f2d7b47c"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="566dda65"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="7155a24c"/>
     </xilinx:packagingInfo>

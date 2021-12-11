@@ -13,7 +13,7 @@ set_property CFGBVS VCCO [current_design]
 
 ## Clock signal
 set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports SYS_CLOCK]
-create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports SYS_CLOCK]
+#create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports sys_clock]
 
 ##Switches
 #set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports {SW[0]}]
@@ -109,16 +109,14 @@ set_property -dict {PACKAGE_PIN H16 IOSTANDARD LVCMOS33} [get_ports JB_pin10_io]
 ##Pmod Header JC
 set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports JC_pin1_io]
 set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports JC_pin2_io]
-set_property PACKAGE_PIN J2 [get_ports JC_pin3_io]
-set_property IOSTANDARD LVCMOS33 [get_ports JC_pin3_io]
-set_property PULLUP true [get_ports JC_pin3_io]
-set_property PACKAGE_PIN G6 [get_ports JC_pin4_io]
-set_property IOSTANDARD LVCMOS33 [get_ports JC_pin4_io]
-set_property PULLUP true [get_ports JC_pin4_io]
+set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports JC_pin3_io]
+set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS33} [get_ports JC_pin4_io]
 set_property -dict {PACKAGE_PIN E7 IOSTANDARD LVCMOS33} [get_ports JC_pin7_io]
 set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS33} [get_ports JC_pin8_io]
 set_property -dict {PACKAGE_PIN J4 IOSTANDARD LVCMOS33} [get_ports JC_pin9_io]
 set_property -dict {PACKAGE_PIN E6 IOSTANDARD LVCMOS33} [get_ports JC_pin10_io]
+set_property PULLUP true [get_ports JC_pin3_io]
+set_property PULLUP true [get_ports JC_pin4_io]
 
 ##Pmod Header JD
 set_property -dict {PACKAGE_PIN H4 IOSTANDARD LVCMOS33} [get_ports JD_pin1_io]
@@ -131,18 +129,16 @@ set_property -dict {PACKAGE_PIN G2 IOSTANDARD LVCMOS33} [get_ports JD_pin9_io]
 set_property -dict {PACKAGE_PIN F3 IOSTANDARD LVCMOS33} [get_ports JD_pin10_io]
 
 ##Pmod Header JXADC
-set_property PACKAGE_PIN A13 [get_ports JXADC_pin1_io]
-set_property IOSTANDARD LVCMOS33 [get_ports JXADC_pin1_io]
-set_property PULLUP true [get_ports JXADC_pin1_io]
+set_property -dict {PACKAGE_PIN A13 IOSTANDARD LVCMOS33} [get_ports JXADC_pin1_io]
 set_property -dict {PACKAGE_PIN A15 IOSTANDARD LVCMOS33} [get_ports JXADC_pin2_io]
-set_property PACKAGE_PIN B16 [get_ports JXADC_pin3_io]
-set_property IOSTANDARD LVCMOS33 [get_ports JXADC_pin3_io]
-set_property PULLUP true [get_ports JXADC_pin3_io]
+set_property -dict {PACKAGE_PIN B16 IOSTANDARD LVCMOS33} [get_ports JXADC_pin3_io]
 set_property -dict {PACKAGE_PIN B18 IOSTANDARD LVCMOS33} [get_ports JXADC_pin4_io]
 set_property -dict {PACKAGE_PIN A14 IOSTANDARD LVCMOS33} [get_ports JXADC_pin7_io]
 set_property -dict {PACKAGE_PIN A16 IOSTANDARD LVCMOS33} [get_ports JXADC_pin8_io]
 set_property -dict {PACKAGE_PIN B17 IOSTANDARD LVCMOS33} [get_ports JXADC_pin9_io]
 set_property -dict {PACKAGE_PIN A18 IOSTANDARD LVCMOS33} [get_ports JXADC_pin10_io]
+set_property PULLUP true [get_ports JXADC_pin1_io]
+set_property PULLUP true [get_ports JXADC_pin3_io]
 
 ##VGA Connector
 set_property -dict {PACKAGE_PIN A3 IOSTANDARD LVCMOS33} [get_ports {VGA_R[0]}]
@@ -200,11 +196,9 @@ set_property -dict {PACKAGE_PIN D12 IOSTANDARD LVCMOS33} [get_ports AUD_SD]
 #set_property -dict { PACKAGE_PIN E5    IOSTANDARD LVCMOS33 } [get_ports { UART_RTS }]; #IO_L5N_T0_AD13N_35 Sch=uart_rts
 
 ##USB HID (PS/2)
-set_property PACKAGE_PIN F4 [get_ports PS2_CLK_tri_io]
-set_property IOSTANDARD LVCMOS33 [get_ports PS2_CLK_tri_io]
+set_property -dict { PACKAGE_PIN F4    IOSTANDARD LVCMOS33 } [get_ports PS2_CLK_tri_io]
+set_property -dict { PACKAGE_PIN B2    IOSTANDARD LVCMOS33 } [get_ports PS2_DATA_tri_io]
 set_property PULLUP true [get_ports PS2_CLK_tri_io]
-set_property PACKAGE_PIN B2 [get_ports PS2_DATA_tri_io]
-set_property IOSTANDARD LVCMOS33 [get_ports PS2_DATA_tri_io]
 set_property PULLUP true [get_ports PS2_DATA_tri_io]
 
 ##SMSC Ethernet PHY
