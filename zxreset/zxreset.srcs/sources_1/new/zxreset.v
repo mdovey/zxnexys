@@ -72,7 +72,7 @@ module zxreset #(
 	wire soft_reset;
 	wire peripheral_reset;
 	
-	assign sys_reset_n_out     = (HARD_SYS_RESET == 1? sys_reset_n_in : 1'b1 );	
+	assign sys_reset_n_out     = (HARD_SYS_RESET == 1 ? sys_reset_n_in : 1'b1 ) & ~in_reset_hard;	
 	assign reset_peripheral_n  = ~reset_peripheral;
 
 	delay #(

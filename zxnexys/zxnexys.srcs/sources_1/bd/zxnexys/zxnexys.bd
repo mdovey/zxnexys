@@ -31,9 +31,9 @@
       "zxesp32_0": "",
       "pmod_esp32_0": "",
       "zxkeyboard_0": "",
-      "zxreset_0": "",
       "zxmonitor_0": "",
-      "zxjoystick_0": ""
+      "zxjoystick_0": "",
+      "zxreset_0": ""
     },
     "interface_ports": {
       "JA": {
@@ -668,26 +668,6 @@
         "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
         "inst_hier_path": "zxkeyboard_0"
       },
-      "zxreset_0": {
-        "vlnv": "specnext.com:specnext:zxreset:1.0",
-        "xci_name": "zxnexys_zxreset_0_0",
-        "xci_path": "ip\\zxnexys_zxreset_0_0\\zxnexys_zxreset_0_0.xci",
-        "inst_hier_path": "zxreset_0",
-        "parameters": {
-          "HARD_RESET_DELAY": {
-            "value": "26"
-          },
-          "HARD_SYS_RESET": {
-            "value": "false"
-          },
-          "PERIPHERAL_RESET_DELAY": {
-            "value": "24"
-          },
-          "SOFT_RESET_DELAY": {
-            "value": "25"
-          }
-        }
-      },
       "zxmonitor_0": {
         "vlnv": "specnext.com:specnext:zxmonitor:2.0",
         "xci_name": "zxnexys_zxmonitor_0_0",
@@ -710,6 +690,26 @@
           },
           "PMOD_JSTK2": {
             "value": "true"
+          }
+        }
+      },
+      "zxreset_0": {
+        "vlnv": "specnext.com:specnext:zxreset:1.0",
+        "xci_name": "zxnexys_zxreset_0_0",
+        "xci_path": "ip\\zxnexys_zxreset_0_0\\zxnexys_zxreset_0_0.xci",
+        "inst_hier_path": "zxreset_0",
+        "parameters": {
+          "HARD_RESET_DELAY": {
+            "value": "26"
+          },
+          "HARD_SYS_RESET": {
+            "value": "false"
+          },
+          "PERIPHERAL_RESET_DELAY": {
+            "value": "24"
+          },
+          "SOFT_RESET_DELAY": {
+            "value": "25"
           }
         }
       }
@@ -1187,9 +1187,9 @@
           "axi_iic_0/s_axi_aclk",
           "zxesp32_0/clk_peripheral",
           "zxkeyboard_0/clk_peripheral",
-          "zxreset_0/clk_peripheral",
           "zxmonitor_0/clk_peripheral",
-          "zxjoystick_0/clk_peripheral"
+          "zxjoystick_0/clk_peripheral",
+          "zxreset_0/clk_peripheral"
         ]
       },
       "zxclock_0_clk_peripheral_n": {
