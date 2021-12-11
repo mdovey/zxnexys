@@ -78,21 +78,5 @@
         <spirit:defaultValue>0</spirit:defaultValue>
       </spirit:wire>
     </spirit:port>
-    <spirit:port>
-      <spirit:logicalName>reset_mb_hard</spirit:logicalName>
-      <spirit:wire>
-        <spirit:qualifier>
-          <spirit:isReset>true</spirit:isReset>
-        </spirit:qualifier>
-        <spirit:onMaster>
-          <spirit:width>1</spirit:width>
-        </spirit:onMaster>
-        <spirit:onSlave>
-          <spirit:width>1</spirit:width>
-          <spirit:direction>in</spirit:direction>
-        </spirit:onSlave>
-        <spirit:defaultValue>0</spirit:defaultValue>
-      </spirit:wire>
-    </spirit:port>
   </spirit:ports>
 </spirit:abstractionDefinition>

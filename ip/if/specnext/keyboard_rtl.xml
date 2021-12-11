@@ -122,7 +122,7 @@
         </spirit:qualifier>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>
-          <spirit:width>9</spirit:width>
+          <spirit:width>8</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>
           <spirit:presence>required</spirit:presence>
@@ -151,6 +151,7 @@
       <spirit:logicalName>joymap_we</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
+          <spirit:presence>required</spirit:presence>
           <spirit:width>1</spirit:width>
         </spirit:onMaster>
         <spirit:onSlave>

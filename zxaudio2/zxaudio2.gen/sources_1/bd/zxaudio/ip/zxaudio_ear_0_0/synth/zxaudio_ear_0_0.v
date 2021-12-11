@@ -62,7 +62,6 @@ module zxaudio_ear_0_0 (
 );
 
 input wire [15 : 0] din;
-(* X_INTERFACE_INFO = "specnext.com:specnext:speaker:1.0 specnext_speaker ear, specnext.com:specnext:tape:1.0 specnext_tape ear" *)
 output wire ear;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 22580650, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxaudio_clk_audio, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)

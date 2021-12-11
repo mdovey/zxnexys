@@ -1,34 +1,35 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
+//
+// Copyright (C) 2021  Matthew J. Dovey
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // 
 // Create Date: 30.09.2021 22:48:04
-// Design Name: 
 // Module Name: zxesp32
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module zxesp32(
-    input 			tx_i,
-    output 			rx_i,
+    input 			uart_tx_i,
+    output 			uart_rx_i,
     output	[2:0]	gpio_in,
     input 			gpio_out,
     input 			gpio_enable,
     
-    output 			tx,
-    input 			rx,
+    output 			uart_tx_o,
+    input 			uart_rx_o,
     
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *)
     input 			gpio0_i,
@@ -61,8 +62,8 @@ module zxesp32(
     
     );
     
-    assign tx 			= tx_i;
-    assign rx_i 		= rx;
+    assign uart_tx_o 	= uart_tx_i;
+    assign uart_rx_i    = uart_rx_o;
     
     assign gpio_in[0]	= gpio0_i;
     assign gpio0_o 		= gpio_out;

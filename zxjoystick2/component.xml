@@ -120,7 +120,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1b72001c</spirit:value>
+            <spirit:value>ef5cb11c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -136,7 +136,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>1b72001c</spirit:value>
+            <spirit:value>ef5cb11c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -460,7 +460,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxjoystick2.srcs/sources_1/imports/zxnext/SPI_Master.v</spirit:name>
+        <spirit:name>zxjoystick2.srcs/sources_1/imports/nandland/SPI_Master.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -474,13 +474,13 @@
       <spirit:file>
         <spirit:name>zxjoystick2.srcs/sources_1/new/zxjoystick.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_a3d75f54</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_5e630272</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxjoystick2.srcs/sources_1/imports/zxnext/SPI_Master.v</spirit:name>
+        <spirit:name>zxjoystick2.srcs/sources_1/imports/nandland/SPI_Master.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -541,8 +541,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxjoystick_v2_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>18</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-11T01:54:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>20</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T12:57:19Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@78f7434a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@76a03dcb_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
@@ -756,12 +756,34 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@3147a34f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@445ea614_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@131d7146_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8d84d9_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@348c32e9_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33da3fe3_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ffa5b0a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@766eeea8_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fb9e89d_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33275b40_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1982786b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f30ce72_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77c46501_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@473694d1_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@345dd374_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@609b1f5e_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fa8145f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ae8eb65_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55fd4c10_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@134b0eac_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@598aac58_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32088c4e_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b8774a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@728f51c6_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3999e986_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a4e7a866"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9b95f955"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="097b6d43"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="77eb7cad"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="de67c73c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="ef34f7b3"/>

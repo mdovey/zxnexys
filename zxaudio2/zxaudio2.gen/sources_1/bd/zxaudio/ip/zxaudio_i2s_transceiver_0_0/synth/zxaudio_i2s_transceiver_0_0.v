@@ -74,17 +74,11 @@ input wire reset_n;
 input wire mclk;
 output wire sclk;
 output wire ws;
-(* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 sd tx" *)
 output wire sd_tx;
-(* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 sd rx" *)
 input wire sd_rx;
-(* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 l_data tx" *)
 input wire [15 : 0] l_data_tx;
-(* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 r_data tx" *)
 input wire [15 : 0] r_data_tx;
-(* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 l_data rx" *)
 output wire [15 : 0] l_data_rx;
-(* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 r_data rx" *)
 output wire [15 : 0] r_data_rx;
 
   i2s_transceiver #(
