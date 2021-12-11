@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Dec 11 10:18:35 2021
+//Date        : Sat Dec 11 12:41:51 2021
 //Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 //Command     : generate_target zxaudio.bd
 //Design      : zxaudio
@@ -17,7 +17,6 @@ module zxaudio
     audio_sd,
     clk_audio,
     clk_peripheral,
-    ear,
     linein_lrck,
     linein_mclk,
     linein_sclk,
@@ -26,9 +25,10 @@ module zxaudio
     lineout_mclk,
     lineout_sclk,
     lineout_sdout,
-    mic,
     psg_en,
     reset,
+    tape_ear,
+    tape_mic,
     tape_pwm,
     tape_sd);
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.AUDIO_LEFT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.AUDIO_LEFT, LAYERED_METADATA undef" *) input [12:0]audio_left;
@@ -37,7 +37,6 @@ module zxaudio
   output audio_sd;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_AUDIO CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_AUDIO, ASSOCIATED_RESET reset, CLK_DOMAIN zxaudio_clk_audio, FREQ_HZ 22580650, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_audio;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_PERIPHERAL CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_PERIPHERAL, ASSOCIATED_RESET reset, CLK_DOMAIN zxaudio_clk_peripheral, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.EAR DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.EAR, LAYERED_METADATA undef" *) output ear;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.LINEIN_LRCK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.LINEIN_LRCK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output linein_lrck;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.LINEIN_MCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.LINEIN_MCLK, CLK_DOMAIN zxaudio_clk_audio, FREQ_HZ 22580650, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output linein_mclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.LINEIN_SCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.LINEIN_SCLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output linein_sclk;
@@ -46,9 +45,10 @@ module zxaudio
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.LINEOUT_MCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.LINEOUT_MCLK, CLK_DOMAIN zxaudio_clk_audio, FREQ_HZ 22580650, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output lineout_mclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.LINEOUT_SCLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.LINEOUT_SCLK, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) output lineout_sclk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.LINEOUT_SDOUT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.LINEOUT_SDOUT, LAYERED_METADATA undef" *) output lineout_sdout;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.MIC DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.MIC, LAYERED_METADATA undef" *) input mic;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clockenable:1.0 CE.PSG_EN CE" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CE.PSG_EN, POLARITY ACTIVE_LOW" *) output psg_en;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.TAPE_EAR DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.TAPE_EAR, LAYERED_METADATA undef" *) output tape_ear;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.TAPE_MIC DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.TAPE_MIC, LAYERED_METADATA undef" *) input tape_mic;
   output tape_pwm;
   output tape_sd;
 
@@ -84,7 +84,6 @@ module zxaudio
   assign audio_sd = pwm_enable_0_audio_sd;
   assign clk_peripheral_1 = clk_audio;
   assign clk_peripheral_2 = clk_peripheral;
-  assign ear = ear_0_ear;
   assign linein_lrck = i2s_transceiver_0_ws;
   assign linein_mclk = clk_peripheral_1;
   assign linein_sclk = i2s_transceiver_0_sclk;
@@ -93,9 +92,10 @@ module zxaudio
   assign lineout_mclk = clk_peripheral_1;
   assign lineout_sclk = i2s_transceiver_0_sclk;
   assign lineout_sdout = i2s_transceiver_0_sd_tx;
-  assign mic_1 = mic;
+  assign mic_1 = tape_mic;
   assign psg_en = psg_0_psg_en;
   assign reset_2 = reset;
+  assign tape_ear = ear_0_ear;
   assign tape_pwm = sigma_delta_dac_1_DACout;
   assign tape_sd = pwm_enable_0_tape_sd;
   zxaudio_ear_0_0 ear_0

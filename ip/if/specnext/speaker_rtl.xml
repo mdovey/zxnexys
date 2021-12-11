@@ -7,7 +7,7 @@
   <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="speaker" spirit:version="1.0"/>
   <spirit:ports>
     <spirit:port>
-      <spirit:logicalName>enable</spirit:logicalName>
+      <spirit:logicalName>speaker_enable</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>
@@ -22,7 +22,7 @@
       </spirit:wire>
     </spirit:port>
     <spirit:port>
-      <spirit:logicalName>beep</spirit:logicalName>
+      <spirit:logicalName>speaker_beep</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>
@@ -37,7 +37,7 @@
       </spirit:wire>
     </spirit:port>
     <spirit:port>
-      <spirit:logicalName>ear</spirit:logicalName>
+      <spirit:logicalName>speaker_ear</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>
@@ -52,7 +52,7 @@
       </spirit:wire>
     </spirit:port>
     <spirit:port>
-      <spirit:logicalName>mic</spirit:logicalName>
+      <spirit:logicalName>speaker_mic</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>

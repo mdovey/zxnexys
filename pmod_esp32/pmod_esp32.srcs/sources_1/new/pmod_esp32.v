@@ -73,8 +73,8 @@ module pmod_esp32(
 (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_esp32 PIN10_T" *)
     output pin10_t,
     
-    output rx,
-    input tx,
+    output uart_rx,
+    input  uart_tx,
     
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *)
 (* X_INTERFACE_MODE = "mirroredMaster" *)
@@ -103,10 +103,10 @@ module pmod_esp32(
 	
 	assign pin1_t	= 1'b1;
     
-    assign pin2_o 	= tx;
+    assign pin2_o 	= uart_tx;
     assign pin2_t 	= 1'b0;
 
-    assign rx 		= pin3_i;
+    assign uart_rx 	= pin3_i;
     assign pin3_t 	= 1'b1;
 	
 	assign pin4_t	= 1'b1;

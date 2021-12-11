@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 10:18:35 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 12:41:52 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxaudio" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -44,12 +44,12 @@
         <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sd_rx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="mic" SIGIS="data" SIGNAME="External_Ports_mic">
+    <PORT DIR="I" NAME="tape_mic" SIGIS="data" SIGNAME="External_Ports_tape_mic">
       <CONNECTIONS>
         <CONNECTION INSTANCE="mic_0" PORT="din"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="ear" SIGIS="data" SIGNAME="ear_0_ear">
+    <PORT DIR="O" NAME="tape_ear" SIGIS="data" SIGNAME="ear_0_ear">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ear_0" PORT="ear"/>
       </CONNECTIONS>
@@ -103,11 +103,11 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="External_Ports" PORT="lineout_mclk"/>
         <CONNECTION INSTANCE="External_Ports" PORT="linein_mclk"/>
-        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="mclk"/>
-        <CONNECTION INSTANCE="resets_0" PORT="clk"/>
-        <CONNECTION INSTANCE="ear_0" PORT="clk"/>
         <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="CLK"/>
         <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="CLK"/>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="mclk"/>
+        <CONNECTION INSTANCE="ear_0" PORT="clk"/>
+        <CONNECTION INSTANCE="resets_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -131,7 +131,7 @@
         </PORT>
         <PORT DIR="O" NAME="ear" SIGIS="undef" SIGNAME="ear_0_ear">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="ear"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="tape_ear"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="22580650" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
@@ -140,18 +140,7 @@
           </CONNECTIONS>
         </PORT>
       </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_speaker" TYPE="TARGET" VLNV="specnext.com:specnext:speaker:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="ear" PHYSICAL="ear"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_tape" TYPE="TARGET" VLNV="specnext.com:specnext:tape:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="ear" PHYSICAL="ear"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/i2s_transceiver_0" HWVERSION="1.0" INSTANCE="i2s_transceiver_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="i2s_transceiver" VLNV="xilinx.com:module_ref:i2s_transceiver:1.0">
       <DOCUMENTS/>
@@ -216,26 +205,7 @@
           </CONNECTIONS>
         </PORT>
       </PORTS>
-      <BUSINTERFACES>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="l_data" TYPE="TARGET" VLNV="specnext.com:specnext:esp32:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="tx" PHYSICAL="l_data_tx"/>
-            <PORTMAP LOGICAL="rx" PHYSICAL="l_data_rx"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="r_data" TYPE="TARGET" VLNV="specnext.com:specnext:esp32:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="tx" PHYSICAL="r_data_tx"/>
-            <PORTMAP LOGICAL="rx" PHYSICAL="r_data_rx"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="__NOC__" NAME="sd" TYPE="TARGET" VLNV="specnext.com:specnext:esp32:1.0">
-          <PORTMAPS>
-            <PORTMAP LOGICAL="tx" PHYSICAL="sd_tx"/>
-            <PORTMAP LOGICAL="rx" PHYSICAL="sd_rx"/>
-          </PORTMAPS>
-        </BUSINTERFACE>
-      </BUSINTERFACES>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/mic_0" HWVERSION="1.0" INSTANCE="mic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mic" VLNV="xilinx.com:module_ref:mic:1.0">
       <DOCUMENTS/>
@@ -246,9 +216,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="din" SIGIS="undef" SIGNAME="External_Ports_mic">
+        <PORT DIR="I" NAME="din" SIGIS="undef" SIGNAME="External_Ports_tape_mic">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="mic"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="tape_mic"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="mic_0_dout">
@@ -404,8 +374,8 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="scaler_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mono_0" PORT="left_in"/>
             <CONNECTION INSTANCE="i2s_transceiver_0" PORT="l_data_tx"/>
+            <CONNECTION INSTANCE="mono_0" PORT="left_in"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -427,8 +397,8 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="scaler_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="mono_0" PORT="right_in"/>
             <CONNECTION INSTANCE="i2s_transceiver_0" PORT="r_data_tx"/>
+            <CONNECTION INSTANCE="mono_0" PORT="right_in"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

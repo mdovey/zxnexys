@@ -7,7 +7,7 @@
   <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="esp32" spirit:version="1.0"/>
   <spirit:ports>
     <spirit:port>
-      <spirit:logicalName>tx</spirit:logicalName>
+      <spirit:logicalName>uart_tx</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>
@@ -22,7 +22,7 @@
       </spirit:wire>
     </spirit:port>
     <spirit:port>
-      <spirit:logicalName>rx</spirit:logicalName>
+      <spirit:logicalName>uart_rx</spirit:logicalName>
       <spirit:wire>
         <spirit:onMaster>
           <spirit:presence>required</spirit:presence>
