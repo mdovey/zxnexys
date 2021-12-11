@@ -138,7 +138,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>cde05f0f</spirit:value>
+            <spirit:value>68bd26b5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -154,7 +154,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>0508a4a4</spirit:value>
+            <spirit:value>0d7381dd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -424,14 +424,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_0_0/synth/zxvideo_s_fix_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_1_0/synth/zxvideo_s_fix_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_scan_convert_0_0/synth/zxvideo_scan_convert_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -440,11 +432,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxvideo.srcs/sources_1/new/front_porch.v</spirit:name>
+        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_0_0/synth/zxvideo_s_fix_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxvideo.srcs/sources_1/imports/MISTer/video_cleaner.v</spirit:name>
+        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_1_0/synth/zxvideo_s_fix_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxvideo.srcs/sources_1/new/front_porch.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -457,6 +453,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>zxvideo.srcs/sources_1/new/scandoubler.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxvideo.srcs/sources_1/imports/MISTer/video_cleaner.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -472,21 +472,13 @@
       <spirit:file>
         <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/hdl/zxvideo_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_d805953a</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_af47e93a</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
         <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_front_porch_0_0/sim/zxvideo_front_porch_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_0_0/sim/zxvideo_s_fix_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_1_0/sim/zxvideo_s_fix_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -498,11 +490,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxvideo.srcs/sources_1/new/front_porch.v</spirit:name>
+        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_0_0/sim/zxvideo_s_fix_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxvideo.srcs/sources_1/imports/MISTer/video_cleaner.v</spirit:name>
+        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_1_0/sim/zxvideo_s_fix_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxvideo.srcs/sources_1/new/front_porch.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -515,6 +511,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>zxvideo.srcs/sources_1/new/scandoubler.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxvideo.srcs/sources_1/imports/MISTer/video_cleaner.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -553,8 +553,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxvideo_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-11T20:21:05Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T20:58:08Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@375ef053_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4bcf7865_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
@@ -624,12 +624,60 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@32a1e4ad_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@f4d85e9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@35bd23ac_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8193cf3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2eea36dc_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3975ccd7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7409efc6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b225642_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17c7f0ed_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79f2f6cb_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ce13c27_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cbaa653_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@457eeac_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50f4d4ae_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40e075f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@778a1d4a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67c409c7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cdc74ee_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bf3985b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35b42534_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31bc638_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21db3ab9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195865cc_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2055587f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f635aa3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26c932e9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27b8e32d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e48a462_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9ba4cc5_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d94ee75_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ace28ab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29332f63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2261b484_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67de2661_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9e81b21_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e7bea48_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ff75b27_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53aff7b1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54a8954_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bae785e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a6e2e9c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3468f895_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46699199_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bce758c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54f251ba_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9129c6b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62cded28_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c9db92d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51373d65_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b6fdd11_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e472663_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a45ab934"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d3881b81"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="378a2885"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0fbd3c1c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="e63f4202"/>
     </xilinx:packagingInfo>

@@ -6,7 +6,7 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>specnext_video</spirit:name>
+      <spirit:name>video</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -87,7 +87,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF">specnext_video</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF">specnext_video:video</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
@@ -118,7 +118,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN"/>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -199,7 +199,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.CLK_DOMAIN"/>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral_n</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -289,7 +289,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.CLK_DOMAIN"/>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_video</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -575,7 +575,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxvideo_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@375ef053_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4bcf7865_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
@@ -630,26 +630,89 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@78ab2fd1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@600bc223_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1be252dd_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22220b04_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f5beb78_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64658146_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1277fe81_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fe82e6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7505fbab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e63a1ff_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1742b64c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@692ca524_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ffbb104_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7558cc55_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@737021d1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32a1e4ad_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f4d85e9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35bd23ac_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8193cf3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2eea36dc_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3975ccd7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7409efc6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b225642_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17c7f0ed_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79f2f6cb_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ce13c27_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cbaa653_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@457eeac_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50f4d4ae_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40e075f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@778a1d4a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67c409c7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cdc74ee_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bf3985b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35b42534_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31bc638_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21db3ab9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195865cc_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2055587f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f635aa3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26c932e9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27b8e32d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e48a462_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9ba4cc5_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d94ee75_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ace28ab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29332f63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2261b484_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67de2661_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9e81b21_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e7bea48_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ff75b27_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53aff7b1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54a8954_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bae785e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a6e2e9c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3468f895_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46699199_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bce758c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54f251ba_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9129c6b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62cded28_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c9db92d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51373d65_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b6fdd11_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e472663_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.PHASE" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.PHASE" xilinx:valuePermission="bd_and_user"/>
@@ -657,8 +720,8 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="20e368f7"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="daab63c3"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a45ab934"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="378a2885"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0fbd3c1c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="e63f4202"/>
     </xilinx:packagingInfo>
