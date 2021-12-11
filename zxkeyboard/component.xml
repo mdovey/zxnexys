@@ -234,7 +234,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>515e3ac6</spirit:value>
+            <spirit:value>dc41108e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -256,7 +256,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>46b9f06e</spirit:value>
+            <spirit:value>22c33d52</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -559,10 +559,6 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_special_keys_0_0/synth/zxkeyboard_special_keys_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_ps2_keyb_0_0/synth/zxkeyboard_ps2_keyb_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -579,11 +575,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_clocks_0_0/synth/zxkeyboard_clocks_0_0.v</spirit:name>
+        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_special_keys_0_0/synth/zxkeyboard_special_keys_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/new/special_keys.v</spirit:name>
+        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_clocks_0_0/synth/zxkeyboard_clocks_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -611,10 +607,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/new/clocks.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_0/zxkeyboard_xlconstant_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconstant_high</spirit:userFileType>
@@ -630,6 +622,14 @@
         <spirit:userFileType>CELL_NAME_xlconstant_h55</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>zxkeyboard.srcs/sources_1/new/special_keys.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxkeyboard.srcs/sources_1/new/clocks.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/synth/zxkeyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -642,7 +642,7 @@
       <spirit:file>
         <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/hdl/zxkeyboard_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_1cc5dd18</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_3376b59e</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -668,10 +668,6 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_special_keys_0_0/sim/zxkeyboard_special_keys_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_ps2_keyb_0_0/sim/zxkeyboard_ps2_keyb_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -688,11 +684,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_clocks_0_0/sim/zxkeyboard_clocks_0_0.v</spirit:name>
+        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_special_keys_0_0/sim/zxkeyboard_special_keys_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/new/special_keys.v</spirit:name>
+        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_clocks_0_0/sim/zxkeyboard_clocks_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -720,10 +716,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/new/clocks.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_0/zxkeyboard_xlconstant_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconstant_high</spirit:userFileType>
@@ -737,6 +729,14 @@
         <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_1/zxkeyboard_xlconstant_0_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconstant_h55</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxkeyboard.srcs/sources_1/new/special_keys.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxkeyboard.srcs/sources_1/new/clocks.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/sim/zxkeyboard.v</spirit:name>
@@ -777,7 +777,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>zxkeyboard_v1_0</spirit:description>
+  <spirit:description>zxkeyboard_v1_1</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -792,10 +792,10 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/specnext</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>zxkeyboard_v1_0</xilinx:displayName>
+      <xilinx:displayName>zxkeyboard_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-11T17:43:50Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T18:37:35Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6a351030_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3f99dbe2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
@@ -837,13 +837,32 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@311e5362_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1bd6593a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@41567f77_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76ba74a5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26683e96_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a443dbd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14caf38c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6178b18e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fec0302_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d19c9fc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@653d35b3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b2c5608_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@369257f8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30080135_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18d29954_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a5077ac_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f1e0dd3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b571764_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@196db77_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5737b6da_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3862faab_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44bf42ca_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7b5f167a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c1200512"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="f02acf72"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5a6e17f9"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="ebcf714b"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="965b61d6"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

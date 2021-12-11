@@ -155,6 +155,8 @@
       <File Path="$PPRDIR/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ZXNext/ZXNext.txt"/>
+      <File Path="$PSRCDIR/sources_1/imports/digilent/digilent.txt"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="zxkeyboard_wrapper"/>

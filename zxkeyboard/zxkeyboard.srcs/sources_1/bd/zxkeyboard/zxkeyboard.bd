@@ -12,14 +12,14 @@
     },
     "design_tree": {
       "ps2_keyb_0": "",
-      "Ps2Interface_0": "",
       "emu_fnkeys_0": "",
       "membrane_0": "",
       "xlconstant_high": "",
       "util_vector_logic_0": "",
       "xlconstant_h55": "",
       "special_keys_0": "",
-      "clocks_0": ""
+      "clocks_0": "",
+      "Ps2Interface_0": ""
     },
     "ports": {
       "clk_peripheral": {
@@ -262,115 +262,6 @@
             "direction": "O",
             "left": "7",
             "right": "0"
-          }
-        }
-      },
-      "Ps2Interface_0": {
-        "vlnv": "xilinx.com:module_ref:Ps2Interface:1.0",
-        "xci_name": "zxkeyboard_Ps2Interface_0_0",
-        "xci_path": "ip\\zxkeyboard_Ps2Interface_0_0\\zxkeyboard_Ps2Interface_0_0.xci",
-        "inst_hier_path": "Ps2Interface_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Ps2Interface",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "ps2_data": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-            "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
-            "port_maps": {
-              "TRI_T": {
-                "physical_name": "PS2_Data_T",
-                "direction": "O"
-              },
-              "TRI_O": {
-                "physical_name": "PS2_Data_O",
-                "direction": "O"
-              },
-              "TRI_I": {
-                "physical_name": "PS2_Data_I",
-                "direction": "I"
-              }
-            }
-          },
-          "ps2_clk": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-            "vlnv": "xilinx.com:interface:gpio_rtl:1.0",
-            "port_maps": {
-              "TRI_T": {
-                "physical_name": "PS2_Clk_T",
-                "direction": "O"
-              },
-              "TRI_O": {
-                "physical_name": "PS2_Clk_O",
-                "direction": "O"
-              },
-              "TRI_I": {
-                "physical_name": "PS2_Clk_I",
-                "direction": "I"
-              }
-            }
-          }
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxkeyboard_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
-              }
-            }
-          },
-          "tx_data": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "write_data": {
-            "direction": "I"
-          },
-          "rx_data": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "read_data": {
-            "direction": "O"
-          },
-          "ack": {
-            "direction": "O"
-          },
-          "busy": {
-            "direction": "O"
-          },
-          "err_par": {
-            "direction": "O"
-          },
-          "err_nack": {
-            "direction": "O"
           }
         }
       },
@@ -672,6 +563,107 @@
             }
           }
         }
+      },
+      "Ps2Interface_0": {
+        "vlnv": "xilinx.com:module_ref:Ps2Interface:1.0",
+        "xci_name": "zxkeyboard_Ps2Interface_0_0",
+        "xci_path": "ip\\zxkeyboard_Ps2Interface_0_0\\zxkeyboard_Ps2Interface_0_0.xci",
+        "inst_hier_path": "Ps2Interface_0",
+        "parameters": {
+          "DEBOUNCE_DELAY": {
+            "value": "\"0001000\""
+          },
+          "DELAY_100US": {
+            "value": "\"00101011110000\""
+          },
+          "DELAY_20US": {
+            "value": "\"01000110000\""
+          },
+          "DELAY_63CLK": {
+            "value": "\"0100100\""
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Ps2Interface",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PS2_Data_I": {
+            "direction": "I"
+          },
+          "PS2_Data_O": {
+            "direction": "O"
+          },
+          "PS2_Data_T": {
+            "direction": "O"
+          },
+          "PS2_Clk_I": {
+            "direction": "I"
+          },
+          "PS2_Clk_O": {
+            "direction": "O"
+          },
+          "PS2_Clk_T": {
+            "direction": "O"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxkeyboard_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "tx_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "write_data": {
+            "direction": "I"
+          },
+          "rx_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "read_data": {
+            "direction": "O"
+          },
+          "ack": {
+            "direction": "O"
+          },
+          "busy": {
+            "direction": "O"
+          },
+          "err_par": {
+            "direction": "O"
+          },
+          "err_nack": {
+            "direction": "O"
+          }
+        }
       }
     },
     "nets": {
@@ -734,9 +726,9 @@
           "clk_peripheral",
           "ps2_keyb_0/i_CLK",
           "emu_fnkeys_0/i_CLK",
-          "Ps2Interface_0/clk",
           "membrane_0/i_CLK",
-          "clocks_0/clk_peripheral"
+          "clocks_0/clk_peripheral",
+          "Ps2Interface_0/clk"
         ]
       },
       "clk_peripheral_n_1": {
@@ -853,9 +845,9 @@
           "emu_fnkeys_0/i_reset",
           "ps2_keyb_0/i_reset",
           "membrane_0/i_reset",
-          "Ps2Interface_0/rst",
           "util_vector_logic_0/Op1",
-          "clocks_0/reset"
+          "clocks_0/reset",
+          "Ps2Interface_0/rst"
         ]
       },
       "row_1": {

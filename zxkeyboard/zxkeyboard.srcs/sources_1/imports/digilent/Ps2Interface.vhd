@@ -193,6 +193,34 @@ use UNISIM.VComponents.all;
 -- the ps2interface entity declaration
 -- read above for behavioral description and port definitions.
 entity Ps2Interface is
+generic (
+------------------------------------------------------------------------
+-- CONSTANTS
+------------------------------------------------------------------------
+
+-- Values are valid for a 100MHz clk. Please adjust for other
+-- frequencies if necessary! 
+
+-- upper limit for 100us delay counter.
+-- 10000 * 10ns = 100us
+         DELAY_100US : std_logic_vector(13 downto 0):= "10011100010000";
+                                                 -- 10000 clock periods
+-- upper limit for 20us delay counter.
+-- 2000 * 10ns = 20us
+         DELAY_20US  : std_logic_vector(10 downto 0) := "11111010000";
+                                                  -- 2000 clock periods
+-- upper limit for 63clk delay counter.
+         DELAY_63CLK : std_logic_vector(6 downto 0)  := "1111111";
+                                                    -- 63 clock periods
+-- delay from debouncing ps2_clk and ps2_data signals
+         DEBOUNCE_DELAY : std_logic_vector(6 downto 0)  := "1111111";
+
+-- number of bits in a frame
+         NUMBITS: std_logic_vector(3 downto 0) := "1011"; -- 11
+
+-- parity bit position in frame
+        PARITY_BIT: positive := 9
+);
 port(
    PS2_Data_I : in std_logic;
    PS2_Data_O : out std_logic;
@@ -220,46 +248,9 @@ attribute rom_extract of Ps2Interface: entity is "yes";
 attribute rom_style : string;
 attribute rom_style of Ps2Interface: entity is "distributed";
  
-ATTRIBUTE X_INTERFACE_INFO                       :STRING;
- 
 end Ps2Interface;
  
 architecture Behavioral of Ps2Interface is
-
-ATTRIBUTE X_INTERFACE_INFO of PS2_Data_I    :SIGNAL is "xilinx.com:interface:gpio_rtl:1.0 ps2_data TRI_I";
-ATTRIBUTE X_INTERFACE_INFO of PS2_Data_O    :SIGNAL is "xilinx.com:interface:gpio_rtl:1.0 ps2_data TRI_O";
-ATTRIBUTE X_INTERFACE_INFO of PS2_Data_T    :SIGNAL is "xilinx.com:interface:gpio_rtl:1.0 ps2_data TRI_T";
-
-ATTRIBUTE X_INTERFACE_INFO of PS2_Clk_I    :SIGNAL is "xilinx.com:interface:gpio_rtl:1.0 ps2_clk TRI_I";
-ATTRIBUTE X_INTERFACE_INFO of PS2_Clk_O    :SIGNAL is "xilinx.com:interface:gpio_rtl:1.0 ps2_clk TRI_O";
-ATTRIBUTE X_INTERFACE_INFO of PS2_Clk_T    :SIGNAL is "xilinx.com:interface:gpio_rtl:1.0 ps2_clk TRI_T";
-
-------------------------------------------------------------------------
--- CONSTANTS
-------------------------------------------------------------------------
-
--- Values are valid for a 100MHz clk. Please adjust for other
--- frequencies if necessary! 
-
--- upper limit for 100us delay counter.
--- 10000 * 10ns = 100us
-constant DELAY_100US : std_logic_vector(13 downto 0):= "00101011110000";
-                                                 -- 10000 clock periods
--- upper limit for 20us delay counter.
--- 2000 * 10ns = 20us
-constant DELAY_20US  : std_logic_vector(10 downto 0) := "01000110000";
-                                                  -- 2000 clock periods
--- upper limit for 63clk delay counter.
-constant DELAY_63CLK : std_logic_vector(6 downto 0)  := "0100100";
-                                                    -- 63 clock periods
--- delay from debouncing ps2_clk and ps2_data signals
-constant DEBOUNCE_DELAY : std_logic_vector(6 downto 0)  := "0001000";
-
--- number of bits in a frame
-constant NUMBITS: std_logic_vector(3 downto 0) := "1011"; -- 11
-
--- parity bit position in frame
-constant PARITY_BIT: positive := 9;
 
 -- (odd) parity bit ROM
 -- Used instead of logic because this way speed is far greater

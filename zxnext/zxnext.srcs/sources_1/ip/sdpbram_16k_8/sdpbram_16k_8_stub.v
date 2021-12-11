@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Mon Nov 15 17:12:19 2021
+// Date        : Sat Dec 11 19:49:03 2021
 // Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/zxnext/zxnext/zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8_stub.v
