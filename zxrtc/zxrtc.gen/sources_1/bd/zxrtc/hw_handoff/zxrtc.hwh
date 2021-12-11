@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 13:39:26 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 11 14:09:32 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxrtc" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -43,50 +43,39 @@
         <CONNECTION INSTANCE="rtc_0" PORT="sda_o"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rtc_iic_scl_i" SIGIS="undef" SIGNAME="axi_iic_0_scl_i">
+    <PORT DIR="I" NAME="rtc_scl_i" SIGIS="undef" SIGNAME="External_Ports_rtc_scl_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_iic_0" PORT="scl_i"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rtc_iic_scl_o" SIGIS="undef" SIGNAME="axi_iic_0_scl_o">
+    <PORT DIR="O" NAME="rtc_scl_o" SIGIS="undef" SIGNAME="axi_iic_0_scl_o">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_iic_0" PORT="scl_o"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rtc_iic_scl_t" SIGIS="undef" SIGNAME="axi_iic_0_scl_t">
+    <PORT DIR="O" NAME="rtc_scl_t" SIGIS="undef" SIGNAME="axi_iic_0_scl_t">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_iic_0" PORT="scl_t"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rtc_iic_sda_i" SIGIS="undef" SIGNAME="axi_iic_0_sda_i">
+    <PORT DIR="I" NAME="rtc_sda_i" SIGIS="undef" SIGNAME="External_Ports_rtc_sda_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_iic_0" PORT="sda_i"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rtc_iic_sda_o" SIGIS="undef" SIGNAME="axi_iic_0_sda_o">
+    <PORT DIR="O" NAME="rtc_sda_o" SIGIS="undef" SIGNAME="axi_iic_0_sda_o">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_iic_0" PORT="sda_o"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rtc_iic_sda_t" SIGIS="undef" SIGNAME="axi_iic_0_sda_t">
+    <PORT DIR="O" NAME="rtc_sda_t" SIGIS="undef" SIGNAME="axi_iic_0_sda_t">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_iic_0" PORT="sda_t"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
 
-  <EXTERNALINTERFACES>
-    <BUSINTERFACE BUSNAME="axi_iic_0_IIC" NAME="rtc_iic" TYPE="INITIATOR">
-      <PORTMAPS>
-        <PORTMAP LOGICAL="SCL_I" PHYSICAL="rtc_iic_scl_i"/>
-        <PORTMAP LOGICAL="SCL_O" PHYSICAL="rtc_iic_scl_o"/>
-        <PORTMAP LOGICAL="SCL_T" PHYSICAL="rtc_iic_scl_t"/>
-        <PORTMAP LOGICAL="SDA_I" PHYSICAL="rtc_iic_sda_i"/>
-        <PORTMAP LOGICAL="SDA_O" PHYSICAL="rtc_iic_sda_o"/>
-        <PORTMAP LOGICAL="SDA_T" PHYSICAL="rtc_iic_sda_t"/>
-      </PORTMAPS>
-    </BUSINTERFACE>
-  </EXTERNALINTERFACES>
+  <EXTERNALINTERFACES/>
 
   <MODULES>
     <MODULE COREREVISION="1" FULLNAME="/axi_controller_0" HWVERSION="1.0" INSTANCE="axi_controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="axi_controller" VLNV="xilinx.com:module_ref:axi_controller:1.0">
@@ -1144,34 +1133,34 @@
             <CONNECTION INSTANCE="axi_controller_0" PORT="RREADY"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="sda_i" SIGIS="undef" SIGNAME="axi_iic_0_sda_i">
+        <PORT DIR="I" NAME="sda_i" SIGIS="undef" SIGNAME="External_Ports_rtc_sda_i">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxrtc_imp" PORT="rtc_iic_sda_i"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rtc_sda_i"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="sda_o" SIGIS="undef" SIGNAME="axi_iic_0_sda_o">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxrtc_imp" PORT="rtc_iic_sda_o"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rtc_sda_o"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="sda_t" SIGIS="undef" SIGNAME="axi_iic_0_sda_t">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxrtc_imp" PORT="rtc_iic_sda_t"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rtc_sda_t"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="scl_i" SIGIS="undef" SIGNAME="axi_iic_0_scl_i">
+        <PORT DIR="I" NAME="scl_i" SIGIS="undef" SIGNAME="External_Ports_rtc_scl_i">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxrtc_imp" PORT="rtc_iic_scl_i"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rtc_scl_i"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="scl_o" SIGIS="undef" SIGNAME="axi_iic_0_scl_o">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxrtc_imp" PORT="rtc_iic_scl_o"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rtc_scl_o"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="scl_t" SIGIS="undef" SIGNAME="axi_iic_0_scl_t">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxrtc_imp" PORT="rtc_iic_scl_t"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rtc_scl_t"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="gpo" RIGHT="0" SIGIS="undef"/>
@@ -1229,7 +1218,7 @@
             <PORTMAP LOGICAL="WVALID" PHYSICAL="s_axi_wvalid"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="axi_iic_0_IIC" NAME="IIC" TYPE="INITIATOR" VLNV="xilinx.com:interface:iic:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="IIC" TYPE="INITIATOR" VLNV="xilinx.com:interface:iic:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="SCL_I" PHYSICAL="scl_i"/>
             <PORTMAP LOGICAL="SCL_O" PHYSICAL="scl_o"/>

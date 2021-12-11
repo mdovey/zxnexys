@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Dec 11 13:39:26 2021
+//Date        : Sat Dec 11 14:09:32 2021
 //Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 //Command     : generate_target zxrtc.bd
 //Design      : zxrtc
@@ -13,24 +13,24 @@
 module zxrtc
    (clk_peripheral,
     reset,
-    rtc_iic_scl_i,
-    rtc_iic_scl_o,
-    rtc_iic_scl_t,
-    rtc_iic_sda_i,
-    rtc_iic_sda_o,
-    rtc_iic_sda_t,
+    rtc_scl_i,
+    rtc_scl_o,
+    rtc_scl_t,
+    rtc_sda_i,
+    rtc_sda_o,
+    rtc_sda_t,
     scl_i,
     scl_o,
     sda_i,
     sda_o);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_PERIPHERAL CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_PERIPHERAL, ASSOCIATED_RESET reset, CLK_DOMAIN zxrtc_clk_peripheral, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_peripheral;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 rtc_iic " *) input rtc_iic_scl_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 rtc_iic " *) output rtc_iic_scl_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 rtc_iic " *) output rtc_iic_scl_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 rtc_iic " *) input rtc_iic_sda_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 rtc_iic " *) output rtc_iic_sda_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 rtc_iic " *) output rtc_iic_sda_t;
+  input rtc_scl_i;
+  output rtc_scl_o;
+  output rtc_scl_t;
+  input rtc_sda_i;
+  output rtc_sda_o;
+  output rtc_sda_t;
   input scl_i;
   output scl_o;
   input sda_i;
@@ -56,12 +56,10 @@ module zxrtc
   wire axi_controller_0_interface_aximm_WREADY;
   wire [3:0]axi_controller_0_interface_aximm_WSTRB;
   wire axi_controller_0_interface_aximm_WVALID;
-  wire axi_iic_0_IIC_SCL_I;
-  wire axi_iic_0_IIC_SCL_O;
-  wire axi_iic_0_IIC_SCL_T;
-  wire axi_iic_0_IIC_SDA_I;
-  wire axi_iic_0_IIC_SDA_O;
-  wire axi_iic_0_IIC_SDA_T;
+  wire axi_iic_0_scl_o;
+  wire axi_iic_0_scl_t;
+  wire axi_iic_0_sda_o;
+  wire axi_iic_0_sda_t;
   wire clk_peripheral_1;
   wire fifo_generator_1_underflow;
   wire fifo_generator_1_wr_ack;
@@ -77,17 +75,19 @@ module zxrtc
   wire rtc_0_sda_o;
   wire rtc_0_update_t;
   wire [5:0]rtc_0_wr_reg_o;
+  wire rtc_scl_i_1;
+  wire rtc_sda_i_1;
   wire scl_i_1;
   wire sda_i_1;
 
-  assign axi_iic_0_IIC_SCL_I = rtc_iic_scl_i;
-  assign axi_iic_0_IIC_SDA_I = rtc_iic_sda_i;
   assign clk_peripheral_1 = clk_peripheral;
   assign reset_1 = reset;
-  assign rtc_iic_scl_o = axi_iic_0_IIC_SCL_O;
-  assign rtc_iic_scl_t = axi_iic_0_IIC_SCL_T;
-  assign rtc_iic_sda_o = axi_iic_0_IIC_SDA_O;
-  assign rtc_iic_sda_t = axi_iic_0_IIC_SDA_T;
+  assign rtc_scl_i_1 = rtc_scl_i;
+  assign rtc_scl_o = axi_iic_0_scl_o;
+  assign rtc_scl_t = axi_iic_0_scl_t;
+  assign rtc_sda_i_1 = rtc_sda_i;
+  assign rtc_sda_o = axi_iic_0_sda_o;
+  assign rtc_sda_t = axi_iic_0_sda_t;
   assign scl_i_1 = scl_i;
   assign scl_o = scl_i_1;
   assign sda_i_1 = sda_i;
@@ -134,12 +134,12 @@ module zxrtc
         .s_axi_wready(axi_controller_0_interface_aximm_WREADY),
         .s_axi_wstrb(axi_controller_0_interface_aximm_WSTRB),
         .s_axi_wvalid(axi_controller_0_interface_aximm_WVALID),
-        .scl_i(axi_iic_0_IIC_SCL_I),
-        .scl_o(axi_iic_0_IIC_SCL_O),
-        .scl_t(axi_iic_0_IIC_SCL_T),
-        .sda_i(axi_iic_0_IIC_SDA_I),
-        .sda_o(axi_iic_0_IIC_SDA_O),
-        .sda_t(axi_iic_0_IIC_SDA_T));
+        .scl_i(rtc_scl_i_1),
+        .scl_o(axi_iic_0_scl_o),
+        .scl_t(axi_iic_0_scl_t),
+        .sda_i(rtc_sda_i_1),
+        .sda_o(axi_iic_0_sda_o),
+        .sda_t(axi_iic_0_sda_t));
   zxrtc_fifo_generator_0_0 fifo_generator_0
        (.clk(clk_peripheral_1),
         .din(i2c_agent_0_fifo_write_WR_DATA),

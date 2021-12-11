@@ -110,7 +110,7 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>ps2mouse_clk</spirit:name>
+      <spirit:name>ps2_clk</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
       <spirit:master/>
@@ -142,7 +142,7 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>ps2mouse_data</spirit:name>
+      <spirit:name>ps2_data</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
       <spirit:master/>
@@ -188,7 +188,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>61315bf9</spirit:value>
+            <spirit:value>0b9e6afd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -204,7 +204,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>61315bf9</spirit:value>
+            <spirit:value>0b9e6afd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -435,19 +435,19 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/ps2_mouse.v</spirit:name>
+        <spirit:name>zxmouse.srcs/sources_1/imports/ZXNext/input/ps2_mouse.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>zxmouse.srcs/sources_1/new/zxmouse.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_bb8e51cb</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_145818f3</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../ZX_Spectrum_Next_FPGA/cores/zxnext/src/input/ps2_mouse.v</spirit:name>
+        <spirit:name>zxmouse.srcs/sources_1/imports/ZXNext/input/ps2_mouse.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -505,8 +505,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxmouse_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>17</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-11-28T20:25:31Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>20</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T18:04:54Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@23610337_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@14ee7dc7_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
@@ -696,12 +696,41 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@a839549_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6bd0e90a_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@66bdc795_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cc1dd81_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4190d48d_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a519009_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48e8af7e_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ce61f76_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5eec4d_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fdc013b_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ab60470_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9290601_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cb6d0d_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c4f4061_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60e5651_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61d713d6_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@532315ab_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17e39575_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7917cedc_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bb26abd_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@515d0706_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63b56598_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64c74ee9_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57fc2f7c_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b6d864f_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e6b663c_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9603231_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c3f642a_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e4bbbcb_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35524761_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5767a33c_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@326d458d_ARCHIVE_LOCATION">v:/zxnext/zxmouse</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="4357fe43"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d84364ad"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="18f3293c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="03d09200"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="09ac4323"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="f13cdf46"/>
     </xilinx:packagingInfo>

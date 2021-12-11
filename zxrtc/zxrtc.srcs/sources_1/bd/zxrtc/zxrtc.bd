@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2DB6F472AADE76CA",
+      "boundary_crc": "0x94B86E5F457B69A7",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxrtc.gen/sources_1/bd/zxrtc",
       "name": "zxrtc",
@@ -18,13 +18,6 @@
       "axi_controller_0": "",
       "axi_iic_0": "",
       "resets_0": ""
-    },
-    "interface_ports": {
-      "rtc_iic": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:iic:1.0",
-        "vlnv": "xilinx.com:interface:iic_rtl:1.0"
-      }
     },
     "ports": {
       "clk_peripheral": {
@@ -79,6 +72,24 @@
         "direction": "I"
       },
       "sda_o": {
+        "direction": "O"
+      },
+      "rtc_scl_i": {
+        "direction": "I"
+      },
+      "rtc_scl_o": {
+        "direction": "O"
+      },
+      "rtc_scl_t": {
+        "direction": "O"
+      },
+      "rtc_sda_i": {
+        "direction": "I"
+      },
+      "rtc_sda_o": {
+        "direction": "O"
+      },
+      "rtc_sda_t": {
         "direction": "O"
       }
     },
@@ -685,12 +696,6 @@
           "axi_controller_0/interface_aximm"
         ]
       },
-      "axi_iic_0_IIC": {
-        "interface_ports": [
-          "rtc_iic",
-          "axi_iic_0/IIC"
-        ]
-      },
       "i2c_agent_0_fifo_read": {
         "interface_ports": [
           "registers_0/fifo_read",
@@ -705,6 +710,30 @@
       }
     },
     "nets": {
+      "axi_iic_0_scl_o": {
+        "ports": [
+          "axi_iic_0/scl_o",
+          "rtc_scl_o"
+        ]
+      },
+      "axi_iic_0_scl_t": {
+        "ports": [
+          "axi_iic_0/scl_t",
+          "rtc_scl_t"
+        ]
+      },
+      "axi_iic_0_sda_o": {
+        "ports": [
+          "axi_iic_0/sda_o",
+          "rtc_sda_o"
+        ]
+      },
+      "axi_iic_0_sda_t": {
+        "ports": [
+          "axi_iic_0/sda_t",
+          "rtc_sda_t"
+        ]
+      },
       "clk_peripheral_1": {
         "ports": [
           "clk_peripheral",
@@ -777,6 +806,18 @@
         "ports": [
           "rtc_0/wr_reg_o",
           "registers_0/wr_reg_i"
+        ]
+      },
+      "rtc_scl_i_1": {
+        "ports": [
+          "rtc_scl_i",
+          "axi_iic_0/scl_i"
+        ]
+      },
+      "rtc_sda_i_1": {
+        "ports": [
+          "rtc_sda_i",
+          "axi_iic_0/sda_i"
         ]
       },
       "scl_i_1": {

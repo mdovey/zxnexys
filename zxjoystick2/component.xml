@@ -541,8 +541,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxjoystick_v2_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>20</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-11T12:57:19Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>21</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T17:58:36Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@78f7434a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@76a03dcb_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
@@ -778,6 +778,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@2b8774a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@728f51c6_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3999e986_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c32923e_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d182b5c_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54cd0c0f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c15603a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c422345_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b41db73_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@183fd863_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b300819_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a492f33_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@105db0e7_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@378fb923_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -1,0 +1,56 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.826469",
+   "Default View_TopLeft":"-179,-143",
+   "DisplayPinsOfHiddenNets":"1",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
+preplace port port-id_clk_video -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
+preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x -10 -y 340 -defaultsOSRD
+preplace port port-id_hsync_n -pg 1 -lvl 0 -x -10 -y 180 -defaultsOSRD
+preplace port port-id_vsync_n -pg 1 -lvl 0 -x -10 -y 200 -defaultsOSRD
+preplace port port-id_csync_n -pg 1 -lvl 0 -x -10 -y 240 -defaultsOSRD
+preplace port port-id_scandouble -pg 1 -lvl 0 -x -10 -y 320 -defaultsOSRD
+preplace port port-id_vs -pg 1 -lvl 5 -x 1220 -y 350 -defaultsOSRD
+preplace port port-id_hs -pg 1 -lvl 5 -x 1220 -y 170 -defaultsOSRD
+preplace portBus rgb -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace portBus scanlines -pg 1 -lvl 0 -x -10 -y 220 -defaultsOSRD
+preplace portBus r -pg 1 -lvl 5 -x 1220 -y 240 -defaultsOSRD
+preplace portBus g -pg 1 -lvl 5 -x 1220 -y 260 -defaultsOSRD
+preplace portBus b -pg 1 -lvl 5 -x 1220 -y 280 -defaultsOSRD
+preplace portBus machine_timing -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace inst s_fix_0 -pg 1 -lvl 4 -x 1090 -y 170 -defaultsOSRD
+preplace inst s_fix_1 -pg 1 -lvl 4 -x 1090 -y 350 -defaultsOSRD
+preplace inst front_porch_0 -pg 1 -lvl 1 -x 180 -y 100 -defaultsOSRD
+preplace inst scan_convert_0 -pg 1 -lvl 2 -x 520 -y 170 -defaultsOSRD
+preplace inst scandoubler_0 -pg 1 -lvl 3 -x 840 -y 280 -defaultsOSRD
+preplace netloc clk_peripheral_2 1 0 4 NJ 40 360 40 NJ 40 980
+preplace netloc clk_peripheral_n_1 1 0 3 NJ 340 NJ 340 NJ
+preplace netloc clk_video_1 1 0 2 NJ 20 350J
+preplace netloc csync_n_1 1 0 3 NJ 240 350 300 NJ
+preplace netloc front_porch_0_ha_value 1 1 1 340J 100n
+preplace netloc hsync_n_1 1 0 2 NJ 180 NJ
+preplace netloc machine_timing_1 1 0 1 NJ 100
+preplace netloc rgb_1 1 0 2 NJ 160 NJ
+preplace netloc s_fix_0_sync_out 1 4 1 NJ 170
+preplace netloc s_fix_1_sync_out 1 4 1 NJ 350
+preplace netloc scan_convert_0_O_HSYNC 1 2 1 690 170n
+preplace netloc scan_convert_0_O_VIDEO_15 1 2 1 710 130n
+preplace netloc scan_convert_0_O_VIDEO_31 1 2 1 700 150n
+preplace netloc scan_convert_0_O_VSYNC 1 2 1 680 190n
+preplace netloc scandouble_1 1 0 3 NJ 320 NJ 320 NJ
+preplace netloc scandoubler_0_b 1 3 2 NJ 280 NJ
+preplace netloc scandoubler_0_g 1 3 2 NJ 260 NJ
+preplace netloc scandoubler_0_h_sync 1 3 1 970 180n
+preplace netloc scandoubler_0_r 1 3 2 NJ 240 NJ
+preplace netloc scandoubler_0_v_sync 1 3 1 970 320n
+preplace netloc scanlines_1 1 0 2 NJ 220 NJ
+preplace netloc vsync_n_1 1 0 2 NJ 200 NJ
+levelinfo -pg 1 -10 180 520 840 1090 1220
+pagesize -pg 1 -db -bbox -sgen -190 0 1310 420
+"
+}
+0
