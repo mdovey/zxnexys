@@ -616,10 +616,6 @@
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 11 00:54:38 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
             <spirit:value>9:c7b0a2d0</spirit:value>
           </spirit:parameter>

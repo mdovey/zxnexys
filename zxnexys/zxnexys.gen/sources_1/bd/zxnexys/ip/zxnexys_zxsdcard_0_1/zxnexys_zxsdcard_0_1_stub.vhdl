@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu Dec  9 17:50:53 2021
+-- Date        : Sat Dec 11 01:35:18 2021
 -- Host        : JL69XDHR2 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top zxnexys_zxsdcard_0_1 -prefix
---               zxnexys_zxsdcard_0_1_ zxnexys_zxsdcard_0_1_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               v:/zxnext/zxnexys/zxnexys.gen/sources_1/bd/zxnexys/ip/zxnexys_zxsdcard_0_1/zxnexys_zxsdcard_0_1_stub.vhdl
 -- Design      : zxnexys_zxsdcard_0_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

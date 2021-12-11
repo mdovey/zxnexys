@@ -26,15 +26,11 @@
       <data key="VT">PM</data>
     </node>
     <node id="n1">
-      <data key="VM">zxnexys</data>
-      <data key="VT">BC</data>
-    </node>
-    <node id="n2">
       <data key="VH">2</data>
       <data key="VM">zxnexys</data>
       <data key="VT">VR</data>
     </node>
-    <node id="n3">
+    <node id="n2">
       <data key="BA">0x0000000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x7FFFFFF</data>
@@ -52,9 +48,13 @@
       <data key="TU">memory</data>
       <data key="VT">AC</data>
     </node>
-    <edge id="e0" source="n1" target="n2"/>
-    <edge id="e1" source="n2" target="n0"/>
-    <edge id="e2" source="n3" target="n0">
+    <node id="n3">
+      <data key="VM">zxnexys</data>
+      <data key="VT">BC</data>
+    </node>
+    <edge id="e0" source="n3" target="n1"/>
+    <edge id="e1" source="n1" target="n0"/>
+    <edge id="e2" source="n2" target="n0">
       <data key="EH">2</data>
     </edge>
   </graph>

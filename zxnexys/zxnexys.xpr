@@ -119,11 +119,41 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_reset_0_0/zxnexys_mig_reset_0_0.xci">
-          <Proxy FileSetName="zxnexys_mig_reset_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxesp32_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_rtcc_0_0/zxnexys_pmod_rtcc_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_rtcc_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxkeyboard_0_0/zxnexys_zxkeyboard_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxkeyboard_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxram_0_0/zxnexys_zxram_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxram_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxsdcard_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxmouse_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnext_0_0/zxnexys_zxnext_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxnext_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxclock_0_0/zxnexys_zxclock_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxclock_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxmonitor_0_0/zxnexys_zxmonitor_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxmonitor_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxaudio_0_1/zxnexys_zxaudio_0_1.xci">
+          <Proxy FileSetName="zxnexys_zxaudio_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_i2s2_0_0/zxnexys_pmod_i2s2_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_i2s2_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_1/zxnexys_zxsdcard_0_1.xci">
+          <Proxy FileSetName="zxnexys_zxsdcard_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxrtc_0_0/zxnexys_zxrtc_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxrtc_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_axi_iic_0_0/zxnexys_axi_iic_0_0.xci">
           <Proxy FileSetName="zxnexys_axi_iic_0_0"/>
@@ -131,59 +161,23 @@
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_esp32_0_0/zxnexys_pmod_esp32_0_0.xci">
           <Proxy FileSetName="zxnexys_pmod_esp32_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_input_0_0/zxnexys_pmod_input_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_input_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnext_0_0/zxnexys_zxnext_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxnext_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxrtc_0_0/zxnexys_zxrtc_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxrtc_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxram_0_0/zxnexys_zxram_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxram_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxmouse_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_reset_0_0/zxnexys_mig_reset_0_0.xci">
+          <Proxy FileSetName="zxnexys_mig_reset_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_xsd_0_0/zxnexys_pmod_xsd_0_0.xci">
           <Proxy FileSetName="zxnexys_pmod_xsd_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxreset_0_0/zxnexys_zxreset_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxreset_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_input_0_0/zxnexys_pmod_input_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_input_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_rtcc_0_0/zxnexys_pmod_rtcc_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_rtcc_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_clk_wiz_0_1/zxnexys_clk_wiz_0_1.xci">
           <Proxy FileSetName="zxnexys_clk_wiz_0_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxclock_0_0/zxnexys_zxclock_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxclock_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_7series_0_0/zxnexys_mig_7series_0_0.xci">
           <Proxy FileSetName="zxnexys_mig_7series_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_1/zxnexys_zxsdcard_0_1.xci">
-          <Proxy FileSetName="zxnexys_zxsdcard_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxjoystick_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxesp32_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxaudio_0_1/zxnexys_zxaudio_0_1.xci">
-          <Proxy FileSetName="zxnexys_zxaudio_0_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxmonitor_0_0/zxnexys_zxmonitor_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxmonitor_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxkeyboard_0_0/zxnexys_zxkeyboard_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxkeyboard_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxsdcard_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_i2s2_0_0/zxnexys_pmod_i2s2_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_i2s2_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/zxnexys/hdl/zxnexys_wrapper.v">
@@ -369,18 +363,6 @@
     <FileSet Name="zxnexys_zxmonitor_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxmonitor_0_0" RelGenDir="$PGENDIR/zxnexys_zxmonitor_0_0">
       <Config>
         <Option Name="TopModule" Val="zxnexys_zxmonitor_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="zxnexys_zxreset_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxreset_0_0" RelGenDir="$PGENDIR/zxnexys_zxreset_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxnexys_zxreset_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="zxnexys_zxjoystick_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxnexys_zxjoystick_0_0" RelGenDir="$PGENDIR/zxnexys_zxjoystick_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxnexys_zxjoystick_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -614,29 +596,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxnexys_zxreset_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxreset_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxreset_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxreset_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxreset_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxjoystick_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxnexys_zxjoystick_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxjoystick_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxnexys_zxjoystick_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxjoystick_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
@@ -649,7 +609,6 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -980,42 +939,6 @@
     <Run Id="zxnexys_zxmonitor_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxmonitor_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxmonitor_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxmonitor_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxreset_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxreset_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxreset_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxreset_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="zxnexys_zxjoystick_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxnexys_zxjoystick_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxnexys_zxjoystick_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxnexys_zxjoystick_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

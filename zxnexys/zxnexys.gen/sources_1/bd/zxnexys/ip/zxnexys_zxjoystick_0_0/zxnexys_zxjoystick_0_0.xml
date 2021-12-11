@@ -179,115 +179,6 @@
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
-    <spirit:views>
-      <spirit:view>
-        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
-        <spirit:displayName>Synthesis</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
-        <spirit:modelName>zxjoystick</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 11 01:00:36 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69956098</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_synthesisconstraints</spirit:name>
-        <spirit:displayName>Synthesis Constraints</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:synthesis.constraints</spirit:envIdentifier>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69956098</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_verilogsynthesiswrapper</spirit:name>
-        <spirit:displayName>Verilog Synthesis Wrapper</spirit:displayName>
-        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
-        <spirit:language>verilog</spirit:language>
-        <spirit:modelName>zxnexys_zxjoystick_0_0</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_verilogsynthesiswrapper_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 11 01:00:36 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69956098</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
-        <spirit:displayName>Simulation</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
-        <spirit:modelName>zxjoystick</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 11 01:00:36 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bc4cf52a</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_verilogsimulationwrapper</spirit:name>
-        <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
-        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
-        <spirit:language>verilog</spirit:language>
-        <spirit:modelName>zxnexys_zxjoystick_0_0</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 11 01:00:36 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:bc4cf52a</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_externalfiles</spirit:name>
-        <spirit:displayName>External Files</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 11 01:02:11 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:69956098</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-    </spirit:views>
     <spirit:ports>
       <spirit:port>
         <spirit:name>left</spirit:name>
@@ -300,8 +191,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -317,8 +207,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -330,8 +219,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -346,8 +234,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -366,8 +253,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -386,8 +272,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -402,8 +287,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -415,8 +299,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -428,8 +311,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -441,8 +323,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -454,8 +335,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -467,8 +347,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -487,8 +366,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -507,8 +385,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -530,8 +407,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -550,8 +426,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -563,8 +438,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -589,98 +463,6 @@
       <spirit:enumeration spirit:text="Left">1</spirit:enumeration>
     </spirit:choice>
   </spirit:choices>
-  <spirit:fileSets>
-    <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/imports/zxnext/SPI_Master.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/new/btn_jstk.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/new/pmod_jstk2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/new/zxjoystick.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_verilogsynthesiswrapper_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>synth/zxnexys_zxjoystick_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/imports/zxnext/SPI_Master.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/new/btn_jstk.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/new/pmod_jstk2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/6ec6/zxjoystick2.srcs/sources_1/new/zxjoystick.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>sim/zxnexys_zxjoystick_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>zxnexys_zxjoystick_0_0.dcp</spirit:name>
-        <spirit:userFileType>dcp</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxjoystick_0_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxjoystick_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxjoystick_0_0_sim_netlist.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxjoystick_0_0_sim_netlist.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-  </spirit:fileSets>
   <spirit:description>zxjoystick_v2_0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
@@ -706,7 +488,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxjoystick_v2_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>17</xilinx:coreRevision>
+      <xilinx:coreRevision>18</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@78f7434a_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@76a03dcb_ARCHIVE_LOCATION">v:/zxnext/zxjoystick</xilinx:tag>
@@ -909,6 +691,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@58a8b230_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@36b28ffa_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@304ca2ce_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32af8444_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c0e7487_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8a9629_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11fda1aa_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4a3a1b_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6caf753d_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@528803ee_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7260df09_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3147a34f_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@445ea614_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@131d7146_ARCHIVE_LOCATION">v:/zxnext/zxjoystick2</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
