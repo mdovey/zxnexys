@@ -13,7 +13,7 @@ set_property CFGBVS VCCO [current_design]
 
 ## Clock signal
 set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports SYS_CLOCK]
-#create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports sys_clock]
+create_clock -period 10.000 -name SYS_CLOCK -waveform {0.000 5.000} [get_ports SYS_CLOCK]
 
 ##Switches
 #set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports {SW[0]}]
