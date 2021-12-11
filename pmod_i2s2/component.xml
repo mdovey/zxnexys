@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <spirit:vendor>sepcnext.com</spirit:vendor>
+  <spirit:vendor>specnext.com</spirit:vendor>
   <spirit:library>specnext</spirit:library>
   <spirit:name>pmod_i2s2</spirit:name>
   <spirit:version>1.0</spirit:version>
@@ -220,7 +220,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2b9485c1</spirit:value>
+            <spirit:value>a93ef481</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -236,7 +236,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2b9485c1</spirit:value>
+            <spirit:value>a93ef481</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -680,7 +680,7 @@
       <spirit:file>
         <spirit:name>pmod_i2s2.srcs/sources_1/new/pmod_i2s2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_2b9485c1</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a93ef481</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -740,8 +740,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_i2s2_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>15</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-07T21:41:22Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>16</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-11T12:03:40Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5c058ed9_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@59e25a7a_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
@@ -909,12 +909,25 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@78fa1381_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@a5c73ba_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@28cb3ce2_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e30060d_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b2459f1_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68cd9054_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a62ca63_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@448012db_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a660975_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f84e4c6_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@340e91b5_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fb43bd8_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6333f236_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fc355b6_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c248395_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@196d981d_ARCHIVE_LOCATION">v:/zxnext/pmod_i2s2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="1aed2c58"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="71251c10"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e851f358"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="fe3d35da"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="8c08d100"/>
     </xilinx:packagingInfo>

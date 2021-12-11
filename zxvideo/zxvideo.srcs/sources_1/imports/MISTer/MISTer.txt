@@ -1,0 +1,4 @@
+Source: ZXNext_MISTer
+Link: https://github.com/MiSTer-devel/ZXNext_MISTer
+License: GNU GPL 2.0
+
