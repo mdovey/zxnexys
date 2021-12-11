@@ -123,17 +123,17 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
+        <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_registers_0_0/zxrtc_registers_0_0.xci">
+          <Proxy FileSetName="zxrtc_registers_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_axi_controller_0_0/zxrtc_axi_controller_0_0.xci">
+          <Proxy FileSetName="zxrtc_axi_controller_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_fifo_generator_0_0/zxrtc_fifo_generator_0_0.xci">
           <Proxy FileSetName="zxrtc_fifo_generator_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_fifo_generator_1_0/zxrtc_fifo_generator_1_0.xci">
           <Proxy FileSetName="zxrtc_fifo_generator_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_axi_controller_0_0/zxrtc_axi_controller_0_0.xci">
-          <Proxy FileSetName="zxrtc_axi_controller_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_resets_0_0/zxrtc_resets_0_0.xci">
-          <Proxy FileSetName="zxrtc_resets_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_rtc_0_0/zxrtc_rtc_0_0.xci">
           <Proxy FileSetName="zxrtc_rtc_0_0"/>
@@ -141,8 +141,8 @@
         <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_axi_iic_0_0/zxrtc_axi_iic_0_0.xci">
           <Proxy FileSetName="zxrtc_axi_iic_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_registers_0_0/zxrtc_registers_0_0.xci">
-          <Proxy FileSetName="zxrtc_registers_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxrtc.bd" FileRelPathName="ip/zxrtc_resets_0_0/zxrtc_resets_0_0.xci">
+          <Proxy FileSetName="zxrtc_resets_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/zxrtc/hdl/zxrtc_wrapper.v">
@@ -253,82 +253,74 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="15">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_fifo_generator_1_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_fifo_generator_1_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_fifo_generator_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_fifo_generator_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_fifo_generator_1_0_synth_1">
+    <Run Id="zxrtc_fifo_generator_1_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_fifo_generator_1_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_fifo_generator_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_fifo_generator_1_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_fifo_generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_fifo_generator_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_fifo_generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_fifo_generator_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_fifo_generator_0_0_synth_1">
+    <Run Id="zxrtc_fifo_generator_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_fifo_generator_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_fifo_generator_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_fifo_generator_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_rtc_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_rtc_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_rtc_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_rtc_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_rtc_0_0_synth_1">
+    <Run Id="zxrtc_rtc_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_rtc_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_rtc_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_rtc_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_axi_iic_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_axi_iic_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_axi_iic_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_axi_iic_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_axi_iic_0_0_synth_1">
+    <Run Id="zxrtc_axi_iic_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_axi_iic_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_axi_iic_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_axi_iic_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_registers_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_registers_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_registers_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_registers_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_registers_0_0_synth_1">
+    <Run Id="zxrtc_registers_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_registers_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_registers_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_registers_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_axi_controller_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_axi_controller_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_axi_controller_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_axi_controller_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_axi_controller_0_0_synth_1">
+    <Run Id="zxrtc_axi_controller_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_axi_controller_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_axi_controller_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_axi_controller_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxrtc_resets_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_resets_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_resets_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxrtc_resets_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_resets_0_0_synth_1">
+    <Run Id="zxrtc_resets_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxrtc_resets_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxrtc_resets_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxrtc_resets_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>

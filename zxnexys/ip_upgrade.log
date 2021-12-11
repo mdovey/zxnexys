@@ -1,6 +1,685 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:06:35 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxrtc_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxrtc_0_0 from specnext.com:specnext:zxrtc:1.0 (Rev. 86) to specnext.com:specnext:zxrtc:1.1 (Rev. 91)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxrtc_0_0'.
+
+
+-Upgrade has removed interface 'axi_rtc'
+
+-Upgrade has added interface 'iic_rtc' (xilinx.com:interface:iic:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxrtc_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'axi_rtc_araddr'
+
+-Upgrade has removed port 'axi_rtc_arready'
+
+-Upgrade has removed port 'axi_rtc_arvalid'
+
+-Upgrade has removed port 'axi_rtc_awaddr'
+
+-Upgrade has removed port 'axi_rtc_awready'
+
+-Upgrade has removed port 'axi_rtc_awvalid'
+
+-Upgrade has removed port 'axi_rtc_bready'
+
+-Upgrade has removed port 'axi_rtc_bvalid'
+
+-Upgrade has removed port 'axi_rtc_rdata'
+
+-Upgrade has removed port 'axi_rtc_rready'
+
+-Upgrade has removed port 'axi_rtc_rvalid'
+
+-Upgrade has removed port 'axi_rtc_wdata'
+
+-Upgrade has removed port 'axi_rtc_wready'
+
+-Upgrade has removed port 'axi_rtc_wstrb'
+
+-Upgrade has removed port 'axi_rtc_wvalid'
+
+-Upgrade has added port 'rtc_scl_i'
+
+-Upgrade has added port 'rtc_scl_o'
+
+-Upgrade has added port 'rtc_scl_t'
+
+-Upgrade has added port 'rtc_sda_i'
+
+-Upgrade has added port 'rtc_sda_o'
+
+-Upgrade has added port 'rtc_sda_t'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:06:35 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxram_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxram_0_0 (specnext.com:specnext:zxram:2.0) from (Rev. 247) to (Rev. 248)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:06:35 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxnext_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxnext_0_0 (specnext.com:specnext:zxnext:3.01.11) from (Rev. 93) to (Rev. 95)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxvideo_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxvideo_0_0 from specnext.com:specnext:zxvideo:1.0 (Rev. 14) to specnext.com:specnext:zxvideo:1.1 (Rev. 4)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxvideo_0_0'.
+
+
+-Upgrade has removed interface 'reset'
+
+-Upgrade has removed interface 'video'
+
+-Upgrade has added interface 'clk_peripheral_n' (xilinx.com:signal:clock:1.0)
+
+-Upgrade has added interface 'specnext_video' (specnext.com:specnext:video:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxvideo_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'freq_50_60'
+
+-Upgrade has removed port 'hblank_n'
+
+-Upgrade has removed port 'hdmi_audio_en'
+
+-Upgrade has removed port 'hdmi_reset'
+
+-Upgrade has removed port 'reset'
+
+-Upgrade has removed port 'vblank_n'
+
+-Upgrade has removed port 'video_mode'
+
+-Upgrade has added port 'clk_peripheral_n'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxsdcard_0_1'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxsdcard_0_1 (specnext.com:specnext:zxsdcard:1.0) from (Rev. 26) to (Rev. 27)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxsdcard_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxsdcard_0_0 (specnext.com:specnext:zxsdcard:1.0) from (Rev. 26) to (Rev. 27)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxreset_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxreset_0_0 (specnext.com:specnext:zxreset:1.0) from (Rev. 82) to (Rev. 83)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxreset_0_0'.
+
+
+-Upgrade has removed interface 'reset_mb_hard'
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxreset_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'reset_mb_hard'
+
+
+4. Customization warnings
+-------------------------
+
+Parameter 'HARD_SYS_RESET' is no longer present on the upgraded IP 'zxnexys_zxreset_0_0', and cannot be set to 'false'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv specnext.com:specnext:zxreset:1.0 -user_name zxnexys_zxreset_0_0
+set_property -dict "\
+  CONFIG.Component_Name {zxnexys_zxreset_0_0} \
+  CONFIG.HARD_RESET_DELAY {26} \
+  CONFIG.MEM_LOCKS {2} \
+  CONFIG.PERIPHERAL_RESET_DELAY {24} \
+  CONFIG.PIPELINE_STAGES {1} \
+  CONFIG.SOFT_RESET_DELAY {25} \
+  CONFIG.SYNC_STAGES {3} \
+  CONFIG.clk_peripheral.ASSOCIATED_BUSIF {} \
+  CONFIG.clk_peripheral.ASSOCIATED_PORT {} \
+  CONFIG.clk_peripheral.ASSOCIATED_RESET {reset_mb_hard:reset_mb_soft:reset_peripheral:reset_peripheral_n} \
+  CONFIG.clk_peripheral.CLK_DOMAIN {zxnexys_zxclock_0_0_clk_peripheral} \
+  CONFIG.clk_peripheral.FREQ_HZ {100000000} \
+  CONFIG.clk_peripheral.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.clk_peripheral.INSERT_VIP {0} \
+  CONFIG.clk_peripheral.PHASE {0.0} \
+  CONFIG.in_reset_hard.INSERT_VIP {0} \
+  CONFIG.in_reset_hard.POLARITY {ACTIVE_HIGH} \
+  CONFIG.in_reset_peripheral.INSERT_VIP {0} \
+  CONFIG.in_reset_peripheral.POLARITY {ACTIVE_HIGH} \
+  CONFIG.in_reset_soft.INSERT_VIP {0} \
+  CONFIG.in_reset_soft.POLARITY {ACTIVE_HIGH} \
+  CONFIG.mb_reset.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_mb_soft.INSERT_VIP {0} \
+  CONFIG.reset_mb_soft.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_peripheral.INSERT_VIP {0} \
+  CONFIG.reset_peripheral.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_peripheral_n.INSERT_VIP {0} \
+  CONFIG.reset_peripheral_n.POLARITY {ACTIVE_LOW} \
+  CONFIG.sys_reset_n_in.INSERT_VIP {0} \
+  CONFIG.sys_reset_n_in.POLARITY {ACTIVE_HIGH} \
+  CONFIG.sys_reset_n_out.INSERT_VIP {0} \
+  CONFIG.sys_reset_n_out.POLARITY {ACTIVE_LOW} " [get_ips zxnexys_zxreset_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxmouse_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxmouse_0_0 (specnext.com:specnext:zxmouse:1.0) from (Rev. 17) to (Rev. 20)
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxmouse_0_0'.
+
+
+-Upgrade has removed interface 'ps2mouse_clk'
+
+-Upgrade has removed interface 'ps2mouse_data'
+
+-Upgrade has added interface 'ps2_clk' (xilinx.com:interface:gpio:1.0)
+
+-Upgrade has added interface 'ps2_data' (xilinx.com:interface:gpio:1.0)
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxmonitor_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxmonitor_0_0 (specnext.com:specnext:zxmonitor:2.0) from (Rev. 38) to (Rev. 39)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxkeyboard_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxkeyboard_0_0 from specnext.com:specnext:zxkeyboard:1.0 (Rev. 21) to specnext.com:specnext:zxkeyboard:1.1 (Rev. 4)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxkeyboard_0_0'. These changes may impact your design.
+
+
+-Upgraded port 'keymap_data' width 8 differs from original width 9
+
+-Upgrade has removed port 'clk_i'
+
+-Upgrade has removed port 'clk_o'
+
+-Upgrade has removed port 'clk_t'
+
+-Upgrade has removed port 'data_i'
+
+-Upgrade has removed port 'data_o'
+
+-Upgrade has removed port 'data_t'
+
+-Upgrade has removed port 'joymap_we'
+
+-Upgrade has added port 'PS2_Clk_I'
+
+-Upgrade has added port 'PS2_Clk_O'
+
+-Upgrade has added port 'PS2_Clk_T'
+
+-Upgrade has added port 'PS2_Data_I'
+
+-Upgrade has added port 'PS2_Data_O'
+
+-Upgrade has added port 'PS2_Data_T'
+
+
+3. Customization warnings
+-------------------------
+
+Parameter 'External_Buttons' is no longer present on the upgraded IP 'zxnexys_zxkeyboard_0_0', and cannot be set to 'false'
+
+
+4. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv specnext.com:specnext:zxkeyboard:1.1 -user_name zxnexys_zxkeyboard_0_0
+set_property -dict "\
+  CONFIG.Component_Name {zxnexys_zxkeyboard_0_0} \
+  CONFIG.clk_peripheral.ASSOCIATED_BUSIF {} \
+  CONFIG.clk_peripheral.ASSOCIATED_PORT {} \
+  CONFIG.clk_peripheral.ASSOCIATED_RESET {reset} \
+  CONFIG.clk_peripheral.CLK_DOMAIN {zxnexys_zxclock_0_0_clk_peripheral} \
+  CONFIG.clk_peripheral.FREQ_HZ {100000000} \
+  CONFIG.clk_peripheral.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.clk_peripheral.INSERT_VIP {0} \
+  CONFIG.clk_peripheral.PHASE {0.0} \
+  CONFIG.clk_peripheral_n.ASSOCIATED_BUSIF {} \
+  CONFIG.clk_peripheral_n.ASSOCIATED_PORT {} \
+  CONFIG.clk_peripheral_n.ASSOCIATED_RESET {} \
+  CONFIG.clk_peripheral_n.CLK_DOMAIN {zxnexys_zxclock_0_0_clk_peripheral_n} \
+  CONFIG.clk_peripheral_n.FREQ_HZ {100000000} \
+  CONFIG.clk_peripheral_n.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.clk_peripheral_n.INSERT_VIP {0} \
+  CONFIG.clk_peripheral_n.PHASE {0.0} \
+  CONFIG.reset.INSERT_VIP {0} \
+  CONFIG.reset.POLARITY {ACTIVE_HIGH} " [get_ips zxnexys_zxkeyboard_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxjoystick_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxjoystick_0_0 (specnext.com:specnext:zxjoystick:2.0) from (Rev. 18) to (Rev. 21)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxesp32_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxesp32_0_0 (specnext.com:specnext:zxesp32:1.0) from (Rev. 5) to (Rev. 6)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxesp32_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'rx'
+
+-Upgrade has removed port 'rx_i'
+
+-Upgrade has removed port 'tx'
+
+-Upgrade has removed port 'tx_i'
+
+-Upgrade has added port 'uart_rx_i'
+
+-Upgrade has added port 'uart_rx_o'
+
+-Upgrade has added port 'uart_tx_i'
+
+-Upgrade has added port 'uart_tx_o'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxclock_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_zxclock_0_0 (specnext.com:specnext:zxclock:1.0) from (Rev. 65) to (Rev. 66)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxaudio_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxaudio_0_1 (specnext.com:specnext:zxaudio:2.0) from (Rev. 79) to (Rev. 81)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxaudio_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ear'
+
+-Upgrade has removed port 'mic'
+
+-Upgrade has added port 'tape_ear'
+
+-Upgrade has added port 'tape_mic'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_pmod_xsd_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_pmod_xsd_0_0 (specnext.com:specnext:pmod_xsd:1.0) from (Rev. 21) to (Rev. 23)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_pmod_input_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zxnexys_pmod_input_0_0 (specnext.com:specnext:pmod_input:1.0) from (Rev. 6) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sat Dec 11 20:05:08 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_pmod_esp32_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_pmod_esp32_0_0 (specnext.com:specnext:pmod_esp32:1.0) from (Rev. 7) to (Rev. 14)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_pmod_esp32_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'rx'
+
+-Upgrade has removed port 'tx'
+
+-Upgrade has added port 'uart_rx'
+
+-Upgrade has added port 'uart_tx'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 | Date         : Sat Dec 11 01:56:42 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip
