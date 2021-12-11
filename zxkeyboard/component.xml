@@ -248,7 +248,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d16485c5</spirit:value>
+            <spirit:value>53130ffc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -264,7 +264,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d16485c5</spirit:value>
+            <spirit:value>53130ffc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -743,8 +743,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxkeyboard_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>20</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-07T11:55:46Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>21</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-09T17:56:00Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4fa11cdb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@422e18b4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
@@ -983,12 +983,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@476965f6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1c491bbd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5ba10bfc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e66ae25_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ab127b5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36760ef1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cd11fe9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@162378a7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3657c842_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32fa053_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64522cb3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1efc7f3a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195b46ec_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a7eb690_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="064888a7"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="21794501"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="831db0bc"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="b0fc5c1b"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2c0688aa"/>
     </xilinx:packagingInfo>

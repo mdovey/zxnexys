@@ -7,15 +7,6 @@ proc init_gui { IPINST } {
 
 }
 
-proc update_PARAM_VALUE.DECAY { PARAM_VALUE.DECAY } {
-	# Procedure called to update DECAY when any of the dependent parameters in the arguments change
-}
-
-proc validate_PARAM_VALUE.DECAY { PARAM_VALUE.DECAY } {
-	# Procedure called to validate DECAY
-	return true
-}
-
 proc update_PARAM_VALUE.DIV { PARAM_VALUE.DIV } {
 	# Procedure called to update DIV when any of the dependent parameters in the arguments change
 }
@@ -29,10 +20,5 @@ proc validate_PARAM_VALUE.DIV { PARAM_VALUE.DIV } {
 proc update_MODELPARAM_VALUE.DIV { MODELPARAM_VALUE.DIV PARAM_VALUE.DIV } {
 	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
 	set_property value [get_property value ${PARAM_VALUE.DIV}] ${MODELPARAM_VALUE.DIV}
-}
-
-proc update_MODELPARAM_VALUE.DECAY { MODELPARAM_VALUE.DECAY PARAM_VALUE.DECAY } {
-	# Procedure called to set VHDL generic/Verilog parameter value(s) based on TCL parameter value
-	set_property value [get_property value ${PARAM_VALUE.DECAY}] ${MODELPARAM_VALUE.DECAY}
 }
 
