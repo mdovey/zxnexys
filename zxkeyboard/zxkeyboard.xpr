@@ -47,7 +47,6 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/."/>
     <Option Name="IPRepoPath" Val="$PPRDIR/../ip"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
@@ -66,13 +65,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="2"/>
-    <Option Name="WTModelSimExportSim" Val="2"/>
-    <Option Name="WTQuestaExportSim" Val="2"/>
+    <Option Name="WTXSimExportSim" Val="4"/>
+    <Option Name="WTModelSimExportSim" Val="4"/>
+    <Option Name="WTQuestaExportSim" Val="4"/>
     <Option Name="WTIesExportSim" Val="2"/>
-    <Option Name="WTVcsExportSim" Val="2"/>
-    <Option Name="WTRivieraExportSim" Val="2"/>
-    <Option Name="WTActivehdlExportSim" Val="2"/>
+    <Option Name="WTVcsExportSim" Val="4"/>
+    <Option Name="WTRivieraExportSim" Val="4"/>
+    <Option Name="WTActivehdlExportSim" Val="4"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -120,13 +119,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/clocks.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/digilent/SyncAsync.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -139,32 +131,39 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/new/keyb_clocks.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/bd/zxkeyboard/zxkeyboard.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_ps2_keyb_0_0/zxkeyboard_ps2_keyb_0_0.xci">
-          <Proxy FileSetName="zxkeyboard_ps2_keyb_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_emu_fnkeys_0_0/zxkeyboard_emu_fnkeys_0_0.xci">
-          <Proxy FileSetName="zxkeyboard_emu_fnkeys_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_membrane_0_0/zxkeyboard_membrane_0_0.xci">
-          <Proxy FileSetName="zxkeyboard_membrane_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_util_vector_logic_0_0/zxkeyboard_util_vector_logic_0_0.xci">
-          <Proxy FileSetName="zxkeyboard_util_vector_logic_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_keyb_clocks_0_0/zxkeyboard_keyb_clocks_0_0.xci">
+          <Proxy FileSetName="zxkeyboard_keyb_clocks_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_special_keys_0_0/zxkeyboard_special_keys_0_0.xci">
           <Proxy FileSetName="zxkeyboard_special_keys_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_clocks_0_0/zxkeyboard_clocks_0_0.xci">
-          <Proxy FileSetName="zxkeyboard_clocks_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_util_vector_logic_0_0/zxkeyboard_util_vector_logic_0_0.xci">
+          <Proxy FileSetName="zxkeyboard_util_vector_logic_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_emu_fnkeys_0_0/zxkeyboard_emu_fnkeys_0_0.xci">
+          <Proxy FileSetName="zxkeyboard_emu_fnkeys_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_ps2_keyb_0_0/zxkeyboard_ps2_keyb_0_0.xci">
+          <Proxy FileSetName="zxkeyboard_ps2_keyb_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_Ps2Interface_0_0/zxkeyboard_Ps2Interface_0_0.xci">
           <Proxy FileSetName="zxkeyboard_Ps2Interface_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxkeyboard.bd" FileRelPathName="ip/zxkeyboard_membrane_0_0/zxkeyboard_membrane_0_0.xci">
+          <Proxy FileSetName="zxkeyboard_membrane_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PGENDIR/sources_1/bd/zxkeyboard/hdl/zxkeyboard_wrapper.v">
@@ -245,15 +244,15 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="zxkeyboard_clocks_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxkeyboard_clocks_0_0" RelGenDir="$PGENDIR/zxkeyboard_clocks_0_0">
-      <Config>
-        <Option Name="TopModule" Val="zxkeyboard_clocks_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="zxkeyboard_Ps2Interface_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxkeyboard_Ps2Interface_0_0" RelGenDir="$PGENDIR/zxkeyboard_Ps2Interface_0_0">
       <Config>
         <Option Name="TopModule" Val="zxkeyboard_Ps2Interface_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="zxkeyboard_keyb_clocks_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/zxkeyboard_keyb_clocks_0_0" RelGenDir="$PGENDIR/zxkeyboard_keyb_clocks_0_0">
+      <Config>
+        <Option Name="TopModule" Val="zxkeyboard_keyb_clocks_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -277,11 +276,12 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="15">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
@@ -336,7 +336,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxkeyboard_clocks_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxkeyboard_clocks_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_clocks_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxkeyboard_clocks_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_clocks_0_0_synth_1">
+    <Run Id="zxkeyboard_Ps2Interface_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxkeyboard_Ps2Interface_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_Ps2Interface_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxkeyboard_Ps2Interface_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_Ps2Interface_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
@@ -346,9 +346,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxkeyboard_Ps2Interface_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxkeyboard_Ps2Interface_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_Ps2Interface_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxkeyboard_Ps2Interface_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_Ps2Interface_0_0_synth_1">
+    <Run Id="zxkeyboard_keyb_clocks_0_0_synth_1" Type="Ft3:Synth" SrcSet="zxkeyboard_keyb_clocks_0_0" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_keyb_clocks_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/zxkeyboard_keyb_clocks_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_keyb_clocks_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -458,7 +460,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxkeyboard_clocks_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_clocks_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxkeyboard_clocks_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_clocks_0_0_impl_1">
+    <Run Id="zxkeyboard_Ps2Interface_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_Ps2Interface_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxkeyboard_Ps2Interface_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_Ps2Interface_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
@@ -475,9 +477,11 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="zxkeyboard_Ps2Interface_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_Ps2Interface_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxkeyboard_Ps2Interface_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_Ps2Interface_0_0_impl_1">
+    <Run Id="zxkeyboard_keyb_clocks_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="zxkeyboard_keyb_clocks_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="zxkeyboard_keyb_clocks_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/zxkeyboard_keyb_clocks_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

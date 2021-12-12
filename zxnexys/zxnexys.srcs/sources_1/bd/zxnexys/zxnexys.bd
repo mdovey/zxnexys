@@ -25,14 +25,14 @@
       "zxsdcard_1": "",
       "zxnext_0": "",
       "zxram_0": "",
-      "zxkeyboard_0": "",
       "zxvideo_0": "",
       "pmod_i2s2_0": "",
       "pmod_rtcc_0": "",
       "zxaudio_0": "",
       "zxrtc_0": "",
       "zxreset_0": "",
-      "mig_reset_0": ""
+      "mig_reset_0": "",
+      "zxkeyboard_0": ""
     },
     "interface_ports": {
       "JA": {
@@ -568,12 +568,6 @@
           }
         }
       },
-      "zxkeyboard_0": {
-        "vlnv": "specnext.com:specnext:zxkeyboard:1.1",
-        "xci_name": "zxnexys_zxkeyboard_0_0",
-        "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
-        "inst_hier_path": "zxkeyboard_0"
-      },
       "zxvideo_0": {
         "vlnv": "specnext.com:specnext:zxvideo:1.1",
         "xci_name": "zxnexys_zxvideo_0_0",
@@ -702,6 +696,12 @@
             }
           }
         }
+      },
+      "zxkeyboard_0": {
+        "vlnv": "specnext.com:specnext:zxkeyboard:1.1",
+        "xci_name": "zxnexys_zxkeyboard_0_0",
+        "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
+        "inst_hier_path": "zxkeyboard_0"
       }
     },
     "interface_nets": {
@@ -1150,19 +1150,19 @@
           "zxmouse_0/clk_peripheral",
           "zxsdcard_0/clk_peripheral",
           "zxsdcard_1/clk_peripheral",
-          "zxkeyboard_0/clk_peripheral",
           "zxvideo_0/clk_peripheral",
           "zxaudio_0/clk_peripheral",
           "zxrtc_0/clk_peripheral",
-          "zxreset_0/clk_peripheral"
+          "zxreset_0/clk_peripheral",
+          "zxkeyboard_0/clk_peripheral"
         ]
       },
       "zxclock_0_clk_peripheral_n": {
         "ports": [
           "zxclock_0/clk_peripheral_n",
           "zxram_0/clk_peripheral_n",
-          "zxkeyboard_0/clk_peripheral_n",
-          "zxvideo_0/clk_peripheral_n"
+          "zxvideo_0/clk_peripheral_n",
+          "zxkeyboard_0/clk_peripheral_n"
         ]
       },
       "zxclock_0_clk_system": {
@@ -1235,9 +1235,9 @@
           "zxmouse_0/reset",
           "zxsdcard_0/reset",
           "zxsdcard_1/reset",
-          "zxkeyboard_0/reset",
           "zxaudio_0/reset",
-          "zxrtc_0/reset"
+          "zxrtc_0/reset",
+          "zxkeyboard_0/reset"
         ]
       },
       "zxsdcard_0_sd_cmd": {
