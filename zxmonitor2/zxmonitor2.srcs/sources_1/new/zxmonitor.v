@@ -23,7 +23,8 @@
 
 
 module zxmonitor #(
-    parameter   DIV =   16
+    parameter   DIV         =   16,
+    parameter   MONITOR_BUS =   1'b1
 )(
 
     input	[15:0]	i_BUS_ADDR,
@@ -178,17 +179,23 @@ module zxmonitor #(
         div <= div + 1;
         
     always @(posedge clk_led)
-        case (sel_led)
-            3'b000:    a     <= 8'b0111_1111;
-            3'b001:    a     <= 8'b1011_1111;
-            3'b010:    a     <= address[20:20] ? 8'b1101_1111 :  8'b1111_1111;
-            3'b011:    a     <= 8'b1110_1111;
-            3'b100:    a     <= 8'b1111_0111;
-            3'b101:    a     <= 8'b1111_1011;
-            3'b110:    a     <= 8'b1111_1101;
-            3'b111:    a     <= 8'b1111_1110;
-        endcase
-
+        if (MONITOR_BUS)
+            case (sel_led)
+                3'b000:    a     <= 8'b0111_1111;
+                3'b001:    a     <= 8'b1011_1111;
+                3'b010:    a     <= address[20:20] ? 8'b1101_1111 :  8'b1111_1111;
+                3'b011:    a     <= 8'b1110_1111;
+                3'b100:    a     <= 8'b1111_0111;
+                3'b101:    a     <= 8'b1111_1011;
+                3'b110:    a     <= 8'b1111_1101;
+                3'b111:    a     <= 8'b1111_1110;
+            endcase
+        else
+            case (sel_led)
+                3'b000:    a     <= 8'b0111_1111;
+                3'b001:    a     <= 8'b1011_1111;
+                default:   a     <= 8'b1111_1111;
+            endcase    
     always @(posedge clk_led)
         case (display[sel_led])
             5'h0_0:     c    <=  8'b1100_0000; 
