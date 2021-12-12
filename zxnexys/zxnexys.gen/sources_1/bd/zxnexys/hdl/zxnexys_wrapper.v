@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sun Dec 12 09:14:26 2021
+//Date        : Sun Dec 12 09:47:06 2021
 //Host        : JL69XDHR2 running 64-bit major release  (build 9200)
 //Command     : generate_target zxnexys_wrapper.bd
 //Design      : zxnexys_wrapper
