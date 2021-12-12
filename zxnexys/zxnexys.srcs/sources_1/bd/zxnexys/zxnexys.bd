@@ -19,7 +19,6 @@
       "zxclock_0": "",
       "zxesp32_0": "",
       "zxjoystick_0": "",
-      "zxmonitor_0": "",
       "zxmouse_0": "",
       "zxsdcard_0": "",
       "zxsdcard_1": "",
@@ -32,7 +31,8 @@
       "zxrtc_0": "",
       "zxreset_0": "",
       "mig_reset_0": "",
-      "zxkeyboard_0": ""
+      "zxkeyboard_0": "",
+      "zxmonitor_0": ""
     },
     "interface_ports": {
       "JA": {
@@ -497,17 +497,6 @@
           }
         }
       },
-      "zxmonitor_0": {
-        "vlnv": "specnext.com:specnext:zxmonitor:2.0",
-        "xci_name": "zxnexys_zxmonitor_0_0",
-        "xci_path": "ip\\zxnexys_zxmonitor_0_0\\zxnexys_zxmonitor_0_0.xci",
-        "inst_hier_path": "zxmonitor_0",
-        "parameters": {
-          "DIV": {
-            "value": "18"
-          }
-        }
-      },
       "zxmouse_0": {
         "vlnv": "specnext.com:specnext:zxmouse:1.0",
         "xci_name": "zxnexys_zxmouse_0_0",
@@ -702,6 +691,17 @@
         "xci_name": "zxnexys_zxkeyboard_0_0",
         "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
         "inst_hier_path": "zxkeyboard_0"
+      },
+      "zxmonitor_0": {
+        "vlnv": "specnext.com:specnext:zxmonitor:2.0",
+        "xci_name": "zxnexys_zxmonitor_0_0",
+        "xci_path": "ip\\zxnexys_zxmonitor_0_0\\zxnexys_zxmonitor_0_0.xci",
+        "inst_hier_path": "zxmonitor_0",
+        "parameters": {
+          "DIV": {
+            "value": "18"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1146,7 +1146,6 @@
           "zxclock_0/clk_peripheral",
           "zxesp32_0/clk_peripheral",
           "zxjoystick_0/clk_peripheral",
-          "zxmonitor_0/clk_peripheral",
           "zxmouse_0/clk_peripheral",
           "zxsdcard_0/clk_peripheral",
           "zxsdcard_1/clk_peripheral",
@@ -1154,7 +1153,8 @@
           "zxaudio_0/clk_peripheral",
           "zxrtc_0/clk_peripheral",
           "zxreset_0/clk_peripheral",
-          "zxkeyboard_0/clk_peripheral"
+          "zxkeyboard_0/clk_peripheral",
+          "zxmonitor_0/clk_peripheral"
         ]
       },
       "zxclock_0_clk_peripheral_n": {
@@ -1231,13 +1231,13 @@
           "zxreset_0/reset_peripheral",
           "zxesp32_0/reset",
           "zxjoystick_0/reset",
-          "zxmonitor_0/reset",
           "zxmouse_0/reset",
           "zxsdcard_0/reset",
           "zxsdcard_1/reset",
           "zxaudio_0/reset",
           "zxrtc_0/reset",
-          "zxkeyboard_0/reset"
+          "zxkeyboard_0/reset",
+          "zxmonitor_0/reset"
         ]
       },
       "zxsdcard_0_sd_cmd": {

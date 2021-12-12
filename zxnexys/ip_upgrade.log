@@ -1,6 +1,89 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sun Dec 12 09:02:06 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxmonitor_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxmonitor_0_0 (specnext.com:specnext:zxmonitor:2.0) from (Rev. 39) to (Rev. 40)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zxnexys_zxmonitor_0_0'.
+
+
+-Upgrade has removed interface 'expansion_bus_out'
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zxnexys_zxmonitor_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'i_BUS_BUSREQ_n'
+
+-Upgrade has removed port 'i_BUS_DI'
+
+-Upgrade has removed port 'i_BUS_INT_i_n'
+
+-Upgrade has removed port 'i_BUS_IORQULA_n'
+
+-Upgrade has removed port 'i_BUS_NMI_n'
+
+-Upgrade has removed port 'i_BUS_ROMCS_n'
+
+-Upgrade has removed port 'i_BUS_WAIT_n'
+
+-Upgrade has removed port 'o_BUS_ADDR'
+
+-Upgrade has removed port 'o_BUS_BUSAK_n'
+
+-Upgrade has removed port 'o_BUS_CLKEN'
+
+-Upgrade has removed port 'o_BUS_DO'
+
+-Upgrade has removed port 'o_BUS_EN'
+
+-Upgrade has removed port 'o_BUS_HALT_n'
+
+-Upgrade has removed port 'o_BUS_IEO'
+
+-Upgrade has removed port 'o_BUS_INT_o_n'
+
+-Upgrade has removed port 'o_BUS_IORQ_n'
+
+-Upgrade has removed port 'o_BUS_M1_n'
+
+-Upgrade has removed port 'o_BUS_MREQ_n'
+
+-Upgrade has removed port 'o_BUS_NMI_DEBOUNCE_DISABLE'
+
+-Upgrade has removed port 'o_BUS_RD_n'
+
+-Upgrade has removed port 'o_BUS_RFSH_n'
+
+-Upgrade has removed port 'o_BUS_WR_n'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 | Date         : Sun Dec 12 00:36:49 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip
