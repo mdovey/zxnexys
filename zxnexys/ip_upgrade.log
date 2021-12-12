@@ -1,6 +1,77 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Sun Dec 12 10:54:55 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zxnexys_zxreset_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zxnexys_zxreset_0_0 (specnext.com:specnext:zxreset:1.1) from (Rev. 86) to (Rev. 87)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Customization warnings
+-------------------------
+
+Parameter 'SOFT_RESET_DELAY' is no longer present on the upgraded IP 'zxnexys_zxreset_0_0', and cannot be set to '25'
+
+
+3. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv specnext.com:specnext:zxreset:1.1 -user_name zxnexys_zxreset_0_0
+set_property -dict "\
+  CONFIG.Component_Name {zxnexys_zxreset_0_0} \
+  CONFIG.MEMORY_RESET_DELAY {20} \
+  CONFIG.MEM_LOCKS {2} \
+  CONFIG.PERIPHERAL_RESET_DELAY {24} \
+  CONFIG.PIPELINE_STAGES {1} \
+  CONFIG.SYNC_STAGES {3} \
+  CONFIG.clk_peripheral.ASSOCIATED_BUSIF {} \
+  CONFIG.clk_peripheral.ASSOCIATED_PORT {} \
+  CONFIG.clk_peripheral.ASSOCIATED_RESET {reset_mb_soft:reset_peripheral:reset_peripheral_n} \
+  CONFIG.clk_peripheral.CLK_DOMAIN {zxnexys_zxclock_0_0_clk_peripheral} \
+  CONFIG.clk_peripheral.FREQ_HZ {100000000} \
+  CONFIG.clk_peripheral.FREQ_TOLERANCE_HZ {0} \
+  CONFIG.clk_peripheral.INSERT_VIP {0} \
+  CONFIG.clk_peripheral.PHASE {0.0} \
+  CONFIG.cpu_reset_n.INSERT_VIP {0} \
+  CONFIG.cpu_reset_n.POLARITY {ACTIVE_LOW} \
+  CONFIG.in_reset_hard.INSERT_VIP {0} \
+  CONFIG.in_reset_hard.POLARITY {ACTIVE_HIGH} \
+  CONFIG.in_reset_peripheral.INSERT_VIP {0} \
+  CONFIG.in_reset_peripheral.POLARITY {ACTIVE_HIGH} \
+  CONFIG.in_reset_soft.INSERT_VIP {0} \
+  CONFIG.in_reset_soft.POLARITY {ACTIVE_HIGH} \
+  CONFIG.mb_reset.POLARITY {ACTIVE_HIGH} \
+  CONFIG.memory_reset_n.INSERT_VIP {0} \
+  CONFIG.memory_reset_n.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_mb_soft.INSERT_VIP {0} \
+  CONFIG.reset_mb_soft.POLARITY {ACTIVE_HIGH} \
+  CONFIG.reset_peripheral.INSERT_VIP {0} \
+  CONFIG.reset_peripheral.POLARITY {ACTIVE_HIGH} " [get_ips zxnexys_zxreset_0_0]
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
 | Date         : Sun Dec 12 09:02:06 2021
 | Host         : JL69XDHR2 running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

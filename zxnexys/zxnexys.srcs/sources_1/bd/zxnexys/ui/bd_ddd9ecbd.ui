@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Color Coded",
    "Color Coded_ExpandedHierarchyInLayout":"",
-   "Color Coded_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+   "Color Coded_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS-threadsafe
 #  -string -flagsOSRD
 preplace port JA -pg 1 -lvl 7 -x 2190 -y 90 -defaultsOSRD
 preplace port JB -pg 1 -lvl 7 -x 2190 -y 200 -defaultsOSRD
@@ -54,10 +54,10 @@ preplace inst pmod_i2s2_0 -pg 1 -lvl 6 -x 2000 -y 210 -defaultsOSRD
 preplace inst pmod_rtcc_0 -pg 1 -lvl 5 -x 1600 -y 1200 -defaultsOSRD
 preplace inst zxaudio_0 -pg 1 -lvl 4 -x 1140 -y 400 -swap {0 1 2 3 4 5 6 8 12 15 14 16 7 9 10 11 13 17 19 18} -defaultsOSRD
 preplace inst zxrtc_0 -pg 1 -lvl 4 -x 1140 -y 1200 -defaultsOSRD
-preplace inst zxreset_0 -pg 1 -lvl 2 -x 380 -y 640 -defaultsOSRD
 preplace inst mig_reset_0 -pg 1 -lvl 4 -x 1140 -y 660 -swap {1 0 3 2 4 5} -defaultsOSRD
 preplace inst zxkeyboard_0 -pg 1 -lvl 5 -x 1600 -y 1070 -defaultsOSRD
 preplace inst zxmonitor_0 -pg 1 -lvl 5 -x 1600 -y 910 -defaultsOSRD
+preplace inst zxreset_0 -pg 1 -lvl 2 -x 380 -y 640 -defaultsOSRD
 preplace netloc BTNC_1 1 0 4 NJ 1660 NJ 1660 NJ 1660 860J
 preplace netloc BTND_1 1 0 4 NJ 1720 NJ 1720 NJ 1720 920J
 preplace netloc BTNL_1 1 0 4 NJ 1750 NJ 1750 NJ 1750 NJ
@@ -163,7 +163,7 @@ levelinfo -pg 1 0 120 380 720 1140 1600 2000 2190
 pagesize -pg 1 -db -bbox -sgen -130 0 2310 1830
 ",
    "Color Coded_ScaleFactor":"1.02977",
-   "Color Coded_TopLeft":"-130,290",
+   "Color Coded_TopLeft":"-130,476",
    "Default View_ScaleFactor":"0.474112",
    "Default View_TopLeft":"-217,0",
    "ExpandedHierarchyInLayout":"",

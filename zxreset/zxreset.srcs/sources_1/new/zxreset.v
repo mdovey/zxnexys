@@ -21,9 +21,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module zxreset #(
-    parameter SOFT_RESET_DELAY          = 25,
-    parameter PERIPHERAL_RESET_DELAY    = 24,
-    parameter MEMORY_RESET_DELAY        = 20,
+    parameter MEMORY_RESET_DELAY        = 24,
+    parameter PERIPHERAL_RESET_DELAY    = 25,
+    parameter MB_SOFT_RESET_DELAY       = 26,
     parameter SYNC_STAGES               = 3,
     parameter PIPELINE_STAGES           = 1
 )(
@@ -68,14 +68,14 @@ module zxreset #(
 	delay #(
 	   .DELAY(MEMORY_RESET_DELAY)
 	) delay_memory (
-	   .reset(hard_reset),
+	   .reset(~clk_locked | in_reset_hard),
 	   .out(memory_reset),
 	   .clk(clk_peripheral)
 	);
     
 	delay #(
-	   .DELAY(SOFT_RESET_DELAY)
-	) delay_soft (
+	   .DELAY(MB_SOFT_RESET_DELAY)
+	) delay_mb_soft (
 	   .reset(soft_reset | hard_reset),
 	   .out(reset_mb_soft),
 	   .clk(clk_peripheral)
@@ -105,7 +105,7 @@ module zxreset #(
 	   .INIT(1'b1)
 	) sync_soft_reset (
 	   .clk(clk_peripheral),
-	   .async_in(in_reset_soft | (HARD_SYS_RESET == 0 ? ~sys_reset_n_in : 1'b0 )),
+	   .async_in(in_reset_soft | ~cpu_resetn),
 	   .sync_out(soft_reset)
 	);
 	  
