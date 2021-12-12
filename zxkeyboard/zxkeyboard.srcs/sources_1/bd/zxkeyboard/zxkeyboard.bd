@@ -18,8 +18,8 @@
       "util_vector_logic_0": "",
       "xlconstant_h55": "",
       "special_keys_0": "",
-      "clocks_0": "",
-      "Ps2Interface_0": ""
+      "Ps2Interface_0": "",
+      "keyb_clocks_0": ""
     },
     "ports": {
       "clk_peripheral": {
@@ -515,55 +515,6 @@
           }
         }
       },
-      "clocks_0": {
-        "vlnv": "xilinx.com:module_ref:clocks:1.0",
-        "xci_name": "zxkeyboard_clocks_0_0",
-        "xci_path": "ip\\zxkeyboard_clocks_0_0\\zxkeyboard_clocks_0_0.xci",
-        "inst_hier_path": "clocks_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "clocks",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk_ps2": {
-            "direction": "O"
-          },
-          "fnkeys_enable": {
-            "direction": "O"
-          },
-          "membrane_enable": {
-            "direction": "O"
-          },
-          "clk_peripheral": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "zxkeyboard_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
-              }
-            }
-          }
-        }
-      },
       "Ps2Interface_0": {
         "vlnv": "xilinx.com:module_ref:Ps2Interface:1.0",
         "xci_name": "zxkeyboard_Ps2Interface_0_0",
@@ -664,6 +615,56 @@
             "direction": "O"
           }
         }
+      },
+      "keyb_clocks_0": {
+        "vlnv": "xilinx.com:module_ref:keyb_clocks:1.0",
+        "xci_name": "zxkeyboard_keyb_clocks_0_0",
+        "xci_path": "ip\\zxkeyboard_keyb_clocks_0_0\\zxkeyboard_keyb_clocks_0_0.xci",
+        "inst_hier_path": "keyb_clocks_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "keyb_clocks",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_ps2": {
+            "direction": "O"
+          },
+          "fnkeys_enable": {
+            "direction": "O"
+          },
+          "membrane_enable": {
+            "direction": "O"
+          },
+          "clk_peripheral": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "zxkeyboard_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
@@ -727,32 +728,14 @@
           "ps2_keyb_0/i_CLK",
           "emu_fnkeys_0/i_CLK",
           "membrane_0/i_CLK",
-          "clocks_0/clk_peripheral",
-          "Ps2Interface_0/clk"
+          "Ps2Interface_0/clk",
+          "keyb_clocks_0/clk_peripheral"
         ]
       },
       "clk_peripheral_n_1": {
         "ports": [
           "clk_peripheral_n",
           "ps2_keyb_0/i_CLK_n"
-        ]
-      },
-      "clocks_0_clk_ps2": {
-        "ports": [
-          "clocks_0/clk_ps2",
-          "ps2_keyb_0/i_CLK_PS2"
-        ]
-      },
-      "clocks_0_fnkeys_enable": {
-        "ports": [
-          "clocks_0/fnkeys_enable",
-          "emu_fnkeys_0/i_CLK_EN"
-        ]
-      },
-      "clocks_0_membrane_enable": {
-        "ports": [
-          "clocks_0/membrane_enable",
-          "membrane_0/i_CLK_EN"
         ]
       },
       "emu_fnkeys_0_o_cols_filtered": {
@@ -771,6 +754,24 @@
         "ports": [
           "emu_fnkeys_0/o_rows_filtered",
           "membrane_0/i_rows"
+        ]
+      },
+      "keyb_clocks_0_clk_ps2": {
+        "ports": [
+          "keyb_clocks_0/clk_ps2",
+          "ps2_keyb_0/i_CLK_PS2"
+        ]
+      },
+      "keyb_clocks_0_fnkeys_enable": {
+        "ports": [
+          "keyb_clocks_0/fnkeys_enable",
+          "emu_fnkeys_0/i_CLK_EN"
+        ]
+      },
+      "keyb_clocks_0_membrane_enable": {
+        "ports": [
+          "keyb_clocks_0/membrane_enable",
+          "membrane_0/i_CLK_EN"
         ]
       },
       "keymap_addr_1": {
@@ -846,8 +847,8 @@
           "ps2_keyb_0/i_reset",
           "membrane_0/i_reset",
           "util_vector_logic_0/Op1",
-          "clocks_0/reset",
-          "Ps2Interface_0/rst"
+          "Ps2Interface_0/rst",
+          "keyb_clocks_0/reset"
         ]
       },
       "row_1": {
