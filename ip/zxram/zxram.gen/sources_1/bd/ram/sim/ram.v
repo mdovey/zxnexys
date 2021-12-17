@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Fri Dec 17 10:41:04 2021
+//Date        : Fri Dec 17 11:33:13 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target ram.bd
 //Design      : ram
@@ -342,7 +342,7 @@ module ram
     cpu_wait_n,
     data_a_o,
     data_b_o,
-    memory_resetn,
+    memory_aresetn,
     ram_a_addr,
     ram_a_data,
     ram_a_rd_n,
@@ -395,7 +395,7 @@ module ram
   output cpu_wait_n;
   output [7:0]data_a_o;
   output [7:0]data_b_o;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.MEMORY_RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.MEMORY_RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input memory_resetn;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.MEMORY_ARESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.MEMORY_ARESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input memory_aresetn;
   input [20:0]ram_a_addr;
   input [7:0]ram_a_data;
   input ram_a_rd_n;
@@ -474,7 +474,7 @@ module ram
   wire bram_write_1_bram_EN;
   wire [0:0]bram_write_1_bram_WE;
   wire clk_ui_1;
-  wire memory_resetn_1;
+  wire memory_aresetn_1;
   wire [20:0]ram_a_addr_1;
   wire [7:0]ram_a_data_1;
   wire ram_a_rd_n_1;
@@ -617,7 +617,7 @@ module ram
   assign cpu_wait_n = ram_output_0_wait_a_n;
   assign data_a_o[7:0] = ram_output_0_data_a_o;
   assign data_b_o[7:0] = ram_output_0_data_b_o;
-  assign memory_resetn_1 = memory_resetn;
+  assign memory_aresetn_1 = memory_aresetn;
   assign ram_a_addr_1 = ram_a_addr[20:0];
   assign ram_a_data_1 = ram_a_data[7:0];
   assign ram_a_rd_n_1 = ram_a_rd_n;
@@ -774,6 +774,7 @@ module ram
        (.addr(ram_input_0_ram_b_addr_reg),
         .addr0(bram_read_0_addr0),
         .addr1(bram_read_0_addr1),
+        .aresetn(Net1),
         .bram0_addr(bram_read_0_bram0_ADDR),
         .bram0_clk(bram_read_0_bram0_CLK),
         .bram0_din(bram_read_0_bram0_DIN),
@@ -791,6 +792,7 @@ module ram
         .en(ram_input_0_re_b));
   ram_bram_write_0_0 bram_write_0
        (.addr(ram_b_read_0_caddr),
+        .aresetn(Net1),
         .bram_addr(bram_write_0_bram_ADDR),
         .bram_clk(bram_write_0_bram_CLK),
         .bram_din(bram_write_0_bram_DIN),
@@ -802,6 +804,7 @@ module ram
         .cready(ram_b_read_0_cready));
   ram_bram_write_0_1 bram_write_1
        (.addr(ram_b_read_1_caddr),
+        .aresetn(Net1),
         .bram_addr(bram_write_1_bram_ADDR),
         .bram_clk(bram_write_1_bram_CLK),
         .bram_din(bram_write_1_bram_DIN),
@@ -949,7 +952,7 @@ module ram
         .aresetn_ui(ram_reset_0_aresetn_ui),
         .clk_memory(S00_ACLK_1),
         .clk_ui(clk_ui_1),
-        .memory_resetn(memory_resetn_1),
+        .memory_aresetn(memory_aresetn_1),
         .reset_ui(reset_ui_1));
 endmodule
 

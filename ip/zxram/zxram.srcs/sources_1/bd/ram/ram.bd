@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x232BACBC59F11606",
+      "boundary_crc": "0x873BF8CFE9B0F171",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxram.gen/sources_1/bd/ram",
       "name": "ram",
@@ -14,9 +14,6 @@
       "ram_input_0": "",
       "ram_a_write_0": "",
       "ram_output_0": "",
-      "bram_read_0": "",
-      "bram_write_0": "",
-      "bram_write_1": "",
       "blk_mem_gen_0": "",
       "blk_mem_gen_1": "",
       "axi_interconnect_0": {
@@ -35,10 +32,13 @@
         },
         "m00_couplers": {}
       },
-      "ram_reset_0": "",
       "ram_b_read_0": "",
       "ram_b_read_1": "",
-      "ram_a_read_0": ""
+      "ram_a_read_0": "",
+      "bram_read_0": "",
+      "bram_write_0": "",
+      "bram_write_1": "",
+      "ram_reset_0": ""
     },
     "interface_ports": {
       "axi_mig": {
@@ -193,20 +193,6 @@
       "ram_b_req_t": {
         "direction": "I"
       },
-      "memory_resetn": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
-      },
       "reset_ui": {
         "type": "rst",
         "direction": "I",
@@ -312,6 +298,20 @@
           },
           "PHASE": {
             "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "memory_aresetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
             "value_src": "default"
           }
         }
@@ -756,298 +756,6 @@
               },
               "CLK_DOMAIN": {
                 "value": "ram_clk_peripheral_n",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "bram_read_0": {
-        "vlnv": "xilinx.com:module_ref:bram_read:1.0",
-        "xci_name": "ram_bram_read_0_0",
-        "xci_path": "ip\\ram_bram_read_0_0\\ram_bram_read_0_0.xci",
-        "inst_hier_path": "bram_read_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "bram_read",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "bram0": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
-            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
-            "port_maps": {
-              "EN": {
-                "physical_name": "bram0_en",
-                "direction": "O"
-              },
-              "DOUT": {
-                "physical_name": "bram0_dout",
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-              },
-              "DIN": {
-                "physical_name": "bram0_din",
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-              },
-              "WE": {
-                "physical_name": "bram0_we",
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "ADDR": {
-                "physical_name": "bram0_addr",
-                "direction": "O",
-                "left": "15",
-                "right": "0"
-              },
-              "CLK": {
-                "physical_name": "bram0_clk",
-                "direction": "O"
-              }
-            }
-          },
-          "bram1": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
-            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
-            "port_maps": {
-              "EN": {
-                "physical_name": "bram1_en",
-                "direction": "O"
-              },
-              "DOUT": {
-                "physical_name": "bram1_dout",
-                "direction": "I",
-                "left": "7",
-                "right": "0"
-              },
-              "DIN": {
-                "physical_name": "bram1_din",
-                "direction": "O",
-                "left": "7",
-                "right": "0"
-              },
-              "WE": {
-                "physical_name": "bram1_we",
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "ADDR": {
-                "physical_name": "bram1_addr",
-                "direction": "O",
-                "left": "15",
-                "right": "0"
-              },
-              "CLK": {
-                "physical_name": "bram1_clk",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "addr": {
-            "direction": "I",
-            "left": "20",
-            "right": "0"
-          },
-          "en": {
-            "direction": "I"
-          },
-          "data": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "addr0": {
-            "direction": "O",
-            "left": "20",
-            "right": "0"
-          },
-          "addr1": {
-            "direction": "O",
-            "left": "20",
-            "right": "0"
-          },
-          "clk_memory": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "140000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "ram_clk_memory",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "bram_write_0": {
-        "vlnv": "xilinx.com:module_ref:bram_write:1.0",
-        "xci_name": "ram_bram_write_0_0",
-        "xci_path": "ip\\ram_bram_write_0_0\\ram_bram_write_0_0.xci",
-        "inst_hier_path": "bram_write_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "bram_write",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "bram": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
-            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
-            "port_maps": {
-              "EN": {
-                "physical_name": "bram_en",
-                "direction": "O"
-              },
-              "DOUT": {
-                "physical_name": "bram_dout",
-                "direction": "I",
-                "left": "63",
-                "right": "0"
-              },
-              "DIN": {
-                "physical_name": "bram_din",
-                "direction": "O",
-                "left": "63",
-                "right": "0"
-              },
-              "WE": {
-                "physical_name": "bram_we",
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "ADDR": {
-                "physical_name": "bram_addr",
-                "direction": "O",
-                "left": "12",
-                "right": "0"
-              },
-              "CLK": {
-                "physical_name": "bram_clk",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "addr": {
-            "direction": "I",
-            "left": "20",
-            "right": "3"
-          },
-          "cache": {
-            "direction": "I",
-            "left": "63",
-            "right": "0"
-          },
-          "cready": {
-            "direction": "I"
-          },
-          "clk_memory": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "140000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "ram_clk_memory",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "bram_write_1": {
-        "vlnv": "xilinx.com:module_ref:bram_write:1.0",
-        "xci_name": "ram_bram_write_0_1",
-        "xci_path": "ip\\ram_bram_write_0_1\\ram_bram_write_0_1.xci",
-        "inst_hier_path": "bram_write_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "bram_write",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "bram": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
-            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
-            "port_maps": {
-              "EN": {
-                "physical_name": "bram_en",
-                "direction": "O"
-              },
-              "DOUT": {
-                "physical_name": "bram_dout",
-                "direction": "I",
-                "left": "63",
-                "right": "0"
-              },
-              "DIN": {
-                "physical_name": "bram_din",
-                "direction": "O",
-                "left": "63",
-                "right": "0"
-              },
-              "WE": {
-                "physical_name": "bram_we",
-                "direction": "O",
-                "left": "0",
-                "right": "0"
-              },
-              "ADDR": {
-                "physical_name": "bram_addr",
-                "direction": "O",
-                "left": "12",
-                "right": "0"
-              },
-              "CLK": {
-                "physical_name": "bram_clk",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "addr": {
-            "direction": "I",
-            "left": "20",
-            "right": "3"
-          },
-          "cache": {
-            "direction": "I",
-            "left": "63",
-            "right": "0"
-          },
-          "cready": {
-            "direction": "I"
-          },
-          "clk_memory": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "140000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "ram_clk_memory",
                 "value_src": "default_prop"
               }
             }
@@ -1973,99 +1681,6 @@
           }
         }
       },
-      "ram_reset_0": {
-        "vlnv": "xilinx.com:module_ref:ram_reset:1.0",
-        "xci_name": "ram_ram_reset_0_0",
-        "xci_path": "ip\\ram_ram_reset_0_0\\ram_ram_reset_0_0.xci",
-        "inst_hier_path": "ram_reset_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "ram_reset",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "memory_resetn": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "reset_ui": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "aresetn_ui": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "aresetn_memory": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "clk_memory": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "aresetn_memory",
-                "value_src": "constant"
-              },
-              "ASSOCIATED_ASYNC_RESET": {
-                "value": "memory_resetn",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "140000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "ram_clk_memory",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "clk_ui": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "reset_ui:aresetn:aresetn_ui",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "150015000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "ram_clk_ui",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
       "ram_b_read_0": {
         "vlnv": "xilinx.com:module_ref:ram_read:1.0",
         "xci_name": "ram_ram_a_read_0_0",
@@ -2959,6 +2574,457 @@
             }
           }
         }
+      },
+      "bram_read_0": {
+        "vlnv": "xilinx.com:module_ref:bram_read:1.0",
+        "xci_name": "ram_bram_read_0_0",
+        "xci_path": "ip\\ram_bram_read_0_0\\ram_bram_read_0_0.xci",
+        "inst_hier_path": "bram_read_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_read",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "bram0": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
+            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+            "port_maps": {
+              "EN": {
+                "physical_name": "bram0_en",
+                "direction": "O"
+              },
+              "DOUT": {
+                "physical_name": "bram0_dout",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "DIN": {
+                "physical_name": "bram0_din",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "WE": {
+                "physical_name": "bram0_we",
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              },
+              "ADDR": {
+                "physical_name": "bram0_addr",
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              },
+              "CLK": {
+                "physical_name": "bram0_clk",
+                "direction": "O"
+              },
+              "RST": {
+                "physical_name": "bram0_rst",
+                "direction": "O"
+              }
+            }
+          },
+          "bram1": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
+            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+            "port_maps": {
+              "EN": {
+                "physical_name": "bram1_en",
+                "direction": "O"
+              },
+              "DOUT": {
+                "physical_name": "bram1_dout",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "DIN": {
+                "physical_name": "bram1_din",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "WE": {
+                "physical_name": "bram1_we",
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              },
+              "ADDR": {
+                "physical_name": "bram1_addr",
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              },
+              "CLK": {
+                "physical_name": "bram1_clk",
+                "direction": "O"
+              },
+              "RST": {
+                "physical_name": "bram1_rst",
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "ports": {
+          "addr": {
+            "direction": "I",
+            "left": "20",
+            "right": "0"
+          },
+          "en": {
+            "direction": "I"
+          },
+          "data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "addr0": {
+            "direction": "O",
+            "left": "20",
+            "right": "0"
+          },
+          "addr1": {
+            "direction": "O",
+            "left": "20",
+            "right": "0"
+          },
+          "clk_memory": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "aresetn",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_BUSIF": {
+                "value": "bram0:bram1",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "140000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "ram_clk_memory",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      },
+      "bram_write_0": {
+        "vlnv": "xilinx.com:module_ref:bram_write:1.0",
+        "xci_name": "ram_bram_write_0_0",
+        "xci_path": "ip\\ram_bram_write_0_0\\ram_bram_write_0_0.xci",
+        "inst_hier_path": "bram_write_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_write",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "bram": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
+            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+            "port_maps": {
+              "EN": {
+                "physical_name": "bram_en",
+                "direction": "O"
+              },
+              "DOUT": {
+                "physical_name": "bram_dout",
+                "direction": "I",
+                "left": "63",
+                "right": "0"
+              },
+              "DIN": {
+                "physical_name": "bram_din",
+                "direction": "O",
+                "left": "63",
+                "right": "0"
+              },
+              "WE": {
+                "physical_name": "bram_we",
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              },
+              "ADDR": {
+                "physical_name": "bram_addr",
+                "direction": "O",
+                "left": "12",
+                "right": "0"
+              },
+              "CLK": {
+                "physical_name": "bram_clk",
+                "direction": "O"
+              },
+              "RST": {
+                "physical_name": "bram_rst",
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "ports": {
+          "addr": {
+            "direction": "I",
+            "left": "20",
+            "right": "3"
+          },
+          "cache": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "cready": {
+            "direction": "I"
+          },
+          "clk_memory": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "aresetn",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_BUSIF": {
+                "value": "bram",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "140000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "ram_clk_memory",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      },
+      "bram_write_1": {
+        "vlnv": "xilinx.com:module_ref:bram_write:1.0",
+        "xci_name": "ram_bram_write_0_1",
+        "xci_path": "ip\\ram_bram_write_0_1\\ram_bram_write_0_1.xci",
+        "inst_hier_path": "bram_write_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_write",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "bram": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:bram:1.0",
+            "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+            "port_maps": {
+              "EN": {
+                "physical_name": "bram_en",
+                "direction": "O"
+              },
+              "DOUT": {
+                "physical_name": "bram_dout",
+                "direction": "I",
+                "left": "63",
+                "right": "0"
+              },
+              "DIN": {
+                "physical_name": "bram_din",
+                "direction": "O",
+                "left": "63",
+                "right": "0"
+              },
+              "WE": {
+                "physical_name": "bram_we",
+                "direction": "O",
+                "left": "0",
+                "right": "0"
+              },
+              "ADDR": {
+                "physical_name": "bram_addr",
+                "direction": "O",
+                "left": "12",
+                "right": "0"
+              },
+              "CLK": {
+                "physical_name": "bram_clk",
+                "direction": "O"
+              },
+              "RST": {
+                "physical_name": "bram_rst",
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "ports": {
+          "addr": {
+            "direction": "I",
+            "left": "20",
+            "right": "3"
+          },
+          "cache": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "cready": {
+            "direction": "I"
+          },
+          "clk_memory": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "aresetn",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_BUSIF": {
+                "value": "bram",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "140000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "ram_clk_memory",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      },
+      "ram_reset_0": {
+        "vlnv": "xilinx.com:module_ref:ram_reset:1.0",
+        "xci_name": "ram_ram_reset_0_0",
+        "xci_path": "ip\\ram_ram_reset_0_0\\ram_ram_reset_0_0.xci",
+        "inst_hier_path": "ram_reset_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ram_reset",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "memory_aresetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset_ui": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "aresetn_ui": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "aresetn_memory": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk_memory": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "aresetn_memory",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "140000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "ram_clk_memory",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_ui": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset_ui:aresetn_ui",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "150015000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "ram_clk_ui",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -3028,7 +3094,10 @@
           "axi_interconnect_0/S03_ARESETN",
           "ram_b_read_0/aresetn",
           "ram_b_read_1/aresetn",
-          "ram_a_read_0/aresetn"
+          "ram_a_read_0/aresetn",
+          "bram_read_0/aresetn",
+          "bram_write_1/aresetn",
+          "bram_write_0/aresetn"
         ]
       },
       "Net2": {
@@ -3045,15 +3114,15 @@
           "axi_interconnect_0/S01_ACLK",
           "axi_interconnect_0/S02_ACLK",
           "axi_interconnect_0/S03_ACLK",
-          "bram_read_0/clk_memory",
           "ram_a_write_0/clk_memory",
           "ram_input_0/clk_memory",
-          "bram_write_0/clk_memory",
-          "bram_write_1/clk_memory",
-          "ram_reset_0/clk_memory",
           "ram_b_read_0/clk_memory",
           "ram_b_read_1/clk_memory",
-          "ram_a_read_0/clk_memory"
+          "ram_a_read_0/clk_memory",
+          "bram_read_0/clk_memory",
+          "bram_write_0/clk_memory",
+          "bram_write_1/clk_memory",
+          "ram_reset_0/clk_memory"
         ]
       },
       "bram_read_0_addr0": {
@@ -3082,10 +3151,10 @@
           "ram_reset_0/clk_ui"
         ]
       },
-      "memory_resetn_1": {
+      "memory_aresetn_1": {
         "ports": [
-          "memory_resetn",
-          "ram_reset_0/memory_resetn"
+          "memory_aresetn",
+          "ram_reset_0/memory_aresetn"
         ]
       },
       "ram_a_addr_1": {
@@ -3230,9 +3299,9 @@
       "ram_input_0_re_b": {
         "ports": [
           "ram_input_0/re_b",
-          "bram_read_0/en",
           "ram_b_read_0/en",
-          "ram_b_read_1/en"
+          "ram_b_read_1/en",
+          "bram_read_0/en"
         ]
       },
       "ram_input_0_we_a": {

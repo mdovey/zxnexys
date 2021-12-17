@@ -28,6 +28,8 @@ module bram_read(
     output      [15:0]  bram0_addr,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 CLK" *)
     output              bram0_clk,
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 RST" *)
+    output              bram0_rst,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 DIN" *)
     output      [7:0]   bram0_din,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 DOUT" *)
@@ -42,6 +44,8 @@ module bram_read(
     output      [15:0]  bram1_addr,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 CLK" *)
     output              bram1_clk,
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 RST" *)
+    output              bram1_rst,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 DIN" *)
     output      [7:0]   bram1_din,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 DOUT" *)
@@ -59,11 +63,19 @@ module bram_read(
     output      [20:0]  addr1,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
-    input               clk_memory   
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF bram0:bram1, ASSOCIATED_RESET aresetn" *)	
+    input               clk_memory,
+	
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  aresetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)	
+    input               aresetn
 );
 
     assign  bram0_clk   =   clk_memory;
     assign  bram1_clk   =   clk_memory;
+
+    assign  bram0_rst   =  ~aresetn;
+    assign  bram1_rst   =  ~aresetn;
     
     assign  bram0_addr  =   {addr[16:4], addr[2:0]};
     assign  bram1_addr  =   {addr[16:4], addr[2:0]};

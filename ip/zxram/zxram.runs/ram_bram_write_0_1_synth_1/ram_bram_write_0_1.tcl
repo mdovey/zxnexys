@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "ram_bram_write_0_1_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
 set_msg_config -id {HDL-1065} -limit 10000
 set_msg_config  -id {Synth 8-7080}  -string {{WARNING: [Synth 8-7080] Parallel synthesis criteria is not met}}  -suppress 
 set_param project.vivado.isBlockSynthRun true
@@ -96,7 +95,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib V:/src/hdl/new/ram/bram_write.v
-read_ip -quiet v:/ip/zxram/zxram.srcs/sources_1/bd/ram/ip/ram_bram_write_0_1/ram_bram_write_0_1.xci
+read_ip -quiet V:/ip/zxram/zxram.srcs/sources_1/bd/ram/ip/ram_bram_write_0_1/ram_bram_write_0_1.xci
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

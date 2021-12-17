@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Fri Dec 17 10:41:04 2021
+//Date        : Fri Dec 17 11:33:13 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target ram_wrapper.bd
 //Design      : ram_wrapper
@@ -55,7 +55,7 @@ module ram_wrapper
     cpu_wait_n,
     data_a_o,
     data_b_o,
-    memory_resetn,
+    memory_aresetn,
     ram_a_addr,
     ram_a_data,
     ram_a_rd_n,
@@ -108,7 +108,7 @@ module ram_wrapper
   output cpu_wait_n;
   output [7:0]data_a_o;
   output [7:0]data_b_o;
-  input memory_resetn;
+  input memory_aresetn;
   input [20:0]ram_a_addr;
   input [7:0]ram_a_data;
   input ram_a_rd_n;
@@ -162,7 +162,7 @@ module ram_wrapper
   wire cpu_wait_n;
   wire [7:0]data_a_o;
   wire [7:0]data_b_o;
-  wire memory_resetn;
+  wire memory_aresetn;
   wire [20:0]ram_a_addr;
   wire [7:0]ram_a_data;
   wire ram_a_rd_n;
@@ -217,7 +217,7 @@ module ram_wrapper
         .cpu_wait_n(cpu_wait_n),
         .data_a_o(data_a_o),
         .data_b_o(data_b_o),
-        .memory_resetn(memory_resetn),
+        .memory_aresetn(memory_aresetn),
         .ram_a_addr(ram_a_addr),
         .ram_a_data(ram_a_data),
         .ram_a_rd_n(ram_a_rd_n),

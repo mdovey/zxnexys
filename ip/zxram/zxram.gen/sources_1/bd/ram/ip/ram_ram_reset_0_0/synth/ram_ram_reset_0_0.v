@@ -56,7 +56,7 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module ram_ram_reset_0_0 (
-  memory_resetn,
+  memory_aresetn,
   reset_ui,
   aresetn_ui,
   aresetn_memory,
@@ -64,9 +64,9 @@ module ram_ram_reset_0_0 (
   clk_ui
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME memory_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 memory_resetn RST" *)
-input wire memory_resetn;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME memory_aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 memory_aresetn RST" *)
+input wire memory_aresetn;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_ui, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_ui RST" *)
 input wire reset_ui;
@@ -76,15 +76,15 @@ output wire aresetn_ui;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aresetn_memory, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn_memory RST" *)
 output wire aresetn_memory;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, ASSOCIATED_RESET aresetn_memory, ASSOCIATED_ASYNC_RESET memory_resetn, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, ASSOCIATED_RESET aresetn_memory, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
 input wire clk_memory;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_ui, ASSOCIATED_RESET reset_ui:aresetn:aresetn_ui, FREQ_HZ 150015000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_ui, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_ui, ASSOCIATED_RESET reset_ui:aresetn_ui, FREQ_HZ 150015000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_ui, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_ui CLK" *)
 input wire clk_ui;
 
   ram_reset inst (
-    .memory_resetn(memory_resetn),
+    .memory_aresetn(memory_aresetn),
     .reset_ui(reset_ui),
     .aresetn_ui(aresetn_ui),
     .aresetn_memory(aresetn_memory),

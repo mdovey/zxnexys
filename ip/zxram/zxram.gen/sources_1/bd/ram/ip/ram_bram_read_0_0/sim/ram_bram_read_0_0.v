@@ -57,12 +57,14 @@
 module ram_bram_read_0_0 (
   bram0_addr,
   bram0_clk,
+  bram0_rst,
   bram0_din,
   bram0_dout,
   bram0_en,
   bram0_we,
   bram1_addr,
   bram1_clk,
+  bram1_rst,
   bram1_din,
   bram1_dout,
   bram1_en,
@@ -72,13 +74,16 @@ module ram_bram_read_0_0 (
   data,
   addr0,
   addr1,
-  clk_memory
+  clk_memory,
+  aresetn
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 ADDR" *)
 output wire [15 : 0] bram0_addr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 CLK" *)
 output wire bram0_clk;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 RST" *)
+output wire bram0_rst;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 DIN" *)
 output wire [7 : 0] bram0_din;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram0 DOUT" *)
@@ -92,6 +97,8 @@ output wire [0 : 0] bram0_we;
 output wire [15 : 0] bram1_addr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 CLK" *)
 output wire bram1_clk;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 RST" *)
+output wire bram1_rst;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 DIN" *)
 output wire [7 : 0] bram1_din;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram1 DOUT" *)
@@ -106,19 +113,24 @@ input wire en;
 output wire [7 : 0] data;
 output wire [20 : 0] addr0;
 output wire [20 : 0] addr1;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, ASSOCIATED_RESET aresetn, ASSOCIATED_BUSIF bram0:bram1, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
 input wire clk_memory;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn RST" *)
+input wire aresetn;
 
   bram_read inst (
     .bram0_addr(bram0_addr),
     .bram0_clk(bram0_clk),
+    .bram0_rst(bram0_rst),
     .bram0_din(bram0_din),
     .bram0_dout(bram0_dout),
     .bram0_en(bram0_en),
     .bram0_we(bram0_we),
     .bram1_addr(bram1_addr),
     .bram1_clk(bram1_clk),
+    .bram1_rst(bram1_rst),
     .bram1_din(bram1_din),
     .bram1_dout(bram1_dout),
     .bram1_en(bram1_en),
@@ -128,6 +140,7 @@ input wire clk_memory;
     .data(data),
     .addr0(addr0),
     .addr1(addr1),
-    .clk_memory(clk_memory)
+    .clk_memory(clk_memory),
+    .aresetn(aresetn)
   );
 endmodule

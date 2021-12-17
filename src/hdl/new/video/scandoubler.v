@@ -31,9 +31,9 @@ module scandoubler(
     
     input               scandouble,
 
-    output	reg	[3:0] 	r,
-    output	reg [3:0] 	g,
-    output	reg [3:0] 	b,
+    output	reg	[7:0] 	r,
+    output	reg [7:0] 	g,
+    output	reg [7:0] 	b,
 
     output reg          h_sync,
     output reg          v_sync,
@@ -43,18 +43,21 @@ module scandoubler(
 
     always @(posedge clk_peripheral_n)
     begin
+        r[4:0] <= 5'h00;
+        g[4:0] <= 5'h00;
+        b[4:0] <= 5'h00;
         if (scandouble) 
         begin
-            r <= video_31[8:6];
-            g <= video_31[5:3];
-            b <= video_31[2:0];
+            r[7:5] <= video_31[8:6];
+            g[7:5] <= video_31[5:3];
+            b[7:5] <= video_31[2:0];
             
             h_sync <= hsync;
             v_sync <= vsync;
         end else begin
-            r <= video_15[8:6];
-            g <= video_15[5:3];
-            b <= video_15[2:0];
+            r[7:5] <= video_15[8:6];
+            g[7:5] <= video_15[5:3];
+            b[7:5] <= video_15[2:0];
 
             // csync on hsync when the scandoubler is off
             h_sync <= csync_n;

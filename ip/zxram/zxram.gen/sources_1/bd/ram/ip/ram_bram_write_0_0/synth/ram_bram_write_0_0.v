@@ -58,6 +58,7 @@
 module ram_bram_write_0_0 (
   bram_addr,
   bram_clk,
+  bram_rst,
   bram_din,
   bram_dout,
   bram_en,
@@ -65,13 +66,16 @@ module ram_bram_write_0_0 (
   addr,
   cache,
   cready,
-  clk_memory
+  clk_memory,
+  aresetn
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram ADDR" *)
 output wire [12 : 0] bram_addr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram CLK" *)
 output wire bram_clk;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram RST" *)
+output wire bram_rst;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram DIN" *)
 output wire [63 : 0] bram_din;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram DOUT" *)
@@ -84,13 +88,17 @@ output wire [0 : 0] bram_we;
 input wire [20 : 3] addr;
 input wire [63 : 0] cache;
 input wire cready;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, ASSOCIATED_RESET aresetn, ASSOCIATED_BUSIF bram, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
 input wire clk_memory;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn RST" *)
+input wire aresetn;
 
   bram_write inst (
     .bram_addr(bram_addr),
     .bram_clk(bram_clk),
+    .bram_rst(bram_rst),
     .bram_din(bram_din),
     .bram_dout(bram_dout),
     .bram_en(bram_en),
@@ -98,6 +106,7 @@ input wire clk_memory;
     .addr(addr),
     .cache(cache),
     .cready(cready),
-    .clk_memory(clk_memory)
+    .clk_memory(clk_memory),
+    .aresetn(aresetn)
   );
 endmodule

@@ -21,6 +21,11 @@
   <key id="VT" for="node" attr.name="vert_type" attr.type="string"/>
   <graph id="G" edgedefault="undirected" parse.nodeids="canonical" parse.edgeids="canonical" parse.order="nodesfirst">
     <node id="n0">
+      <data key="VH">2</data>
+      <data key="VM">zxnexys</data>
+      <data key="VT">VR</data>
+    </node>
+    <node id="n1">
       <data key="BA">0x0000000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x7FFFFFF</data>
@@ -29,7 +34,7 @@
       <data key="MX">/zxram_0</data>
       <data key="MI">axi_mig</data>
       <data key="MS">SEG_mig_7series_0_memaddr</data>
-      <data key="MV">specnext.com:specnext:zxram:2.0</data>
+      <data key="MV">specnext.com:specnext:zxram:2.3</data>
       <data key="TM">both</data>
       <data key="SX">/mig_7series_0</data>
       <data key="SI">S_AXI</data>
@@ -37,11 +42,6 @@
       <data key="SV">xilinx.com:ip:mig_7series:4.2</data>
       <data key="TU">memory</data>
       <data key="VT">AC</data>
-    </node>
-    <node id="n1">
-      <data key="VH">2</data>
-      <data key="VM">zxnexys</data>
-      <data key="VT">VR</data>
     </node>
     <node id="n2">
       <data key="TU">active</data>
@@ -52,9 +52,9 @@
       <data key="VM">zxnexys</data>
       <data key="VT">BC</data>
     </node>
-    <edge id="e0" source="n3" target="n1"/>
-    <edge id="e1" source="n1" target="n2"/>
-    <edge id="e2" source="n0" target="n2">
+    <edge id="e0" source="n3" target="n0"/>
+    <edge id="e1" source="n0" target="n2"/>
+    <edge id="e2" source="n1" target="n2">
       <data key="EH">2</data>
     </edge>
   </graph>
