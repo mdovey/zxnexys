@@ -59,6 +59,14 @@
             <spirit:name>bram_clk</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bram_rst</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
@@ -134,6 +142,14 @@
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_RESET">aresetn</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_BUSIF">bram</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.FREQ_HZ">140000000</spirit:value>
           <spirit:vendorExtensions>
@@ -170,15 +186,6 @@
           </spirit:vendorExtensions>
         </spirit:parameter>
         <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_BUSIF"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
           <spirit:name>ASSOCIATED_PORT</spirit:name>
           <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_PORT"/>
           <spirit:vendorExtensions>
@@ -188,17 +195,39 @@
           </spirit:vendorExtensions>
         </spirit:parameter>
         <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_RESET"/>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.INSERT_VIP">0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
             </xilinx:parameterInfo>
           </spirit:vendorExtensions>
         </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>aresetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>aresetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.ARESETN.POLARITY">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
         <spirit:parameter>
           <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.INSERT_VIP">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.ARESETN.INSERT_VIP">0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
@@ -218,7 +247,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:4db9d109</spirit:value>
+            <spirit:value>9:880de97b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -229,7 +258,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:4db9d109</spirit:value>
+            <spirit:value>9:880de97b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -245,11 +274,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 17 10:41:05 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 10:58:26 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:4db9d109</spirit:value>
+            <spirit:value>9:880de97b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -261,7 +290,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:190a8e31</spirit:value>
+            <spirit:value>9:4bb809b1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -277,11 +306,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 17 10:41:05 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 10:58:26 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:190a8e31</spirit:value>
+            <spirit:value>9:4bb809b1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -294,8 +323,12 @@
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Fri Dec 17 11:00:26 UTC 2021</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:4db9d109</spirit:value>
+            <spirit:value>9:880de97b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -320,6 +353,19 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>bram_clk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bram_rst</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -458,6 +504,19 @@
           </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
+      <spirit:port>
+        <spirit:name>aresetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
     </spirit:ports>
   </spirit:model>
   <spirit:fileSets>
@@ -527,6 +586,7 @@
       <xilinx:definitionSource>module_ref</xilinx:definitionSource>
       <xilinx:coreRevision>1</xilinx:coreRevision>
       <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.ARESETN.POLARITY" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM.MASTER_TYPE" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM.MEM_ECC" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.BRAM.MEM_SIZE" xilinx:valuePermission="bd_and_user"/>

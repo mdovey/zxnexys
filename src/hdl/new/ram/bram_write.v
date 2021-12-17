@@ -28,6 +28,8 @@ module bram_write(
     output      [12:0]  bram_addr,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram CLK" *)
     output              bram_clk,
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram RST" *)
+    output              bram_rst,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram DIN" *)
     output      [63:0]  bram_din,
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 bram DOUT" *)
@@ -42,10 +44,16 @@ module bram_write(
     input               cready,
     
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
-    input               clk_memory   
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF bram, ASSOCIATED_RESET aresetn" *)	
+    input               clk_memory,
+	
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  aresetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)	
+    input               aresetn
     );
     
-    assign  bram_clk  = clk_memory;
+    assign  bram_clk  =  clk_memory;
+    assign  bram_rst  = ~aresetn;
     
     assign  bram_addr   = addr[16:4]; 
     assign  bram_din    = cache;

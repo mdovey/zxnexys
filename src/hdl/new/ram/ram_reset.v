@@ -23,9 +23,9 @@
 
 
 module ram_reset (
-    (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  memory_resetn  RST" *)
+    (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  memory_aresetn  RST" *)
     (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)    
-    input               memory_resetn,
+    input               memory_aresetn,
 
     (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_ui  RST" *)
     (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)    
@@ -43,17 +43,16 @@ module ram_reset (
 
     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
     (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET aresetn_memory" *)  
-    (* X_INTERFACE_PARAMETER = "ASSOCIATED_ASYNC_RESET  memory_resetn" *)    
     input               clk_memory,
 
     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_ui CLK" *)
-    (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_ui:aresetn:aresetn_ui" *)  
+    (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset_ui:aresetn_ui" *)  
     input               clk_ui
 );
 
     wire    rst;
     
-    assign  rst = reset_ui | ~memory_resetn;
+    assign  rst = reset_ui | ~memory_aresetn;
 
     always @(posedge clk_memory, posedge rst)
          aresetn_memory    <=  (rst)            ? 1'b0  : 1'b1;  

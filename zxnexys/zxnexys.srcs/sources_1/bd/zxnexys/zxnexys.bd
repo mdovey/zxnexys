@@ -13,16 +13,26 @@
     "design_tree": {
       "zxvideo_0": "",
       "zxsdcard_0": "",
-      "zxram_0": "",
       "ledsegment_0": "",
       "zxnext_0": "",
       "zxkeyboard_0": "",
-      "mig_7series_0": "",
       "clk_wiz_0": "",
       "zxclock_0": "",
-      "zxreset_0": ""
+      "zxreset_0": "",
+      "mig_7series_0": "",
+      "zxram_0": ""
     },
     "interface_ports": {
+      "PS2_CLK": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
+        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
+      },
+      "PS2_DATA": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
+        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
+      },
       "ddr2_sdram": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:ddrx:1.0",
@@ -77,16 +87,6 @@
             "value_src": "default"
           }
         }
-      },
-      "PS2_CLK": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
-      },
-      "PS2_DATA": {
-        "mode": "Master",
-        "vlnv_bus_definition": "xilinx.com:interface:gpio:1.0",
-        "vlnv": "xilinx.com:interface:gpio_rtl:1.0"
       }
     },
     "ports": {
@@ -186,32 +186,6 @@
         "xci_path": "ip\\zxnexys_zxsdcard_0_0\\zxnexys_zxsdcard_0_0.xci",
         "inst_hier_path": "zxsdcard_0"
       },
-      "zxram_0": {
-        "vlnv": "specnext.com:specnext:zxram:2.0",
-        "xci_name": "zxnexys_zxram_0_0",
-        "xci_path": "ip\\zxnexys_zxram_0_0\\zxnexys_zxram_0_0.xci",
-        "inst_hier_path": "zxram_0",
-        "interface_ports": {
-          "axi_mig": {
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "mode": "Master",
-            "address_space_ref": "axi_mig",
-            "base_address": {
-              "minimum": "0x00000000",
-              "maximum": "0x07FFFFFF",
-              "width": "27"
-            }
-          }
-        },
-        "addressing": {
-          "address_spaces": {
-            "axi_mig": {
-              "range": "4G",
-              "width": "32"
-            }
-          }
-        }
-      },
       "ledsegment_0": {
         "vlnv": "specnext.com:specnext:ledsegment:1.1",
         "xci_name": "zxnexys_ledsegment_0_0",
@@ -229,23 +203,6 @@
         "xci_name": "zxnexys_zxkeyboard_0_0",
         "xci_path": "ip\\zxnexys_zxkeyboard_0_0\\zxnexys_zxkeyboard_0_0.xci",
         "inst_hier_path": "zxkeyboard_0"
-      },
-      "mig_7series_0": {
-        "vlnv": "xilinx.com:ip:mig_7series:4.2",
-        "xci_name": "zxnexys_mig_7series_0_0",
-        "xci_path": "ip\\zxnexys_mig_7series_0_0\\zxnexys_mig_7series_0_0.xci",
-        "inst_hier_path": "mig_7series_0",
-        "parameters": {
-          "BOARD_MIG_PARAM": {
-            "value": "ddr2_sdram"
-          },
-          "RESET_BOARD_INTERFACE": {
-            "value": "Custom"
-          },
-          "XML_INPUT_FILE": {
-            "value": "mig_a.prj"
-          }
-        }
       },
       "clk_wiz_0": {
         "vlnv": "xilinx.com:ip:clk_wiz:6.0",
@@ -428,6 +385,49 @@
         "xci_name": "zxnexys_zxreset_0_0",
         "xci_path": "ip\\zxnexys_zxreset_0_0\\zxnexys_zxreset_0_0.xci",
         "inst_hier_path": "zxreset_0"
+      },
+      "mig_7series_0": {
+        "vlnv": "xilinx.com:ip:mig_7series:4.2",
+        "xci_name": "zxnexys_mig_7series_0_1",
+        "xci_path": "ip\\zxnexys_mig_7series_0_1\\zxnexys_mig_7series_0_1.xci",
+        "inst_hier_path": "mig_7series_0",
+        "parameters": {
+          "BOARD_MIG_PARAM": {
+            "value": "ddr2_sdram"
+          },
+          "RESET_BOARD_INTERFACE": {
+            "value": "Custom"
+          },
+          "XML_INPUT_FILE": {
+            "value": "mig_a.prj"
+          }
+        }
+      },
+      "zxram_0": {
+        "vlnv": "specnext.com:specnext:zxram:2.3",
+        "xci_name": "zxnexys_zxram_0_1",
+        "xci_path": "ip\\zxnexys_zxram_0_1\\zxnexys_zxram_0_1.xci",
+        "inst_hier_path": "zxram_0",
+        "interface_ports": {
+          "axi_mig": {
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "axi_mig",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0x07FFFFFF",
+              "width": "27"
+            }
+          }
+        },
+        "addressing": {
+          "address_spaces": {
+            "axi_mig": {
+              "range": "128M",
+              "width": "27"
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -511,13 +511,6 @@
       }
     },
     "nets": {
-      "Net": {
-        "ports": [
-          "zxreset_0/memory_aresetn",
-          "mig_7series_0/sys_rst",
-          "mig_7series_0/aresetn"
-        ]
-      },
       "SYS_RESET_N_1": {
         "ports": [
           "CPU_RESETN",
@@ -599,8 +592,8 @@
       "mig_7series_0_ui_clk": {
         "ports": [
           "mig_7series_0/ui_clk",
-          "zxram_0/clk_ui",
-          "zxreset_0/clk_ui"
+          "zxreset_0/clk_ui",
+          "zxram_0/clk_ui"
         ]
       },
       "mig_7series_0_ui_clk_sync_rst": {
@@ -646,8 +639,8 @@
       "zxclock_0_clk_peripheral_n": {
         "ports": [
           "zxclock_0/clk_peripheral_n",
-          "zxram_0/clk_peripheral_n",
-          "zxkeyboard_0/clk_peripheral_n"
+          "zxkeyboard_0/clk_peripheral_n",
+          "zxram_0/clk_peripheral_n"
         ]
       },
       "zxclock_0_clk_system": {
@@ -660,6 +653,14 @@
         "ports": [
           "zxclock_0/clk_video",
           "zxvideo_0/clk_video"
+        ]
+      },
+      "zxreset_0_memory_aresetn": {
+        "ports": [
+          "zxreset_0/memory_aresetn",
+          "mig_7series_0/aresetn",
+          "mig_7series_0/sys_rst",
+          "zxram_0/memory_aresetn"
         ]
       },
       "zxreset_0_reset_peripheral": {
@@ -745,7 +746,7 @@
             "segments": {
               "SEG_mig_7series_0_memaddr": {
                 "address_block": "/mig_7series_0/memmap/memaddr",
-                "offset": "0x00000000",
+                "offset": "0x0000000",
                 "range": "128M"
               }
             }

@@ -6,7 +6,7 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>memory_resetn</spirit:name>
+      <spirit:name>memory_aresetn</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -16,14 +16,14 @@
             <spirit:name>RST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>memory_resetn</spirit:name>
+            <spirit:name>memory_aresetn</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.MEMORY_RESETN.POLARITY">ACTIVE_LOW</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.MEMORY_ARESETN.POLARITY">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -113,10 +113,6 @@
           <spirit:name>ASSOCIATED_RESET</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_RESET">aresetn_memory</spirit:value>
         </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_ASYNC_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_MEMORY.ASSOCIATED_ASYNC_RESET">memory_resetn</spirit:value>
-        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -137,7 +133,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_UI.ASSOCIATED_RESET">reset_ui:aresetn:aresetn_ui</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_UI.ASSOCIATED_RESET">reset_ui:aresetn_ui</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -153,7 +149,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dcd37c79</spirit:value>
+            <spirit:value>38a8d54e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -166,7 +162,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dcd37c79</spirit:value>
+            <spirit:value>38a8d54e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -181,7 +177,7 @@
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>memory_resetn</spirit:name>
+        <spirit:name>memory_aresetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -293,7 +289,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-17T09:44:53Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-17T11:31:05Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
