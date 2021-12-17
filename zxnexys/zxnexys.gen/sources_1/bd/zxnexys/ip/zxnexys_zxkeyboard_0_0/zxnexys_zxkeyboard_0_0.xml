@@ -6,86 +6,6 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>keyboard</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="keyboard" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="keyboard_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>spkey_function</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>spkey_function</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>spkey_buttons</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>spkey_buttons</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cancel</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>cancel</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>row</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>row</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>column</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>column</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>extended_keys</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>extended_keys</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>keymap_addr</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>keymap_addr</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>keymap_data</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>keymap_data</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>keymap_we</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>keymap_we</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>reset</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
@@ -117,82 +37,164 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>clk_peripheral</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:name>keyboard</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="keyboard" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="keyboard_rtl" spirit:version="1.0"/>
       <spirit:slave/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
+            <spirit:name>cancel</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>clk_peripheral</spirit:name>
+            <spirit:name>cancel</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>joymap_we</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>joymap_we</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>keymap_data</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>keymap_data</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>column</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>column</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>spkey_buttons</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>spkey_buttons</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>row</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>row</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>keymap_we</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>keymap_we</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>spkey_function</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>spkey_function</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>extended_keys</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>extended_keys</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>keymap_addr</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>keymap_addr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>ps2_clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>ps2_data</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_O</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>data_o</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_T</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>data_t</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>TRI_I</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>data_i</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.PS2_DATA.NUM_READ_OUTSTANDING"/>
         </spirit:parameter>
         <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF">keyboard</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ">100000000</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE">0.0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_PORT</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_PORT"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
+          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.PS2_DATA.NUM_WRITE_OUTSTANDING"/>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -282,68 +284,89 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>ps2_clk</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
-      <spirit:master/>
+      <spirit:name>clk_peripheral</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>TRI_O</spirit:name>
+            <spirit:name>CLK</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>PS2_Clk_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>PS2_Clk_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>PS2_Clk_I</spirit:name>
+            <spirit:name>clk_peripheral</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>ps2_data</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="gpio_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_O</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>PS2_Data_O</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_T</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>PS2_Data_T</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>TRI_I</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>PS2_Data_I</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ">100000000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE">0.0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_PORT</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_PORT"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
@@ -352,18 +375,18 @@
         <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
         <spirit:displayName>Synthesis</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
-        <spirit:modelName>zxkeyboard_wrapper</spirit:modelName>
+        <spirit:modelName>zxkeyboard</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:45 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:41 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b2875909</spirit:value>
+            <spirit:value>9:7c5ccac3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -374,7 +397,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b2875909</spirit:value>
+            <spirit:value>9:7c5ccac3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -390,11 +413,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:45 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:41 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b2875909</spirit:value>
+            <spirit:value>9:7c5ccac3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -402,18 +425,18 @@
         <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
         <spirit:displayName>Simulation</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
-        <spirit:modelName>zxkeyboard_wrapper</spirit:modelName>
+        <spirit:modelName>zxkeyboard</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:45 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:41 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:70207146</spirit:value>
+            <spirit:value>9:a58f716e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -429,11 +452,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:45 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:41 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:70207146</spirit:value>
+            <spirit:value>9:a58f716e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -447,23 +470,23 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:16:14 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:56:46 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b2875909</spirit:value>
+            <spirit:value>9:7c5ccac3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>PS2_Clk_I</spirit:name>
+        <spirit:name>clk_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -471,12 +494,12 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PS2_Clk_O</spirit:name>
+        <spirit:name>clk_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -484,12 +507,12 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PS2_Clk_T</spirit:name>
+        <spirit:name>clk_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -497,12 +520,12 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PS2_Data_I</spirit:name>
+        <spirit:name>data_i</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -510,12 +533,12 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PS2_Data_O</spirit:name>
+        <spirit:name>data_o</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -523,12 +546,92 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>PS2_Data_T</spirit:name>
+        <spirit:name>data_t</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>divmmc</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.divmmc" xilinx:dependency="$External_Buttons">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>multiface</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.multiface" xilinx:dependency="spirit:decode(id(&apos;PARAM_VALUE.External_Buttons&apos;))">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>spkey_function</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">10</spirit:left>
+            <spirit:right spirit:format="long">1</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>spkey_buttons</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -541,7 +644,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -552,29 +655,23 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_peripheral</spirit:name>
+        <spirit:name>row</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_peripheral_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -587,7 +684,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -604,7 +701,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -621,7 +718,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -636,12 +733,12 @@
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
+            <spirit:left spirit:format="long">8</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -657,7 +754,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -665,6 +762,48 @@
           <spirit:driver>
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>joymap_we</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>clk_peripheral</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>clk_peripheral_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -673,61 +812,7 @@
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>row</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">7</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>spkey_buttons</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">1</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>spkey_function</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">10</spirit:left>
-            <spirit:right spirit:format="long">1</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -740,88 +825,31 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_ps2_keyb_0_0/synth/zxkeyboard_ps2_keyb_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_emu_fnkeys_0_0/synth/zxkeyboard_emu_fnkeys_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_membrane_0_0/synth/zxkeyboard_membrane_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_special_keys_0_0/synth/zxkeyboard_special_keys_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_Ps2Interface_0_0/synth/zxkeyboard_Ps2Interface_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_keyb_clocks_0_0/synth/zxkeyboard_keyb_clocks_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/keyboard/keymaps.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/src/SyncAsync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/keyboard/ps2_keyb.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/src/Ps2Interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/membrane/emu_fnkeys.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/membrane/emu_fnkeys.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/membrane/membrane.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/keyboard/keymaps.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_util_vector_logic_0_0/zxkeyboard_util_vector_logic_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/new/special_keys.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/digilent/SyncAsync.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/membrane/membrane.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/digilent/Ps2Interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/keyboard/ps2_keyb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/new/keyb_clocks.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_0/zxkeyboard_xlconstant_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_xlconstant_high</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_1/zxkeyboard_xlconstant_0_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_xlconstant_h55</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/synth/zxkeyboard.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxkeyboard.gen/sources_1/bd/zxkeyboard/zxkeyboard_ooc.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-        <spirit:userFileType>SCOPED_TO_REF_zxkeyboard</spirit:userFileType>
-        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/hdl/zxkeyboard_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/new/zxkeyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -836,82 +864,31 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_ps2_keyb_0_0/sim/zxkeyboard_ps2_keyb_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_emu_fnkeys_0_0/sim/zxkeyboard_emu_fnkeys_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_membrane_0_0/sim/zxkeyboard_membrane_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_special_keys_0_0/sim/zxkeyboard_special_keys_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_Ps2Interface_0_0/sim/zxkeyboard_Ps2Interface_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/ip/zxkeyboard_keyb_clocks_0_0/sim/zxkeyboard_keyb_clocks_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/keyboard/keymaps.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/src/SyncAsync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/keyboard/ps2_keyb.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/src/Ps2Interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/membrane/emu_fnkeys.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/membrane/emu_fnkeys.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/ZXNext/input/membrane/membrane.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/keyboard/keymaps.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_util_vector_logic_0_0/zxkeyboard_util_vector_logic_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/new/special_keys.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/digilent/SyncAsync.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/membrane/membrane.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/imports/digilent/Ps2Interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/imports/input/keyboard/ps2_keyb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.srcs/sources_1/new/keyb_clocks.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_0/zxkeyboard_xlconstant_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_xlconstant_high</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxkeyboard.srcs/sources_1/bd/zxkeyboard/ip/zxkeyboard_xlconstant_0_1/zxkeyboard_xlconstant_0_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_xlconstant_h55</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/sim/zxkeyboard.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/f3c6/zxkeyboard.gen/sources_1/bd/zxkeyboard/hdl/zxkeyboard_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/cd3c/zxkeyboard.srcs/sources_1/new/zxkeyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -960,136 +937,271 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>zxkeyboard_v1_1</spirit:description>
+  <spirit:description>zxkeyboard_v1_0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">zxnexys_zxkeyboard_0_0</spirit:value>
     </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>External_Buttons</spirit:name>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.External_Buttons">false</spirit:value>
+    </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
-      <xilinx:displayName>zxkeyboard_v1_1</xilinx:displayName>
+      <xilinx:displayName>zxkeyboard_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>9</xilinx:coreRevision>
+      <xilinx:coreRevision>21</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6a351030_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3f99dbe2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@40a0b49e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@65f8725e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6463cf8e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@59aaed80_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7b996652_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@68fa9a1f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7debc7ba_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@157cd0bb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7c604ba0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7a6d2fdb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@f9eb2d5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7000a9ba_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@408fca5c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2030f802_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3caf69f2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@15c7447c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@34d5b1e8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@bb15925_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@112132c5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6f387df7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@13c028b6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2da9cb01_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@69866651_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@11602e43_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7b3a6ffa_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54e40792_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5dfdaece_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4593cb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@120d6242_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2025c75_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7ef82f8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4d1ceb52_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2f6e4ec_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2619d3ab_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@35d8f07d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@311e5362_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1bd6593a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@41567f77_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@76ba74a5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@26683e96_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3a443dbd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@14caf38c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6178b18e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@fec0302_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3d19c9fc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@653d35b3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@b2c5608_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@369257f8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@30080135_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@18d29954_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6a5077ac_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2f1e0dd3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1b571764_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@196db77_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5737b6da_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3862faab_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@44bf42ca_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7d7d3298_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@bba7b98_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@62f9a1f5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6bfefef7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@507e8edf_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7dc71683_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@9001dae_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5f8df614_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@66bb8021_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1ebc7695_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@609cd6cf_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1a15e3fc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4e350dbf_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@365a95a9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3ac663e3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4badea60_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@69e5ec74_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@44d923ac_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2a480e0b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5951987b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4a2e9092_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@703cc66_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4db35aca_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b1e77dd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4941ac9b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@24543008_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@50ca86f6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@31fc323f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2a9d811e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@78c2ec01_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2f9c9b74_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@679f8eb4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@498fec39_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@45e4a518_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6a414889_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@38fb8ac0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@72106362_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4356c0a1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@539591a4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7dfc782e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5cbc7904_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@49db6327_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6b8269c9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@33cb32b7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2ca26e47_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6aacc989_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5d89803e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@71ee956_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@305843a6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7e783cad_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7a44ad2c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1387218e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@57ef220_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@438aedbc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@39eddae_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7f49a62a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@27f8399a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@288b33c9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fa11cdb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@422e18b4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69da88bd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@431427f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6be5baa9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c3ad462_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34f0528b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f3374cc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@386bf1b7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c1416a3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e7ecfaa_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f56d1da_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@370b56a9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@617a0ba5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57aadb88_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@760d26e6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35381fe2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72ca79cb_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@287093d7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20546497_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21e4247c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d9fcad_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a2bdf1e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ee1fb3e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1be2d725_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@285849a6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23258205_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51d966f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@111d8be9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@619dfa3d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16ba41ef_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7202547_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@513f44dd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@686c9552_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28952983_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46cd3d9c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@522c7a93_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f875fee_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bd22073_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1013a3c2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17aa90b0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75ddb509_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32714884_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c790db2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@620ccfd4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cc4de6f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7dedf1c3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f8ea51e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@668e54de_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fbc3251_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@255a7090_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fe7a188_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@121eaa78_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@601f1660_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39783161_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e620ab1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d028b0d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@325ecea2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e95b18_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f73ee63_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6724c75f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d064491_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7197bf8a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19a3bd7a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bfe8e27_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2357b71a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@451c1eb9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ef75856_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@427a2f93_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21bd85f6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23cd854b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@780f45e7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36e049a3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b6ed594_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ccb2850_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28e573a2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f155510_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54586571_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c284786_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60702d2d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a8097e4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b8a9a8c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e7b2277_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a9f008f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79d87c43_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@252f3c19_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b18b579_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@440e15ac_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@439a0dca_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10ba6a98_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@280e3972_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2597c2e9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d1b1bb8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32dfa722_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a31d0a3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@752bc2f7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ce3f7bd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70978250_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fa5656b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a28cb26_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ebca4e2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47e2f0ac_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@630bc62e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24185c51_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d98e4d9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79fcd6e1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5655e570_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70739553_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@453044e8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7037515c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e5b8298_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76bc0225_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65ea5e76_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25f8e1dc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d1fa1a0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d252aa6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ca55bd6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fc5fdbc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63b5bc2d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23724f6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5db574a5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3eefeac3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@363f5db7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f553f7a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50ab60c7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22786e33_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e3758f5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46e11987_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fc1a351_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@134f27d8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5804831d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13e861e6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27c0a65f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@851cbc4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30a795e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2799e620_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@585d514_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45d1df4d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21495e21_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45f2486_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@346e4960_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7795f58d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69e2b1c0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5340294_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31e8ac39_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75bef00a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b952869_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7288b9ef_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70281e86_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bc816f4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10b46cd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11744642_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1460e3f1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b95848a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19bca1d3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f7b1940_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c8912be_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f61c9e8_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48a5c734_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9d8c09a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18de2270_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a6c29f3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e3f1fb9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@398c9221_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@711afe75_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ea21066_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e5161ad_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b72afbd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d7b1217_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e90d5a7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@500ef3f_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1fe2a12e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ca56e79_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42471d18_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4223f3ed_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@317dd433_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62f98f43_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a8c3167_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@300714ed_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53a94cef_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6feb16b2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5702eb4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c181822_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@785db677_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e662fd5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a6ed57_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@730fe4d6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bcc85e5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34dd2831_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e899487_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10d3f1e0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@114fad59_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7001282b_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59ce4fb6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7453fdf1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78661395_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@384cddb9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f796f42_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d17f55_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3142ece0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6364b40c_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ab53b7a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d64f807_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ed55c31_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7253ecb9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f541c84_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@612a8ba2_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c1c07c1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cc8b752_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@774d323a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49eb9762_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@99e78d4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dd0a820_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56e444a9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b35e8de_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60e7e960_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e62567d_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a17b785_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3af80d22_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22696058_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@233c23aa_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43e5a0fd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@505114f4_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@644bb560_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@300c020e_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71d9e5a7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55a12d75_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b62d6e9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50270783_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bdae5ca_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e71b2f0_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@554fc1ad_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6092f3ed_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bdb9575_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@476965f6_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c491bbd_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ba10bfc_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e66ae25_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ab127b5_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36760ef1_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cd11fe9_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@162378a7_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3657c842_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32fa053_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64522cb3_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1efc7f3a_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195b46ec_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a7eb690_ARCHIVE_LOCATION">v:/zxnext/zxkeyboard</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
@@ -1106,15 +1218,17 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.PHASE" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PS2_DATA.NUM_READ_OUTSTANDING" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PS2_DATA.NUM_WRITE_OUTSTANDING" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET.POLARITY" xilinx:valuePermission="bd_and_user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="dd633ca8"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="03f5b30e"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="ebcf714b"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="965b61d6"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="064888a7"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="831db0bc"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b0fc5c1b"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2c0688aa"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

@@ -6,6 +6,37 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
+      <spirit:name>reset</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RESET.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
       <spirit:name>video</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video_rtl" spirit:version="1.0"/>
@@ -13,38 +44,6 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>rgb</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>rgb</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>csync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>csync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>vsync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>vsync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>hsync_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>hsync_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>scanlines</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -61,188 +60,93 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
+            <spirit:name>freq_50_60</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>freq_50_60</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
             <spirit:name>machine_timing</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>machine_timing</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>clk_peripheral</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
+            <spirit:name>hblank_n</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>clk_peripheral</spirit:name>
+            <spirit:name>hblank_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>video_mode</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>video_mode</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>rgb</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>rgb</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>vblank_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>vblank_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>csync_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>csync_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>hsync_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hsync_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>hdmi_audio_en</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hdmi_audio_en</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>vsync_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>vsync_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>hdmi_reset</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>hdmi_reset</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF">specnext_video:video</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ">100000000</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE">0.0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_PORT</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_PORT"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>clk_peripheral_n</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_peripheral_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>FREQ_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_HZ">100000000</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_TOLERANCE_HZ">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>PHASE</spirit:name>
-          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.PHASE">0.0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral_n</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_BUSIF"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_PORT</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_PORT"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_RESET"/>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>none</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>clk_video</spirit:name>
@@ -260,6 +164,10 @@
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_RESET"/>
+        </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.FREQ_HZ">100000000</spirit:value>
@@ -315,8 +223,84 @@
           </spirit:vendorExtensions>
         </spirit:parameter>
         <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk_peripheral</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_peripheral</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_RESET"/>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ">100000000</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_TOLERANCE_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="float" spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE">0.0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>CLK_DOMAIN</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF"/>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>none</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_PORT</spirit:name>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_PORT"/>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -325,7 +309,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_VIDEO.INSERT_VIP">0</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.INSERT_VIP">0</spirit:value>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
@@ -341,18 +325,18 @@
         <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
         <spirit:displayName>Synthesis</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
-        <spirit:modelName>zxvideo_wrapper</spirit:modelName>
+        <spirit:modelName>zxvideo</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:41 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:01 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:786b8edb</spirit:value>
+            <spirit:value>9:93a5a485</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -363,7 +347,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:786b8edb</spirit:value>
+            <spirit:value>9:93a5a485</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -379,11 +363,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:41 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:01 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:786b8edb</spirit:value>
+            <spirit:value>9:93a5a485</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -391,18 +375,18 @@
         <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
         <spirit:displayName>Simulation</spirit:displayName>
         <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
-        <spirit:modelName>zxvideo_wrapper</spirit:modelName>
+        <spirit:modelName>zxvideo</spirit:modelName>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:41 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:01 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:fbc6aee8</spirit:value>
+            <spirit:value>9:b9f7f80d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -418,11 +402,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:15:41 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:55:01 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:fbc6aee8</spirit:value>
+            <spirit:value>9:b9f7f80d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -436,18 +420,18 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sun Dec 12 09:16:08 UTC 2021</spirit:value>
+            <spirit:value>Fri Dec 17 07:56:31 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:786b8edb</spirit:value>
+            <spirit:value>9:93a5a485</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
       <spirit:port>
-        <spirit:name>b</spirit:name>
+        <spirit:name>r</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:vector>
@@ -456,66 +440,11 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>reg</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_peripheral</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_peripheral_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_video</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>csync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -528,7 +457,24 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>b</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">3</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -541,7 +487,7 @@
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -549,52 +495,12 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>hsync_n</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>machine_timing</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">2</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>r</spirit:name>
+        <spirit:name>vs</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
-          <spirit:vector>
-            <spirit:left spirit:format="long">3</spirit:left>
-            <spirit:right spirit:format="long">0</spirit:right>
-          </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -611,7 +517,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -622,12 +528,92 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>scandouble</spirit:name>
+        <spirit:name>csync_n</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>vsync_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hsync_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>vblank_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hblank_n</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>freq_50_60</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -647,7 +633,7 @@
           </spirit:vector>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -658,12 +644,100 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vs</spirit:name>
+        <spirit:name>scandouble</spirit:name>
         <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>video_mode</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>machine_timing</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_reset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>hdmi_audio_en</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>clk_video</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
@@ -671,19 +745,29 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>vsync_n</spirit:name>
+        <spirit:name>clk_peripheral</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
+              <spirit:typeName>std_logic</spirit:typeName>
               <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>reset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
     </spirit:ports>
@@ -692,57 +776,15 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_front_porch_0_0/synth/zxvideo_front_porch_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>../../ipshared/fcaf/zxvideo.srcs/sources_1/imports/ram/dpram2.vhd</spirit:name>
+        <spirit:userFileType>vhdlSource-2008</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_scan_convert_0_0/synth/zxvideo_scan_convert_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>../../ipshared/fcaf/zxvideo.srcs/sources_1/imports/vga/scan_convert.vhd</spirit:name>
+        <spirit:userFileType>vhdlSource-2008</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_scandoubler_0_0/synth/zxvideo_scandoubler_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_0_0/synth/zxvideo_s_fix_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_1_0/synth/zxvideo_s_fix_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/new/front_porch.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/imports/ZXNext/ram/dpram2.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/imports/ZXNext/vga/scan_convert.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/new/scandoubler.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/imports/MISTer/video_cleaner.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/synth/zxvideo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxvideo.gen/sources_1/bd/zxvideo/zxvideo_ooc.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-        <spirit:userFileType>SCOPED_TO_REF_zxvideo</spirit:userFileType>
-        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/hdl/zxvideo_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/fcaf/zxvideo.srcs/sources_1/new/zxvideo.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -757,51 +799,15 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_front_porch_0_0/sim/zxvideo_front_porch_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>../../ipshared/fcaf/zxvideo.srcs/sources_1/imports/ram/dpram2.vhd</spirit:name>
+        <spirit:userFileType>vhdlSource-2008</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_scan_convert_0_0/sim/zxvideo_scan_convert_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>../../ipshared/fcaf/zxvideo.srcs/sources_1/imports/vga/scan_convert.vhd</spirit:name>
+        <spirit:userFileType>vhdlSource-2008</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_scandoubler_0_0/sim/zxvideo_scandoubler_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_0_0/sim/zxvideo_s_fix_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/ip/zxvideo_s_fix_1_0/sim/zxvideo_s_fix_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/new/front_porch.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/imports/ZXNext/ram/dpram2.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/imports/ZXNext/vga/scan_convert.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/new/scandoubler.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.srcs/sources_1/imports/MISTer/video_cleaner.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/sim/zxvideo.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../ipshared/eb9b/zxvideo.gen/sources_1/bd/zxvideo/hdl/zxvideo_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/fcaf/zxvideo.srcs/sources_1/new/zxvideo.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -850,7 +856,7 @@
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>zxvideo_v1_1</spirit:description>
+  <spirit:description>zxvideo_v1_0</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -859,126 +865,141 @@
   </spirit:parameters>
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
-      <xilinx:displayName>zxvideo_v1_1</xilinx:displayName>
+      <xilinx:displayName>zxvideo_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreRevision>14</xilinx:coreRevision>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@375ef053_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4bcf7865_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@61138d19_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7cc1d0cf_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@49226f17_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4d395f67_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1cd64421_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@682b3208_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@40b01e8e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2956b2d6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@383fc68c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@34853d2e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@31e5e489_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5bfe87dd_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6120c77e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3be22610_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5d4d4653_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@8ab42df_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7e076f43_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3016259_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@57ee13d6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@27a42b7c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@c0b0a3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@36a556ec_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@a4de90_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@530e78c6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4044c66a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4e2fe9a3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@60f9e2c1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6dbec7e8_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@ff1a53d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@118db36_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@8d3a6bd_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@784ad302_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6de63d8_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@75d4a1f0_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1543b5b1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@59b8083d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@46dce48b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@53f4482e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4076fc63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6f2c81fd_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2c7a4811_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@cc880ea_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@71a2c8c2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1c8b450_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@72291207_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@34aa8a3a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@33a1edf3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7fb2efd4_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@78ab2fd1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@600bc223_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1be252dd_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@22220b04_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3f5beb78_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@64658146_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1277fe81_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7fe82e6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7505fbab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2e63a1ff_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1742b64c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@692ca524_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7ffbb104_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7558cc55_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@737021d1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@32a1e4ad_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@f4d85e9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@35bd23ac_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@8193cf3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2eea36dc_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3975ccd7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7409efc6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7b225642_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@17c7f0ed_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@79f2f6cb_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@ce13c27_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3cbaa653_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@457eeac_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@50f4d4ae_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@40e075f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@778a1d4a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@67c409c7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3cdc74ee_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6bf3985b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@35b42534_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@31bc638_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@21db3ab9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@195865cc_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2055587f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6f635aa3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@26c932e9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@27b8e32d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4e48a462_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@9ba4cc5_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4d94ee75_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7ace28ab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@29332f63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2261b484_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@67de2661_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@9e81b21_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@e7bea48_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4ff75b27_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@53aff7b1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54a8954_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5bae785e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7a6e2e9c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3468f895_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@46699199_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4bce758c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54f251ba_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@9129c6b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@62cded28_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5c9db92d_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@51373d65_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4b6fdd11_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2e472663_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c23a471_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c40a0b0_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c1098a3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7220f40c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e6cc6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f16f0aa_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d1942d9_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c0f0391_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@720bde8a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f567a79_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a46be24_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2fd01777_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73a6a85b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51254be2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3105a54_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dd9b061_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3bfbfed4_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@151fa8db_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f91f6fe_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33b1e83_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@732c3f36_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70f6593e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f976a1e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@205a459a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2362b75f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@186cf26a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60e0a0fe_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23164afa_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f74cac7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3033a149_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@170d238b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2fc8aa06_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d65e41b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@adb2f63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38f2c20a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a6039c2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b3171e7_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39b5a958_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52b9bbf3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d532f70_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1dbe5594_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66a30c5b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@455997a2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7da155f1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6acddde8_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ab8764c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b9fde14_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6283238c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fff5f04_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@742fe4ed_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34a205d6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6887909f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c96cf42_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a78c188_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75f4cf04_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bc38aee_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d0ca9ab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a2524ef_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@234cad8e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fa64e6b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b846c3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@783e8867_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d2e230b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3447f894_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42cbbb87_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c2a0336_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52a8a5be_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b39400_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c71cbc3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@125912e2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56f8a79a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51f86ad8_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78572cae_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61170070_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ec78669_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ea227e3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@614058b2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cf56faf_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b2a78a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e03b445_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a4e4071_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76af4295_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c8473e2_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c456386_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ccb6aa0_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15b0b1ab_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@973a7bf_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24972a68_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d09bda1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a74918b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33756455_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@270118d1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40da603_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@135c3754_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@316e07d3_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b8a847f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5976acee_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70af4fd8_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e8363a6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@144f1c62_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6591b010_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15a5021b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d370d1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54859501_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4cd775_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ee312e1_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40e0e823_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b0e36bb_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e0ecc90_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@372d3bd6_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@604a06f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@349cc2b4_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2669659b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52b03e7f_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7484527e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e9cbf07_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cf2b97b_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39d2adf0_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@142b27c_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14d0d890_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70910658_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cd84b26_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ff64827_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@913cbbe_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@287588f0_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34c9aa63_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5663609a_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c221a9e_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@563eeb24_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@444ba6c4_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35751988_ARCHIVE_LOCATION">v:/zxnext/zxvideo</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
@@ -988,13 +1009,6 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL_N.PHASE" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
@@ -1002,14 +1016,15 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_VIDEO.PHASE" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET.POLARITY" xilinx:valuePermission="bd_and_user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a45ab934"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="378a2885"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="0fbd3c1c"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="e63f4202"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="6b361a4a"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c1041749"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="a0af37a5"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="a28eeba7"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

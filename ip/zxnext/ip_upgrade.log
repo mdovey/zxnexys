@@ -1,0 +1,306 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 20:54:49 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'spram_320_9'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of spram_320_9 (xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 20:54:48 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_64_9'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of sdpram_64_9 (xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 20:54:48 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_16_9'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of sdpram_16_9 (xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 20:54:47 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_128_8'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of sdpram_128_8 (xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 20:54:47 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpbram_16k_8'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of sdpbram_16k_8 (xilinx.com:ip:blk_mem_gen:8.4 (Rev. 5)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 20:00:04 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a12ticsg325-1L
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpbram_16k_8'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpbram_16k_8 from xilinx.com:ip:blk_mem_gen:7.3 to xilinx.com:ip:blk_mem_gen:8.4 (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 19:59:44 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a12ticsg325-1L
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'spram_320_9'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of spram_320_9 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 19:59:44 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a12ticsg325-1L
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_64_9'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpram_64_9 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 19:59:43 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a12ticsg325-1L
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_16_9'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpram_16_9 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 19:59:42 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a12ticsg325-1L
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_128_8'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpram_128_8 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 14 19:59:42 2021
+| Host         : JL69XDHR2 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a12ticsg325-1L
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'keyjoy_sdpram_64_6'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of keyjoy_sdpram_64_6 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+After upgrade, an IP may have parameter differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality.
+
+2. Warnings
+-----------
+
+WARNING: The upgraded user parameter set contained parameters that could not be mapped on to the upgraded IP. When checking the upgrade script, note that parameter names are case sensitive.
+
+
+3. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+4. Customization warnings
+-------------------------
+
+The normal upgrade process failed due to validation failures in the given configuration. Attempting partial upgrade to set as many user parameters as possible. Please check the parameters whose values were not applied.
+
+Customization errors found on 'keyjoy_sdpram_64_6'. Restoring to previous valid configuration.
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:ip:dist_mem_gen:8.0 -user_name keyjoy_sdpram_64_6
+set_property -dict "\
+  CONFIG.Component_Name {keyjoy_sdpram_64_6} \
+  CONFIG.Pipeline_Stages {0} \
+  CONFIG.ce_overrides {ce_overrides_sync_controls} \
+  CONFIG.coefficient_file {c:/Projects/xilinx/ZX_Spectrum_Next_FPGA/cores/zxnext/src/ram/init/keyjoy_64_6.coe} \
+  CONFIG.common_output_ce {false} \
+  CONFIG.common_output_clk {false} \
+  CONFIG.data_width {6} \
+  CONFIG.default_data {0} \
+  CONFIG.default_data_radix {16} \
+  CONFIG.depth {64} \
+  CONFIG.dual_port_address {non_registered} \
+  CONFIG.dual_port_output_clock_enable {false} \
+  CONFIG.input_clock_enable {false} \
+  CONFIG.input_options {non_registered} \
+  CONFIG.memory_type {simple_dual_port_ram} \
+  CONFIG.output_options {non_registered} \
+  CONFIG.qualify_we_with_i_ce {false} \
+  CONFIG.reset_qdpo {false} \
+  CONFIG.reset_qsdpo {false} \
+  CONFIG.reset_qspo {false} \
+  CONFIG.simple_dual_port_address {non_registered} \
+  CONFIG.simple_dual_port_output_clock_enable {false} \
+  CONFIG.single_port_output_clock_enable {false} \
+  CONFIG.sync_reset_qdpo {false} \
+  CONFIG.sync_reset_qsdpo {false} \
+  CONFIG.sync_reset_qspo {false} " [get_ips keyjoy_sdpram_64_6]
+
+
