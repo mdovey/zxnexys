@@ -1,4 +1,0 @@
-Source: ZX Spectrum Next
-Link: https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA
-License: GNU GPL 3.0
-

@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec  9 00:53:06 2021" VIVADOVERSION="2021.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxaudio" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="22580650" DIR="O" NAME="lineout_mclk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="lineout_lrck" SIGIS="clk" SIGNAME="i2s_transceiver_0_ws">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="ws"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="lineout_sclk" SIGIS="clk" SIGNAME="i2s_transceiver_0_sclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="22580650" DIR="O" NAME="linein_mclk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="linein_sclk" SIGIS="clk" SIGNAME="i2s_transceiver_0_sclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="linein_lrck" SIGIS="clk" SIGNAME="i2s_transceiver_0_ws">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="ws"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="lineout_sdout" SIGIS="data" SIGNAME="i2s_transceiver_0_sd_tx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sd_tx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="linein_sdin" SIGIS="data" SIGNAME="External_Ports_linein_sdin">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sd_rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="mic" SIGIS="data" SIGNAME="External_Ports_mic">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mic_0" PORT="din"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="ear" SIGIS="data" SIGNAME="ear_0_ear">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ear_0" PORT="ear"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="audio_pwm" SIGIS="undef" SIGNAME="sigma_delta_dac_0_DACout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="DACout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tape_pwm" SIGIS="undef" SIGNAME="sigma_delta_dac_1_DACout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="DACout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="psg_en" POLARITY="ACTIVE_LOW" SIGIS="ce" SIGNAME="psg_0_psg_en">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="psg_0" PORT="psg_en"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="12" NAME="audio_left" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_audio_left">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scaler_0" PORT="din"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="12" NAME="audio_right" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_audio_right">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scaler_1" PORT="din"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="resets_0" PORT="reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="psg_0" PORT="clk_peripheral"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="audio_sd" SIGIS="undef" SIGNAME="pwm_enable_0_audio_sd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pwm_enable_0" PORT="audio_sd"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tape_sd" SIGIS="undef" SIGNAME="pwm_enable_0_tape_sd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pwm_enable_0" PORT="tape_sd"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="22580650" DIR="I" NAME="clk_audio" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="External_Ports" PORT="lineout_mclk"/>
+        <CONNECTION INSTANCE="External_Ports" PORT="linein_mclk"/>
+        <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="CLK"/>
+        <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="CLK"/>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="mclk"/>
+        <CONNECTION INSTANCE="resets_0" PORT="clk"/>
+        <CONNECTION INSTANCE="ear_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/ear_0" HWVERSION="1.0" INSTANCE="ear_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ear" VLNV="xilinx.com:module_ref:ear:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
+        <PARAMETER NAME="SCHMITT_NOISE_THRESHOLD" VALUE="0x00FF"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_ear_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="mono_1_mono_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mono_1" PORT="mono_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ear" SIGIS="undef" SIGNAME="ear_0_ear">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ear"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="22580650" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_speaker" TYPE="TARGET" VLNV="specnext.com:specnext:speaker:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="ear" PHYSICAL="ear"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_tape" TYPE="TARGET" VLNV="specnext.com:specnext:tape:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="ear" PHYSICAL="ear"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/i2s_transceiver_0" HWVERSION="1.0" INSTANCE="i2s_transceiver_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="i2s_transceiver" VLNV="xilinx.com:module_ref:i2s_transceiver:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="mclk_sclk_ratio" VALUE="8"/>
+        <PARAMETER NAME="sclk_ws_ratio" VALUE="64"/>
+        <PARAMETER NAME="d_width" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_i2s_transceiver_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="reset_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="resets_0_rstn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="resets_0" PORT="rstn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mclk" SIGIS="undef" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk" SIGIS="undef" SIGNAME="i2s_transceiver_0_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="lineout_sclk"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="linein_sclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ws" SIGIS="undef" SIGNAME="i2s_transceiver_0_ws">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="lineout_lrck"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="linein_lrck"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sd_tx" SIGIS="undef" SIGNAME="i2s_transceiver_0_sd_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="lineout_sdout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sd_rx" SIGIS="undef" SIGNAME="External_Ports_linein_sdin">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="linein_sdin"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="l_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="scaler_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scaler_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="r_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="scaler_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scaler_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="l_data_rx" RIGHT="0" SIGIS="undef" SIGNAME="i2s_transceiver_0_l_data_rx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mono_1" PORT="left_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="r_data_rx" RIGHT="0" SIGIS="undef" SIGNAME="i2s_transceiver_0_r_data_rx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mono_1" PORT="right_in"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="l_data" TYPE="TARGET" VLNV="specnext.com:specnext:esp32:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="tx" PHYSICAL="l_data_tx"/>
+            <PORTMAP LOGICAL="rx" PHYSICAL="l_data_rx"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="r_data" TYPE="TARGET" VLNV="specnext.com:specnext:esp32:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="tx" PHYSICAL="r_data_tx"/>
+            <PORTMAP LOGICAL="rx" PHYSICAL="r_data_rx"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="sd" TYPE="TARGET" VLNV="specnext.com:specnext:esp32:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="tx" PHYSICAL="sd_tx"/>
+            <PORTMAP LOGICAL="rx" PHYSICAL="sd_rx"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/mic_0" HWVERSION="1.0" INSTANCE="mic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mic" VLNV="xilinx.com:module_ref:mic:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
+        <PARAMETER NAME="VOLUME" VALUE="0x2000"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_mic_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="din" SIGIS="undef" SIGNAME="External_Ports_mic">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="mic"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="mic_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="DACin"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/mono_0" HWVERSION="1.0" INSTANCE="mono_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mono" VLNV="xilinx.com:module_ref:mono:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_mono_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="left_in" RIGHT="0" SIGIS="undef" SIGNAME="scaler_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scaler_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="right_in" RIGHT="0" SIGIS="undef" SIGNAME="scaler_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scaler_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="mono_out" RIGHT="0" SIGIS="undef" SIGNAME="mono_0_mono_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="DACin"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/mono_1" HWVERSION="1.0" INSTANCE="mono_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mono" VLNV="xilinx.com:module_ref:mono:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_mono_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="left_in" RIGHT="0" SIGIS="undef" SIGNAME="i2s_transceiver_0_l_data_rx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="l_data_rx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="right_in" RIGHT="0" SIGIS="undef" SIGNAME="i2s_transceiver_0_r_data_rx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="r_data_rx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="mono_out" RIGHT="0" SIGIS="undef" SIGNAME="mono_1_mono_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ear_0" PORT="din"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/psg_0" HWVERSION="1.0" INSTANCE="psg_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="psg" VLNV="xilinx.com:module_ref:psg:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_psg_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="psg_en" SIGIS="undef" SIGNAME="psg_0_psg_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="psg_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_peripheral" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_audio" TYPE="TARGET" VLNV="specnext.com:specnext:audio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="psg_en" PHYSICAL="psg_en"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/pwm_enable_0" HWVERSION="1.0" INSTANCE="pwm_enable_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pwm_enable" VLNV="xilinx.com:module_ref:pwm_enable:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_pwm_enable_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="audio_sd" SIGIS="undef" SIGNAME="pwm_enable_0_audio_sd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="audio_sd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="tape_sd" SIGIS="undef" SIGNAME="pwm_enable_0_tape_sd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tape_sd"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/resets_0" HWVERSION="1.0" INSTANCE="resets_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="resets" VLNV="xilinx.com:module_ref:resets:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_resets_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="resets_0_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="RESET"/>
+            <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="RESET"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rstn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="resets_0_rstn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="reset_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="22580650" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/scaler_0" HWVERSION="1.0" INSTANCE="scaler_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="scaler" VLNV="xilinx.com:module_ref:scaler:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="AUDIO_DW_IN" VALUE="13"/>
+        <PARAMETER NAME="AUDIO_DW_OUT" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_scaler_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="12" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_audio_left">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="audio_left"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="scaler_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mono_0" PORT="left_in"/>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="l_data_tx"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/scaler_1" HWVERSION="1.0" INSTANCE="scaler_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="scaler" VLNV="xilinx.com:module_ref:scaler:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="AUDIO_DW_IN" VALUE="13"/>
+        <PARAMETER NAME="AUDIO_DW_OUT" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_scaler_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="12" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_audio_right">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="audio_right"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="scaler_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mono_0" PORT="right_in"/>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="r_data_tx"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/sigma_delta_dac_0" HWVERSION="1.0" INSTANCE="sigma_delta_dac_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="sigma_delta_dac" VLNV="xilinx.com:module_ref:sigma_delta_dac:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="MSBI" VALUE="15"/>
+        <PARAMETER NAME="INV" VALUE="&quot;1&quot;"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_sigma_delta_dac_0_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="DACout" SIGIS="undef" SIGNAME="sigma_delta_dac_0_DACout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="audio_pwm"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="DACin" RIGHT="0" SIGIS="undef" SIGNAME="mono_0_mono_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mono_0" PORT="mono_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="22580650" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RESET" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="resets_0_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="resets_0" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/sigma_delta_dac_1" HWVERSION="1.0" INSTANCE="sigma_delta_dac_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="sigma_delta_dac" VLNV="xilinx.com:module_ref:sigma_delta_dac:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="MSBI" VALUE="15"/>
+        <PARAMETER NAME="INV" VALUE="&quot;1&quot;"/>
+        <PARAMETER NAME="Component_Name" VALUE="zxaudio_sigma_delta_dac_0_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="DACout" SIGIS="undef" SIGNAME="sigma_delta_dac_1_DACout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tape_pwm"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="DACin" RIGHT="0" SIGIS="undef" SIGNAME="mic_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mic_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="22580650" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="RESET" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="resets_0_rst">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="resets_0" PORT="rst"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

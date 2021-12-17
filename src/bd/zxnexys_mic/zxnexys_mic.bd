@@ -1,0 +1,291 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xD626FA70AC6391B3",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../zxnexys_mic.gen/sources_1/bd/zxnexys_mic",
+      "name": "zxnexys_mic",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "i2s_transceiver_0": "",
+      "pwm_decode_0": "",
+      "util_vector_logic_0": ""
+    },
+    "ports": {
+      "sclk": {
+        "direction": "O"
+      },
+      "wclk": {
+        "direction": "O"
+      },
+      "pcm_out": {
+        "direction": "O"
+      },
+      "pcm_in": {
+        "direction": "I"
+      },
+      "m_clk": {
+        "direction": "O"
+      },
+      "m_lrsel": {
+        "direction": "O"
+      },
+      "m_data": {
+        "direction": "I"
+      },
+      "clk_audio": {
+        "direction": "I"
+      },
+      "reset": {
+        "direction": "I",
+        "parameters": {
+          "PortType": {
+            "value": "undef",
+            "value_src": "ip_prop"
+          },
+          "PortType.PROP_SRC": {
+            "value": "false",
+            "value_src": "ip_prop"
+          }
+        }
+      },
+      "audio_left": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "audio_right": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      }
+    },
+    "components": {
+      "i2s_transceiver_0": {
+        "vlnv": "xilinx.com:module_ref:i2s_transceiver:1.0",
+        "xci_name": "zxnexys_mic_i2s_transceiver_0_0",
+        "xci_path": "ip\\zxnexys_mic_i2s_transceiver_0_0\\zxnexys_mic_i2s_transceiver_0_0.xci",
+        "inst_hier_path": "i2s_transceiver_0",
+        "parameters": {
+          "d_width": {
+            "value": "8"
+          },
+          "mclk_sclk_ratio": {
+            "value": "8"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "i2s_transceiver",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "l_data": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:esp32:1.0",
+            "vlnv": "specnext.com:specnext:esp32_rtl:1.0",
+            "port_maps": {
+              "tx": {
+                "physical_name": "l_data_tx",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "rx": {
+                "physical_name": "l_data_rx",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "r_data": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:esp32:1.0",
+            "vlnv": "specnext.com:specnext:esp32_rtl:1.0",
+            "port_maps": {
+              "tx": {
+                "physical_name": "r_data_tx",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "rx": {
+                "physical_name": "r_data_rx",
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              }
+            }
+          },
+          "sd": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:esp32:1.0",
+            "vlnv": "specnext.com:specnext:esp32_rtl:1.0",
+            "port_maps": {
+              "tx": {
+                "physical_name": "sd_tx",
+                "direction": "O"
+              },
+              "rx": {
+                "physical_name": "sd_rx",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "reset_n": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "mclk": {
+            "direction": "I"
+          },
+          "sclk": {
+            "direction": "O"
+          },
+          "ws": {
+            "direction": "O"
+          }
+        }
+      },
+      "pwm_decode_0": {
+        "vlnv": "xilinx.com:module_ref:pwm_decode:1.0",
+        "xci_name": "zxnexys_mic_pwm_decode_0_0",
+        "xci_path": "ip\\zxnexys_mic_pwm_decode_0_0\\zxnexys_mic_pwm_decode_0_0.xci",
+        "inst_hier_path": "pwm_decode_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pwm_decode",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "l": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "r": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "lrsel": {
+            "direction": "O"
+          },
+          "data": {
+            "direction": "I"
+          },
+          "lrclk": {
+            "direction": "I"
+          },
+          "mclk": {
+            "direction": "I"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "zxnexys_mic_util_vector_logic_0_0",
+        "xci_path": "ip\\zxnexys_mic_util_vector_logic_0_0\\zxnexys_mic_util_vector_logic_0_0.xci",
+        "inst_hier_path": "util_vector_logic_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_audio_1": {
+        "ports": [
+          "clk_audio",
+          "i2s_transceiver_0/mclk",
+          "m_clk",
+          "pwm_decode_0/mclk"
+        ]
+      },
+      "i2s_transceiver_0_l_data_rx": {
+        "ports": [
+          "i2s_transceiver_0/l_data_rx",
+          "audio_left"
+        ]
+      },
+      "i2s_transceiver_0_r_data_rx": {
+        "ports": [
+          "i2s_transceiver_0/r_data_rx",
+          "audio_right"
+        ]
+      },
+      "i2s_transceiver_0_sclk": {
+        "ports": [
+          "i2s_transceiver_0/sclk",
+          "sclk"
+        ]
+      },
+      "i2s_transceiver_0_sd_tx": {
+        "ports": [
+          "i2s_transceiver_0/sd_tx",
+          "pcm_out"
+        ]
+      },
+      "i2s_transceiver_0_ws": {
+        "ports": [
+          "i2s_transceiver_0/ws",
+          "wclk",
+          "pwm_decode_0/lrclk"
+        ]
+      },
+      "m_data_1": {
+        "ports": [
+          "m_data",
+          "pwm_decode_0/data"
+        ]
+      },
+      "pcm_in_1": {
+        "ports": [
+          "pcm_in",
+          "i2s_transceiver_0/sd_rx"
+        ]
+      },
+      "pwm_decode_0_l": {
+        "ports": [
+          "pwm_decode_0/l",
+          "i2s_transceiver_0/l_data_tx"
+        ]
+      },
+      "pwm_decode_0_lrsel": {
+        "ports": [
+          "pwm_decode_0/lrsel",
+          "m_lrsel"
+        ]
+      },
+      "pwm_decode_0_r": {
+        "ports": [
+          "pwm_decode_0/r",
+          "i2s_transceiver_0/r_data_tx"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "util_vector_logic_0/Op1"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "i2s_transceiver_0/reset_n"
+        ]
+      }
+    }
+  }
+}

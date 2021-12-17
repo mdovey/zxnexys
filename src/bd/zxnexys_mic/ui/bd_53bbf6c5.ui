@@ -1,0 +1,39 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-184,-15",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_sclk -pg 1 -lvl 4 -x 820 -y 400 -defaultsOSRD
+preplace port port-id_wclk -pg 1 -lvl 4 -x 820 -y 160 -defaultsOSRD
+preplace port port-id_pcm_out -pg 1 -lvl 4 -x 820 -y 570 -defaultsOSRD
+preplace port port-id_pcm_in -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
+preplace port port-id_m_clk -pg 1 -lvl 4 -x 820 -y 190 -defaultsOSRD
+preplace port port-id_m_lrsel -pg 1 -lvl 4 -x 820 -y 100 -defaultsOSRD
+preplace port port-id_m_data -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port port-id_clk_audio -pg 1 -lvl 0 -x 0 -y 550 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 490 -defaultsOSRD
+preplace portBus audio_left -pg 1 -lvl 4 -x 820 -y 220 -defaultsOSRD
+preplace portBus audio_right -pg 1 -lvl 4 -x 820 -y 250 -defaultsOSRD
+preplace inst i2s_transceiver_0 -pg 1 -lvl 2 -x 470 -y 410 -defaultsOSRD
+preplace inst pwm_decode_0 -pg 1 -lvl 3 -x 700 -y 80 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -x 160 -y 490 -defaultsOSRD
+preplace netloc i2s_transceiver_0_sclk 1 2 2 NJ 400 NJ
+preplace netloc i2s_transceiver_0_ws 1 2 2 590 160 NJ
+preplace netloc clk_audio_1 1 0 4 NJ 550 310 570 600 190 NJ
+preplace netloc i2s_transceiver_0_sd_tx 1 1 3 330 580 610J 570 NJ
+preplace netloc pcm_in_1 1 0 2 NJ 430 310J
+preplace netloc i2s_transceiver_0_l_data_rx 1 1 3 330 220 NJ 220 NJ
+preplace netloc i2s_transceiver_0_r_data_rx 1 1 3 320 250 NJ 250 NJ
+preplace netloc pwm_decode_0_l 1 1 3 310 170 NJ 170 800
+preplace netloc pwm_decode_0_r 1 1 3 300 200 NJ 200 790
+preplace netloc pwm_decode_0_lrsel 1 3 1 NJ 100
+preplace netloc m_data_1 1 0 3 NJ 60 NJ 60 NJ
+preplace netloc reset_1 1 0 1 NJ 490
+preplace netloc util_vector_logic_0_Res 1 1 1 NJ 490
+levelinfo -pg 1 0 160 470 700 820
+pagesize -pg 1 -db -bbox -sgen -110 0 970 590
+"
+}
+
