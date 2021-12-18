@@ -1,0 +1,28 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.14414",
+   "Default View_TopLeft":"-180,-215",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -20 -y 290 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -20 -y 350 -defaultsOSRD
+preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x -20 -y 320 -defaultsOSRD
+preplace inst special_keys_0 -pg 1 -lvl 6 -x 1900 -y 470 -defaultsOSRD
+preplace inst membrane_0 -pg 1 -lvl 5 -x 1560 -y 470 -defaultsOSRD
+preplace inst keyb_clocks_0 -pg 1 -lvl 4 -x 1190 -y 480 -defaultsOSRD
+preplace inst emu_fnkeys_0 -pg 1 -lvl 3 -x 870 -y 480 -defaultsOSRD
+preplace inst ps2_keyb_0 -pg 1 -lvl 2 -x 500 -y 480 -defaultsOSRD
+preplace inst Ps2Interface_0 -pg 1 -lvl 1 -x 160 -y 480 -defaultsOSRD
+preplace netloc ps2_keyb_0_o_ps2_send_valid 1 0 3 20 310 NJ 310 690
+preplace netloc Ps2Interface_0_read_data 1 1 1 290 490n
+preplace netloc Ps2Interface_0_rx_data 1 1 1 300 470n
+preplace netloc keyb_clocks_0_clk_ps2 1 1 4 310 320 NJ 320 NJ 320 1340
+preplace netloc clk_peripheral_1 1 0 5 0 300 300J 350 710J 350 1040J 390 1360
+preplace netloc reset_1 1 0 5 10J 330 NJ 330 700J 360 1030 400 1350
+preplace netloc clk_peripheral_n_1 1 0 2 NJ 320 290
+levelinfo -pg 1 -20 160 500 870 1190 1560 1900 2040
+pagesize -pg 1 -db -bbox -sgen -170 0 2040 1100
+"
+}
+

@@ -1,0 +1,183 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Dec 17 20:21:03 2021
+# Process ID: 41712
+# Current directory: V:/synth/zxaudio
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent44760 V:\synth\zxaudio\zxaudio.xpr
+# Log file: V:/synth/zxaudio/vivado.log
+# Journal file: V:/synth/zxaudio\vivado.jou
+# Running On: AW13R3, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 34222 MB
+#-----------------------------------------------------------
+start_gui
+open_project V:/synth/zxaudio/zxaudio.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.3/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.3 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.3/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.0/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.1 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.1/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.2/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/es/1.0/board.xml as part xczu58dr-fsvg1517-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.0/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.1 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.1/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.2 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.2/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld_es:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/es/1.0/board.xml as part xczu59dr-ffvf1760-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:1.0 available at C:/Xilinx/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/1.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [Project 1-313] Project file moved from 'V:/ip/zxaudio' since last save.
+WARNING: [filemgmt 56-3] Board Part Repository Path: Could not find the directory 'V:/digilent'.
+WARNING: [filemgmt 56-3] IP Repository Path: Could not find the directory 'V:/src/if'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/new/audio/audio_reset.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/new/audio/audio_mono.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/new/audio/audio_psg.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/new/audio/audio_scaler.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/imports/MISTer/sigma_delta_dac.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/new/tape/tape_ear.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/new/tape/tape_mic.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'V:/src/hdl/imports/digikey/i2s_transceiver.vhd'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'v:/src/if'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:09 . Memory (MB): peak = 1419.219 ; gain = 0.000
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_mono.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_psg.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_reset.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_scaler.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/imports/MISTer/sigma_delta_dac.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/tape/tape_ear.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/tape/tape_mic.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/imports/digikey/i2s_transceiver.vhd] -no_script -reset -force -quiet
+remove_files  {V:/src/hdl/new/audio/audio_mono.v V:/src/hdl/new/audio/audio_psg.v V:/src/hdl/new/audio/audio_reset.v V:/src/hdl/new/audio/audio_scaler.v V:/src/hdl/imports/MISTer/sigma_delta_dac.v V:/src/hdl/new/tape/tape_ear.v V:/src/hdl/new/tape/tape_mic.v V:/src/hdl/imports/digikey/i2s_transceiver.vhd}
+add_files {V:/srcs/sources/new/tape/tape_mic.v V:/srcs/sources/new/tape/tape_ear.v V:/srcs/sources/imports/digikey/i2s_transceiver.vhd V:/srcs/sources/new/audio/audio_reset.v V:/srcs/sources/new/audio/audio_psg.v V:/srcs/sources/new/audio/audio_mono.v V:/srcs/sources/new/audio/audio_scaler.v}
+update_compile_order -fileset sources_1
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd}
+Reading block design file <V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd>...
+Adding component instance block -- xilinx.com:module_ref:i2s_transceiver:1.0 - i2s_transceiver_0
+Adding component instance block -- xilinx.com:module_ref:audio_reset:1.0 - audio_reset_0
+Successfully read diagram <audio> from block design file <V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd>
+open_bd_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 1419.219 ; gain = 0.000
+import_files -norecurse V:/working/zxaudio2/zxaudio2.srcs/sources_1/bd/zxaudio/zxaudio.bd
+INFO: [Project 1-1727] Source BDs should be added before importing the top BD V:/working/zxaudio2/zxaudio2.srcs/sources_1/bd/zxaudio/zxaudio.bd with BDC
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_sigma_delta_dac_0_2' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_sigma_delta_dac_0_3' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_pwm_enable_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_psg_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_resets_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_mono_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_mono_0_1' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_mic_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_scaler_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_scaler_0_1' is restricted:
+* Module reference is stale and needs refreshing.
+WARNING: [IP_Flow 19-3571] IP 'zxaudio_ear_0_0' is restricted:
+* Module reference is stale and needs refreshing.
+export_ip_user_files -of_objects  [get_files  V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd] -lib_map_path [list {modelsim=V:/synth/zxaudio/zxaudio.cache/compile_simlib/modelsim} {questa=V:/synth/zxaudio/zxaudio.cache/compile_simlib/questa} {riviera=V:/synth/zxaudio/zxaudio.cache/compile_simlib/riviera} {activehdl=V:/synth/zxaudio/zxaudio.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd}
+Reading block design file <V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd>...
+Adding component instance block -- xilinx.com:module_ref:sigma_delta_dac:1.0 - sigma_delta_dac_0
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/sigma_delta_dac_0'.
+Given inputs for module-source, Top-module name : sigma_delta_dac, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:sigma_delta_dac:1.0 - sigma_delta_dac_1
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/sigma_delta_dac_1'.
+Given inputs for module-source, Top-module name : sigma_delta_dac, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:pwm_enable:1.0 - pwm_enable_0
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/pwm_enable_0'.
+Given inputs for module-source, Top-module name : pwm_enable, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:i2s_transceiver:1.0 - i2s_transceiver_0
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: l_data 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: l_data 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: l_data 
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: r_data 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: r_data 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: r_data 
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: sd 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: sd 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: sd 
+Adding component instance block -- xilinx.com:module_ref:psg:1.0 - psg_0
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: specnext_audio 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: specnext_audio 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: specnext_audio 
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/psg_0'.
+Given inputs for module-source, Top-module name : psg, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:resets:1.0 - resets_0
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/resets_0'.
+Given inputs for module-source, Top-module name : resets, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:mono:1.0 - mono_0
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/mono_0'.
+Given inputs for module-source, Top-module name : mono, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:mono:1.0 - mono_1
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/mono_1'.
+Given inputs for module-source, Top-module name : mono, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:mic:1.0 - mic_0
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/mic_0'.
+Given inputs for module-source, Top-module name : mic, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:scaler:1.0 - scaler_0
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/scaler_0'.
+Given inputs for module-source, Top-module name : scaler, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:scaler:1.0 - scaler_1
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/scaler_1'.
+Given inputs for module-source, Top-module name : scaler, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Adding component instance block -- xilinx.com:module_ref:ear:1.0 - ear_0
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: specnext_speaker 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: specnext_speaker 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: specnext_speaker 
+CRITICAL WARNING: [BD 41-51] Could not find bus definition for the interface: specnext_tape 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: specnext_tape 
+CRITICAL WARNING: [BD 41-49] Could not find abstraction definition for the interface: specnext_tape 
+CRITICAL WARNING: [BD 41-1726] Unable to resolve module-source for block '/ear_0'.
+Given inputs for module-source, Top-module name : ear, Module Type : RTL.
+Please review and update or add design-sources to this project to resolve this module-reference.
+Successfully read diagram <zxaudio> from block design file <V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd>
+open_bd_design: Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1419.219 ; gain = 0.000
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd}
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins audio_reset_0/clk]
+create_bd_cell -type module -reference audio_scaler audio_scaler_0
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'v:/src/if'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
+startgroup
+create_bd_port -dir I -from 12 -to 0 audio_left
+connect_bd_net [get_bd_pins /audio_scaler_0/din] [get_bd_ports audio_left]
+endgroup
+create_bd_cell -type module -reference audio_scaler audio_scaler_1
+startgroup
+create_bd_port -dir I -from 12 -to 0 audio_right
+connect_bd_net [get_bd_pins /audio_scaler_1/din] [get_bd_ports audio_right]
+endgroup
+startgroup
+set_property -dict [list CONFIG.mclk_sclk_ratio {8} CONFIG.d_width {16}] [get_bd_cells i2s_transceiver_0]
+endgroup
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd}
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd}
+connect_bd_net [get_bd_pins audio_scaler_0/dout] [get_bd_pins i2s_transceiver_0/l_data_tx]
+connect_bd_net [get_bd_pins audio_scaler_1/dout] [get_bd_pins i2s_transceiver_0/r_data_tx]
+set_property  ip_repo_paths  {} [current_project]
+update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified

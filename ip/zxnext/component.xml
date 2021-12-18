@@ -53,14 +53,6 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>uart_rx</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_UART0_RX</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>gpio_enable</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -69,18 +61,26 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>uart_tx</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_UART0_TX</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>gpio_out</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_ESP_GPIO_0</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>uart_rx</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>i_UART0_RX</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>uart_tx</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_UART0_TX</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -197,14 +197,6 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>ieo</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_BUS_IEO</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>rd_n</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -267,6 +259,14 @@
             <spirit:name>i_BUS_WAIT_n</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ieo</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_BUS_IEO</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -281,14 +281,6 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_SPI_SCK</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>mosi</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_SPI_MOSI</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -317,6 +309,14 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
+            <spirit:name>mosi</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_SPI_MOSI</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
             <spirit:name>boot</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -333,7 +333,7 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>io_mode_en</spirit:name>
+            <spirit:name>joy_io_mode_en</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_JOY_IO_MODE_EN</spirit:name>
@@ -341,15 +341,7 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>right</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_JOY_RIGHT</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>io_mode_pin_7</spirit:name>
+            <spirit:name>joy_io_mode_pin_7</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_JOY_IO_MODE_PIN_7</spirit:name>
@@ -357,7 +349,7 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>left</spirit:name>
+            <spirit:name>joy_left</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>i_JOY_LEFT</spirit:name>
@@ -365,7 +357,7 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>left_type</spirit:name>
+            <spirit:name>joy_left_type</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_JOY_LEFT_TYPE</spirit:name>
@@ -373,10 +365,18 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>right_type</spirit:name>
+            <spirit:name>joy_right_type</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_JOY_RIGHT_TYPE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>joy_right</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>i_JOY_RIGHT</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -393,14 +393,6 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_KBD_CANCEL</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>joymap_we</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_JOYMAP_WE</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -467,6 +459,14 @@
             <spirit:name>o_KEYMAP_ADDR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>joymap_we</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_JOYMAP_WE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -489,6 +489,14 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>i_CLK_14</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>machine_timing</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_MACHINE_TIMING</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -573,14 +581,6 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>mb_reset</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_RESET</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>reset_soft_req</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -603,7 +603,25 @@
             <spirit:name>o_RESET_PERIPHERAL</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>mb_reset</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>i_RESET</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.MB_RESET.NUM_READ_OUTSTANDING"/>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.MB_RESET.NUM_WRITE_OUTSTANDING"/>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>mouse</spirit:name>
@@ -709,14 +727,6 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>ram_rd_n</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_RAM_A_RD_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>ram_req</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -737,6 +747,14 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_RAM_A_DO</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ram_rd_n</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_RAM_A_RD_n</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -789,18 +807,18 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>sda_in</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>i_I2C_SDA_n</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>scl_out</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_I2C_SCL_n</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>sda_in</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>i_I2C_SDA_n</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
         <spirit:portMap>
@@ -822,7 +840,7 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>sdcard0_enable</spirit:name>
+      <spirit:name>sd0_enable</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="sdcard_enable" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="sdcard_enable_rtl" spirit:version="1.0"/>
       <spirit:master/>
@@ -838,7 +856,7 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>sdcard1_enable</spirit:name>
+      <spirit:name>sd1_enable</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="sdcard_enable" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="sdcard_enable_rtl" spirit:version="1.0"/>
       <spirit:master/>
@@ -852,16 +870,6 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>NUM_READ_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.SDCARD1_ENABLE.NUM_READ_OUTSTANDING"/>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>NUM_WRITE_OUTSTANDING</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.SDCARD1_ENABLE.NUM_WRITE_OUTSTANDING"/>
-        </spirit:parameter>
-      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>sdcard</spirit:name>
@@ -903,23 +911,7 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>speaker_ear</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_AUDIO_SPEAKER_EAR</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>speaker_mic</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_AUDIO_SPEAKER_MIC</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>speaker_beep</spirit:name>
+            <spirit:name>beep</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_AUDIO_SPEAKER_BEEP</spirit:name>
@@ -927,10 +919,26 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>speaker_enable</spirit:name>
+            <spirit:name>enable</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>o_AUDIO_SPEAKER_EN</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>mic</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_AUDIO_SPEAKER_MIC</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ear</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>o_AUDIO_SPEAKER_EAR</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -1091,10 +1099,10 @@
         <spirit:language>VHDL</spirit:language>
         <spirit:modelName>zxnext</spirit:modelName>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
@@ -1102,7 +1110,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>634384da</spirit:value>
+            <spirit:value>c27b9836</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1113,10 +1121,10 @@
         <spirit:language>VHDL</spirit:language>
         <spirit:modelName>zxnext</spirit:modelName>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
@@ -1124,7 +1132,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>634384da</spirit:value>
+            <spirit:value>c27b9836</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1220,9 +1228,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1365,9 +1370,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1385,9 +1387,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1529,9 +1528,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1549,9 +1545,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1629,9 +1622,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1649,9 +1639,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1669,9 +1656,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1689,9 +1673,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1852,9 +1833,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -1868,9 +1846,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2365,9 +2340,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2463,9 +2435,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2479,9 +2448,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2521,9 +2487,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2589,9 +2552,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2605,9 +2565,6 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
-          <spirit:driver>
-            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
-          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -2766,192 +2723,398 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8.xci</spirit:name>
+        <spirit:name>src/sdpbram_16k_8/sdpbram_16k_8.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sdpram_128_8/sdpram_128_8.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sdpram_16_9/sdpram_16_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sdpram_64_9/sdpram_64_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/spram_320_9/spram_320_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/tdpram.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dpram2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/im2_peripheral.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ctc_chan.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/im2_device.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/divmmc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/im2_control.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/copper.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ctc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/multiface.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dma.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/peripherals.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/zxnext.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/bootrom.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/tilemap.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/zxula_timing.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/lores.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sprites.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/layer2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/zxula.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/soundrive.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ym2149.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/turbosound.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_transmit.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_mixer.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_receive.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_slave.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/uart.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/fifop.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/uart_rx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/uart_tx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/spi_master.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n_pack.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80na.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n_alu.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n_mcode.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_07fb83e4</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_128_8/sdpram_128_8.xci</spirit:name>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_128_8/sdpram_128_8.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_16_9/sdpram_16_9.xci</spirit:name>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_16_9/sdpram_16_9.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci</spirit:name>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/spram_320_9/spram_320_9.xci</spirit:name>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/spram_320_9/spram_320_9.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n_mcode.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/ram/tdpram.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/ram/tdpram.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/ram/dpram2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/audio_mixer.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/im2_peripheral.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/ctc.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/ctc_chan.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/divmmc.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/im2_device.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/im2_device.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/divmmc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s/i2s_slave.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/im2_control.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/peripherals.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/copper.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/ram/dpram2.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/ctc.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/tilemap.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/multiface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/zxula_timing.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/dma.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/soundrive.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/peripherals.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s/i2s_transmit.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/zxnext.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/misc/debounce.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/rom/bootrom.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/tilemap.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n_alu.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/zxula_timing.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/dma.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/lores.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/uart_rx.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/sprites.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/rom/bootrom.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/layer2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/fifop.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/zxula.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/copper.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/soundrive.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/im2_control.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/ym2149.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/layer2.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/turbosound.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/im2_peripheral.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s/i2s_transmit.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/zxnext.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/audio_mixer.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/uart_tx.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s/i2s_receive.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/uart.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s/i2s_slave.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/ym2149.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/uart.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s/i2s_receive.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/fifop.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80na.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/uart_rx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/lores.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/uart_tx.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/turbosound.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/spi_master.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/ctc_chan.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n_pack.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/spi_master.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80na.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/sprites.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/zxula.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n_alu.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/multiface.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n_mcode.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n_pack.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/misc/debounce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b520547b</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_9a2cbb89</spirit:userFileType>
       </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:name>
-      <spirit:vendorExtensions>
-        <xilinx:subCoreRef>
-          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="dist_mem_gen" xilinx:version="8.0">
-            <xilinx:mode xilinx:name="create_mode"/>
-          </xilinx:componentRef>
-        </xilinx:subCoreRef>
-      </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:name>
@@ -2964,186 +3127,7 @@
       </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_128_8/sdpram_128_8.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_16_9/sdpram_16_9.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnext.srcs/sources_1/ip/spram_320_9/spram_320_9.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n_mcode.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/ram/tdpram.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/audio_mixer.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/ctc.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/divmmc.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/im2_device.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s/i2s_slave.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/peripherals.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/ram/dpram2.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/tilemap.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/zxula_timing.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/soundrive.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s/i2s_transmit.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/misc/debounce.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n_alu.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/dma.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/uart_rx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/rom/bootrom.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/fifop.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/copper.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/im2_control.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/layer2.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/im2_peripheral.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/zxnext.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/uart_tx.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/uart.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/ym2149.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/i2s/i2s_receive.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80na.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/lores.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/audio/turbosound.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/ctc_chan.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/serial/spi_master.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/sprites.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/video/zxula.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/device/multiface.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../src/hdl/imports/ZXNext/cpu/t80n_pack.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:name>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:name>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="dist_mem_gen" xilinx:version="8.0">
@@ -3153,10 +3137,414 @@
       </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>src/sdpbram_16k_8/sdpbram_16k_8.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sdpram_128_8/sdpram_128_8.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sdpram_16_9/sdpram_16_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sdpram_64_9/sdpram_64_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/spram_320_9/spram_320_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/tdpram.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dpram2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/im2_peripheral.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ctc_chan.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/im2_device.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/divmmc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/im2_control.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/copper.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ctc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/multiface.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/dma.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/peripherals.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/zxnext.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/bootrom.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/tilemap.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/zxula_timing.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/lores.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/sprites.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/layer2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/zxula.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/soundrive.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/ym2149.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/turbosound.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_transmit.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_mixer.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_receive.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_slave.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/uart.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/fifop.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/uart_rx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/uart_tx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/spi_master.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n_pack.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80na.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n_alu.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/t80n_mcode.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_128_8/sdpram_128_8.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_16_9/sdpram_16_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../synth/zxnext/zxnext.srcs/sources_1/ip/spram_320_9/spram_320_9.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/ram/tdpram.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/ram/dpram2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/im2_peripheral.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/ctc_chan.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/im2_device.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/divmmc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/im2_control.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/copper.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/ctc.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/multiface.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/dma.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/device/peripherals.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/zxnext.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/rom/bootrom.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/tilemap.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/zxula_timing.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/lores.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/sprites.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/layer2.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/zxula.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/soundrive.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/ym2149.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/turbosound.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s/i2s_transmit.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/audio_mixer.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s/i2s_receive.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/audio/i2s/i2s_slave.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/uart.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/fifop.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/uart_rx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/uart_tx.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/serial/spi_master.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n_pack.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80na.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n_alu.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/cpu/t80n_mcode.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/misc/debounce.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:name>
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="blk_mem_gen" xilinx:version="8.4">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_dist_mem_gen_8_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="dist_mem_gen" xilinx:version="8.0">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -3177,17 +3565,17 @@
     <spirit:parameter>
       <spirit:name>g_machine_id</spirit:name>
       <spirit:displayName>G Machine Id</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.g_machine_id" spirit:bitStringLength="8">&quot;00001010&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_machine_id" spirit:bitStringLength="8">&quot;00001010&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>g_version</spirit:name>
       <spirit:displayName>G Version</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.g_version" spirit:bitStringLength="8">&quot;00110001&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_version" spirit:bitStringLength="8">&quot;00110001&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>g_sub_version</spirit:name>
       <spirit:displayName>G Sub Version</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.g_sub_version" spirit:bitStringLength="8">&quot;00001011&quot;</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.g_sub_version" spirit:bitStringLength="8">&quot;00001011&quot;</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -3207,216 +3595,161 @@
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>13</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-16T21:36:13Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>specnext.com:specnext:zxnext:1.0</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2021-12-18T10:59:55Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@317ceb29_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5da5f0e4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@e9a1b8a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@b60f895_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@61456fdb_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@bfc823f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6272deb3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@39836078_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@42636a48_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3e8bf5c1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@524a0aba_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@71225ade_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4d02aee6_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@19217b65_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2eb6031b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1bf4b4e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@17d98d08_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b39caea_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3916532d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6ede84a5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@17ba0561_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54fb5e25_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@408c92d0_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@70d1506b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@56adad35_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@70df3508_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@43d75a7a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@43195072_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1f22db79_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@88f2b99_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2745740_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@489833dd_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4565ccf3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@53b5d751_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@b477497_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6bb158de_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b3bd121_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5556714f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@24b9316_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1742037f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@33f09b6_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@234eafc1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@55a269f0_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@16f4be10_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6c61c37a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7f1d583d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54056c80_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2b7bfc6e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@b624f4b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@73d23ee4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@42e7048b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@aa7ebdc_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@25390089_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@38c6283d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1f8b0b23_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@69cffff1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@12fd3c_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6236a5fb_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@437984c4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5ce4909f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@398feb2b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@30384abf_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@18630b72_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@666b3b91_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@682833fc_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@68e7681b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@74e76557_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1a7fcea7_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@26be11ba_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@25cabe2d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@34b36b6a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@643a5674_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6fd8abd7_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@625cd32f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@194cc5f3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@f287411_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@146e29db_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@75937745_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@71ddb044_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3672a05b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3187c72b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7a68deb4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@752e9be6_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@19987cc4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@110e0169_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3b826aa6_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6b9c1d82_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@260a3a3d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4cc30b9b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@449c680a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@463959a5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3c1d5b2a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3e37531c_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@33b32ce3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@18372a4d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@48269096_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4629634a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4b5719ab_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4a6fed75_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@97e0649_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2c770e52_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@370f2555_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@117711fc_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@28221950_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@24b25c6d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1d282345_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4d7c13_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1ee10f7a_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@15ffc940_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7eb8c987_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@61dbb484_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@41d5a3e0_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@b379f91_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4aa484aa_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@570bf2de_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@efa91e8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1c1274b6_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@262e5b6e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@55667c87_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3a1e052b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@203a45a0_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@26a50f46_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@282cad8e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6ebc95f8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1992d8df_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@601b137e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1f3751b3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5bdfe719_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@53e163f8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2fbf80e4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@477676ec_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1d208c0b_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2ba4c698_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3346bc6c_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@daaf82f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7f508dd9_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7a1594ef_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@63d9bc66_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7b5696d1_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@32d2a3f3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@481efd84_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6cf5d738_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@69e0f375_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@209aa6a2_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4c623ee_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1405f2ea_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@c6c2165_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3b912869_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2c0ae2c5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@41a7d71_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@782f3b82_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@3626201f_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2e3cc057_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@58cee2b0_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6402b7c8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@58a3e71e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@24880002_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@613f9cf4_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@492e344e_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5f1db6db_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@50420d78_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@622b58c7_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@c3b2261_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@648915a3_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4dcc9d8d_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7b6c52dc_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2f3883e8_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54da8ca5_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4b47ceb9_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@43e5e684_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@517107cc_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7587f44_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@646139ec_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@345b83c_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7faef178_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@2e227981_ARCHIVE_LOCATION">v:/zxnext/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7c473bee_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@39ce6e5e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@54e81da8_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@6e862376_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@21c0fedc_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@27f60171_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@1468e5cc_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@728bd0d_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@242cd33a_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@573421c2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7ad913e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@320a0a48_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@9d2eee_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@7f065ce2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@4d46f3c9_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@167a4e18_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@51fcc018_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@43889047_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@5a923a91_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@15305d48_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@56e7f56c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
-        <xilinx:tag xilinx:name="ui.data.coregen.df@78722c13_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45ae8aaa_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2017aa92_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@162dd90b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@559659f4_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a98ce8b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a1ad065_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7314e6c7_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b748b6_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60a15391_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ea4692_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@eb8d262_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6985eb92_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3260d8e5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f30cf21_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f239d17_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@296ddd7c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@788381d2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e357563_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@730f0894_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ed490f9_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4dcedccc_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7587cf4e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d7e3dd0_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ac21741_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f8e0c23_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@425ab7f5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d405456_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7dc71d38_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ad089e5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@436ee94a_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a4df272_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65ba01a4_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ee2f6c9_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@681628f1_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35934d3e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5218675e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b5eb4a2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fa7ab1_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54270d45_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62843733_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9295463_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9fa244e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70a5acb1_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@217e97ff_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f2d6608_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d15fda0_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2350214c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@701751b1_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62da2aff_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73f1c004_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@204dd53_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@626cbcf2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@311f53ef_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5484f081_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cc20516_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@141856bf_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59fcf75f_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32ac8984_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11bc11d3_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a4dfc74_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a25147d_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@99890ef_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@470cd8e8_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dc30fa3_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a496f0e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30092d45_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57a162bd_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42504fef_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13aa5962_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c914a96_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@770207ad_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14b743ff_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c27bfed_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e666ce4_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d5c3ab6_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e13512e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@176afa0d_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@627d6e65_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7745b910_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dcfee01_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cc9d30c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77eefdde_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14409b8_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31a91b36_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f822a3_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d22d7da_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@112aed1b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e46e160_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55719d7e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52c5169b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67914e5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6704f887_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37fb7106_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b0c8bb_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24103965_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@98b3cf8_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71a12de1_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9bde994_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@386720a8_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2111514b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54691e3c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3083de15_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33f9692d_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c36535a_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e57c906_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28f6eaef_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7af7f1f5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37c8c654_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cf1bfb9_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c5ec802_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@227c4af5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74736d61_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16c7f127_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23f05bbe_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76318749_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b4d192b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@429b53f2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4065a589_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ae9d79e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5afb437d_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bef5348_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17eba1a5_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d6932e6_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16f6a69e_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69db72f2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27d57542_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@675339a0_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d903b9c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3126ec18_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@695d9595_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e78b8e9_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ea51734_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1fe40c8b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19ab2f29_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66f9f4e9_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40762b47_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32a772f6_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12534ba1_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ab31745_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c27bf41_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="44fea72a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="a1708b4a"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="4efc4928"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="9bafc379"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2eea1fd7"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="4b81be21"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="35137edd"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="40455b7f"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2707f544"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
