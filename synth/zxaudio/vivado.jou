@@ -1,0 +1,52 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri Dec 17 20:21:03 2021
+# Process ID: 41712
+# Current directory: V:/synth/zxaudio
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent44760 V:\synth\zxaudio\zxaudio.xpr
+# Log file: V:/synth/zxaudio/vivado.log
+# Journal file: V:/synth/zxaudio\vivado.jou
+# Running On: AW13R3, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 34222 MB
+#-----------------------------------------------------------
+start_gui
+open_project V:/synth/zxaudio/zxaudio.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_mono.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_psg.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_reset.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/audio/audio_scaler.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/imports/MISTer/sigma_delta_dac.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/tape/tape_ear.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/new/tape/tape_mic.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/src/hdl/imports/digikey/i2s_transceiver.vhd] -no_script -reset -force -quiet
+remove_files  {V:/src/hdl/new/audio/audio_mono.v V:/src/hdl/new/audio/audio_psg.v V:/src/hdl/new/audio/audio_reset.v V:/src/hdl/new/audio/audio_scaler.v V:/src/hdl/imports/MISTer/sigma_delta_dac.v V:/src/hdl/new/tape/tape_ear.v V:/src/hdl/new/tape/tape_mic.v V:/src/hdl/imports/digikey/i2s_transceiver.vhd}
+add_files {V:/srcs/sources/new/tape/tape_mic.v V:/srcs/sources/new/tape/tape_ear.v V:/srcs/sources/imports/digikey/i2s_transceiver.vhd V:/srcs/sources/new/audio/audio_reset.v V:/srcs/sources/new/audio/audio_psg.v V:/srcs/sources/new/audio/audio_mono.v V:/srcs/sources/new/audio/audio_scaler.v}
+update_compile_order -fileset sources_1
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd}
+import_files -norecurse V:/working/zxaudio2/zxaudio2.srcs/sources_1/bd/zxaudio/zxaudio.bd
+export_ip_user_files -of_objects  [get_files  V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd] -lib_map_path [list {modelsim=V:/synth/zxaudio/zxaudio.cache/compile_simlib/modelsim} {questa=V:/synth/zxaudio/zxaudio.cache/compile_simlib/questa} {riviera=V:/synth/zxaudio/zxaudio.cache/compile_simlib/riviera} {activehdl=V:/synth/zxaudio/zxaudio.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd}
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd}
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins audio_reset_0/clk]
+create_bd_cell -type module -reference audio_scaler audio_scaler_0
+startgroup
+create_bd_port -dir I -from 12 -to 0 audio_left
+connect_bd_net [get_bd_pins /audio_scaler_0/din] [get_bd_ports audio_left]
+endgroup
+create_bd_cell -type module -reference audio_scaler audio_scaler_1
+startgroup
+create_bd_port -dir I -from 12 -to 0 audio_right
+connect_bd_net [get_bd_pins /audio_scaler_1/din] [get_bd_ports audio_right]
+endgroup
+startgroup
+set_property -dict [list CONFIG.mclk_sclk_ratio {8} CONFIG.d_width {16}] [get_bd_cells i2s_transceiver_0]
+endgroup
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/zxaudio/zxaudio.bd}
+open_bd_design {V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd}
+connect_bd_net [get_bd_pins audio_scaler_0/dout] [get_bd_pins i2s_transceiver_0/l_data_tx]
+connect_bd_net [get_bd_pins audio_scaler_1/dout] [get_bd_pins i2s_transceiver_0/r_data_tx]
+set_property  ip_repo_paths  {} [current_project]
+update_ip_catalog

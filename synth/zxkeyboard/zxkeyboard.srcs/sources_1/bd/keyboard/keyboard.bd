@@ -1,0 +1,483 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7a100tcsg324-1",
+      "gen_directory": "../../../../zxkeyboard.gen/sources_1/bd/keyboard",
+      "name": "keyboard",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2"
+    },
+    "design_tree": {
+      "special_keys_0": "",
+      "membrane_0": "",
+      "keyb_clocks_0": "",
+      "emu_fnkeys_0": "",
+      "ps2_keyb_0": "",
+      "Ps2Interface_0": ""
+    },
+    "ports": {
+      "clk_peripheral": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "28000000"
+          }
+        }
+      },
+      "reset": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "clk_peripheral_n": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "28000000"
+          }
+        }
+      }
+    },
+    "components": {
+      "special_keys_0": {
+        "vlnv": "xilinx.com:module_ref:special_keys:1.0",
+        "xci_name": "keyboard_special_keys_0_0",
+        "xci_path": "ip\\keyboard_special_keys_0_0\\keyboard_special_keys_0_0.xci",
+        "inst_hier_path": "special_keys_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "special_keys",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "specnext_keyboard": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:keyboard:1.0",
+            "vlnv": "specnext.com:specnext:keyboard_rtl:1.0",
+            "port_maps": {
+              "spkey_function": {
+                "physical_name": "spkey_function",
+                "direction": "O",
+                "left": "10",
+                "right": "1"
+              },
+              "spkey_buttons": {
+                "physical_name": "spkey_buttons",
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "ports": {
+          "ps2_func_keys_n": {
+            "direction": "I",
+            "left": "8",
+            "right": "1"
+          },
+          "membrane_fnkeys": {
+            "direction": "I",
+            "left": "10",
+            "right": "1"
+          },
+          "ps2_mf_n": {
+            "direction": "I"
+          },
+          "ps2_mmc_n": {
+            "direction": "I"
+          }
+        }
+      },
+      "membrane_0": {
+        "vlnv": "xilinx.com:module_ref:membrane:1.0",
+        "xci_name": "keyboard_membrane_0_0",
+        "xci_path": "ip\\keyboard_membrane_0_0\\keyboard_membrane_0_0.xci",
+        "inst_hier_path": "membrane_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "membrane",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "i_CLK_EN": {
+            "direction": "I"
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "i_rows": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_cols": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "o_membrane_rows": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_membrane_ridx": {
+            "direction": "O",
+            "left": "2",
+            "right": "0"
+          },
+          "i_membrane_cols": {
+            "direction": "I",
+            "left": "6",
+            "right": "0"
+          },
+          "i_cancel_extended_entries": {
+            "direction": "I"
+          },
+          "o_extended_keys": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          }
+        }
+      },
+      "keyb_clocks_0": {
+        "vlnv": "xilinx.com:module_ref:keyb_clocks:1.0",
+        "xci_name": "keyboard_keyb_clocks_0_0",
+        "xci_path": "ip\\keyboard_keyb_clocks_0_0\\keyboard_keyb_clocks_0_0.xci",
+        "inst_hier_path": "keyb_clocks_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "keyb_clocks",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_ps2": {
+            "direction": "O"
+          },
+          "fnkeys_enable": {
+            "direction": "O"
+          },
+          "membrane_enable": {
+            "direction": "O"
+          },
+          "clk_peripheral": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      },
+      "emu_fnkeys_0": {
+        "vlnv": "xilinx.com:module_ref:emu_fnkeys:1.0",
+        "xci_name": "keyboard_emu_fnkeys_0_0",
+        "xci_path": "ip\\keyboard_emu_fnkeys_0_0\\keyboard_emu_fnkeys_0_0.xci",
+        "inst_hier_path": "emu_fnkeys_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "emu_fnkeys",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "i_CLK_EN": {
+            "direction": "I"
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "i_rows": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_rows_filtered": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "i_cols": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "o_cols_filtered": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "i_button_m1_n": {
+            "direction": "I"
+          },
+          "i_button_reset_n": {
+            "direction": "I"
+          },
+          "o_fnkeys": {
+            "direction": "O",
+            "left": "10",
+            "right": "1"
+          }
+        }
+      },
+      "ps2_keyb_0": {
+        "vlnv": "xilinx.com:module_ref:ps2_keyb:1.0",
+        "xci_name": "keyboard_ps2_keyb_0_0",
+        "xci_path": "ip\\keyboard_ps2_keyb_0_0\\keyboard_ps2_keyb_0_0.xci",
+        "inst_hier_path": "ps2_keyb_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ps2_keyb",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "i": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:keyboard:1.0",
+            "vlnv": "specnext.com:specnext:keyboard_rtl:1.0",
+            "port_maps": {
+              "keymap_addr": {
+                "physical_name": "i_keymap_addr",
+                "direction": "I",
+                "left": "8",
+                "right": "0"
+              },
+              "keymap_data": {
+                "physical_name": "i_keymap_data",
+                "direction": "I",
+                "left": "7",
+                "right": "0"
+              },
+              "keymap_we": {
+                "physical_name": "i_keymap_we",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "i_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "i_CLK_n": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "i_CLK_PS2": {
+            "direction": "I"
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "i_ps2_receive_valid": {
+            "direction": "I"
+          },
+          "i_ps2_receive_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "o_ps2_send_valid": {
+            "direction": "O"
+          },
+          "i_membrane_row": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "o_membrane_col": {
+            "direction": "O",
+            "left": "6",
+            "right": "0"
+          },
+          "o_mf_nmi_n": {
+            "direction": "O"
+          },
+          "o_divmmc_nmi_n": {
+            "direction": "O"
+          },
+          "o_ps2_func_keys_n": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "Ps2Interface_0": {
+        "vlnv": "xilinx.com:module_ref:Ps2Interface:1.0",
+        "xci_name": "keyboard_Ps2Interface_0_0",
+        "xci_path": "ip\\keyboard_Ps2Interface_0_0\\keyboard_Ps2Interface_0_0.xci",
+        "inst_hier_path": "Ps2Interface_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Ps2Interface",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "PS2_Data_I": {
+            "direction": "I"
+          },
+          "PS2_Data_O": {
+            "direction": "O"
+          },
+          "PS2_Data_T": {
+            "direction": "O"
+          },
+          "PS2_Clk_I": {
+            "direction": "I"
+          },
+          "PS2_Clk_O": {
+            "direction": "O"
+          },
+          "PS2_Clk_T": {
+            "direction": "O"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "tx_data": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "write_data": {
+            "direction": "I"
+          },
+          "rx_data": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "read_data": {
+            "direction": "O"
+          },
+          "ack": {
+            "direction": "O"
+          },
+          "busy": {
+            "direction": "O"
+          },
+          "err_par": {
+            "direction": "O"
+          },
+          "err_nack": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Ps2Interface_0_read_data": {
+        "ports": [
+          "Ps2Interface_0/read_data",
+          "ps2_keyb_0/i_ps2_receive_valid"
+        ]
+      },
+      "Ps2Interface_0_rx_data": {
+        "ports": [
+          "Ps2Interface_0/rx_data",
+          "ps2_keyb_0/i_ps2_receive_data"
+        ]
+      },
+      "clk_peripheral_1": {
+        "ports": [
+          "clk_peripheral",
+          "keyb_clocks_0/clk_peripheral",
+          "Ps2Interface_0/clk",
+          "membrane_0/i_CLK",
+          "emu_fnkeys_0/i_CLK",
+          "ps2_keyb_0/i_CLK"
+        ]
+      },
+      "clk_peripheral_n_1": {
+        "ports": [
+          "clk_peripheral_n",
+          "ps2_keyb_0/i_CLK_n"
+        ]
+      },
+      "keyb_clocks_0_clk_ps2": {
+        "ports": [
+          "keyb_clocks_0/clk_ps2",
+          "ps2_keyb_0/i_CLK_PS2"
+        ]
+      },
+      "ps2_keyb_0_o_ps2_send_valid": {
+        "ports": [
+          "ps2_keyb_0/o_ps2_send_valid",
+          "Ps2Interface_0/write_data"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "keyb_clocks_0/reset",
+          "Ps2Interface_0/rst",
+          "membrane_0/i_reset",
+          "emu_fnkeys_0/i_reset"
+        ]
+      }
+    }
+  }
+}
