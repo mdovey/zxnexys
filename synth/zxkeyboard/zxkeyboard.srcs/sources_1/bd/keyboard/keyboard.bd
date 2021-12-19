@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x0",
+      "boundary_crc": "0x32C1F24ECFAEB379",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxkeyboard.gen/sources_1/bd/keyboard",
       "name": "keyboard",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2"
+      "tool_version": "2021.2",
+      "validated": "true"
     },
     "design_tree": {
       "special_keys_0": "",
@@ -15,15 +16,37 @@
       "keyb_clocks_0": "",
       "emu_fnkeys_0": "",
       "ps2_keyb_0": "",
-      "Ps2Interface_0": ""
+      "Ps2Interface_0": "",
+      "xlconstant_high": "",
+      "xlconstant_selftest_ok": ""
     },
     "ports": {
       "clk_peripheral": {
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "reset",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "keyboard_clk_peripheral",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "28000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
@@ -31,6 +54,10 @@
         "type": "rst",
         "direction": "I",
         "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
           "POLARITY": {
             "value": "ACTIVE_HIGH"
           }
@@ -40,10 +67,85 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "CLK_DOMAIN": {
+            "value": "keyboard_clk_peripheral_n",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "28000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
+      },
+      "spkey_function": {
+        "direction": "O",
+        "left": "10",
+        "right": "1"
+      },
+      "spkey_buttons": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "cancel": {
+        "direction": "I"
+      },
+      "row": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "column": {
+        "direction": "O",
+        "left": "4",
+        "right": "0"
+      },
+      "extended_keys": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "ps2_data_i": {
+        "direction": "I"
+      },
+      "ps2_clk_i": {
+        "direction": "I"
+      },
+      "ps2_data_o": {
+        "direction": "O"
+      },
+      "ps2_data_t": {
+        "direction": "O"
+      },
+      "ps2_clk_o": {
+        "direction": "O"
+      },
+      "ps2_clk_t": {
+        "direction": "O"
+      },
+      "keymap_addr": {
+        "direction": "I",
+        "left": "8",
+        "right": "0"
+      },
+      "keymap_data": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "keymap_we": {
+        "direction": "I"
       }
     },
     "components": {
@@ -115,6 +217,14 @@
               "ASSOCIATED_RESET": {
                 "value": "i_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
               }
             }
           },
@@ -123,7 +233,13 @@
           },
           "i_reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "i_rows": {
             "direction": "I",
@@ -187,6 +303,14 @@
               "ASSOCIATED_RESET": {
                 "value": "reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
               }
             }
           },
@@ -220,6 +344,14 @@
               "ASSOCIATED_RESET": {
                 "value": "i_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
               }
             }
           },
@@ -228,7 +360,13 @@
           },
           "i_reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "i_rows": {
             "direction": "I",
@@ -306,19 +444,43 @@
               "ASSOCIATED_RESET": {
                 "value": "i_reset",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
               }
             }
           },
           "i_CLK_n": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral_n",
+                "value_src": "default_prop"
+              }
+            }
           },
           "i_CLK_PS2": {
             "direction": "I"
           },
           "i_reset": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "i_ps2_receive_valid": {
             "direction": "I"
@@ -390,12 +552,26 @@
               "ASSOCIATED_RESET": {
                 "value": "rst",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
               }
             }
           },
           "rst": {
             "type": "rst",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
           },
           "tx_data": {
             "direction": "I",
@@ -426,9 +602,53 @@
             "direction": "O"
           }
         }
+      },
+      "xlconstant_high": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "keyboard_xlconstant_0_0",
+        "xci_path": "ip\\keyboard_xlconstant_0_0\\keyboard_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_high"
+      },
+      "xlconstant_selftest_ok": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "keyboard_xlconstant_high_0",
+        "xci_path": "ip\\keyboard_xlconstant_high_0\\keyboard_xlconstant_high_0.xci",
+        "inst_hier_path": "xlconstant_selftest_ok",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0x55"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
+          }
+        }
       }
     },
     "nets": {
+      "Ps2Interface_0_PS2_Clk_O": {
+        "ports": [
+          "Ps2Interface_0/PS2_Clk_O",
+          "ps2_clk_o"
+        ]
+      },
+      "Ps2Interface_0_PS2_Clk_T": {
+        "ports": [
+          "Ps2Interface_0/PS2_Clk_T",
+          "ps2_clk_t"
+        ]
+      },
+      "Ps2Interface_0_PS2_Data_O": {
+        "ports": [
+          "Ps2Interface_0/PS2_Data_O",
+          "ps2_data_o"
+        ]
+      },
+      "Ps2Interface_0_PS2_Data_T": {
+        "ports": [
+          "Ps2Interface_0/PS2_Data_T",
+          "ps2_data_t"
+        ]
+      },
       "Ps2Interface_0_read_data": {
         "ports": [
           "Ps2Interface_0/read_data",
@@ -439,6 +659,12 @@
         "ports": [
           "Ps2Interface_0/rx_data",
           "ps2_keyb_0/i_ps2_receive_data"
+        ]
+      },
+      "cancel_1": {
+        "ports": [
+          "cancel",
+          "membrane_0/i_cancel_extended_entries"
         ]
       },
       "clk_peripheral_1": {
@@ -457,10 +683,112 @@
           "ps2_keyb_0/i_CLK_n"
         ]
       },
+      "emu_fnkeys_0_o_cols_filtered": {
+        "ports": [
+          "emu_fnkeys_0/o_cols_filtered",
+          "column"
+        ]
+      },
+      "emu_fnkeys_0_o_fnkeys": {
+        "ports": [
+          "emu_fnkeys_0/o_fnkeys",
+          "special_keys_0/membrane_fnkeys"
+        ]
+      },
+      "emu_fnkeys_0_o_rows_filtered": {
+        "ports": [
+          "emu_fnkeys_0/o_rows_filtered",
+          "membrane_0/i_rows"
+        ]
+      },
       "keyb_clocks_0_clk_ps2": {
         "ports": [
           "keyb_clocks_0/clk_ps2",
           "ps2_keyb_0/i_CLK_PS2"
+        ]
+      },
+      "keyb_clocks_0_fnkeys_enable": {
+        "ports": [
+          "keyb_clocks_0/fnkeys_enable",
+          "emu_fnkeys_0/i_CLK_EN"
+        ]
+      },
+      "keyb_clocks_0_membrane_enable": {
+        "ports": [
+          "keyb_clocks_0/membrane_enable",
+          "membrane_0/i_CLK_EN"
+        ]
+      },
+      "keymap_addr_1": {
+        "ports": [
+          "keymap_addr",
+          "ps2_keyb_0/i_keymap_addr"
+        ]
+      },
+      "keymap_data_1": {
+        "ports": [
+          "keymap_data",
+          "ps2_keyb_0/i_keymap_data"
+        ]
+      },
+      "keymap_we_1": {
+        "ports": [
+          "keymap_we",
+          "ps2_keyb_0/i_keymap_we"
+        ]
+      },
+      "membrane_0_o_cols": {
+        "ports": [
+          "membrane_0/o_cols",
+          "emu_fnkeys_0/i_cols"
+        ]
+      },
+      "membrane_0_o_extended_keys": {
+        "ports": [
+          "membrane_0/o_extended_keys",
+          "extended_keys"
+        ]
+      },
+      "membrane_0_o_membrane_ridx": {
+        "ports": [
+          "membrane_0/o_membrane_ridx",
+          "ps2_keyb_0/i_membrane_row"
+        ]
+      },
+      "ps2_clk_i_1": {
+        "ports": [
+          "ps2_clk_i",
+          "Ps2Interface_0/PS2_Clk_I"
+        ]
+      },
+      "ps2_data_i_1": {
+        "ports": [
+          "ps2_data_i",
+          "Ps2Interface_0/PS2_Data_I"
+        ]
+      },
+      "ps2_keyb_0_o_divmmc_nmi_n": {
+        "ports": [
+          "ps2_keyb_0/o_divmmc_nmi_n",
+          "special_keys_0/ps2_mmc_n"
+        ]
+      },
+      "ps2_keyb_0_o_membrane_col": {
+        "ports": [
+          "ps2_keyb_0/o_membrane_col",
+          "membrane_0/i_membrane_cols"
+        ]
+      },
+      "ps2_keyb_0_o_mf_nmi_n": {
+        "ports": [
+          "ps2_keyb_0/o_mf_nmi_n",
+          "special_keys_0/ps2_mf_n"
+        ]
+      },
+      "ps2_keyb_0_o_ps2_func_keys_n": {
+        "ports": [
+          "ps2_keyb_0/o_ps2_func_keys_n",
+          "special_keys_0/ps2_func_keys_n"
         ]
       },
       "ps2_keyb_0_o_ps2_send_valid": {
@@ -475,7 +803,39 @@
           "keyb_clocks_0/reset",
           "Ps2Interface_0/rst",
           "membrane_0/i_reset",
-          "emu_fnkeys_0/i_reset"
+          "emu_fnkeys_0/i_reset",
+          "ps2_keyb_0/i_reset"
+        ]
+      },
+      "row_1": {
+        "ports": [
+          "row",
+          "emu_fnkeys_0/i_rows"
+        ]
+      },
+      "special_keys_0_spkey_buttons": {
+        "ports": [
+          "special_keys_0/spkey_buttons",
+          "spkey_buttons"
+        ]
+      },
+      "special_keys_0_spkey_function": {
+        "ports": [
+          "special_keys_0/spkey_function",
+          "spkey_function"
+        ]
+      },
+      "xlconstant_high1_dout": {
+        "ports": [
+          "xlconstant_selftest_ok/dout",
+          "Ps2Interface_0/tx_data"
+        ]
+      },
+      "xlconstant_high_dout": {
+        "ports": [
+          "xlconstant_high/dout",
+          "emu_fnkeys_0/i_button_reset_n",
+          "emu_fnkeys_0/i_button_m1_n"
         ]
       }
     }

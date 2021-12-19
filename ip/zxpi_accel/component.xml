@@ -36,6 +36,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio0" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio1</spirit:name>
@@ -68,6 +75,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio1" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio4</spirit:name>
@@ -100,6 +114,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio4" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio5</spirit:name>
@@ -132,6 +153,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio5" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio6</spirit:name>
@@ -164,6 +192,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio6" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio12</spirit:name>
@@ -196,6 +231,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio12" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio13</spirit:name>
@@ -228,6 +270,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio13" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio22</spirit:name>
@@ -260,6 +309,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio22" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio23</spirit:name>
@@ -292,6 +348,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio23" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio24</spirit:name>
@@ -324,6 +387,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio24" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio25</spirit:name>
@@ -356,6 +426,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio25" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio26</spirit:name>
@@ -388,6 +465,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio26" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>gpio27</spirit:name>
@@ -420,6 +504,13 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.gpio27" xilinx:dependency="$GPIO">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>pi_accel</spirit:name>
@@ -508,6 +599,36 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.i2c" xilinx:dependency="$I2C">true</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>spi_clk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>spi_clk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.spi_clk" xilinx:dependency="$SPI">false</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
     </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
@@ -524,7 +645,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>abe03bc5</spirit:value>
+            <spirit:value>1eda6253</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -540,7 +661,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>abe03bc5</spirit:value>
+            <spirit:value>1eda6253</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -554,7 +675,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>f64a5dae</spirit:value>
+            <spirit:value>65980327</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -926,6 +1047,13 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.spi_ss0" xilinx:dependency="$SPI">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>spi_ss1</spirit:name>
@@ -939,6 +1067,13 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.spi_ss1" xilinx:dependency="$SPI">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>spi_clk</spirit:name>
@@ -965,6 +1100,13 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.spi_mosi" xilinx:dependency="$SPI">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>spi_miso</spirit:name>
@@ -981,6 +1123,13 @@
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.spi_miso" xilinx:dependency="$SPI">false</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>gpio12_i</spirit:name>
@@ -1081,6 +1230,13 @@
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.uart_rx" xilinx:dependency="$UART">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>uart_tx</spirit:name>
@@ -1097,6 +1253,13 @@
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.uart_tx" xilinx:dependency="$UART">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>uart_cts</spirit:name>
@@ -1110,6 +1273,13 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.uart_cts" xilinx:dependency="$UART">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>uart_rts</spirit:name>
@@ -1126,11 +1296,18 @@
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.uart_rts" xilinx:dependency="$UART">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>i2s_sclk</spirit:name>
         <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -1138,12 +1315,22 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.i2s_sclk" xilinx:dependency="$I2S">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>i2s_wclk</spirit:name>
         <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -1151,7 +1338,17 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.i2s_wclk" xilinx:dependency="$I2S">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>i2s_dout</spirit:name>
@@ -1168,6 +1365,13 @@
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.i2s_dout" xilinx:dependency="$I2S">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>i2s_din</spirit:name>
@@ -1181,6 +1385,13 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
+        <spirit:vendorExtensions>
+          <xilinx:portInfo>
+            <xilinx:enablement>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.i2s_din" xilinx:dependency="$I2S">true</xilinx:isEnabled>
+            </xilinx:enablement>
+          </xilinx:portInfo>
+        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>gpio22_i</spirit:name>
@@ -1448,7 +1659,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/new/pi_accel/pi_accel.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f609034a</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_405e4937</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1468,7 +1679,7 @@
       <spirit:file>
         <spirit:name>xgui/zxpi_accel_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_65980327</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -1478,6 +1689,31 @@
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">pi_accel_v1_0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>I2C</spirit:name>
+      <spirit:displayName>I2c</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.I2C">true</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>I2S</spirit:name>
+      <spirit:displayName>I2s</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.I2S">true</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SPI</spirit:name>
+      <spirit:displayName>Spi</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.SPI">false</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>UART</spirit:name>
+      <spirit:displayName>Uart</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.UART">true</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>GPIO</spirit:name>
+      <spirit:displayName>Gpio</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.GPIO">false</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1514,11 +1750,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxpi_accel_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:pi_accel:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T14:49:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-18T18:36:31Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3da0176c_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@22ede89f_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
@@ -1574,14 +1810,73 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@30b70975_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@553630a9_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@25668d3e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1da78762_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1206f3d3_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@292c4227_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31ea0840_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ecc166e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55fa1a6e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65442e66_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23c9554e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38252e99_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44605e34_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e89a069_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73f4050a_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e8f899c_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d65b729_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14e29a4a_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32a78f5_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@759bbd40_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e9d2a9_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b643c11_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43fd846c_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b693a9d_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50721c1_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48d52c91_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1abfd935_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37dcc121_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a832a79_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ce26832_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7279a489_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5454c8c7_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1800a4a5_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ea8e853_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e944cdc_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@185d0539_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4758a872_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e499096_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@961ccc9_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7648619d_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@786451d4_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7964ac00_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@504a0c37_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ca28d06_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5444e198_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c0c9920_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22521cfd_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74879171_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@732e0e6_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73bd1266_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1112531_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31f6a03a_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36a7f324_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35e7d629_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@605855_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2fc34c0_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f5c3a97_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6371a645_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b84c697_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2529ecbd_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@671467ef_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e16de5e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="9b872ece"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="d7f7e644"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="95c5f7e9"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="2fad3524"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a7f800f8"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="991c87e7"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="78cb1ebc"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="efaff9fb"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>

@@ -1,28 +1,72 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"1.14414",
-   "Default View_TopLeft":"-180,-215",
+   "Default View_ScaleFactor":"1.10483",
+   "Default View_TopLeft":"1005,455",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -20 -y 290 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x -20 -y 350 -defaultsOSRD
-preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x -20 -y 320 -defaultsOSRD
-preplace inst special_keys_0 -pg 1 -lvl 6 -x 1900 -y 470 -defaultsOSRD
-preplace inst membrane_0 -pg 1 -lvl 5 -x 1560 -y 470 -defaultsOSRD
-preplace inst keyb_clocks_0 -pg 1 -lvl 4 -x 1190 -y 480 -defaultsOSRD
-preplace inst emu_fnkeys_0 -pg 1 -lvl 3 -x 870 -y 480 -defaultsOSRD
-preplace inst ps2_keyb_0 -pg 1 -lvl 2 -x 500 -y 480 -defaultsOSRD
-preplace inst Ps2Interface_0 -pg 1 -lvl 1 -x 160 -y 480 -defaultsOSRD
-preplace netloc ps2_keyb_0_o_ps2_send_valid 1 0 3 20 310 NJ 310 690
-preplace netloc Ps2Interface_0_read_data 1 1 1 290 490n
-preplace netloc Ps2Interface_0_rx_data 1 1 1 300 470n
-preplace netloc keyb_clocks_0_clk_ps2 1 1 4 310 320 NJ 320 NJ 320 1340
-preplace netloc clk_peripheral_1 1 0 5 0 300 300J 350 710J 350 1040J 390 1360
-preplace netloc reset_1 1 0 5 10J 330 NJ 330 700J 360 1030 400 1350
-preplace netloc clk_peripheral_n_1 1 0 2 NJ 320 290
-levelinfo -pg 1 -20 160 500 870 1190 1560 1900 2040
-pagesize -pg 1 -db -bbox -sgen -170 0 2040 1100
+preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -10 -y 520 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -10 -y 550 -defaultsOSRD
+preplace port port-id_clk_peripheral_n -pg 1 -lvl 0 -x -10 -y 370 -defaultsOSRD
+preplace port port-id_cancel -pg 1 -lvl 0 -x -10 -y 220 -defaultsOSRD
+preplace port port-id_ps2_data_i -pg 1 -lvl 0 -x -10 -y 780 -defaultsOSRD
+preplace port port-id_ps2_clk_i -pg 1 -lvl 0 -x -10 -y 810 -defaultsOSRD
+preplace port port-id_ps2_data_o -pg 1 -lvl 7 -x 2200 -y 730 -defaultsOSRD
+preplace port port-id_ps2_data_t -pg 1 -lvl 7 -x 2200 -y 760 -defaultsOSRD
+preplace port port-id_ps2_clk_o -pg 1 -lvl 7 -x 2200 -y 790 -defaultsOSRD
+preplace port port-id_ps2_clk_t -pg 1 -lvl 7 -x 2200 -y 820 -defaultsOSRD
+preplace port port-id_keymap_we -pg 1 -lvl 0 -x -10 -y 460 -defaultsOSRD
+preplace portBus spkey_function -pg 1 -lvl 7 -x 2200 -y 300 -defaultsOSRD
+preplace portBus spkey_buttons -pg 1 -lvl 7 -x 2200 -y 330 -defaultsOSRD
+preplace portBus row -pg 1 -lvl 0 -x -10 -y 650 -defaultsOSRD
+preplace portBus column -pg 1 -lvl 7 -x 2200 -y 120 -defaultsOSRD
+preplace portBus extended_keys -pg 1 -lvl 7 -x 2200 -y 250 -defaultsOSRD
+preplace portBus keymap_addr -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
+preplace portBus keymap_data -pg 1 -lvl 0 -x -10 -y 430 -defaultsOSRD
+preplace inst special_keys_0 -pg 1 -lvl 6 -x 2020 -y 450 -defaultsOSRD
+preplace inst membrane_0 -pg 1 -lvl 4 -x 1220 -y 170 -defaultsOSRD
+preplace inst keyb_clocks_0 -pg 1 -lvl 2 -x 360 -y 530 -defaultsOSRD
+preplace inst emu_fnkeys_0 -pg 1 -lvl 5 -x 1650 -y 120 -defaultsOSRD
+preplace inst ps2_keyb_0 -pg 1 -lvl 3 -x 790 -y 490 -defaultsOSRD
+preplace inst Ps2Interface_0 -pg 1 -lvl 6 -x 2020 -y 840 -defaultsOSRD
+preplace inst xlconstant_high -pg 1 -lvl 1 -x 110 -y -30 -defaultsOSRD
+preplace inst xlconstant_selftest_ok -pg 1 -lvl 5 -x 1650 -y 870 -defaultsOSRD
+preplace netloc Ps2Interface_0_PS2_Clk_O 1 6 1 NJ 790
+preplace netloc Ps2Interface_0_PS2_Clk_T 1 6 1 2170J 810n
+preplace netloc Ps2Interface_0_PS2_Data_O 1 6 1 2170J 730n
+preplace netloc Ps2Interface_0_PS2_Data_T 1 6 1 2170J 760n
+preplace netloc Ps2Interface_0_read_data 1 2 5 580 650 NJ 650 NJ 650 NJ 650 2160
+preplace netloc Ps2Interface_0_rx_data 1 2 5 590 660 NJ 660 NJ 660 NJ 660 2150
+preplace netloc clk_peripheral_1 1 0 6 N 520 210 610 520 120 990 50 1460 -10 1840
+preplace netloc clk_peripheral_n_1 1 0 3 NJ 370 N 370 540J
+preplace netloc keyb_clocks_0_clk_ps2 1 2 1 N 510
+preplace netloc keyb_clocks_0_fnkeys_enable 1 2 3 510J 30 NJ 30 1440
+preplace netloc keyb_clocks_0_membrane_enable 1 2 2 530J 140 N
+preplace netloc membrane_0_o_extended_keys 1 4 3 1440J 250 NJ 250 NJ
+preplace netloc ps2_clk_i_1 1 0 6 NJ 810 N 810 NJ 810 NJ 810 NJ 810 NJ
+preplace netloc ps2_data_i_1 1 0 6 NJ 780 200 790 NJ 790 NJ 790 NJ 790 NJ
+preplace netloc ps2_keyb_0_o_ps2_send_valid 1 3 3 980J 460 NJ 460 1810
+preplace netloc reset_1 1 0 6 N 550 200 450 550 210 980 60 1450 0 1820J
+preplace netloc special_keys_0_spkey_buttons 1 5 2 1860 330 NJ
+preplace netloc special_keys_0_spkey_function 1 5 2 1850 300 NJ
+preplace netloc ps2_keyb_0_o_membrane_col 1 3 1 990 200n
+preplace netloc ps2_keyb_0_o_mf_nmi_n 1 3 3 NJ 490 NJ 490 N
+preplace netloc ps2_keyb_0_o_divmmc_nmi_n 1 3 3 NJ 510 NJ 510 N
+preplace netloc ps2_keyb_0_o_ps2_func_keys_n 1 3 3 1000J 450 NJ 450 N
+preplace netloc emu_fnkeys_0_o_fnkeys 1 5 1 1830 140n
+preplace netloc keymap_addr_1 1 0 3 NJ 400 190 410 NJ
+preplace netloc keymap_data_1 1 0 3 NJ 430 N 430 NJ
+preplace netloc keymap_we_1 1 0 3 NJ 460 190 620 560J
+preplace netloc row_1 1 0 5 10J 40 N 40 NJ 40 NJ 40 1420J
+preplace netloc emu_fnkeys_0_o_rows_filtered 1 3 3 1000 -20 NJ -20 1810
+preplace netloc emu_fnkeys_0_o_cols_filtered 1 5 2 NJ 120 NJ
+preplace netloc membrane_0_o_cols 1 4 1 N 140
+preplace netloc membrane_0_o_membrane_ridx 1 2 3 570 280 NJ 280 1420
+preplace netloc cancel_1 1 0 4 NJ 220 N 220 NJ 220 NJ
+preplace netloc xlconstant_high_dout 1 1 4 NJ -30 NJ -30 NJ -30 1430
+preplace netloc xlconstant_high1_dout 1 5 1 N 870
+levelinfo -pg 1 -10 110 360 790 1220 1650 2020 2200
+pagesize -pg 1 -db -bbox -sgen -180 -90 2380 990
 "
 }
-
+0

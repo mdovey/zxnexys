@@ -116,7 +116,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>c27eab8c</spirit:value>
+            <spirit:value>0b4463ac</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -132,7 +132,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>edb52301</spirit:value>
+            <spirit:value>90d7be1a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -505,7 +505,7 @@
       <spirit:file>
         <spirit:name>../../synth/zxvga/zxvga.gen/sources_1/bd/vga/hdl/vga_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_1e5049d2</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_461fdde2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -616,11 +616,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxvga_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:vga_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-17T21:50:11Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-18T17:01:59Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@63df4687_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@32acbce_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
@@ -656,12 +656,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@59a22aad_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@44de156e_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@361bfd6a_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d02b8e9_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@280153bf_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@501332eb_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e48786d_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1da22375_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50da24c6_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e25665e_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@133774a9_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37ac8477_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e457c2a_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@707b9682_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="e84d4baa"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="21a19af3"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7574000b"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="c9313d5d"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="c46ec8ce"/>
     </xilinx:packagingInfo>

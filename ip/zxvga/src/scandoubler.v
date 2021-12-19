@@ -45,16 +45,16 @@ module scandoubler(
     begin
         if (scandouble) 
         begin
-            r <= video_31[8:6];
-            g <= video_31[5:3];
-            b <= video_31[2:0];
+            r <= {video_31[8:6], 1'b0};
+            g <= {video_31[5:3], 1'b0};
+            b <= {video_31[2:0], 1'b0};
             
             h_sync <= hsync;
             v_sync <= vsync;
         end else begin
-            r <= video_15[8:6];
-            g <= video_15[5:3];
-            b <= video_15[2:0];
+            r <= {video_15[8:6], 1'b0};
+            g <= {video_15[5:3], 1'b0};
+            b <= {video_15[2:0], 1'b0};
 
             // csync on hsync when the scandoubler is off
             h_sync <= csync_n;
