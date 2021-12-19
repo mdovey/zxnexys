@@ -1,8 +1,0 @@
-
-****** Webtalk v2021.1.1 (64-bit)
-  **** SW Build 3286242 on Wed Jul 28 13:10:47 MDT 2021
-  **** IP Build 3279568 on Wed Jul 28 16:48:48 MDT 2021
-    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
-
-source V:/zxnext/zxnexys/zxnexys.hw/webtalk/labtool_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Tue Oct 12 18:17:22 2021...

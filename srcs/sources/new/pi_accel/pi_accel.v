@@ -113,8 +113,8 @@ module pi_accel (
 // I2S
 // Ports: 18 19 20 21
 
-    output           i2s_sclk,
-    output           i2s_wclk,
+    input            i2s_sclk,
+    input            i2s_wclk,
     input            i2s_dout,
     output           i2s_din,
 

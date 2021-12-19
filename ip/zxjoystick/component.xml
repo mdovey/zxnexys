@@ -61,7 +61,7 @@
       <spirit:portMaps>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>left</spirit:name>
+            <spirit:name>joy_left</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>joy_left</spirit:name>
@@ -69,7 +69,7 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>right</spirit:name>
+            <spirit:name>joy_right</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>joy_right</spirit:name>
@@ -648,11 +648,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxjoystick_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:joystick_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T11:50:47Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-18T22:56:11Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7c6df4a2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@49a70371_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
@@ -729,11 +729,35 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@33c6bf77_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4818050a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@45274041_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27c81521_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4643e8f0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56cdf111_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f3c0405_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bba02f4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f6b4859_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c867aa4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@556276c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a9d1a93_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a224f03_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9327b3f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64367796_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@276f2a98_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@502df30b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6614d5d7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@766f4962_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7eb44d3f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3747c925_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7af9c516_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2970e131_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27e5fe39_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7787d3de_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72df029e_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b546062_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2066a11c"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ee599ff7"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="3669287f"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0570889c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2bbc49bc"/>

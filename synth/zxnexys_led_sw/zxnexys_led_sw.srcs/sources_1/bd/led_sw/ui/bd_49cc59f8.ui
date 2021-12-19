@@ -1,0 +1,48 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.22292",
+   "Default View_TopLeft":"-325,2",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -10 -y 190 -defaultsOSRD
+preplace port port-id_led16_b -pg 1 -lvl 3 -x 670 -y 140 -defaultsOSRD
+preplace port port-id_led16_g -pg 1 -lvl 3 -x 670 -y 110 -defaultsOSRD
+preplace port port-id_led16_r -pg 1 -lvl 3 -x 670 -y 80 -defaultsOSRD
+preplace port port-id_led17_b -pg 1 -lvl 3 -x 670 -y 230 -defaultsOSRD
+preplace port port-id_led17_g -pg 1 -lvl 3 -x 670 -y 200 -defaultsOSRD
+preplace port port-id_led17_r -pg 1 -lvl 3 -x 670 -y 170 -defaultsOSRD
+preplace port port-id_i2c_scl_o -pg 1 -lvl 0 -x -10 -y 220 -defaultsOSRD
+preplace port port-id_i2c_sda_o -pg 1 -lvl 0 -x -10 -y 420 -defaultsOSRD
+preplace port port-id_i2c_sda_i -pg 1 -lvl 3 -x 670 -y 420 -defaultsOSRD
+preplace port port-id_i2c_scl_i -pg 1 -lvl 3 -x 670 -y 20 -defaultsOSRD
+preplace port port-id_i2c_scl_t -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
+preplace port port-id_i2c_sda_t -pg 1 -lvl 0 -x -10 -y 50 -defaultsOSRD
+preplace portBus led -pg 1 -lvl 3 -x 670 -y 50 -defaultsOSRD
+preplace portBus sw -pg 1 -lvl 0 -x -10 -y 130 -defaultsOSRD
+preplace inst rtc_0 -pg 1 -lvl 1 -x 180 -y 380 -defaultsOSRD
+preplace inst led_sw_controller_0 -pg 1 -lvl 2 -x 490 -y 150 -defaultsOSRD
+preplace netloc Net 1 0 2 20 90 NJ
+preplace netloc Net1 1 0 2 30 110 NJ
+preplace netloc i2c_scl_o_1 1 0 3 10 10 NJ 10 640J
+preplace netloc i2c_sda_o_1 1 0 1 NJ 420
+preplace netloc led_sw_controller_0_data_o 1 0 3 40 20 NJ 20 620
+preplace netloc led_sw_controller_0_led 1 2 1 630J 50n
+preplace netloc led_sw_controller_0_led16_b 1 2 1 NJ 140
+preplace netloc led_sw_controller_0_led16_g 1 2 1 640J 110n
+preplace netloc led_sw_controller_0_led16_r 1 2 1 640J 80n
+preplace netloc led_sw_controller_0_led17_b 1 2 1 630J 200n
+preplace netloc led_sw_controller_0_led17_g 1 2 1 640J 180n
+preplace netloc led_sw_controller_0_led17_r 1 2 1 630J 160n
+preplace netloc rtc_0_data_o 1 1 1 340 210n
+preplace netloc rtc_0_rd_reg_o 1 1 1 310 150n
+preplace netloc rtc_0_sda_o 1 1 2 NJ 420 NJ
+preplace netloc rtc_0_update_t 1 1 1 320 170n
+preplace netloc rtc_0_wr_reg_o 1 1 1 330 190n
+preplace netloc sw_1 1 0 2 NJ 130 NJ
+levelinfo -pg 1 -10 180 490 670
+pagesize -pg 1 -db -bbox -sgen -150 0 780 480
+"
+}
+0
