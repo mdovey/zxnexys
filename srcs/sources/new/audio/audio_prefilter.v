@@ -23,7 +23,7 @@
 
 
 module audio_prefilter #(
-    parameter   AUDIO_DW	    =   13
+    parameter   AUDIO_DW	    =   16
 )(
     input       [AUDIO_DW-1:0]   din,
     output      [AUDIO_DW-1:0]   dout

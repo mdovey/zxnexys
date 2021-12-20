@@ -21,7 +21,7 @@
 
 
 module audio_sync #(
-    parameter   AUDIO_DW    =   16
+    parameter   AUDIO_DW    =   13
 )(
     input       [AUDIO_DW-1:0]   din,
 
