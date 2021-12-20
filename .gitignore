@@ -4,3 +4,4 @@
 **/*.runs/
 **/*.sim/
 **/*.tmp/
+/settings_restore.bat
