@@ -22,8 +22,8 @@
 
 
 module audio_filter_control #(
-	parameter CLK_RATE         = 22580650,
-	parameter  [31:0] flt_rate =  6482700
+	parameter CLK_RATE         = 12280700,
+	parameter  [31:0] flt_rate =  7056000
 )(
 	output  [39:0] cx,
 	output   [7:0] cx0,
