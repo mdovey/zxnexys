@@ -509,11 +509,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxreset_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:sysreset:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T12:15:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-19T09:08:51Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4fb02608_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4ee87f9_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
@@ -603,6 +603,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@bb0c526_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@729a9f43_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5c1f36a4_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76acc202_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73c0f4eb_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a870dfb_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c97ef64_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dc3cde1_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@353158d8_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3126c3d1_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5be0fa3c_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12b1039a_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ce8c723_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73e12f5f_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -770,8 +770,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_xsd_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-17T23:26:16Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-19T00:44:06Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@701e94e4_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5bd4d235_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
@@ -819,6 +819,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@25f53b3a_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@9cb3227_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@54f472cb_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35e9d51e_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4615664d_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6359472_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10946b06_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9b3826b_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bfe192f_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69cffe3d_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26b77d34_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53363e17_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@691d4fe0_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@379886c6_ARCHIVE_LOCATION">v:/ip/pmod_xsd</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

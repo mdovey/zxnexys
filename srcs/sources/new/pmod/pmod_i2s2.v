@@ -73,16 +73,15 @@ module pmod_i2s2(
 (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_i2s2 PIN10_T" *)
     output pin10_t,
 
-    input lineout_mclk,
-    input lineout_lrck,
-    input lineout_sclk,
-    input lineout_sdout,
+    input  linein_lrck,
+    input  linein_mclk,
+    input  linein_sclk,
+    output linein_sdin,
 
-    input linein_mclk,
-    input linein_lrck,
-    input linein_sclk,
-    output linein_sdin
-
+    input  lineout_lrck,
+    input  lineout_mclk,
+    input  lineout_sclk,
+    input  lineout_sdout
     );
 
     assign pin1_o 	 	= lineout_mclk;

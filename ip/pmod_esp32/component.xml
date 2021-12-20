@@ -890,11 +890,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_esp32_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:pmod_esp32:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T00:23:39Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-19T00:31:00Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1061da19_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@40cee01_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
@@ -924,6 +924,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@7de688d0_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3f5cfe0a_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6401f62b_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fba9623_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fa31783_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c6fb34b_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bc63488_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3aaac025_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21a1da2a_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68ad1f3f_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@413c99f4_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f9dbece_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2347e7c5_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70a3ea12_ARCHIVE_LOCATION">v:/ip/pmod_esp32</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -586,8 +586,8 @@
         "addressing": {
           "address_spaces": {
             "interface_aximm": {
-              "range": "64K",
-              "width": "16"
+              "range": "4K",
+              "width": "12"
             }
           }
         }
@@ -811,7 +811,7 @@
             "segments": {
               "SEG_axi_iic_0_Reg": {
                 "address_block": "/axi_iic_0/S_AXI/Reg",
-                "offset": "0x0000",
+                "offset": "0x000",
                 "range": "512"
               }
             }

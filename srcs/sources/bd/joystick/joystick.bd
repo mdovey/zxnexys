@@ -127,6 +127,11 @@
         "xci_name": "joystick_SPI_Master_0_0",
         "xci_path": "ip\\joystick_SPI_Master_0_0\\joystick_SPI_Master_0_0.xci",
         "inst_hier_path": "SPI_Master_0",
+        "parameters": {
+          "CLKS_PER_HALF_BIT": {
+            "value": "14"
+          }
+        },
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "SPI_Master",
