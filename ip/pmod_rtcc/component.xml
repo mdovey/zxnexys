@@ -782,11 +782,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_rtcc_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:pmod_rtcc:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T11:45:54Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-19T00:41:40Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@17a1622e_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1cb5879b_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
@@ -811,6 +811,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@1741dcb2_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@383175ec_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@48fdcd2c_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ae85eab_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f1156fa_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f9dfea0_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e81c54_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ccd1778_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4956a94e_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b7fe4d7_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e0cf6cf_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3772b134_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37bdc8e3_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bee0d75_ARCHIVE_LOCATION">v:/ip/pmod_rtcc</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

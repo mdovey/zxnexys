@@ -588,11 +588,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxsdcard_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:sdcard:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T12:59:49Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-19T09:21:46Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4848395a_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@35c58c3d_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
@@ -660,6 +660,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d932b97_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4ec133f_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1e93e219_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@176c5682_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74cf7380_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5760b08a_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36c9034f_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@526eb1f4_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d4b84f6_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11b68152_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bac80b_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@572fa0bf_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@308737b5_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32518a64_ARCHIVE_LOCATION">v:/ip/zxsdcard</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

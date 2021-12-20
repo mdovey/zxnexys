@@ -114,7 +114,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>00bce95d</spirit:value>
+            <spirit:value>1deffad2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -136,7 +136,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>26496c9f</spirit:value>
+            <spirit:value>65343c54</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -395,11 +395,6 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/pmod_jstk2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
@@ -410,6 +405,11 @@
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconstant_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/pmod_jstk2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/joystick.v</spirit:name>
@@ -426,19 +426,18 @@
       <spirit:file>
         <spirit:name>src/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_498bee2c</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/ip/joystick_SPI_Master_0_0/synth/joystick_SPI_Master_0_0.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/ip/joystick_SPI_Master_0_0/synth/joystick_SPI_Master_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/ip/joystick_btn_jstk_0_0/synth/joystick_btn_jstk_0_0.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/ip/joystick_btn_jstk_0_0/synth/joystick_btn_jstk_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/ip/joystick_pmod_jstk2_0_0/synth/joystick_pmod_jstk2_0_0.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/ip/joystick_pmod_jstk2_0_0/synth/joystick_pmod_jstk2_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -450,12 +449,12 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.srcs/sources_1/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.srcs/sources_1/bd/joystick/ip/joystick_xlconstant_0_0/joystick_xlconstant_0_0.xci</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_xlconstant_0_0/joystick_xlconstant_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconstant_0</spirit:userFileType>
       </spirit:file>
@@ -464,19 +463,19 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/synth/joystick.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/synth/joystick.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/joystick_ooc.xdc</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/joystick_ooc.xdc</spirit:name>
         <spirit:userFileType>xdc</spirit:userFileType>
         <spirit:userFileType>SCOPED_TO_REF_joystick</spirit:userFileType>
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_498bee2c</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_307cadf1</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -527,21 +526,19 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/pmod_jstk2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_joystick_i/util_vector_logic_0/joystick_util_vector_logic_0_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/joystick_xlconstant_0_0/joystick_xlconstant_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_joystick_i/xlconstant_0/joystick_xlconstant_0_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/pmod_jstk2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>sim/joystick.v</spirit:name>
@@ -554,15 +551,15 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/ip/joystick_SPI_Master_0_0/sim/joystick_SPI_Master_0_0.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/ip/joystick_SPI_Master_0_0/sim/joystick_SPI_Master_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/ip/joystick_btn_jstk_0_0/sim/joystick_btn_jstk_0_0.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/ip/joystick_btn_jstk_0_0/sim/joystick_btn_jstk_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/ip/joystick_pmod_jstk2_0_0/sim/joystick_pmod_jstk2_0_0.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/ip/joystick_pmod_jstk2_0_0/sim/joystick_pmod_jstk2_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -574,12 +571,12 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.srcs/sources_1/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.srcs/sources_1/bd/joystick/ip/joystick_xlconstant_0_0/joystick_xlconstant_0_0.xci</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_xlconstant_0_0/joystick_xlconstant_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconstant_0</spirit:userFileType>
       </spirit:file>
@@ -588,11 +585,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/sim/joystick.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/sim/joystick.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v</spirit:name>
+        <spirit:name>../../zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -648,11 +645,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxjoystick_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>8</xilinx:coreRevision>
+      <xilinx:coreRevision>22</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:joystick_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T22:56:11Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-20T14:30:30Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7c6df4a2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@49a70371_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
@@ -753,12 +750,155 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@7787d3de_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@72df029e_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@b546062_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1dae27b6_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ef256d9_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@605f45b5_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ab5b100_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43b44ee0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38500b8b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26f5e8e2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69e198c6_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@798600ce_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57608c8_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a0d047a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60555d64_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f5f5821_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f4e6452_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@215e0adf_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21ea6a31_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b238cdb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@729ffbbd_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33055b7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d006ee3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cdf98eb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d269b51_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f0581c3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15fd2d0b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b736ace_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a4878b9_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@295e75a1_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ecf3bec_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@659ae8eb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ff916f4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77c98465_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@256a2ad4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c260285_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29930d1f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54ae4db_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fd55596_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6eccef6c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1155456_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69a8c9a4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45015ff9_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b73eee4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75385bab_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@955cb0d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f255520_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41976465_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30ef23d0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57881ac6_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d3a138f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3529f24a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3bca212b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30b1a6c3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5094dd34_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a251ef3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8d8f4bf_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4185635c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cf86deb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16eb539c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53ef5ca9_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5778dede_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b20e4e_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d37ced0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1df59a20_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28d4f47_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31e8eebf_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22f889c6_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32605358_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b35396_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@125c3485_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@358d1c32_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@501e7583_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a0bbab0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42e8677_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@739b139a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f8fc767_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ef97e1f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@698a1db5_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c255839_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6599e2e0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@731d250a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@381495e2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4af48d33_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@779ee340_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b69fa36_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c92c04b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35593371_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4806894f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c722715_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a177872_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33278195_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10e4f4cb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@126a8d5e_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ed869_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e0fdb3f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44ce5abd_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@846fee6_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@dff17b7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b4df5bb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@556f1f3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c01296d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e1fab8e_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@156bfbc2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d51c3d3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41bd128d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a96b09d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@173f3552_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7375cbeb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@188c7467_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4caad796_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ee4e43b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36626a1b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ae295b7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bd5853f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f0d02b7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d3b31f8_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34a05b8f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56c007de_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7abdb62c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a7a5cb9_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a7506e9_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@508a019c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@718ea136_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dea25b2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63a7d70f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5309bcb3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ac096f1_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30108af2_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6283db6d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1fab9967_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c3219e7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e41becd_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d3e2e62_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e5a6b8f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b540483_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e46cba3_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a8cee1b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a993042_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4baa4dd1_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4810cb1b_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2735441f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5faaf1d7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b39f25a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@679e4507_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c18acdc_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ee599ff7"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="3669287f"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="74003a26"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="0570889c"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2bbc49bc"/>
     </xilinx:packagingInfo>

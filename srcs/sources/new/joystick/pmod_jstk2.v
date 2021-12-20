@@ -23,7 +23,8 @@
 
 
 module pmod_jstk2 #(
-    parameter   ACTIVE_MARGIN   = 8'h30
+    parameter   LOW_MARGIN   = 8'h27,
+    parameter   HIGH_MARGIN  = 8'hd8    
 )(
     output      [10:0]  joystick,
 
@@ -62,14 +63,14 @@ module pmod_jstk2 #(
     reg  [7:0]      y;
     reg  [7:0]      s;
     
-    assign  joystick[0]  = (x > (9'h100 - ACTIVE_MARGIN));
-    assign  joystick[1]  = (x < ACTIVE_MARGIN);
-    assign  joystick[2]  = (y < ACTIVE_MARGIN);
-    assign  joystick[3]  = (y > (9'h100 - ACTIVE_MARGIN));
+    assign  joystick[0]  = (x > HIGH_MARGIN);
+    assign  joystick[1]  = (x < LOW_MARGIN);
+    assign  joystick[2]  = (y > HIGH_MARGIN);
+    assign  joystick[3]  = (y < LOW_MARGIN);
     assign  joystick[4]  = 1'b0;
-    assign  joystick[5]  = s[1];
+    assign  joystick[5]  = s[0];
     assign  joystick[6]  = 1'b0;
-    assign  joystick[7]  = s[0];
+    assign  joystick[7]  = s[1];
     assign  joystick[8]  = 1'b0;
     assign  joystick[9]  = 1'b0;
     assign  joystick[10] = 1'b0;

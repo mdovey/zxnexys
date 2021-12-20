@@ -1,0 +1,1503 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun Dec 19 00:28:42 2021
+# Process ID: 37140
+# Current directory: V:/synth/pmod_esp32
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17208 V:\synth\pmod_esp32\pmod_esp32.xpr
+# Log file: V:/synth/pmod_esp32/vivado.log
+# Journal file: V:/synth/pmod_esp32\vivado.jou
+# Running On: AW13R3, OS: Windows, CPU Frequency: 2808 MHz, CPU Physical cores: 4, Host memory: 34222 MB
+#-----------------------------------------------------------
+start_gui
+open_project V:/synth/pmod_esp32/pmod_esp32.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/pmod_esp32/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/pmod_i2s2/pmod_i2s2.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/pmod_i2s2/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 3 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/pmod_ps2_jstk2/pmod_ps2_jstk2.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/pmod_ps2_jstk2/component.xml
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+set_property core_revision 7 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/pmod_rtcc/pmod_rtcc.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/pmod_rtcc/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 3 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/pmod_xsd/pmod_xsd.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/pmod_xsd/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 6 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxaudio/zxaudio.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse V:/srcs/sources/bd/audio/audio.bd
+export_ip_user_files -of_objects  [get_files V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd] -no_script -reset -force -quiet
+remove_files  V:/synth/zxaudio/zxaudio.srcs/sources_1/bd/audio/audio.bd
+export_ip_user_files -of_objects  [get_files V:/synth/zxaudio/zxaudio.gen/sources_1/bd/audio/hdl/audio_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/synth/zxaudio/zxaudio.gen/sources_1/bd/audio/hdl/audio_wrapper.v
+add_files -norecurse V:/srcs/sources/bd/audio/audio.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/audio/audio.bd] -lib_map_path [list {modelsim=V:/synth/zxaudio/zxaudio.cache/compile_simlib/modelsim} {questa=V:/synth/zxaudio/zxaudio.cache/compile_simlib/questa} {riviera=V:/synth/zxaudio/zxaudio.cache/compile_simlib/riviera} {activehdl=V:/synth/zxaudio/zxaudio.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/audio/audio.bd] -top
+add_files -norecurse v:/zxaudio.gen/sources_1/bd/audio/hdl/audio_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top audio_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxaudio/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 7 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxclock/zxclock.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxclock/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxesp32/zxesp32.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxesp32/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxjoystick/zxjoystick.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxjoystick/zxjoystick.srcs/sources_1/bd/joystick/joystick.bd] -no_script -reset -force -quiet
+remove_files  V:/synth/zxjoystick/zxjoystick.srcs/sources_1/bd/joystick/joystick.bd
+update_compile_order -fileset sources_1
+add_files -norecurse V:/srcs/sources/bd/joystick/joystick.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/joystick/joystick.bd] -lib_map_path [list {modelsim=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/modelsim} {questa=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/questa} {riviera=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/riviera} {activehdl=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/joystick/joystick.bd]
+catch { config_ip_cache -export [get_ips -all joystick_SPI_Master_0_0] }
+catch { config_ip_cache -export [get_ips -all joystick_btn_jstk_0_0] }
+catch { config_ip_cache -export [get_ips -all joystick_util_vector_logic_0_0] }
+catch { config_ip_cache -export [get_ips -all joystick_pmod_jstk2_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/joystick/joystick.bd]
+launch_runs joystick_SPI_Master_0_0_synth_1 joystick_btn_jstk_0_0_synth_1 joystick_util_vector_logic_0_0_synth_1 joystick_pmod_jstk2_0_0_synth_1 -jobs 8
+wait_on_run joystick_SPI_Master_0_0_synth_1
+wait_on_run joystick_btn_jstk_0_0_synth_1
+wait_on_run joystick_util_vector_logic_0_0_synth_1
+wait_on_run joystick_pmod_jstk2_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -directory V:/synth/zxjoystick/zxjoystick.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxjoystick/zxjoystick.ip_user_files -ipstatic_source_dir V:/synth/zxjoystick/zxjoystick.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/modelsim} {questa=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/questa} {riviera=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/riviera} {activehdl=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+make_wrapper -files [get_files V:/srcs/sources/bd/joystick/joystick.bd] -top
+add_files -norecurse v:/zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top joystick_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/synth/zxjoystick/zxjoystick.gen/sources_1/bd/joystick/hdl/joystick_wrapper.v
+open_bd_design {V:/srcs/sources/bd/joystick/joystick.bd}
+startgroup
+set_property -dict [list CONFIG.CLKS_PER_HALF_BIT {14}] [get_bd_cells SPI_Master_0]
+endgroup
+regenerate_bd_layout
+validate_bd_design
+save_bd_design
+generate_target all [get_files  V:/srcs/sources/bd/joystick/joystick.bd]
+catch { config_ip_cache -export [get_ips -all joystick_SPI_Master_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/joystick/joystick.bd]
+launch_runs joystick_SPI_Master_0_0_synth_1 -jobs 8
+wait_on_run joystick_SPI_Master_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -directory V:/synth/zxjoystick/zxjoystick.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxjoystick/zxjoystick.ip_user_files -ipstatic_source_dir V:/synth/zxjoystick/zxjoystick.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/modelsim} {questa=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/questa} {riviera=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/riviera} {activehdl=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxjoystick/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 9 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxkeyboard/zxkeyboard.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxkeyboard/zxkeyboard.gen/sources_1/bd/keyboard/hdl/keyboard_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/synth/zxkeyboard/zxkeyboard.gen/sources_1/bd/keyboard/hdl/keyboard_wrapper.v
+export_ip_user_files -of_objects  [get_files V:/synth/zxkeyboard/zxkeyboard.srcs/sources_1/bd/keyboard/keyboard.bd] -no_script -reset -force -quiet
+remove_files  V:/synth/zxkeyboard/zxkeyboard.srcs/sources_1/bd/keyboard/keyboard.bd
+add_files -norecurse V:/srcs/sources/bd/keyboard/keyboard.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/keyboard/keyboard.bd] -lib_map_path [list {modelsim=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/modelsim} {questa=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/questa} {riviera=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/riviera} {activehdl=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/keyboard/keyboard.bd] -top
+add_files -norecurse v:/zxkeyboard.gen/sources_1/bd/keyboard/hdl/keyboard_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top keyboard_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/keyboard/keyboard.bd]
+catch { config_ip_cache -export [get_ips -all keyboard_special_keys_0_0] }
+catch { config_ip_cache -export [get_ips -all keyboard_membrane_0_0] }
+catch { config_ip_cache -export [get_ips -all keyboard_keyb_clocks_0_0] }
+catch { config_ip_cache -export [get_ips -all keyboard_emu_fnkeys_0_0] }
+catch { config_ip_cache -export [get_ips -all keyboard_ps2_keyb_0_0] }
+catch { config_ip_cache -export [get_ips -all keyboard_Ps2Interface_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/keyboard/keyboard.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/keyboard/keyboard.bd]
+launch_runs keyboard_special_keys_0_0_synth_1 keyboard_membrane_0_0_synth_1 keyboard_keyb_clocks_0_0_synth_1 keyboard_emu_fnkeys_0_0_synth_1 keyboard_ps2_keyb_0_0_synth_1 keyboard_Ps2Interface_0_0_synth_1 -jobs 8
+wait_on_run keyboard_special_keys_0_0_synth_1
+wait_on_run keyboard_membrane_0_0_synth_1
+wait_on_run keyboard_keyb_clocks_0_0_synth_1
+wait_on_run keyboard_emu_fnkeys_0_0_synth_1
+wait_on_run keyboard_ps2_keyb_0_0_synth_1
+wait_on_run keyboard_Ps2Interface_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/keyboard/keyboard.bd] -directory V:/synth/zxkeyboard/zxkeyboard.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxkeyboard/zxkeyboard.ip_user_files -ipstatic_source_dir V:/synth/zxkeyboard/zxkeyboard.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/modelsim} {questa=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/questa} {riviera=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/riviera} {activehdl=V:/synth/zxkeyboard/zxkeyboard.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxkeyboard/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxmouse/zxmouse.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxmouse/zxmouse.srcs/sources_1/bd/mouse/mouse.bd] -no_script -reset -force -quiet
+remove_files  V:/synth/zxmouse/zxmouse.srcs/sources_1/bd/mouse/mouse.bd
+export_ip_user_files -of_objects  [get_files V:/synth/zxmouse/zxmouse.gen/sources_1/bd/mouse/hdl/mouse_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/synth/zxmouse/zxmouse.gen/sources_1/bd/mouse/hdl/mouse_wrapper.v
+add_files -norecurse V:/srcs/sources/bd/mouse/mouse.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/mouse/mouse.bd] -lib_map_path [list {modelsim=V:/synth/zxmouse/zxmouse.cache/compile_simlib/modelsim} {questa=V:/synth/zxmouse/zxmouse.cache/compile_simlib/questa} {riviera=V:/synth/zxmouse/zxmouse.cache/compile_simlib/riviera} {activehdl=V:/synth/zxmouse/zxmouse.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/mouse/mouse.bd] -top
+add_files -norecurse v:/zxmouse.gen/sources_1/bd/mouse/hdl/mouse_wrapper.v
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/mouse/mouse.bd]
+catch { config_ip_cache -export [get_ips -all mouse_ps2_mouse_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/mouse/mouse.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/mouse/mouse.bd]
+launch_runs mouse_ps2_mouse_0_0_synth_1 -jobs 8
+wait_on_run mouse_ps2_mouse_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/mouse/mouse.bd] -directory V:/synth/zxmouse/zxmouse.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxmouse/zxmouse.ip_user_files -ipstatic_source_dir V:/synth/zxmouse/zxmouse.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxmouse/zxmouse.cache/compile_simlib/modelsim} {questa=V:/synth/zxmouse/zxmouse.cache/compile_simlib/questa} {riviera=V:/synth/zxmouse/zxmouse.cache/compile_simlib/riviera} {activehdl=V:/synth/zxmouse/zxmouse.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxmouse/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+set_property core_revision 5 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxnext/zxnext.xpr
+add_files {V:/srcs/sources/imports/ZXNext/ip/sdpram_128_8/sdpram_128_8.xco V:/srcs/sources/imports/ZXNext/ip/sdpram_16_9/sdpram_16_9.xco V:/srcs/sources/imports/ZXNext/ip/sdpram_16_9/sdpram_16_9.xci V:/srcs/sources/imports/ZXNext/ip/sdpram_64_9/sdpram_64_9.xci V:/srcs/sources/imports/ZXNext/ip/spram_320_9/spram_320_9.xco V:/srcs/sources/imports/ZXNext/ip/sdpbram_16k_8/sdpbram_16k_8.xci V:/srcs/sources/imports/ZXNext/ip/sdpram_128_8/sdpram_128_8.xci V:/srcs/sources/imports/ZXNext/ip/spram_320_9/spram_320_9.xci V:/srcs/sources/imports/ZXNext/ip/sdpram_64_9/sdpram_64_9.xco V:/srcs/sources/imports/ZXNext/ip/sdpbram_16k_8/sdpbram_16k_8.xco}
+export_ip_user_files -of_objects  [get_files  {V:/srcs/sources/imports/ZXNext/ip/sdpram_128_8/sdpram_128_8.xco V:/srcs/sources/imports/ZXNext/ip/sdpram_16_9/sdpram_16_9.xco V:/srcs/sources/imports/ZXNext/ip/sdpram_64_9/sdpram_64_9.xci V:/srcs/sources/imports/ZXNext/ip/spram_320_9/spram_320_9.xco V:/srcs/sources/imports/ZXNext/ip/sdpbram_16k_8/sdpbram_16k_8.xci}] -lib_map_path [list {modelsim=V:/synth/zxnext/zxnext.cache/compile_simlib/modelsim} {questa=V:/synth/zxnext/zxnext.cache/compile_simlib/questa} {riviera=V:/synth/zxnext/zxnext.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnext/zxnext.cache/compile_simlib/activehdl}] -force -quiet
+export_ip_user_files -of_objects  [get_files V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8.xci] -no_script -reset -force -quiet
+remove_files  -fileset sdpbram_16k_8 V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpbram_16k_8/sdpbram_16k_8.xci
+export_ip_user_files -of_objects  [get_files V:/synth/zxnext/zxnext.srcs/sources_1/ip/spram_320_9/spram_320_9.xci] -no_script -reset -force -quiet
+remove_files  -fileset spram_320_9 V:/synth/zxnext/zxnext.srcs/sources_1/ip/spram_320_9/spram_320_9.xci
+export_ip_user_files -of_objects  [get_files V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_128_8/sdpram_128_8.xci] -no_script -reset -force -quiet
+remove_files  -fileset sdpram_128_8 V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_128_8/sdpram_128_8.xci
+export_ip_user_files -of_objects  [get_files V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci] -no_script -reset -force -quiet
+remove_files  -fileset sdpram_64_9 V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_64_9/sdpram_64_9.xci
+export_ip_user_files -of_objects  [get_files V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_16_9/sdpram_16_9.xci] -no_script -reset -force -quiet
+remove_files  -fileset sdpram_16_9 V:/synth/zxnext/zxnext.srcs/sources_1/ip/sdpram_16_9/sdpram_16_9.xci
+close_project
+open_project V:/synth/zxnext/zxnext.xpr
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxnext/component.xml
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+set_property core_revision 9 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxnexys_led_sw/zxnexys_led_sw.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxnexys_led_sw/zxnexys_led_sw.srcs/sources_1/bd/led_sw/led_sw.bd] -no_script -reset -force -quiet
+remove_files  V:/synth/zxnexys_led_sw/zxnexys_led_sw.srcs/sources_1/bd/led_sw/led_sw.bd
+export_ip_user_files -of_objects  [get_files V:/synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v
+add_files -norecurse V:/srcs/sources/bd/led_sw/led_sw.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/led_sw/led_sw.bd] -lib_map_path [list {modelsim=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/led_sw/led_sw.bd] -top
+add_files -norecurse v:/zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top led_sw_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/led_sw/led_sw.bd]
+catch { config_ip_cache -export [get_ips -all led_sw_rtc_0_0] }
+catch { config_ip_cache -export [get_ips -all led_sw_led_sw_controller_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/led_sw/led_sw.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/led_sw/led_sw.bd]
+launch_runs led_sw_rtc_0_0_synth_1 led_sw_led_sw_controller_0_0_synth_1 -jobs 8
+wait_on_run led_sw_rtc_0_0_synth_1
+wait_on_run led_sw_led_sw_controller_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/led_sw/led_sw.bd] -directory V:/synth/zxnexys_led_sw/zxnexys_led_sw.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys_led_sw/zxnexys_led_sw.ip_user_files -ipstatic_source_dir V:/synth/zxnexys_led_sw/zxnexys_led_sw.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys_led_sw/zxnexys_led_sw.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+ipx::open_ipxact_file V:/ip/zxnexys_led_sw/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 5 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxnexys_ledsegment/zxnexys_ledsegment.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxnexys_ledsegment/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 3 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxnexys_mic/zxnexys_mic.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/hdl/mic_i2s_wrapper.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/synth/zxnexys_mic/zxnexys_mic.srcs/sources_1/bd/mic_i2s/mic_i2s.bd] -no_script -reset -force -quiet
+remove_files  {V:/synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/hdl/mic_i2s_wrapper.v V:/synth/zxnexys_mic/zxnexys_mic.srcs/sources_1/bd/mic_i2s/mic_i2s.bd}
+update_compile_order -fileset sources_1
+add_files -norecurse V:/srcs/sources/bd/mic_i2s/mic_i2s.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/mic_i2s/mic_i2s.bd] -lib_map_path [list {modelsim=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/mic_i2s/mic_i2s.bd] -top
+add_files -norecurse v:/zxnexys_mic.gen/sources_1/bd/mic_i2s/hdl/mic_i2s_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top mic_i2s_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+generate_target all [get_files  V:/srcs/sources/bd/mic_i2s/mic_i2s.bd]
+catch { config_ip_cache -export [get_ips -all mic_i2s_i2s_transceiver_0_0] }
+catch { config_ip_cache -export [get_ips -all mic_i2s_pwm_decode_0_0] }
+catch { config_ip_cache -export [get_ips -all mic_i2s_mic_reset_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/mic_i2s/mic_i2s.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/mic_i2s/mic_i2s.bd]
+launch_runs mic_i2s_i2s_transceiver_0_0_synth_1 mic_i2s_pwm_decode_0_0_synth_1 mic_i2s_mic_reset_0_0_synth_1 -jobs 8
+wait_on_run mic_i2s_i2s_transceiver_0_0_synth_1
+wait_on_run mic_i2s_pwm_decode_0_0_synth_1
+wait_on_run mic_i2s_mic_reset_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/mic_i2s/mic_i2s.bd] -directory V:/synth/zxnexys_mic/zxnexys_mic.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys_mic/zxnexys_mic.ip_user_files -ipstatic_source_dir V:/synth/zxnexys_mic/zxnexys_mic.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys_mic/zxnexys_mic.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file V:/ip/zxnexys_mic/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 7 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxpi_accel/zxpi_accel.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxpi_accel/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 5 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxram/zxram.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxram/zxram.srcs/sources_1/bd/ram/ram.bd] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/synth/zxram/zxram.gen/sources_1/bd/ram/hdl/ram_wrapper.v] -no_script -reset -force -quiet
+remove_files  {V:/synth/zxram/zxram.srcs/sources_1/bd/ram/ram.bd V:/synth/zxram/zxram.gen/sources_1/bd/ram/hdl/ram_wrapper.v}
+update_compile_order -fileset sources_1
+add_files -norecurse V:/srcs/sources/bd/ram/ram.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/ram/ram.bd] -lib_map_path [list {modelsim=V:/synth/zxram/zxram.cache/compile_simlib/modelsim} {questa=V:/synth/zxram/zxram.cache/compile_simlib/questa} {riviera=V:/synth/zxram/zxram.cache/compile_simlib/riviera} {activehdl=V:/synth/zxram/zxram.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/ram/ram.bd] -top
+add_files -norecurse v:/zxram.gen/sources_1/bd/ram/hdl/ram_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top ram_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/ram/ram.bd]
+catch { config_ip_cache -export [get_ips -all ram_ram_write_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_blk_mem_gen_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_blk_mem_gen_0_1] }
+catch { config_ip_cache -export [get_ips -all ram_xbar_0] }
+catch { config_ip_cache -export [get_ips -all ram_ram_a_read_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_ram_b_read_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_ram_read_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_bram_read_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_bram_write_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_bram_write_0_1] }
+catch { config_ip_cache -export [get_ips -all ram_ram_reset_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_ram_input_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_ram_output_0_0] }
+catch { config_ip_cache -export [get_ips -all ram_auto_cc_0] }
+catch { config_ip_cache -export [get_ips -all ram_auto_cc_1] }
+catch { config_ip_cache -export [get_ips -all ram_auto_cc_2] }
+catch { config_ip_cache -export [get_ips -all ram_auto_cc_3] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/ram/ram.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/ram/ram.bd]
+launch_runs ram_ram_write_0_0_synth_1 ram_blk_mem_gen_0_0_synth_1 ram_blk_mem_gen_0_1_synth_1 ram_xbar_0_synth_1 ram_ram_a_read_0_0_synth_1 ram_ram_b_read_0_0_synth_1 ram_ram_read_0_0_synth_1 ram_bram_read_0_0_synth_1 ram_bram_write_0_0_synth_1 ram_bram_write_0_1_synth_1 ram_ram_reset_0_0_synth_1 ram_ram_input_0_0_synth_1 ram_ram_output_0_0_synth_1 ram_auto_cc_0_synth_1 ram_auto_cc_1_synth_1 ram_auto_cc_2_synth_1 ram_auto_cc_3_synth_1 -jobs 8
+wait_on_run ram_ram_write_0_0_synth_1
+wait_on_run ram_blk_mem_gen_0_0_synth_1
+wait_on_run ram_blk_mem_gen_0_1_synth_1
+wait_on_run ram_xbar_0_synth_1
+wait_on_run ram_ram_a_read_0_0_synth_1
+wait_on_run ram_ram_b_read_0_0_synth_1
+wait_on_run ram_ram_read_0_0_synth_1
+wait_on_run ram_bram_read_0_0_synth_1
+wait_on_run ram_bram_write_0_0_synth_1
+wait_on_run ram_bram_write_0_1_synth_1
+wait_on_run ram_ram_reset_0_0_synth_1
+wait_on_run ram_ram_input_0_0_synth_1
+wait_on_run ram_ram_output_0_0_synth_1
+wait_on_run ram_auto_cc_0_synth_1
+wait_on_run ram_auto_cc_1_synth_1
+wait_on_run ram_auto_cc_2_synth_1
+wait_on_run ram_auto_cc_3_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/ram/ram.bd] -directory V:/synth/zxram/zxram.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxram/zxram.ip_user_files -ipstatic_source_dir V:/synth/zxram/zxram.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxram/zxram.cache/compile_simlib/modelsim} {questa=V:/synth/zxram/zxram.cache/compile_simlib/questa} {riviera=V:/synth/zxram/zxram.cache/compile_simlib/riviera} {activehdl=V:/synth/zxram/zxram.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxram/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxreset/zxreset.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxreset/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 7 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxrtc/zxrtc.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxrtc/zxrtc.gen/sources_1/bd/rtcc/hdl/rtcc_wrapper.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files V:/synth/zxrtc/zxrtc.srcs/sources_1/bd/rtcc/rtcc.bd] -no_script -reset -force -quiet
+remove_files  {V:/synth/zxrtc/zxrtc.gen/sources_1/bd/rtcc/hdl/rtcc_wrapper.v V:/synth/zxrtc/zxrtc.srcs/sources_1/bd/rtcc/rtcc.bd}
+add_files -norecurse V:/srcs/sources/bd/rtcc/rtcc.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/rtcc/rtcc.bd] -lib_map_path [list {modelsim=V:/synth/zxrtc/zxrtc.cache/compile_simlib/modelsim} {questa=V:/synth/zxrtc/zxrtc.cache/compile_simlib/questa} {riviera=V:/synth/zxrtc/zxrtc.cache/compile_simlib/riviera} {activehdl=V:/synth/zxrtc/zxrtc.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/rtcc/rtcc.bd] -top
+add_files -norecurse v:/zxrtc.gen/sources_1/bd/rtcc/hdl/rtcc_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top rtcc_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/rtcc/rtcc.bd]
+catch { config_ip_cache -export [get_ips -all rtcc_rtc_reset_0_0] }
+catch { config_ip_cache -export [get_ips -all rtcc_rtc_0_0] }
+catch { config_ip_cache -export [get_ips -all rtcc_registers_0_0] }
+catch { config_ip_cache -export [get_ips -all rtcc_axi_controller_0_0] }
+catch { config_ip_cache -export [get_ips -all rtcc_axi_iic_0_0] }
+catch { config_ip_cache -export [get_ips -all rtcc_fifo_generator_0_0] }
+catch { config_ip_cache -export [get_ips -all rtcc_fifo_generator_0_1] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/rtcc/rtcc.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/rtcc/rtcc.bd]
+launch_runs rtcc_rtc_reset_0_0_synth_1 rtcc_rtc_0_0_synth_1 rtcc_registers_0_0_synth_1 rtcc_axi_controller_0_0_synth_1 rtcc_axi_iic_0_0_synth_1 rtcc_fifo_generator_0_0_synth_1 rtcc_fifo_generator_0_1_synth_1 -jobs 8
+wait_on_run rtcc_rtc_reset_0_0_synth_1
+wait_on_run rtcc_rtc_0_0_synth_1
+wait_on_run rtcc_registers_0_0_synth_1
+wait_on_run rtcc_axi_controller_0_0_synth_1
+wait_on_run rtcc_axi_iic_0_0_synth_1
+wait_on_run rtcc_fifo_generator_0_0_synth_1
+wait_on_run rtcc_fifo_generator_0_1_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/rtcc/rtcc.bd] -directory V:/synth/zxrtc/zxrtc.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxrtc/zxrtc.ip_user_files -ipstatic_source_dir V:/synth/zxrtc/zxrtc.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxrtc/zxrtc.cache/compile_simlib/modelsim} {questa=V:/synth/zxrtc/zxrtc.cache/compile_simlib/questa} {riviera=V:/synth/zxrtc/zxrtc.cache/compile_simlib/riviera} {activehdl=V:/synth/zxrtc/zxrtc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxrtc/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 5 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxsdcard/zxsdcard.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxsdcard/component.xml
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+set_property core_revision 5 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxvga/zxvga.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/synth/zxvga/zxvga.srcs/sources_1/bd/vga/vga.bd] -no_script -reset -force -quiet
+remove_files  V:/synth/zxvga/zxvga.srcs/sources_1/bd/vga/vga.bd
+export_ip_user_files -of_objects  [get_files V:/synth/zxvga/zxvga.gen/sources_1/bd/vga/hdl/vga_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/synth/zxvga/zxvga.gen/sources_1/bd/vga/hdl/vga_wrapper.v
+update_compile_order -fileset sources_1
+add_files -norecurse V:/srcs/sources/bd/vga/vga.bd
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/vga/vga.bd] -lib_map_path [list {modelsim=V:/synth/zxvga/zxvga.cache/compile_simlib/modelsim} {questa=V:/synth/zxvga/zxvga.cache/compile_simlib/questa} {riviera=V:/synth/zxvga/zxvga.cache/compile_simlib/riviera} {activehdl=V:/synth/zxvga/zxvga.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/vga/vga.bd] -top
+add_files -norecurse v:/zxvga.gen/sources_1/bd/vga/hdl/vga_wrapper.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top vga_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/vga/vga.bd]
+catch { config_ip_cache -export [get_ips -all vga_front_porch_0_0] }
+catch { config_ip_cache -export [get_ips -all vga_scan_convert_0_0] }
+catch { config_ip_cache -export [get_ips -all vga_s_fix_0_0] }
+catch { config_ip_cache -export [get_ips -all vga_s_fix_1_0] }
+catch { config_ip_cache -export [get_ips -all vga_scandoubler_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/vga/vga.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/vga/vga.bd]
+launch_runs vga_front_porch_0_0_synth_1 vga_scan_convert_0_0_synth_1 vga_s_fix_0_0_synth_1 vga_s_fix_1_0_synth_1 vga_scandoubler_0_0_synth_1 -jobs 8
+wait_on_run vga_front_porch_0_0_synth_1
+wait_on_run vga_scan_convert_0_0_synth_1
+wait_on_run vga_s_fix_0_0_synth_1
+wait_on_run vga_s_fix_1_0_synth_1
+wait_on_run vga_scandoubler_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/vga/vga.bd] -directory V:/synth/zxvga/zxvga.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxvga/zxvga.ip_user_files -ipstatic_source_dir V:/synth/zxvga/zxvga.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxvga/zxvga.cache/compile_simlib/modelsim} {questa=V:/synth/zxvga/zxvga.cache/compile_simlib/questa} {riviera=V:/synth/zxvga/zxvga.cache/compile_simlib/riviera} {activehdl=V:/synth/zxvga/zxvga.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxvga/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+create_project zxnexys V:/synth/zxnexys -part xc7a100tcsg324-1
+set_property board_part digilentinc.com:nexys-a7-100t:part0:1.0 [current_project]
+set_property  ip_repo_paths  V:/ip [current_project]
+update_ip_catalog
+create_bd_design -dir {V:/srcs/sources/bd/zxnexys} "zxnexys"
+update_compile_order -fileset sources_1
+make_wrapper -files [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -top
+add_files -norecurse V:/srcs/sources/bd/zxnexys/zxnexys/hdl/zxnexys_wrapper.v
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top zxnexys_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0
+apply_board_connection -board_interface "sys_clock" -ip_intf "clk_wiz_0/clock_CLK_IN1" -diagram "zxnexys" 
+endgroup
+startgroup
+set_property -dict [list CONFIG.CLKOUT2_USED {true} CONFIG.CLKOUT3_USED {true} CONFIG.CLKOUT4_USED {true} CONFIG.CLKOUT5_USED {true} CONFIG.CLKOUT6_USED {true} CONFIG.CLKOUT7_USED {true} CONFIG.CLK_OUT1_PORT {clk_200} CONFIG.CLK_OUT2_PORT {clk_140} CONFIG.CLK_OUT3_PORT {clk_28_n} CONFIG.CLK_OUT4_PORT {clk_28} CONFIG.CLK_OUT5_PORT {clk_22m58} CONFIG.CLK_OUT6_PORT {clk_14} CONFIG.CLK_OUT7_PORT {clk_7} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {200.000} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {140.000} CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {28.000} CONFIG.CLKOUT3_REQUESTED_PHASE {180.000} CONFIG.CLKOUT3_REQUESTED_DUTY_CYCLE {50.000} CONFIG.CLKOUT4_REQUESTED_OUT_FREQ {28.000} CONFIG.CLKOUT5_REQUESTED_OUT_FREQ {22.58065} CONFIG.CLKOUT6_REQUESTED_OUT_FREQ {14.000} CONFIG.CLKOUT7_REQUESTED_OUT_FREQ {7.000} CONFIG.CLKOUT2_DRIVES {No_buffer} CONFIG.CLKOUT3_DRIVES {No_buffer} CONFIG.CLKOUT4_DRIVES {No_buffer} CONFIG.CLKOUT5_DRIVES {No_buffer} CONFIG.CLKOUT6_DRIVES {No_buffer} CONFIG.CLKOUT7_DRIVES {No_buffer} CONFIG.USE_RESET {false} CONFIG.MMCM_CLKFBOUT_MULT_F {7.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {3.500} CONFIG.MMCM_CLKOUT1_DIVIDE {5} CONFIG.MMCM_CLKOUT2_DIVIDE {25} CONFIG.MMCM_CLKOUT2_PHASE {180.000} CONFIG.MMCM_CLKOUT3_DIVIDE {25} CONFIG.MMCM_CLKOUT4_DIVIDE {31} CONFIG.MMCM_CLKOUT5_DIVIDE {50} CONFIG.MMCM_CLKOUT6_DIVIDE {100} CONFIG.NUM_OUT_CLKS {7} CONFIG.CLKOUT1_JITTER {130.488} CONFIG.CLKOUT1_PHASE_ERROR {122.577} CONFIG.CLKOUT2_JITTER {139.537} CONFIG.CLKOUT2_PHASE_ERROR {122.577} CONFIG.CLKOUT3_JITTER {193.383} CONFIG.CLKOUT3_PHASE_ERROR {122.577} CONFIG.CLKOUT4_JITTER {193.383} CONFIG.CLKOUT4_PHASE_ERROR {122.577} CONFIG.CLKOUT5_JITTER {201.826} CONFIG.CLKOUT5_PHASE_ERROR {122.577} CONFIG.CLKOUT6_JITTER {221.798} CONFIG.CLKOUT6_PHASE_ERROR {122.577} CONFIG.CLKOUT7_JITTER {253.969} CONFIG.CLKOUT7_PHASE_ERROR {122.577}] [get_bd_cells clk_wiz_0]
+endgroup
+set_property location {0.5 -199 97} [get_bd_cells clk_wiz_0]
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxclock:1.3 zxclock_0
+endgroup
+set_property location {2.5 259 79} [get_bd_cells zxclock_0]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_200] [get_bd_pins zxclock_0/clk_200]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_140] [get_bd_pins zxclock_0/clk_140]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_28_n] [get_bd_pins zxclock_0/clk_28_n]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_28] [get_bd_pins zxclock_0/clk_28]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_22m58] [get_bd_pins zxclock_0/clk_22m58]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_14] [get_bd_pins zxclock_0/clk_14]
+connect_bd_net [get_bd_pins clk_wiz_0/clk_7] [get_bd_pins zxclock_0/clk_7]
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxreset:1.3 zxreset_0
+endgroup
+connect_bd_net [get_bd_pins clk_wiz_0/locked] [get_bd_pins zxreset_0/clk_locked]
+startgroup
+create_bd_port -dir I -type rst CPU_RESETN
+connect_bd_net [get_bd_pins /zxreset_0/cpu_resetn] [get_bd_ports CPU_RESETN]
+endgroup
+connect_bd_net [get_bd_pins zxclock_0/clk_peripheral] [get_bd_pins zxreset_0/clk_peripheral]
+validate_bd_design
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxnext:3.01.11 zxnext_0
+endgroup
+connect_bd_intf_net [get_bd_intf_pins zxclock_0/mb_clock] [get_bd_intf_pins zxnext_0/mb_clock]
+connect_bd_intf_net [get_bd_intf_pins zxreset_0/mb_reset] [get_bd_intf_pins zxnext_0/mb_reset]
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxaudio:1.3 zxaudio_0
+endgroup
+set_property location {4.5 1149 209} [get_bd_cells zxaudio_0]
+connect_bd_intf_net [get_bd_intf_pins zxnext_0/audio] [get_bd_intf_pins zxaudio_0/audio]
+connect_bd_intf_net [get_bd_intf_pins zxnext_0/tape] [get_bd_intf_pins zxaudio_0/tape]
+connect_bd_net [get_bd_pins zxaudio_0/clk_audio] [get_bd_pins zxclock_0/clk_audio]
+connect_bd_net [get_bd_pins zxaudio_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_net [get_bd_pins zxaudio_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+startgroup
+create_bd_port -dir O AUD_PWM
+connect_bd_net [get_bd_pins /zxaudio_0/tape_pwm] [get_bd_ports AUD_PWM]
+endgroup
+startgroup
+create_bd_port -dir O AUD_SD
+connect_bd_net [get_bd_pins /zxaudio_0/tape_sd] [get_bd_ports AUD_SD]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:pmod_i2s2:1.1 pmod_i2s2_0
+endgroup
+connect_bd_net [get_bd_pins pmod_i2s2_0/linein_sdin] [get_bd_pins zxaudio_0/linein_sdin]
+set_property location {5.5 1426 140} [get_bd_cells pmod_i2s2_0]
+connect_bd_net [get_bd_pins zxaudio_0/linein_lrck] [get_bd_pins pmod_i2s2_0/linein_lrck]
+connect_bd_net [get_bd_pins zxaudio_0/linein_mclk] [get_bd_pins pmod_i2s2_0/linein_mclk]
+connect_bd_net [get_bd_pins zxaudio_0/linein_mclk] [get_bd_pins pmod_i2s2_0/linein_sclk]
+undo
+connect_bd_net [get_bd_pins zxaudio_0/linein_sclk] [get_bd_pins pmod_i2s2_0/linein_sclk]
+connect_bd_net [get_bd_pins zxaudio_0/lineout_lrck] [get_bd_pins pmod_i2s2_0/lineout_lrck]
+connect_bd_net [get_bd_pins zxaudio_0/lineout_mclk] [get_bd_pins pmod_i2s2_0/lineout_mclk]
+connect_bd_net [get_bd_pins zxaudio_0/lineout_sclk] [get_bd_pins pmod_i2s2_0/lineout_sclk]
+connect_bd_net [get_bd_pins zxaudio_0/lineout_sdout] [get_bd_pins pmod_i2s2_0/lineout_sdout]
+startgroup
+create_bd_intf_port -mode Master -vlnv digilentinc.com:interface:pmod_rtl:1.0 JB
+connect_bd_intf_net [get_bd_intf_pins pmod_i2s2_0/pmod_i2s2] [get_bd_intf_ports JB]
+endgroup
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxesp32:1.3 zxesp32_0
+create_bd_cell -type ip -vlnv specnext.com:specnext:pmod_esp32:1.1 pmod_esp32_0
+endgroup
+connect_bd_net [get_bd_pins pmod_esp32_0/uart_rx] [get_bd_pins zxesp32_0/uart_rx_o]
+connect_bd_net [get_bd_pins zxesp32_0/uart_tx_o] [get_bd_pins pmod_esp32_0/uart_tx]
+connect_bd_intf_net [get_bd_intf_pins zxesp32_0/gpio0] [get_bd_intf_pins pmod_esp32_0/gpio0]
+connect_bd_intf_net [get_bd_intf_pins zxesp32_0/gpio1] [get_bd_intf_pins pmod_esp32_0/gpio1]
+connect_bd_intf_net [get_bd_intf_pins zxesp32_0/gpio2] [get_bd_intf_pins pmod_esp32_0/gpio2]
+startgroup
+create_bd_intf_port -mode Master -vlnv digilentinc.com:interface:pmod_rtl:1.0 JA
+connect_bd_intf_net [get_bd_intf_pins pmod_esp32_0/pmod_esp32] [get_bd_intf_ports JA]
+endgroup
+connect_bd_net [get_bd_pins zxesp32_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+connect_bd_net [get_bd_pins zxesp32_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_intf_net [get_bd_intf_pins zxesp32_0/esp32] [get_bd_intf_pins zxnext_0/esp32]
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxjoystick:2.3 zxjoystick_0
+endgroup
+connect_bd_net [get_bd_pins zxjoystick_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+connect_bd_intf_net [get_bd_intf_pins zxjoystick_0/joystick] [get_bd_intf_pins zxnext_0/joystick]
+startgroup
+create_bd_port -dir I BTNC
+connect_bd_net [get_bd_pins /zxjoystick_0/btnc] [get_bd_ports BTNC]
+endgroup
+startgroup
+create_bd_port -dir I BTND
+connect_bd_net [get_bd_pins /zxjoystick_0/btnd] [get_bd_ports BTND]
+endgroup
+startgroup
+create_bd_port -dir I BTNL
+connect_bd_net [get_bd_pins /zxjoystick_0/btnl] [get_bd_ports BTNL]
+endgroup
+startgroup
+create_bd_port -dir I BTNR
+connect_bd_net [get_bd_pins /zxjoystick_0/btnr] [get_bd_ports BTNR]
+endgroup
+startgroup
+create_bd_port -dir I BTNU
+connect_bd_net [get_bd_pins /zxjoystick_0/btnu] [get_bd_ports BTNU]
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:pmod_ps2_jstk2:1.3 pmod_ps2_jstk2_0
+endgroup
+connect_bd_net [get_bd_pins zxjoystick_0/jstk_clk] [get_bd_pins pmod_ps2_jstk2_0/jstk_clk]
+connect_bd_net [get_bd_pins zxjoystick_0/jstk_mosi] [get_bd_pins pmod_ps2_jstk2_0/jstk_mosi]
+connect_bd_net [get_bd_pins zxjoystick_0/jstk_sel] [get_bd_pins pmod_ps2_jstk2_0/jstk_sel]
+connect_bd_net [get_bd_pins zxjoystick_0/jstk_miso] [get_bd_pins pmod_ps2_jstk2_0/jstk_miso]
+connect_bd_net [get_bd_pins zxjoystick_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+startgroup
+create_bd_intf_port -mode Master -vlnv digilentinc.com:interface:pmod_rtl:1.0 JXADC
+connect_bd_intf_net [get_bd_intf_pins pmod_ps2_jstk2_0/pmod_ps2_jstk2] [get_bd_intf_ports JXADC]
+endgroup
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxkeyboard:2.3 zxkeyboard_0
+endgroup
+connect_bd_net [get_bd_pins zxkeyboard_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_net [get_bd_pins zxkeyboard_0/clk_peripheral_n] [get_bd_pins zxclock_0/clk_peripheral_n]
+connect_bd_net [get_bd_pins zxkeyboard_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+connect_bd_intf_net [get_bd_intf_pins zxkeyboard_0/keyboard] [get_bd_intf_pins zxnext_0/keyboard]
+startgroup
+create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 PS2_CLK
+connect_bd_intf_net [get_bd_intf_pins zxkeyboard_0/ps2_clk] [get_bd_intf_ports PS2_CLK]
+endgroup
+startgroup
+create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 PS2_DATA
+connect_bd_intf_net [get_bd_intf_pins zxkeyboard_0/ps2_data] [get_bd_intf_ports PS2_DATA]
+endgroup
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxnexys_ledsegment:1.3 zxnexys_ledsegment_0
+endgroup
+connect_bd_net [get_bd_pins zxnexys_ledsegment_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+connect_bd_net [get_bd_pins zxnexys_ledsegment_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_intf_net [get_bd_intf_pins zxnexys_ledsegment_0/mb_monitor] [get_bd_intf_pins zxnext_0/mb_monitor]
+startgroup
+create_bd_port -dir O -from 7 -to 0 AN
+connect_bd_net [get_bd_pins /zxnexys_ledsegment_0/an] [get_bd_ports AN]
+endgroup
+startgroup
+create_bd_port -dir O -from 7 -to 0 CA
+connect_bd_net [get_bd_pins /zxnexys_ledsegment_0/ca] [get_bd_ports CA]
+endgroup
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxmouse:1.3 zxmouse_0
+endgroup
+connect_bd_net [get_bd_pins zxmouse_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+connect_bd_net [get_bd_pins zxmouse_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_intf_net [get_bd_intf_pins zxmouse_0/mouse] [get_bd_intf_pins zxnext_0/mouse]
+connect_bd_intf_net [get_bd_intf_pins zxmouse_0/ps2_clk] [get_bd_intf_pins pmod_ps2_jstk2_0/ps2_clk]
+connect_bd_intf_net [get_bd_intf_pins zxmouse_0/ps2_data] [get_bd_intf_pins pmod_ps2_jstk2_0/ps2_data]
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxpi_accel:1.0 zxpi_accel_0
+endgroup
+set_property location {2 311 334} [get_bd_cells zxpi_accel_0]
+connect_bd_intf_net [get_bd_intf_pins zxpi_accel_0/pi_accel] [get_bd_intf_pins zxnext_0/pi_accel]
+startgroup
+create_bd_port -dir I UART_TXD_IN
+connect_bd_net [get_bd_pins /zxpi_accel_0/uart_tx] [get_bd_ports UART_TXD_IN]
+endgroup
+startgroup
+create_bd_port -dir O UART_RXD_OUT
+connect_bd_net [get_bd_pins /zxpi_accel_0/uart_rx] [get_bd_ports UART_RXD_OUT]
+endgroup
+startgroup
+create_bd_port -dir O UART_CTS
+connect_bd_net [get_bd_pins /zxpi_accel_0/uart_cts] [get_bd_ports UART_CTS]
+endgroup
+startgroup
+create_bd_port -dir I UART_RTS
+connect_bd_net [get_bd_pins /zxpi_accel_0/uart_rts] [get_bd_ports UART_RTS]
+endgroup
+add_files -fileset constrs_1 -norecurse {V:/srcs/constraints/imports/digilent-xdc/Nexys-A7-100T-Custom.xdc V:/srcs/constraints/new/clock_domains.xdc V:/srcs/constraints/new/timings.xdc}
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxnexys_led_sw:1.0 zxnexys_led_sw_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxnexys_mic:1.0 zxnexys_mic_0
+endgroup
+connect_bd_net [get_bd_pins zxnexys_mic_0/reset] [get_bd_pins zxnexys_led_sw_0/reset]
+startgroup
+create_bd_port -dir I M_DATA
+connect_bd_net [get_bd_pins /zxnexys_mic_0/m_data] [get_bd_ports M_DATA]
+endgroup
+startgroup
+create_bd_port -dir O -type clk M_CLK
+connect_bd_net [get_bd_pins /zxnexys_mic_0/m_clk] [get_bd_ports M_CLK]
+endgroup
+startgroup
+create_bd_port -dir O M_LRSEL
+connect_bd_net [get_bd_pins /zxnexys_mic_0/m_lrsel] [get_bd_ports M_LRSEL]
+endgroup
+startgroup
+create_bd_port -dir I -from 15 -to 0 SW
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/sw] [get_bd_ports SW]
+endgroup
+startgroup
+create_bd_port -dir O -from 15 -to 0 LED
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led] [get_bd_ports LED]
+endgroup
+startgroup
+connect_bd_net [get_bd_pins zxnexys_led_sw_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+endgroup
+undo
+connect_bd_net [get_bd_pins zxnexys_led_sw_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_net [get_bd_pins zxnexys_mic_0/clk_audio] [get_bd_pins zxclock_0/clk_audio]
+connect_bd_net [get_bd_pins zxnexys_led_sw_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+set_property location {1.5 251 56} [get_bd_cells zxpi_accel_0]
+connect_bd_intf_net [get_bd_intf_pins zxpi_accel_0/i2c] [get_bd_intf_pins zxnexys_led_sw_0/i2c]
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_dout] [get_bd_pins zxpi_accel_0/i2s_sclk]
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_sclk] [get_bd_pins zxpi_accel_0/i2s_wclk]
+undo
+undo
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_dout] [get_bd_pins zxpi_accel_0/i2s_dout]
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_sclk] [get_bd_pins zxpi_accel_0/i2s_sclk]
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_sclk] [get_bd_pins zxpi_accel_0/i2s_wclk]
+connect_bd_net [get_bd_pins zxpi_accel_0/i2s_din] [get_bd_pins zxnexys_mic_0/i2s_din]
+regenerate_bd_layout
+startgroup
+create_bd_port -dir O LED16_R
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led16_b] [get_bd_ports LED16_R]
+endgroup
+startgroup
+create_bd_port -dir O LED16_G
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led16_g] [get_bd_ports LED16_G]
+endgroup
+delete_bd_objs [get_bd_nets zxnexys_led_sw_0_led16_b] [get_bd_ports LED16_R]
+startgroup
+create_bd_port -dir O LED16_B
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led16_b] [get_bd_ports LED16_B]
+endgroup
+startgroup
+create_bd_port -dir O LED16_R
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led16_r] [get_bd_ports LED16_R]
+endgroup
+startgroup
+create_bd_port -dir O LED17_B
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led17_b] [get_bd_ports LED17_B]
+endgroup
+startgroup
+create_bd_port -dir O LED17_G
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led17_g] [get_bd_ports LED17_G]
+endgroup
+startgroup
+create_bd_port -dir O LED17_R
+connect_bd_net [get_bd_pins /zxnexys_led_sw_0/led17_r] [get_bd_ports LED17_R]
+endgroup
+regenerate_bd_layout
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxram:2.3 zxram_0
+endgroup
+set_property location {3 718 203} [get_bd_cells zxram_0]
+connect_bd_net [get_bd_pins zxram_0/clk_memory] [get_bd_pins zxclock_0/clk_memory]
+connect_bd_net [get_bd_pins zxram_0/clk_peripheral_n] [get_bd_pins zxclock_0/clk_peripheral_n]
+connect_bd_net [get_bd_pins zxram_0/memory_aresetn] [get_bd_pins zxreset_0/memory_aresetn]
+connect_bd_intf_net [get_bd_intf_pins zxram_0/ram_port_a] [get_bd_intf_pins zxnext_0/ram_port_a]
+connect_bd_intf_net [get_bd_intf_pins zxram_0/ram_port_n] [get_bd_intf_pins zxnext_0/ram_port_b]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_0
+apply_board_connection -board_interface "ddr2_sdram" -ip_intf "mig_7series_0/mig_ddr_interface" -diagram "zxnexys" 
+endgroup
+set_property location {3 1031 206} [get_bd_cells mig_7series_0]
+delete_bd_objs [get_bd_nets sys_clk_i_1] [get_bd_ports sys_clk_i]
+set_property -name {CONFIG.XML_INPUT_FILE} -value  {mig_a.prj} -objects [get_bd_cells mig_7series_0]
+set_property -name {CONFIG.RESET_BOARD_INTERFACE} -value  {Custom} -objects [get_bd_cells mig_7series_0]
+set_property -name {CONFIG.MIG_DONT_TOUCH_PARAM} -value  {Custom} -objects [get_bd_cells mig_7series_0]
+set_property -name {CONFIG.BOARD_MIG_PARAM} -value  {ddr2_sdram} -objects [get_bd_cells mig_7series_0]
+connect_bd_intf_net [get_bd_intf_pins mig_7series_0/S_AXI] [get_bd_intf_pins zxram_0/axi_mig]
+connect_bd_net [get_bd_pins mig_7series_0/sys_rst] [get_bd_pins zxreset_0/memory_aresetn]
+connect_bd_net [get_bd_pins mig_7series_0/aresetn] [get_bd_pins zxreset_0/memory_aresetn]
+connect_bd_net [get_bd_pins mig_7series_0/ui_clk] [get_bd_pins zxram_0/clk_ui]
+connect_bd_net [get_bd_pins mig_7series_0/ui_clk_sync_rst] [get_bd_pins zxram_0/reset_ui]
+set_property location {1.5 408 627} [get_bd_cells mig_7series_0]
+connect_bd_net [get_bd_pins mig_7series_0/mmcm_locked] [get_bd_pins zxreset_0/ui_clk_locked]
+connect_bd_net [get_bd_pins mig_7series_0/init_calib_complete] [get_bd_pins zxreset_0/memory_calibrated]
+connect_bd_net [get_bd_pins mig_7series_0/ui_clk] [get_bd_pins zxreset_0/clk_ui]
+connect_bd_net [get_bd_pins zxclock_0/clk_system] [get_bd_pins mig_7series_0/sys_clk_i]
+regenerate_bd_layout
+assign_bd_address
+validate_bd_design
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:pmod_rtcc:1.1 pmod_rtcc_0
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxrtc:1.3 zxrtc_0
+endgroup
+connect_bd_net [get_bd_pins zxrtc_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_net [get_bd_pins zxrtc_0/reset] [get_bd_pins zxreset_0/peripheral_reset]
+connect_bd_intf_net [get_bd_intf_pins zxrtc_0/iic_rtcc] [get_bd_intf_pins pmod_rtcc_0/iic_rtcc]
+startgroup
+create_bd_intf_port -mode Master -vlnv digilentinc.com:interface:pmod_rtl:1.0 JC
+connect_bd_intf_net [get_bd_intf_pins pmod_rtcc_0/pmod_rtcc] [get_bd_intf_ports JC]
+endgroup
+connect_bd_intf_net [get_bd_intf_pins zxrtc_0/rtc] [get_bd_intf_pins zxnext_0/rtc]
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxsdcard:1.3 zxsdcard_0
+endgroup
+set_property location {1 136 205} [get_bd_cells zxsdcard_0]
+copy_bd_objs /  [get_bd_cells {zxsdcard_0}]
+set_property location {1.5 424 232} [get_bd_cells zxsdcard_1]
+set_property -dict [list CONFIG.Terminated {false}] [get_bd_cells zxsdcard_0]
+set_property -dict [list CONFIG.MicroSD {false}] [get_bd_cells zxsdcard_1]
+connect_bd_intf_net [get_bd_intf_pins zxsdcard_0/sdcard_out] [get_bd_intf_pins zxsdcard_1/sdcard_in]
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:pmod_xsd:1.1 pmod_xsd_0
+endgroup
+startgroup
+create_bd_intf_port -mode Master -vlnv digilentinc.com:interface:pmod_rtl:1.0 JD
+connect_bd_intf_net [get_bd_intf_pins pmod_xsd_0/pmod_xsd] [get_bd_intf_ports JD]
+endgroup
+set_property location {4 822 247} [get_bd_cells pmod_xsd_0]
+connect_bd_net [get_bd_pins zxsdcard_1/sd_sck] [get_bd_pins pmod_xsd_0/sd_sck]
+connect_bd_net [get_bd_pins zxsdcard_1/sd_cmd] [get_bd_pins pmod_xsd_0/sd_cmd]
+connect_bd_net [get_bd_pins zxsdcard_1/sd_dat1] [get_bd_pins pmod_xsd_0/sd_dat1]
+connect_bd_net [get_bd_pins zxsdcard_1/sd_dat2] [get_bd_pins pmod_xsd_0/sd_dat2]
+connect_bd_net [get_bd_pins zxsdcard_1/sd_dat3] [get_bd_pins pmod_xsd_0/sd_dat3]
+connect_bd_net [get_bd_pins pmod_xsd_0/sd_cd] [get_bd_pins zxsdcard_1/sd_cd]
+connect_bd_net [get_bd_pins pmod_xsd_0/sd_dat0] [get_bd_pins zxsdcard_1/sd_dat0]
+startgroup
+set_property -dict [list CONFIG.MicroSD {false}] [get_bd_cells pmod_xsd_0]
+endgroup
+connect_bd_net [get_bd_pins pmod_xsd_0/sd_wp] [get_bd_pins zxsdcard_1/sd_wp]
+connect_bd_net [get_bd_pins zxsdcard_1/clk_peripheral] [get_bd_pins zxsdcard_0/clk_peripheral]
+connect_bd_net [get_bd_pins zxsdcard_1/reset] [get_bd_pins zxsdcard_0/reset]
+connect_bd_net [get_bd_pins zxclock_0/clk_peripheral] [get_bd_pins zxsdcard_1/clk_peripheral]
+connect_bd_net [get_bd_pins zxreset_0/peripheral_reset] [get_bd_pins zxsdcard_1/reset]
+startgroup
+create_bd_port -dir I SD_CD
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_cd] [get_bd_ports SD_CD]
+endgroup
+startgroup
+create_bd_port -dir I SD_DAT0
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_dat0] [get_bd_ports SD_DAT0]
+endgroup
+startgroup
+create_bd_port -dir O SD_RESET
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_reset_n] [get_bd_ports SD_RESET]
+endgroup
+startgroup
+create_bd_port -dir O SD_SCK
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_sck] [get_bd_ports SD_SCK]
+endgroup
+startgroup
+create_bd_port -dir O SD_CMD
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_cmd] [get_bd_ports SD_CMD]
+endgroup
+startgroup
+create_bd_port -dir O SD_DAT1
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_dat1] [get_bd_ports SD_DAT1]
+endgroup
+startgroup
+create_bd_port -dir O SD_DAT2
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_dat2] [get_bd_ports SD_DAT2]
+endgroup
+startgroup
+create_bd_port -dir O SD_DAT3
+connect_bd_net [get_bd_pins /zxsdcard_0/sd_dat3] [get_bd_ports SD_DAT3]
+endgroup
+regenerate_bd_layout
+connect_bd_intf_net [get_bd_intf_pins zxsdcard_0/sdcard_enable] [get_bd_intf_pins zxnext_0/sd0_enable]
+connect_bd_intf_net [get_bd_intf_pins zxsdcard_0/sdcard_in] [get_bd_intf_pins zxnext_0/sdcard]
+regenerate_bd_layout
+set_property location {6 1924 409} [get_bd_cells zxsdcard_1]
+connect_bd_intf_net [get_bd_intf_pins zxsdcard_1/sdcard_enable] [get_bd_intf_pins zxnext_0/sd1_enable]
+regenerate_bd_layout
+validate_bd_design
+startgroup
+create_bd_cell -type ip -vlnv specnext.com:specnext:zxvga:1.3 zxvga_0
+endgroup
+connect_bd_net [get_bd_pins zxvga_0/clk_video] [get_bd_pins zxclock_0/clk_video]
+connect_bd_net [get_bd_pins zxvga_0/clk_peripheral] [get_bd_pins zxclock_0/clk_peripheral]
+connect_bd_intf_net [get_bd_intf_pins zxvga_0/video] [get_bd_intf_pins zxnext_0/video]
+regenerate_bd_layout
+delete_bd_objs [get_bd_nets zxnexys_mic_0_i2s_sclk]
+set_property location {6.5 2440 1717} [get_bd_cells zxpi_accel_0]
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_sclk] [get_bd_pins zxpi_accel_0/i2s_sclk]
+connect_bd_net [get_bd_pins zxnexys_mic_0/i2s_wclk] [get_bd_pins zxpi_accel_0/i2s_wclk]
+regenerate_bd_layout
+set_property location {6 1855 1149} [get_bd_cells zxvga_0]
+startgroup
+create_bd_port -dir O -from 3 -to 0 VGA_B
+connect_bd_net [get_bd_pins /zxvga_0/vga_b] [get_bd_ports VGA_B]
+endgroup
+startgroup
+create_bd_port -dir O -from 3 -to 0 VGA_G
+connect_bd_net [get_bd_pins /zxvga_0/vga_g] [get_bd_ports VGA_G]
+endgroup
+startgroup
+create_bd_port -dir O VGA_HS
+connect_bd_net [get_bd_pins /zxvga_0/vga_hs] [get_bd_ports VGA_HS]
+endgroup
+startgroup
+create_bd_port -dir O -from 3 -to 0 VGA_R
+connect_bd_net [get_bd_pins /zxvga_0/vga_r] [get_bd_ports VGA_R]
+endgroup
+startgroup
+create_bd_port -dir O VGA_VS
+connect_bd_net [get_bd_pins /zxvga_0/vga_vs] [get_bd_ports VGA_VS]
+endgroup
+regenerate_bd_layout
+validate_bd_design
+save_bd_design
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+catch { config_ip_cache -export [get_ips -all zxnexys_clk_wiz_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxclock_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxreset_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnext_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxaudio_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_i2s2_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxesp32_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_esp32_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxjoystick_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_ps2_jstk2_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxkeyboard_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnexys_ledsegment_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxmouse_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxpi_accel_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnexys_led_sw_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnexys_mic_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxram_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_mig_7series_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_rtcc_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxrtc_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxsdcard_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxsdcard_0_1] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_xsd_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxvga_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+launch_runs zxnexys_clk_wiz_0_0_synth_1 zxnexys_zxclock_0_0_synth_1 zxnexys_zxreset_0_0_synth_1 zxnexys_zxnext_0_0_synth_1 zxnexys_zxaudio_0_0_synth_1 zxnexys_pmod_i2s2_0_0_synth_1 zxnexys_zxesp32_0_0_synth_1 zxnexys_pmod_esp32_0_0_synth_1 zxnexys_zxjoystick_0_0_synth_1 zxnexys_pmod_ps2_jstk2_0_0_synth_1 zxnexys_zxkeyboard_0_0_synth_1 zxnexys_zxnexys_ledsegment_0_0_synth_1 zxnexys_zxmouse_0_0_synth_1 zxnexys_zxpi_accel_0_0_synth_1 zxnexys_zxnexys_led_sw_0_0_synth_1 zxnexys_zxnexys_mic_0_0_synth_1 zxnexys_zxram_0_0_synth_1 zxnexys_mig_7series_0_0_synth_1 zxnexys_pmod_rtcc_0_0_synth_1 zxnexys_zxrtc_0_0_synth_1 zxnexys_zxsdcard_0_0_synth_1 zxnexys_zxsdcard_0_1_synth_1 zxnexys_pmod_xsd_0_0_synth_1 zxnexys_zxvga_0_0_synth_1 -jobs 8
+wait_on_run zxnexys_clk_wiz_0_0_synth_1
+wait_on_run zxnexys_zxclock_0_0_synth_1
+wait_on_run zxnexys_zxreset_0_0_synth_1
+wait_on_run zxnexys_zxnext_0_0_synth_1
+wait_on_run zxnexys_zxaudio_0_0_synth_1
+wait_on_run zxnexys_pmod_i2s2_0_0_synth_1
+wait_on_run zxnexys_zxesp32_0_0_synth_1
+wait_on_run zxnexys_pmod_esp32_0_0_synth_1
+wait_on_run zxnexys_zxjoystick_0_0_synth_1
+wait_on_run zxnexys_pmod_ps2_jstk2_0_0_synth_1
+wait_on_run zxnexys_zxkeyboard_0_0_synth_1
+wait_on_run zxnexys_zxnexys_ledsegment_0_0_synth_1
+wait_on_run zxnexys_zxmouse_0_0_synth_1
+wait_on_run zxnexys_zxpi_accel_0_0_synth_1
+wait_on_run zxnexys_zxnexys_led_sw_0_0_synth_1
+wait_on_run zxnexys_zxnexys_mic_0_0_synth_1
+wait_on_run zxnexys_zxram_0_0_synth_1
+wait_on_run zxnexys_mig_7series_0_0_synth_1
+wait_on_run zxnexys_pmod_rtcc_0_0_synth_1
+wait_on_run zxnexys_zxrtc_0_0_synth_1
+wait_on_run zxnexys_zxsdcard_0_0_synth_1
+wait_on_run zxnexys_zxsdcard_0_1_synth_1
+wait_on_run zxnexys_pmod_xsd_0_0_synth_1
+wait_on_run zxnexys_zxvga_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -directory V:/synth/zxnexys/zxnexys.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys/zxnexys.ip_user_files -ipstatic_source_dir V:/synth/zxnexys/zxnexys.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys/zxnexys.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys/zxnexys.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys/zxnexys.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys/zxnexys.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+close_project
+open_project V:/synth/zxjoystick/zxjoystick.xpr
+update_compile_order -fileset sources_1
+update_module_reference joystick_pmod_jstk2_0_0
+regenerate_bd_layout
+validate_bd_design
+generate_target all [get_files  V:/srcs/sources/bd/joystick/joystick.bd]
+catch { config_ip_cache -export [get_ips -all joystick_pmod_jstk2_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/joystick/joystick.bd]
+launch_runs joystick_pmod_jstk2_0_0_synth_1 -jobs 8
+wait_on_run joystick_pmod_jstk2_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -directory V:/synth/zxjoystick/zxjoystick.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxjoystick/zxjoystick.ip_user_files -ipstatic_source_dir V:/synth/zxjoystick/zxjoystick.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/modelsim} {questa=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/questa} {riviera=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/riviera} {activehdl=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxjoystick/component.xml
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+set_property core_revision 10 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxnexys/zxnexys.xpr
+update_compile_order -fileset sources_1
+report_ip_status -name ip_status 
+upgrade_ip -vlnv specnext.com:specnext:zxjoystick:2.3 [get_ips  zxnexys_zxjoystick_0_0] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips zxnexys_zxjoystick_0_0] -no_script -sync -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+close_project
+open_project V:/synth/zxjoystick/zxjoystick.xpr
+update_compile_order -fileset sources_1
+open_bd_design {V:/srcs/sources/bd/joystick/joystick.bd}
+ipx::open_ipxact_file V:/ip/zxjoystick/component.xml
+ipx::merge_project_changes hdl_parameters [ipx::current_core]
+set_property core_revision 11 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxaudio/zxaudio.xpr
+update_compile_order -fileset sources_1
+open_bd_design {V:/srcs/sources/bd/audio/audio.bd}
+add_files -norecurse V:/srcs/sources/imports/MISTer/iir_filter.v
+add_files -norecurse {V:/srcs/sources/new/audio/audio_filter_control.v V:/srcs/sources/new/audio/audio_sync.v}
+update_compile_order -fileset sources_1
+disconnect_bd_net /audio_scaler_0_dout [get_bd_pins audio_scaler_0/dout]
+disconnect_bd_net /audio_scaler_1_dout [get_bd_pins audio_scaler_1/dout]
+startgroup
+create_bd_cell -type module -reference audio_sync audio_sync_0
+create_bd_cell -type module -reference audio_filter_control audio_filter_control_0
+create_bd_cell -type module -reference DC_blocker DC_blocker_0
+create_bd_cell -type module -reference IIR_filter IIR_filter_0
+endgroup
+update_module_reference audio_audio_filter_control_0_0
+copy_bd_objs /  [get_bd_cells {DC_blocker_0}]
+copy_bd_objs /  [get_bd_cells {audio_sync_0}]
+connect_bd_net [get_bd_pins audio_sync_0/din] [get_bd_pins audio_scaler_0/dout]
+connect_bd_net [get_bd_pins audio_sync_1/din] [get_bd_pins audio_scaler_1/dout]
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins audio_sync_0/clk]
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins audio_sync_1/clk]
+update_compile_order -fileset sources_1
+connect_bd_net [get_bd_pins audio_sync_0/dout] [get_bd_pins IIR_filter_0/input_l]
+connect_bd_net [get_bd_pins audio_sync_1/dout] [get_bd_pins IIR_filter_0/input_r]
+connect_bd_net [get_bd_pins IIR_filter_0/output_l] [get_bd_pins DC_blocker_0/din]
+connect_bd_net [get_bd_pins IIR_filter_0/output_l] [get_bd_pins DC_blocker_1/din]
+connect_bd_net [get_bd_pins DC_blocker_0/dout] [get_bd_pins i2s_transceiver_0/l_data_tx]
+connect_bd_net [get_bd_pins DC_blocker_1/dout] [get_bd_pins audio_mono_0/right_in]
+regenerate_bd_layout
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins IIR_filter_0/clk]
+connect_bd_net [get_bd_pins IIR_filter_0/reset] [get_bd_pins audio_reset_0/rst]
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins audio_filter_control_0/clk]
+connect_bd_net [get_bd_pins audio_filter_control_0/reset] [get_bd_pins audio_reset_0/rst]
+regenerate_bd_layout
+set_property location {2 450 455} [get_bd_cells audio_filter_control_0]
+connect_bd_net [get_bd_pins audio_filter_control_0/cx] [get_bd_pins IIR_filter_0/cx]
+connect_bd_net [get_bd_pins audio_filter_control_0/cx0] [get_bd_pins IIR_filter_0/cx0]
+connect_bd_net [get_bd_pins audio_filter_control_0/cx1] [get_bd_pins IIR_filter_0/cx1]
+connect_bd_net [get_bd_pins audio_filter_control_0/cx2] [get_bd_pins IIR_filter_0/cx2]
+connect_bd_net [get_bd_pins audio_filter_control_0/cy0] [get_bd_pins IIR_filter_0/cy0]
+connect_bd_net [get_bd_pins audio_filter_control_0/cy1] [get_bd_pins IIR_filter_0/cy1]
+connect_bd_net [get_bd_pins audio_filter_control_0/cy2] [get_bd_pins IIR_filter_0/cy2]
+connect_bd_net [get_bd_pins audio_filter_control_0/iir_ce] [get_bd_pins IIR_filter_0/ce]
+connect_bd_net [get_bd_pins audio_filter_control_0/iir_sample_ce] [get_bd_pins IIR_filter_0/sample_ce]
+disconnect_bd_net /IIR_filter_0_output_l [get_bd_pins DC_blocker_1/din]
+startgroup
+connect_bd_net [get_bd_pins IIR_filter_0/output_r] [get_bd_pins DC_blocker_1/din]
+endgroup
+connect_bd_net [get_bd_pins audio_filter_control_0/dc_ce] [get_bd_pins DC_blocker_1/ce]
+connect_bd_net [get_bd_pins audio_filter_control_0/dc_sample_rate] [get_bd_pins DC_blocker_1/sample_rate]
+connect_bd_net [get_bd_pins audio_filter_control_0/dc_mute] [get_bd_pins DC_blocker_1/mute]
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins DC_blocker_1/clk]
+connect_bd_net [get_bd_ports clk_audio] [get_bd_pins DC_blocker_0/clk]
+connect_bd_net [get_bd_pins DC_blocker_0/ce] [get_bd_pins audio_filter_control_0/dc_ce]
+connect_bd_net [get_bd_pins DC_blocker_0/mute] [get_bd_pins audio_filter_control_0/dc_mute]
+connect_bd_net [get_bd_pins DC_blocker_0/sample_rate] [get_bd_pins audio_filter_control_0/dc_sample_rate]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.use_params {0}] [get_bd_cells IIR_filter_0]
+endgroup
+regenerate_bd_layout
+validate_bd_design
+generate_target all [get_files  V:/srcs/sources/bd/audio/audio.bd]
+catch { config_ip_cache -export [get_ips -all audio_audio_filter_control_0_0] }
+catch { config_ip_cache -export [get_ips -all audio_audio_sync_0_0] }
+catch { config_ip_cache -export [get_ips -all audio_DC_blocker_0_0] }
+catch { config_ip_cache -export [get_ips -all audio_IIR_filter_0_0] }
+catch { config_ip_cache -export [get_ips -all audio_DC_blocker_0_1] }
+catch { config_ip_cache -export [get_ips -all audio_audio_sync_0_1] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/audio/audio.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/audio/audio.bd]
+launch_runs audio_audio_filter_control_0_0_synth_1 audio_audio_sync_0_0_synth_1 audio_DC_blocker_0_0_synth_1 audio_IIR_filter_0_0_synth_1 audio_DC_blocker_0_1_synth_1 audio_audio_sync_0_1_synth_1 -jobs 8
+wait_on_run audio_audio_filter_control_0_0_synth_1
+wait_on_run audio_audio_sync_0_0_synth_1
+wait_on_run audio_DC_blocker_0_0_synth_1
+wait_on_run audio_IIR_filter_0_0_synth_1
+wait_on_run audio_DC_blocker_0_1_synth_1
+wait_on_run audio_audio_sync_0_1_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/audio/audio.bd] -directory V:/synth/zxaudio/zxaudio.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxaudio/zxaudio.ip_user_files -ipstatic_source_dir V:/synth/zxaudio/zxaudio.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxaudio/zxaudio.cache/compile_simlib/modelsim} {questa=V:/synth/zxaudio/zxaudio.cache/compile_simlib/questa} {riviera=V:/synth/zxaudio/zxaudio.cache/compile_simlib/riviera} {activehdl=V:/synth/zxaudio/zxaudio.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxaudio/component.xml
+ipx::merge_project_changes ports [ipx::current_core]
+set_property core_revision 8 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxnexys/zxnexys.xpr
+report_ip_status -name ip_status 
+update_compile_order -fileset sources_1
+upgrade_ip [get_ips  {zxnexys_zxjoystick_0_0 zxnexys_zxaudio_0_0}] -log ip_upgrade.log
+export_ip_user_files -of_objects [get_ips {zxnexys_zxjoystick_0_0 zxnexys_zxaudio_0_0}] -no_script -sync -force -quiet
+reset_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -sync -no_script -force -quiet
+delete_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+catch { config_ip_cache -export [get_ips -all zxnexys_clk_wiz_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxclock_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxreset_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnext_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxaudio_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_i2s2_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxesp32_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_esp32_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_ps2_jstk2_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxkeyboard_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnexys_ledsegment_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxmouse_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxpi_accel_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnexys_led_sw_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxnexys_mic_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxram_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_mig_7series_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_rtcc_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxrtc_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxsdcard_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxsdcard_0_1] }
+catch { config_ip_cache -export [get_ips -all zxnexys_pmod_xsd_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxvga_0_0] }
+catch { config_ip_cache -export [get_ips -all zxnexys_zxjoystick_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+launch_runs zxnexys_zxaudio_0_0_synth_1 zxnexys_zxjoystick_0_0_synth_1 -jobs 8
+wait_on_run zxnexys_zxaudio_0_0_synth_1
+wait_on_run zxnexys_zxjoystick_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -directory V:/synth/zxnexys/zxnexys.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys/zxnexys.ip_user_files -ipstatic_source_dir V:/synth/zxnexys/zxnexys.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys/zxnexys.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys/zxnexys.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys/zxnexys.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys/zxnexys.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+catch { config_ip_cache -export [get_ips -all zxnexys_zxaudio_0_0] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+export_simulation -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -directory V:/synth/zxnexys/zxnexys.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys/zxnexys.ip_user_files -ipstatic_source_dir V:/synth/zxnexys/zxnexys.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys/zxnexys.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys/zxnexys.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys/zxnexys.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys/zxnexys.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {V:/synth/zxnexys/zxnexys.runs/impl_1/zxnexys_wrapper.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {V:/synth/zxnexys/zxnexys.runs/impl_1/zxnexys_wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+close_project
+open_project V:/synth/zxnexys/zxnexys.xpr
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+launch_runs zxnexys_zxaudio_0_0_synth_1 zxnexys_zxjoystick_0_0_synth_1 -jobs 8
+wait_on_run zxnexys_zxaudio_0_0_synth_1
+wait_on_run zxnexys_zxjoystick_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -directory V:/synth/zxnexys/zxnexys.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys/zxnexys.ip_user_files -ipstatic_source_dir V:/synth/zxnexys/zxnexys.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys/zxnexys.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys/zxnexys.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys/zxnexys.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys/zxnexys.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close_project
+open_project V:/synth/zxnexys/zxnexys.xpr
+update_compile_order -fileset sources_1
+close_project
+open_project V:/synth/zxnexys/zxnexys.xpr
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+launch_runs zxnexys_zxaudio_0_0_synth_1 zxnexys_zxjoystick_0_0_synth_1 -jobs 8
+wait_on_run zxnexys_zxaudio_0_0_synth_1
+wait_on_run zxnexys_zxjoystick_0_0_synth_1
+export_simulation -of_objects [get_files V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -directory V:/synth/zxnexys/zxnexys.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxnexys/zxnexys.ip_user_files -ipstatic_source_dir V:/synth/zxnexys/zxnexys.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxnexys/zxnexys.cache/compile_simlib/modelsim} {questa=V:/synth/zxnexys/zxnexys.cache/compile_simlib/questa} {riviera=V:/synth/zxnexys/zxnexys.cache/compile_simlib/riviera} {activehdl=V:/synth/zxnexys/zxnexys.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+reset_run synth_1
+close_project
+open_project V:/synth/zxaudio/zxaudio.xpr
+open_project V:/synth/zxnexys/zxnexys.xpr
+update_compile_order -fileset sources_1
+reset_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -sync -no_script -force -quiet
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+open_bd_design {V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd}
+regenerate_bd_layout
+validate_bd_design
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_1
+apply_board_connection -board_interface "ddr2_sdram" -ip_intf "mig_7series_1/mig_ddr_interface" -diagram "zxnexys" 
+endgroup
+delete_bd_objs [get_bd_nets sys_clk_i_1] [get_bd_ports sys_clk_i]
+delete_bd_objs [get_bd_intf_nets mig_7series_1_DDR2] [get_bd_cells mig_7series_1]
+delete_bd_objs [get_bd_intf_ports ddr2_sdram_0]
+save_bd_design
+reset_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+export_ip_user_files -of_objects  [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd] -sync -no_script -force -quiet
+close_project
+open_project V:/synth/zxnexys/zxnexys.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files v:/srcs/sources/bd/zxnexys/zxnexys/ip/zxnexys_mig_7series_0_0/mig_a.prj] -no_script -reset -force -quiet
+remove_files  v:/srcs/sources/bd/zxnexys/zxnexys/ip/zxnexys_mig_7series_0_0/mig_a.prj
+open_bd_design {V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_1
+apply_board_connection -board_interface "ddr2_sdram" -ip_intf "mig_7series_1/mig_ddr_interface" -diagram "zxnexys" 
+endgroup
+delete_bd_objs [get_bd_intf_nets mig_7series_1_DDR2] [get_bd_nets sys_clk_i_1] [get_bd_cells mig_7series_1]
+delete_bd_objs [get_bd_cells mig_7series_0]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_0
+apply_board_connection -board_interface "ddr2_sdram" -ip_intf "mig_7series_0/mig_ddr_interface" -diagram "zxnexys" 
+endgroup
+delete_bd_objs [get_bd_intf_nets mig_7series_0_DDR2] [get_bd_intf_ports ddr2_sdram_1] [get_bd_intf_ports ddr2_sdram_0] [get_bd_intf_ports ddr2_sdram]
+delete_bd_objs [get_bd_nets sys_clk_i_0_1] [get_bd_cells mig_7series_0]
+delete_bd_objs [get_bd_ports sys_clk_i_0] [get_bd_ports sys_clk_i]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:mig_7series:4.2 mig_7series_0
+apply_board_connection -board_interface "ddr2_sdram" -ip_intf "mig_7series_0/mig_ddr_interface" -diagram "zxnexys" 
+endgroup
+delete_bd_objs [get_bd_nets sys_clk_i_1] [get_bd_ports sys_clk_i]
+set_property -name {CONFIG.XML_INPUT_FILE} -value  {mig_a.prj} -objects [get_bd_cells mig_7series_0]
+set_property -name {CONFIG.RESET_BOARD_INTERFACE} -value  {Custom} -objects [get_bd_cells mig_7series_0]
+set_property -name {CONFIG.MIG_DONT_TOUCH_PARAM} -value  {Custom} -objects [get_bd_cells mig_7series_0]
+set_property -name {CONFIG.BOARD_MIG_PARAM} -value  {ddr2_sdram} -objects [get_bd_cells mig_7series_0]
+set_property location {2.5 610 1051} [get_bd_cells mig_7series_0]
+connect_bd_net [get_bd_pins mig_7series_0/sys_clk_i] [get_bd_pins zxclock_0/clk_system]
+connect_bd_net [get_bd_pins mig_7series_0/sys_rst] [get_bd_pins zxreset_0/memory_aresetn]
+connect_bd_net [get_bd_pins mig_7series_0/aresetn] [get_bd_pins zxreset_0/memory_aresetn]
+connect_bd_net [get_bd_pins mig_7series_0/ui_clk] [get_bd_pins zxram_0/clk_ui]
+connect_bd_net [get_bd_pins mig_7series_0/mmcm_locked] [get_bd_pins zxreset_0/ui_clk_locked]
+connect_bd_net [get_bd_pins mig_7series_0/init_calib_complete] [get_bd_pins zxreset_0/memory_calibrated]
+connect_bd_net [get_bd_pins mig_7series_0/ui_clk_sync_rst] [get_bd_pins zxram_0/reset_ui]
+connect_bd_intf_net [get_bd_intf_pins zxram_0/axi_mig] [get_bd_intf_pins mig_7series_0/S_AXI]
+regenerate_bd_layout
+assign_bd_address
+validate_bd_design
+save_bd_design
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+generate_target all [get_files  V:/srcs/sources/bd/zxnexys/zxnexys/zxnexys.bd]
+report_ip_status -name ip_status 
+close_project
+open_project V:/synth/pmod_esp32/pmod_esp32.xpr
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file V:/ip/pmod_esp32/component.xml
+close_project
+open_project V:/synth/zxaudio/zxaudio.xpr
+update_compile_order -fileset sources_1
+generate_target all [get_files  V:/srcs/sources/bd/audio/audio.bd]
+catch { config_ip_cache -export [get_ips -all audio_i2s_transceiver_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_i2s_transceiver_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_reset_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_audio_reset_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_scaler_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_audio_scaler_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_scaler_0_1] }
+catch { [ delete_ip_run [get_ips -all audio_audio_scaler_0_1] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_mono_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_audio_mono_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_tape_mic_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_tape_mic_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_tape_ear_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_tape_ear_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_mono_0_1] }
+catch { [ delete_ip_run [get_ips -all audio_audio_mono_0_1] ] }
+catch { config_ip_cache -export [get_ips -all audio_sigma_delta_dac_0_1] }
+catch { [ delete_ip_run [get_ips -all audio_sigma_delta_dac_0_1] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_psg_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_audio_psg_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_sigma_delta_dac_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_sigma_delta_dac_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_sync_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_audio_sync_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_DC_blocker_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_DC_blocker_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_IIR_filter_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_IIR_filter_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_filter_control_0_0] }
+catch { [ delete_ip_run [get_ips -all audio_audio_filter_control_0_0] ] }
+catch { config_ip_cache -export [get_ips -all audio_DC_blocker_0_1] }
+catch { [ delete_ip_run [get_ips -all audio_DC_blocker_0_1] ] }
+catch { config_ip_cache -export [get_ips -all audio_audio_sync_0_1] }
+catch { [ delete_ip_run [get_ips -all audio_audio_sync_0_1] ] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/audio/audio.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/audio/audio.bd]
+export_simulation -of_objects [get_files V:/srcs/sources/bd/audio/audio.bd] -directory V:/synth/zxaudio/zxaudio.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxaudio/zxaudio.ip_user_files -ipstatic_source_dir V:/synth/zxaudio/zxaudio.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxaudio/zxaudio.cache/compile_simlib/modelsim} {questa=V:/synth/zxaudio/zxaudio.cache/compile_simlib/questa} {riviera=V:/synth/zxaudio/zxaudio.cache/compile_simlib/riviera} {activehdl=V:/synth/zxaudio/zxaudio.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+close_project
+open_project V:/synth/zxaudio/zxaudio.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files V:/zxaudio.gen/sources_1/bd/audio/hdl/audio_wrapper.v] -no_script -reset -force -quiet
+remove_files  V:/zxaudio.gen/sources_1/bd/audio/hdl/audio_wrapper.v
+make_wrapper -files [get_files V:/srcs/sources/bd/audio/audio.bd] -top
+add_files -norecurse v:/zxaudio.gen/sources_1/bd/audio/hdl/audio_wrapper.v
+update_compile_order -fileset sources_1
+update_module_reference audio_i2s_transceiver_0_0
+update_module_reference audio_tape_mic_0_0
+update_module_reference audio_tape_ear_0_0
+update_module_reference {audio_sigma_delta_dac_0_1 audio_sigma_delta_dac_0_0}
+update_module_reference audio_DC_blocker_0_0
+update_module_reference audio_IIR_filter_0_0
+update_module_reference audio_DC_blocker_0_1
+make_wrapper -files [get_files V:/srcs/sources/bd/audio/audio.bd] -top
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+ipx::open_ipxact_file V:/ip/zxaudio/component.xml
+set_property core_revision 9 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path v:/ip
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top audio_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+open_project V:/synth/zxjoystick/zxjoystick.xpr
+update_compile_order -fileset sources_1
+current_project zxaudio
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+current_project zxjoystick
+open_bd_design {V:/srcs/sources/bd/joystick/joystick.bd}
+generate_target all [get_files  V:/srcs/sources/bd/joystick/joystick.bd]
+catch { config_ip_cache -export [get_ips -all joystick_SPI_Master_0_0] }
+catch { [ delete_ip_run [get_ips -all joystick_SPI_Master_0_0] ] }
+catch { config_ip_cache -export [get_ips -all joystick_btn_jstk_0_0] }
+catch { [ delete_ip_run [get_ips -all joystick_btn_jstk_0_0] ] }
+catch { config_ip_cache -export [get_ips -all joystick_util_vector_logic_0_0] }
+catch { [ delete_ip_run [get_ips -all joystick_util_vector_logic_0_0] ] }
+catch { config_ip_cache -export [get_ips -all joystick_pmod_jstk2_0_0] }
+catch { [ delete_ip_run [get_ips -all joystick_pmod_jstk2_0_0] ] }
+export_ip_user_files -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] V:/srcs/sources/bd/joystick/joystick.bd]
+export_simulation -of_objects [get_files V:/srcs/sources/bd/joystick/joystick.bd] -directory V:/synth/zxjoystick/zxjoystick.ip_user_files/sim_scripts -ip_user_files_dir V:/synth/zxjoystick/zxjoystick.ip_user_files -ipstatic_source_dir V:/synth/zxjoystick/zxjoystick.ip_user_files/ipstatic -lib_map_path [list {modelsim=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/modelsim} {questa=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/questa} {riviera=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/riviera} {activehdl=V:/synth/zxjoystick/zxjoystick.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+set_property core_revision 10 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+current_project zxaudio
+update_ip_catalog -rebuild -repo_path v:/ip
+close_project
+open_project V:/synth/zxkeyboard/zxkeyboard.xpr
+ipx::open_ipxact_file V:/ip/zxjoystick/component.xml
+set_property core_revision 12 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::check_integrity [ipx::current_core]
+ipx::save_core [ipx::current_core]
+current_project zxjoystick
+update_ip_catalog -rebuild -repo_path v:/ip
+current_project zxkeyboard
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+current_project zxjoystick
+close_project
+open_project V:/synth/zxmouse/zxmouse.xpr

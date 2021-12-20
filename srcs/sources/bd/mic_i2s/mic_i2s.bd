@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x379529DF1D250632",
+      "boundary_crc": "0x379529DF574301F8",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../zxnexys_mic.gen/sources_1/bd/mic_i2s",
       "name": "mic_i2s",
@@ -27,7 +27,7 @@
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "22580650",
+            "value": "12280700",
             "value_src": "user_prop"
           },
           "PHASE": {
@@ -70,7 +70,7 @@
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "22580650"
+            "value": "12280700"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -115,7 +115,7 @@
             "value": "8"
           },
           "mclk_sclk_ratio": {
-            "value": "8"
+            "value": "4"
           }
         },
         "reference_info": {
@@ -138,7 +138,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "22580650",
+                "value": "12280700",
                 "value_src": "user_prop"
               },
               "PHASE": {
@@ -233,7 +233,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "22580650",
+                "value": "12280700",
                 "value_src": "user_prop"
               },
               "PHASE": {
@@ -288,7 +288,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "22580650",
+                "value": "12280700",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {

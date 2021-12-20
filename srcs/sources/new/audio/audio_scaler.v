@@ -30,7 +30,6 @@ module audio_scaler #(
     output      [AUDIO_DW_OUT-1:0]  dout
 );
     
-//    assign  dout  = { din[AUDIO_DW_IN-1] == 1'b1 ? {AUDIO_DW_IN-2{1'b1}} :  din[AUDIO_DW_IN-2:0], {(AUDIO_DW_OUT-AUDIO_DW_IN+1){1'b0}}};   
     assign  dout  = {din[AUDIO_DW_IN-1:0], {(AUDIO_DW_OUT-AUDIO_DW_IN){1'b0}}};   
 
 endmodule

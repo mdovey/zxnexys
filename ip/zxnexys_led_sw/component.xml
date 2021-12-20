@@ -124,7 +124,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5889ee14</spirit:value>
+            <spirit:value>acd708fd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -140,7 +140,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>87900a20</spirit:value>
+            <spirit:value>ff38147d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -419,11 +419,11 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_rtc_0_0/synth/led_sw_rtc_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_rtc_0_0/synth/led_sw_rtc_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_led_sw_controller_0_0/synth/led_sw_led_sw_controller_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_led_sw_controller_0_0/synth/led_sw_led_sw_controller_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -435,19 +435,19 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/synth/led_sw.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/synth/led_sw.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/led_sw_ooc.xdc</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/led_sw_ooc.xdc</spirit:name>
         <spirit:userFileType>xdc</spirit:userFileType>
         <spirit:userFileType>SCOPED_TO_REF_led_sw</spirit:userFileType>
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_5ed5d7de</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_c36ce67c</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -483,11 +483,11 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_rtc_0_0/sim/led_sw_rtc_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_rtc_0_0/sim/led_sw_rtc_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_led_sw_controller_0_0/sim/led_sw_led_sw_controller_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/ip/led_sw_led_sw_controller_0_0/sim/led_sw_led_sw_controller_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -499,11 +499,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/sim/led_sw.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/sim/led_sw.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_led_sw/zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v</spirit:name>
+        <spirit:name>../../zxnexys_led_sw.gen/sources_1/bd/led_sw/hdl/led_sw_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -534,11 +534,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_led_sw_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:led_sw_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-18T21:46:16Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-19T16:26:13Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@b37495f_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@553c3fbd_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
@@ -610,12 +610,34 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@700fa963_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@74326b04_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@677ad4c1_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b62d243_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10990a7b_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3824cc49_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f45dec2_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@281ed3e1_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c9ad077_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f31145f_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ce9eb90_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@265e4ae1_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13455002_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1837a870_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@181c8461_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22d547f8_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10f47b45_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42dce59_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@697a3aeb_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15bce4e9_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c98262f_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2546737a_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1464d93a_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2575d5cc_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68f723aa_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="01930010"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e9c096af"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="84a5a73a"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="557314dc"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="ed1b51c1"/>
     </xilinx:packagingInfo>

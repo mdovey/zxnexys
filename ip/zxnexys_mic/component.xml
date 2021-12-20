@@ -77,7 +77,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>898e16e5</spirit:value>
+            <spirit:value>946e89d9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -96,7 +96,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>828548ac</spirit:value>
+            <spirit:value>990686bb</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -283,19 +283,15 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_pwm_decode_0_0/synth/mic_i2s_pwm_decode_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_i2s_transceiver_0_0/synth/mic_i2s_i2s_transceiver_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_i2s_transceiver_0_0/synth/mic_i2s_i2s_transceiver_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_pwm_decode_0_0/synth/mic_i2s_pwm_decode_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_mic_reset_0_0/synth/mic_i2s_mic_reset_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/pwm_decode.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_mic_reset_0_0/synth/mic_i2s_mic_reset_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -303,23 +299,22 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/new/nexys/pwm_decode.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/mic_reset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/synth/mic_i2s.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/synth/mic_i2s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/mic_i2s_ooc.xdc</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/mic_i2s_ooc.xdc</spirit:name>
         <spirit:userFileType>xdc</spirit:userFileType>
         <spirit:userFileType>SCOPED_TO_REF_mic_i2s</spirit:userFileType>
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/hdl/mic_i2s_wrapper.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_096c3fa6</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -356,19 +351,15 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_pwm_decode_0_0/sim/mic_i2s_pwm_decode_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_i2s_transceiver_0_0/sim/mic_i2s_i2s_transceiver_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_i2s_transceiver_0_0/sim/mic_i2s_i2s_transceiver_0_0.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_pwm_decode_0_0/sim/mic_i2s_pwm_decode_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_mic_reset_0_0/sim/mic_i2s_mic_reset_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/pwm_decode.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/ip/mic_i2s_mic_reset_0_0/sim/mic_i2s_mic_reset_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -376,15 +367,15 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/new/nexys/pwm_decode.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/mic_reset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/sim/mic_i2s.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../synth/zxnexys_mic/zxnexys_mic.gen/sources_1/bd/mic_i2s/hdl/mic_i2s_wrapper.v</spirit:name>
+        <spirit:name>../../zxnexys_mic.gen/sources_1/bd/mic_i2s/sim/mic_i2s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
@@ -425,8 +416,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_mic_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>6</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-18T21:48:35Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>9</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-20T08:20:01Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2dcb3b5d_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4e1445fe_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
@@ -522,12 +513,39 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@2e76606a_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3f0e58a1_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@55957c63_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44f393d0_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17f1170c_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48c33a1f_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a9e95a8_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bd52a22_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5755735_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36f99518_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28e7374e_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a823943_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d9d16f3_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c611ba6_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@429de15_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4fab6fbc_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23285337_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59be3c26_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9384718_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75ee8f67_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@254d11b_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67658771_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72661e09_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68a4c699_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@374f4123_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73d0a142_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7acca1e2_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@346bfa09_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5da516e1_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56f8b417_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="a79d84ef"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7e431cb6"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8f4f3fea"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="985e3fac"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="3d6cce2e"/>
     </xilinx:packagingInfo>
