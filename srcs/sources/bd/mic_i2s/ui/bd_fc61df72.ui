@@ -1,0 +1,35 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-290,-128",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_audio -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port port-id_i2s_din -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
+preplace port port-id_i2s_dout -pg 1 -lvl 3 -x 650 -y 20 -defaultsOSRD
+preplace port port-id_i2s_sclk -pg 1 -lvl 3 -x 650 -y 40 -defaultsOSRD
+preplace port port-id_i2s_wclk -pg 1 -lvl 3 -x 650 -y 60 -defaultsOSRD
+preplace port port-id_m_clk -pg 1 -lvl 3 -x 650 -y 80 -defaultsOSRD
+preplace port port-id_m_data -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port port-id_m_lrsel -pg 1 -lvl 3 -x 650 -y 100 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace inst i2s_transceiver_0 -pg 1 -lvl 1 -x 220 -y 100 -defaultsOSRD
+preplace inst mic_reset_0 -pg 1 -lvl 1 -x 220 -y 250 -defaultsOSRD
+preplace inst pwm_decode_0 -pg 1 -lvl 2 -x 490 -y 80 -defaultsOSRD
+preplace netloc clk_audio_1 1 0 3 40 340 400 190 630J
+preplace netloc i2s_din_1 1 0 1 50 40n
+preplace netloc i2s_transceiver_0_sclk 1 1 2 360 160 610J
+preplace netloc i2s_transceiver_0_sd_tx 1 1 2 370J 170 600
+preplace netloc i2s_transceiver_0_ws 1 1 2 390 180 620
+preplace netloc m_data_1 1 0 2 30J 320 380
+preplace netloc pwm_decode_0_l 1 0 3 70 350 NJ 350 590
+preplace netloc pwm_decode_0_lrsel 1 2 1 N 100
+preplace netloc pwm_decode_0_r 1 0 3 80 360 NJ 360 580
+preplace netloc reset_1 1 0 1 20 80n
+preplace netloc util_vector_logic_0_Res 1 0 2 60 330 360
+levelinfo -pg 1 0 220 490 650
+pagesize -pg 1 -db -bbox -sgen -110 0 760 370
+"
+}
+

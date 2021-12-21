@@ -1,0 +1,529 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x75510EC3ED615C64",
+      "device": "xc7a100tcsg324-1",
+      "name": "vga",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "front_porch_0": "",
+      "s_fix_0": "",
+      "s_fix_1": "",
+      "scandoubler_0": "",
+      "scan_convert_0": ""
+    },
+    "ports": {
+      "clk_peripheral": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "vga_clk_peripheral",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "28000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "clk_video": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "vga_clk_video",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "14000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "csync_n": {
+        "direction": "I"
+      },
+      "hsync_n": {
+        "direction": "I"
+      },
+      "machine_timing": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "rgb": {
+        "direction": "I",
+        "left": "8",
+        "right": "0"
+      },
+      "scandouble": {
+        "direction": "I"
+      },
+      "scanlines": {
+        "direction": "I",
+        "left": "1",
+        "right": "0"
+      },
+      "vga_b": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_g": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_hs": {
+        "direction": "O"
+      },
+      "vga_r": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "vga_vs": {
+        "direction": "O"
+      },
+      "vsync_n": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "front_porch_0": {
+        "vlnv": "xilinx.com:module_ref:front_porch:1.0",
+        "xci_name": "vga_front_porch_0_0",
+        "xci_path": "ip\\vga_front_porch_0_0\\vga_front_porch_0_0.xci",
+        "inst_hier_path": "front_porch_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "front_porch",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "machine_timing": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "ha_value": {
+            "direction": "O",
+            "left": "10",
+            "right": "0"
+          }
+        }
+      },
+      "s_fix_0": {
+        "vlnv": "xilinx.com:module_ref:s_fix:1.0",
+        "xci_name": "vga_s_fix_0_0",
+        "xci_path": "ip\\vga_s_fix_0_0\\vga_s_fix_0_0.xci",
+        "inst_hier_path": "s_fix_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "s_fix",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "vga_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "sync_in": {
+            "direction": "I"
+          },
+          "sync_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "s_fix_1": {
+        "vlnv": "xilinx.com:module_ref:s_fix:1.0",
+        "xci_name": "vga_s_fix_1_0",
+        "xci_path": "ip\\vga_s_fix_1_0\\vga_s_fix_1_0.xci",
+        "inst_hier_path": "s_fix_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "s_fix",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "vga_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "sync_in": {
+            "direction": "I"
+          },
+          "sync_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "scandoubler_0": {
+        "vlnv": "xilinx.com:module_ref:scandoubler:1.0",
+        "xci_name": "vga_scandoubler_0_0",
+        "xci_path": "ip\\vga_scandoubler_0_0\\vga_scandoubler_0_0.xci",
+        "inst_hier_path": "scandoubler_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "scandoubler",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "video_15": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "video_31": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "hsync": {
+            "direction": "I"
+          },
+          "vsync": {
+            "direction": "I"
+          },
+          "csync_n": {
+            "direction": "I"
+          },
+          "scandouble": {
+            "direction": "I"
+          },
+          "r": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "g": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "b": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "h_sync": {
+            "direction": "O"
+          },
+          "v_sync": {
+            "direction": "O"
+          },
+          "clk_peripheral": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "vga_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
+      },
+      "scan_convert_0": {
+        "vlnv": "xilinx.com:module_ref:scan_convert:1.0",
+        "xci_name": "vga_scan_convert_0_0",
+        "xci_path": "ip\\vga_scan_convert_0_0\\vga_scan_convert_0_0.xci",
+        "inst_hier_path": "scan_convert_0",
+        "parameters": {
+          "clength": {
+            "value": "704"
+          },
+          "cstart": {
+            "value": "76"
+          },
+          "hB": {
+            "value": "64"
+          },
+          "hC": {
+            "value": "80"
+          },
+          "hD": {
+            "value": "704"
+          },
+          "vB": {
+            "value": "4"
+          },
+          "vC": {
+            "value": "10"
+          },
+          "vD": {
+            "value": "568"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "scan_convert",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "14000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "vga_clk_video",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "CLK_x2": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "vga_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "hA": {
+            "direction": "I",
+            "left": "10",
+            "right": "0"
+          },
+          "I_VIDEO": {
+            "direction": "I",
+            "left": "8",
+            "right": "0"
+          },
+          "I_HSYNC": {
+            "direction": "I"
+          },
+          "I_VSYNC": {
+            "direction": "I"
+          },
+          "I_SCANLIN": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "I_BLANK_N": {
+            "direction": "I"
+          },
+          "O_VIDEO_15": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "O_VIDEO_31": {
+            "direction": "O",
+            "left": "8",
+            "right": "0"
+          },
+          "O_HSYNC": {
+            "direction": "O"
+          },
+          "O_VSYNC": {
+            "direction": "O"
+          },
+          "O_BLANK": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_peripheral_1": {
+        "ports": [
+          "clk_peripheral",
+          "s_fix_0/clk",
+          "s_fix_1/clk",
+          "scandoubler_0/clk_peripheral",
+          "scan_convert_0/CLK_x2"
+        ]
+      },
+      "clk_video_1": {
+        "ports": [
+          "clk_video",
+          "scan_convert_0/CLK"
+        ]
+      },
+      "csync_n_1": {
+        "ports": [
+          "csync_n",
+          "scandoubler_0/csync_n",
+          "scan_convert_0/I_BLANK_N"
+        ]
+      },
+      "front_porch_0_ha_value": {
+        "ports": [
+          "front_porch_0/ha_value",
+          "scan_convert_0/hA"
+        ]
+      },
+      "hsync_n_1": {
+        "ports": [
+          "hsync_n",
+          "scan_convert_0/I_HSYNC"
+        ]
+      },
+      "machine_timing_1": {
+        "ports": [
+          "machine_timing",
+          "front_porch_0/machine_timing"
+        ]
+      },
+      "rgb_1": {
+        "ports": [
+          "rgb",
+          "scan_convert_0/I_VIDEO"
+        ]
+      },
+      "s_fix_0_sync_out": {
+        "ports": [
+          "s_fix_0/sync_out",
+          "vga_hs"
+        ]
+      },
+      "s_fix_1_sync_out": {
+        "ports": [
+          "s_fix_1/sync_out",
+          "vga_vs"
+        ]
+      },
+      "scan_convert_0_O_HSYNC": {
+        "ports": [
+          "scan_convert_0/O_HSYNC",
+          "scandoubler_0/hsync"
+        ]
+      },
+      "scan_convert_0_O_VIDEO_15": {
+        "ports": [
+          "scan_convert_0/O_VIDEO_15",
+          "scandoubler_0/video_15"
+        ]
+      },
+      "scan_convert_0_O_VIDEO_31": {
+        "ports": [
+          "scan_convert_0/O_VIDEO_31",
+          "scandoubler_0/video_31"
+        ]
+      },
+      "scan_convert_0_O_VSYNC": {
+        "ports": [
+          "scan_convert_0/O_VSYNC",
+          "scandoubler_0/vsync"
+        ]
+      },
+      "scandouble_1": {
+        "ports": [
+          "scandouble",
+          "scandoubler_0/scandouble"
+        ]
+      },
+      "scandoubler_0_b": {
+        "ports": [
+          "scandoubler_0/b",
+          "vga_b"
+        ]
+      },
+      "scandoubler_0_g": {
+        "ports": [
+          "scandoubler_0/g",
+          "vga_g"
+        ]
+      },
+      "scandoubler_0_h_sync": {
+        "ports": [
+          "scandoubler_0/h_sync",
+          "s_fix_0/sync_in"
+        ]
+      },
+      "scandoubler_0_r": {
+        "ports": [
+          "scandoubler_0/r",
+          "vga_r"
+        ]
+      },
+      "scandoubler_0_v_sync": {
+        "ports": [
+          "scandoubler_0/v_sync",
+          "s_fix_1/sync_in"
+        ]
+      },
+      "scanlines_1": {
+        "ports": [
+          "scanlines",
+          "scan_convert_0/I_SCANLIN"
+        ]
+      },
+      "vsync_n_1": {
+        "ports": [
+          "vsync_n",
+          "scan_convert_0/I_VSYNC"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 13:00:56 2021" VIVADOVERSION="2021.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="joystick" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="btnc" SIGIS="undef" SIGNAME="External_Ports_btnc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btnd" SIGIS="undef" SIGNAME="External_Ports_btnd">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnd"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btnl" SIGIS="undef" SIGNAME="External_Ports_btnl">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnl"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btnr" SIGIS="undef" SIGNAME="External_Ports_btnr">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnr"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="btnu" SIGIS="undef" SIGNAME="External_Ports_btnu">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnu"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="SPI_Master_0" PORT="i_Clk"/>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="clk_peripheral"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="10" NAME="joy_left" RIGHT="0" SIGIS="undef" SIGNAME="btn_jstk_0_joystick">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="joystick"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="10" NAME="joy_right" RIGHT="0" SIGIS="undef" SIGNAME="pmod_jstk2_0_joystick">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="joystick"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="O" NAME="jstk_clk" SIGIS="clk" SIGNAME="SPI_Master_0_o_SPI_Clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="SPI_Master_0" PORT="o_SPI_Clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="jstk_miso" SIGIS="undef" SIGNAME="External_Ports_jstk_miso">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="SPI_Master_0" PORT="i_SPI_MISO"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="jstk_mosi" SIGIS="undef" SIGNAME="SPI_Master_0_o_SPI_MOSI">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="SPI_Master_0" PORT="o_SPI_MOSI"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="jstk_sel" SIGIS="undef" SIGNAME="pmod_jstk2_0_sel">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="sel"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="btn_jstk_0" PORT="reset"/>
+        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="reset"/>
+        <CONNECTION INSTANCE="util_vector_logic_0" PORT="Op1"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/SPI_Master_0" HWVERSION="1.0" INSTANCE="SPI_Master_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="SPI_Master" VLNV="xilinx.com:module_ref:SPI_Master:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="SPI_MODE" VALUE="0"/>
+        <PARAMETER NAME="CLKS_PER_HALF_BIT" VALUE="14"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_SPI_Master_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="i_Rst_L" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="i_Clk" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_TX_Byte" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_TX_DV" SIGIS="undef" SIGNAME="pmod_jstk2_0_wv">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="wv"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_TX_Ready" SIGIS="undef" SIGNAME="SPI_Master_0_o_TX_Ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="wr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_RX_DV" SIGIS="undef" SIGNAME="SPI_Master_0_o_RX_DV">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="rv"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="o_RX_Byte" RIGHT="0" SIGIS="undef" SIGNAME="SPI_Master_0_o_RX_Byte">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="dati"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="O" NAME="o_SPI_Clk" SIGIS="clk" SIGNAME="SPI_Master_0_o_SPI_Clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="jstk_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_SPI_MISO" SIGIS="undef" SIGNAME="External_Ports_jstk_miso">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="jstk_miso"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_SPI_MOSI" SIGIS="undef" SIGNAME="SPI_Master_0_o_SPI_MOSI">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="jstk_mosi"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="i_SPI" TYPE="TARGET" VLNV="specnext.com:specnext:sdcard:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="miso" PHYSICAL="i_SPI_MISO"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="o_SPI" TYPE="TARGET" VLNV="specnext.com:specnext:sdcard:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="mosi" PHYSICAL="o_SPI_MOSI"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/btn_jstk_0" HWVERSION="1.0" INSTANCE="btn_jstk_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="btn_jstk" VLNV="xilinx.com:module_ref:btn_jstk:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_btn_jstk_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="10" NAME="joystick" RIGHT="0" SIGIS="undef" SIGNAME="btn_jstk_0_joystick">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_left"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btnc" SIGIS="undef" SIGNAME="External_Ports_btnc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btnu" SIGIS="undef" SIGNAME="External_Ports_btnu">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnu"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btnd" SIGIS="undef" SIGNAME="External_Ports_btnd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btnl" SIGIS="undef" SIGNAME="External_Ports_btnl">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnl"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="btnr" SIGIS="undef" SIGNAME="External_Ports_btnr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/pmod_jstk2_0" HWVERSION="1.0" INSTANCE="pmod_jstk2_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pmod_jstk2" VLNV="xilinx.com:module_ref:pmod_jstk2:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="LOW_MARGIN" VALUE="&quot;00100111&quot;"/>
+        <PARAMETER NAME="HIGH_MARGIN" VALUE="&quot;11011000&quot;"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_pmod_jstk2_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="10" NAME="joystick" RIGHT="0" SIGIS="undef" SIGNAME="pmod_jstk2_0_joystick">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_right"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sel" SIGIS="undef" SIGNAME="pmod_jstk2_0_sel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="jstk_sel"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="dati" RIGHT="0" SIGIS="undef" SIGNAME="SPI_Master_0_o_RX_Byte">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="SPI_Master_0" PORT="o_RX_Byte"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="wv" SIGIS="undef" SIGNAME="pmod_jstk2_0_wv">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="SPI_Master_0" PORT="i_TX_DV"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="wr" SIGIS="undef" SIGNAME="SPI_Master_0_o_TX_Ready">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="SPI_Master_0" PORT="o_TX_Ready"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rv" SIGIS="undef" SIGNAME="SPI_Master_0_o_RX_DV">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="SPI_Master_0" PORT="o_RX_DV"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/util_vector_logic_0" HWVERSION="2.0" INSTANCE="util_vector_logic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_vector_logic" VLNV="xilinx.com:ip:util_vector_logic:2.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_OPERATION" VALUE="not"/>
+        <PARAMETER NAME="C_SIZE" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_util_vector_logic_0_0"/>
+        <PARAMETER NAME="LOGO_FILE" VALUE="data/sym_notgate.png"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="Op1" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="SPI_Master_0" PORT="i_Rst_L"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0xC0"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_xlconstant_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="SPI_Master_0" PORT="i_TX_Byte"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

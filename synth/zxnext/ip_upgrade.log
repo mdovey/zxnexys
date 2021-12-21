@@ -1,0 +1,120 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 21 09:44:47 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpbram_16k_8'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpbram_16k_8 from xilinx.com:ip:blk_mem_gen:7.3 to xilinx.com:ip:blk_mem_gen:8.4 (Rev. 5)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 21 09:44:27 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'spram_320_9'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of spram_320_9 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 21 09:44:26 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_64_9'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpram_64_9 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 21 09:44:26 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_16_9'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpram_16_9 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date         : Tue Dec 21 09:44:25 2021
+| Host         : AW13R3 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a100tcsg324-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'sdpram_128_8'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of sdpram_128_8 from xilinx.com:ip:dist_mem_gen:7.2 to xilinx.com:ip:dist_mem_gen:8.0 (Rev. 13)
+
+2. Upgrade messages
+-------------------
+
+Renamed parameter component_name to Component_Name
+
