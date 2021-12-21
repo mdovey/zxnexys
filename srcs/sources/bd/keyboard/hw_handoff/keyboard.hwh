@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 14:11:31 2021" VIVADOVERSION="2021.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="keyboard" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="cancel" SIGIS="undef" SIGNAME="External_Ports_cancel">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_0" PORT="i_cancel_extended_entries"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="clk"/>
+        <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_CLK"/>
+        <CONNECTION INSTANCE="keyb_clocks_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="membrane_0" PORT="i_CLK"/>
+        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_CLK_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="4" NAME="column" RIGHT="0" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_cols_filtered">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="emu_fnkeys_0" PORT="o_cols_filtered"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="extended_keys" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_extended_keys">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_0" PORT="o_extended_keys"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="8" NAME="keymap_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_addr">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_keymap_addr"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="keymap_data" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_keymap_data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="keymap_we" SIGIS="undef" SIGNAME="External_Ports_keymap_we">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_keymap_we"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="ps2_clk_i" SIGIS="undef" SIGNAME="External_Ports_ps2_clk_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Clk_I"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="ps2_clk_o" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Clk_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Clk_O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="ps2_clk_t" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Clk_T">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Clk_T"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="ps2_data_i" SIGIS="undef" SIGNAME="External_Ports_ps2_data_i">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Data_I"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="ps2_data_o" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Data_O">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Data_O"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="ps2_data_t" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Data_T">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Data_T"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="Ps2Interface_0" PORT="rst"/>
+        <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_reset"/>
+        <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
+        <CONNECTION INSTANCE="membrane_0" PORT="i_reset"/>
+        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="7" NAME="row" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_row">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_rows"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="spkey_buttons" RIGHT="0" SIGIS="undef" SIGNAME="special_keys_0_spkey_buttons">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="special_keys_0" PORT="spkey_buttons"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="10" NAME="spkey_function" RIGHT="1" SIGIS="undef" SIGNAME="special_keys_0_spkey_function">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="special_keys_0" PORT="spkey_function"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/Ps2Interface_0" HWVERSION="1.0" INSTANCE="Ps2Interface_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Ps2Interface" VLNV="xilinx.com:module_ref:Ps2Interface:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DELAY_100US" VALUE="&quot;00101011110000&quot;"/>
+        <PARAMETER NAME="DELAY_20US" VALUE="&quot;01000110000&quot;"/>
+        <PARAMETER NAME="DELAY_63CLK" VALUE="&quot;0010001&quot;"/>
+        <PARAMETER NAME="DEBOUNCE_DELAY" VALUE="&quot;0010001&quot;"/>
+        <PARAMETER NAME="NUMBITS" VALUE="&quot;1011&quot;"/>
+        <PARAMETER NAME="PARITY_BIT" VALUE="9"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_Ps2Interface_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="PS2_Data_I" SIGIS="undef" SIGNAME="External_Ports_ps2_data_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2_data_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PS2_Data_O" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Data_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2_data_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PS2_Data_T" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Data_T">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2_data_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="PS2_Clk_I" SIGIS="undef" SIGNAME="External_Ports_ps2_clk_i">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2_clk_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PS2_Clk_O" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Clk_O">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2_clk_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="PS2_Clk_T" SIGIS="undef" SIGNAME="Ps2Interface_0_PS2_Clk_T">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ps2_clk_t"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="tx_data" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_selftest_ok_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_selftest_ok" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="write_data" SIGIS="undef" SIGNAME="ps2_keyb_0_o_ps2_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_ps2_send_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="rx_data" RIGHT="0" SIGIS="undef" SIGNAME="Ps2Interface_0_rx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_ps2_receive_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="read_data" SIGIS="undef" SIGNAME="Ps2Interface_0_read_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_ps2_receive_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ack" SIGIS="undef"/>
+        <PORT DIR="O" NAME="busy" SIGIS="undef"/>
+        <PORT DIR="O" NAME="err_par" SIGIS="undef"/>
+        <PORT DIR="O" NAME="err_nack" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/emu_fnkeys_0" HWVERSION="1.0" INSTANCE="emu_fnkeys_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="emu_fnkeys" VLNV="xilinx.com:module_ref:emu_fnkeys:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLOCK_EN_PERIOD_MS" VALUE="0"/>
+        <PARAMETER NAME="BUTTON_PERIOD_MS" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_emu_fnkeys_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="i_CLK" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_CLK_EN" SIGIS="undef" SIGNAME="keyb_clocks_0_fnkeys_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="fnkeys_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_rows" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_row">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="row"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="o_rows_filtered" RIGHT="0" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_rows_filtered">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="i_rows"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="4" NAME="i_cols" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_cols">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="o_cols"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="4" NAME="o_cols_filtered" RIGHT="0" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_cols_filtered">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="column"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_button_m1_n" SIGIS="undef" SIGNAME="xlconstant_high_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_high" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_button_reset_n" SIGIS="undef" SIGNAME="xlconstant_high_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_high" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="10" NAME="o_fnkeys" RIGHT="1" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_fnkeys">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="special_keys_0" PORT="membrane_fnkeys"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/keyb_clocks_0" HWVERSION="1.0" INSTANCE="keyb_clocks_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="keyb_clocks" VLNV="xilinx.com:module_ref:keyb_clocks:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_keyb_clocks_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="clk_ps2" SIGIS="undef" SIGNAME="keyb_clocks_0_clk_ps2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_CLK_PS2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="fnkeys_enable" SIGIS="undef" SIGNAME="keyb_clocks_0_fnkeys_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_CLK_EN"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="membrane_enable" SIGIS="undef" SIGNAME="keyb_clocks_0_membrane_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="i_CLK_EN"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/membrane_0" HWVERSION="1.0" INSTANCE="membrane_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="membrane" VLNV="xilinx.com:module_ref:membrane:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_membrane_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="i_CLK" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_CLK_EN" SIGIS="undef" SIGNAME="keyb_clocks_0_membrane_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="membrane_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_rows" RIGHT="0" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_rows_filtered">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="o_rows_filtered"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="4" NAME="o_cols" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_cols">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_cols"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="o_membrane_rows" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="2" NAME="o_membrane_ridx" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_membrane_ridx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_membrane_row"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="6" NAME="i_membrane_cols" RIGHT="0" SIGIS="undef" SIGNAME="ps2_keyb_0_o_membrane_col">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_membrane_col"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_cancel_extended_entries" SIGIS="undef" SIGNAME="External_Ports_cancel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cancel"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="o_extended_keys" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_extended_keys">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="extended_keys"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/ps2_keyb_0" HWVERSION="1.0" INSTANCE="ps2_keyb_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ps2_keyb" VLNV="xilinx.com:module_ref:ps2_keyb:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CLK_KHZ" VALUE="218"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_ps2_keyb_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="i_CLK" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="i_CLK_n" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_CLK_PS2" SIGIS="undef" SIGNAME="keyb_clocks_0_clk_ps2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="clk_ps2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_ps2_receive_valid" SIGIS="undef" SIGNAME="Ps2Interface_0_read_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Ps2Interface_0" PORT="read_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_ps2_receive_data" RIGHT="0" SIGIS="undef" SIGNAME="Ps2Interface_0_rx_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Ps2Interface_0" PORT="rx_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_ps2_send_valid" SIGIS="undef" SIGNAME="ps2_keyb_0_o_ps2_send_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Ps2Interface_0" PORT="write_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="i_membrane_row" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_membrane_ridx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="o_membrane_ridx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="6" NAME="o_membrane_col" RIGHT="0" SIGIS="undef" SIGNAME="ps2_keyb_0_o_membrane_col">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="i_membrane_cols"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_mf_nmi_n" SIGIS="undef" SIGNAME="ps2_keyb_0_o_mf_nmi_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="special_keys_0" PORT="ps2_mf_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="o_divmmc_nmi_n" SIGIS="undef" SIGNAME="ps2_keyb_0_o_divmmc_nmi_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="special_keys_0" PORT="ps2_mmc_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="o_ps2_func_keys_n" RIGHT="0" SIGIS="undef" SIGNAME="ps2_keyb_0_o_ps2_func_keys_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="special_keys_0" PORT="ps2_func_keys_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="i_keymap_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="keymap_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="i_keymap_data" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="keymap_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_keymap_we" SIGIS="undef" SIGNAME="External_Ports_keymap_we">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="keymap_we"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="i" TYPE="TARGET" VLNV="specnext.com:specnext:keyboard:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="keymap_addr" PHYSICAL="i_keymap_addr"/>
+            <PORTMAP LOGICAL="keymap_data" PHYSICAL="i_keymap_data"/>
+            <PORTMAP LOGICAL="keymap_we" PHYSICAL="i_keymap_we"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/special_keys_0" HWVERSION="1.0" INSTANCE="special_keys_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="special_keys" VLNV="xilinx.com:module_ref:special_keys:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_special_keys_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="10" NAME="spkey_function" RIGHT="1" SIGIS="undef" SIGNAME="special_keys_0_spkey_function">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="spkey_function"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="spkey_buttons" RIGHT="0" SIGIS="undef" SIGNAME="special_keys_0_spkey_buttons">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="spkey_buttons"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="ps2_func_keys_n" RIGHT="1" SIGIS="undef" SIGNAME="ps2_keyb_0_o_ps2_func_keys_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_ps2_func_keys_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="10" NAME="membrane_fnkeys" RIGHT="1" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_fnkeys">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="o_fnkeys"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ps2_mf_n" SIGIS="undef" SIGNAME="ps2_keyb_0_o_mf_nmi_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_mf_nmi_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="ps2_mmc_n" SIGIS="undef" SIGNAME="ps2_keyb_0_o_divmmc_nmi_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_divmmc_nmi_n"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_keyboard" TYPE="TARGET" VLNV="specnext.com:specnext:keyboard:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="spkey_function" PHYSICAL="spkey_function"/>
+            <PORTMAP LOGICAL="spkey_buttons" PHYSICAL="spkey_buttons"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_high" HWVERSION="1.1" INSTANCE="xlconstant_high" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_xlconstant_high_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_high_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_button_m1_n"/>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_button_reset_n"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_selftest_ok" HWVERSION="1.1" INSTANCE="xlconstant_selftest_ok" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x55"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_xlconstant_selftest_ok_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_selftest_ok_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Ps2Interface_0" PORT="tx_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

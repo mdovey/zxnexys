@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"mic_i2s": {
+			"proto_instances": {
+			}
+		}
+	}
+}

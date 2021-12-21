@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 17:48:43 2021" VIVADOVERSION="2021.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="vga" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="s_fix_0" PORT="clk"/>
+        <CONNECTION INSTANCE="s_fix_1" PORT="clk"/>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="CLK_x2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="14000000" DIR="I" NAME="clk_video" SIGIS="clk" SIGNAME="External_Ports_clk_video">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="CLK"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="csync_n" SIGIS="undef" SIGNAME="External_Ports_csync_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="csync_n"/>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="I_BLANK_N"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="hsync_n" SIGIS="undef" SIGNAME="External_Ports_hsync_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="I_HSYNC"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="machine_timing" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_machine_timing">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="front_porch_0" PORT="machine_timing"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="8" NAME="rgb" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rgb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="I_VIDEO"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="scandouble" SIGIS="undef" SIGNAME="External_Ports_scandouble">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="scandouble"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="1" NAME="scanlines" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_scanlines">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="I_SCANLIN"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="vga_b" RIGHT="0" SIGIS="undef" SIGNAME="scandoubler_0_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="vga_g" RIGHT="0" SIGIS="undef" SIGNAME="scandoubler_0_g">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="g"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="vga_hs" SIGIS="undef" SIGNAME="s_fix_0_sync_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="s_fix_0" PORT="sync_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="vga_r" RIGHT="0" SIGIS="undef" SIGNAME="scandoubler_0_r">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="r"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="vga_vs" SIGIS="undef" SIGNAME="s_fix_1_sync_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="s_fix_1" PORT="sync_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="vsync_n" SIGIS="undef" SIGNAME="External_Ports_vsync_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scan_convert_0" PORT="I_VSYNC"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/front_porch_0" HWVERSION="1.0" INSTANCE="front_porch_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="front_porch" VLNV="xilinx.com:module_ref:front_porch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="vga_front_porch_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="2" NAME="machine_timing" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_machine_timing">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="machine_timing"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="10" NAME="ha_value" RIGHT="0" SIGIS="undef" SIGNAME="front_porch_0_ha_value">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scan_convert_0" PORT="hA"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/s_fix_0" HWVERSION="1.0" INSTANCE="s_fix_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="s_fix" VLNV="xilinx.com:module_ref:s_fix:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="vga_s_fix_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sync_in" SIGIS="undef" SIGNAME="scandoubler_0_h_sync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scandoubler_0" PORT="h_sync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sync_out" SIGIS="undef" SIGNAME="s_fix_0_sync_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="vga_hs"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/s_fix_1" HWVERSION="1.0" INSTANCE="s_fix_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="s_fix" VLNV="xilinx.com:module_ref:s_fix:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="vga_s_fix_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sync_in" SIGIS="undef" SIGNAME="scandoubler_0_v_sync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scandoubler_0" PORT="v_sync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sync_out" SIGIS="undef" SIGNAME="s_fix_1_sync_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="vga_vs"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/scan_convert_0" HWVERSION="1.0" INSTANCE="scan_convert_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="scan_convert" VLNV="xilinx.com:module_ref:scan_convert:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="cstart" VALUE="76"/>
+        <PARAMETER NAME="clength" VALUE="704"/>
+        <PARAMETER NAME="hB" VALUE="64"/>
+        <PARAMETER NAME="hC" VALUE="80"/>
+        <PARAMETER NAME="hD" VALUE="704"/>
+        <PARAMETER NAME="vB" VALUE="4"/>
+        <PARAMETER NAME="vC" VALUE="10"/>
+        <PARAMETER NAME="vD" VALUE="568"/>
+        <PARAMETER NAME="hpad" VALUE="0"/>
+        <PARAMETER NAME="vpad" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="vga_scan_convert_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="14000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_clk_video">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_video"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CLK_x2" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="10" NAME="hA" RIGHT="0" SIGIS="undef" SIGNAME="front_porch_0_ha_value">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="front_porch_0" PORT="ha_value"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="I_VIDEO" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rgb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rgb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="I_HSYNC" SIGIS="undef" SIGNAME="External_Ports_hsync_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="hsync_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="I_VSYNC" SIGIS="undef" SIGNAME="External_Ports_vsync_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="vsync_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="I_SCANLIN" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_scanlines">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="scanlines"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="I_BLANK_N" SIGIS="undef" SIGNAME="External_Ports_csync_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="csync_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="O_VIDEO_15" RIGHT="0" SIGIS="undef" SIGNAME="scan_convert_0_O_VIDEO_15">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scandoubler_0" PORT="video_15"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="8" NAME="O_VIDEO_31" RIGHT="0" SIGIS="undef" SIGNAME="scan_convert_0_O_VIDEO_31">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scandoubler_0" PORT="video_31"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="O_HSYNC" SIGIS="undef" SIGNAME="scan_convert_0_O_HSYNC">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scandoubler_0" PORT="hsync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="O_VSYNC" SIGIS="undef" SIGNAME="scan_convert_0_O_VSYNC">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scandoubler_0" PORT="vsync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="O_BLANK" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/scandoubler_0" HWVERSION="1.0" INSTANCE="scandoubler_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="scandoubler" VLNV="xilinx.com:module_ref:scandoubler:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="vga_scandoubler_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="8" NAME="video_15" RIGHT="0" SIGIS="undef" SIGNAME="scan_convert_0_O_VIDEO_15">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scan_convert_0" PORT="O_VIDEO_15"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="8" NAME="video_31" RIGHT="0" SIGIS="undef" SIGNAME="scan_convert_0_O_VIDEO_31">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scan_convert_0" PORT="O_VIDEO_31"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="hsync" SIGIS="undef" SIGNAME="scan_convert_0_O_HSYNC">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scan_convert_0" PORT="O_HSYNC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="vsync" SIGIS="undef" SIGNAME="scan_convert_0_O_VSYNC">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="scan_convert_0" PORT="O_VSYNC"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="csync_n" SIGIS="undef" SIGNAME="External_Ports_csync_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="csync_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="scandouble" SIGIS="undef" SIGNAME="External_Ports_scandouble">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="scandouble"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="r" RIGHT="0" SIGIS="undef" SIGNAME="scandoubler_0_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="vga_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="g" RIGHT="0" SIGIS="undef" SIGNAME="scandoubler_0_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="vga_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="b" RIGHT="0" SIGIS="undef" SIGNAME="scandoubler_0_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="vga_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="h_sync" SIGIS="undef" SIGNAME="scandoubler_0_h_sync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="s_fix_0" PORT="sync_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="v_sync" SIGIS="undef" SIGNAME="scandoubler_0_v_sync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="s_fix_1" PORT="sync_in"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_peripheral" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

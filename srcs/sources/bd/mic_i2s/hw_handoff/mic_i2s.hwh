@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 17:02:37 2021" VIVADOVERSION="2021.2">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="mic_i2s" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk_audio" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="External_Ports" PORT="m_clk"/>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="mclk"/>
+        <CONNECTION INSTANCE="mic_reset_0" PORT="clk_audio"/>
+        <CONNECTION INSTANCE="pwm_decode_0" PORT="mclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="i2s_din" SIGIS="undef" SIGNAME="External_Ports_i2s_din">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sd_rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2s_dout" SIGIS="undef" SIGNAME="i2s_transceiver_0_sd_tx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sd_tx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2s_sclk" SIGIS="undef" SIGNAME="i2s_transceiver_0_sclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="sclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="i2s_wclk" SIGIS="undef" SIGNAME="i2s_transceiver_0_ws">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="i2s_transceiver_0" PORT="ws"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="m_clk" SIGIS="undef" SIGNAME="External_Ports_clk_audio">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="m_data" SIGIS="undef" SIGNAME="External_Ports_m_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pwm_decode_0" PORT="data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="m_lrsel" SIGIS="undef" SIGNAME="pwm_decode_0_lrsel">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pwm_decode_0" PORT="lrsel"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="mic_reset_0" PORT="reset"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/i2s_transceiver_0" HWVERSION="1.0" INSTANCE="i2s_transceiver_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="i2s_transceiver" VLNV="xilinx.com:module_ref:i2s_transceiver:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="mclk_sclk_ratio" VALUE="4"/>
+        <PARAMETER NAME="sclk_ws_ratio" VALUE="64"/>
+        <PARAMETER NAME="d_width" VALUE="8"/>
+        <PARAMETER NAME="Component_Name" VALUE="mic_i2s_i2s_transceiver_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="reset_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="mic_reset_0_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="mic_reset_0" PORT="resetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mclk" SIGIS="undef" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sclk" SIGIS="undef" SIGNAME="i2s_transceiver_0_sclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2s_sclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="ws" SIGIS="undef" SIGNAME="i2s_transceiver_0_ws">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2s_wclk"/>
+            <CONNECTION INSTANCE="pwm_decode_0" PORT="lrclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="sd_tx" SIGIS="undef" SIGNAME="i2s_transceiver_0_sd_tx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2s_dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sd_rx" SIGIS="undef" SIGNAME="External_Ports_i2s_din">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="i2s_din"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="l_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="pwm_decode_0_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_decode_0" PORT="l"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="r_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="pwm_decode_0_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_decode_0" PORT="r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="l_data_rx" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="7" NAME="r_data_rx" RIGHT="0" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/mic_reset_0" HWVERSION="1.0" INSTANCE="mic_reset_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mic_reset" VLNV="xilinx.com:module_ref:mic_reset:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="mic_i2s_mic_reset_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="mic_reset_0_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="reset_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk_audio" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/pwm_decode_0" HWVERSION="1.0" INSTANCE="pwm_decode_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pwm_decode" VLNV="xilinx.com:module_ref:pwm_decode:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="mic_i2s_pwm_decode_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="l" RIGHT="0" SIGIS="undef" SIGNAME="pwm_decode_0_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="l_data_tx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="r" RIGHT="0" SIGIS="undef" SIGNAME="pwm_decode_0_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="r_data_tx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="lrsel" SIGIS="undef" SIGNAME="pwm_decode_0_lrsel">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="m_lrsel"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="data" SIGIS="undef" SIGNAME="External_Ports_m_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="m_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="lrclk" SIGIS="undef" SIGNAME="i2s_transceiver_0_ws">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="ws"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mclk" SIGIS="undef" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

@@ -1,43 +1,55 @@
---------------------------------------------------------------------------------
---    This file is owned and controlled by Xilinx and must be used solely     --
---    for design, simulation, implementation and creation of design files     --
---    limited to Xilinx devices or technologies. Use with non-Xilinx          --
---    devices or technologies is expressly prohibited and immediately         --
---    terminates your license.                                                --
---                                                                            --
---    XILINX IS PROVIDING THIS DESIGN, CODE, OR INFORMATION "AS IS" SOLELY    --
---    FOR USE IN DEVELOPING PROGRAMS AND SOLUTIONS FOR XILINX DEVICES.  BY    --
---    PROVIDING THIS DESIGN, CODE, OR INFORMATION AS ONE POSSIBLE             --
---    IMPLEMENTATION OF THIS FEATURE, APPLICATION OR STANDARD, XILINX IS      --
---    MAKING NO REPRESENTATION THAT THIS IMPLEMENTATION IS FREE FROM ANY      --
---    CLAIMS OF INFRINGEMENT, AND YOU ARE RESPONSIBLE FOR OBTAINING ANY       --
---    RIGHTS YOU MAY REQUIRE FOR YOUR IMPLEMENTATION.  XILINX EXPRESSLY       --
---    DISCLAIMS ANY WARRANTY WHATSOEVER WITH RESPECT TO THE ADEQUACY OF THE   --
---    IMPLEMENTATION, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OR          --
---    REPRESENTATIONS THAT THIS IMPLEMENTATION IS FREE FROM CLAIMS OF         --
---    INFRINGEMENT, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A   --
---    PARTICULAR PURPOSE.                                                     --
---                                                                            --
---    Xilinx products are not intended for use in life support appliances,    --
---    devices, or systems.  Use in such applications are expressly            --
---    prohibited.                                                             --
---                                                                            --
---    (c) Copyright 1995-2018 Xilinx, Inc.                                    --
---    All rights reserved.                                                    --
---------------------------------------------------------------------------------
+-- (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+-- 
+-- This file contains confidential and proprietary information
+-- of Xilinx, Inc. and is protected under U.S. and
+-- international copyright and other intellectual property
+-- laws.
+-- 
+-- DISCLAIMER
+-- This disclaimer is not a license and does not grant any
+-- rights to the materials distributed herewith. Except as
+-- otherwise provided in a valid license issued to you by
+-- Xilinx, and to the maximum extent permitted by applicable
+-- law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND
+-- WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES
+-- AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING
+-- BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-
+-- INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and
+-- (2) Xilinx shall not be liable (whether in contract or tort,
+-- including negligence, or under any other theory of
+-- liability) for any loss or damage of any kind or nature
+-- related to, arising under or in connection with these
+-- materials, including for any direct, or any indirect,
+-- special, incidental, or consequential loss or damage
+-- (including loss of data, profits, goodwill, or any type of
+-- loss or damage suffered as a result of any action brought
+-- by a third party) even if such damage or loss was
+-- reasonably foreseeable or Xilinx had been advised of the
+-- possibility of the same.
+-- 
+-- CRITICAL APPLICATIONS
+-- Xilinx products are not designed or intended to be fail-
+-- safe, or for use in any application requiring fail-safe
+-- performance, such as life-support or safety devices or
+-- systems, Class III medical devices, nuclear facilities,
+-- applications related to the deployment of airbags, or any
+-- other applications that could lead to death, personal
+-- injury, or severe property or environmental damage
+-- (individually and collectively, "Critical
+-- Applications"). Customer assumes the sole risk and
+-- liability of any use of Xilinx products in Critical
+-- Applications, subject only to applicable laws and
+-- regulations governing limitations on product liability.
+-- 
+-- THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
+-- PART OF THIS FILE AT ALL TIMES.
+-- 
+-- DO NOT MODIFY THIS FILE.
 
---------------------------------------------------------------------------------
---    Generated from core with identifier: xilinx.com:ip:dist_mem_gen:7.2     --
---                                                                            --
---    Rev 1. The LogiCORE Xilinx Distributed Memory Generator creates area    --
---    and performance optimized ROM blocks, single and dual port              --
---    distributed memories, and SRL16-based memories for Xilinx FPGAs. The    --
---    core supersedes the previously released LogiCORE Distributed Memory     --
---    core. Use this core in all new designs for supported families           --
---    wherever a distributed memory is required.                              --
---------------------------------------------------------------------------------
+-- IP VLNV: xilinx.com:ip:dist_mem_gen:8.0
+-- IP Revision: 13
 
--- The following code must appear in the VHDL architecture header:
+-- The following code must appear in the VHDL architecture header.
 
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
 COMPONENT spram_320_9
@@ -63,10 +75,9 @@ your_instance_name : spram_320_9
     we => we,
     spo => spo
   );
--- INST_TAG_END ------ End INSTANTIATION Template ------------
+-- INST_TAG_END ------ End INSTANTIATION Template ---------
 
 -- You must compile the wrapper file spram_320_9.vhd when simulating
 -- the core, spram_320_9. When compiling the wrapper file, be sure to
--- reference the XilinxCoreLib VHDL simulation library. For detailed
--- instructions, please refer to the "CORE Generator Help".
+-- reference the VHDL simulation library.
 

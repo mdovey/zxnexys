@@ -1,0 +1,52 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.945455",
+   "Default View_TopLeft":"-258,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x 0 -y 40 -defaultsOSRD
+preplace port port-id_clk_video -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port port-id_csync_n -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_hsync_n -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_scandouble -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port port-id_vga_hs -pg 1 -lvl 3 -x 840 -y 20 -defaultsOSRD
+preplace port port-id_vga_vs -pg 1 -lvl 3 -x 840 -y 40 -defaultsOSRD
+preplace port port-id_vsync_n -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace portBus machine_timing -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace portBus rgb -pg 1 -lvl 0 -x 0 -y 160 -defaultsOSRD
+preplace portBus scanlines -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
+preplace portBus vga_b -pg 1 -lvl 3 -x 840 -y 60 -defaultsOSRD
+preplace portBus vga_g -pg 1 -lvl 3 -x 840 -y 80 -defaultsOSRD
+preplace portBus vga_r -pg 1 -lvl 3 -x 840 -y 100 -defaultsOSRD
+preplace inst front_porch_0 -pg 1 -lvl 1 -x 280 -y 60 -defaultsOSRD
+preplace inst s_fix_0 -pg 1 -lvl 1 -x 280 -y 170 -defaultsOSRD
+preplace inst s_fix_1 -pg 1 -lvl 1 -x 280 -y 290 -defaultsOSRD
+preplace inst scandoubler_0 -pg 1 -lvl 2 -x 650 -y 200 -defaultsOSRD
+preplace inst scan_convert_0 -pg 1 -lvl 1 -x 280 -y 470 -defaultsOSRD
+preplace netloc clk_peripheral_1 1 0 2 80 600 530
+preplace netloc clk_video_1 1 0 1 90 60n
+preplace netloc csync_n_1 1 0 2 40 630 510
+preplace netloc front_porch_0_ha_value 1 0 2 120 610 440
+preplace netloc hsync_n_1 1 0 1 70 100n
+preplace netloc machine_timing_1 1 0 1 110 20n
+preplace netloc rgb_1 1 0 1 60 160n
+preplace netloc s_fix_0_sync_out 1 1 2 490J 320 790
+preplace netloc s_fix_1_sync_out 1 1 2 450J 40 N
+preplace netloc scan_convert_0_O_HSYNC 1 1 1 480 180n
+preplace netloc scan_convert_0_O_VIDEO_15 1 1 1 460 140n
+preplace netloc scan_convert_0_O_VIDEO_31 1 1 1 470 160n
+preplace netloc scan_convert_0_O_VSYNC 1 1 1 500 200n
+preplace netloc scandouble_1 1 0 2 30J 620 520
+preplace netloc scandoubler_0_b 1 2 1 800 60n
+preplace netloc scandoubler_0_g 1 2 1 810 80n
+preplace netloc scandoubler_0_h_sync 1 0 3 100 640 NJ 640 780
+preplace netloc scandoubler_0_r 1 2 1 820 100n
+preplace netloc scandoubler_0_v_sync 1 0 3 110 650 NJ 650 770
+preplace netloc scanlines_1 1 0 1 20 180n
+preplace netloc vsync_n_1 1 0 1 50 140n
+levelinfo -pg 1 0 280 650 840
+pagesize -pg 1 -db -bbox -sgen -180 0 960 660
+"
+}
+
