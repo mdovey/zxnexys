@@ -11,10 +11,10 @@
     },
     "design_tree": {
       "SPI_Master_0": "",
-      "btn_jstk_0": "",
       "pmod_jstk2_0": "",
       "util_vector_logic_0": "",
-      "xlconstant_0": ""
+      "xlconstant_0": "",
+      "btn_jstk_0": ""
     },
     "ports": {
       "btnc": {
@@ -217,67 +217,6 @@
           }
         }
       },
-      "btn_jstk_0": {
-        "vlnv": "xilinx.com:module_ref:btn_jstk:1.0",
-        "xci_name": "joystick_btn_jstk_0_0",
-        "xci_path": "ip\\joystick_btn_jstk_0_0\\joystick_btn_jstk_0_0.xci",
-        "inst_hier_path": "btn_jstk_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "btn_jstk",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "joystick": {
-            "direction": "O",
-            "left": "10",
-            "right": "0"
-          },
-          "btnc": {
-            "direction": "I"
-          },
-          "btnu": {
-            "direction": "I"
-          },
-          "btnd": {
-            "direction": "I"
-          },
-          "btnl": {
-            "direction": "I"
-          },
-          "btnr": {
-            "direction": "I"
-          },
-          "clk_peripheral": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "reset",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "joystick_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          }
-        }
-      },
       "pmod_jstk2_0": {
         "vlnv": "xilinx.com:module_ref:pmod_jstk2:1.0",
         "xci_name": "joystick_pmod_jstk2_0_0",
@@ -368,6 +307,67 @@
             "value": "8"
           }
         }
+      },
+      "btn_jstk_0": {
+        "vlnv": "xilinx.com:module_ref:btn_jstk:1.0",
+        "xci_name": "joystick_btn_jstk_0_0",
+        "xci_path": "ip\\joystick_btn_jstk_0_0\\joystick_btn_jstk_0_0.xci",
+        "inst_hier_path": "btn_jstk_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "btn_jstk",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "joystick": {
+            "direction": "O",
+            "left": "10",
+            "right": "0"
+          },
+          "btnc": {
+            "direction": "I"
+          },
+          "btnu": {
+            "direction": "I"
+          },
+          "btnd": {
+            "direction": "I"
+          },
+          "btnl": {
+            "direction": "I"
+          },
+          "btnr": {
+            "direction": "I"
+          },
+          "clk_peripheral": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
@@ -375,16 +375,16 @@
         "ports": [
           "clk_peripheral",
           "SPI_Master_0/i_Clk",
-          "btn_jstk_0/clk_peripheral",
-          "pmod_jstk2_0/clk_peripheral"
+          "pmod_jstk2_0/clk_peripheral",
+          "btn_jstk_0/clk_peripheral"
         ]
       },
       "Net1": {
         "ports": [
           "reset",
-          "btn_jstk_0/reset",
           "pmod_jstk2_0/reset",
-          "util_vector_logic_0/Op1"
+          "util_vector_logic_0/Op1",
+          "btn_jstk_0/reset"
         ]
       },
       "SPI_Master_0_o_RX_Byte": {

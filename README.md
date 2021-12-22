@@ -32,7 +32,7 @@ Memory Address (on expansion bus line)
 
 ## PMODs
 
-### PMOD_ESP32
+### PMOD_SD\PMOD_MicroSD
 
 JA
 
@@ -40,11 +40,11 @@ JA
 
 JB
 
-### PMOD_RTCC
+### PMOD_ESP32
 
 JC
 
-### PMOD_SD\PMOD_MicroSD
+### PMOD_RTCC
 
 JD
 

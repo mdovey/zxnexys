@@ -83,6 +83,12 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>clk_audio</spirit:name>
@@ -1137,11 +1143,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxaudio_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:audio_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T12:42:19Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-22T19:06:38Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2adc191f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@272f3c7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
@@ -1198,11 +1204,31 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@6dded797_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@313e9829_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@17c4f061_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d215fef_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28465b33_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10ec6085_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ff59ad_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37007aa5_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a7099ee_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ed02cf2_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28db79d9_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@faf8e83_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@640a02d0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d3431b0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bb58d6d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7233d7b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@143d04e7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a5d4c_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35b7c52b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cda3292_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@99bf066_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79ed2572_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60f79df4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="ee4633f5"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="4c24dd7f"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ea65509c"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="09cf98fb"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="4291cb87"/>

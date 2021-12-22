@@ -364,6 +364,12 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET_UI.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>clk_memory</spirit:name>
@@ -2262,7 +2268,7 @@
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:ram_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-22T09:43:10Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-22T20:25:56Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2c2f4e6_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2ace965_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
@@ -2366,6 +2372,18 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@6abde378_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@41940622_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7ef22e91_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@109a4c16_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f39474f_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b467ac_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@476954b6_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2677ce18_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c8e1a30_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8bc2247_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2539944c_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e1090ae_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7413e3ed_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d4d43a8_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dea05c4_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

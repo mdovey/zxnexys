@@ -40,6 +40,6 @@ module btn_jstk(
     input	        reset 
     );
     
-    assign joystick = {3'b000, btnc, 1'b0, btnc, 1'b0, btnu, btnd, btnl, btnr};
+    assign joystick = {3'b000, btnc, 3'b000, btnu, btnd, btnl, btnr};
     
 endmodule
