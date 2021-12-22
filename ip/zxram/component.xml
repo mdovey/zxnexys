@@ -423,6 +423,14 @@
           <spirit:name>ASSOCIATED_RESET</spirit:name>
           <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_UI.ASSOCIATED_RESET">reset_ui</spirit:value>
         </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_BUSIF</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_UI.ASSOCIATED_BUSIF">axi_mig</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_UI.FREQ_HZ">150015002</spirit:value>
+        </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -539,12 +547,15 @@
           <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_data_fifo_2_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>dbcb8776</spirit:value>
+            <spirit:value>a5e6cec1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -564,12 +575,15 @@
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_data_fifo_2_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>a69d5645</spirit:value>
+            <spirit:value>4fa89693</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -588,12 +602,15 @@
           <spirit:localName>xilinx_implementation_xilinx_com_ip_blk_mem_gen_8_4__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_implementation_xilinx_com_ip_axi_data_fifo_2_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_implementation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b592edad</spirit:value>
+            <spirit:value>f452cce2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1669,31 +1686,7 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_input_0_0/synth/ram_ram_input_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_bram_read_0_0/synth/ram_bram_read_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_reset_0_0/synth/ram_ram_reset_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_0_0/synth/ram_ram_b_read_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_bram_write_1_0/synth/ram_bram_write_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_1_0/synth/ram_ram_b_read_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_a_read_0_0/synth/ram_ram_a_read_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1701,7 +1694,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_output_0_0/synth/ram_ram_output_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_bram_write_1_0/synth/ram_bram_write_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_a_read_0_0/synth/ram_ram_a_read_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1709,29 +1706,24 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_0/ram_auto_cc_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_0_0/synth/ram_ram_b_read_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_1/ram_auto_cc_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_1_0/synth/ram_ram_b_read_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_xbar_0/ram_xbar_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_input_0_0/synth/ram_ram_input_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_2/ram_auto_cc_2.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_output_0_0/synth/ram_ram_output_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_3/ram_auto_cc_3.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_reset_0_0/synth/ram_ram_reset_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_blk_mem_gen_0_0/ram_blk_mem_gen_0_0.xci</spirit:name>
@@ -1739,19 +1731,12 @@
         <spirit:userFileType>CELL_NAME_blk_mem_gen_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_input.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_blk_mem_gen_1_0/ram_blk_mem_gen_1_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_blk_mem_gen_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/ram/bram_read.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_reset.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1759,7 +1744,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_output.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/ram/ram_read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1767,9 +1752,61 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_blk_mem_gen_1_0/ram_blk_mem_gen_1_0.xci</spirit:name>
+        <spirit:name>../../srcs/sources/new/ram/ram_input.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/ram/ram_output.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/ram/ram_reset.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_xbar_1/ram_xbar_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_blk_mem_gen_1</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s00_data_fifo_0/ram_s00_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/s00_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_0/ram_auto_cc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s01_data_fifo_0/ram_s01_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/s01_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_1/ram_auto_cc_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s02_data_fifo_0/ram_s02_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/s02_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_2/ram_auto_cc_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s03_data_fifo_0/ram_s03_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/s03_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_3/ram_auto_cc_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/synth/ram.v</spirit:name>
@@ -1784,7 +1821,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/hdl/ram_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_6a2ea9d0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_64f835e5</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1812,6 +1849,16 @@
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="blk_mem_gen" xilinx:version="8.4">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_axi_data_fifo_2_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_data_fifo" xilinx:version="2.1">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -1902,31 +1949,7 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_input_0_0/sim/ram_ram_input_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_bram_read_0_0/sim/ram_bram_read_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_reset_0_0/sim/ram_ram_reset_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_0_0/sim/ram_ram_b_read_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_bram_write_1_0/sim/ram_bram_write_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_1_0/sim/ram_ram_b_read_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_a_read_0_0/sim/ram_ram_a_read_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1934,7 +1957,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_output_0_0/sim/ram_ram_output_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_bram_write_1_0/sim/ram_bram_write_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_a_read_0_0/sim/ram_ram_a_read_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1942,29 +1969,24 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_0/ram_auto_cc_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_0_0/sim/ram_ram_b_read_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_1/ram_auto_cc_1.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_b_read_1_0/sim/ram_ram_b_read_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_xbar_0/ram_xbar_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_input_0_0/sim/ram_ram_input_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_2/ram_auto_cc_2.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_output_0_0/sim/ram_ram_output_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_3/ram_auto_cc_3.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/auto_cc</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_ram_reset_0_0/sim/ram_ram_reset_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_blk_mem_gen_0_0/ram_blk_mem_gen_0_0.xci</spirit:name>
@@ -1972,19 +1994,12 @@
         <spirit:userFileType>CELL_NAME_blk_mem_gen_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_input.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_blk_mem_gen_1_0/ram_blk_mem_gen_1_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_blk_mem_gen_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/ram/bram_read.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_reset.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1992,7 +2007,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/ram/ram_output.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/ram/ram_read.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -2000,9 +2015,61 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/ram/ip/ram_blk_mem_gen_1_0/ram_blk_mem_gen_1_0.xci</spirit:name>
+        <spirit:name>../../srcs/sources/new/ram/ram_input.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/ram/ram_output.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/ram/ram_reset.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_xbar_1/ram_xbar_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_blk_mem_gen_1</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/xbar</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s00_data_fifo_0/ram_s00_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/s00_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_0/ram_auto_cc_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s01_data_fifo_0/ram_s01_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/s01_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_1/ram_auto_cc_1.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s02_data_fifo_0/ram_s02_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/s02_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_2/ram_auto_cc_2.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s03_data_fifo_0/ram_s03_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/s03_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_3/ram_auto_cc_3.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/sim/ram.v</spirit:name>
@@ -2044,6 +2111,16 @@
       </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_axi_data_fifo_2_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_data_fifo" xilinx:version="2.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
       <spirit:name>xilinx_implementation_view_fileset</spirit:name>
       <spirit:file>
         <spirit:name>src/ram_auto_cc_3/ram_auto_cc_3.xci</spirit:name>
@@ -2070,9 +2147,19 @@
         <spirit:userFileType>CELL_NAME_ram_i/axi_interconnect_0/s00_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s00_data_fifo_0/ram_s00_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/s00_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_0/ram_auto_cc_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s00_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s01_data_fifo_0/ram_s01_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/s01_data_fifo</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_1/ram_auto_cc_1.xci</spirit:name>
@@ -2080,9 +2167,19 @@
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s01_couplers/auto_cc</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s02_data_fifo_0/ram_s02_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/s02_data_fifo</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_2/ram_auto_cc_2.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_axi_interconnect_0/s02_couplers/auto_cc</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/ram/ip/ram_s03_data_fifo_0/ram_s03_data_fifo_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_axi_interconnect_0/s03_couplers/s03_data_fifo</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/ram/ip/ram_auto_cc_3/ram_auto_cc_3.xci</spirit:name>
@@ -2121,6 +2218,16 @@
       </spirit:vendorExtensions>
     </spirit:fileSet>
     <spirit:fileSet>
+      <spirit:name>xilinx_implementation_xilinx_com_ip_axi_data_fifo_2_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="axi_data_fifo" xilinx:version="2.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
         <spirit:name>xgui/zxram_v2_3.tcl</spirit:name>
@@ -2151,11 +2258,11 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreRevision>9</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:ram_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T16:41:02Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-22T09:43:10Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2c2f4e6_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2ace965_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
@@ -2205,13 +2312,67 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@25184a8d_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7a1a6885_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6104dd95_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6efab398_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33ff078a_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d90a349_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e1989b2_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ad8b81f_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74dc2dd6_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5842c798_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5336ef36_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17b8c037_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5eef0f04_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6643b43c_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12e1f64a_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ecb19d2_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10edf4b_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bd39470_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23b3405c_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@248dfc35_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@612b0f56_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c79e08d_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@264fd207_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27683392_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61b447d3_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f67b009_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10da448c_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ba779ce_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a703c38_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fa8f8f5_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b27e31c_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f862e6c_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f9de4e3_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1539131f_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fe88c16_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@52ae9cd2_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30b416d9_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17e001a_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fa53ed2_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25a1e3e2_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25afb1ee_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d2fa651_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b425fd4_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fd1524d_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37a6134e_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f0024ed_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5deeaeb1_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@578e178f_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61bce76b_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fe443f7_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d8b59ad_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43505989_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f01abb3_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@918bff5_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6abde378_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41940622_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ef22e91_ARCHIVE_LOCATION">v:/ip/zxram</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="46801983"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="472f7ea5"/>
       <xilinx:checksum xilinx:scope="addressSpaces" xilinx:value="b297e53f"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="1c2f9971"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="81f83c0d"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="5a5c0aae"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="fd01cc7f"/>
     </xilinx:packagingInfo>

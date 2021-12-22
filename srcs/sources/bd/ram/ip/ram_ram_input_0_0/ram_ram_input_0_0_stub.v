@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Tue Dec 21 15:32:45 2021
+// Date        : Wed Dec 22 09:12:13 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub v:/srcs/sources/bd/ram/ip/ram_ram_input_0_0/ram_ram_input_0_0_stub.v
 // Design      : ram_ram_input_0_0
