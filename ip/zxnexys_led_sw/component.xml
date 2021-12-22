@@ -20,6 +20,12 @@
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
       <spirit:name>clk_peripheral</spirit:name>
@@ -114,7 +120,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ee84552f</spirit:value>
+            <spirit:value>d50abaa9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -130,7 +136,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7efc791f</spirit:value>
+            <spirit:value>7bcd5e6c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -409,6 +415,37 @@
         <spirit:userFileType>CHECKSUM_3c5e3050</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/ip/led_sw_led_sw_controller_0_0/synth/led_sw_led_sw_controller_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/ip/led_sw_rtc_0_0/synth/led_sw_rtc_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/nexys/led_sw_controller.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/MISTer/rtc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/synth/led_sw.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/led_sw_ooc.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>SCOPED_TO_REF_led_sw</spirit:userFileType>
+        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/hdl/led_sw_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_3c5e3050</spirit:userFileType>
+      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
@@ -426,6 +463,30 @@
         <spirit:name>src/led_sw_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/ip/led_sw_led_sw_controller_0_0/sim/led_sw_led_sw_controller_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/ip/led_sw_rtc_0_0/sim/led_sw_rtc_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/nexys/led_sw_controller.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/MISTer/rtc.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/sim/led_sw.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/led_sw/hdl/led_sw_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -455,11 +516,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_led_sw_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:led_sw_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T16:54:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-22T20:20:20Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7ff86b88_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@793deb64_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
@@ -489,12 +550,25 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@af44f8d_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1bb3d338_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2cfbbb66_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@494ac60e_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12d0e36f_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53450809_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49f57596_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ce5bf6a_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f6cd540_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ee991fc_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e2d744b_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@486d75ea_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23ba7214_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@221e2db_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@16b6e076_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56270094_ARCHIVE_LOCATION">v:/ip/zxnexys_led_sw</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="8cc00e03"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="6a5b531b"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="161af51c"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ebd84517"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="557314dc"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="ed1b51c1"/>
     </xilinx:packagingInfo>

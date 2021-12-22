@@ -1,49 +1,49 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.843243",
-   "Default View_TopLeft":"-235,0",
+   "Default View_TopLeft":"-235,1",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_btnc -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
-preplace port port-id_btnd -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
-preplace port port-id_btnl -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
-preplace port port-id_btnr -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
-preplace port port-id_btnu -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
-preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x 0 -y 620 -defaultsOSRD
-preplace port port-id_jstk_clk -pg 1 -lvl 4 -x 980 -y 580 -defaultsOSRD
-preplace port port-id_jstk_miso -pg 1 -lvl 0 -x 0 -y 500 -defaultsOSRD
-preplace port port-id_jstk_mosi -pg 1 -lvl 4 -x 980 -y 420 -defaultsOSRD
-preplace port port-id_jstk_sel -pg 1 -lvl 4 -x 980 -y 320 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x 0 -y 360 -defaultsOSRD
-preplace portBus joy_left -pg 1 -lvl 4 -x 980 -y 120 -defaultsOSRD
-preplace portBus joy_right -pg 1 -lvl 4 -x 980 -y 300 -defaultsOSRD
+preplace port port-id_btnc -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
+preplace port port-id_btnd -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace port port-id_btnl -pg 1 -lvl 0 -x -10 -y 110 -defaultsOSRD
+preplace port port-id_btnr -pg 1 -lvl 0 -x -10 -y 140 -defaultsOSRD
+preplace port port-id_btnu -pg 1 -lvl 0 -x -10 -y 50 -defaultsOSRD
+preplace port port-id_clk_peripheral -pg 1 -lvl 0 -x -10 -y 620 -defaultsOSRD
+preplace port port-id_jstk_clk -pg 1 -lvl 4 -x 1000 -y 580 -defaultsOSRD
+preplace port port-id_jstk_miso -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
+preplace port port-id_jstk_mosi -pg 1 -lvl 4 -x 1000 -y 420 -defaultsOSRD
+preplace port port-id_jstk_sel -pg 1 -lvl 4 -x 1000 -y 320 -defaultsOSRD
+preplace port port-id_reset -pg 1 -lvl 0 -x -10 -y 360 -defaultsOSRD
+preplace portBus joy_left -pg 1 -lvl 4 -x 1000 -y 120 -defaultsOSRD
+preplace portBus joy_right -pg 1 -lvl 4 -x 1000 -y 290 -defaultsOSRD
 preplace inst SPI_Master_0 -pg 1 -lvl 2 -x 490 -y 550 -defaultsOSRD
-preplace inst btn_jstk_0 -pg 1 -lvl 3 -x 820 -y 120 -defaultsOSRD
-preplace inst pmod_jstk2_0 -pg 1 -lvl 3 -x 820 -y 320 -defaultsOSRD
+preplace inst pmod_jstk2_0 -pg 1 -lvl 3 -x 830 -y 320 -defaultsOSRD
 preplace inst util_vector_logic_0 -pg 1 -lvl 1 -x 170 -y 560 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 1 -x 170 -y 680 -defaultsOSRD
-preplace netloc Net 1 0 3 NJ 620 320 340 640
-preplace netloc Net1 1 0 3 20 360 NJ 360 670
-preplace netloc SPI_Master_0_o_RX_Byte 1 2 1 660 280n
-preplace netloc SPI_Master_0_o_RX_DV 1 2 1 680 320n
+preplace inst btn_jstk_0 -pg 1 -lvl 3 -x 830 -y 120 -defaultsOSRD
+preplace netloc Net 1 0 3 NJ 620 310 340 640
+preplace netloc Net1 1 0 3 10 360 NJ 360 680
+preplace netloc SPI_Master_0_o_RX_Byte 1 2 1 670 280n
+preplace netloc SPI_Master_0_o_RX_DV 1 2 1 690 320n
 preplace netloc SPI_Master_0_o_SPI_Clk 1 2 2 NJ 580 NJ
-preplace netloc SPI_Master_0_o_SPI_MOSI 1 1 3 330 410 670J 420 NJ
-preplace netloc SPI_Master_0_o_TX_Ready 1 2 1 650 300n
+preplace netloc SPI_Master_0_o_SPI_MOSI 1 1 3 320 410 650J 420 NJ
+preplace netloc SPI_Master_0_o_TX_Ready 1 2 1 660 300n
 preplace netloc btn_jstk_0_joystick 1 3 1 NJ 120
-preplace netloc btnc_0_1 1 0 3 NJ 60 NJ 60 NJ
-preplace netloc btnd_0_1 1 0 3 NJ 100 NJ 100 NJ
-preplace netloc btnl_0_1 1 0 3 NJ 120 NJ 120 NJ
+preplace netloc btnc_0_1 1 0 3 NJ 20 NJ 20 690J
+preplace netloc btnd_0_1 1 0 3 NJ 80 NJ 80 660J
+preplace netloc btnl_0_1 1 0 3 NJ 110 NJ 110 680J
 preplace netloc btnr_0_1 1 0 3 NJ 140 NJ 140 NJ
-preplace netloc btnu_0_1 1 0 3 NJ 80 NJ 80 NJ
+preplace netloc btnu_0_1 1 0 3 NJ 50 NJ 50 680J
 preplace netloc jstk_miso_1 1 0 2 NJ 500 NJ
-preplace netloc pmod_jstk2_0_joystick 1 3 1 NJ 300
+preplace netloc pmod_jstk2_0_joystick 1 3 1 970J 290n
 preplace netloc pmod_jstk2_0_sel 1 3 1 NJ 320
-preplace netloc pmod_jstk2_0_wv 1 1 3 340 420 640J 430 960
+preplace netloc pmod_jstk2_0_wv 1 1 3 330 420 640J 430 970
 preplace netloc util_vector_logic_0_Res 1 1 1 NJ 560
-preplace netloc xlconstant_0_dout 1 1 1 330J 600n
-levelinfo -pg 1 0 170 490 820 980
-pagesize -pg 1 -db -bbox -sgen -140 0 1120 740
+preplace netloc xlconstant_0_dout 1 1 1 320J 600n
+levelinfo -pg 1 -10 170 490 830 1000
+pagesize -pg 1 -db -bbox -sgen -150 0 1140 740
 "
 }
-
+0
