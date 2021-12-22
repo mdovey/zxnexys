@@ -175,6 +175,22 @@
             <spirit:name>gpio_enable</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>uart_rx</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>uart_rx_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>uart_tx</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>uart_tx_i</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
   </spirit:busInterfaces>
@@ -192,7 +208,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3ff4ff16</spirit:value>
+            <spirit:value>c5681573</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -208,7 +224,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>3ff4ff16</spirit:value>
+            <spirit:value>c5681573</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -483,6 +499,11 @@
         <spirit:userFileType>CHECKSUM_3ff4ff16</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/esp32/esp32.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_3ff4ff16</spirit:userFileType>
+      </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
@@ -490,6 +511,10 @@
         <spirit:name>src/esp32.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/esp32/esp32.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -543,11 +568,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxesp32_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:coreRevision>2</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:esp32:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T12:49:12Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-21T19:32:40Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@30662b81_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@d44d4c2_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
@@ -565,12 +590,24 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@d7bf6d8_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1a8f177c_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d9d43f9_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@103f1672_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74576f83_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73a0327e_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f318702_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a414ebc_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c4c5a7c_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e6b51d7_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b6f4ac6_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@665ecb2a_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@249e958f_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f9f3fd9_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6abcf680_ARCHIVE_LOCATION">v:/ip/zxesp32</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="48db734c"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="448a8978"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="12baace8"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7810a5fc"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="e56e1447"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="c752d550"/>
     </xilinx:packagingInfo>

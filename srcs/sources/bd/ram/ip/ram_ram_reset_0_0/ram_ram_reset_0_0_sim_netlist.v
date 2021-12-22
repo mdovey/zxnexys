@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Tue Dec 21 15:32:45 2021
+// Date        : Wed Dec 22 09:12:11 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/ram/ip/ram_ram_reset_0_0/ram_ram_reset_0_0_sim_netlist.v
@@ -27,7 +27,7 @@ module ram_ram_reset_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn_ui RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aresetn_ui, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output aresetn_ui;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 aresetn_memory RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aresetn_memory, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output aresetn_memory;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, ASSOCIATED_RESET aresetn_memory, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_memory, INSERT_VIP 0" *) input clk_memory;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_ui CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_ui, ASSOCIATED_RESET reset_ui:aresetn_ui, FREQ_HZ 150015000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_ui, INSERT_VIP 0" *) input clk_ui;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_ui CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_ui, ASSOCIATED_RESET reset_ui:aresetn_ui, FREQ_HZ 150015002, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN ram_clk_ui, INSERT_VIP 0" *) input clk_ui;
 
   wire aresetn_memory;
   wire aresetn_ui;

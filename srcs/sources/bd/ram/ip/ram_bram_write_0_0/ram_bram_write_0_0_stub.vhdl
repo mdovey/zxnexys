@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Tue Dec 21 15:35:00 2021
+-- Date        : Wed Dec 22 09:09:08 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               v:/srcs/sources/bd/ram/ip/ram_bram_write_0_0/ram_bram_write_0_0_stub.vhdl

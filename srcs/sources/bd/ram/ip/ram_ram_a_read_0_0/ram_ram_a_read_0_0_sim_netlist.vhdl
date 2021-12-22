@@ -1,11 +1,11 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Tue Dec 21 15:32:47 2021
+-- Date        : Wed Dec 22 09:09:11 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top ram_ram_a_read_0_0 -prefix
---               ram_ram_a_read_0_0_ ram_ram_b_read_0_0_sim_netlist.vhdl
--- Design      : ram_ram_b_read_0_0
+-- Command     : write_vhdl -force -mode funcsim
+--               v:/srcs/sources/bd/ram/ip/ram_ram_a_read_0_0/ram_ram_a_read_0_0_sim_netlist.vhdl
+-- Design      : ram_ram_a_read_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7a100tcsg324-1
@@ -34,6 +34,8 @@ entity ram_ram_a_read_0_0_ram_read is
     ARREADY : in STD_LOGIC;
     RVALID : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of ram_ram_a_read_0_0_ram_read : entity is "ram_read";
 end ram_ram_a_read_0_0_ram_read;
 
 architecture STRUCTURE of ram_ram_a_read_0_0_ram_read is
@@ -3290,7 +3292,7 @@ entity ram_ram_a_read_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of ram_ram_a_read_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of ram_ram_a_read_0_0 : entity is "ram_ram_b_read_0_0,ram_read,{}";
+  attribute CHECK_LICENSE_TYPE of ram_ram_a_read_0_0 : entity is "ram_ram_a_read_0_0,ram_read,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of ram_ram_a_read_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;

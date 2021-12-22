@@ -3,11 +3,19 @@ proc init_gui { IPINST } {
   ipgui::add_param $IPINST -name "Component_Name"
   #Adding Page
   set Page_0 [ipgui::add_page $IPINST -name "Page 0"]
-  ipgui::add_param $IPINST -name "POWERDOWN_BITS" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "POWERUP_BITS" -parent ${Page_0}
-  ipgui::add_param $IPINST -name "STARTUP_BITS" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "MicroSD" -parent ${Page_0}
+  ipgui::add_param $IPINST -name "Terminated" -parent ${Page_0}
 
 
+}
+
+proc update_PARAM_VALUE.MicroSD { PARAM_VALUE.MicroSD } {
+	# Procedure called to update MicroSD when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.MicroSD { PARAM_VALUE.MicroSD } {
+	# Procedure called to validate MicroSD
+	return true
 }
 
 proc update_PARAM_VALUE.POWERDOWN_BITS { PARAM_VALUE.POWERDOWN_BITS } {
@@ -34,6 +42,15 @@ proc update_PARAM_VALUE.STARTUP_BITS { PARAM_VALUE.STARTUP_BITS } {
 
 proc validate_PARAM_VALUE.STARTUP_BITS { PARAM_VALUE.STARTUP_BITS } {
 	# Procedure called to validate STARTUP_BITS
+	return true
+}
+
+proc update_PARAM_VALUE.Terminated { PARAM_VALUE.Terminated } {
+	# Procedure called to update Terminated when any of the dependent parameters in the arguments change
+}
+
+proc validate_PARAM_VALUE.Terminated { PARAM_VALUE.Terminated } {
+	# Procedure called to validate Terminated
 	return true
 }
 
