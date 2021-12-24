@@ -68,7 +68,7 @@ AXI Parameters :
 
    Data Width                    : 64
 
-   Arbitration Scheme            : RD_PRI_REG
+   Arbitration Scheme            : WRITE_PRIORITY_REG
 
    Narrow Burst Support          : 1
 

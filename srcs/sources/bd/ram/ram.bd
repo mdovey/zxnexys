@@ -25,19 +25,15 @@
       "axi_interconnect_0": {
         "xbar": "",
         "s00_couplers": {
-          "s00_data_fifo": "",
           "auto_cc": ""
         },
         "s01_couplers": {
-          "s01_data_fifo": "",
           "auto_cc": ""
         },
         "s02_couplers": {
-          "s02_data_fifo": "",
           "auto_cc": ""
         },
         "s03_couplers": {
-          "s03_data_fifo": "",
           "auto_cc": ""
         },
         "m00_couplers": {}
@@ -2275,19 +2271,19 @@
             "value": "4"
           },
           "S00_HAS_DATA_FIFO": {
-            "value": "2"
+            "value": "0"
           },
           "S01_HAS_DATA_FIFO": {
-            "value": "2"
+            "value": "0"
           },
           "S02_HAS_DATA_FIFO": {
-            "value": "2"
+            "value": "0"
           },
           "S03_HAS_DATA_FIFO": {
-            "value": "2"
+            "value": "0"
           },
           "STRATEGY": {
-            "value": "2"
+            "value": "0"
           }
         },
         "interface_ports": {
@@ -2426,7 +2422,7 @@
                 "value": "4"
               },
               "STRATEGY": {
-                "value": "2"
+                "value": "0"
               }
             },
             "interface_ports": {
@@ -2508,21 +2504,6 @@
               }
             },
             "components": {
-              "s00_data_fifo": {
-                "vlnv": "xilinx.com:ip:axi_data_fifo:2.1",
-                "xci_name": "ram_s00_data_fifo_0",
-                "xci_path": "ip\\ram_s00_data_fifo_0\\ram_s00_data_fifo_0.xci",
-                "inst_hier_path": "axi_interconnect_0/s00_couplers/s00_data_fifo",
-                "interface_ports": {
-                  "S_AXI": {
-                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                    "mode": "Slave",
-                    "bridges": [
-                      "M_AXI"
-                    ]
-                  }
-                }
-              },
               "auto_cc": {
                 "vlnv": "xilinx.com:ip:axi_clock_converter:2.1",
                 "xci_name": "ram_auto_cc_0",
@@ -2540,9 +2521,9 @@
               }
             },
             "interface_nets": {
-              "auto_cc_to_s00_data_fifo": {
+              "auto_cc_to_s00_couplers": {
                 "interface_ports": [
-                  "s00_data_fifo/S_AXI",
+                  "M_AXI",
                   "auto_cc/M_AXI"
                 ]
               },
@@ -2551,26 +2532,18 @@
                   "S_AXI",
                   "auto_cc/S_AXI"
                 ]
-              },
-              "s00_data_fifo_to_s00_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "s00_data_fifo/M_AXI"
-                ]
               }
             },
             "nets": {
               "M_ACLK_1": {
                 "ports": [
                   "M_ACLK",
-                  "s00_data_fifo/aclk",
                   "auto_cc/m_axi_aclk"
                 ]
               },
               "M_ARESETN_1": {
                 "ports": [
                   "M_ARESETN",
-                  "s00_data_fifo/aresetn",
                   "auto_cc/m_axi_aresetn"
                 ]
               },
@@ -2636,21 +2609,6 @@
               }
             },
             "components": {
-              "s01_data_fifo": {
-                "vlnv": "xilinx.com:ip:axi_data_fifo:2.1",
-                "xci_name": "ram_s01_data_fifo_0",
-                "xci_path": "ip\\ram_s01_data_fifo_0\\ram_s01_data_fifo_0.xci",
-                "inst_hier_path": "axi_interconnect_0/s01_couplers/s01_data_fifo",
-                "interface_ports": {
-                  "S_AXI": {
-                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                    "mode": "Slave",
-                    "bridges": [
-                      "M_AXI"
-                    ]
-                  }
-                }
-              },
               "auto_cc": {
                 "vlnv": "xilinx.com:ip:axi_clock_converter:2.1",
                 "xci_name": "ram_auto_cc_1",
@@ -2668,9 +2626,9 @@
               }
             },
             "interface_nets": {
-              "auto_cc_to_s01_data_fifo": {
+              "auto_cc_to_s01_couplers": {
                 "interface_ports": [
-                  "s01_data_fifo/S_AXI",
+                  "M_AXI",
                   "auto_cc/M_AXI"
                 ]
               },
@@ -2679,26 +2637,18 @@
                   "S_AXI",
                   "auto_cc/S_AXI"
                 ]
-              },
-              "s01_data_fifo_to_s01_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "s01_data_fifo/M_AXI"
-                ]
               }
             },
             "nets": {
               "M_ACLK_1": {
                 "ports": [
                   "M_ACLK",
-                  "s01_data_fifo/aclk",
                   "auto_cc/m_axi_aclk"
                 ]
               },
               "M_ARESETN_1": {
                 "ports": [
                   "M_ARESETN",
-                  "s01_data_fifo/aresetn",
                   "auto_cc/m_axi_aresetn"
                 ]
               },
@@ -2764,21 +2714,6 @@
               }
             },
             "components": {
-              "s02_data_fifo": {
-                "vlnv": "xilinx.com:ip:axi_data_fifo:2.1",
-                "xci_name": "ram_s02_data_fifo_0",
-                "xci_path": "ip\\ram_s02_data_fifo_0\\ram_s02_data_fifo_0.xci",
-                "inst_hier_path": "axi_interconnect_0/s02_couplers/s02_data_fifo",
-                "interface_ports": {
-                  "S_AXI": {
-                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                    "mode": "Slave",
-                    "bridges": [
-                      "M_AXI"
-                    ]
-                  }
-                }
-              },
               "auto_cc": {
                 "vlnv": "xilinx.com:ip:axi_clock_converter:2.1",
                 "xci_name": "ram_auto_cc_2",
@@ -2796,9 +2731,9 @@
               }
             },
             "interface_nets": {
-              "auto_cc_to_s02_data_fifo": {
+              "auto_cc_to_s02_couplers": {
                 "interface_ports": [
-                  "s02_data_fifo/S_AXI",
+                  "M_AXI",
                   "auto_cc/M_AXI"
                 ]
               },
@@ -2807,26 +2742,18 @@
                   "S_AXI",
                   "auto_cc/S_AXI"
                 ]
-              },
-              "s02_data_fifo_to_s02_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "s02_data_fifo/M_AXI"
-                ]
               }
             },
             "nets": {
               "M_ACLK_1": {
                 "ports": [
                   "M_ACLK",
-                  "s02_data_fifo/aclk",
                   "auto_cc/m_axi_aclk"
                 ]
               },
               "M_ARESETN_1": {
                 "ports": [
                   "M_ARESETN",
-                  "s02_data_fifo/aresetn",
                   "auto_cc/m_axi_aresetn"
                 ]
               },
@@ -2892,21 +2819,6 @@
               }
             },
             "components": {
-              "s03_data_fifo": {
-                "vlnv": "xilinx.com:ip:axi_data_fifo:2.1",
-                "xci_name": "ram_s03_data_fifo_0",
-                "xci_path": "ip\\ram_s03_data_fifo_0\\ram_s03_data_fifo_0.xci",
-                "inst_hier_path": "axi_interconnect_0/s03_couplers/s03_data_fifo",
-                "interface_ports": {
-                  "S_AXI": {
-                    "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-                    "mode": "Slave",
-                    "bridges": [
-                      "M_AXI"
-                    ]
-                  }
-                }
-              },
               "auto_cc": {
                 "vlnv": "xilinx.com:ip:axi_clock_converter:2.1",
                 "xci_name": "ram_auto_cc_3",
@@ -2924,9 +2836,9 @@
               }
             },
             "interface_nets": {
-              "auto_cc_to_s03_data_fifo": {
+              "auto_cc_to_s03_couplers": {
                 "interface_ports": [
-                  "s03_data_fifo/S_AXI",
+                  "M_AXI",
                   "auto_cc/M_AXI"
                 ]
               },
@@ -2935,26 +2847,18 @@
                   "S_AXI",
                   "auto_cc/S_AXI"
                 ]
-              },
-              "s03_data_fifo_to_s03_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "s03_data_fifo/M_AXI"
-                ]
               }
             },
             "nets": {
               "M_ACLK_1": {
                 "ports": [
                   "M_ACLK",
-                  "s03_data_fifo/aclk",
                   "auto_cc/m_axi_aclk"
                 ]
               },
               "M_ARESETN_1": {
                 "ports": [
                   "M_ARESETN",
-                  "s03_data_fifo/aresetn",
                   "auto_cc/m_axi_aresetn"
                 ]
               },

@@ -21,7 +21,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module scandoubler(
     input 		[8:0] 	video_15,
     input 		[8:0] 	video_31,
@@ -38,24 +37,38 @@ module scandoubler(
     output reg          h_sync,
     output reg          v_sync,
     
-    input 				clk_peripheral
+    input 				clk_peripheral,
+    
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
+    input               reset    
     );
+
+    always @(negedge clk_peripheral)
+    begin
+        if (reset)
+        begin
+            r <= 4'hF;
+            g <= 4'hF;
+            b <= 4'hF;        
+        end else if (scandouble) 
+        begin
+            r <= {video_31[8:6], 1'b0};
+            g <= {video_31[5:3], 1'b0};
+            b <= {video_31[2:0], 1'b0};
+        end else begin
+            r <= {video_15[8:6], 1'b0};
+            g <= {video_15[5:3], 1'b0};
+            b <= {video_15[2:0], 1'b0};
+        end
+    end
 
     always @(negedge clk_peripheral)
     begin
         if (scandouble) 
         begin
-            r <= {video_31[8:6], 1'b0};
-            g <= {video_31[5:3], 1'b0};
-            b <= {video_31[2:0], 1'b0};
-            
             h_sync <= hsync;
             v_sync <= vsync;
         end else begin
-            r <= {video_15[8:6], 1'b0};
-            g <= {video_15[5:3], 1'b0};
-            b <= {video_15[2:0], 1'b0};
-
             // csync on hsync when the scandoubler is off
             h_sync <= csync_n;
             v_sync <= 1'b1;

@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 17:48:42 2021
+//Date        : Fri Dec 24 14:34:13 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target vga_wrapper.bd
 //Design      : vga_wrapper
@@ -15,6 +15,7 @@ module vga_wrapper
     csync_n,
     hsync_n,
     machine_timing,
+    reset,
     rgb,
     scandouble,
     scanlines,
@@ -29,6 +30,7 @@ module vga_wrapper
   input csync_n;
   input hsync_n;
   input [2:0]machine_timing;
+  input reset;
   input [8:0]rgb;
   input scandouble;
   input [1:0]scanlines;
@@ -44,6 +46,7 @@ module vga_wrapper
   wire csync_n;
   wire hsync_n;
   wire [2:0]machine_timing;
+  wire reset;
   wire [8:0]rgb;
   wire scandouble;
   wire [1:0]scanlines;
@@ -60,6 +63,7 @@ module vga_wrapper
         .csync_n(csync_n),
         .hsync_n(hsync_n),
         .machine_timing(machine_timing),
+        .reset(reset),
         .rgb(rgb),
         .scandouble(scandouble),
         .scanlines(scanlines),

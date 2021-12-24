@@ -1,59 +1,43 @@
-# ZX Spectrum Next - Digilent Nexys A7 Port
+# ZX Spectrum Next - Digilent Nexys A7-100T Port
 
-## DDR RAM
+Port of the ZX Spectrum Next core to the Digilent Nexys A7-100T board.
 
-WAIT
+(may work on Nexys A7-50T)
 
-## USB Host
+## Audio
 
-## USB\PS2 Keyboard
+Stereo audio output using PMOD_I2S2 (on PMOD Connection JB). IP can be reconfigured to use the onboard mono audio jack.
 
-## Mono Audio Jack
+## Tape
 
-## VGA
-
-## MicroSD Slot
-
-## BTNC, BTNU, BTND, BTNL, BTNR
+Tape input via PMOD_I2S2, Tape output via onboard mono audio jack.
 
 ## Joystick
 
-## LED
+Joystick 1 emulation via onboard buttons (BTNU, BTND, BTNL, BTNR, BTNC).
 
-15-8 addressable via OUT $AAAF
+Optional Joystick 2 via PMOD_JSTK2 (JXADC Connection bottom row).
 
-7-0 addressable via OUT $A5AF
+## Mouse
+
+Optional Mouse via PMOD_PS2 (on connection JXADC top row)
+
+## RTC
+
+Optional RTC support via PMOD_RTCC (on connection JD)
+
+## ESP32
+
+Optional wifi via PMOD_ESP32 (on connection JC)
+
+## Second SDCard Slot
+
+Optional second SDCard via PMOD_SD or PMOD_MicroSD
 
 ## LED Segment Display
 
-Clock Speed
+Displays clock speed, and memory address
 
-Memory Address (on expansion bus line)
+## PI Accelerator
 
-## PMODs
-
-### PMOD_SD\PMOD_MicroSD
-
-JA
-
-### PMOD_I2S2
-
-JB
-
-### PMOD_ESP32
-
-JC
-
-### PMOD_RTCC
-
-JD
-
-### PMOD_PS2
-
-PS2 Mouse
-
-JXADC Top Row
-
-### PMOD_JSTK2
-
-JXADC Bottom Row
+Use of the PI Accel GPIO to access on-board UART, Mic (via I2S), Switches and LEDS (via GPIO pins 2-13, 22-25) and RGB Leds (Enable pin 26, and pulse to change RGB16 colour; pin 27 for RGB17)

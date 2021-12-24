@@ -1,18 +1,18 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 22 09:09:14 2021
+// Date        : Thu Dec 23 09:45:34 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               v:/srcs/sources/bd/ram/ip/ram_ram_b_read_1_0/ram_ram_b_read_1_0_sim_netlist.v
-// Design      : ram_ram_b_read_1_0
+// Command     : write_verilog -force -mode funcsim -rename_top ram_ram_b_read_1_0 -prefix
+//               ram_ram_b_read_1_0_ ram_ram_b_read_0_0_sim_netlist.v
+// Design      : ram_ram_b_read_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7a100tcsg324-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "ram_ram_b_read_1_0,ram_read,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* CHECK_LICENSE_TYPE = "ram_ram_b_read_0_0,ram_read,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "ram_read,Vivado 2021.2" *) 
 (* NotValidForBitStream *)
 module ram_ram_b_read_1_0
@@ -157,7 +157,6 @@ module ram_ram_b_read_1_0
         .write_signal(write_signal));
 endmodule
 
-(* ORIG_REF_NAME = "ram_read" *) 
 module ram_ram_b_read_1_0_ram_read
    (data,
     Q,

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Tue Dec 21 17:47:22 2021
+// Date        : Fri Dec 24 14:36:03 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/srcs/sources/bd/vga/ip/vga_scandoubler_0_0/vga_scandoubler_0_0_stub.v
@@ -15,8 +15,8 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "scandoubler,Vivado 2021.2" *)
 module vga_scandoubler_0_0(video_15, video_31, hsync, vsync, csync_n, 
-  scandouble, r, g, b, h_sync, v_sync, clk_peripheral)
-/* synthesis syn_black_box black_box_pad_pin="video_15[8:0],video_31[8:0],hsync,vsync,csync_n,scandouble,r[3:0],g[3:0],b[3:0],h_sync,v_sync,clk_peripheral" */;
+  scandouble, r, g, b, h_sync, v_sync, clk_peripheral, reset)
+/* synthesis syn_black_box black_box_pad_pin="video_15[8:0],video_31[8:0],hsync,vsync,csync_n,scandouble,r[3:0],g[3:0],b[3:0],h_sync,v_sync,clk_peripheral,reset" */;
   input [8:0]video_15;
   input [8:0]video_31;
   input hsync;
@@ -29,4 +29,5 @@ module vga_scandoubler_0_0(video_15, video_31, hsync, vsync, csync_n,
   output h_sync;
   output v_sync;
   input clk_peripheral;
+  input reset;
 endmodule

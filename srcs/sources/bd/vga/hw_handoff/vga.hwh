@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 17:48:43 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 24 14:34:14 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="vga" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -8,8 +8,8 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="s_fix_0" PORT="clk"/>
         <CONNECTION INSTANCE="s_fix_1" PORT="clk"/>
-        <CONNECTION INSTANCE="scandoubler_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="scan_convert_0" PORT="CLK_x2"/>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="clk_peripheral"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="14000000" DIR="I" NAME="clk_video" SIGIS="clk" SIGNAME="External_Ports_clk_video">
@@ -19,8 +19,8 @@
     </PORT>
     <PORT DIR="I" NAME="csync_n" SIGIS="undef" SIGNAME="External_Ports_csync_n">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="scandoubler_0" PORT="csync_n"/>
         <CONNECTION INSTANCE="scan_convert_0" PORT="I_BLANK_N"/>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="csync_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="hsync_n" SIGIS="undef" SIGNAME="External_Ports_hsync_n">
@@ -76,6 +76,11 @@
     <PORT DIR="I" NAME="vsync_n" SIGIS="undef" SIGNAME="External_Ports_vsync_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="scan_convert_0" PORT="I_VSYNC"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="scandoubler_0" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -299,6 +304,11 @@
         <PORT DIR="I" NAME="clk_peripheral" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

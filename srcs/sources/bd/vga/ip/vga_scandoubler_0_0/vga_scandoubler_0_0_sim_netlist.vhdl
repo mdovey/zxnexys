@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Tue Dec 21 17:47:22 2021
+-- Date        : Fri Dec 24 14:36:03 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/vga/ip/vga_scandoubler_0_0/vga_scandoubler_0_0_sim_netlist.vhdl
@@ -16,13 +16,14 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity vga_scandoubler_0_0_scandoubler is
   port (
-    r : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    r : out STD_LOGIC_VECTOR ( 3 downto 0 );
     g : out STD_LOGIC_VECTOR ( 2 downto 0 );
     b : out STD_LOGIC_VECTOR ( 2 downto 0 );
     h_sync : out STD_LOGIC;
     v_sync : out STD_LOGIC;
     vsync : in STD_LOGIC;
     scandouble : in STD_LOGIC;
+    reset : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     video_31 : in STD_LOGIC_VECTOR ( 8 downto 0 );
     video_15 : in STD_LOGIC_VECTOR ( 8 downto 0 );
@@ -47,15 +48,15 @@ architecture STRUCTURE of vga_scandoubler_0_0_scandoubler is
   signal v_sync_i_1_n_0 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \b[1]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \b[2]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \b[3]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \g[1]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \b[2]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \g[1]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \g[2]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \g[3]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \g[3]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of h_sync_i_1 : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \r[1]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \r[2]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \r[2]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \r[3]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of v_sync_i_1 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of v_sync_i_1 : label is "soft_lutpair4";
 begin
 \b[1]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -87,7 +88,7 @@ begin
       I2 => video_15(2),
       O => \b[3]_i_1_n_0\
     );
-\b_reg[1]\: unisim.vcomponents.FDRE
+\b_reg[1]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -96,9 +97,9 @@ begin
       CE => '1',
       D => \b[1]_i_1_n_0\,
       Q => b(0),
-      R => '0'
+      S => reset
     );
-\b_reg[2]\: unisim.vcomponents.FDRE
+\b_reg[2]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -107,9 +108,9 @@ begin
       CE => '1',
       D => \b[2]_i_1_n_0\,
       Q => b(1),
-      R => '0'
+      S => reset
     );
-\b_reg[3]\: unisim.vcomponents.FDRE
+\b_reg[3]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -118,7 +119,7 @@ begin
       CE => '1',
       D => \b[3]_i_1_n_0\,
       Q => b(2),
-      R => '0'
+      S => reset
     );
 \g[1]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -150,7 +151,7 @@ begin
       I2 => video_15(5),
       O => \g[3]_i_1_n_0\
     );
-\g_reg[1]\: unisim.vcomponents.FDRE
+\g_reg[1]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -159,9 +160,9 @@ begin
       CE => '1',
       D => \g[1]_i_1_n_0\,
       Q => g(0),
-      R => '0'
+      S => reset
     );
-\g_reg[2]\: unisim.vcomponents.FDRE
+\g_reg[2]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -170,9 +171,9 @@ begin
       CE => '1',
       D => \g[2]_i_1_n_0\,
       Q => g(1),
-      R => '0'
+      S => reset
     );
-\g_reg[3]\: unisim.vcomponents.FDRE
+\g_reg[3]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -181,7 +182,7 @@ begin
       CE => '1',
       D => \g[3]_i_1_n_0\,
       Q => g(2),
-      R => '0'
+      S => reset
     );
 h_sync_i_1: unisim.vcomponents.LUT3
     generic map(
@@ -234,7 +235,18 @@ h_sync_reg: unisim.vcomponents.FDRE
       I2 => video_15(8),
       O => \r[3]_i_1_n_0\
     );
-\r_reg[1]\: unisim.vcomponents.FDRE
+\r_reg[0]\: unisim.vcomponents.FDRE
+    generic map(
+      IS_C_INVERTED => '1'
+    )
+        port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => reset,
+      Q => r(0),
+      R => '0'
+    );
+\r_reg[1]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -242,10 +254,10 @@ h_sync_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => '1',
       D => \r[1]_i_1_n_0\,
-      Q => r(0),
-      R => '0'
+      Q => r(1),
+      S => reset
     );
-\r_reg[2]\: unisim.vcomponents.FDRE
+\r_reg[2]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -253,10 +265,10 @@ h_sync_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => '1',
       D => \r[2]_i_1_n_0\,
-      Q => r(1),
-      R => '0'
+      Q => r(2),
+      S => reset
     );
-\r_reg[3]\: unisim.vcomponents.FDRE
+\r_reg[3]\: unisim.vcomponents.FDSE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -264,8 +276,8 @@ h_sync_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => '1',
       D => \r[3]_i_1_n_0\,
-      Q => r(2),
-      R => '0'
+      Q => r(3),
+      S => reset
     );
 v_sync_i_1: unisim.vcomponents.LUT2
     generic map(
@@ -305,7 +317,8 @@ entity vga_scandoubler_0_0 is
     b : out STD_LOGIC_VECTOR ( 3 downto 0 );
     h_sync : out STD_LOGIC;
     v_sync : out STD_LOGIC;
-    clk_peripheral : in STD_LOGIC
+    clk_peripheral : in STD_LOGIC;
+    reset : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of vga_scandoubler_0_0 : entity is true;
@@ -320,21 +333,19 @@ entity vga_scandoubler_0_0 is
 end vga_scandoubler_0_0;
 
 architecture STRUCTURE of vga_scandoubler_0_0 is
-  signal \<const0>\ : STD_LOGIC;
   signal \^b\ : STD_LOGIC_VECTOR ( 3 downto 1 );
-  signal \^g\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  signal \^g\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^r\ : STD_LOGIC_VECTOR ( 3 downto 1 );
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
 begin
   b(3 downto 1) <= \^b\(3 downto 1);
-  b(0) <= \<const0>\;
-  g(3 downto 1) <= \^g\(3 downto 1);
-  g(0) <= \<const0>\;
+  b(0) <= \^g\(0);
+  g(3 downto 0) <= \^g\(3 downto 0);
   r(3 downto 1) <= \^r\(3 downto 1);
-  r(0) <= \<const0>\;
-GND: unisim.vcomponents.GND
-     port map (
-      G => \<const0>\
-    );
+  r(0) <= \^g\(0);
 inst: entity work.vga_scandoubler_0_0_scandoubler
      port map (
       b(2 downto 0) => \^b\(3 downto 1),
@@ -343,7 +354,9 @@ inst: entity work.vga_scandoubler_0_0_scandoubler
       g(2 downto 0) => \^g\(3 downto 1),
       h_sync => h_sync,
       hsync => hsync,
-      r(2 downto 0) => \^r\(3 downto 1),
+      r(3 downto 1) => \^r\(3 downto 1),
+      r(0) => \^g\(0),
+      reset => reset,
       scandouble => scandouble,
       v_sync => v_sync,
       video_15(8 downto 0) => video_15(8 downto 0),

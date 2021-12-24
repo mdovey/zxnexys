@@ -21,9 +21,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module sysreset #(
-    parameter MEMORY_RESET_HOLD         = 20,
-    parameter PERIPHERAL_RESET_HOLD     = 22,
-    parameter MB_RESET_HOLD             = 24
+    parameter MEMORY_RESET_HOLD         = 22,
+    parameter PERIPHERAL_RESET_HOLD     = 24,
+    parameter MB_RESET_HOLD             = 26,
+    parameter SYNC_STAGES               = 3,
+    parameter PIPELINE_STAGES           = 1
 )(
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset  mb_reset" *)
@@ -49,12 +51,16 @@ module sysreset #(
     input 		clk_ui,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
-(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET        mb_reset:peripheral_reset" *)
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET        mb_reset:peripheral_reset:video_reset" *)
     input 		clk_peripheral,
-    
+
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  peripheral_reset  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
     output  	peripheral_reset,
+    
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  video_reset  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
+    output  	video_reset,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  memory_aresetn  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
@@ -65,16 +71,12 @@ module sysreset #(
     input       cpu_resetn
 );
     
-	reg    hard_rst;
-	reg    soft_rst;
-	reg    peripheral_rst;
-    
-    wire   rst0;
-    wire   rst1;
-    
-    assign rst0    = ~memory_calibrated | ~ui_clk_locked | ~clk_locked | reset_hard;
-    assign rst1 = reset_soft | ~cpu_resetn;
-
+	wire hard_rst;
+	wire soft_rst;
+	wire peripheral_rst;
+	
+	assign video_reset = mb_reset;
+	
 	held_resetn #(
 	   .HOLD(MEMORY_RESET_HOLD)
 	) held_memory_resetn (
@@ -98,15 +100,36 @@ module sysreset #(
 	   .o_reset(peripheral_reset),
 	   .clk(clk_peripheral)
 	);
-    
-    always @(posedge clk_peripheral, posedge rst0)
-        hard_rst    =   rst0 ? 1'b1 : 1'b0;
 
-    always @(posedge clk_peripheral, posedge rst1)
-        soft_rst    =   rst1 ? 1'b1 : 1'b0;
+	async_input_sync #(
+	   .SYNC_STAGES(SYNC_STAGES),
+	   .PIPELINE_STAGES(PIPELINE_STAGES),
+	   .INIT(1'b1)
+	) sync_sys_ready (
+	   .clk(clk_peripheral),
+	   .async_in(~memory_calibrated | ~ui_clk_locked | ~clk_locked | reset_hard),
+	   .sync_out(hard_rst)
+	);
 
-    always @(posedge clk_peripheral, posedge reset_peripheral)
-        peripheral_rst    =   reset_peripheral ? 1'b1 : 1'b0;
+	async_input_sync #(
+	   .SYNC_STAGES(SYNC_STAGES),
+	   .PIPELINE_STAGES(PIPELINE_STAGES),
+	   .INIT(1'b1)
+	) sync_soft_reset (
+	   .clk(clk_peripheral),
+	   .async_in(reset_soft | ~cpu_resetn),
+	   .sync_out(soft_rst)
+	);
+	  
+	async_input_sync #(
+	   .SYNC_STAGES(SYNC_STAGES),
+	   .PIPELINE_STAGES(PIPELINE_STAGES),
+	   .INIT(1'b1)
+	) sync_mb_peripheral (
+	   .clk(clk_peripheral),
+	   .async_in(reset_peripheral),
+	   .sync_out(peripheral_rst)
+	);
 
 endmodule
 
@@ -155,3 +178,52 @@ module held_resetn #(
     );
     
 endmodule
+
+
+
+
+
+module async_input_sync #(
+   parameter SYNC_STAGES = 3,
+   parameter PIPELINE_STAGES = 1,
+   parameter INIT = 1'b0
+) (
+   input clk,
+   input async_in,
+   output sync_out
+);
+
+   (* ASYNC_REG="TRUE" *) reg [SYNC_STAGES-1:0] sreg = {SYNC_STAGES{INIT}};
+
+   always @(posedge clk)
+     sreg <= {sreg[SYNC_STAGES-2:0], async_in};
+
+   generate
+      if (PIPELINE_STAGES==0) begin: no_pipeline
+
+         assign sync_out = sreg[SYNC_STAGES-1];
+
+      end else if (PIPELINE_STAGES==1) begin: one_pipeline
+
+         reg sreg_pipe = INIT;
+
+         always @(posedge clk)
+            sreg_pipe <= sreg[SYNC_STAGES-1];
+
+         assign sync_out = sreg_pipe;
+
+      end else begin: multiple_pipeline
+
+        (* shreg_extract = "no" *) reg [PIPELINE_STAGES-1:0] sreg_pipe = {PIPELINE_STAGES{INIT}};
+
+         always @(posedge clk)
+            sreg_pipe <= {sreg_pipe[PIPELINE_STAGES-2:0], sreg[SYNC_STAGES-1]};
+
+         assign sync_out = sreg_pipe[PIPELINE_STAGES-1];
+
+      end
+   endgenerate
+
+endmodule
+
+				

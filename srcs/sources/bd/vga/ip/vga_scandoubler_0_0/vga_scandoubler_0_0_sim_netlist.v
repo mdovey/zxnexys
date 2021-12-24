@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Tue Dec 21 17:47:22 2021
+// Date        : Fri Dec 24 14:36:03 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/vga/ip/vga_scandoubler_0_0/vga_scandoubler_0_0_sim_netlist.v
@@ -27,7 +27,8 @@ module vga_scandoubler_0_0
     b,
     h_sync,
     v_sync,
-    clk_peripheral);
+    clk_peripheral,
+    reset);
   input [8:0]video_15;
   input [8:0]video_31;
   input hsync;
@@ -40,15 +41,16 @@ module vga_scandoubler_0_0
   output h_sync;
   output v_sync;
   input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
 
-  wire \<const0> ;
   wire [3:1]\^b ;
   wire clk_peripheral;
   wire csync_n;
-  wire [3:1]\^g ;
+  wire [3:0]g;
   wire h_sync;
   wire hsync;
   wire [3:1]\^r ;
+  wire reset;
   wire scandouble;
   wire v_sync;
   wire [8:0]video_15;
@@ -56,21 +58,18 @@ module vga_scandoubler_0_0
   wire vsync;
 
   assign b[3:1] = \^b [3:1];
-  assign b[0] = \<const0> ;
-  assign g[3:1] = \^g [3:1];
-  assign g[0] = \<const0> ;
+  assign b[0] = g[0];
   assign r[3:1] = \^r [3:1];
-  assign r[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
+  assign r[0] = g[0];
   vga_scandoubler_0_0_scandoubler inst
        (.b(\^b ),
         .clk_peripheral(clk_peripheral),
         .csync_n(csync_n),
-        .g(\^g ),
+        .g(g[3:1]),
         .h_sync(h_sync),
         .hsync(hsync),
-        .r(\^r ),
+        .r({\^r ,g[0]}),
+        .reset(reset),
         .scandouble(scandouble),
         .v_sync(v_sync),
         .video_15(video_15),
@@ -87,18 +86,20 @@ module vga_scandoubler_0_0_scandoubler
     v_sync,
     vsync,
     scandouble,
+    reset,
     clk_peripheral,
     video_31,
     video_15,
     hsync,
     csync_n);
-  output [2:0]r;
+  output [3:0]r;
   output [2:0]g;
   output [2:0]b;
   output h_sync;
   output v_sync;
   input vsync;
   input scandouble;
+  input reset;
   input clk_peripheral;
   input [8:0]video_31;
   input [8:0]video_15;
@@ -118,10 +119,11 @@ module vga_scandoubler_0_0_scandoubler
   wire h_sync;
   wire h_sync_i_1_n_0;
   wire hsync;
-  wire [2:0]r;
+  wire [3:0]r;
   wire \r[1]_i_1_n_0 ;
   wire \r[2]_i_1_n_0 ;
   wire \r[3]_i_1_n_0 ;
+  wire reset;
   wire scandouble;
   wire v_sync;
   wire v_sync_i_1_n_0;
@@ -137,7 +139,7 @@ module vga_scandoubler_0_0_scandoubler
         .I1(scandouble),
         .I2(video_15[0]),
         .O(\b[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \b[2]_i_1 
@@ -145,7 +147,6 @@ module vga_scandoubler_0_0_scandoubler
         .I1(scandouble),
         .I2(video_15[1]),
         .O(\b[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \b[3]_i_1 
@@ -153,31 +154,31 @@ module vga_scandoubler_0_0_scandoubler
         .I1(scandouble),
         .I2(video_15[2]),
         .O(\b[3]_i_1_n_0 ));
-  FDRE #(
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\b[1]_i_1_n_0 ),
         .Q(b[0]),
-        .R(1'b0));
-  FDRE #(
+        .S(reset));
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\b[2]_i_1_n_0 ),
         .Q(b[1]),
-        .R(1'b0));
-  FDRE #(
+        .S(reset));
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\b[3]_i_1_n_0 ),
         .Q(b[2]),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+        .S(reset));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \g[1]_i_1 
@@ -193,7 +194,7 @@ module vga_scandoubler_0_0_scandoubler
         .I1(scandouble),
         .I2(video_15[4]),
         .O(\g[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \g[3]_i_1 
@@ -201,30 +202,31 @@ module vga_scandoubler_0_0_scandoubler
         .I1(scandouble),
         .I2(video_15[5]),
         .O(\g[3]_i_1_n_0 ));
-  FDRE #(
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \g_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\g[1]_i_1_n_0 ),
         .Q(g[0]),
-        .R(1'b0));
-  FDRE #(
+        .S(reset));
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \g_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\g[2]_i_1_n_0 ),
         .Q(g[1]),
-        .R(1'b0));
-  FDRE #(
+        .S(reset));
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \g_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\g[3]_i_1_n_0 ),
         .Q(g[2]),
-        .R(1'b0));
+        .S(reset));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     h_sync_i_1
@@ -248,7 +250,7 @@ module vga_scandoubler_0_0_scandoubler
         .I1(scandouble),
         .I2(video_15[6]),
         .O(\r[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \r[2]_i_1 
@@ -266,29 +268,37 @@ module vga_scandoubler_0_0_scandoubler
         .O(\r[3]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
+    \r_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(reset),
+        .Q(r[0]),
+        .R(1'b0));
+  FDSE #(
+    .IS_C_INVERTED(1'b1)) 
     \r_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r[1]_i_1_n_0 ),
-        .Q(r[0]),
-        .R(1'b0));
-  FDRE #(
+        .Q(r[1]),
+        .S(reset));
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \r_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r[2]_i_1_n_0 ),
-        .Q(r[1]),
-        .R(1'b0));
-  FDRE #(
+        .Q(r[2]),
+        .S(reset));
+  FDSE #(
     .IS_C_INVERTED(1'b1)) 
     \r_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r[3]_i_1_n_0 ),
-        .Q(r[2]),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+        .Q(r[3]),
+        .S(reset));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT2 #(
     .INIT(4'hB)) 
     v_sync_i_1
