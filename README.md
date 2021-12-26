@@ -41,3 +41,29 @@ Displays clock speed, and memory address
 ## PI Accelerator
 
 Use of the PI Accel GPIO to access on-board UART, Mic (via I2S), Switches and LEDS (via GPIO pins 2-13, 22-25) and RGB Leds (Enable pin 26, and pulse to change RGB16 colour; pin 27 for RGB17)
+
+## Acknowledgements
+
+##### ZX Spectrum Next source
+
+Link: https://gitlab.com/SpectrumNext/ZX_Spectrum_Next_FPGA
+License: GNU GPL 3.0
+
+##### ZXNext_MISTer Source and inspiration
+
+Link: https://github.com/MiSTer-devel/ZXNext_MISTer
+License: GNU GPL 2.0
+
+##### PS2 code from Digilent Vivado Library
+
+Link: https://github.com/Digilent/vivado-library/tree/master/ip/axi_ps2_1.0
+License: MIT License
+
+##### I2S Transceiver code from Digikey
+
+Link: https://forum.digikey.com/t/i2s-transceiver-vhdl/12845
+
+##### SPI Code from  nandland
+
+Link: https://github.com/nandland/spi-master
+License: MIT License
