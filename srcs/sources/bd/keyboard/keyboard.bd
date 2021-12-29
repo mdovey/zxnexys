@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x32C1F24ECFAEB379",
+      "boundary_crc": "0xC19D169CD58E9434",
       "device": "xc7a100tcsg324-1",
       "name": "keyboard",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -17,7 +17,14 @@
       "ps2_keyb_0": "",
       "special_keys_0": "",
       "xlconstant_high": "",
-      "xlconstant_selftest_ok": ""
+      "xlconstant_selftest_ok": "",
+      "xlslice_0": "",
+      "xlslice_1": "",
+      "util_vector_logic_0": "",
+      "udk_map_0": "",
+      "xlslice_2": "",
+      "xlconcat_0": "",
+      "membrane_stick_0": ""
     },
     "ports": {
       "cancel": {
@@ -145,6 +152,32 @@
         "direction": "O",
         "left": "10",
         "right": "1"
+      },
+      "joymap_we": {
+        "direction": "I"
+      },
+      "joy_io_mode_en": {
+        "direction": "I"
+      },
+      "joy_left_type": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "joy_right_type": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "joy_right": {
+        "direction": "I",
+        "left": "10",
+        "right": "0"
+      },
+      "joy_left": {
+        "direction": "I",
+        "left": "10",
+        "right": "0"
       }
     },
     "components": {
@@ -439,7 +472,17 @@
           "i_membrane_cols": {
             "direction": "I",
             "left": "6",
-            "right": "0"
+            "right": "0",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_cancel_extended_entries": {
             "direction": "I"
@@ -556,7 +599,17 @@
           "o_membrane_col": {
             "direction": "O",
             "left": "6",
-            "right": "0"
+            "right": "0",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "o_mf_nmi_n": {
             "direction": "O"
@@ -640,6 +693,269 @@
             "value": "8"
           }
         }
+      },
+      "xlslice_0": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "keyboard_xlslice_0_0",
+        "xci_path": "ip\\keyboard_xlslice_0_0\\keyboard_xlslice_0_0.xci",
+        "inst_hier_path": "xlslice_0",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "3"
+          },
+          "DIN_WIDTH": {
+            "value": "9"
+          },
+          "DOUT_WIDTH": {
+            "value": "4"
+          }
+        }
+      },
+      "xlslice_1": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "keyboard_xlslice_1_0",
+        "xci_path": "ip\\keyboard_xlslice_1_0\\keyboard_xlslice_1_0.xci",
+        "inst_hier_path": "xlslice_1",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "4"
+          },
+          "DIN_TO": {
+            "value": "4"
+          },
+          "DIN_WIDTH": {
+            "value": "9"
+          },
+          "DOUT_WIDTH": {
+            "value": "1"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "keyboard_util_vector_logic_0_0",
+        "xci_path": "ip\\keyboard_util_vector_logic_0_0\\keyboard_util_vector_logic_0_0.xci",
+        "inst_hier_path": "util_vector_logic_0",
+        "parameters": {
+          "C_SIZE": {
+            "value": "7"
+          }
+        }
+      },
+      "udk_map_0": {
+        "vlnv": "xilinx.com:ip:dist_mem_gen:8.0",
+        "xci_name": "keyboard_dist_mem_gen_0_0",
+        "xci_path": "ip\\keyboard_dist_mem_gen_0_0\\keyboard_dist_mem_gen_0_0.xci",
+        "inst_hier_path": "udk_map_0",
+        "parameters": {
+          "coefficient_file": {
+            "value": "../../../../imports/ZXNext/ram/init/keyjoy_64_6.coe"
+          },
+          "data_width": {
+            "value": "6"
+          },
+          "default_data_radix": {
+            "value": "2"
+          },
+          "memory_type": {
+            "value": "simple_dual_port_ram"
+          }
+        }
+      },
+      "xlslice_2": {
+        "vlnv": "xilinx.com:ip:xlslice:1.0",
+        "xci_name": "keyboard_xlslice_1_1",
+        "xci_path": "ip\\keyboard_xlslice_1_1\\keyboard_xlslice_1_1.xci",
+        "inst_hier_path": "xlslice_2",
+        "parameters": {
+          "DIN_FROM": {
+            "value": "5"
+          },
+          "DIN_WIDTH": {
+            "value": "8"
+          },
+          "DOUT_WIDTH": {
+            "value": "6"
+          }
+        }
+      },
+      "xlconcat_0": {
+        "vlnv": "xilinx.com:ip:xlconcat:2.1",
+        "xci_name": "keyboard_xlconcat_0_0",
+        "xci_path": "ip\\keyboard_xlconcat_0_0\\keyboard_xlconcat_0_0.xci",
+        "inst_hier_path": "xlconcat_0",
+        "parameters": {
+          "NUM_PORTS": {
+            "value": "3"
+          }
+        }
+      },
+      "membrane_stick_0": {
+        "vlnv": "xilinx.com:module_ref:membrane_stick:1.0",
+        "xci_name": "keyboard_membrane_stick_0_0",
+        "xci_path": "ip\\keyboard_membrane_stick_0_0\\keyboard_membrane_stick_0_0.xci",
+        "inst_hier_path": "membrane_stick_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "membrane_stick",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "i_joy": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:audio:1.0",
+            "vlnv": "specnext.com:specnext:audio_rtl:1.0",
+            "port_maps": {
+              "left": {
+                "physical_name": "i_joy_left",
+                "direction": "I",
+                "left": "10",
+                "right": "0"
+              },
+              "right": {
+                "physical_name": "i_joy_right",
+                "direction": "I",
+                "left": "10",
+                "right": "0"
+              }
+            }
+          },
+          "i_joy_type": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:audio:1.0",
+            "vlnv": "specnext.com:specnext:audio_rtl:1.0",
+            "port_maps": {
+              "left": {
+                "physical_name": "i_joy_left_type",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "right": {
+                "physical_name": "i_joy_right_type",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              }
+            }
+          },
+          "i": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:joystick:1.0",
+            "vlnv": "specnext.com:specnext:joystick_rtl:1.0",
+            "port_maps": {
+              "joy_left": {
+                "physical_name": "i_joy_left",
+                "direction": "I",
+                "left": "10",
+                "right": "0"
+              },
+              "joy_right": {
+                "physical_name": "i_joy_right",
+                "direction": "I",
+                "left": "10",
+                "right": "0"
+              },
+              "joy_left_type": {
+                "physical_name": "i_joy_left_type",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "joy_right_type": {
+                "physical_name": "i_joy_right_type",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              }
+            }
+          },
+          "i_type": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:joystick:1.0",
+            "vlnv": "specnext.com:specnext:joystick_rtl:1.0",
+            "port_maps": {
+              "joy_left": {
+                "physical_name": "i_joy_left_type",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "joy_right": {
+                "physical_name": "i_joy_right_type",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "ports": {
+          "i_CLK": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "i_reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_CLK_EN": {
+            "direction": "I"
+          },
+          "i_reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "i_joy_en_n": {
+            "direction": "I"
+          },
+          "i_membrane_row": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "o_membrane_col": {
+            "direction": "O",
+            "left": "6",
+            "right": "0",
+            "parameters": {
+              "PortType": {
+                "value": "undef",
+                "value_src": "ip_prop"
+              },
+              "PortType.PROP_SRC": {
+                "value": "false",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "joy_keymap_addr": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "joy_keymap_do": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -692,13 +1008,21 @@
           "emu_fnkeys_0/i_CLK",
           "keyb_clocks_0/clk_peripheral",
           "membrane_0/i_CLK",
-          "ps2_keyb_0/i_CLK"
+          "ps2_keyb_0/i_CLK",
+          "udk_map_0/clk",
+          "membrane_stick_0/i_CLK"
         ]
       },
       "clk_peripheral_n_1": {
         "ports": [
           "clk_peripheral_n",
           "ps2_keyb_0/i_CLK_n"
+        ]
+      },
+      "dist_mem_gen_0_dpo": {
+        "ports": [
+          "udk_map_0/dpo",
+          "membrane_stick_0/joy_keymap_do"
         ]
       },
       "emu_fnkeys_0_o_cols_filtered": {
@@ -719,6 +1043,42 @@
           "membrane_0/i_rows"
         ]
       },
+      "joy_io_mode_en_1": {
+        "ports": [
+          "joy_io_mode_en",
+          "membrane_stick_0/i_joy_en_n"
+        ]
+      },
+      "joy_left_1": {
+        "ports": [
+          "joy_left",
+          "membrane_stick_0/i_joy_left"
+        ]
+      },
+      "joy_left_type_1": {
+        "ports": [
+          "joy_left_type",
+          "membrane_stick_0/i_joy_left_type"
+        ]
+      },
+      "joy_right_1": {
+        "ports": [
+          "joy_right",
+          "membrane_stick_0/i_joy_right"
+        ]
+      },
+      "joy_right_type_1": {
+        "ports": [
+          "joy_right_type",
+          "membrane_stick_0/i_joy_right_type"
+        ]
+      },
+      "joymap_we_1": {
+        "ports": [
+          "joymap_we",
+          "udk_map_0/we"
+        ]
+      },
       "keyb_clocks_0_clk_ps2": {
         "ports": [
           "keyb_clocks_0/clk_ps2",
@@ -734,19 +1094,23 @@
       "keyb_clocks_0_membrane_enable": {
         "ports": [
           "keyb_clocks_0/membrane_enable",
-          "membrane_0/i_CLK_EN"
+          "membrane_0/i_CLK_EN",
+          "membrane_stick_0/i_CLK_EN"
         ]
       },
       "keymap_addr_1": {
         "ports": [
           "keymap_addr",
-          "ps2_keyb_0/i_keymap_addr"
+          "ps2_keyb_0/i_keymap_addr",
+          "xlslice_0/Din",
+          "xlslice_1/Din"
         ]
       },
       "keymap_data_1": {
         "ports": [
           "keymap_data",
-          "ps2_keyb_0/i_keymap_data"
+          "ps2_keyb_0/i_keymap_data",
+          "xlslice_2/Din"
         ]
       },
       "keymap_we_1": {
@@ -770,7 +1134,20 @@
       "membrane_0_o_membrane_ridx": {
         "ports": [
           "membrane_0/o_membrane_ridx",
-          "ps2_keyb_0/i_membrane_row"
+          "ps2_keyb_0/i_membrane_row",
+          "membrane_stick_0/i_membrane_row"
+        ]
+      },
+      "membrane_stick_0_joy_keymap_addr": {
+        "ports": [
+          "membrane_stick_0/joy_keymap_addr",
+          "udk_map_0/dpra"
+        ]
+      },
+      "membrane_stick_0_o_membrane_col": {
+        "ports": [
+          "membrane_stick_0/o_membrane_col",
+          "util_vector_logic_0/Op1"
         ]
       },
       "ps2_clk_i_1": {
@@ -794,7 +1171,7 @@
       "ps2_keyb_0_o_membrane_col": {
         "ports": [
           "ps2_keyb_0/o_membrane_col",
-          "membrane_0/i_membrane_cols"
+          "util_vector_logic_0/Op2"
         ]
       },
       "ps2_keyb_0_o_mf_nmi_n": {
@@ -822,7 +1199,8 @@
           "emu_fnkeys_0/i_reset",
           "keyb_clocks_0/reset",
           "membrane_0/i_reset",
-          "ps2_keyb_0/i_reset"
+          "ps2_keyb_0/i_reset",
+          "membrane_stick_0/i_reset"
         ]
       },
       "row_1": {
@@ -843,6 +1221,18 @@
           "spkey_function"
         ]
       },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
+          "membrane_0/i_membrane_cols"
+        ]
+      },
+      "xlconcat_0_dout": {
+        "ports": [
+          "xlconcat_0/dout",
+          "udk_map_0/a"
+        ]
+      },
       "xlconstant_high1_dout": {
         "ports": [
           "xlconstant_selftest_ok/dout",
@@ -853,7 +1243,26 @@
         "ports": [
           "xlconstant_high/dout",
           "emu_fnkeys_0/i_button_m1_n",
-          "emu_fnkeys_0/i_button_reset_n"
+          "emu_fnkeys_0/i_button_reset_n",
+          "xlconcat_0/In1"
+        ]
+      },
+      "xlslice_0_Dout": {
+        "ports": [
+          "xlslice_0/Dout",
+          "xlconcat_0/In0"
+        ]
+      },
+      "xlslice_1_Dout": {
+        "ports": [
+          "xlslice_1/Dout",
+          "xlconcat_0/In2"
+        ]
+      },
+      "xlslice_2_Dout": {
+        "ports": [
+          "xlslice_2/Dout",
+          "udk_map_0/d"
         ]
       }
     }

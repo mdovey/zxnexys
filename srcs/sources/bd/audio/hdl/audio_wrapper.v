@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 12:12:24 2021
+//Date        : Wed Dec 29 09:01:01 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target audio_wrapper.bd
 //Design      : audio_wrapper
@@ -10,10 +10,10 @@
 `timescale 1 ps / 1 ps
 
 module audio_wrapper
-   (audio_left,
+   (aud_sd,
+    audio_left,
     audio_pwm,
     audio_right,
-    audio_sd,
     clk_audio,
     clk_peripheral,
     linein_lrck,
@@ -28,12 +28,11 @@ module audio_wrapper
     reset,
     tape_ear,
     tape_mic,
-    tape_pwm,
-    tape_sd);
+    tape_pwm);
+  output aud_sd;
   input [12:0]audio_left;
   output audio_pwm;
   input [12:0]audio_right;
-  output audio_sd;
   input clk_audio;
   input clk_peripheral;
   output linein_lrck;
@@ -49,12 +48,11 @@ module audio_wrapper
   output tape_ear;
   input tape_mic;
   output tape_pwm;
-  output tape_sd;
 
+  wire aud_sd;
   wire [12:0]audio_left;
   wire audio_pwm;
   wire [12:0]audio_right;
-  wire audio_sd;
   wire clk_audio;
   wire clk_peripheral;
   wire linein_lrck;
@@ -70,13 +68,12 @@ module audio_wrapper
   wire tape_ear;
   wire tape_mic;
   wire tape_pwm;
-  wire tape_sd;
 
   audio audio_i
-       (.audio_left(audio_left),
+       (.aud_sd(aud_sd),
+        .audio_left(audio_left),
         .audio_pwm(audio_pwm),
         .audio_right(audio_right),
-        .audio_sd(audio_sd),
         .clk_audio(clk_audio),
         .clk_peripheral(clk_peripheral),
         .linein_lrck(linein_lrck),
@@ -91,6 +88,5 @@ module audio_wrapper
         .reset(reset),
         .tape_ear(tape_ear),
         .tape_mic(tape_mic),
-        .tape_pwm(tape_pwm),
-        .tape_sd(tape_sd));
+        .tape_pwm(tape_pwm));
 endmodule

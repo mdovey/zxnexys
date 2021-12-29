@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 14:11:29 2021
+//Date        : Tue Dec 28 18:55:34 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target keyboard_wrapper.bd
 //Design      : keyboard_wrapper
@@ -15,6 +15,12 @@ module keyboard_wrapper
     clk_peripheral_n,
     column,
     extended_keys,
+    joy_io_mode_en,
+    joy_left,
+    joy_left_type,
+    joy_right,
+    joy_right_type,
+    joymap_we,
     keymap_addr,
     keymap_data,
     keymap_we,
@@ -33,6 +39,12 @@ module keyboard_wrapper
   input clk_peripheral_n;
   output [4:0]column;
   output [15:0]extended_keys;
+  input joy_io_mode_en;
+  input [10:0]joy_left;
+  input [2:0]joy_left_type;
+  input [10:0]joy_right;
+  input [2:0]joy_right_type;
+  input joymap_we;
   input [8:0]keymap_addr;
   input [7:0]keymap_data;
   input keymap_we;
@@ -52,6 +64,12 @@ module keyboard_wrapper
   wire clk_peripheral_n;
   wire [4:0]column;
   wire [15:0]extended_keys;
+  wire joy_io_mode_en;
+  wire [10:0]joy_left;
+  wire [2:0]joy_left_type;
+  wire [10:0]joy_right;
+  wire [2:0]joy_right_type;
+  wire joymap_we;
   wire [8:0]keymap_addr;
   wire [7:0]keymap_data;
   wire keymap_we;
@@ -72,6 +90,12 @@ module keyboard_wrapper
         .clk_peripheral_n(clk_peripheral_n),
         .column(column),
         .extended_keys(extended_keys),
+        .joy_io_mode_en(joy_io_mode_en),
+        .joy_left(joy_left),
+        .joy_left_type(joy_left_type),
+        .joy_right(joy_right),
+        .joy_right_type(joy_right_type),
+        .joymap_we(joymap_we),
         .keymap_addr(keymap_addr),
         .keymap_data(keymap_data),
         .keymap_we(keymap_we),

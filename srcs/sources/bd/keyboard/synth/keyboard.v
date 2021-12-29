@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 14:11:29 2021
+//Date        : Tue Dec 28 18:55:34 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target keyboard.bd
 //Design      : keyboard
@@ -9,13 +9,19 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "keyboard,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=keyboard,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=8,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "keyboard.hwdef" *) 
+(* CORE_GENERATION_INFO = "keyboard,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=keyboard,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=15,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "keyboard.hwdef" *) 
 module keyboard
    (cancel,
     clk_peripheral,
     clk_peripheral_n,
     column,
     extended_keys,
+    joy_io_mode_en,
+    joy_left,
+    joy_left_type,
+    joy_right,
+    joy_right_type,
+    joymap_we,
     keymap_addr,
     keymap_data,
     keymap_we,
@@ -34,6 +40,12 @@ module keyboard
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_PERIPHERAL_N CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_PERIPHERAL_N, CLK_DOMAIN keyboard_clk_peripheral_n, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_peripheral_n;
   output [4:0]column;
   output [15:0]extended_keys;
+  input joy_io_mode_en;
+  input [10:0]joy_left;
+  input [2:0]joy_left_type;
+  input [10:0]joy_right;
+  input [2:0]joy_right_type;
+  input joymap_we;
   input [8:0]keymap_addr;
   input [7:0]keymap_data;
   input keymap_we;
@@ -57,9 +69,16 @@ module keyboard
   wire cancel_1;
   wire clk_peripheral_1;
   wire clk_peripheral_n_1;
+  wire [5:0]dist_mem_gen_0_dpo;
   wire [4:0]emu_fnkeys_0_o_cols_filtered;
   wire [10:1]emu_fnkeys_0_o_fnkeys;
   wire [7:0]emu_fnkeys_0_o_rows_filtered;
+  wire joy_io_mode_en_1;
+  wire [10:0]joy_left_1;
+  wire [2:0]joy_left_type_1;
+  wire [10:0]joy_right_1;
+  wire [2:0]joy_right_type_1;
+  wire joymap_we_1;
   wire keyb_clocks_0_clk_ps2;
   wire keyb_clocks_0_fnkeys_enable;
   wire keyb_clocks_0_membrane_enable;
@@ -69,6 +88,8 @@ module keyboard
   wire [4:0]membrane_0_o_cols;
   wire [15:0]membrane_0_o_extended_keys;
   wire [2:0]membrane_0_o_membrane_ridx;
+  wire [5:0]membrane_stick_0_joy_keymap_addr;
+  wire [6:0]membrane_stick_0_o_membrane_col;
   wire ps2_clk_i_1;
   wire ps2_data_i_1;
   wire ps2_keyb_0_o_divmmc_nmi_n;
@@ -80,14 +101,25 @@ module keyboard
   wire [7:0]row_1;
   wire [1:0]special_keys_0_spkey_buttons;
   wire [10:1]special_keys_0_spkey_function;
+  wire [6:0]util_vector_logic_0_Res;
+  wire [5:0]xlconcat_0_dout;
   wire [7:0]xlconstant_high1_dout;
   wire [0:0]xlconstant_high_dout;
+  wire [3:0]xlslice_0_Dout;
+  wire [0:0]xlslice_1_Dout;
+  wire [5:0]xlslice_2_Dout;
 
   assign cancel_1 = cancel;
   assign clk_peripheral_1 = clk_peripheral;
   assign clk_peripheral_n_1 = clk_peripheral_n;
   assign column[4:0] = emu_fnkeys_0_o_cols_filtered;
   assign extended_keys[15:0] = membrane_0_o_extended_keys;
+  assign joy_io_mode_en_1 = joy_io_mode_en;
+  assign joy_left_1 = joy_left[10:0];
+  assign joy_left_type_1 = joy_left_type[2:0];
+  assign joy_right_1 = joy_right[10:0];
+  assign joy_right_type_1 = joy_right_type[2:0];
+  assign joymap_we_1 = joymap_we;
   assign keymap_addr_1 = keymap_addr[8:0];
   assign keymap_data_1 = keymap_data[7:0];
   assign keymap_we_1 = keymap_we;
@@ -135,12 +167,25 @@ module keyboard
        (.i_CLK(clk_peripheral_1),
         .i_CLK_EN(keyb_clocks_0_membrane_enable),
         .i_cancel_extended_entries(cancel_1),
-        .i_membrane_cols(ps2_keyb_0_o_membrane_col),
+        .i_membrane_cols(util_vector_logic_0_Res),
         .i_reset(reset_1),
         .i_rows(emu_fnkeys_0_o_rows_filtered),
         .o_cols(membrane_0_o_cols),
         .o_extended_keys(membrane_0_o_extended_keys),
         .o_membrane_ridx(membrane_0_o_membrane_ridx));
+  keyboard_membrane_stick_0_0 membrane_stick_0
+       (.i_CLK(clk_peripheral_1),
+        .i_CLK_EN(keyb_clocks_0_membrane_enable),
+        .i_joy_en_n(joy_io_mode_en_1),
+        .i_joy_left(joy_left_1),
+        .i_joy_left_type(joy_left_type_1),
+        .i_joy_right(joy_right_1),
+        .i_joy_right_type(joy_right_type_1),
+        .i_membrane_row(membrane_0_o_membrane_ridx),
+        .i_reset(reset_1),
+        .joy_keymap_addr(membrane_stick_0_joy_keymap_addr),
+        .joy_keymap_do(dist_mem_gen_0_dpo),
+        .o_membrane_col(membrane_stick_0_o_membrane_col));
   keyboard_ps2_keyb_0_0 ps2_keyb_0
        (.i_CLK(clk_peripheral_1),
         .i_CLK_PS2(keyb_clocks_0_clk_ps2),
@@ -164,8 +209,33 @@ module keyboard
         .ps2_mmc_n(ps2_keyb_0_o_divmmc_nmi_n),
         .spkey_buttons(special_keys_0_spkey_buttons),
         .spkey_function(special_keys_0_spkey_function));
+  keyboard_dist_mem_gen_0_0 udk_map_0
+       (.a(xlconcat_0_dout),
+        .clk(clk_peripheral_1),
+        .d(xlslice_2_Dout),
+        .dpo(dist_mem_gen_0_dpo),
+        .dpra(membrane_stick_0_joy_keymap_addr),
+        .we(joymap_we_1));
+  keyboard_util_vector_logic_0_0 util_vector_logic_0
+       (.Op1(membrane_stick_0_o_membrane_col),
+        .Op2(ps2_keyb_0_o_membrane_col),
+        .Res(util_vector_logic_0_Res));
+  keyboard_xlconcat_0_0 xlconcat_0
+       (.In0(xlslice_0_Dout),
+        .In1(xlconstant_high_dout),
+        .In2(xlslice_1_Dout),
+        .dout(xlconcat_0_dout));
   keyboard_xlconstant_high_0 xlconstant_high
        (.dout(xlconstant_high_dout));
   keyboard_xlconstant_selftest_ok_0 xlconstant_selftest_ok
        (.dout(xlconstant_high1_dout));
+  keyboard_xlslice_0_0 xlslice_0
+       (.Din(keymap_addr_1),
+        .Dout(xlslice_0_Dout));
+  keyboard_xlslice_1_0 xlslice_1
+       (.Din(keymap_addr_1),
+        .Dout(xlslice_1_Dout));
+  keyboard_xlslice_1_1 xlslice_2
+       (.Din(keymap_data_1),
+        .Dout(xlslice_2_Dout));
 endmodule

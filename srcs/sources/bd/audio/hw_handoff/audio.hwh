@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 12:12:25 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 29 09:01:02 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="audio" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -19,7 +19,7 @@
         <CONNECTION INSTANCE="audio_sync_1" PORT="din"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="audio_sd" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="audio_reset_0_rstn">
+    <PORT DIR="O" NAME="aud_sd" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="audio_reset_0_rstn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="audio_reset_0" PORT="rstn"/>
       </CONNECTIONS>
@@ -28,17 +28,13 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="External_Ports" PORT="linein_mclk"/>
         <CONNECTION INSTANCE="External_Ports" PORT="lineout_mclk"/>
-        <CONNECTION INSTANCE="DC_blocker_1" PORT="clk"/>
-        <CONNECTION INSTANCE="audio_sync_1" PORT="clk"/>
         <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="CLK"/>
-        <CONNECTION INSTANCE="DC_blocker_0" PORT="clk"/>
-        <CONNECTION INSTANCE="IIR_filter_0" PORT="clk"/>
-        <CONNECTION INSTANCE="audio_filter_control_0" PORT="clk"/>
         <CONNECTION INSTANCE="audio_reset_0" PORT="clk"/>
-        <CONNECTION INSTANCE="audio_sync_0" PORT="clk"/>
         <CONNECTION INSTANCE="i2s_transceiver_0" PORT="mclk"/>
         <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="CLK"/>
         <CONNECTION INSTANCE="tape_ear_0" PORT="clk"/>
+        <CONNECTION INSTANCE="audio_sync_1" PORT="clk"/>
+        <CONNECTION INSTANCE="audio_sync_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
@@ -111,293 +107,28 @@
         <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="DACout"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="tape_sd" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="audio_reset_0_rstn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="audio_reset_0" PORT="rstn"/>
-      </CONNECTIONS>
-    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
 
   <MODULES>
-    <MODULE COREREVISION="1" FULLNAME="/DC_blocker_0" HWVERSION="1.0" INSTANCE="DC_blocker_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DC_blocker" VLNV="xilinx.com:module_ref:DC_blocker:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="audio_DC_blocker_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="ce" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="dc_ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="mute" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_mute">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="dc_mute"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="sample_rate" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_sample_rate">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="dc_sample_rate"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="IIR_filter_0_output_l">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="output_l"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="DC_blocker_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_mono_0" PORT="left_in"/>
-            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="l_data_tx"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/DC_blocker_1" HWVERSION="1.0" INSTANCE="DC_blocker_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="DC_blocker" VLNV="xilinx.com:module_ref:DC_blocker:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="audio_DC_blocker_1_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="ce" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="dc_ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="mute" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_mute">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="dc_mute"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="sample_rate" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_sample_rate">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="dc_sample_rate"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="IIR_filter_0_output_r">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="output_r"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="DC_blocker_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_mono_0" PORT="right_in"/>
-            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="r_data_tx"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/IIR_filter_0" HWVERSION="1.0" INSTANCE="IIR_filter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="IIR_filter" VLNV="xilinx.com:module_ref:IIR_filter:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="use_params" VALUE="0"/>
-        <PARAMETER NAME="stereo" VALUE="1"/>
-        <PARAMETER NAME="coeff_x" VALUE="7.7470198351366008e-06"/>
-        <PARAMETER NAME="coeff_x0" VALUE="3"/>
-        <PARAMETER NAME="coeff_x1" VALUE="3"/>
-        <PARAMETER NAME="coeff_x2" VALUE="1"/>
-        <PARAMETER NAME="coeff_y0" VALUE="-2.9643815062655108"/>
-        <PARAMETER NAME="coeff_y1" VALUE="2.929394527351211"/>
-        <PARAMETER NAME="coeff_y2" VALUE="-0.96500747158831091"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_IIR_filter_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="audio_reset_0_rst">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_reset_0" PORT="rst"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="ce" SIGIS="undef" SIGNAME="audio_filter_control_0_iir_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="iir_ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="sample_ce" SIGIS="undef" SIGNAME="audio_filter_control_0_iir_sample_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="iir_sample_ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="39" NAME="cx" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cx"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="cx0" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cx0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="cx1" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cx1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="7" NAME="cx2" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cx2"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="23" NAME="cy0" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cy0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cy0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="23" NAME="cy1" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cy1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cy1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="23" NAME="cy2" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cy2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="cy2"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="input_l" RIGHT="0" SIGIS="undef" SIGNAME="twos_complement_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="twos_complement_0" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="15" NAME="input_r" RIGHT="0" SIGIS="undef" SIGNAME="twos_complement_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="twos_complement_1" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="output_l" RIGHT="0" SIGIS="undef" SIGNAME="IIR_filter_0_output_l">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_0" PORT="din"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="output_r" RIGHT="0" SIGIS="undef" SIGNAME="IIR_filter_0_output_r">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_1" PORT="din"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/audio_filter_control_0" HWVERSION="1.0" INSTANCE="audio_filter_control_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="audio_filter_control" VLNV="xilinx.com:module_ref:audio_filter_control:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="CLK_RATE" VALUE="12280700"/>
-        <PARAMETER NAME="flt_rate" VALUE="7056000"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_audio_filter_control_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="O" LEFT="39" NAME="cx" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cx"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="cx0" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cx0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="cx1" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cx1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="7" NAME="cx2" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cx2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cx2"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="23" NAME="cy0" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cy0">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cy0"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="23" NAME="cy1" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cy1">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cy1"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="23" NAME="cy2" RIGHT="0" SIGIS="undef" SIGNAME="audio_filter_control_0_cy2">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="cy2"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="iir_ce" SIGIS="undef" SIGNAME="audio_filter_control_0_iir_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="iir_sample_ce" SIGIS="undef" SIGNAME="audio_filter_control_0_iir_sample_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="sample_ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dc_ce" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_ce">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_1" PORT="ce"/>
-            <CONNECTION INSTANCE="DC_blocker_0" PORT="ce"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dc_sample_rate" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_sample_rate">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_1" PORT="sample_rate"/>
-            <CONNECTION INSTANCE="DC_blocker_0" PORT="sample_rate"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="dc_mute" SIGIS="undef" SIGNAME="audio_filter_control_0_dc_mute">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_1" PORT="mute"/>
-            <CONNECTION INSTANCE="DC_blocker_0" PORT="mute"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="audio_reset_0_rst">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_reset_0" PORT="rst"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/audio_mono_0" HWVERSION="1.0" INSTANCE="audio_mono_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="audio_mono" VLNV="xilinx.com:module_ref:audio_mono:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
+        <PARAMETER NAME="SHIFT" VALUE="1"/>
         <PARAMETER NAME="Component_Name" VALUE="audio_audio_mono_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="left_in" RIGHT="0" SIGIS="undef" SIGNAME="DC_blocker_0_dout">
+        <PORT DIR="I" LEFT="15" NAME="left_in" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_0" PORT="dout"/>
+            <CONNECTION INSTANCE="audio_scaler_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="right_in" RIGHT="0" SIGIS="undef" SIGNAME="DC_blocker_1_dout">
+        <PORT DIR="I" LEFT="15" NAME="right_in" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_1" PORT="dout"/>
+            <CONNECTION INSTANCE="audio_scaler_1" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="mono_out" RIGHT="0" SIGIS="undef" SIGNAME="audio_mono_0_mono_out">
@@ -412,6 +143,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
+        <PARAMETER NAME="SHIFT" VALUE="1"/>
         <PARAMETER NAME="Component_Name" VALUE="audio_audio_mono_1_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -429,48 +161,6 @@
         <PORT DIR="O" LEFT="15" NAME="mono_out" RIGHT="0" SIGIS="undef" SIGNAME="audio_mono_1_mono_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="tape_ear_0" PORT="din"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/audio_prefilter_0" HWVERSION="1.0" INSTANCE="audio_prefilter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="audio_prefilter" VLNV="xilinx.com:module_ref:audio_prefilter:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_audio_prefilter_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_scaler_0" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="audio_prefilter_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="twos_complement_0" PORT="din"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/audio_prefilter_1" HWVERSION="1.0" INSTANCE="audio_prefilter_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="audio_prefilter" VLNV="xilinx.com:module_ref:audio_prefilter:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_audio_prefilter_1_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_scaler_1" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="audio_prefilter_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="twos_complement_1" PORT="din"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -517,15 +207,12 @@
         <PORT DIR="O" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="audio_reset_0_rst">
           <CONNECTIONS>
             <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="RESET"/>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="reset"/>
-            <CONNECTION INSTANCE="audio_filter_control_0" PORT="reset"/>
             <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="RESET"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rstn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="audio_reset_0_rstn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="audio_sd"/>
-            <CONNECTION INSTANCE="External_Ports" PORT="tape_sd"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="aud_sd"/>
             <CONNECTION INSTANCE="i2s_transceiver_0" PORT="reset_n"/>
           </CONNECTIONS>
         </PORT>
@@ -553,7 +240,8 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_prefilter_0" PORT="din"/>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="l_data_tx"/>
+            <CONNECTION INSTANCE="audio_mono_0" PORT="left_in"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -575,7 +263,8 @@
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_prefilter_1" PORT="din"/>
+            <CONNECTION INSTANCE="i2s_transceiver_0" PORT="r_data_tx"/>
+            <CONNECTION INSTANCE="audio_mono_0" PORT="right_in"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -611,7 +300,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="AUDIO_DW" VALUE="13"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_audio_sync_1_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="audio_audio_sync_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
@@ -675,14 +364,14 @@
             <CONNECTION INSTANCE="External_Ports" PORT="linein_sdin"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="l_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="DC_blocker_0_dout">
+        <PORT DIR="I" LEFT="15" NAME="l_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_0" PORT="dout"/>
+            <CONNECTION INSTANCE="audio_scaler_0" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="15" NAME="r_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="DC_blocker_1_dout">
+        <PORT DIR="I" LEFT="15" NAME="r_data_tx" RIGHT="0" SIGIS="undef" SIGNAME="audio_scaler_1_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="DC_blocker_1" PORT="dout"/>
+            <CONNECTION INSTANCE="audio_scaler_1" PORT="dout"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="15" NAME="l_data_rx" RIGHT="0" SIGIS="undef" SIGNAME="i2s_transceiver_0_l_data_rx">
@@ -806,48 +495,6 @@
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="tape_mic_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="DACin"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/twos_complement_0" HWVERSION="1.0" INSTANCE="twos_complement_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="twos_complement" VLNV="xilinx.com:module_ref:twos_complement:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_twos_complement_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="audio_prefilter_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_prefilter_0" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="twos_complement_0_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="input_l"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/twos_complement_1" HWVERSION="1.0" INSTANCE="twos_complement_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="twos_complement" VLNV="xilinx.com:module_ref:twos_complement:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
-        <PARAMETER NAME="Component_Name" VALUE="audio_twos_complement_1_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="15" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="audio_prefilter_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="audio_prefilter_1" PORT="dout"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="twos_complement_1_dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="IIR_filter_0" PORT="input_r"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

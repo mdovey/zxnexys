@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Fri Dec 24 15:51:12 2021
+//Date        : Wed Dec 29 10:16:53 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target zxnexys.bd
 //Design      : zxnexys
@@ -592,11 +592,15 @@ module zxnexys
   wire zxnext_0_esp32_gpio_out;
   wire zxnext_0_esp32_uart_rx;
   wire zxnext_0_esp32_uart_tx;
+  wire zxnext_0_joystick_joy_io_mode_en;
   wire [10:0]zxnext_0_joystick_joy_left;
+  wire [2:0]zxnext_0_joystick_joy_left_type;
   wire [10:0]zxnext_0_joystick_joy_right;
+  wire [2:0]zxnext_0_joystick_joy_right_type;
   wire zxnext_0_keyboard_cancel;
   wire [4:0]zxnext_0_keyboard_column;
   wire [15:0]zxnext_0_keyboard_extended_keys;
+  wire zxnext_0_keyboard_joymap_we;
   wire [8:0]zxnext_0_keyboard_keymap_addr;
   wire [7:0]zxnext_0_keyboard_keymap_data;
   wire zxnext_0_keyboard_keymap_we;
@@ -1138,7 +1142,9 @@ module zxnexys
         .sd_sck(zxsdcard_1_sd_sck),
         .sd_wp(pmod_xsd_0_sd_wp));
   zxnexys_zxaudio_0_0 zxaudio_0
-       (.audio_left(zxnext_0_audio_left),
+       (.aud_pwm(zxaudio_0_tape_pwm),
+        .aud_sd(zxaudio_0_tape_sd),
+        .audio_left(zxnext_0_audio_left),
         .audio_right(zxnext_0_audio_right),
         .clk_audio(zxclock_0_clk_audio),
         .clk_peripheral(zxclock_0_clk_peripheral),
@@ -1153,9 +1159,7 @@ module zxnexys
         .psg_en(zxnext_0_audio_psg_en),
         .reset(Net),
         .tape_ear(zxnext_0_tape_tape_ear),
-        .tape_mic(zxnext_0_tape_tape_mic),
-        .tape_pwm(zxaudio_0_tape_pwm),
-        .tape_sd(zxaudio_0_tape_sd));
+        .tape_mic(zxnext_0_tape_tape_mic));
   zxnexys_zxclock_0_0 zxclock_0
        (.clk_12m28(clk_wiz_0_clk_12m28),
         .clk_14(clk_wiz_0_clk_14),
@@ -1217,6 +1221,12 @@ module zxnexys
         .clk_peripheral_n(zxclock_0_clk_peripheral_n),
         .column(zxnext_0_keyboard_column),
         .extended_keys(zxnext_0_keyboard_extended_keys),
+        .joy_io_mode_en(zxnext_0_joystick_joy_io_mode_en),
+        .joy_left(zxnext_0_joystick_joy_left),
+        .joy_left_type(zxnext_0_joystick_joy_left_type),
+        .joy_right(zxnext_0_joystick_joy_right),
+        .joy_right_type(zxnext_0_joystick_joy_right_type),
+        .joymap_we(zxnext_0_keyboard_joymap_we),
         .keymap_addr(zxnext_0_keyboard_keymap_addr),
         .keymap_data(zxnext_0_keyboard_keymap_data),
         .keymap_we(zxnext_0_keyboard_keymap_we),
@@ -1292,6 +1302,10 @@ module zxnexys
         .o_GPIO_EN(zxnext_0_pi_accel_gpio_t),
         .o_I2C_SCL_n(zxnext_0_rtc_scl_out),
         .o_I2C_SDA_n(zxnext_0_rtc_sda_out),
+        .o_JOYMAP_WE(zxnext_0_keyboard_joymap_we),
+        .o_JOY_IO_MODE_EN(zxnext_0_joystick_joy_io_mode_en),
+        .o_JOY_LEFT_TYPE(zxnext_0_joystick_joy_left_type),
+        .o_JOY_RIGHT_TYPE(zxnext_0_joystick_joy_right_type),
         .o_KBD_CANCEL(zxnext_0_keyboard_cancel),
         .o_KBD_ROW(zxnext_0_keyboard_row),
         .o_KEYMAP_ADDR(zxnext_0_keyboard_keymap_addr),

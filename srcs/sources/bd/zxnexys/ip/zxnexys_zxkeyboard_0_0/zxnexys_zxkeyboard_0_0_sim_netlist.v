@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Fri Dec 24 15:56:37 2021
+// Date        : Wed Dec 29 10:15:05 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxkeyboard_0_0/zxnexys_zxkeyboard_0_0_sim_netlist.v
@@ -21,6 +21,12 @@ module zxnexys_zxkeyboard_0_0
     clk_peripheral_n,
     column,
     extended_keys,
+    joy_io_mode_en,
+    joy_left,
+    joy_left_type,
+    joy_right,
+    joy_right_type,
+    joymap_we,
     keymap_addr,
     keymap_data,
     keymap_we,
@@ -39,6 +45,12 @@ module zxnexys_zxkeyboard_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral_n CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral_n, INSERT_VIP 0" *) input clk_peripheral_n;
   (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard column" *) output [4:0]column;
   (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard extended_keys" *) output [15:0]extended_keys;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_io_mode_en" *) input joy_io_mode_en;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left" *) input [10:0]joy_left;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left_type" *) input [2:0]joy_left_type;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right" *) input [10:0]joy_right;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right_type" *) input [2:0]joy_right_type;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard joymap_we" *) input joymap_we;
   (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard keymap_addr" *) input [8:0]keymap_addr;
   (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard keymap_data" *) input [7:0]keymap_data;
   (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard keymap_we" *) input keymap_we;
@@ -59,6 +71,12 @@ module zxnexys_zxkeyboard_0_0
   wire clk_peripheral_n;
   wire [4:0]column;
   wire [15:0]extended_keys;
+  wire joy_io_mode_en;
+  wire [10:0]joy_left;
+  wire [2:0]joy_left_type;
+  wire [10:0]joy_right;
+  wire [2:0]joy_right_type;
+  wire joymap_we;
   wire [8:0]keymap_addr;
   wire [7:0]keymap_data;
   wire keymap_we;
@@ -84,6 +102,12 @@ module zxnexys_zxkeyboard_0_0
         .clk_peripheral_n(clk_peripheral_n),
         .column(column),
         .extended_keys(extended_keys),
+        .joy_io_mode_en(joy_io_mode_en),
+        .joy_left(joy_left),
+        .joy_left_type(joy_left_type),
+        .joy_right(joy_right),
+        .joy_right_type(joy_right_type),
+        .joymap_we(joymap_we),
         .keymap_addr(keymap_addr),
         .keymap_data(keymap_data),
         .keymap_we(keymap_we),
@@ -107,7 +131,6 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
     \rx_data_reg[7]_0 ,
     \rx_data_reg[4]_0 ,
     \rx_data_reg[6]_0 ,
-    \rx_data_reg[6]_1 ,
     reset_0,
     \rx_data_reg[0]_0 ,
     \rx_data_reg[0]_1 ,
@@ -115,9 +138,9 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
     reset,
     Q,
     ps2_receive_valid_d,
-    ps2_current_keycode,
     \o_ps2_func_keys_n_reg[0] ,
     ps2_keyb_0_o_ps2_send_valid,
+    ps2_current_keycode,
     ps2_clk_i,
     ps2_data_i);
   output ps2_data_t;
@@ -129,7 +152,6 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
   output [7:0]\rx_data_reg[7]_0 ;
   output \rx_data_reg[4]_0 ;
   output \rx_data_reg[6]_0 ;
-  output \rx_data_reg[6]_1 ;
   output reset_0;
   output \rx_data_reg[0]_0 ;
   output \rx_data_reg[0]_1 ;
@@ -137,9 +159,9 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
   input reset;
   input [0:0]Q;
   input ps2_receive_valid_d;
-  input [0:0]ps2_current_keycode;
   input \o_ps2_func_keys_n_reg[0] ;
   input ps2_keyb_0_o_ps2_send_valid;
+  input [0:0]ps2_current_keycode;
   input ps2_clk_i;
   input ps2_data_i;
 
@@ -292,7 +314,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
   wire ps2_data_s;
   wire ps2_data_t;
   wire ps2_keyb_0_o_ps2_send_valid;
-  wire \ps2_last_keycode[9]_i_4_n_0 ;
+  wire \ps2_last_keycode[9]_i_3_n_0 ;
   wire ps2_receive_valid_d;
   wire ps2_send_valid_i_3_n_0;
   wire read_data_reg_0;
@@ -307,7 +329,6 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
   wire \rx_data_reg[2]_0 ;
   wire \rx_data_reg[4]_0 ;
   wire \rx_data_reg[6]_0 ;
-  wire \rx_data_reg[6]_1 ;
   wire [7:0]\rx_data_reg[7]_0 ;
   wire rx_parity;
   wire rx_parity_i_1_n_0;
@@ -317,7 +338,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
   wire [3:1]\NLW_delay_100us_count_reg[12]_i_1_CO_UNCONNECTED ;
   wire [3:2]\NLW_delay_100us_count_reg[12]_i_1_O_UNCONNECTED ;
 
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
     .INIT(16'h0ECC)) 
     \FSM_onehot_state[10]_i_1 
@@ -327,26 +348,26 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I3(ps2_data_s),
         .O(\FSM_onehot_state[10]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFF40)) 
+    .INIT(64'hFFFFFFFFFFFFFEAA)) 
     \FSM_onehot_state[11]_i_1 
-       (.I0(ps2_keyb_0_o_ps2_send_valid),
-        .I1(reset_bit_count),
-        .I2(ps2_clk_s),
-        .I3(\FSM_onehot_state_reg_n_0_[15] ),
-        .I4(\FSM_onehot_state_reg_n_0_[16] ),
-        .I5(\FSM_onehot_state[11]_i_2_n_0 ),
+       (.I0(\FSM_onehot_state[11]_i_2_n_0 ),
+        .I1(\FSM_onehot_state_reg_n_0_[10] ),
+        .I2(\FSM_onehot_state_reg_n_0_[9] ),
+        .I3(\FSM_onehot_state[11]_i_3_n_0 ),
+        .I4(\FSM_onehot_state_reg_n_0_[15] ),
+        .I5(\FSM_onehot_state_reg_n_0_[16] ),
         .O(\FSM_onehot_state[11]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFF80FF80FF808080)) 
+    .INIT(64'h80808080FF808080)) 
     \FSM_onehot_state[11]_i_2 
        (.I0(delay_100us_done),
         .I1(delay_100us_counter_enable),
         .I2(reset_flag_reg_n_0),
-        .I3(\FSM_onehot_state[11]_i_3_n_0 ),
-        .I4(\FSM_onehot_state_reg_n_0_[9] ),
-        .I5(\FSM_onehot_state_reg_n_0_[10] ),
+        .I3(ps2_clk_s),
+        .I4(reset_bit_count),
+        .I5(ps2_keyb_0_o_ps2_send_valid),
         .O(\FSM_onehot_state[11]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \FSM_onehot_state[11]_i_3 
@@ -400,14 +421,14 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I4(bit_count_reg[2]),
         .I5(\FSM_onehot_state_reg_n_0_[14] ),
         .O(\FSM_onehot_state[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \FSM_onehot_state[16]_i_2 
        (.I0(bit_count_reg[0]),
         .I1(bit_count_reg[1]),
         .O(\FSM_onehot_state[16]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \FSM_onehot_state[17]_i_1 
@@ -415,7 +436,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(\FSM_onehot_state[17]_i_2_n_0 ),
         .I2(\FSM_onehot_state_reg_n_0_[17] ),
         .O(\FSM_onehot_state[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'hAA8AAAAA)) 
     \FSM_onehot_state[17]_i_2 
@@ -443,14 +464,14 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I5(\FSM_onehot_state_reg_n_0_[0] ),
         .O(\FSM_onehot_state[1]_i_1__1_n_0 ));
   LUT6 #(
-    .INIT(64'h000000000000FD00)) 
+    .INIT(64'h00000000FE000000)) 
     \FSM_onehot_state[1]_i_2 
-       (.I0(\ps2_last_keycode[9]_i_4_n_0 ),
+       (.I0(\ps2_last_keycode[9]_i_3_n_0 ),
         .I1(\rx_data_reg[7]_0 [2]),
         .I2(\rx_data_reg[7]_0 [0]),
-        .I3(read_data_reg_0),
-        .I4(ps2_receive_valid_d),
-        .I5(\rx_data_reg[4]_0 ),
+        .I3(\rx_data_reg[4]_0 ),
+        .I4(read_data_reg_0),
+        .I5(ps2_receive_valid_d),
         .O(\rx_data_reg[2]_0 ));
   LUT5 #(
     .INIT(32'h4444F444)) 
@@ -461,25 +482,25 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I3(delay_100us_counter_enable),
         .I4(reset_flag_reg_n_0),
         .O(\FSM_onehot_state[2]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h00000080)) 
+    .INIT(32'h00000008)) 
     \FSM_onehot_state[2]_i_2 
-       (.I0(\FSM_onehot_state[2]_i_3_n_0 ),
-        .I1(\rx_data_reg[7]_0 [1]),
-        .I2(\rx_data_reg[7]_0 [3]),
-        .I3(\rx_data_reg[7]_0 [4]),
-        .I4(\rx_data_reg[7]_0 [6]),
+       (.I0(\rx_data_reg[7]_0 [1]),
+        .I1(\rx_data_reg[7]_0 [3]),
+        .I2(\rx_data_reg[7]_0 [4]),
+        .I3(\rx_data_reg[7]_0 [6]),
+        .I4(\FSM_onehot_state[2]_i_3_n_0 ),
         .O(\rx_data_reg[1]_0 ));
   LUT4 #(
-    .INIT(16'h0008)) 
+    .INIT(16'hFFF7)) 
     \FSM_onehot_state[2]_i_3 
        (.I0(\rx_data_reg[7]_0 [7]),
         .I1(\rx_data_reg[7]_0 [5]),
         .I2(\rx_data_reg[7]_0 [0]),
         .I3(\rx_data_reg[7]_0 [2]),
         .O(\FSM_onehot_state[2]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT4 #(
     .INIT(16'hF444)) 
     \FSM_onehot_state[3]_i_1 
@@ -488,7 +509,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(delay_20us_done),
         .I3(delay_20us_counter_enable),
         .O(\FSM_onehot_state[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'hEE0C)) 
     \FSM_onehot_state[4]_i_1 
@@ -497,7 +518,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(delay_63clk_done),
         .I3(ps2_clk_s),
         .O(\FSM_onehot_state[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'h5540)) 
     \FSM_onehot_state[5]_i_1 
@@ -506,7 +527,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(delay_63clk_done),
         .I3(\FSM_onehot_state_reg_n_0_[17] ),
         .O(\FSM_onehot_state[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hBA)) 
     \FSM_onehot_state[6]_i_1 
@@ -514,7 +535,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(ps2_clk_s),
         .I2(\FSM_onehot_state[17]_i_2_n_0 ),
         .O(\FSM_onehot_state[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hBA)) 
     \FSM_onehot_state[7]_i_1 
@@ -522,7 +543,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(ps2_clk_s),
         .I2(\FSM_onehot_state_reg_n_0_[7] ),
         .O(\FSM_onehot_state[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h04000000)) 
     \FSM_onehot_state[7]_i_2 
@@ -532,7 +553,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I3(bit_count_reg[3]),
         .I4(\FSM_onehot_state_reg_n_0_[6] ),
         .O(\FSM_onehot_state[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \FSM_onehot_state[8]_i_1 
@@ -540,7 +561,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(\FSM_onehot_state_reg_n_0_[8] ),
         .I2(\FSM_onehot_state_reg_n_0_[7] ),
         .O(\FSM_onehot_state[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
     .INIT(16'h22BA)) 
     \FSM_onehot_state[9]_i_1 
@@ -734,17 +755,17 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .ps2_data_i(ps2_data_i));
   LUT1 #(
     .INIT(2'h1)) 
-    \bit_count[0]_i_1 
+    \bit_count[0]_i_1__0 
        (.I0(bit_count_reg[0]),
         .O(plusOp__0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h6)) 
-    \bit_count[1]_i_1 
+    \bit_count[1]_i_1__0 
        (.I0(bit_count_reg[0]),
         .I1(bit_count_reg[1]),
         .O(plusOp__0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \bit_count[2]_i_1 
@@ -758,7 +779,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
        (.I0(\FSM_onehot_state_reg_n_0_[5] ),
         .I1(\FSM_onehot_state_reg_n_0_[12] ),
         .O(shift_frame));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \bit_count[3]_i_2 
@@ -804,14 +825,14 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
     \clk_count[0]_i_1 
        (.I0(clk_count_reg[0]),
         .O(plusOp[0]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \clk_count[1]_i_1 
        (.I0(clk_count_reg[0]),
         .I1(clk_count_reg[1]),
         .O(plusOp[1]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \clk_count[2]_i_1 
@@ -819,7 +840,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(clk_count_reg[1]),
         .I2(clk_count_reg[0]),
         .O(plusOp[2]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \clk_count[3]_i_1 
@@ -828,7 +849,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(clk_count_reg[1]),
         .I3(clk_count_reg[2]),
         .O(plusOp[3]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \clk_count[4]_i_1 
@@ -857,7 +878,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I3(clk_count_reg[4]),
         .I4(clk_count_reg[6]),
         .O(\clk_count[6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \clk_count[6]_i_3 
@@ -865,7 +886,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(\clk_count[6]_i_5_n_0 ),
         .I2(clk_count_reg[5]),
         .O(plusOp[6]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'hFFFD)) 
     \clk_count[6]_i_4 
@@ -874,7 +895,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(clk_count_reg[3]),
         .I3(clk_count_reg[2]),
         .O(\clk_count[6]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \clk_count[6]_i_5 
@@ -934,7 +955,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .D(SyncAsyncClk_n_2),
         .Q(clk_inter),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \data_count[0]_i_1 
@@ -949,7 +970,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(data_count_reg[6]),
         .I3(\data_count[1]_i_3_n_0 ),
         .O(\data_count[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'hFFDF)) 
     \data_count[1]_i_3 
@@ -958,7 +979,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(data_count_reg[4]),
         .I3(data_count_reg[5]),
         .O(\data_count[1]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \data_count[2]_i_1 
@@ -966,7 +987,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(data_count_reg[0]),
         .I2(data_count_reg[1]),
         .O(\data_count[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \data_count[3]_i_1 
@@ -975,7 +996,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(data_count_reg[1]),
         .I3(data_count_reg[0]),
         .O(\data_count[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \data_count[4]_i_1 
@@ -1002,7 +1023,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(\data_count[6]_i_3_n_0 ),
         .I2(data_count_reg[5]),
         .O(\data_count[6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h7FFFFFFF)) 
     \data_count[6]_i_3 
@@ -1261,7 +1282,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .D(delay_100us_done_i_1_n_0),
         .Q(delay_100us_done),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \delay_20us_count[0]_i_1 
@@ -1291,7 +1312,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I4(delay_20us_count_reg[7]),
         .I5(delay_20us_count_reg[9]),
         .O(plusOp__1[10]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'hFFEF)) 
     \delay_20us_count[10]_i_4 
@@ -1318,14 +1339,14 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I4(delay_20us_count_reg[3]),
         .I5(delay_20us_count_reg[5]),
         .O(\delay_20us_count[10]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \delay_20us_count[1]_i_1 
        (.I0(delay_20us_count_reg[0]),
         .I1(delay_20us_count_reg[1]),
         .O(plusOp__1[1]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \delay_20us_count[2]_i_1 
@@ -1333,7 +1354,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(delay_20us_count_reg[0]),
         .I2(delay_20us_count_reg[1]),
         .O(plusOp__1[2]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \delay_20us_count[3]_i_1 
@@ -1342,7 +1363,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(delay_20us_count_reg[0]),
         .I3(delay_20us_count_reg[2]),
         .O(plusOp__1[3]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \delay_20us_count[4]_i_1 
@@ -1362,14 +1383,14 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I4(delay_20us_count_reg[2]),
         .I5(delay_20us_count_reg[4]),
         .O(plusOp__1[5]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \delay_20us_count[6]_i_1 
        (.I0(\delay_20us_count[10]_i_6_n_0 ),
         .I1(delay_20us_count_reg[6]),
         .O(plusOp__1[6]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'h9A)) 
     \delay_20us_count[7]_i_1 
@@ -1377,7 +1398,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(\delay_20us_count[10]_i_6_n_0 ),
         .I2(delay_20us_count_reg[6]),
         .O(plusOp__1[7]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'hA6AA)) 
     \delay_20us_count[8]_i_1 
@@ -1386,7 +1407,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(\delay_20us_count[10]_i_6_n_0 ),
         .I3(delay_20us_count_reg[7]),
         .O(plusOp__1[8]));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
     .INIT(32'hA6AAAAAA)) 
     \delay_20us_count[9]_i_1 
@@ -1505,14 +1526,14 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
     \delay_63clk_count[0]_i_1 
        (.I0(delay_63clk_count_reg[0]),
         .O(plusOp__2[0]));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \delay_63clk_count[1]_i_1 
        (.I0(delay_63clk_count_reg[0]),
         .I1(delay_63clk_count_reg[1]),
         .O(plusOp__2[1]));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \delay_63clk_count[2]_i_1 
@@ -1520,7 +1541,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(delay_63clk_count_reg[1]),
         .I2(delay_63clk_count_reg[0]),
         .O(plusOp__2[2]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \delay_63clk_count[3]_i_1 
@@ -1529,7 +1550,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(delay_63clk_count_reg[1]),
         .I3(delay_63clk_count_reg[2]),
         .O(plusOp__2[3]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \delay_63clk_count[4]_i_1 
@@ -1569,7 +1590,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I1(\delay_63clk_count[6]_i_5_n_0 ),
         .I2(delay_63clk_count_reg[5]),
         .O(plusOp__2[6]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'hFFFD)) 
     \delay_63clk_count[6]_i_4 
@@ -1578,7 +1599,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I2(delay_63clk_count_reg[3]),
         .I3(delay_63clk_count_reg[2]),
         .O(\delay_63clk_count[6]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \delay_63clk_count[6]_i_5 
@@ -1772,23 +1793,16 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .Q(load_rx_data),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
-    o_mf_nmi_n_i_2
-       (.I0(\rx_data_reg[7]_0 [6]),
-        .I1(\rx_data_reg[7]_0 [4]),
-        .I2(\rx_data_reg[7]_0 [1]),
-        .I3(\rx_data_reg[7]_0 [5]),
-        .I4(ps2_current_keycode),
-        .I5(\rx_data_reg[7]_0 [7]),
-        .O(\rx_data_reg[6]_1 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
-    o_mf_nmi_n_i_4
+    .INIT(64'hFFFFFFFFFFFFFFFD)) 
+    o_mf_nmi_n_i_3
        (.I0(\rx_data_reg[7]_0 [0]),
         .I1(\rx_data_reg[7]_0 [2]),
+        .I2(\rx_data_reg[7]_0 [5]),
+        .I3(\rx_data_reg[7]_0 [7]),
+        .I4(\rx_data_reg[7]_0 [4]),
+        .I5(\rx_data_reg[7]_0 [6]),
         .O(\rx_data_reg[0]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
     .INIT(16'h0004)) 
     ps2_clk_clean_i_2
@@ -1839,7 +1853,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I4(delay_100us_counter_enable),
         .I5(reset_flag_reg_n_0),
         .O(ps2_clk_h_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'hE)) 
     ps2_clk_h_i_5
@@ -1915,18 +1929,18 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .Q(ps2_data_s),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFF00001000)) 
+    .INIT(64'hFFFFFFFF00000100)) 
     ps2_key_extend_i_2
        (.I0(\rx_data_reg[7]_0 [0]),
         .I1(\rx_data_reg[7]_0 [2]),
-        .I2(\ps2_last_keycode[9]_i_4_n_0 ),
+        .I2(\ps2_last_keycode[9]_i_3_n_0 ),
         .I3(read_data_reg_0),
         .I4(ps2_receive_valid_d),
         .I5(ps2_current_keycode),
         .O(\rx_data_reg[0]_1 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h00000080)) 
+    .INIT(32'hFFFFFFBF)) 
     ps2_key_release_i_2
        (.I0(\FSM_onehot_state[2]_i_3_n_0 ),
         .I1(\rx_data_reg[7]_0 [4]),
@@ -1934,34 +1948,33 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .I3(\rx_data_reg[7]_0 [1]),
         .I4(\rx_data_reg[7]_0 [3]),
         .O(\rx_data_reg[4]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'hAEAAAAAA)) 
+    .INIT(32'hAAAABAAA)) 
     \ps2_last_keycode[9]_i_1 
        (.I0(reset),
-        .I1(\o_ps2_func_keys_n_reg[0] ),
-        .I2(\rx_data_reg[7]_0 [2]),
+        .I1(\ps2_last_keycode[9]_i_3_n_0 ),
+        .I2(\o_ps2_func_keys_n_reg[0] ),
         .I3(\rx_data_reg[7]_0 [0]),
-        .I4(\ps2_last_keycode[9]_i_4_n_0 ),
+        .I4(\rx_data_reg[7]_0 [2]),
         .O(reset_0));
   LUT6 #(
-    .INIT(64'h0000100000000000)) 
-    \ps2_last_keycode[9]_i_4 
+    .INIT(64'hFEFFFFFFFFFFFFFF)) 
+    \ps2_last_keycode[9]_i_3 
        (.I0(\rx_data_reg[7]_0 [3]),
         .I1(\rx_data_reg[7]_0 [1]),
-        .I2(\rx_data_reg[7]_0 [5]),
-        .I3(\rx_data_reg[7]_0 [7]),
-        .I4(\rx_data_reg[7]_0 [4]),
-        .I5(\rx_data_reg[7]_0 [6]),
-        .O(\ps2_last_keycode[9]_i_4_n_0 ));
+        .I2(\rx_data_reg[7]_0 [4]),
+        .I3(\rx_data_reg[7]_0 [6]),
+        .I4(\rx_data_reg[7]_0 [5]),
+        .I5(\rx_data_reg[7]_0 [7]),
+        .O(\ps2_last_keycode[9]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'h1000000000000000)) 
+    .INIT(64'h0100000000000000)) 
     ps2_send_valid_i_2
-       (.I0(\rx_data_reg[7]_0 [6]),
-        .I1(\rx_data_reg[7]_0 [4]),
-        .I2(\rx_data_reg[7]_0 [3]),
-        .I3(\rx_data_reg[7]_0 [1]),
-        .I4(\FSM_onehot_state[2]_i_3_n_0 ),
+       (.I0(\FSM_onehot_state[2]_i_3_n_0 ),
+        .I1(\rx_data_reg[7]_0 [6]),
+        .I2(\rx_data_reg[7]_0 [4]),
+        .I3(\rx_data_reg[7]_0 [3]),
+        .I4(\rx_data_reg[7]_0 [1]),
         .I5(ps2_send_valid_i_3_n_0),
         .O(\rx_data_reg[6]_0 ));
   LUT2 #(
@@ -1976,7 +1989,7 @@ module zxnexys_zxkeyboard_0_0_Ps2Interface
         .D(\FSM_onehot_state_reg_n_0_[16] ),
         .Q(read_data_reg_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'hEF44)) 
     reset_flag_i_1
@@ -2238,12 +2251,9 @@ module zxnexys_zxkeyboard_0_0_emu_fnkeys
    (emu_fnkeys_0_o_fnkeys,
     Q,
     \timer_count_reg[0]_0 ,
-    row_2_sp_1,
-    row_3_sp_1,
     \FSM_onehot_state_reg[0]_0 ,
-    row_5_sp_1,
+    \row[3] ,
     \row[7] ,
-    row_0_sp_1,
     reset,
     clk_peripheral,
     row,
@@ -2252,15 +2262,12 @@ module zxnexys_zxkeyboard_0_0_emu_fnkeys
   output [1:0]emu_fnkeys_0_o_fnkeys;
   output [0:0]Q;
   output \timer_count_reg[0]_0 ;
-  output row_2_sp_1;
-  output row_3_sp_1;
   output \FSM_onehot_state_reg[0]_0 ;
-  output row_5_sp_1;
+  output \row[3] ;
   output \row[7] ;
-  output row_0_sp_1;
   input reset;
   input clk_peripheral;
-  input [5:0]row;
+  input [2:0]row;
   input \timer_count_reg[0]_1 ;
   input \timer_count_reg[0]_2 ;
 
@@ -2278,22 +2285,15 @@ module zxnexys_zxkeyboard_0_0_emu_fnkeys
   wire \local_fnkeys[4]_i_1_n_0 ;
   wire [3:3]p_0_out;
   wire reset;
-  wire [5:0]row;
+  wire [2:0]row;
+  wire \row[3] ;
   wire \row[7] ;
-  wire row_0_sn_1;
-  wire row_2_sn_1;
-  wire row_3_sn_1;
-  wire row_5_sn_1;
   wire \timer_count[0]_i_1_n_0 ;
   wire \timer_count_reg[0]_0 ;
   wire \timer_count_reg[0]_1 ;
   wire \timer_count_reg[0]_2 ;
 
-  assign row_0_sp_1 = row_0_sn_1;
-  assign row_2_sp_1 = row_2_sn_1;
-  assign row_3_sp_1 = row_3_sn_1;
-  assign row_5_sp_1 = row_5_sn_1;
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT4 #(
     .INIT(16'hFFD0)) 
     \FSM_onehot_state[0]_i_1__0 
@@ -2302,7 +2302,7 @@ module zxnexys_zxkeyboard_0_0_emu_fnkeys
         .I2(Q),
         .I3(p_0_out),
         .O(\FSM_onehot_state[0]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT4 #(
     .INIT(16'h0F08)) 
     \FSM_onehot_state[1]_i_1__0 
@@ -2311,7 +2311,7 @@ module zxnexys_zxkeyboard_0_0_emu_fnkeys
         .I2(button_m1_n_edge),
         .I3(\FSM_onehot_state_reg_n_0_[1] ),
         .O(\FSM_onehot_state[1]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \FSM_onehot_state[2]_i_1__1 
@@ -2361,47 +2361,27 @@ module zxnexys_zxkeyboard_0_0_emu_fnkeys
         .D(button_m1_n_edge),
         .Q(\button_reset_n_edge_reg_n_0_[1] ),
         .R(reset));
-  LUT2 #(
-    .INIT(4'hB)) 
-    \column[0]_INST_0_i_5 
-       (.I0(row[0]),
-        .I1(Q),
-        .O(row_0_sn_1));
   (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
-    .INIT(4'hB)) 
-    \column[0]_INST_0_i_6 
-       (.I0(row[1]),
-        .I1(Q),
-        .O(row_2_sn_1));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
-  LUT2 #(
     .INIT(4'h4)) 
-    \column[0]_INST_0_i_7 
-       (.I0(row[4]),
-        .I1(Q),
-        .O(row_5_sn_1));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
-  LUT2 #(
-    .INIT(4'h4)) 
-    \column[0]_INST_0_i_8 
-       (.I0(row[5]),
-        .I1(Q),
-        .O(\row[7] ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
-  LUT2 #(
-    .INIT(4'h7)) 
-    \column[4]_INST_0_i_4 
-       (.I0(Q),
-        .I1(row[3]),
-        .O(\FSM_onehot_state_reg[0]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
-  LUT2 #(
-    .INIT(4'h4)) 
-    \column[4]_INST_0_i_5 
+    \column[2]_INST_0_i_4 
        (.I0(row[2]),
         .I1(Q),
-        .O(row_3_sn_1));
+        .O(\row[7] ));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT2 #(
+    .INIT(4'h7)) 
+    \column[3]_INST_0_i_4 
+       (.I0(Q),
+        .I1(row[1]),
+        .O(\FSM_onehot_state_reg[0]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  LUT2 #(
+    .INIT(4'h4)) 
+    \column[3]_INST_0_i_5 
+       (.I0(row[0]),
+        .I1(Q),
+        .O(\row[3] ));
   LUT5 #(
     .INIT(32'h000002CE)) 
     \local_fnkeys[1]_i_1 
@@ -2460,34 +2440,38 @@ endmodule
 module zxnexys_zxkeyboard_0_0_keyb_clocks
    (S,
     \clk_div_reg[8]_0 ,
+    \clk_div_reg[7]_0 ,
     \clk_div_reg[6]_0 ,
     \clk_div_reg[10]_0 ,
     \state_reg[0] ,
     E,
-    \clk_div_reg[7]_0 ,
-    \clk_div_reg[7]_1 ,
+    membrane_col0,
     keyb_clocks_0_membrane_enable,
     clk_peripheral,
     reset,
+    \matrix_work_ex_reg[9] ,
     timer_count,
     Q,
     cancel,
-    \matrix_work_ex_reg[6] );
+    state,
+    joy_io_mode_en);
   output [1:0]S;
   output [0:0]\clk_div_reg[8]_0 ;
+  output \clk_div_reg[7]_0 ;
   output \clk_div_reg[6]_0 ;
   output \clk_div_reg[10]_0 ;
   output \state_reg[0] ;
   output [0:0]E;
-  output \clk_div_reg[7]_0 ;
-  output \clk_div_reg[7]_1 ;
+  output membrane_col0;
   output keyb_clocks_0_membrane_enable;
   input clk_peripheral;
   input reset;
+  input \matrix_work_ex_reg[9] ;
   input timer_count;
   input [0:0]Q;
   input cancel;
-  input \matrix_work_ex_reg[6] ;
+  input state;
+  input joy_io_mode_en;
 
   wire [0:0]E;
   wire [0:0]Q;
@@ -2524,7 +2508,6 @@ module zxnexys_zxkeyboard_0_0_keyb_clocks
   wire \clk_div_reg[4]_i_1_n_7 ;
   wire \clk_div_reg[6]_0 ;
   wire \clk_div_reg[7]_0 ;
-  wire \clk_div_reg[7]_1 ;
   wire [0:0]\clk_div_reg[8]_0 ;
   wire \clk_div_reg[8]_i_1_n_0 ;
   wire \clk_div_reg[8]_i_1_n_1 ;
@@ -2536,9 +2519,12 @@ module zxnexys_zxkeyboard_0_0_keyb_clocks
   wire \clk_div_reg[8]_i_1_n_7 ;
   wire [17:0]clk_div_reg__0;
   wire clk_peripheral;
+  wire joy_io_mode_en;
   wire keyb_clocks_0_membrane_enable;
-  wire \matrix_work_ex_reg[6] ;
+  wire \matrix_work_ex_reg[9] ;
+  wire membrane_col0;
   wire reset;
+  wire state;
   wire \state_reg[0] ;
   wire timer_count;
   wire \timer_count[0]_i_4_n_0 ;
@@ -2700,7 +2686,7 @@ module zxnexys_zxkeyboard_0_0_keyb_clocks
         .CLR(reset),
         .D(\clk_div_reg[8]_i_1_n_6 ),
         .Q(clk_div_reg__0[9]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \matrix_state[1][6]_i_1 
@@ -2708,23 +2694,15 @@ module zxnexys_zxkeyboard_0_0_keyb_clocks
         .I1(\clk_div_reg[8]_0 ),
         .I2(Q),
         .O(E));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT3 #(
-    .INIT(8'h08)) 
-    \matrix_work_ex[12]_i_2 
-       (.I0(S[1]),
-        .I1(\clk_div_reg[8]_0 ),
-        .I2(\matrix_work_ex_reg[6] ),
-        .O(\clk_div_reg[7]_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
-  LUT3 #(
-    .INIT(8'h7F)) 
-    \matrix_work_ex[13]_i_2 
-       (.I0(S[1]),
-        .I1(\clk_div_reg[8]_0 ),
-        .I2(\matrix_work_ex_reg[6] ),
-        .O(\clk_div_reg[7]_1 ));
   (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT3 #(
+    .INIT(8'hBF)) 
+    \matrix_work_ex[14]_i_2 
+       (.I0(\matrix_work_ex_reg[9] ),
+        .I1(S[1]),
+        .I2(\clk_div_reg[8]_0 ),
+        .O(\clk_div_reg[7]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT5 #(
     .INIT(32'hFFFFFF40)) 
     \matrix_work_ex[16]_i_1 
@@ -2734,7 +2712,17 @@ module zxnexys_zxkeyboard_0_0_keyb_clocks
         .I3(cancel),
         .I4(reset),
         .O(\state_reg[0] ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFF40)) 
+    \membrane_col[6]_i_1 
+       (.I0(state),
+        .I1(\clk_div_reg[8]_0 ),
+        .I2(S[1]),
+        .I3(joy_io_mode_en),
+        .I4(reset),
+        .O(membrane_col0));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \state[8]_i_1 
@@ -2775,7 +2763,7 @@ module zxnexys_zxkeyboard_0_0_keyb_clocks
         .I2(clk_div_reg__0[1]),
         .I3(clk_div_reg__0[2]),
         .O(\timer_count[0]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT4 #(
     .INIT(16'h7FFF)) 
     \timer_count[0]_i_6 
@@ -2793,38 +2781,49 @@ module zxnexys_zxkeyboard_0_0_keyboard
     ps2_data_t,
     ps2_clk_t,
     extended_keys,
+    row,
     clk_peripheral,
     reset,
     clk_peripheral_n,
     keymap_we,
     keymap_addr,
     keymap_data,
+    joymap_we,
     ps2_clk_i,
     ps2_data_i,
     cancel,
-    row);
+    joy_io_mode_en,
+    joy_right_type,
+    joy_left_type,
+    joy_left,
+    joy_right);
   output [4:0]column;
   output [8:0]spkey_function;
   output ps2_data_t;
   output ps2_clk_t;
   output [15:0]extended_keys;
+  input [7:0]row;
   input clk_peripheral;
   input reset;
   input clk_peripheral_n;
   input keymap_we;
   input [8:0]keymap_addr;
   input [7:0]keymap_data;
+  input joymap_we;
   input ps2_clk_i;
   input ps2_data_i;
   input cancel;
-  input [7:0]row;
+  input joy_io_mode_en;
+  input [2:0]joy_right_type;
+  input [2:0]joy_left_type;
+  input [10:0]joy_left;
+  input [10:0]joy_right;
 
   wire Ps2Interface_0_n_14;
   wire Ps2Interface_0_n_15;
   wire Ps2Interface_0_n_16;
   wire Ps2Interface_0_n_17;
   wire Ps2Interface_0_n_18;
-  wire Ps2Interface_0_n_19;
   wire Ps2Interface_0_n_3;
   wire Ps2Interface_0_n_4;
   wire Ps2Interface_0_n_5;
@@ -2834,34 +2833,42 @@ module zxnexys_zxkeyboard_0_0_keyboard
   wire clk_peripheral;
   wire clk_peripheral_n;
   wire [4:0]column;
+  wire [5:0]dist_mem_gen_0_dpo;
   wire emu_fnkeys_0_n_4;
   wire emu_fnkeys_0_n_5;
   wire emu_fnkeys_0_n_6;
-  wire emu_fnkeys_0_n_7;
-  wire emu_fnkeys_0_n_8;
-  wire emu_fnkeys_0_n_9;
   wire [4:1]emu_fnkeys_0_o_fnkeys;
   wire [15:0]extended_keys;
   wire \inst/cancel_nmi ;
   wire [8:7]\inst/clk_div_reg ;
-  wire \inst/matrix_state[7]_1 ;
+  wire \inst/matrix_state[7]_3 ;
+  wire \inst/membrane_col0 ;
   wire [8:8]\inst/ps2_current_keycode ;
   wire \inst/ps2_receive_valid_d ;
   wire [0:0]\inst/state ;
+  wire \inst/state_0 ;
+  wire joy_io_mode_en;
+  wire [10:0]joy_left;
+  wire [2:0]joy_left_type;
+  wire [10:0]joy_right;
+  wire [2:0]joy_right_type;
+  wire joymap_we;
   wire keyb_clocks_0_clk_ps2;
   wire keyb_clocks_0_membrane_enable;
   wire keyb_clocks_0_n_3;
   wire keyb_clocks_0_n_4;
   wire keyb_clocks_0_n_5;
-  wire keyb_clocks_0_n_7;
-  wire keyb_clocks_0_n_8;
+  wire keyb_clocks_0_n_6;
   wire [8:0]keymap_addr;
   wire [7:0]keymap_data;
   wire keymap_we;
   wire membrane_0_n_0;
-  wire membrane_0_n_1;
+  wire membrane_0_n_10;
   wire membrane_0_n_2;
-  wire membrane_0_n_9;
+  wire membrane_0_n_3;
+  wire membrane_0_n_4;
+  wire [5:0]membrane_stick_0_joy_keymap_addr;
+  wire [6:0]membrane_stick_0_o_membrane_col;
   wire ps2_clk_i;
   wire ps2_clk_t;
   wire ps2_data_i;
@@ -2873,18 +2880,6 @@ module zxnexys_zxkeyboard_0_0_keyboard
   wire ps2_keyb_0_n_17;
   wire ps2_keyb_0_n_18;
   wire ps2_keyb_0_n_19;
-  wire ps2_keyb_0_n_20;
-  wire ps2_keyb_0_n_21;
-  wire ps2_keyb_0_n_24;
-  wire ps2_keyb_0_n_25;
-  wire ps2_keyb_0_n_26;
-  wire ps2_keyb_0_n_27;
-  wire ps2_keyb_0_n_28;
-  wire ps2_keyb_0_n_29;
-  wire ps2_keyb_0_n_30;
-  wire ps2_keyb_0_n_31;
-  wire ps2_keyb_0_n_32;
-  wire ps2_keyb_0_n_33;
   wire ps2_keyb_0_o_divmmc_nmi_n;
   wire [1:0]ps2_keyb_0_o_membrane_col;
   wire ps2_keyb_0_o_mf_nmi_n;
@@ -2894,14 +2889,20 @@ module zxnexys_zxkeyboard_0_0_keyboard
   wire [7:0]row;
   wire [8:0]spkey_function;
   wire timer_count;
+  wire [6:0]util_vector_logic_0_Res;
+  wire [5:0]xlconcat_0_dout;
+  wire [3:0]xlslice_0_Dout;
+  wire xlslice_1_Dout;
+  wire [5:0]xlslice_2_Dout;
+  wire [4:4]NLW_xlconcat_0_dout_UNCONNECTED;
 
   (* X_CORE_INFO = "Ps2Interface,Vivado 2021.2" *) 
   zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0 Ps2Interface_0
        (.D(Ps2Interface_0_n_3),
         .Ps2Interface_0_read_data(Ps2Interface_0_read_data),
-        .Q(ps2_keyb_0_n_28),
+        .Q(ps2_keyb_0_n_13),
         .clk_peripheral(clk_peripheral),
-        .\o_ps2_func_keys_n_reg[0] (ps2_keyb_0_n_29),
+        .\o_ps2_func_keys_n_reg[0] (ps2_keyb_0_n_14),
         .ps2_clk_i(ps2_clk_i),
         .ps2_clk_t(ps2_clk_t),
         .ps2_current_keycode(\inst/ps2_current_keycode ),
@@ -2910,143 +2911,120 @@ module zxnexys_zxkeyboard_0_0_keyboard
         .ps2_keyb_0_o_ps2_send_valid(ps2_keyb_0_o_ps2_send_valid),
         .ps2_receive_valid_d(\inst/ps2_receive_valid_d ),
         .reset(reset),
-        .reset_0(Ps2Interface_0_n_17),
-        .\rx_data_reg[0] (Ps2Interface_0_n_18),
-        .\rx_data_reg[0]_0 (Ps2Interface_0_n_19),
+        .reset_0(Ps2Interface_0_n_16),
+        .\rx_data_reg[0] (Ps2Interface_0_n_17),
+        .\rx_data_reg[0]_0 (Ps2Interface_0_n_18),
         .\rx_data_reg[1] (Ps2Interface_0_n_5),
         .\rx_data_reg[2] (Ps2Interface_0_n_4),
         .\rx_data_reg[4] (Ps2Interface_0_n_14),
         .\rx_data_reg[6] (Ps2Interface_0_n_15),
-        .\rx_data_reg[6]_0 (Ps2Interface_0_n_16),
         .\rx_data_reg[7] (Ps2Interface_0_rx_data));
   (* X_CORE_INFO = "emu_fnkeys,Vivado 2021.2" *) 
   zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0 emu_fnkeys_0
-       (.\FSM_onehot_state_reg[0] (emu_fnkeys_0_n_6),
+       (.\FSM_onehot_state_reg[0] (emu_fnkeys_0_n_4),
         .Q(\inst/cancel_nmi ),
         .clk_peripheral(clk_peripheral),
         .emu_fnkeys_0_o_fnkeys({emu_fnkeys_0_o_fnkeys[4],emu_fnkeys_0_o_fnkeys[1]}),
         .reset(reset),
-        .row({row[7],row[5:2],row[0]}),
-        .\row[7] (emu_fnkeys_0_n_8),
-        .row_0_sp_1(emu_fnkeys_0_n_9),
-        .row_2_sp_1(emu_fnkeys_0_n_4),
-        .row_3_sp_1(emu_fnkeys_0_n_5),
-        .row_5_sp_1(emu_fnkeys_0_n_7),
+        .row({row[7],row[4:3]}),
+        .\row[3] (emu_fnkeys_0_n_5),
+        .\row[7] (emu_fnkeys_0_n_6),
         .timer_count(timer_count),
-        .\timer_count_reg[0] (keyb_clocks_0_n_3),
-        .\timer_count_reg[0]_0 (keyb_clocks_0_n_4));
+        .\timer_count_reg[0] (keyb_clocks_0_n_4),
+        .\timer_count_reg[0]_0 (keyb_clocks_0_n_5));
   (* X_CORE_INFO = "keyb_clocks,Vivado 2021.2" *) 
   zxnexys_zxkeyboard_0_0_keyboard_keyb_clocks_0_0 keyb_clocks_0
-       (.E(\inst/matrix_state[7]_1 ),
+       (.E(\inst/matrix_state[7]_3 ),
         .Q(\inst/state ),
         .S({\inst/clk_div_reg [7],keyb_clocks_0_clk_ps2}),
         .cancel(cancel),
         .clk_div_reg(\inst/clk_div_reg [8]),
-        .\clk_div_reg[10] (keyb_clocks_0_n_4),
-        .\clk_div_reg[6] (keyb_clocks_0_n_3),
-        .\clk_div_reg[7] (keyb_clocks_0_n_7),
-        .\clk_div_reg[7]_0 (keyb_clocks_0_n_8),
+        .\clk_div_reg[10] (keyb_clocks_0_n_5),
+        .\clk_div_reg[6] (keyb_clocks_0_n_4),
+        .\clk_div_reg[7] (keyb_clocks_0_n_3),
         .clk_peripheral(clk_peripheral),
+        .joy_io_mode_en(joy_io_mode_en),
         .keyb_clocks_0_membrane_enable(keyb_clocks_0_membrane_enable),
-        .\matrix_work_ex_reg[6] (membrane_0_n_2),
+        .\matrix_work_ex_reg[9] (membrane_0_n_2),
+        .membrane_col0(\inst/membrane_col0 ),
         .reset(reset),
-        .\state_reg[0] (keyb_clocks_0_n_5),
+        .state(\inst/state_0 ),
+        .\state_reg[0] (keyb_clocks_0_n_6),
         .timer_count(timer_count));
   (* X_CORE_INFO = "membrane,Vivado 2021.2" *) 
   zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0 membrane_0
-       (.D(ps2_keyb_0_o_membrane_col),
-        .E(\inst/matrix_state[7]_1 ),
-        .Q(\inst/state ),
+       (.E(\inst/matrix_state[7]_3 ),
+        .Q({membrane_0_n_0,\inst/state }),
+        .Res(util_vector_logic_0_Res),
         .cancel(cancel),
         .clk_div_reg(\inst/clk_div_reg ),
         .clk_peripheral(clk_peripheral),
         .column(column),
-        .\column[0]_0 (emu_fnkeys_0_n_4),
-        .\column[0]_1 (emu_fnkeys_0_n_7),
-        .\column[0]_2 (emu_fnkeys_0_n_8),
-        .\column[3]_0 (emu_fnkeys_0_n_5),
+        .\column[2]_0 (emu_fnkeys_0_n_6),
         .\column[4] (\inst/cancel_nmi ),
-        .column_0_sp_1(emu_fnkeys_0_n_9),
-        .column_3_sp_1(emu_fnkeys_0_n_6),
+        .column_2_sp_1(emu_fnkeys_0_n_4),
+        .column_3_sp_1(emu_fnkeys_0_n_5),
+        .dpo(dist_mem_gen_0_dpo[5:4]),
         .extended_keys(extended_keys),
         .keyb_clocks_0_membrane_enable(keyb_clocks_0_membrane_enable),
-        .\matrix_work_ex_reg[0] (keyb_clocks_0_n_5),
-        .\matrix_work_ex_reg[13] (ps2_keyb_0_n_27),
-        .\matrix_work_ex_reg[14] (ps2_keyb_0_n_13),
-        .\matrix_work_ex_reg[2] (keyb_clocks_0_n_7),
-        .\matrix_work_ex_reg[6] (ps2_keyb_0_n_18),
-        .\matrix_work_ex_reg[6]_0 (keyb_clocks_0_n_8),
-        .\matrix_work_reg[0][2] (ps2_keyb_0_n_24),
-        .\matrix_work_reg[0][2]_0 (ps2_keyb_0_n_21),
-        .\matrix_work_reg[0][3] (ps2_keyb_0_n_25),
-        .\matrix_work_reg[0][3]_0 (ps2_keyb_0_n_20),
-        .\matrix_work_reg[0][4] (ps2_keyb_0_n_26),
-        .\matrix_work_reg[0][4]_0 (ps2_keyb_0_n_19),
-        .\matrix_work_reg[0][6] (ps2_keyb_0_n_30),
-        .\matrix_work_reg[0][6]_0 (ps2_keyb_0_n_31),
-        .\matrix_work_reg[0][6]_1 (ps2_keyb_0_n_33),
-        .\matrix_work_reg[0][6]_2 (ps2_keyb_0_n_32),
-        .\matrix_work_reg[0][6]_3 (ps2_keyb_0_n_16),
-        .\matrix_work_reg[0][6]_4 (ps2_keyb_0_n_17),
-        .\matrix_work_reg[0][6]_5 (ps2_keyb_0_n_14),
-        .\matrix_work_reg[0][6]_6 (ps2_keyb_0_n_15),
+        .\matrix_work_ex_reg[0] (keyb_clocks_0_n_6),
+        .\matrix_work_ex_reg[9] (keyb_clocks_0_n_3),
         .reset(reset),
         .row(row),
-        .\state_reg[2] (membrane_0_n_1),
-        .\state_reg[2]_0 (membrane_0_n_2),
-        .\state_reg[4] (membrane_0_n_0),
-        .\state_reg[5] (membrane_0_n_9));
+        .state(\inst/state_0 ),
+        .state_reg(membrane_0_n_10),
+        .\state_reg[2] (membrane_0_n_2),
+        .\state_reg[2]_0 (membrane_0_n_4),
+        .\state_reg[4] (membrane_0_n_3));
+  (* X_CORE_INFO = "membrane_stick,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_membrane_stick_0_0 membrane_stick_0
+       (.Op1(membrane_stick_0_o_membrane_col),
+        .clk_div_reg(\inst/clk_div_reg ),
+        .clk_peripheral(clk_peripheral),
+        .dpo(dist_mem_gen_0_dpo[3:0]),
+        .joy_left(joy_left),
+        .joy_left_type(joy_left_type),
+        .joy_right(joy_right),
+        .joy_right_type(joy_right_type),
+        .membrane_col0(\inst/membrane_col0 ),
+        .\membrane_col_reg[0] (membrane_0_n_4),
+        .\membrane_col_reg[0]_0 (membrane_0_n_10),
+        .membrane_stick_0_joy_keymap_addr(membrane_stick_0_joy_keymap_addr),
+        .reset(reset),
+        .state(\inst/state_0 ));
   (* X_CORE_INFO = "ps2_keyb,Vivado 2021.2" *) 
   zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0 ps2_keyb_0
        (.D(Ps2Interface_0_rx_data),
         .\FSM_onehot_state_reg[0] (Ps2Interface_0_n_4),
         .\FSM_onehot_state_reg[1] (Ps2Interface_0_n_3),
         .\FSM_onehot_state_reg[2] (Ps2Interface_0_n_5),
+        .Op2({ps2_keyb_0_n_15,ps2_keyb_0_n_16,ps2_keyb_0_n_17,ps2_keyb_0_n_18,ps2_keyb_0_n_19,ps2_keyb_0_o_membrane_col}),
         .Ps2Interface_0_read_data(Ps2Interface_0_read_data),
-        .Q(ps2_keyb_0_n_28),
+        .Q(ps2_keyb_0_n_13),
         .S(keyb_clocks_0_clk_ps2),
         .clk_peripheral(clk_peripheral),
         .clk_peripheral_n(clk_peripheral_n),
         .keymap_addr(keymap_addr),
         .keymap_data(keymap_data),
         .keymap_we(keymap_we),
-        .\matrix_state_reg[0][6] (ps2_keyb_0_n_33),
-        .\matrix_state_reg[1][6] (ps2_keyb_0_n_32),
-        .\matrix_state_reg[2][2] (ps2_keyb_0_n_24),
-        .\matrix_state_reg[2][3] (ps2_keyb_0_n_25),
-        .\matrix_state_reg[2][4] (ps2_keyb_0_n_26),
-        .\matrix_state_reg[2][5] (ps2_keyb_0_n_27),
-        .\matrix_state_reg[2][6] (ps2_keyb_0_n_31),
-        .\matrix_state_reg[3][6] (ps2_keyb_0_n_30),
-        .\matrix_state_reg[4][6] (ps2_keyb_0_n_16),
-        .\matrix_state_reg[5][6] (ps2_keyb_0_n_17),
-        .\matrix_state_reg[6][2] (ps2_keyb_0_n_21),
-        .\matrix_state_reg[6][3] (ps2_keyb_0_n_20),
-        .\matrix_state_reg[6][4] (ps2_keyb_0_n_19),
-        .\matrix_state_reg[6][5] (ps2_keyb_0_n_18),
-        .\matrix_state_reg[6][6] (ps2_keyb_0_n_13),
-        .\matrix_state_reg[6][6]_0 (ps2_keyb_0_n_14),
-        .\matrix_state_reg[7][6] (ps2_keyb_0_n_15),
-        .\matrix_work_ex_reg[13] (membrane_0_n_2),
-        .\matrix_work_reg[0][0] (membrane_0_n_0),
-        .\matrix_work_reg[0][1] (membrane_0_n_1),
-        .\matrix_work_reg[0][1]_0 (membrane_0_n_9),
-        .o_divmmc_nmi_n_reg(Ps2Interface_0_n_18),
-        .o_mf_nmi_n_reg(Ps2Interface_0_n_16),
-        .\o_ps2_func_keys_n_reg[0] (Ps2Interface_0_n_17),
+        .\matrix_work_reg[0][1] (membrane_0_n_4),
+        .\matrix_work_reg[0][1]_0 (membrane_0_n_2),
+        .\matrix_work_reg[0][6] (membrane_0_n_3),
+        .o_mf_nmi_n_reg(Ps2Interface_0_n_17),
+        .\o_ps2_func_keys_n_reg[0] (Ps2Interface_0_n_16),
         .\o_ps2_func_keys_n_reg[3] ({ps2_keyb_0_o_ps2_func_keys_n[3],ps2_keyb_0_o_ps2_func_keys_n[0]}),
         .ps2_key_extend_reg(\inst/ps2_current_keycode ),
-        .ps2_key_extend_reg_0(Ps2Interface_0_n_19),
+        .ps2_key_extend_reg_0(Ps2Interface_0_n_18),
         .ps2_key_release_reg(Ps2Interface_0_n_14),
         .ps2_keyb_0_o_divmmc_nmi_n(ps2_keyb_0_o_divmmc_nmi_n),
         .ps2_keyb_0_o_mf_nmi_n(ps2_keyb_0_o_mf_nmi_n),
         .ps2_keyb_0_o_ps2_send_valid(ps2_keyb_0_o_ps2_send_valid),
         .ps2_receive_valid_d(\inst/ps2_receive_valid_d ),
         .ps2_send_valid_reg(Ps2Interface_0_n_15),
-        .ram_q_reg(ps2_keyb_0_n_29),
+        .ram_q_reg(ps2_keyb_0_n_14),
         .reset(reset),
         .spkey_function({spkey_function[7:4],spkey_function[2:1]}),
-        .\symshift_count_reg[1] (ps2_keyb_0_o_membrane_col));
+        .util_vector_logic_0_i_7(membrane_0_n_0));
   (* X_CORE_INFO = "special_keys,Vivado 2021.2" *) 
   zxnexys_zxkeyboard_0_0_keyboard_special_keys_0_0 special_keys_0
        (.emu_fnkeys_0_o_fnkeys({emu_fnkeys_0_o_fnkeys[4],emu_fnkeys_0_o_fnkeys[1]}),
@@ -3054,6 +3032,49 @@ module zxnexys_zxkeyboard_0_0_keyboard
         .ps2_keyb_0_o_mf_nmi_n(ps2_keyb_0_o_mf_nmi_n),
         .spkey_function({spkey_function[8],spkey_function[3],spkey_function[0]}),
         .\spkey_function[4] ({ps2_keyb_0_o_ps2_func_keys_n[3],ps2_keyb_0_o_ps2_func_keys_n[0]}));
+  (* CHECK_LICENSE_TYPE = "keyboard_dist_mem_gen_0_0,dist_mem_gen_v8_0_13,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "dist_mem_gen_v8_0_13,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_dist_mem_gen_0_0 udk_map_0
+       (.a({xlconcat_0_dout[5],1'b1,xlconcat_0_dout[3:0]}),
+        .clk(clk_peripheral),
+        .d(xlslice_2_Dout),
+        .dpo(dist_mem_gen_0_dpo),
+        .dpra(membrane_stick_0_joy_keymap_addr),
+        .we(joymap_we));
+  (* CHECK_LICENSE_TYPE = "keyboard_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_util_vector_logic_0_0 util_vector_logic_0
+       (.Op1(membrane_stick_0_o_membrane_col),
+        .Op2({ps2_keyb_0_n_15,ps2_keyb_0_n_16,ps2_keyb_0_n_17,ps2_keyb_0_n_18,ps2_keyb_0_n_19,ps2_keyb_0_o_membrane_col}),
+        .Res(util_vector_logic_0_Res));
+  (* CHECK_LICENSE_TYPE = "keyboard_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_xlconcat_0_0 xlconcat_0
+       (.In0(xlslice_0_Dout),
+        .In1(1'b1),
+        .In2(xlslice_1_Dout),
+        .dout(xlconcat_0_dout));
+  (* CHECK_LICENSE_TYPE = "keyboard_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_xlslice_0_0 xlslice_0
+       (.Din({1'b0,1'b0,1'b0,1'b0,1'b0,keymap_addr[3:0]}),
+        .Dout(xlslice_0_Dout));
+  (* CHECK_LICENSE_TYPE = "keyboard_xlslice_1_0,xlslice_v1_0_2_xlslice,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_xlslice_1_0 xlslice_1
+       (.Din({1'b0,1'b0,1'b0,1'b0,keymap_addr[4],1'b0,1'b0,1'b0,1'b0}),
+        .Dout(xlslice_1_Dout));
+  (* CHECK_LICENSE_TYPE = "keyboard_xlslice_1_1,xlslice_v1_0_2_xlslice,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+  zxnexys_zxkeyboard_0_0_keyboard_xlslice_1_1 xlslice_2
+       (.Din({1'b0,1'b0,keymap_data[5:0]}),
+        .Dout(xlslice_2_Dout));
 endmodule
 
 (* ORIG_REF_NAME = "keyboard_Ps2Interface_0_0" *) 
@@ -3067,7 +3088,6 @@ module zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
     \rx_data_reg[7] ,
     \rx_data_reg[4] ,
     \rx_data_reg[6] ,
-    \rx_data_reg[6]_0 ,
     reset_0,
     \rx_data_reg[0] ,
     \rx_data_reg[0]_0 ,
@@ -3075,9 +3095,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
     reset,
     Q,
     ps2_receive_valid_d,
-    ps2_current_keycode,
     \o_ps2_func_keys_n_reg[0] ,
     ps2_keyb_0_o_ps2_send_valid,
+    ps2_current_keycode,
     ps2_clk_i,
     ps2_data_i);
   output ps2_data_t;
@@ -3089,7 +3109,6 @@ module zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
   output [7:0]\rx_data_reg[7] ;
   output \rx_data_reg[4] ;
   output \rx_data_reg[6] ;
-  output \rx_data_reg[6]_0 ;
   output reset_0;
   output \rx_data_reg[0] ;
   output \rx_data_reg[0]_0 ;
@@ -3097,9 +3116,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
   input reset;
   input [0:0]Q;
   input ps2_receive_valid_d;
-  input [0:0]ps2_current_keycode;
   input \o_ps2_func_keys_n_reg[0] ;
   input ps2_keyb_0_o_ps2_send_valid;
+  input [0:0]ps2_current_keycode;
   input ps2_clk_i;
   input ps2_data_i;
 
@@ -3123,7 +3142,6 @@ module zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
   wire \rx_data_reg[2] ;
   wire \rx_data_reg[4] ;
   wire \rx_data_reg[6] ;
-  wire \rx_data_reg[6]_0 ;
   wire [7:0]\rx_data_reg[7] ;
 
   zxnexys_zxkeyboard_0_0_Ps2Interface inst
@@ -3147,8 +3165,86 @@ module zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
         .\rx_data_reg[2]_0 (\rx_data_reg[2] ),
         .\rx_data_reg[4]_0 (\rx_data_reg[4] ),
         .\rx_data_reg[6]_0 (\rx_data_reg[6] ),
-        .\rx_data_reg[6]_1 (\rx_data_reg[6]_0 ),
         .\rx_data_reg[7]_0 (\rx_data_reg[7] ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "keyboard_dist_mem_gen_0_0,dist_mem_gen_v8_0_13,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "keyboard_dist_mem_gen_0_0" *) 
+(* X_CORE_INFO = "dist_mem_gen_v8_0_13,Vivado 2021.2" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_dist_mem_gen_0_0
+   (a,
+    d,
+    dpra,
+    clk,
+    we,
+    dpo);
+  input [5:0]a;
+  input [5:0]d;
+  input [5:0]dpra;
+  input clk;
+  input we;
+  output [5:0]dpo;
+
+  wire [5:0]a;
+  wire clk;
+  wire [5:0]d;
+  wire [5:0]dpo;
+  wire [5:0]dpra;
+  wire we;
+  wire [5:0]NLW_U0_qdpo_UNCONNECTED;
+  wire [5:0]NLW_U0_qspo_UNCONNECTED;
+  wire [5:0]NLW_U0_spo_UNCONNECTED;
+
+  (* C_FAMILY = "artix7" *) 
+  (* C_HAS_CLK = "1" *) 
+  (* C_HAS_D = "1" *) 
+  (* C_HAS_DPO = "1" *) 
+  (* C_HAS_DPRA = "1" *) 
+  (* C_HAS_QDPO = "0" *) 
+  (* C_HAS_QDPO_CE = "0" *) 
+  (* C_HAS_QDPO_CLK = "0" *) 
+  (* C_HAS_QDPO_RST = "0" *) 
+  (* C_HAS_QDPO_SRST = "0" *) 
+  (* C_HAS_QSPO = "0" *) 
+  (* C_HAS_QSPO_RST = "0" *) 
+  (* C_HAS_QSPO_SRST = "0" *) 
+  (* C_HAS_SPO = "0" *) 
+  (* C_HAS_WE = "1" *) 
+  (* C_MEM_TYPE = "4" *) 
+  (* C_REG_DPRA_INPUT = "0" *) 
+  (* c_addr_width = "6" *) 
+  (* c_default_data = "0" *) 
+  (* c_depth = "64" *) 
+  (* c_elaboration_dir = "./" *) 
+  (* c_has_i_ce = "0" *) 
+  (* c_has_qspo_ce = "0" *) 
+  (* c_mem_init_file = "keyboard_dist_mem_gen_0_0.mif" *) 
+  (* c_parser_type = "1" *) 
+  (* c_pipeline_stages = "0" *) 
+  (* c_qce_joined = "0" *) 
+  (* c_qualify_we = "0" *) 
+  (* c_read_mif = "1" *) 
+  (* c_reg_a_d_inputs = "0" *) 
+  (* c_sync_enable = "1" *) 
+  (* c_width = "6" *) 
+  (* is_du_within_envelope = "true" *) 
+  zxnexys_zxkeyboard_0_0_dist_mem_gen_v8_0_13 U0
+       (.a({a[5],1'b1,a[3:0]}),
+        .clk(clk),
+        .d(d),
+        .dpo(dpo),
+        .dpra(dpra),
+        .i_ce(1'b1),
+        .qdpo(NLW_U0_qdpo_UNCONNECTED[5:0]),
+        .qdpo_ce(1'b1),
+        .qdpo_clk(1'b0),
+        .qdpo_rst(1'b0),
+        .qdpo_srst(1'b0),
+        .qspo(NLW_U0_qspo_UNCONNECTED[5:0]),
+        .qspo_ce(1'b1),
+        .qspo_rst(1'b0),
+        .qspo_srst(1'b0),
+        .spo(NLW_U0_spo_UNCONNECTED[5:0]),
+        .we(we));
 endmodule
 
 (* ORIG_REF_NAME = "keyboard_emu_fnkeys_0_0" *) 
@@ -3156,12 +3252,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0
    (emu_fnkeys_0_o_fnkeys,
     Q,
     timer_count,
-    row_2_sp_1,
-    row_3_sp_1,
     \FSM_onehot_state_reg[0] ,
-    row_5_sp_1,
+    \row[3] ,
     \row[7] ,
-    row_0_sp_1,
     reset,
     clk_peripheral,
     row,
@@ -3170,15 +3263,12 @@ module zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0
   output [1:0]emu_fnkeys_0_o_fnkeys;
   output [0:0]Q;
   output timer_count;
-  output row_2_sp_1;
-  output row_3_sp_1;
   output \FSM_onehot_state_reg[0] ;
-  output row_5_sp_1;
+  output \row[3] ;
   output \row[7] ;
-  output row_0_sp_1;
   input reset;
   input clk_peripheral;
-  input [5:0]row;
+  input [2:0]row;
   input \timer_count_reg[0] ;
   input \timer_count_reg[0]_0 ;
 
@@ -3187,20 +3277,13 @@ module zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0
   wire clk_peripheral;
   wire [1:0]emu_fnkeys_0_o_fnkeys;
   wire reset;
-  wire [5:0]row;
+  wire [2:0]row;
+  wire \row[3] ;
   wire \row[7] ;
-  wire row_0_sn_1;
-  wire row_2_sn_1;
-  wire row_3_sn_1;
-  wire row_5_sn_1;
   wire timer_count;
   wire \timer_count_reg[0] ;
   wire \timer_count_reg[0]_0 ;
 
-  assign row_0_sp_1 = row_0_sn_1;
-  assign row_2_sp_1 = row_2_sn_1;
-  assign row_3_sp_1 = row_3_sn_1;
-  assign row_5_sp_1 = row_5_sn_1;
   zxnexys_zxkeyboard_0_0_emu_fnkeys inst
        (.\FSM_onehot_state_reg[0]_0 (\FSM_onehot_state_reg[0] ),
         .Q(Q),
@@ -3208,11 +3291,8 @@ module zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0
         .emu_fnkeys_0_o_fnkeys(emu_fnkeys_0_o_fnkeys),
         .reset(reset),
         .row(row),
+        .\row[3] (\row[3] ),
         .\row[7] (\row[7] ),
-        .row_0_sp_1(row_0_sn_1),
-        .row_2_sp_1(row_2_sn_1),
-        .row_3_sp_1(row_3_sn_1),
-        .row_5_sp_1(row_5_sn_1),
         .\timer_count_reg[0]_0 (timer_count),
         .\timer_count_reg[0]_1 (\timer_count_reg[0] ),
         .\timer_count_reg[0]_2 (\timer_count_reg[0]_0 ));
@@ -3222,34 +3302,38 @@ endmodule
 module zxnexys_zxkeyboard_0_0_keyboard_keyb_clocks_0_0
    (S,
     clk_div_reg,
+    \clk_div_reg[7] ,
     \clk_div_reg[6] ,
     \clk_div_reg[10] ,
     \state_reg[0] ,
     E,
-    \clk_div_reg[7] ,
-    \clk_div_reg[7]_0 ,
+    membrane_col0,
     keyb_clocks_0_membrane_enable,
     clk_peripheral,
     reset,
+    \matrix_work_ex_reg[9] ,
     timer_count,
     Q,
     cancel,
-    \matrix_work_ex_reg[6] );
+    state,
+    joy_io_mode_en);
   output [1:0]S;
   output [0:0]clk_div_reg;
+  output \clk_div_reg[7] ;
   output \clk_div_reg[6] ;
   output \clk_div_reg[10] ;
   output \state_reg[0] ;
   output [0:0]E;
-  output \clk_div_reg[7] ;
-  output \clk_div_reg[7]_0 ;
+  output membrane_col0;
   output keyb_clocks_0_membrane_enable;
   input clk_peripheral;
   input reset;
+  input \matrix_work_ex_reg[9] ;
   input timer_count;
   input [0:0]Q;
   input cancel;
-  input \matrix_work_ex_reg[6] ;
+  input state;
+  input joy_io_mode_en;
 
   wire [0:0]E;
   wire [0:0]Q;
@@ -3259,11 +3343,13 @@ module zxnexys_zxkeyboard_0_0_keyboard_keyb_clocks_0_0
   wire \clk_div_reg[10] ;
   wire \clk_div_reg[6] ;
   wire \clk_div_reg[7] ;
-  wire \clk_div_reg[7]_0 ;
   wire clk_peripheral;
+  wire joy_io_mode_en;
   wire keyb_clocks_0_membrane_enable;
-  wire \matrix_work_ex_reg[6] ;
+  wire \matrix_work_ex_reg[9] ;
+  wire membrane_col0;
   wire reset;
+  wire state;
   wire \state_reg[0] ;
   wire timer_count;
 
@@ -3275,191 +3361,181 @@ module zxnexys_zxkeyboard_0_0_keyboard_keyb_clocks_0_0
         .\clk_div_reg[10]_0 (\clk_div_reg[10] ),
         .\clk_div_reg[6]_0 (\clk_div_reg[6] ),
         .\clk_div_reg[7]_0 (\clk_div_reg[7] ),
-        .\clk_div_reg[7]_1 (\clk_div_reg[7]_0 ),
         .\clk_div_reg[8]_0 (clk_div_reg),
         .clk_peripheral(clk_peripheral),
+        .joy_io_mode_en(joy_io_mode_en),
         .keyb_clocks_0_membrane_enable(keyb_clocks_0_membrane_enable),
-        .\matrix_work_ex_reg[6] (\matrix_work_ex_reg[6] ),
+        .\matrix_work_ex_reg[9] (\matrix_work_ex_reg[9] ),
+        .membrane_col0(membrane_col0),
         .reset(reset),
+        .state(state),
         .\state_reg[0] (\state_reg[0] ),
         .timer_count(timer_count));
 endmodule
 
 (* ORIG_REF_NAME = "keyboard_membrane_0_0" *) 
 module zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0
-   (\state_reg[4] ,
+   (Q,
     \state_reg[2] ,
+    \state_reg[4] ,
     \state_reg[2]_0 ,
-    Q,
     column,
-    \state_reg[5] ,
+    state_reg,
     extended_keys,
-    clk_div_reg,
     keyb_clocks_0_membrane_enable,
+    clk_div_reg,
+    row,
     \column[4] ,
     reset,
     cancel,
-    \matrix_work_ex_reg[13] ,
-    \matrix_work_ex_reg[6] ,
-    \matrix_work_reg[0][4] ,
-    \matrix_work_reg[0][4]_0 ,
-    \matrix_work_reg[0][3] ,
-    \matrix_work_reg[0][3]_0 ,
-    \matrix_work_reg[0][2] ,
-    \matrix_work_reg[0][2]_0 ,
-    \matrix_work_reg[0][6] ,
-    \matrix_work_reg[0][6]_0 ,
-    \matrix_work_reg[0][6]_1 ,
-    \matrix_work_reg[0][6]_2 ,
-    \matrix_work_reg[0][6]_3 ,
-    \matrix_work_reg[0][6]_4 ,
-    \matrix_work_reg[0][6]_5 ,
-    \matrix_work_reg[0][6]_6 ,
-    row,
-    column_0_sp_1,
-    \column[0]_0 ,
+    state,
+    dpo,
     column_3_sp_1,
-    \column[3]_0 ,
-    \column[0]_1 ,
-    \column[0]_2 ,
+    column_2_sp_1,
+    \column[2]_0 ,
     clk_peripheral,
-    D,
+    Res,
     E,
-    \matrix_work_ex_reg[14] ,
-    \matrix_work_ex_reg[2] ,
-    \matrix_work_ex_reg[6]_0 ,
+    \matrix_work_ex_reg[9] ,
     \matrix_work_ex_reg[0] );
-  output \state_reg[4] ;
+  output [1:0]Q;
   output \state_reg[2] ;
+  output \state_reg[4] ;
   output \state_reg[2]_0 ;
-  output [0:0]Q;
   output [4:0]column;
-  output \state_reg[5] ;
+  output state_reg;
   output [15:0]extended_keys;
-  input [1:0]clk_div_reg;
   input keyb_clocks_0_membrane_enable;
+  input [1:0]clk_div_reg;
+  input [7:0]row;
   input [0:0]\column[4] ;
   input reset;
   input cancel;
-  input \matrix_work_ex_reg[13] ;
-  input \matrix_work_ex_reg[6] ;
-  input \matrix_work_reg[0][4] ;
-  input \matrix_work_reg[0][4]_0 ;
-  input \matrix_work_reg[0][3] ;
-  input \matrix_work_reg[0][3]_0 ;
-  input \matrix_work_reg[0][2] ;
-  input \matrix_work_reg[0][2]_0 ;
-  input \matrix_work_reg[0][6] ;
-  input \matrix_work_reg[0][6]_0 ;
-  input \matrix_work_reg[0][6]_1 ;
-  input \matrix_work_reg[0][6]_2 ;
-  input \matrix_work_reg[0][6]_3 ;
-  input \matrix_work_reg[0][6]_4 ;
-  input \matrix_work_reg[0][6]_5 ;
-  input \matrix_work_reg[0][6]_6 ;
-  input [7:0]row;
-  input column_0_sp_1;
-  input \column[0]_0 ;
+  input state;
+  input [1:0]dpo;
   input column_3_sp_1;
-  input \column[3]_0 ;
-  input \column[0]_1 ;
-  input \column[0]_2 ;
+  input column_2_sp_1;
+  input \column[2]_0 ;
   input clk_peripheral;
-  input [1:0]D;
+  input [6:0]Res;
   input [0:0]E;
-  input \matrix_work_ex_reg[14] ;
-  input \matrix_work_ex_reg[2] ;
-  input \matrix_work_ex_reg[6]_0 ;
+  input \matrix_work_ex_reg[9] ;
   input \matrix_work_ex_reg[0] ;
 
-  wire [1:0]D;
   wire [0:0]E;
-  wire [0:0]Q;
+  wire [1:0]Q;
+  wire [6:0]Res;
   wire cancel;
   wire [1:0]clk_div_reg;
   wire clk_peripheral;
   wire [4:0]column;
-  wire \column[0]_0 ;
-  wire \column[0]_1 ;
-  wire \column[0]_2 ;
-  wire \column[3]_0 ;
+  wire \column[2]_0 ;
   wire [0:0]\column[4] ;
-  wire column_0_sn_1;
+  wire column_2_sn_1;
   wire column_3_sn_1;
+  wire [1:0]dpo;
   wire [15:0]extended_keys;
   wire keyb_clocks_0_membrane_enable;
   wire \matrix_work_ex_reg[0] ;
-  wire \matrix_work_ex_reg[13] ;
-  wire \matrix_work_ex_reg[14] ;
-  wire \matrix_work_ex_reg[2] ;
-  wire \matrix_work_ex_reg[6] ;
-  wire \matrix_work_ex_reg[6]_0 ;
-  wire \matrix_work_reg[0][2] ;
-  wire \matrix_work_reg[0][2]_0 ;
-  wire \matrix_work_reg[0][3] ;
-  wire \matrix_work_reg[0][3]_0 ;
-  wire \matrix_work_reg[0][4] ;
-  wire \matrix_work_reg[0][4]_0 ;
-  wire \matrix_work_reg[0][6] ;
-  wire \matrix_work_reg[0][6]_0 ;
-  wire \matrix_work_reg[0][6]_1 ;
-  wire \matrix_work_reg[0][6]_2 ;
-  wire \matrix_work_reg[0][6]_3 ;
-  wire \matrix_work_reg[0][6]_4 ;
-  wire \matrix_work_reg[0][6]_5 ;
-  wire \matrix_work_reg[0][6]_6 ;
+  wire \matrix_work_ex_reg[9] ;
   wire reset;
   wire [7:0]row;
+  wire state;
+  wire state_reg;
   wire \state_reg[2] ;
   wire \state_reg[2]_0 ;
   wire \state_reg[4] ;
-  wire \state_reg[5] ;
 
-  assign column_0_sn_1 = column_0_sp_1;
+  assign column_2_sn_1 = column_2_sp_1;
   assign column_3_sn_1 = column_3_sp_1;
   zxnexys_zxkeyboard_0_0_membrane inst
-       (.D(D),
-        .E(E),
+       (.E(E),
         .Q(Q),
+        .Res(Res),
         .cancel(cancel),
         .clk_div_reg(clk_div_reg),
         .clk_peripheral(clk_peripheral),
         .column(column),
-        .\column[0]_0 (\column[0]_0 ),
-        .\column[0]_1 (\column[0]_1 ),
-        .\column[0]_2 (\column[0]_2 ),
-        .\column[3]_0 (\column[3]_0 ),
+        .\column[2]_0 (\column[2]_0 ),
         .\column[4] (\column[4] ),
-        .column_0_sp_1(column_0_sn_1),
+        .column_2_sp_1(column_2_sn_1),
         .column_3_sp_1(column_3_sn_1),
+        .dpo(dpo),
         .extended_keys(extended_keys),
         .keyb_clocks_0_membrane_enable(keyb_clocks_0_membrane_enable),
         .\matrix_work_ex_reg[0]_0 (\matrix_work_ex_reg[0] ),
-        .\matrix_work_ex_reg[13]_0 (\matrix_work_ex_reg[13] ),
-        .\matrix_work_ex_reg[14]_0 (\matrix_work_ex_reg[14] ),
-        .\matrix_work_ex_reg[2]_0 (\matrix_work_ex_reg[2] ),
-        .\matrix_work_ex_reg[6]_0 (\matrix_work_ex_reg[6] ),
-        .\matrix_work_ex_reg[6]_1 (\matrix_work_ex_reg[6]_0 ),
-        .\matrix_work_reg[0][2]_0 (\matrix_work_reg[0][2] ),
-        .\matrix_work_reg[0][2]_1 (\matrix_work_reg[0][2]_0 ),
-        .\matrix_work_reg[0][3]_0 (\matrix_work_reg[0][3] ),
-        .\matrix_work_reg[0][3]_1 (\matrix_work_reg[0][3]_0 ),
-        .\matrix_work_reg[0][4]_0 (\matrix_work_reg[0][4] ),
-        .\matrix_work_reg[0][4]_1 (\matrix_work_reg[0][4]_0 ),
-        .\matrix_work_reg[0][6]_0 (\matrix_work_reg[0][6] ),
-        .\matrix_work_reg[0][6]_1 (\matrix_work_reg[0][6]_0 ),
-        .\matrix_work_reg[0][6]_2 (\matrix_work_reg[0][6]_1 ),
-        .\matrix_work_reg[0][6]_3 (\matrix_work_reg[0][6]_2 ),
-        .\matrix_work_reg[0][6]_4 (\matrix_work_reg[0][6]_3 ),
-        .\matrix_work_reg[0][6]_5 (\matrix_work_reg[0][6]_4 ),
-        .\matrix_work_reg[0][6]_6 (\matrix_work_reg[0][6]_5 ),
-        .\matrix_work_reg[0][6]_7 (\matrix_work_reg[0][6]_6 ),
+        .\matrix_work_ex_reg[9]_0 (\matrix_work_ex_reg[9] ),
         .reset(reset),
         .row(row),
+        .state(state),
+        .state_reg(state_reg),
         .\state_reg[2]_0 (\state_reg[2] ),
         .\state_reg[2]_1 (\state_reg[2]_0 ),
-        .\state_reg[4]_0 (\state_reg[4] ),
-        .\state_reg[5]_0 (\state_reg[5] ));
+        .\state_reg[4]_0 (\state_reg[4] ));
+endmodule
+
+(* ORIG_REF_NAME = "keyboard_membrane_stick_0_0" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_membrane_stick_0_0
+   (state,
+    membrane_stick_0_joy_keymap_addr,
+    Op1,
+    reset,
+    clk_peripheral,
+    dpo,
+    clk_div_reg,
+    joy_right_type,
+    joy_left_type,
+    \membrane_col_reg[0] ,
+    \membrane_col_reg[0]_0 ,
+    joy_left,
+    joy_right,
+    membrane_col0);
+  output state;
+  output [5:0]membrane_stick_0_joy_keymap_addr;
+  output [6:0]Op1;
+  input reset;
+  input clk_peripheral;
+  input [3:0]dpo;
+  input [1:0]clk_div_reg;
+  input [2:0]joy_right_type;
+  input [2:0]joy_left_type;
+  input \membrane_col_reg[0] ;
+  input \membrane_col_reg[0]_0 ;
+  input [10:0]joy_left;
+  input [10:0]joy_right;
+  input membrane_col0;
+
+  wire [6:0]Op1;
+  wire [1:0]clk_div_reg;
+  wire clk_peripheral;
+  wire [3:0]dpo;
+  wire [10:0]joy_left;
+  wire [2:0]joy_left_type;
+  wire [10:0]joy_right;
+  wire [2:0]joy_right_type;
+  wire membrane_col0;
+  wire \membrane_col_reg[0] ;
+  wire \membrane_col_reg[0]_0 ;
+  wire [5:0]membrane_stick_0_joy_keymap_addr;
+  wire reset;
+  wire state;
+
+  zxnexys_zxkeyboard_0_0_membrane_stick inst
+       (.Op1(Op1),
+        .Q(membrane_stick_0_joy_keymap_addr[4:0]),
+        .clk_div_reg(clk_div_reg),
+        .clk_peripheral(clk_peripheral),
+        .dpo(dpo),
+        .joy_left(joy_left),
+        .joy_left_type(joy_left_type),
+        .joy_right(joy_right),
+        .joy_right_type(joy_right_type),
+        .joy_sel_reg_0(membrane_stick_0_joy_keymap_addr[5]),
+        .membrane_col0(membrane_col0),
+        .\membrane_col_reg[0]_0 (\membrane_col_reg[0] ),
+        .\membrane_col_reg[0]_1 (\membrane_col_reg[0]_0 ),
+        .reset(reset),
+        .state_reg_0(state));
 endmodule
 
 (* ORIG_REF_NAME = "keyboard_ps2_keyb_0_0" *) 
@@ -3471,26 +3547,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
     ps2_keyb_0_o_divmmc_nmi_n,
     spkey_function,
     \o_ps2_func_keys_n_reg[3] ,
-    \matrix_state_reg[6][6] ,
-    \matrix_state_reg[6][6]_0 ,
-    \matrix_state_reg[7][6] ,
-    \matrix_state_reg[4][6] ,
-    \matrix_state_reg[5][6] ,
-    \matrix_state_reg[6][5] ,
-    \matrix_state_reg[6][4] ,
-    \matrix_state_reg[6][3] ,
-    \matrix_state_reg[6][2] ,
-    \symshift_count_reg[1] ,
-    \matrix_state_reg[2][2] ,
-    \matrix_state_reg[2][3] ,
-    \matrix_state_reg[2][4] ,
-    \matrix_state_reg[2][5] ,
     Q,
     ram_q_reg,
-    \matrix_state_reg[3][6] ,
-    \matrix_state_reg[2][6] ,
-    \matrix_state_reg[1][6] ,
-    \matrix_state_reg[0][6] ,
+    Op2,
     clk_peripheral_n,
     keymap_we,
     keymap_addr,
@@ -3502,14 +3561,13 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
     S,
     ps2_key_extend_reg_0,
     \o_ps2_func_keys_n_reg[0] ,
-    \matrix_work_ex_reg[13] ,
-    \matrix_work_reg[0][1] ,
-    \matrix_work_reg[0][1]_0 ,
-    \matrix_work_reg[0][0] ,
     \FSM_onehot_state_reg[0] ,
     \FSM_onehot_state_reg[2] ,
     ps2_send_valid_reg,
-    o_divmmc_nmi_n_reg,
+    \matrix_work_reg[0][6] ,
+    \matrix_work_reg[0][1] ,
+    \matrix_work_reg[0][1]_0 ,
+    util_vector_logic_0_i_7,
     o_mf_nmi_n_reg,
     ps2_key_release_reg,
     \FSM_onehot_state_reg[1] );
@@ -3520,26 +3578,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
   output ps2_keyb_0_o_divmmc_nmi_n;
   output [5:0]spkey_function;
   output [1:0]\o_ps2_func_keys_n_reg[3] ;
-  output \matrix_state_reg[6][6] ;
-  output \matrix_state_reg[6][6]_0 ;
-  output \matrix_state_reg[7][6] ;
-  output \matrix_state_reg[4][6] ;
-  output \matrix_state_reg[5][6] ;
-  output \matrix_state_reg[6][5] ;
-  output \matrix_state_reg[6][4] ;
-  output \matrix_state_reg[6][3] ;
-  output \matrix_state_reg[6][2] ;
-  output [1:0]\symshift_count_reg[1] ;
-  output \matrix_state_reg[2][2] ;
-  output \matrix_state_reg[2][3] ;
-  output \matrix_state_reg[2][4] ;
-  output \matrix_state_reg[2][5] ;
   output [0:0]Q;
   output ram_q_reg;
-  output \matrix_state_reg[3][6] ;
-  output \matrix_state_reg[2][6] ;
-  output \matrix_state_reg[1][6] ;
-  output \matrix_state_reg[0][6] ;
+  output [6:0]Op2;
   input clk_peripheral_n;
   input keymap_we;
   input [8:0]keymap_addr;
@@ -3551,14 +3592,13 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
   input [0:0]S;
   input ps2_key_extend_reg_0;
   input \o_ps2_func_keys_n_reg[0] ;
-  input \matrix_work_ex_reg[13] ;
-  input \matrix_work_reg[0][1] ;
-  input \matrix_work_reg[0][1]_0 ;
-  input \matrix_work_reg[0][0] ;
   input \FSM_onehot_state_reg[0] ;
   input \FSM_onehot_state_reg[2] ;
   input ps2_send_valid_reg;
-  input o_divmmc_nmi_n_reg;
+  input \matrix_work_reg[0][6] ;
+  input \matrix_work_reg[0][1] ;
+  input \matrix_work_reg[0][1]_0 ;
+  input [0:0]util_vector_logic_0_i_7;
   input o_mf_nmi_n_reg;
   input ps2_key_release_reg;
   input [0:0]\FSM_onehot_state_reg[1] ;
@@ -3567,6 +3607,7 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
   wire \FSM_onehot_state_reg[0] ;
   wire [0:0]\FSM_onehot_state_reg[1] ;
   wire \FSM_onehot_state_reg[2] ;
+  wire [6:0]Op2;
   wire Ps2Interface_0_read_data;
   wire [0:0]Q;
   wire [0:0]S;
@@ -3575,28 +3616,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
   wire [8:0]keymap_addr;
   wire [7:0]keymap_data;
   wire keymap_we;
-  wire \matrix_state_reg[0][6] ;
-  wire \matrix_state_reg[1][6] ;
-  wire \matrix_state_reg[2][2] ;
-  wire \matrix_state_reg[2][3] ;
-  wire \matrix_state_reg[2][4] ;
-  wire \matrix_state_reg[2][5] ;
-  wire \matrix_state_reg[2][6] ;
-  wire \matrix_state_reg[3][6] ;
-  wire \matrix_state_reg[4][6] ;
-  wire \matrix_state_reg[5][6] ;
-  wire \matrix_state_reg[6][2] ;
-  wire \matrix_state_reg[6][3] ;
-  wire \matrix_state_reg[6][4] ;
-  wire \matrix_state_reg[6][5] ;
-  wire \matrix_state_reg[6][6] ;
-  wire \matrix_state_reg[6][6]_0 ;
-  wire \matrix_state_reg[7][6] ;
-  wire \matrix_work_ex_reg[13] ;
-  wire \matrix_work_reg[0][0] ;
   wire \matrix_work_reg[0][1] ;
   wire \matrix_work_reg[0][1]_0 ;
-  wire o_divmmc_nmi_n_reg;
+  wire \matrix_work_reg[0][6] ;
   wire o_mf_nmi_n_reg;
   wire \o_ps2_func_keys_n_reg[0] ;
   wire [1:0]\o_ps2_func_keys_n_reg[3] ;
@@ -3611,13 +3633,14 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
   wire ram_q_reg;
   wire reset;
   wire [5:0]spkey_function;
-  wire [1:0]\symshift_count_reg[1] ;
+  wire [0:0]util_vector_logic_0_i_7;
 
   zxnexys_zxkeyboard_0_0_ps2_keyb inst
        (.D(ps2_key_extend_reg),
         .\FSM_onehot_state_reg[0]_0 (\FSM_onehot_state_reg[0] ),
         .\FSM_onehot_state_reg[1]_0 (\FSM_onehot_state_reg[1] ),
         .\FSM_onehot_state_reg[2]_0 (\FSM_onehot_state_reg[2] ),
+        .Op2(Op2),
         .Ps2Interface_0_read_data(Ps2Interface_0_read_data),
         .Q(Q),
         .S(S),
@@ -3626,28 +3649,9 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
         .keymap_addr(keymap_addr),
         .keymap_data(keymap_data),
         .keymap_we(keymap_we),
-        .\matrix_state_reg[0][6]_0 (\matrix_state_reg[0][6] ),
-        .\matrix_state_reg[1][6]_0 (\matrix_state_reg[1][6] ),
-        .\matrix_state_reg[2][2]_0 (\matrix_state_reg[2][2] ),
-        .\matrix_state_reg[2][3]_0 (\matrix_state_reg[2][3] ),
-        .\matrix_state_reg[2][4]_0 (\matrix_state_reg[2][4] ),
-        .\matrix_state_reg[2][5]_0 (\matrix_state_reg[2][5] ),
-        .\matrix_state_reg[2][6]_0 (\matrix_state_reg[2][6] ),
-        .\matrix_state_reg[3][6]_0 (\matrix_state_reg[3][6] ),
-        .\matrix_state_reg[4][6]_0 (\matrix_state_reg[4][6] ),
-        .\matrix_state_reg[5][6]_0 (\matrix_state_reg[5][6] ),
-        .\matrix_state_reg[6][2]_0 (\matrix_state_reg[6][2] ),
-        .\matrix_state_reg[6][3]_0 (\matrix_state_reg[6][3] ),
-        .\matrix_state_reg[6][4]_0 (\matrix_state_reg[6][4] ),
-        .\matrix_state_reg[6][5]_0 (\matrix_state_reg[6][5] ),
-        .\matrix_state_reg[6][6]_0 (\matrix_state_reg[6][6] ),
-        .\matrix_state_reg[6][6]_1 (\matrix_state_reg[6][6]_0 ),
-        .\matrix_state_reg[7][6]_0 (\matrix_state_reg[7][6] ),
-        .\matrix_work_ex_reg[13] (\matrix_work_ex_reg[13] ),
-        .\matrix_work_reg[0][0] (\matrix_work_reg[0][0] ),
         .\matrix_work_reg[0][1] (\matrix_work_reg[0][1] ),
         .\matrix_work_reg[0][1]_0 (\matrix_work_reg[0][1]_0 ),
-        .o_divmmc_nmi_n_reg_0(o_divmmc_nmi_n_reg),
+        .\matrix_work_reg[0][6] (\matrix_work_reg[0][6] ),
         .o_mf_nmi_n_reg_0(o_mf_nmi_n_reg),
         .\o_ps2_func_keys_n_reg[0]_0 (\o_ps2_func_keys_n_reg[0] ),
         .\o_ps2_func_keys_n_reg[3]_0 (\o_ps2_func_keys_n_reg[3] ),
@@ -3662,7 +3666,7 @@ module zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
         .ram_q_reg_0(D),
         .reset(reset),
         .spkey_function(spkey_function),
-        .\symshift_count_reg[1]_0 (\symshift_count_reg[1] ));
+        .util_vector_logic_0_i_7_0(util_vector_logic_0_i_7));
 endmodule
 
 (* ORIG_REF_NAME = "keyboard_special_keys_0_0" *) 
@@ -3692,6 +3696,26 @@ module zxnexys_zxkeyboard_0_0_keyboard_special_keys_0_0
         .\spkey_function[4] (\spkey_function[4] ));
 endmodule
 
+(* CHECK_LICENSE_TYPE = "keyboard_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "keyboard_util_vector_logic_0_0" *) 
+(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_util_vector_logic_0_0
+   (Op1,
+    Op2,
+    Res);
+  input [6:0]Op1;
+  input [6:0]Op2;
+  output [6:0]Res;
+
+  wire [6:0]Op1;
+  wire [6:0]Op2;
+  wire [6:0]Res;
+
+  zxnexys_zxkeyboard_0_0_util_vector_logic_v2_0_1_util_vector_logic inst
+       (.Op1(Op1),
+        .Op2(Op2),
+        .Res(Res));
+endmodule
+
 (* ORIG_REF_NAME = "keyboard_wrapper" *) 
 module zxnexys_zxkeyboard_0_0_keyboard_wrapper
    (column,
@@ -3699,37 +3723,55 @@ module zxnexys_zxkeyboard_0_0_keyboard_wrapper
     ps2_data_t,
     ps2_clk_t,
     extended_keys,
+    row,
     clk_peripheral,
     reset,
     clk_peripheral_n,
     keymap_we,
     keymap_addr,
     keymap_data,
+    joymap_we,
     ps2_clk_i,
     ps2_data_i,
     cancel,
-    row);
+    joy_io_mode_en,
+    joy_right_type,
+    joy_left_type,
+    joy_left,
+    joy_right);
   output [4:0]column;
   output [8:0]spkey_function;
   output ps2_data_t;
   output ps2_clk_t;
   output [15:0]extended_keys;
+  input [7:0]row;
   input clk_peripheral;
   input reset;
   input clk_peripheral_n;
   input keymap_we;
   input [8:0]keymap_addr;
   input [7:0]keymap_data;
+  input joymap_we;
   input ps2_clk_i;
   input ps2_data_i;
   input cancel;
-  input [7:0]row;
+  input joy_io_mode_en;
+  input [2:0]joy_right_type;
+  input [2:0]joy_left_type;
+  input [10:0]joy_left;
+  input [10:0]joy_right;
 
   wire cancel;
   wire clk_peripheral;
   wire clk_peripheral_n;
   wire [4:0]column;
   wire [15:0]extended_keys;
+  wire joy_io_mode_en;
+  wire [10:0]joy_left;
+  wire [2:0]joy_left_type;
+  wire [10:0]joy_right;
+  wire [2:0]joy_right_type;
+  wire joymap_we;
   wire [8:0]keymap_addr;
   wire [7:0]keymap_data;
   wire keymap_we;
@@ -3747,6 +3789,12 @@ module zxnexys_zxkeyboard_0_0_keyboard_wrapper
         .clk_peripheral_n(clk_peripheral_n),
         .column(column),
         .extended_keys(extended_keys),
+        .joy_io_mode_en(joy_io_mode_en),
+        .joy_left(joy_left),
+        .joy_left_type(joy_left_type),
+        .joy_right(joy_right),
+        .joy_right_type(joy_right_type),
+        .joymap_we(joymap_we),
         .keymap_addr(keymap_addr),
         .keymap_data(keymap_data),
         .keymap_we(keymap_we),
@@ -3757,6 +3805,68 @@ module zxnexys_zxkeyboard_0_0_keyboard_wrapper
         .reset(reset),
         .row(row),
         .spkey_function(spkey_function));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "keyboard_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "keyboard_xlconcat_0_0" *) 
+(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_xlconcat_0_0
+   (In0,
+    In1,
+    In2,
+    dout);
+  input [3:0]In0;
+  input [0:0]In1;
+  input [0:0]In2;
+  output [5:0]dout;
+
+  wire \<const0> ;
+  wire [3:0]In0;
+  wire [0:0]In2;
+
+  assign dout[5] = In2;
+  assign dout[4] = \<const0> ;
+  assign dout[3:0] = In0;
+  GND GND
+       (.G(\<const0> ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "keyboard_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "keyboard_xlslice_0_0" *) 
+(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_xlslice_0_0
+   (Din,
+    Dout);
+  input [8:0]Din;
+  output [3:0]Dout;
+
+  wire [8:0]Din;
+
+  assign Dout[3:0] = Din[3:0];
+endmodule
+
+(* CHECK_LICENSE_TYPE = "keyboard_xlslice_1_0,xlslice_v1_0_2_xlslice,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "keyboard_xlslice_1_0" *) 
+(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_xlslice_1_0
+   (Din,
+    Dout);
+  input [8:0]Din;
+  output [0:0]Dout;
+
+  wire [8:0]Din;
+
+  assign Dout[0] = Din[4];
+endmodule
+
+(* CHECK_LICENSE_TYPE = "keyboard_xlslice_1_1,xlslice_v1_0_2_xlslice,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "keyboard_xlslice_1_1" *) 
+(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+module zxnexys_zxkeyboard_0_0_keyboard_xlslice_1_1
+   (Din,
+    Dout);
+  input [7:0]Din;
+  output [5:0]Dout;
+
+  wire [7:0]Din;
+
+  assign Dout[5:0] = Din[5:0];
 endmodule
 
 (* ORIG_REF_NAME = "keymaps" *) 
@@ -3804,11 +3914,11 @@ module zxnexys_zxkeyboard_0_0_keymaps
     clk_peripheral_n,
     keymap_we,
     keymap_addr,
-    D,
+    ADDRBWRADDR,
     keymap_data,
     Q,
     CO,
-    o_divmmc_nmi_n_reg,
+    ps2_current_keycode,
     o_mf_nmi_n_reg,
     ps2_keyb_0_o_mf_nmi_n,
     ps2_keyb_0_o_divmmc_nmi_n);
@@ -3855,26 +3965,26 @@ module zxnexys_zxkeyboard_0_0_keymaps
   input clk_peripheral_n;
   input keymap_we;
   input [8:0]keymap_addr;
-  input [9:0]D;
+  input [8:0]ADDRBWRADDR;
   input [7:0]keymap_data;
   input [0:0]Q;
   input [0:0]CO;
-  input o_divmmc_nmi_n_reg;
+  input [0:0]ps2_current_keycode;
   input o_mf_nmi_n_reg;
   input ps2_keyb_0_o_mf_nmi_n;
   input ps2_keyb_0_o_divmmc_nmi_n;
 
+  wire [8:0]ADDRBWRADDR;
   wire [0:0]CO;
-  wire [9:0]D;
   wire [4:0]DOBDO;
   wire [0:0]Q;
   wire clk_peripheral_n;
   wire [8:0]keymap_addr;
   wire [7:0]keymap_data;
   wire keymap_we;
-  wire o_divmmc_nmi_n_reg;
-  wire o_mf_nmi_n_i_3_n_0;
+  wire o_mf_nmi_n_i_2_n_0;
   wire o_mf_nmi_n_reg;
+  wire [0:0]ps2_current_keycode;
   wire ps2_key_release_reg;
   wire ps2_key_release_reg_0;
   wire ps2_keyb_0_o_divmmc_nmi_n;
@@ -3922,21 +4032,21 @@ module zxnexys_zxkeyboard_0_0_keymaps
   wire [1:0]NLW_ram_q_reg_DOPADOP_UNCONNECTED;
   wire [1:0]NLW_ram_q_reg_DOPBDOP_UNCONNECTED;
 
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \matrix_state[1][6]_i_2 
        (.I0(ps2_keymap_data[5]),
         .I1(ps2_keymap_data[4]),
         .O(ram_q_reg_36));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \matrix_state[2][6]_i_2 
        (.I0(ps2_keymap_data[3]),
         .I1(ps2_keymap_data[5]),
         .O(ram_q_reg_35));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \matrix_state[3][0]_i_2 
@@ -3945,7 +4055,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_28));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT4 #(
     .INIT(16'hFFEF)) 
     \matrix_state[3][1]_i_2 
@@ -3954,7 +4064,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_20));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'hFFEF)) 
     \matrix_state[3][2]_i_2 
@@ -3963,7 +4073,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_12));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT4 #(
     .INIT(16'hFFBF)) 
     \matrix_state[3][3]_i_2 
@@ -3972,7 +4082,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_3));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT4 #(
     .INIT(16'hFFFB)) 
     \matrix_state[3][4]_i_2 
@@ -3981,7 +4091,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_27));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT4 #(
     .INIT(16'hFBFF)) 
     \matrix_state[3][5]_i_2 
@@ -3990,7 +4100,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[0]),
         .O(ram_q_reg_19));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'hFBFF)) 
     \matrix_state[3][6]_i_2 
@@ -4005,7 +4115,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
        (.I0(ps2_keymap_data[3]),
         .I1(ps2_keymap_data[4]),
         .O(ram_q_reg_34));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \matrix_state[5][0]_i_2 
@@ -4014,7 +4124,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_29));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \matrix_state[5][1]_i_2 
@@ -4023,7 +4133,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_21));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \matrix_state[5][2]_i_2 
@@ -4032,7 +4142,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_13));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \matrix_state[5][3]_i_2 
@@ -4041,7 +4151,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_4));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     \matrix_state[5][4]_i_2 
@@ -4050,7 +4160,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_26));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     \matrix_state[5][5]_i_2 
@@ -4059,7 +4169,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[0]),
         .O(ram_q_reg_18));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     \matrix_state[5][6]_i_2 
@@ -4068,14 +4178,14 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_10));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \matrix_state[5][6]_i_3 
        (.I0(ps2_keymap_data[4]),
         .I1(ps2_keymap_data[5]),
         .O(ram_q_reg_33));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \matrix_state[6][0]_i_2 
@@ -4084,7 +4194,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_30));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \matrix_state[6][1]_i_2 
@@ -4093,7 +4203,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_22));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \matrix_state[6][2]_i_2 
@@ -4102,7 +4212,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_14));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \matrix_state[6][3]_i_2 
@@ -4111,7 +4221,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_5));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     \matrix_state[6][4]_i_2 
@@ -4120,7 +4230,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_25));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     \matrix_state[6][5]_i_2 
@@ -4129,7 +4239,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[0]),
         .O(ram_q_reg_17));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     \matrix_state[6][6]_i_2 
@@ -4138,14 +4248,14 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_9));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \matrix_state[6][6]_i_3 
        (.I0(ps2_keymap_data[3]),
         .I1(ps2_keymap_data[5]),
         .O(ram_q_reg_32));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \matrix_state[7][0]_i_2 
@@ -4154,7 +4264,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_31));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \matrix_state[7][1]_i_2 
@@ -4163,7 +4273,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_23));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     \matrix_state[7][2]_i_2 
@@ -4172,7 +4282,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_15));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     \matrix_state[7][3]_i_2 
@@ -4181,7 +4291,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[2]),
         .O(ram_q_reg_6));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     \matrix_state[7][4]_i_2 
@@ -4190,7 +4300,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_24));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     \matrix_state[7][5]_i_2 
@@ -4199,7 +4309,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[1]),
         .I3(DOBDO[0]),
         .O(ram_q_reg_16));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     \matrix_state[7][6]_i_2 
@@ -4208,14 +4318,14 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I2(DOBDO[0]),
         .I3(DOBDO[1]),
         .O(ram_q_reg_8));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \matrix_state[7][6]_i_3 
        (.I0(ps2_keymap_data[3]),
         .I1(ps2_keymap_data[4]),
         .O(ram_q_reg_2));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \matrix_state[7][6]_i_4 
@@ -4223,51 +4333,53 @@ module zxnexys_zxkeyboard_0_0_keymaps
         .I1(DOBDO[1]),
         .I2(DOBDO[0]),
         .O(ram_q_reg_7));
-  LUT5 #(
-    .INIT(32'hFFFB0008)) 
+  LUT6 #(
+    .INIT(64'hFFFFFBFF00000800)) 
     o_divmmc_nmi_n_i_1
-       (.I0(D[9]),
-        .I1(D[3]),
-        .I2(o_mf_nmi_n_reg),
-        .I3(o_mf_nmi_n_i_3_n_0),
-        .I4(ps2_keyb_0_o_divmmc_nmi_n),
+       (.I0(ps2_current_keycode),
+        .I1(o_mf_nmi_n_i_2_n_0),
+        .I2(ADDRBWRADDR[1]),
+        .I3(ADDRBWRADDR[3]),
+        .I4(o_mf_nmi_n_reg),
+        .I5(ps2_keyb_0_o_divmmc_nmi_n),
         .O(ps2_key_release_reg_0));
-  LUT5 #(
-    .INIT(32'hFFFE0002)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFB00000008)) 
     o_mf_nmi_n_i_1
-       (.I0(D[9]),
-        .I1(D[3]),
+       (.I0(ps2_current_keycode),
+        .I1(o_mf_nmi_n_i_2_n_0),
         .I2(o_mf_nmi_n_reg),
-        .I3(o_mf_nmi_n_i_3_n_0),
-        .I4(ps2_keyb_0_o_mf_nmi_n),
+        .I3(ADDRBWRADDR[1]),
+        .I4(ADDRBWRADDR[3]),
+        .I5(ps2_keyb_0_o_mf_nmi_n),
         .O(ps2_key_release_reg));
   LUT6 #(
-    .INIT(64'hFF575757FFFFFFFF)) 
-    o_mf_nmi_n_i_3
+    .INIT(64'h0000000000A8A8A8)) 
+    o_mf_nmi_n_i_2
        (.I0(Q),
         .I1(CO),
-        .I2(D[9]),
+        .I2(ps2_current_keycode),
         .I3(DOBDO[4]),
         .I4(DOBDO[3]),
-        .I5(o_divmmc_nmi_n_reg),
-        .O(o_mf_nmi_n_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+        .I5(ADDRBWRADDR[8]),
+        .O(o_mf_nmi_n_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT5 #(
     .INIT(32'h777FFFFF)) 
     \o_ps2_func_keys_n[7]_i_2 
        (.I0(DOBDO[3]),
         .I1(DOBDO[4]),
-        .I2(D[9]),
+        .I2(ps2_current_keycode),
         .I3(CO),
         .I4(Q),
         .O(ram_q_reg_1));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT5 #(
     .INIT(32'h77700000)) 
-    \ps2_last_keycode[9]_i_3 
+    \ps2_last_keycode[9]_i_4 
        (.I0(DOBDO[3]),
         .I1(DOBDO[4]),
-        .I2(D[9]),
+        .I2(ps2_current_keycode),
         .I3(CO),
         .I4(Q),
         .O(ram_q_reg_0));
@@ -4375,7 +4487,7 @@ module zxnexys_zxkeyboard_0_0_keymaps
     .WRITE_WIDTH_B(18)) 
     ram_q_reg
        (.ADDRARDADDR({1'b0,keymap_addr,1'b0,1'b0,1'b0,1'b0}),
-        .ADDRBWRADDR({1'b0,D[8:0],1'b0,1'b0,1'b0,1'b0}),
+        .ADDRBWRADDR({1'b0,ADDRBWRADDR,1'b0,1'b0,1'b0,1'b0}),
         .CLKARDCLK(clk_peripheral_n),
         .CLKBWRCLK(clk_peripheral_n),
         .DIADI({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,keymap_data}),
@@ -4400,126 +4512,86 @@ endmodule
 
 (* ORIG_REF_NAME = "membrane" *) 
 module zxnexys_zxkeyboard_0_0_membrane
-   (\state_reg[4]_0 ,
+   (Q,
     \state_reg[2]_0 ,
+    \state_reg[4]_0 ,
     \state_reg[2]_1 ,
-    Q,
     column,
-    \state_reg[5]_0 ,
+    state_reg,
     extended_keys,
-    clk_div_reg,
     keyb_clocks_0_membrane_enable,
+    clk_div_reg,
+    row,
     \column[4] ,
     reset,
     cancel,
-    \matrix_work_ex_reg[13]_0 ,
-    \matrix_work_ex_reg[6]_0 ,
-    \matrix_work_reg[0][4]_0 ,
-    \matrix_work_reg[0][4]_1 ,
-    \matrix_work_reg[0][3]_0 ,
-    \matrix_work_reg[0][3]_1 ,
-    \matrix_work_reg[0][2]_0 ,
-    \matrix_work_reg[0][2]_1 ,
-    \matrix_work_reg[0][6]_0 ,
-    \matrix_work_reg[0][6]_1 ,
-    \matrix_work_reg[0][6]_2 ,
-    \matrix_work_reg[0][6]_3 ,
-    \matrix_work_reg[0][6]_4 ,
-    \matrix_work_reg[0][6]_5 ,
-    \matrix_work_reg[0][6]_6 ,
-    \matrix_work_reg[0][6]_7 ,
-    row,
-    column_0_sp_1,
-    \column[0]_0 ,
+    state,
+    dpo,
     column_3_sp_1,
-    \column[3]_0 ,
-    \column[0]_1 ,
-    \column[0]_2 ,
+    column_2_sp_1,
+    \column[2]_0 ,
     clk_peripheral,
-    D,
+    Res,
     E,
-    \matrix_work_ex_reg[14]_0 ,
-    \matrix_work_ex_reg[2]_0 ,
-    \matrix_work_ex_reg[6]_1 ,
+    \matrix_work_ex_reg[9]_0 ,
     \matrix_work_ex_reg[0]_0 );
-  output \state_reg[4]_0 ;
+  output [1:0]Q;
   output \state_reg[2]_0 ;
+  output \state_reg[4]_0 ;
   output \state_reg[2]_1 ;
-  output [0:0]Q;
   output [4:0]column;
-  output \state_reg[5]_0 ;
+  output state_reg;
   output [15:0]extended_keys;
-  input [1:0]clk_div_reg;
   input keyb_clocks_0_membrane_enable;
+  input [1:0]clk_div_reg;
+  input [7:0]row;
   input [0:0]\column[4] ;
   input reset;
   input cancel;
-  input \matrix_work_ex_reg[13]_0 ;
-  input \matrix_work_ex_reg[6]_0 ;
-  input \matrix_work_reg[0][4]_0 ;
-  input \matrix_work_reg[0][4]_1 ;
-  input \matrix_work_reg[0][3]_0 ;
-  input \matrix_work_reg[0][3]_1 ;
-  input \matrix_work_reg[0][2]_0 ;
-  input \matrix_work_reg[0][2]_1 ;
-  input \matrix_work_reg[0][6]_0 ;
-  input \matrix_work_reg[0][6]_1 ;
-  input \matrix_work_reg[0][6]_2 ;
-  input \matrix_work_reg[0][6]_3 ;
-  input \matrix_work_reg[0][6]_4 ;
-  input \matrix_work_reg[0][6]_5 ;
-  input \matrix_work_reg[0][6]_6 ;
-  input \matrix_work_reg[0][6]_7 ;
-  input [7:0]row;
-  input column_0_sp_1;
-  input \column[0]_0 ;
+  input state;
+  input [1:0]dpo;
   input column_3_sp_1;
-  input \column[3]_0 ;
-  input \column[0]_1 ;
-  input \column[0]_2 ;
+  input column_2_sp_1;
+  input \column[2]_0 ;
   input clk_peripheral;
-  input [1:0]D;
+  input [6:0]Res;
   input [0:0]E;
-  input \matrix_work_ex_reg[14]_0 ;
-  input \matrix_work_ex_reg[2]_0 ;
-  input \matrix_work_ex_reg[6]_1 ;
+  input \matrix_work_ex_reg[9]_0 ;
   input \matrix_work_ex_reg[0]_0 ;
 
-  wire [1:0]D;
   wire [0:0]E;
-  wire [0:0]Q;
+  wire [1:0]Q;
+  wire [6:0]Res;
   wire cancel;
   wire [1:0]clk_div_reg;
   wire clk_peripheral;
   wire [4:0]column;
-  wire \column[0]_0 ;
-  wire \column[0]_1 ;
-  wire \column[0]_2 ;
   wire \column[0]_INST_0_i_1_n_0 ;
   wire \column[0]_INST_0_i_2_n_0 ;
   wire \column[0]_INST_0_i_3_n_0 ;
   wire \column[0]_INST_0_i_4_n_0 ;
+  wire \column[0]_INST_0_i_5_n_0 ;
   wire \column[1]_INST_0_i_1_n_0 ;
   wire \column[1]_INST_0_i_2_n_0 ;
   wire \column[1]_INST_0_i_3_n_0 ;
   wire \column[1]_INST_0_i_4_n_0 ;
-  wire \column[1]_INST_0_i_5_n_0 ;
+  wire \column[2]_0 ;
   wire \column[2]_INST_0_i_1_n_0 ;
   wire \column[2]_INST_0_i_2_n_0 ;
   wire \column[2]_INST_0_i_3_n_0 ;
-  wire \column[2]_INST_0_i_4_n_0 ;
-  wire \column[3]_0 ;
+  wire \column[2]_INST_0_i_5_n_0 ;
   wire \column[3]_INST_0_i_1_n_0 ;
   wire \column[3]_INST_0_i_2_n_0 ;
   wire \column[3]_INST_0_i_3_n_0 ;
-  wire \column[3]_INST_0_i_4_n_0 ;
+  wire \column[3]_INST_0_i_6_n_0 ;
   wire [0:0]\column[4] ;
   wire \column[4]_INST_0_i_1_n_0 ;
   wire \column[4]_INST_0_i_2_n_0 ;
   wire \column[4]_INST_0_i_3_n_0 ;
-  wire \column[4]_INST_0_i_6_n_0 ;
-  wire column_0_sn_1;
+  wire \column[4]_INST_0_i_4_n_0 ;
+  wire column_2_sn_1;
   wire column_3_sn_1;
+  wire [1:0]dpo;
   wire [15:0]extended_keys;
   wire keyb_clocks_0_membrane_enable;
   wire \matrix_state_ex_0[18]_i_1_n_0 ;
@@ -4610,32 +4682,20 @@ module zxnexys_zxkeyboard_0_0_membrane
   wire \matrix_state_reg_n_0_[7][5] ;
   wire \matrix_state_reg_n_0_[7][6] ;
   wire \matrix_work[0][6]_i_1_n_0 ;
-  wire \matrix_work[1][2]_i_1_n_0 ;
-  wire \matrix_work[1][3]_i_1_n_0 ;
-  wire \matrix_work[1][4]_i_1_n_0 ;
-  wire \matrix_work[1][5]_i_1_n_0 ;
-  wire \matrix_work[1][6]_i_10_n_0 ;
-  wire \matrix_work[1][6]_i_11_n_0 ;
-  wire \matrix_work[1][6]_i_2_n_0 ;
-  wire \matrix_work[1][6]_i_6_n_0 ;
-  wire \matrix_work[1][6]_i_7_n_0 ;
-  wire \matrix_work[1][6]_i_8_n_0 ;
-  wire \matrix_work[1][6]_i_9_n_0 ;
-  wire \matrix_work[1]_2 ;
-  wire \matrix_work[2][6]_i_1_n_0 ;
-  wire \matrix_work[3]_3 ;
-  wire \matrix_work[4]_5 ;
-  wire \matrix_work[5][6]_i_1_n_0 ;
-  wire \matrix_work[6]_4 ;
-  wire \matrix_work[7]_0 ;
+  wire \matrix_work[1][6]_i_1_n_0 ;
+  wire \matrix_work[2]_4 ;
+  wire \matrix_work[3]_5 ;
+  wire \matrix_work[4]_6 ;
+  wire \matrix_work[5]_0 ;
+  wire \matrix_work[6]_1 ;
+  wire \matrix_work[7]_2 ;
   wire \matrix_work_ex[0]_i_1_n_0 ;
-  wire \matrix_work_ex[0]_i_2_n_0 ;
   wire \matrix_work_ex[10]_i_1_n_0 ;
   wire \matrix_work_ex[11]_i_1_n_0 ;
   wire \matrix_work_ex[12]_i_1_n_0 ;
+  wire \matrix_work_ex[12]_i_2_n_0 ;
   wire \matrix_work_ex[13]_i_1_n_0 ;
   wire \matrix_work_ex[14]_i_1_n_0 ;
-  wire \matrix_work_ex[14]_i_3_n_0 ;
   wire \matrix_work_ex[15]_i_1_n_0 ;
   wire \matrix_work_ex[16]_i_2_n_0 ;
   wire \matrix_work_ex[16]_i_3_n_0 ;
@@ -4645,17 +4705,12 @@ module zxnexys_zxkeyboard_0_0_membrane
   wire \matrix_work_ex[4]_i_1_n_0 ;
   wire \matrix_work_ex[4]_i_2_n_0 ;
   wire \matrix_work_ex[5]_i_1_n_0 ;
-  wire \matrix_work_ex[5]_i_2_n_0 ;
   wire \matrix_work_ex[6]_i_1_n_0 ;
   wire \matrix_work_ex[7]_i_1_n_0 ;
   wire \matrix_work_ex[8]_i_1_n_0 ;
   wire \matrix_work_ex[9]_i_1_n_0 ;
   wire \matrix_work_ex_reg[0]_0 ;
-  wire \matrix_work_ex_reg[13]_0 ;
-  wire \matrix_work_ex_reg[14]_0 ;
-  wire \matrix_work_ex_reg[2]_0 ;
-  wire \matrix_work_ex_reg[6]_0 ;
-  wire \matrix_work_ex_reg[6]_1 ;
+  wire \matrix_work_ex_reg[9]_0 ;
   wire \matrix_work_ex_reg_n_0_[0] ;
   wire \matrix_work_ex_reg_n_0_[10] ;
   wire \matrix_work_ex_reg_n_0_[11] ;
@@ -4673,20 +4728,6 @@ module zxnexys_zxkeyboard_0_0_membrane
   wire \matrix_work_ex_reg_n_0_[8] ;
   wire \matrix_work_ex_reg_n_0_[9] ;
   wire [6:0]\matrix_work_reg[0] ;
-  wire \matrix_work_reg[0][2]_0 ;
-  wire \matrix_work_reg[0][2]_1 ;
-  wire \matrix_work_reg[0][3]_0 ;
-  wire \matrix_work_reg[0][3]_1 ;
-  wire \matrix_work_reg[0][4]_0 ;
-  wire \matrix_work_reg[0][4]_1 ;
-  wire \matrix_work_reg[0][6]_0 ;
-  wire \matrix_work_reg[0][6]_1 ;
-  wire \matrix_work_reg[0][6]_2 ;
-  wire \matrix_work_reg[0][6]_3 ;
-  wire \matrix_work_reg[0][6]_4 ;
-  wire \matrix_work_reg[0][6]_5 ;
-  wire \matrix_work_reg[0][6]_6 ;
-  wire \matrix_work_reg[0][6]_7 ;
   wire [6:0]\matrix_work_reg[1] ;
   wire [6:0]\matrix_work_reg[2] ;
   wire [6:0]\matrix_work_reg[3] ;
@@ -4703,120 +4744,120 @@ module zxnexys_zxkeyboard_0_0_membrane
   wire reset;
   wire [7:0]row;
   wire [5:0]sel0;
+  wire state;
+  wire state_reg;
   wire \state_reg[2]_0 ;
   wire \state_reg[2]_1 ;
   wire \state_reg[4]_0 ;
-  wire \state_reg[5]_0 ;
-  wire \state_reg_n_0_[1] ;
   wire \state_reg_n_0_[8] ;
 
-  assign column_0_sn_1 = column_0_sp_1;
+  assign column_2_sn_1 = column_2_sp_1;
   assign column_3_sn_1 = column_3_sp_1;
-  LUT5 #(
-    .INIT(32'h0010FFFF)) 
+  LUT4 #(
+    .INIT(16'h10FF)) 
     \column[0]_INST_0 
        (.I0(\column[0]_INST_0_i_1_n_0 ),
         .I1(\column[0]_INST_0_i_2_n_0 ),
         .I2(\column[0]_INST_0_i_3_n_0 ),
-        .I3(\column[0]_INST_0_i_4_n_0 ),
-        .I4(\column[4] ),
+        .I3(\column[4] ),
         .O(column[0]));
-  LUT6 #(
-    .INIT(64'h007F007F007FFFFF)) 
+  LUT5 #(
+    .INIT(32'hAABFAAAA)) 
     \column[0]_INST_0_i_1 
-       (.I0(\matrix_state_ex_1_reg_n_0_[0] ),
-        .I1(\matrix_state_reg_n_0_[0][0] ),
-        .I2(\matrix_state_ex_0_reg_n_0_[0] ),
-        .I3(column_0_sn_1),
-        .I4(\column[0]_0 ),
-        .I5(\matrix_state_reg_n_0_[2][0] ),
+       (.I0(\column[0]_INST_0_i_4_n_0 ),
+        .I1(\matrix_state_ex_1_reg_n_0_[13] ),
+        .I2(\matrix_state_reg_n_0_[7][0] ),
+        .I3(row[7]),
+        .I4(\column[4] ),
         .O(\column[0]_INST_0_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h70FFFFFF70707070)) 
     \column[0]_INST_0_i_2 
-       (.I0(\matrix_state_ex_1_reg_n_0_[11] ),
-        .I1(\matrix_state_reg_n_0_[5][0] ),
-        .I2(\column[0]_1 ),
-        .I3(\matrix_state_ex_1_reg_n_0_[13] ),
-        .I4(\matrix_state_reg_n_0_[7][0] ),
-        .I5(\column[0]_2 ),
+       (.I0(p_0_in0_in[0]),
+        .I1(\matrix_state_reg_n_0_[3][0] ),
+        .I2(column_3_sn_1),
+        .I3(\matrix_state_ex_1_reg_n_0_[6] ),
+        .I4(\matrix_state_reg_n_0_[4][0] ),
+        .I5(column_2_sn_1),
         .O(\column[0]_INST_0_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hEEEEE000FFFFFFFF)) 
+    .INIT(64'h00000000FBFBFB33)) 
     \column[0]_INST_0_i_3 
-       (.I0(row[6]),
-        .I1(\matrix_state_reg_n_0_[6][0] ),
-        .I2(p_0_in0_in[0]),
-        .I3(\matrix_state_reg_n_0_[3][0] ),
-        .I4(row[3]),
-        .I5(\column[4] ),
+       (.I0(\matrix_state_reg_n_0_[2][0] ),
+        .I1(\column[4] ),
+        .I2(row[2]),
+        .I3(\matrix_state_reg_n_0_[6][0] ),
+        .I4(row[6]),
+        .I5(\column[0]_INST_0_i_5_n_0 ),
         .O(\column[0]_INST_0_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'h0707777707FF7777)) 
+  LUT5 #(
+    .INIT(32'h02222222)) 
     \column[0]_INST_0_i_4 
-       (.I0(\matrix_state_ex_1_reg_n_0_[6] ),
-        .I1(\matrix_state_reg_n_0_[4][0] ),
-        .I2(row[4]),
+       (.I0(\column[4] ),
+        .I1(row[0]),
+        .I2(\matrix_state_ex_0_reg_n_0_[0] ),
+        .I3(\matrix_state_reg_n_0_[0][0] ),
+        .I4(\matrix_state_ex_1_reg_n_0_[0] ),
+        .O(\column[0]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h0707000007FF0000)) 
+    \column[0]_INST_0_i_5 
+       (.I0(\matrix_state_ex_1_reg_n_0_[11] ),
+        .I1(\matrix_state_reg_n_0_[5][0] ),
+        .I2(row[5]),
         .I3(row[1]),
         .I4(\column[4] ),
         .I5(\matrix_state_reg_n_0_[1][0] ),
-        .O(\column[0]_INST_0_i_4_n_0 ));
+        .O(\column[0]_INST_0_i_5_n_0 ));
   LUT6 #(
-    .INIT(64'h00000100FFFFFFFF)) 
+    .INIT(64'h00540000FFFFFFFF)) 
     \column[1]_INST_0 
        (.I0(\column[1]_INST_0_i_1_n_0 ),
-        .I1(\column[1]_INST_0_i_2_n_0 ),
-        .I2(\column[1]_INST_0_i_3_n_0 ),
-        .I3(\column[1]_INST_0_i_4_n_0 ),
-        .I4(\column[1]_INST_0_i_5_n_0 ),
+        .I1(row[0]),
+        .I2(\matrix_state_reg_n_0_[0][1] ),
+        .I3(\column[1]_INST_0_i_2_n_0 ),
+        .I4(\column[1]_INST_0_i_3_n_0 ),
         .I5(\column[4] ),
         .O(column[1]));
-  LUT4 #(
-    .INIT(16'h0222)) 
-    \column[1]_INST_0_i_1 
-       (.I0(\column[4] ),
-        .I1(row[5]),
-        .I2(\matrix_state_reg_n_0_[5][1] ),
-        .I3(\matrix_state_ex_1_reg_n_0_[12] ),
-        .O(\column[1]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h02222222)) 
-    \column[1]_INST_0_i_2 
+    \column[1]_INST_0_i_1 
        (.I0(\column[4] ),
         .I1(row[7]),
         .I2(p_0_in5_in),
         .I3(\matrix_state_reg_n_0_[7][1] ),
         .I4(p_1_in6_in),
-        .O(\column[1]_INST_0_i_2_n_0 ));
+        .O(\column[1]_INST_0_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0707000007FF0000)) 
-    \column[1]_INST_0_i_3 
-       (.I0(p_0_in0_in[1]),
-        .I1(\matrix_state_reg_n_0_[3][1] ),
-        .I2(row[3]),
-        .I3(row[0]),
+    \column[1]_INST_0_i_2 
+       (.I0(\matrix_state_ex_1_reg_n_0_[12] ),
+        .I1(\matrix_state_reg_n_0_[5][1] ),
+        .I2(row[5]),
+        .I3(row[6]),
         .I4(\column[4] ),
-        .I5(\matrix_state_reg_n_0_[0][1] ),
-        .O(\column[1]_INST_0_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'hEEFFE0FF)) 
-    \column[1]_INST_0_i_4 
-       (.I0(row[2]),
-        .I1(\matrix_state_reg_n_0_[2][1] ),
-        .I2(row[6]),
-        .I3(\column[4] ),
-        .I4(\matrix_state_reg_n_0_[6][1] ),
-        .O(\column[1]_INST_0_i_4_n_0 ));
+        .I5(\matrix_state_reg_n_0_[6][1] ),
+        .O(\column[1]_INST_0_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0707777707FF7777)) 
-    \column[1]_INST_0_i_5 
-       (.I0(\matrix_state_ex_1_reg_n_0_[7] ),
-        .I1(\matrix_state_reg_n_0_[4][1] ),
-        .I2(row[4]),
+    .INIT(64'hAA8AAA8AAA8A0A0A)) 
+    \column[1]_INST_0_i_3 
+       (.I0(\column[1]_INST_0_i_4_n_0 ),
+        .I1(\matrix_state_reg_n_0_[1][1] ),
+        .I2(\column[4] ),
         .I3(row[1]),
-        .I4(\column[4] ),
-        .I5(\matrix_state_reg_n_0_[1][1] ),
-        .O(\column[1]_INST_0_i_5_n_0 ));
+        .I4(\matrix_state_reg_n_0_[2][1] ),
+        .I5(row[2]),
+        .O(\column[1]_INST_0_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'hD5000000D5D5D5D5)) 
+    \column[1]_INST_0_i_4 
+       (.I0(column_2_sn_1),
+        .I1(\matrix_state_ex_1_reg_n_0_[7] ),
+        .I2(\matrix_state_reg_n_0_[4][1] ),
+        .I3(p_0_in0_in[1]),
+        .I4(\matrix_state_reg_n_0_[3][1] ),
+        .I5(column_3_sn_1),
+        .O(\column[1]_INST_0_i_4_n_0 ));
   LUT4 #(
     .INIT(16'h10FF)) 
     \column[2]_INST_0 
@@ -4825,45 +4866,45 @@ module zxnexys_zxkeyboard_0_0_membrane
         .I2(\column[2]_INST_0_i_3_n_0 ),
         .I3(\column[4] ),
         .O(column[2]));
-  LUT6 #(
-    .INIT(64'h70FFFFFF70707070)) 
-    \column[2]_INST_0_i_1 
-       (.I0(p_0_in0_in[2]),
-        .I1(\matrix_state_reg_n_0_[3][2] ),
-        .I2(\column[3]_0 ),
-        .I3(\matrix_state_ex_1_reg_n_0_[8] ),
-        .I4(\matrix_state_reg_n_0_[4][2] ),
-        .I5(column_3_sn_1),
-        .O(\column[2]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h11001F00)) 
-    \column[2]_INST_0_i_2 
-       (.I0(row[2]),
-        .I1(\matrix_state_reg_n_0_[2][2] ),
+    \column[2]_INST_0_i_1 
+       (.I0(\matrix_state_reg_n_0_[5][2] ),
+        .I1(row[5]),
         .I2(row[1]),
         .I3(\column[4] ),
         .I4(\matrix_state_reg_n_0_[1][2] ),
+        .O(\column[2]_INST_0_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'h70FFFFFF70707070)) 
+    \column[2]_INST_0_i_2 
+       (.I0(\matrix_state_ex_1_reg_n_0_[8] ),
+        .I1(\matrix_state_reg_n_0_[4][2] ),
+        .I2(column_2_sn_1),
+        .I3(\matrix_state_ex_1_reg_n_0_[15] ),
+        .I4(\matrix_state_reg_n_0_[7][2] ),
+        .I5(\column[2]_0 ),
         .O(\column[2]_INST_0_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hAA8AAA8AAA8A0A0A)) 
     \column[2]_INST_0_i_3 
-       (.I0(\column[2]_INST_0_i_4_n_0 ),
+       (.I0(\column[2]_INST_0_i_5_n_0 ),
         .I1(\matrix_state_reg_n_0_[6][2] ),
         .I2(\column[4] ),
         .I3(row[6]),
-        .I4(row[5]),
-        .I5(\matrix_state_reg_n_0_[5][2] ),
+        .I4(\matrix_state_reg_n_0_[2][2] ),
+        .I5(row[2]),
         .O(\column[2]_INST_0_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hEAEAFFFFEA00FFFF)) 
-    \column[2]_INST_0_i_4 
-       (.I0(row[7]),
-        .I1(\matrix_state_ex_1_reg_n_0_[15] ),
-        .I2(\matrix_state_reg_n_0_[7][2] ),
-        .I3(row[0]),
-        .I4(\column[4] ),
-        .I5(\matrix_state_reg_n_0_[0][2] ),
-        .O(\column[2]_INST_0_i_4_n_0 ));
+    .INIT(64'hEAEAEA00FFFFFFFF)) 
+    \column[2]_INST_0_i_5 
+       (.I0(row[3]),
+        .I1(p_0_in0_in[2]),
+        .I2(\matrix_state_reg_n_0_[3][2] ),
+        .I3(\matrix_state_reg_n_0_[0][2] ),
+        .I4(row[0]),
+        .I5(\column[4] ),
+        .O(\column[2]_INST_0_i_5_n_0 ));
   LUT4 #(
     .INIT(16'h10FF)) 
     \column[3]_INST_0 
@@ -4877,10 +4918,10 @@ module zxnexys_zxkeyboard_0_0_membrane
     \column[3]_INST_0_i_1 
        (.I0(\matrix_state_ex_1_reg_n_0_[9] ),
         .I1(\matrix_state_reg_n_0_[4][3] ),
-        .I2(column_3_sn_1),
+        .I2(column_2_sn_1),
         .I3(p_0_in0_in[3]),
         .I4(\matrix_state_reg_n_0_[3][3] ),
-        .I5(\column[3]_0 ),
+        .I5(column_3_sn_1),
         .O(\column[3]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h11001F00)) 
@@ -4899,64 +4940,65 @@ module zxnexys_zxkeyboard_0_0_membrane
         .I2(\matrix_state_reg_n_0_[5][3] ),
         .I3(\matrix_state_reg_n_0_[6][3] ),
         .I4(row[6]),
-        .I5(\column[3]_INST_0_i_4_n_0 ),
+        .I5(\column[3]_INST_0_i_6_n_0 ),
         .O(\column[3]_INST_0_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'h0707000007FF0000)) 
-    \column[3]_INST_0_i_4 
+    .INIT(64'h070707FF00000000)) 
+    \column[3]_INST_0_i_6 
        (.I0(\matrix_state_ex_1_reg_n_0_[16] ),
         .I1(\matrix_state_reg_n_0_[7][3] ),
         .I2(row[7]),
-        .I3(row[0]),
-        .I4(\column[4] ),
-        .I5(\matrix_state_reg_n_0_[0][3] ),
-        .O(\column[3]_INST_0_i_4_n_0 ));
-  LUT4 #(
-    .INIT(16'h10FF)) 
+        .I3(\matrix_state_reg_n_0_[0][3] ),
+        .I4(row[0]),
+        .I5(\column[4] ),
+        .O(\column[3]_INST_0_i_6_n_0 ));
+  LUT5 #(
+    .INIT(32'h0010FFFF)) 
     \column[4]_INST_0 
        (.I0(\column[4]_INST_0_i_1_n_0 ),
         .I1(\column[4]_INST_0_i_2_n_0 ),
         .I2(\column[4]_INST_0_i_3_n_0 ),
-        .I3(\column[4] ),
+        .I3(\column[4]_INST_0_i_4_n_0 ),
+        .I4(\column[4] ),
         .O(column[4]));
-  LUT6 #(
-    .INIT(64'h70FFFFFF70707070)) 
-    \column[4]_INST_0_i_1 
-       (.I0(\matrix_state_ex_1_reg_n_0_[10] ),
-        .I1(\matrix_state_reg_n_0_[4][4] ),
-        .I2(column_3_sn_1),
-        .I3(p_0_in0_in[4]),
-        .I4(\matrix_state_reg_n_0_[3][4] ),
-        .I5(\column[3]_0 ),
-        .O(\column[4]_INST_0_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h11001F00)) 
-    \column[4]_INST_0_i_2 
-       (.I0(row[2]),
-        .I1(\matrix_state_reg_n_0_[2][4] ),
-        .I2(row[1]),
+    \column[4]_INST_0_i_1 
+       (.I0(row[1]),
+        .I1(\matrix_state_reg_n_0_[1][4] ),
+        .I2(row[2]),
         .I3(\column[4] ),
-        .I4(\matrix_state_reg_n_0_[1][4] ),
-        .O(\column[4]_INST_0_i_2_n_0 ));
+        .I4(\matrix_state_reg_n_0_[2][4] ),
+        .O(\column[4]_INST_0_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h00000000FDFDFD55)) 
-    \column[4]_INST_0_i_3 
-       (.I0(\column[4] ),
-        .I1(row[7]),
-        .I2(\matrix_state_reg_n_0_[7][4] ),
-        .I3(\matrix_state_reg_n_0_[0][4] ),
-        .I4(row[0]),
-        .I5(\column[4]_INST_0_i_6_n_0 ),
-        .O(\column[4]_INST_0_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'h111F0000)) 
-    \column[4]_INST_0_i_6 
-       (.I0(row[6]),
-        .I1(\matrix_state_reg_n_0_[6][4] ),
-        .I2(\matrix_state_reg_n_0_[5][4] ),
-        .I3(row[5]),
+    .INIT(64'h0707777707FF7777)) 
+    \column[4]_INST_0_i_2 
+       (.I0(\matrix_state_ex_1_reg_n_0_[10] ),
+        .I1(\matrix_state_reg_n_0_[4][4] ),
+        .I2(row[4]),
+        .I3(row[6]),
         .I4(\column[4] ),
-        .O(\column[4]_INST_0_i_6_n_0 ));
+        .I5(\matrix_state_reg_n_0_[6][4] ),
+        .O(\column[4]_INST_0_i_2_n_0 ));
+  LUT5 #(
+    .INIT(32'hEEE0FFFF)) 
+    \column[4]_INST_0_i_3 
+       (.I0(row[7]),
+        .I1(\matrix_state_reg_n_0_[7][4] ),
+        .I2(\matrix_state_reg_n_0_[0][4] ),
+        .I3(row[0]),
+        .I4(\column[4] ),
+        .O(\column[4]_INST_0_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h070707FF00000000)) 
+    \column[4]_INST_0_i_4 
+       (.I0(p_0_in0_in[4]),
+        .I1(\matrix_state_reg_n_0_[3][4] ),
+        .I2(row[3]),
+        .I3(\matrix_state_reg_n_0_[5][4] ),
+        .I4(row[5]),
+        .I5(\column[4] ),
+        .O(\column[4]_INST_0_i_4_n_0 ));
   LUT1 #(
     .INIT(2'h1)) 
     \extended_keys[0]_INST_0 
@@ -5732,433 +5774,272 @@ module zxnexys_zxkeyboard_0_0_membrane
         .Q(\matrix_state_reg_n_0_[7][6] ),
         .S(reset));
   LUT6 #(
-    .INIT(64'h0202220200000000)) 
+    .INIT(64'h00002F0000000000)) 
     \matrix_work[0][6]_i_1 
-       (.I0(keyb_clocks_0_membrane_enable),
-        .I1(\state_reg[2]_1 ),
-        .I2(\state_reg_n_0_[1] ),
-        .I3(sel0[5]),
-        .I4(sel0[4]),
-        .I5(Q),
-        .O(\matrix_work[0][6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
-  LUT2 #(
-    .INIT(4'h7)) 
-    \matrix_work[1][1]_i_3 
-       (.I0(sel0[2]),
-        .I1(sel0[1]),
-        .O(\state_reg[5]_0 ));
-  LUT6 #(
-    .INIT(64'hD555555515555555)) 
-    \matrix_work[1][2]_i_1 
-       (.I0(\matrix_work_reg[0][2]_0 ),
-        .I1(sel0[3]),
-        .I2(sel0[4]),
-        .I3(sel0[5]),
-        .I4(\state_reg_n_0_[1] ),
-        .I5(\matrix_work_reg[0][2]_1 ),
-        .O(\matrix_work[1][2]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hD555555515555555)) 
-    \matrix_work[1][3]_i_1 
-       (.I0(\matrix_work_reg[0][3]_0 ),
-        .I1(sel0[3]),
-        .I2(sel0[4]),
-        .I3(sel0[5]),
-        .I4(\state_reg_n_0_[1] ),
-        .I5(\matrix_work_reg[0][3]_1 ),
-        .O(\matrix_work[1][3]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hD555555515555555)) 
-    \matrix_work[1][4]_i_1 
-       (.I0(\matrix_work_reg[0][4]_0 ),
-        .I1(sel0[3]),
-        .I2(sel0[4]),
-        .I3(sel0[5]),
-        .I4(\state_reg_n_0_[1] ),
-        .I5(\matrix_work_reg[0][4]_1 ),
-        .O(\matrix_work[1][4]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h3555555555555555)) 
-    \matrix_work[1][5]_i_1 
-       (.I0(\matrix_work_ex_reg[13]_0 ),
-        .I1(\matrix_work_ex_reg[6]_0 ),
-        .I2(sel0[3]),
-        .I3(sel0[4]),
-        .I4(sel0[5]),
-        .I5(\state_reg_n_0_[1] ),
-        .O(\matrix_work[1][5]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000008000000000)) 
-    \matrix_work[1][6]_i_1 
-       (.I0(Q),
-        .I1(clk_div_reg[0]),
-        .I2(clk_div_reg[1]),
-        .I3(\state_reg[2]_1 ),
-        .I4(\state_reg[2]_0 ),
-        .I5(\state_reg[4]_0 ),
-        .O(\matrix_work[1]_2 ));
-  LUT3 #(
-    .INIT(8'h5D)) 
-    \matrix_work[1][6]_i_10 
-       (.I0(\state_reg_n_0_[1] ),
-        .I1(sel0[5]),
-        .I2(sel0[4]),
-        .O(\matrix_work[1][6]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
-  LUT5 #(
-    .INIT(32'hD0FFFFFF)) 
-    \matrix_work[1][6]_i_11 
-       (.I0(sel0[1]),
-        .I1(sel0[0]),
-        .I2(sel0[2]),
-        .I3(sel0[3]),
-        .I4(sel0[5]),
-        .O(\matrix_work[1][6]_i_11_n_0 ));
-  LUT6 #(
-    .INIT(64'h5F503F3F5F503030)) 
-    \matrix_work[1][6]_i_2 
-       (.I0(\matrix_work[1][6]_i_6_n_0 ),
-        .I1(\matrix_work[1][6]_i_7_n_0 ),
-        .I2(\state_reg[4]_0 ),
-        .I3(\matrix_work[1][6]_i_8_n_0 ),
-        .I4(\state_reg[2]_1 ),
-        .I5(\matrix_work[1][6]_i_9_n_0 ),
-        .O(\matrix_work[1][6]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h8888088808880888)) 
-    \matrix_work[1][6]_i_3 
        (.I0(sel0[5]),
-        .I1(\state_reg_n_0_[1] ),
-        .I2(sel0[4]),
-        .I3(sel0[3]),
-        .I4(sel0[2]),
-        .I5(sel0[1]),
-        .O(\state_reg[2]_1 ));
-  LUT6 #(
-    .INIT(64'hAAEAEAEAAAEAAAEA)) 
-    \matrix_work[1][6]_i_4 
-       (.I0(\matrix_work[1][6]_i_10_n_0 ),
-        .I1(sel0[5]),
-        .I2(sel0[3]),
-        .I3(sel0[2]),
-        .I4(sel0[0]),
-        .I5(sel0[1]),
-        .O(\state_reg[2]_0 ));
-  LUT4 #(
-    .INIT(16'h7FFF)) 
-    \matrix_work[1][6]_i_5 
-       (.I0(sel0[3]),
         .I1(sel0[4]),
-        .I2(sel0[5]),
-        .I3(\state_reg_n_0_[1] ),
-        .O(\state_reg[4]_0 ));
-  LUT6 #(
-    .INIT(64'h4500000075FFFFFF)) 
-    \matrix_work[1][6]_i_6 
-       (.I0(\matrix_work_reg[0][6]_0 ),
-        .I1(sel0[4]),
-        .I2(sel0[5]),
-        .I3(\state_reg_n_0_[1] ),
-        .I4(\matrix_work[1][6]_i_11_n_0 ),
-        .I5(\matrix_work_reg[0][6]_1 ),
-        .O(\matrix_work[1][6]_i_6_n_0 ));
-  LUT6 #(
-    .INIT(64'h10555555DF555555)) 
-    \matrix_work[1][6]_i_7 
-       (.I0(\matrix_work_reg[0][6]_2 ),
-        .I1(sel0[4]),
-        .I2(sel0[5]),
-        .I3(\state_reg_n_0_[1] ),
-        .I4(\matrix_work[1][6]_i_11_n_0 ),
-        .I5(\matrix_work_reg[0][6]_3 ),
-        .O(\matrix_work[1][6]_i_7_n_0 ));
-  LUT6 #(
-    .INIT(64'hEFAAAAAA20AAAAAA)) 
-    \matrix_work[1][6]_i_8 
-       (.I0(\matrix_work_reg[0][6]_6 ),
-        .I1(sel0[4]),
-        .I2(sel0[5]),
-        .I3(\state_reg_n_0_[1] ),
-        .I4(\matrix_work[1][6]_i_11_n_0 ),
-        .I5(\matrix_work_reg[0][6]_7 ),
-        .O(\matrix_work[1][6]_i_8_n_0 ));
-  LUT6 #(
-    .INIT(64'hEFAAAAAA20AAAAAA)) 
-    \matrix_work[1][6]_i_9 
-       (.I0(\matrix_work_reg[0][6]_4 ),
-        .I1(sel0[4]),
-        .I2(sel0[5]),
-        .I3(\state_reg_n_0_[1] ),
-        .I4(\matrix_work[1][6]_i_11_n_0 ),
-        .I5(\matrix_work_reg[0][6]_5 ),
-        .O(\matrix_work[1][6]_i_9_n_0 ));
-  LUT6 #(
-    .INIT(64'h0808880800000000)) 
-    \matrix_work[2][6]_i_1 
-       (.I0(keyb_clocks_0_membrane_enable),
-        .I1(\state_reg[2]_1 ),
-        .I2(\state_reg_n_0_[1] ),
-        .I3(sel0[5]),
-        .I4(sel0[4]),
-        .I5(Q),
-        .O(\matrix_work[2][6]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000800000000000)) 
-    \matrix_work[3][6]_i_1 
-       (.I0(Q),
-        .I1(clk_div_reg[0]),
-        .I2(clk_div_reg[1]),
-        .I3(\state_reg[2]_1 ),
+        .I2(Q[1]),
+        .I3(Q[0]),
         .I4(\state_reg[2]_0 ),
-        .I5(\state_reg[4]_0 ),
-        .O(\matrix_work[3]_3 ));
+        .I5(keyb_clocks_0_membrane_enable),
+        .O(\matrix_work[0][6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000020000000)) 
-    \matrix_work[4][6]_i_1 
-       (.I0(\state_reg[2]_0 ),
-        .I1(\state_reg[4]_0 ),
+    .INIT(64'h0000100000000000)) 
+    \matrix_work[1][6]_i_1 
+       (.I0(\state_reg[4]_0 ),
+        .I1(\state_reg[2]_1 ),
         .I2(clk_div_reg[1]),
         .I3(clk_div_reg[0]),
-        .I4(Q),
-        .I5(\state_reg[2]_1 ),
-        .O(\matrix_work[4]_5 ));
+        .I4(\state_reg[2]_0 ),
+        .I5(Q[0]),
+        .O(\matrix_work[1][6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000010000000)) 
-    \matrix_work[5][6]_i_1 
-       (.I0(\state_reg[2]_0 ),
-        .I1(\state_reg[4]_0 ),
-        .I2(clk_div_reg[1]),
-        .I3(clk_div_reg[0]),
-        .I4(Q),
-        .I5(\state_reg[2]_1 ),
-        .O(\matrix_work[5][6]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'h0080000000000000)) 
-    \matrix_work[6][6]_i_1 
-       (.I0(\state_reg[2]_0 ),
-        .I1(sel0[1]),
-        .I2(sel0[2]),
-        .I3(\state_reg[4]_0 ),
-        .I4(keyb_clocks_0_membrane_enable),
-        .I5(Q),
-        .O(\matrix_work[6]_4 ));
-  LUT6 #(
-    .INIT(64'h0008000000000000)) 
-    \matrix_work[7][6]_i_1 
-       (.I0(Q),
+    .INIT(64'h0080808000800080)) 
+    \matrix_work[2][6]_i_1 
+       (.I0(Q[0]),
         .I1(keyb_clocks_0_membrane_enable),
         .I2(\state_reg[2]_0 ),
-        .I3(\state_reg[4]_0 ),
-        .I4(sel0[2]),
-        .I5(sel0[1]),
-        .O(\matrix_work[7]_0 ));
+        .I3(Q[1]),
+        .I4(sel0[4]),
+        .I5(sel0[5]),
+        .O(\matrix_work[2]_4 ));
   LUT6 #(
-    .INIT(64'h202AFFFF00000000)) 
-    \matrix_work_ex[0]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
-        .I1(\matrix_work_ex_reg[13]_0 ),
-        .I2(\state_reg[4]_0 ),
-        .I3(\matrix_work_ex_reg[6]_0 ),
-        .I4(\matrix_work_ex[0]_i_2_n_0 ),
-        .I5(\matrix_work_ex_reg_n_0_[0] ),
-        .O(\matrix_work_ex[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hF8000000)) 
-    \matrix_work_ex[0]_i_2 
-       (.I0(sel0[2]),
-        .I1(sel0[1]),
-        .I2(\state_reg[4]_0 ),
+    .INIT(64'h0200000000000000)) 
+    \matrix_work[3][6]_i_1 
+       (.I0(Q[0]),
+        .I1(\state_reg[4]_0 ),
+        .I2(\state_reg[2]_1 ),
         .I3(clk_div_reg[0]),
         .I4(clk_div_reg[1]),
-        .O(\matrix_work_ex[0]_i_2_n_0 ));
+        .I5(\state_reg[2]_0 ),
+        .O(\matrix_work[3]_5 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFB00000008)) 
-    \matrix_work_ex[10]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
+    .INIT(64'h0888000000000000)) 
+    \matrix_work[4][6]_i_1 
+       (.I0(Q[0]),
         .I1(keyb_clocks_0_membrane_enable),
-        .I2(\state_reg[2]_0 ),
+        .I2(sel0[2]),
+        .I3(sel0[1]),
+        .I4(\state_reg[4]_0 ),
+        .I5(\state_reg[2]_1 ),
+        .O(\matrix_work[4]_6 ));
+  LUT6 #(
+    .INIT(64'h0000200000000000)) 
+    \matrix_work[5][6]_i_1 
+       (.I0(\state_reg[4]_0 ),
+        .I1(\state_reg[2]_1 ),
+        .I2(clk_div_reg[1]),
+        .I3(clk_div_reg[0]),
+        .I4(\state_reg[2]_0 ),
+        .I5(Q[0]),
+        .O(\matrix_work[5]_0 ));
+  LUT6 #(
+    .INIT(64'h8000000000000000)) 
+    \matrix_work[6][6]_i_1 
+       (.I0(Q[0]),
+        .I1(\state_reg[2]_1 ),
+        .I2(sel0[2]),
+        .I3(sel0[1]),
+        .I4(\state_reg[4]_0 ),
+        .I5(keyb_clocks_0_membrane_enable),
+        .O(\matrix_work[6]_1 ));
+  LUT6 #(
+    .INIT(64'h0000000080000000)) 
+    \matrix_work[7][6]_i_1 
+       (.I0(Q[0]),
+        .I1(sel0[2]),
+        .I2(sel0[1]),
         .I3(\state_reg[4]_0 ),
-        .I4(\state_reg[5]_0 ),
+        .I4(keyb_clocks_0_membrane_enable),
+        .I5(\state_reg[2]_1 ),
+        .O(\matrix_work[7]_2 ));
+  LUT6 #(
+    .INIT(64'h8FFF8F8F00000000)) 
+    \matrix_work_ex[0]_i_1 
+       (.I0(Res[6]),
+        .I1(Res[5]),
+        .I2(keyb_clocks_0_membrane_enable),
+        .I3(\matrix_work_ex[16]_i_3_n_0 ),
+        .I4(\state_reg[4]_0 ),
+        .I5(\matrix_work_ex_reg_n_0_[0] ),
+        .O(\matrix_work_ex[0]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFBFFF00008000)) 
+    \matrix_work_ex[10]_i_1 
+       (.I0(Res[6]),
+        .I1(\matrix_work_ex[16]_i_3_n_0 ),
+        .I2(\state_reg[4]_0 ),
+        .I3(keyb_clocks_0_membrane_enable),
+        .I4(\state_reg[2]_1 ),
         .I5(\matrix_work_ex_reg_n_0_[10] ),
         .O(\matrix_work_ex[10]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFEFFF00002000)) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \matrix_work_ex[11]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
-        .I1(\state_reg[2]_1 ),
-        .I2(keyb_clocks_0_membrane_enable),
-        .I3(\state_reg[2]_0 ),
-        .I4(\state_reg[4]_0 ),
-        .I5(\matrix_work_ex_reg_n_0_[11] ),
+       (.I0(Res[6]),
+        .I1(\matrix_work_ex[12]_i_2_n_0 ),
+        .I2(\matrix_work_ex_reg_n_0_[11] ),
         .O(\matrix_work_ex[11]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hFF7F0040)) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
     \matrix_work_ex[12]_i_1 
-       (.I0(\matrix_work_ex_reg[6]_0 ),
-        .I1(\matrix_work_ex_reg[2]_0 ),
-        .I2(\state_reg[2]_0 ),
-        .I3(\state_reg[4]_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[12] ),
+       (.I0(Res[5]),
+        .I1(\matrix_work_ex[12]_i_2_n_0 ),
+        .I2(\matrix_work_ex_reg_n_0_[12] ),
         .O(\matrix_work_ex[12]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hFDFF0100)) 
+  LUT6 #(
+    .INIT(64'h0888000000000000)) 
+    \matrix_work_ex[12]_i_2 
+       (.I0(\state_reg[2]_1 ),
+        .I1(\state_reg[4]_0 ),
+        .I2(sel0[1]),
+        .I3(sel0[2]),
+        .I4(clk_div_reg[1]),
+        .I5(clk_div_reg[0]),
+        .O(\matrix_work_ex[12]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hFEFFFFFF02000000)) 
     \matrix_work_ex[13]_i_1 
-       (.I0(\matrix_work_ex_reg[13]_0 ),
-        .I1(\matrix_work_ex_reg[6]_1 ),
-        .I2(\state_reg[2]_0 ),
-        .I3(\state_reg[4]_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[13] ),
+       (.I0(Res[5]),
+        .I1(\state_reg[4]_0 ),
+        .I2(\state_reg[2]_1 ),
+        .I3(keyb_clocks_0_membrane_enable),
+        .I4(\state_reg[2]_0 ),
+        .I5(\matrix_work_ex_reg_n_0_[13] ),
         .O(\matrix_work_ex[13]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h3530FFFF00000000)) 
+    .INIT(64'hFFFF88CF00000000)) 
     \matrix_work_ex[14]_i_1 
-       (.I0(\matrix_work_ex_reg[6]_0 ),
-        .I1(\matrix_work_ex_reg[13]_0 ),
-        .I2(\state_reg[4]_0 ),
-        .I3(\matrix_work_ex_reg[14]_0 ),
-        .I4(\matrix_work_ex[14]_i_3_n_0 ),
+       (.I0(Res[6]),
+        .I1(Res[5]),
+        .I2(\state_reg[2]_1 ),
+        .I3(\state_reg[4]_0 ),
+        .I4(\matrix_work_ex_reg[9]_0 ),
         .I5(p_1_in),
         .O(\matrix_work_ex[14]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h0D000000)) 
-    \matrix_work_ex[14]_i_3 
-       (.I0(\state_reg[4]_0 ),
-        .I1(\state_reg[2]_0 ),
-        .I2(\state_reg[2]_1 ),
-        .I3(clk_div_reg[1]),
-        .I4(clk_div_reg[0]),
-        .O(\matrix_work_ex[14]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFEFFFFF00200000)) 
     \matrix_work_ex[15]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
-        .I1(\state_reg[2]_0 ),
-        .I2(keyb_clocks_0_membrane_enable),
-        .I3(\state_reg[4]_0 ),
-        .I4(\state_reg[5]_0 ),
-        .I5(\matrix_work_ex_reg_n_0_[15] ),
-        .O(\matrix_work_ex[15]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h53FF5300)) 
-    \matrix_work_ex[16]_i_2 
-       (.I0(\matrix_work_ex_reg[13]_0 ),
-        .I1(\matrix_work_ex_reg[6]_0 ),
+       (.I0(Res[6]),
+        .I1(\state_reg[2]_1 ),
         .I2(\state_reg[4]_0 ),
         .I3(\matrix_work_ex[16]_i_3_n_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[16] ),
-        .O(\matrix_work_ex[16]_i_2_n_0 ));
+        .I4(keyb_clocks_0_membrane_enable),
+        .I5(\matrix_work_ex_reg_n_0_[15] ),
+        .O(\matrix_work_ex[15]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h0000004000400040)) 
+    .INIT(64'hFFEFFFFF00200000)) 
+    \matrix_work_ex[16]_i_2 
+       (.I0(Res[5]),
+        .I1(\state_reg[2]_1 ),
+        .I2(\state_reg[4]_0 ),
+        .I3(\matrix_work_ex[16]_i_3_n_0 ),
+        .I4(keyb_clocks_0_membrane_enable),
+        .I5(\matrix_work_ex_reg_n_0_[16] ),
+        .O(\matrix_work_ex[16]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
     \matrix_work_ex[16]_i_3 
-       (.I0(\state_reg[2]_0 ),
-        .I1(clk_div_reg[1]),
-        .I2(clk_div_reg[0]),
-        .I3(\state_reg[4]_0 ),
-        .I4(sel0[1]),
-        .I5(sel0[2]),
+       (.I0(sel0[2]),
+        .I1(sel0[1]),
         .O(\matrix_work_ex[16]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFBFFFFF00800000)) 
+    .INIT(64'hFEFFFFFF02000000)) 
     \matrix_work_ex[1]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
-        .I1(keyb_clocks_0_membrane_enable),
+       (.I0(Res[6]),
+        .I1(\state_reg[4]_0 ),
         .I2(\state_reg[2]_1 ),
-        .I3(\state_reg[2]_0 ),
-        .I4(\state_reg[4]_0 ),
+        .I3(keyb_clocks_0_membrane_enable),
+        .I4(\state_reg[2]_0 ),
         .I5(\matrix_work_ex_reg_n_0_[1] ),
         .O(\matrix_work_ex[1]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hF7FF0400)) 
-    \matrix_work_ex[2]_i_1 
-       (.I0(\matrix_work_ex_reg[13]_0 ),
-        .I1(\matrix_work_ex_reg[2]_0 ),
-        .I2(\state_reg[2]_0 ),
-        .I3(\state_reg[4]_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[2] ),
-        .O(\matrix_work_ex[2]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h53FF5300)) 
-    \matrix_work_ex[3]_i_1 
-       (.I0(\matrix_work_ex_reg[13]_0 ),
-        .I1(\matrix_work_ex_reg[6]_0 ),
-        .I2(\state_reg[4]_0 ),
-        .I3(\matrix_work_ex[4]_i_2_n_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[3] ),
-        .O(\matrix_work_ex[3]_i_1_n_0 ));
-  LUT3 #(
-    .INIT(8'hB8)) 
-    \matrix_work_ex[4]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
-        .I1(\matrix_work_ex[4]_i_2_n_0 ),
-        .I2(\matrix_work_ex_reg_n_0_[4] ),
-        .O(\matrix_work_ex[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h4F00000000000000)) 
-    \matrix_work_ex[4]_i_2 
-       (.I0(sel0[4]),
-        .I1(sel0[5]),
-        .I2(\state_reg_n_0_[1] ),
+    .INIT(64'hFFFFFFFB00000008)) 
+    \matrix_work_ex[2]_i_1 
+       (.I0(Res[5]),
+        .I1(keyb_clocks_0_membrane_enable),
+        .I2(\state_reg[2]_0 ),
         .I3(\state_reg[2]_1 ),
-        .I4(clk_div_reg[1]),
-        .I5(clk_div_reg[0]),
+        .I4(\state_reg[4]_0 ),
+        .I5(\matrix_work_ex_reg_n_0_[2] ),
+        .O(\matrix_work_ex[2]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hEFFFFFFF20000000)) 
+    \matrix_work_ex[3]_i_1 
+       (.I0(Res[5]),
+        .I1(\matrix_work_ex[4]_i_2_n_0 ),
+        .I2(\state_reg[2]_0 ),
+        .I3(clk_div_reg[1]),
+        .I4(clk_div_reg[0]),
+        .I5(\matrix_work_ex_reg_n_0_[3] ),
+        .O(\matrix_work_ex[3]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hEFFFFFFF20000000)) 
+    \matrix_work_ex[4]_i_1 
+       (.I0(Res[6]),
+        .I1(\matrix_work_ex[4]_i_2_n_0 ),
+        .I2(\state_reg[2]_0 ),
+        .I3(clk_div_reg[1]),
+        .I4(clk_div_reg[0]),
+        .I5(\matrix_work_ex_reg_n_0_[4] ),
+        .O(\matrix_work_ex[4]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'h8A)) 
+    \matrix_work_ex[4]_i_2 
+       (.I0(Q[1]),
+        .I1(sel0[4]),
+        .I2(sel0[5]),
         .O(\matrix_work_ex[4]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFF530053)) 
+  LUT6 #(
+    .INIT(64'hFFFFBFFF00008000)) 
     \matrix_work_ex[5]_i_1 
-       (.I0(\matrix_work_ex_reg[13]_0 ),
-        .I1(\matrix_work_ex_reg[6]_0 ),
+       (.I0(Res[5]),
+        .I1(\matrix_work_ex[16]_i_3_n_0 ),
         .I2(\state_reg[4]_0 ),
-        .I3(\matrix_work_ex[5]_i_2_n_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[5] ),
+        .I3(keyb_clocks_0_membrane_enable),
+        .I4(\state_reg[2]_1 ),
+        .I5(\matrix_work_ex_reg_n_0_[5] ),
         .O(\matrix_work_ex[5]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFF7FFFFFFFFFFFF)) 
-    \matrix_work_ex[5]_i_2 
-       (.I0(sel0[1]),
-        .I1(sel0[2]),
-        .I2(\state_reg[4]_0 ),
-        .I3(\state_reg[2]_0 ),
-        .I4(clk_div_reg[0]),
-        .I5(clk_div_reg[1]),
-        .O(\matrix_work_ex[5]_i_2_n_0 ));
-  LUT5 #(
-    .INIT(32'hFFDF0010)) 
+    .INIT(64'hBFFFFFFF80000000)) 
     \matrix_work_ex[6]_i_1 
-       (.I0(\matrix_work_ex_reg[6]_0 ),
-        .I1(\matrix_work_ex_reg[6]_1 ),
-        .I2(\state_reg[2]_0 ),
+       (.I0(Res[5]),
+        .I1(\state_reg[2]_1 ),
+        .I2(\matrix_work_ex[16]_i_3_n_0 ),
         .I3(\state_reg[4]_0 ),
-        .I4(\matrix_work_ex_reg_n_0_[6] ),
+        .I4(keyb_clocks_0_membrane_enable),
+        .I5(\matrix_work_ex_reg_n_0_[6] ),
         .O(\matrix_work_ex[6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFBFFFF00080000)) 
+    .INIT(64'hFFFFFFFB00000008)) 
     \matrix_work_ex[7]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
+       (.I0(Res[6]),
         .I1(keyb_clocks_0_membrane_enable),
-        .I2(\state_reg[2]_1 ),
-        .I3(\state_reg[2]_0 ),
+        .I2(\state_reg[2]_0 ),
+        .I3(\state_reg[2]_1 ),
         .I4(\state_reg[4]_0 ),
         .I5(\matrix_work_ex_reg_n_0_[7] ),
         .O(\matrix_work_ex[7]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFBFFF00008000)) 
+    .INIT(64'hBFFFFFFF80000000)) 
     \matrix_work_ex[8]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
+       (.I0(Res[6]),
         .I1(\state_reg[2]_1 ),
-        .I2(keyb_clocks_0_membrane_enable),
-        .I3(\state_reg[2]_0 ),
-        .I4(\state_reg[4]_0 ),
+        .I2(\matrix_work_ex[16]_i_3_n_0 ),
+        .I3(\state_reg[4]_0 ),
+        .I4(keyb_clocks_0_membrane_enable),
         .I5(\matrix_work_ex_reg_n_0_[8] ),
         .O(\matrix_work_ex[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hEFAAFFFF20AA0000)) 
+    .INIT(64'hFFFFFBAA000008AA)) 
     \matrix_work_ex[9]_i_1 
-       (.I0(\matrix_work[1][6]_i_2_n_0 ),
-        .I1(sel0[4]),
-        .I2(sel0[5]),
-        .I3(\state_reg_n_0_[1] ),
-        .I4(\matrix_work_ex_reg[2]_0 ),
+       (.I0(Res[6]),
+        .I1(sel0[5]),
+        .I2(sel0[4]),
+        .I3(Q[1]),
+        .I4(\matrix_work_ex_reg[9]_0 ),
         .I5(\matrix_work_ex_reg_n_0_[9] ),
         .O(\matrix_work_ex[9]_i_1_n_0 ));
   FDSE \matrix_work_ex_reg[0] 
@@ -6268,7 +6149,7 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][0] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(D[0]),
+        .D(Res[0]),
         .Q(\matrix_work_reg[0] [0]),
         .S(reset));
   FDSE #(
@@ -6276,7 +6157,7 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][1] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(D[1]),
+        .D(Res[1]),
         .Q(\matrix_work_reg[0] [1]),
         .S(reset));
   FDSE #(
@@ -6284,7 +6165,7 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][2] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[0] [2]),
         .S(reset));
   FDSE #(
@@ -6292,7 +6173,7 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][3] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[0] [3]),
         .S(reset));
   FDSE #(
@@ -6300,7 +6181,7 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][4] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[0] [4]),
         .S(reset));
   FDSE #(
@@ -6308,7 +6189,7 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][5] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[0] [5]),
         .S(reset));
   FDSE #(
@@ -6316,423 +6197,432 @@ module zxnexys_zxkeyboard_0_0_membrane
     \matrix_work_reg[0][6] 
        (.C(clk_peripheral),
         .CE(\matrix_work[0][6]_i_1_n_0 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[0] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(D[0]),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[1] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(D[1]),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[1] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[1] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[1] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[1] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[1] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[1][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[1]_2 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[1][6]_i_1_n_0 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[1] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(D[0]),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[2] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(D[1]),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[2] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[2] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[2] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[2] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[2] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[2][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[2][6]_i_1_n_0 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[2]_4 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[2] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(D[0]),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[3] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(D[1]),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[3] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[3] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[3] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[3] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[3] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[3][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[3]_3 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[3]_5 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[3] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(D[0]),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[4] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(D[1]),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[4] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[4] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[4] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[4] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[4] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[4][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[4]_5 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[4]_6 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[4] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(D[0]),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[5] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(D[1]),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[5] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[5] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[5] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[5] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[5] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[5][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[5][6]_i_1_n_0 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[5]_0 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[5] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(D[0]),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[6] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(D[1]),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[6] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[6] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[6] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[6] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[6] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[6][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[6]_4 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[6]_1 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[6] [6]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][0] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(D[0]),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[0]),
         .Q(\matrix_work_reg[7] [0]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][1] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(D[1]),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[1]),
         .Q(\matrix_work_reg[7] [1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][2] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(\matrix_work[1][2]_i_1_n_0 ),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[2]),
         .Q(\matrix_work_reg[7] [2]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][3] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(\matrix_work[1][3]_i_1_n_0 ),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[3]),
         .Q(\matrix_work_reg[7] [3]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][4] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(\matrix_work[1][4]_i_1_n_0 ),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[4]),
         .Q(\matrix_work_reg[7] [4]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][5] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(\matrix_work[1][5]_i_1_n_0 ),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[5]),
         .Q(\matrix_work_reg[7] [5]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \matrix_work_reg[7][6] 
        (.C(clk_peripheral),
-        .CE(\matrix_work[7]_0 ),
-        .D(\matrix_work[1][6]_i_2_n_0 ),
+        .CE(\matrix_work[7]_2 ),
+        .D(Res[6]),
         .Q(\matrix_work_reg[7] [6]),
         .S(reset));
+  LUT5 #(
+    .INIT(32'h7DFFFF7D)) 
+    \membrane_col[6]_i_5 
+       (.I0(state),
+        .I1(\state_reg[4]_0 ),
+        .I2(dpo[1]),
+        .I3(\state_reg[2]_0 ),
+        .I4(dpo[0]),
+        .O(state_reg));
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[0] 
        (.C(clk_peripheral),
         .CE(keyb_clocks_0_membrane_enable),
         .D(\state_reg_n_0_[8] ),
-        .Q(Q),
+        .Q(Q[0]),
         .R(reset));
   FDSE #(
     .INIT(1'b1)) 
     \state_reg[1] 
        (.C(clk_peripheral),
         .CE(keyb_clocks_0_membrane_enable),
-        .D(Q),
-        .Q(\state_reg_n_0_[1] ),
+        .D(Q[0]),
+        .Q(Q[1]),
         .S(reset));
   FDSE #(
     .INIT(1'b1)) 
     \state_reg[2] 
        (.C(clk_peripheral),
         .CE(keyb_clocks_0_membrane_enable),
-        .D(\state_reg_n_0_[1] ),
+        .D(Q[1]),
         .Q(sel0[5]),
         .S(reset));
   FDSE #(
@@ -6783,6 +6673,606 @@ module zxnexys_zxkeyboard_0_0_membrane
         .D(sel0[0]),
         .Q(\state_reg_n_0_[8] ),
         .S(reset));
+  LUT6 #(
+    .INIT(64'h08880808FFFFFFFF)) 
+    util_vector_logic_0_i_21
+       (.I0(sel0[5]),
+        .I1(sel0[3]),
+        .I2(sel0[2]),
+        .I3(sel0[0]),
+        .I4(sel0[1]),
+        .I5(\matrix_work_ex[4]_i_2_n_0 ),
+        .O(\state_reg[2]_1 ));
+  LUT6 #(
+    .INIT(64'h8000888888888888)) 
+    util_vector_logic_0_i_22
+       (.I0(sel0[5]),
+        .I1(Q[1]),
+        .I2(sel0[2]),
+        .I3(sel0[1]),
+        .I4(sel0[4]),
+        .I5(sel0[3]),
+        .O(\state_reg[2]_0 ));
+  LUT4 #(
+    .INIT(16'h8000)) 
+    util_vector_logic_0_i_8
+       (.I0(sel0[3]),
+        .I1(sel0[4]),
+        .I2(sel0[5]),
+        .I3(Q[1]),
+        .O(\state_reg[4]_0 ));
+endmodule
+
+(* ORIG_REF_NAME = "membrane_stick" *) 
+module zxnexys_zxkeyboard_0_0_membrane_stick
+   (state_reg_0,
+    joy_sel_reg_0,
+    Op1,
+    Q,
+    reset,
+    clk_peripheral,
+    dpo,
+    clk_div_reg,
+    joy_right_type,
+    joy_left_type,
+    \membrane_col_reg[0]_0 ,
+    \membrane_col_reg[0]_1 ,
+    joy_left,
+    joy_right,
+    membrane_col0);
+  output state_reg_0;
+  output joy_sel_reg_0;
+  output [6:0]Op1;
+  output [4:0]Q;
+  input reset;
+  input clk_peripheral;
+  input [3:0]dpo;
+  input [1:0]clk_div_reg;
+  input [2:0]joy_right_type;
+  input [2:0]joy_left_type;
+  input \membrane_col_reg[0]_0 ;
+  input \membrane_col_reg[0]_1 ;
+  input [10:0]joy_left;
+  input [10:0]joy_right;
+  input membrane_col0;
+
+  wire [6:0]Op1;
+  wire [4:0]Q;
+  wire \bit_count[2]_i_2_n_0 ;
+  wire \bit_count[3]_i_2__0_n_0 ;
+  wire \bit_count[3]_i_3_n_0 ;
+  wire [2:1]bit_count_max;
+  wire \bit_count_max[1]_i_1_n_0 ;
+  wire \bit_count_max[2]_i_1_n_0 ;
+  wire \bit_count_max[2]_i_2_n_0 ;
+  wire \bit_count_max[2]_i_3_n_0 ;
+  wire \bit_count_max[2]_i_4_n_0 ;
+  wire [3:0]bit_count_reg;
+  wire [1:0]clk_div_reg;
+  wire clk_peripheral;
+  wire [3:0]dpo;
+  wire eqOp;
+  wire [2:2]joy_bit_count_end;
+  wire [10:0]joy_left;
+  wire [2:0]joy_left_type;
+  wire [10:0]joy_right;
+  wire [2:0]joy_right_type;
+  wire joy_sel_i_1_n_0;
+  wire joy_sel_reg_0;
+  wire membrane_col0;
+  wire \membrane_col[0]_i_1_n_0 ;
+  wire \membrane_col[1]_i_1_n_0 ;
+  wire \membrane_col[2]_i_1_n_0 ;
+  wire \membrane_col[3]_i_1_n_0 ;
+  wire \membrane_col[4]_i_1_n_0 ;
+  wire \membrane_col[5]_i_1_n_0 ;
+  wire \membrane_col[6]_i_10_n_0 ;
+  wire \membrane_col[6]_i_11_n_0 ;
+  wire \membrane_col[6]_i_12_n_0 ;
+  wire \membrane_col[6]_i_13_n_0 ;
+  wire \membrane_col[6]_i_2_n_0 ;
+  wire \membrane_col[6]_i_3_n_0 ;
+  wire \membrane_col[6]_i_6_n_0 ;
+  wire \membrane_col[6]_i_9_n_0 ;
+  wire \membrane_col_reg[0]_0 ;
+  wire \membrane_col_reg[0]_1 ;
+  wire \membrane_col_reg[6]_i_4_n_0 ;
+  wire \membrane_col_reg[6]_i_7_n_0 ;
+  wire \membrane_col_reg[6]_i_8_n_0 ;
+  wire [3:0]p_0_in;
+  wire [4:0]p_0_in__0;
+  wire reset;
+  wire \sram_addr[2]_i_2_n_0 ;
+  wire \sram_addr[4]_i_2_n_0 ;
+  wire state_i_2_n_0;
+  wire state_next;
+  wire state_reg_0;
+
+  LUT5 #(
+    .INIT(32'h44444774)) 
+    \bit_count[0]_i_1 
+       (.I0(bit_count_reg[0]),
+        .I1(state_i_2_n_0),
+        .I2(\bit_count_max[2]_i_4_n_0 ),
+        .I3(\bit_count_max[2]_i_2_n_0 ),
+        .I4(\bit_count_max[2]_i_3_n_0 ),
+        .O(p_0_in[0]));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  LUT3 #(
+    .INIT(8'h28)) 
+    \bit_count[1]_i_1 
+       (.I0(state_i_2_n_0),
+        .I1(bit_count_reg[0]),
+        .I2(bit_count_reg[1]),
+        .O(p_0_in[1]));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  LUT5 #(
+    .INIT(32'h6AFF6A00)) 
+    \bit_count[2]_i_1__0 
+       (.I0(bit_count_reg[2]),
+        .I1(bit_count_reg[0]),
+        .I2(bit_count_reg[1]),
+        .I3(state_i_2_n_0),
+        .I4(\bit_count[2]_i_2_n_0 ),
+        .O(p_0_in[2]));
+  LUT6 #(
+    .INIT(64'h0000005A6666005A)) 
+    \bit_count[2]_i_2 
+       (.I0(\bit_count_max[2]_i_4_n_0 ),
+        .I1(joy_right_type[0]),
+        .I2(joy_left_type[0]),
+        .I3(joy_left_type[1]),
+        .I4(eqOp),
+        .I5(joy_right_type[1]),
+        .O(\bit_count[2]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h6AFF6A006A006A00)) 
+    \bit_count[3]_i_1__0 
+       (.I0(bit_count_reg[3]),
+        .I1(\bit_count[3]_i_2__0_n_0 ),
+        .I2(bit_count_reg[2]),
+        .I3(state_i_2_n_0),
+        .I4(\bit_count_max[2]_i_4_n_0 ),
+        .I5(\bit_count[3]_i_3_n_0 ),
+        .O(p_0_in[3]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \bit_count[3]_i_2__0 
+       (.I0(bit_count_reg[1]),
+        .I1(bit_count_reg[0]),
+        .O(\bit_count[3]_i_2__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  LUT5 #(
+    .INIT(32'h335ACC5A)) 
+    \bit_count[3]_i_3 
+       (.I0(joy_left_type[1]),
+        .I1(joy_right_type[1]),
+        .I2(joy_left_type[0]),
+        .I3(eqOp),
+        .I4(joy_right_type[0]),
+        .O(\bit_count[3]_i_3_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFBA00BA)) 
+    \bit_count_max[1]_i_1 
+       (.I0(\bit_count_max[2]_i_4_n_0 ),
+        .I1(\bit_count_max[2]_i_3_n_0 ),
+        .I2(\bit_count_max[2]_i_2_n_0 ),
+        .I3(state_i_2_n_0),
+        .I4(bit_count_max[1]),
+        .O(\bit_count_max[1]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hFF0D000D)) 
+    \bit_count_max[2]_i_1 
+       (.I0(\bit_count_max[2]_i_2_n_0 ),
+        .I1(\bit_count_max[2]_i_3_n_0 ),
+        .I2(\bit_count_max[2]_i_4_n_0 ),
+        .I3(state_i_2_n_0),
+        .I4(bit_count_max[2]),
+        .O(\bit_count_max[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \bit_count_max[2]_i_2 
+       (.I0(joy_right_type[0]),
+        .I1(eqOp),
+        .I2(joy_left_type[0]),
+        .O(\bit_count_max[2]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \bit_count_max[2]_i_3 
+       (.I0(joy_right_type[1]),
+        .I1(eqOp),
+        .I2(joy_left_type[1]),
+        .O(\bit_count_max[2]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \bit_count_max[2]_i_4 
+       (.I0(joy_right_type[2]),
+        .I1(eqOp),
+        .I2(joy_left_type[2]),
+        .O(\bit_count_max[2]_i_4_n_0 ));
+  FDRE \bit_count_max_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\bit_count_max[1]_i_1_n_0 ),
+        .Q(bit_count_max[1]),
+        .R(1'b0));
+  FDRE \bit_count_max_reg[2] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\bit_count_max[2]_i_1_n_0 ),
+        .Q(bit_count_max[2]),
+        .R(1'b0));
+  FDRE \bit_count_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in[0]),
+        .Q(bit_count_reg[0]),
+        .R(1'b0));
+  FDRE \bit_count_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in[1]),
+        .Q(bit_count_reg[1]),
+        .R(1'b0));
+  FDRE \bit_count_reg[2] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in[2]),
+        .Q(bit_count_reg[2]),
+        .R(1'b0));
+  FDRE \bit_count_reg[3] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in[3]),
+        .Q(bit_count_reg[3]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  LUT3 #(
+    .INIT(8'hEA)) 
+    joy_sel_i_1
+       (.I0(eqOp),
+        .I1(state_reg_0),
+        .I2(joy_sel_reg_0),
+        .O(joy_sel_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h0090000000000009)) 
+    joy_sel_i_2
+       (.I0(bit_count_max[2]),
+        .I1(bit_count_reg[2]),
+        .I2(bit_count_reg[1]),
+        .I3(bit_count_reg[0]),
+        .I4(bit_count_max[1]),
+        .I5(bit_count_reg[3]),
+        .O(eqOp));
+  FDRE joy_sel_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(joy_sel_i_1_n_0),
+        .Q(joy_sel_reg_0),
+        .R(1'b0));
+  LUT5 #(
+    .INIT(32'hAAAAAA8A)) 
+    \membrane_col[0]_i_1 
+       (.I0(Op1[0]),
+        .I1(dpo[2]),
+        .I2(\membrane_col[6]_i_3_n_0 ),
+        .I3(dpo[0]),
+        .I4(dpo[1]),
+        .O(\membrane_col[0]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hAAAA8AAA)) 
+    \membrane_col[1]_i_1 
+       (.I0(Op1[1]),
+        .I1(dpo[2]),
+        .I2(\membrane_col[6]_i_3_n_0 ),
+        .I3(dpo[0]),
+        .I4(dpo[1]),
+        .O(\membrane_col[1]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hAAAA8AAA)) 
+    \membrane_col[2]_i_1 
+       (.I0(Op1[2]),
+        .I1(dpo[2]),
+        .I2(\membrane_col[6]_i_3_n_0 ),
+        .I3(dpo[1]),
+        .I4(dpo[0]),
+        .O(\membrane_col[2]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'h8AAAAAAA)) 
+    \membrane_col[3]_i_1 
+       (.I0(Op1[3]),
+        .I1(dpo[2]),
+        .I2(\membrane_col[6]_i_3_n_0 ),
+        .I3(dpo[0]),
+        .I4(dpo[1]),
+        .O(\membrane_col[3]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hA8AAAAAA)) 
+    \membrane_col[4]_i_1 
+       (.I0(Op1[4]),
+        .I1(dpo[0]),
+        .I2(dpo[1]),
+        .I3(\membrane_col[6]_i_3_n_0 ),
+        .I4(dpo[2]),
+        .O(\membrane_col[4]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hA2AAAAAA)) 
+    \membrane_col[5]_i_1 
+       (.I0(Op1[5]),
+        .I1(dpo[0]),
+        .I2(dpo[1]),
+        .I3(\membrane_col[6]_i_3_n_0 ),
+        .I4(dpo[2]),
+        .O(\membrane_col[5]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \membrane_col[6]_i_10 
+       (.I0(joy_right[1]),
+        .I1(joy_left[1]),
+        .I2(bit_count_reg[0]),
+        .I3(joy_right[0]),
+        .I4(joy_sel_reg_0),
+        .I5(joy_left[0]),
+        .O(\membrane_col[6]_i_10_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \membrane_col[6]_i_11 
+       (.I0(joy_right[3]),
+        .I1(joy_left[3]),
+        .I2(bit_count_reg[0]),
+        .I3(joy_right[2]),
+        .I4(joy_sel_reg_0),
+        .I5(joy_left[2]),
+        .O(\membrane_col[6]_i_11_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \membrane_col[6]_i_12 
+       (.I0(joy_right[5]),
+        .I1(joy_left[5]),
+        .I2(bit_count_reg[0]),
+        .I3(joy_right[4]),
+        .I4(joy_sel_reg_0),
+        .I5(joy_left[4]),
+        .O(\membrane_col[6]_i_12_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \membrane_col[6]_i_13 
+       (.I0(joy_right[7]),
+        .I1(joy_left[7]),
+        .I2(bit_count_reg[0]),
+        .I3(joy_right[6]),
+        .I4(joy_sel_reg_0),
+        .I5(joy_left[6]),
+        .O(\membrane_col[6]_i_13_n_0 ));
+  LUT5 #(
+    .INIT(32'hAAAA2AAA)) 
+    \membrane_col[6]_i_2 
+       (.I0(Op1[6]),
+        .I1(\membrane_col[6]_i_3_n_0 ),
+        .I2(dpo[2]),
+        .I3(dpo[1]),
+        .I4(dpo[0]),
+        .O(\membrane_col[6]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000EE0)) 
+    \membrane_col[6]_i_3 
+       (.I0(\membrane_col_reg[6]_i_4_n_0 ),
+        .I1(bit_count_reg[3]),
+        .I2(\membrane_col_reg[0]_0 ),
+        .I3(dpo[3]),
+        .I4(\membrane_col_reg[0]_1 ),
+        .I5(\membrane_col[6]_i_6_n_0 ),
+        .O(\membrane_col[6]_i_3_n_0 ));
+  LUT6 #(
+    .INIT(64'h020202A2A2A202A2)) 
+    \membrane_col[6]_i_6 
+       (.I0(bit_count_reg[3]),
+        .I1(\membrane_col[6]_i_9_n_0 ),
+        .I2(bit_count_reg[1]),
+        .I3(joy_left[10]),
+        .I4(joy_sel_reg_0),
+        .I5(joy_right[10]),
+        .O(\membrane_col[6]_i_6_n_0 ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    \membrane_col[6]_i_9 
+       (.I0(joy_right[9]),
+        .I1(joy_left[9]),
+        .I2(bit_count_reg[0]),
+        .I3(joy_right[8]),
+        .I4(joy_sel_reg_0),
+        .I5(joy_left[8]),
+        .O(\membrane_col[6]_i_9_n_0 ));
+  FDSE \membrane_col_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[0]_i_1_n_0 ),
+        .Q(Op1[0]),
+        .S(membrane_col0));
+  FDSE \membrane_col_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[1]_i_1_n_0 ),
+        .Q(Op1[1]),
+        .S(membrane_col0));
+  FDSE \membrane_col_reg[2] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[2]_i_1_n_0 ),
+        .Q(Op1[2]),
+        .S(membrane_col0));
+  FDSE \membrane_col_reg[3] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[3]_i_1_n_0 ),
+        .Q(Op1[3]),
+        .S(membrane_col0));
+  FDSE \membrane_col_reg[4] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[4]_i_1_n_0 ),
+        .Q(Op1[4]),
+        .S(membrane_col0));
+  FDSE \membrane_col_reg[5] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[5]_i_1_n_0 ),
+        .Q(Op1[5]),
+        .S(membrane_col0));
+  FDSE \membrane_col_reg[6] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\membrane_col[6]_i_2_n_0 ),
+        .Q(Op1[6]),
+        .S(membrane_col0));
+  MUXF8 \membrane_col_reg[6]_i_4 
+       (.I0(\membrane_col_reg[6]_i_7_n_0 ),
+        .I1(\membrane_col_reg[6]_i_8_n_0 ),
+        .O(\membrane_col_reg[6]_i_4_n_0 ),
+        .S(bit_count_reg[2]));
+  MUXF7 \membrane_col_reg[6]_i_7 
+       (.I0(\membrane_col[6]_i_10_n_0 ),
+        .I1(\membrane_col[6]_i_11_n_0 ),
+        .O(\membrane_col_reg[6]_i_7_n_0 ),
+        .S(bit_count_reg[1]));
+  MUXF7 \membrane_col_reg[6]_i_8 
+       (.I0(\membrane_col[6]_i_12_n_0 ),
+        .I1(\membrane_col[6]_i_13_n_0 ),
+        .O(\membrane_col_reg[6]_i_8_n_0 ),
+        .S(bit_count_reg[1]));
+  LUT5 #(
+    .INIT(32'h00FF1515)) 
+    \sram_addr[0]_i_1 
+       (.I0(\bit_count_max[2]_i_3_n_0 ),
+        .I1(\bit_count_max[2]_i_2_n_0 ),
+        .I2(\bit_count_max[2]_i_4_n_0 ),
+        .I3(Q[0]),
+        .I4(state_i_2_n_0),
+        .O(p_0_in__0[0]));
+  LUT6 #(
+    .INIT(64'h6060606060606F60)) 
+    \sram_addr[1]_i_1 
+       (.I0(Q[0]),
+        .I1(Q[1]),
+        .I2(state_i_2_n_0),
+        .I3(\bit_count_max[2]_i_3_n_0 ),
+        .I4(\bit_count_max[2]_i_4_n_0 ),
+        .I5(\bit_count_max[2]_i_2_n_0 ),
+        .O(p_0_in__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT5 #(
+    .INIT(32'hBEEEAAAA)) 
+    \sram_addr[2]_i_1 
+       (.I0(\sram_addr[2]_i_2_n_0 ),
+        .I1(Q[2]),
+        .I2(Q[1]),
+        .I3(Q[0]),
+        .I4(state_i_2_n_0),
+        .O(p_0_in__0[2]));
+  LUT6 #(
+    .INIT(64'h0700070007000777)) 
+    \sram_addr[2]_i_2 
+       (.I0(\bit_count_max[2]_i_4_n_0 ),
+        .I1(\bit_count_max[2]_i_2_n_0 ),
+        .I2(joy_right_type[1]),
+        .I3(eqOp),
+        .I4(joy_left_type[1]),
+        .I5(state_reg_0),
+        .O(\sram_addr[2]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h00FFFF0038383838)) 
+    \sram_addr[3]_i_1 
+       (.I0(\bit_count_max[2]_i_4_n_0 ),
+        .I1(\bit_count_max[2]_i_2_n_0 ),
+        .I2(\bit_count_max[2]_i_3_n_0 ),
+        .I3(Q[3]),
+        .I4(\sram_addr[4]_i_2_n_0 ),
+        .I5(state_i_2_n_0),
+        .O(p_0_in__0[3]));
+  LUT5 #(
+    .INIT(32'h6A006AFF)) 
+    \sram_addr[4]_i_1 
+       (.I0(Q[4]),
+        .I1(Q[3]),
+        .I2(\sram_addr[4]_i_2_n_0 ),
+        .I3(state_i_2_n_0),
+        .I4(joy_bit_count_end),
+        .O(p_0_in__0[4]));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT3 #(
+    .INIT(8'h80)) 
+    \sram_addr[4]_i_2 
+       (.I0(Q[1]),
+        .I1(Q[0]),
+        .I2(Q[2]),
+        .O(\sram_addr[4]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h00000000FF77CF47)) 
+    \sram_addr[4]_i_3 
+       (.I0(joy_right_type[0]),
+        .I1(eqOp),
+        .I2(joy_left_type[0]),
+        .I3(joy_right_type[1]),
+        .I4(joy_left_type[1]),
+        .I5(\bit_count_max[2]_i_4_n_0 ),
+        .O(joy_bit_count_end));
+  FDRE \sram_addr_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[0]),
+        .Q(Q[0]),
+        .R(1'b0));
+  FDRE \sram_addr_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[1]),
+        .Q(Q[1]),
+        .R(1'b0));
+  FDRE \sram_addr_reg[2] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[2]),
+        .Q(Q[2]),
+        .R(1'b0));
+  FDRE \sram_addr_reg[3] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[3]),
+        .Q(Q[3]),
+        .R(1'b0));
+  FDRE \sram_addr_reg[4] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[4]),
+        .Q(Q[4]),
+        .R(1'b0));
+  LUT5 #(
+    .INIT(32'hBFAEAEAE)) 
+    state_i_1
+       (.I0(state_i_2_n_0),
+        .I1(state_reg_0),
+        .I2(joy_sel_reg_0),
+        .I3(clk_div_reg[0]),
+        .I4(clk_div_reg[1]),
+        .O(state_next));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    state_i_2
+       (.I0(state_reg_0),
+        .I1(eqOp),
+        .O(state_i_2_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    state_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(state_next),
+        .Q(state_reg_0),
+        .R(reset));
 endmodule
 
 (* ORIG_REF_NAME = "ps2_keyb" *) 
@@ -6793,26 +7283,9 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
     ps2_keyb_0_o_mf_nmi_n,
     ps2_keyb_0_o_divmmc_nmi_n,
     spkey_function,
-    \matrix_state_reg[6][6]_0 ,
-    \matrix_state_reg[6][6]_1 ,
-    \matrix_state_reg[7][6]_0 ,
-    \matrix_state_reg[4][6]_0 ,
-    \matrix_state_reg[5][6]_0 ,
-    \matrix_state_reg[6][5]_0 ,
-    \matrix_state_reg[6][4]_0 ,
-    \matrix_state_reg[6][3]_0 ,
-    \matrix_state_reg[6][2]_0 ,
-    \symshift_count_reg[1]_0 ,
-    \matrix_state_reg[2][2]_0 ,
-    \matrix_state_reg[2][3]_0 ,
-    \matrix_state_reg[2][4]_0 ,
-    \matrix_state_reg[2][5]_0 ,
     Q,
     ram_q_reg,
-    \matrix_state_reg[3][6]_0 ,
-    \matrix_state_reg[2][6]_0 ,
-    \matrix_state_reg[1][6]_0 ,
-    \matrix_state_reg[0][6]_0 ,
+    Op2,
     \o_ps2_func_keys_n_reg[3]_0 ,
     clk_peripheral_n,
     keymap_we,
@@ -6825,14 +7298,13 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
     S,
     ps2_key_extend_reg_0,
     \o_ps2_func_keys_n_reg[0]_0 ,
-    \matrix_work_ex_reg[13] ,
-    \matrix_work_reg[0][1] ,
-    \matrix_work_reg[0][1]_0 ,
-    \matrix_work_reg[0][0] ,
     \FSM_onehot_state_reg[0]_0 ,
     \FSM_onehot_state_reg[2]_0 ,
     ps2_send_valid_reg_0,
-    o_divmmc_nmi_n_reg_0,
+    \matrix_work_reg[0][6] ,
+    \matrix_work_reg[0][1] ,
+    \matrix_work_reg[0][1]_0 ,
+    util_vector_logic_0_i_7_0,
     o_mf_nmi_n_reg_0,
     ps2_key_release_reg_0,
     \FSM_onehot_state_reg[1]_0 );
@@ -6842,26 +7314,9 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
   output ps2_keyb_0_o_mf_nmi_n;
   output ps2_keyb_0_o_divmmc_nmi_n;
   output [5:0]spkey_function;
-  output \matrix_state_reg[6][6]_0 ;
-  output \matrix_state_reg[6][6]_1 ;
-  output \matrix_state_reg[7][6]_0 ;
-  output \matrix_state_reg[4][6]_0 ;
-  output \matrix_state_reg[5][6]_0 ;
-  output \matrix_state_reg[6][5]_0 ;
-  output \matrix_state_reg[6][4]_0 ;
-  output \matrix_state_reg[6][3]_0 ;
-  output \matrix_state_reg[6][2]_0 ;
-  output [1:0]\symshift_count_reg[1]_0 ;
-  output \matrix_state_reg[2][2]_0 ;
-  output \matrix_state_reg[2][3]_0 ;
-  output \matrix_state_reg[2][4]_0 ;
-  output \matrix_state_reg[2][5]_0 ;
   output [0:0]Q;
   output ram_q_reg;
-  output \matrix_state_reg[3][6]_0 ;
-  output \matrix_state_reg[2][6]_0 ;
-  output \matrix_state_reg[1][6]_0 ;
-  output \matrix_state_reg[0][6]_0 ;
+  output [6:0]Op2;
   output [1:0]\o_ps2_func_keys_n_reg[3]_0 ;
   input clk_peripheral_n;
   input keymap_we;
@@ -6874,14 +7329,13 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
   input [0:0]S;
   input ps2_key_extend_reg_0;
   input \o_ps2_func_keys_n_reg[0]_0 ;
-  input \matrix_work_ex_reg[13] ;
-  input \matrix_work_reg[0][1] ;
-  input \matrix_work_reg[0][1]_0 ;
-  input \matrix_work_reg[0][0] ;
   input \FSM_onehot_state_reg[0]_0 ;
   input \FSM_onehot_state_reg[2]_0 ;
   input ps2_send_valid_reg_0;
-  input o_divmmc_nmi_n_reg_0;
+  input \matrix_work_reg[0][6] ;
+  input \matrix_work_reg[0][1] ;
+  input \matrix_work_reg[0][1]_0 ;
+  input [0:0]util_vector_logic_0_i_7_0;
   input o_mf_nmi_n_reg_0;
   input ps2_key_release_reg_0;
   input [0:0]\FSM_onehot_state_reg[1]_0 ;
@@ -6894,6 +7348,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
   wire \FSM_onehot_state_reg[2]_0 ;
   wire \FSM_onehot_state_reg_n_0_[1] ;
   wire \FSM_onehot_state_reg_n_0_[2] ;
+  wire [6:0]Op2;
   wire Ps2Interface_0_read_data;
   wire [0:0]Q;
   wire [0:0]S;
@@ -7001,81 +7456,65 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
   wire \matrix_state[7][4]_i_1_n_0 ;
   wire \matrix_state[7][5]_i_1_n_0 ;
   wire \matrix_state[7][6]_i_1_n_0 ;
-  wire \matrix_state_reg[0][6]_0 ;
-  wire \matrix_state_reg[1][6]_0 ;
-  wire \matrix_state_reg[2][2]_0 ;
-  wire \matrix_state_reg[2][3]_0 ;
-  wire \matrix_state_reg[2][4]_0 ;
-  wire \matrix_state_reg[2][5]_0 ;
-  wire \matrix_state_reg[2][6]_0 ;
-  wire \matrix_state_reg[3][6]_0 ;
-  wire \matrix_state_reg[4][6]_0 ;
-  wire \matrix_state_reg[5][6]_0 ;
-  wire \matrix_state_reg[6][2]_0 ;
-  wire \matrix_state_reg[6][3]_0 ;
-  wire \matrix_state_reg[6][4]_0 ;
-  wire \matrix_state_reg[6][5]_0 ;
-  wire \matrix_state_reg[6][6]_0 ;
-  wire \matrix_state_reg[6][6]_1 ;
-  wire \matrix_state_reg[7][6]_0 ;
   wire \matrix_state_reg_n_0_[0][0] ;
   wire \matrix_state_reg_n_0_[0][1] ;
   wire \matrix_state_reg_n_0_[0][2] ;
   wire \matrix_state_reg_n_0_[0][3] ;
   wire \matrix_state_reg_n_0_[0][4] ;
   wire \matrix_state_reg_n_0_[0][5] ;
+  wire \matrix_state_reg_n_0_[0][6] ;
   wire \matrix_state_reg_n_0_[1][0] ;
   wire \matrix_state_reg_n_0_[1][1] ;
   wire \matrix_state_reg_n_0_[1][2] ;
   wire \matrix_state_reg_n_0_[1][3] ;
   wire \matrix_state_reg_n_0_[1][4] ;
   wire \matrix_state_reg_n_0_[1][5] ;
+  wire \matrix_state_reg_n_0_[1][6] ;
   wire \matrix_state_reg_n_0_[2][0] ;
   wire \matrix_state_reg_n_0_[2][1] ;
   wire \matrix_state_reg_n_0_[2][2] ;
   wire \matrix_state_reg_n_0_[2][3] ;
   wire \matrix_state_reg_n_0_[2][4] ;
   wire \matrix_state_reg_n_0_[2][5] ;
+  wire \matrix_state_reg_n_0_[2][6] ;
   wire \matrix_state_reg_n_0_[3][0] ;
   wire \matrix_state_reg_n_0_[3][1] ;
   wire \matrix_state_reg_n_0_[3][2] ;
   wire \matrix_state_reg_n_0_[3][3] ;
   wire \matrix_state_reg_n_0_[3][4] ;
   wire \matrix_state_reg_n_0_[3][5] ;
+  wire \matrix_state_reg_n_0_[3][6] ;
   wire \matrix_state_reg_n_0_[4][0] ;
   wire \matrix_state_reg_n_0_[4][1] ;
   wire \matrix_state_reg_n_0_[4][2] ;
   wire \matrix_state_reg_n_0_[4][3] ;
   wire \matrix_state_reg_n_0_[4][4] ;
   wire \matrix_state_reg_n_0_[4][5] ;
+  wire \matrix_state_reg_n_0_[4][6] ;
   wire \matrix_state_reg_n_0_[5][0] ;
   wire \matrix_state_reg_n_0_[5][1] ;
   wire \matrix_state_reg_n_0_[5][2] ;
   wire \matrix_state_reg_n_0_[5][3] ;
   wire \matrix_state_reg_n_0_[5][4] ;
   wire \matrix_state_reg_n_0_[5][5] ;
+  wire \matrix_state_reg_n_0_[5][6] ;
   wire \matrix_state_reg_n_0_[6][0] ;
   wire \matrix_state_reg_n_0_[6][1] ;
   wire \matrix_state_reg_n_0_[6][2] ;
   wire \matrix_state_reg_n_0_[6][3] ;
   wire \matrix_state_reg_n_0_[6][4] ;
   wire \matrix_state_reg_n_0_[6][5] ;
+  wire \matrix_state_reg_n_0_[6][6] ;
   wire \matrix_state_reg_n_0_[7][0] ;
   wire \matrix_state_reg_n_0_[7][1] ;
   wire \matrix_state_reg_n_0_[7][2] ;
   wire \matrix_state_reg_n_0_[7][3] ;
   wire \matrix_state_reg_n_0_[7][4] ;
   wire \matrix_state_reg_n_0_[7][5] ;
-  wire \matrix_work[1][0]_i_2_n_0 ;
-  wire \matrix_work[1][0]_i_3_n_0 ;
-  wire \matrix_work[1][0]_i_4_n_0 ;
-  wire \matrix_work[1][1]_i_2_n_0 ;
-  wire \matrix_work[1][1]_i_4_n_0 ;
-  wire \matrix_work[1][1]_i_5_n_0 ;
-  wire \matrix_work_ex_reg[13] ;
-  wire \matrix_work_reg[0][0] ;
+  wire \matrix_state_reg_n_0_[7][6] ;
   wire \matrix_work_reg[0][1] ;
   wire \matrix_work_reg[0][1]_0 ;
+  wire \matrix_work_reg[0][6] ;
   wire neqOp;
   wire neqOp_carry_i_1_n_0;
   wire neqOp_carry_i_2_n_0;
@@ -7084,7 +7523,6 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
   wire neqOp_carry_n_1;
   wire neqOp_carry_n_2;
   wire neqOp_carry_n_3;
-  wire o_divmmc_nmi_n_reg_0;
   wire o_mf_nmi_n_reg_0;
   wire \o_ps2_func_keys_n[0]_i_1_n_0 ;
   wire \o_ps2_func_keys_n[1]_i_1_n_0 ;
@@ -7119,7 +7557,23 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
   wire \symshift_count[0]_i_1_n_0 ;
   wire \symshift_count[1]_i_1_n_0 ;
   wire \symshift_count[2]_i_1_n_0 ;
-  wire [1:0]\symshift_count_reg[1]_0 ;
+  wire util_vector_logic_0_i_10_n_0;
+  wire util_vector_logic_0_i_11_n_0;
+  wire util_vector_logic_0_i_12_n_0;
+  wire util_vector_logic_0_i_13_n_0;
+  wire util_vector_logic_0_i_14_n_0;
+  wire util_vector_logic_0_i_15_n_0;
+  wire util_vector_logic_0_i_16_n_0;
+  wire util_vector_logic_0_i_17_n_0;
+  wire util_vector_logic_0_i_18_n_0;
+  wire util_vector_logic_0_i_19_n_0;
+  wire util_vector_logic_0_i_20_n_0;
+  wire util_vector_logic_0_i_23_n_0;
+  wire util_vector_logic_0_i_24_n_0;
+  wire util_vector_logic_0_i_25_n_0;
+  wire util_vector_logic_0_i_26_n_0;
+  wire [0:0]util_vector_logic_0_i_7_0;
+  wire util_vector_logic_0_i_9_n_0;
   wire [3:0]NLW_neqOp_carry_O_UNCONNECTED;
 
   LUT3 #(
@@ -7220,16 +7674,16 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .Q(clk_ps2_d),
         .S(reset));
   zxnexys_zxkeyboard_0_0_keymaps keymap
-       (.CO(neqOp),
-        .D({ps2_current_keycode,D,ram_q_reg_0}),
+       (.ADDRBWRADDR({D,ram_q_reg_0}),
+        .CO(neqOp),
         .DOBDO({ps2_keymap_data[7:6],ps2_keymap_data[2:0]}),
         .Q(\FSM_onehot_state_reg_n_0_[1] ),
         .clk_peripheral_n(clk_peripheral_n),
         .keymap_addr(keymap_addr),
         .keymap_data(keymap_data),
         .keymap_we(keymap_we),
-        .o_divmmc_nmi_n_reg(o_divmmc_nmi_n_reg_0),
         .o_mf_nmi_n_reg(o_mf_nmi_n_reg_0),
+        .ps2_current_keycode(ps2_current_keycode),
         .ps2_key_release_reg(keymap_n_42),
         .ps2_key_release_reg_0(keymap_n_43),
         .ps2_keyb_0_o_divmmc_nmi_n(ps2_keyb_0_o_divmmc_nmi_n),
@@ -7339,7 +7793,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(ram_q_reg),
         .I3(keymap_n_12),
         .I4(keymap_n_16),
-        .I5(\matrix_state_reg[0][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[0][6] ),
         .O(\matrix_state[0][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFBFFF00008000)) 
@@ -7409,7 +7863,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(keymap_n_41),
         .I3(ram_q_reg),
         .I4(keymap_n_12),
-        .I5(\matrix_state_reg[1][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[1][6] ),
         .O(\matrix_state[1][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFBFFF00008000)) 
@@ -7479,7 +7933,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(keymap_n_40),
         .I3(ram_q_reg),
         .I4(keymap_n_12),
-        .I5(\matrix_state_reg[2][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[2][6] ),
         .O(\matrix_state[2][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFEF00000020)) 
@@ -7549,7 +8003,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(ram_q_reg),
         .I3(keymap_n_12),
         .I4(keymap_n_16),
-        .I5(\matrix_state_reg[3][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[3][6] ),
         .O(\matrix_state[3][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFBFF00000800)) 
@@ -7619,7 +8073,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(keymap_n_39),
         .I3(ram_q_reg),
         .I4(keymap_n_12),
-        .I5(\matrix_state_reg[4][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[4][6] ),
         .O(\matrix_state[4][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFEFFFFF00200000)) 
@@ -7689,7 +8143,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(keymap_n_38),
         .I3(ram_q_reg),
         .I4(keymap_n_12),
-        .I5(\matrix_state_reg[5][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[5][6] ),
         .O(\matrix_state[5][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFEFFFFF00200000)) 
@@ -7759,7 +8213,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(keymap_n_37),
         .I3(ram_q_reg),
         .I4(keymap_n_12),
-        .I5(\matrix_state_reg[6][6]_1 ),
+        .I5(\matrix_state_reg_n_0_[6][6] ),
         .O(\matrix_state[6][6]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFEFFFFF00200000)) 
@@ -7829,7 +8283,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .I2(keymap_n_7),
         .I3(ram_q_reg),
         .I4(keymap_n_12),
-        .I5(\matrix_state_reg[7][6]_0 ),
+        .I5(\matrix_state_reg_n_0_[7][6] ),
         .O(\matrix_state[7][6]_i_1_n_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -7885,7 +8339,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[0][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[0][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[0][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -7941,7 +8395,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[1][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[1][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[1][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -7997,7 +8451,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[2][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[2][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[2][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -8053,7 +8507,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[3][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[3][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[3][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -8109,7 +8563,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[4][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[4][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[4][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -8165,7 +8619,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[5][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[5][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[5][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -8221,7 +8675,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[6][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[6][6]_1 ),
+        .Q(\matrix_state_reg_n_0_[6][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
   FDSE #(
     .INIT(1'b1)) 
@@ -8277,168 +8731,8 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\matrix_state[7][6]_i_1_n_0 ),
-        .Q(\matrix_state_reg[7][6]_0 ),
+        .Q(\matrix_state_reg_n_0_[7][6] ),
         .S(\o_ps2_func_keys_n_reg[0]_0 ));
-  LUT6 #(
-    .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    \matrix_work[1][0]_i_2 
-       (.I0(\matrix_state_reg_n_0_[6][0] ),
-        .I1(\matrix_state_reg_n_0_[7][0] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[4][0] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[5][0] ),
-        .O(\matrix_work[1][0]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hAACCAACCF0FFF000)) 
-    \matrix_work[1][0]_i_3 
-       (.I0(\matrix_state_reg_n_0_[2][0] ),
-        .I1(\matrix_state_reg_n_0_[3][0] ),
-        .I2(\matrix_work[1][0]_i_4_n_0 ),
-        .I3(\matrix_work_reg[0][1] ),
-        .I4(\matrix_state_reg_n_0_[1][0] ),
-        .I5(\matrix_work_ex_reg[13] ),
-        .O(\matrix_work[1][0]_i_3_n_0 ));
-  LUT4 #(
-    .INIT(16'h0010)) 
-    \matrix_work[1][0]_i_4 
-       (.I0(capshift_count[0]),
-        .I1(capshift_count[2]),
-        .I2(\matrix_state_reg_n_0_[0][0] ),
-        .I3(capshift_count[1]),
-        .O(\matrix_work[1][0]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h000000FEFFFF00FE)) 
-    \matrix_work[1][1]_i_1 
-       (.I0(\matrix_work[1][1]_i_2_n_0 ),
-        .I1(\matrix_work_reg[0][1] ),
-        .I2(\matrix_work_reg[0][1]_0 ),
-        .I3(\matrix_work[1][1]_i_4_n_0 ),
-        .I4(\matrix_work_reg[0][0] ),
-        .I5(\matrix_work[1][1]_i_5_n_0 ),
-        .O(\symshift_count_reg[1]_0 [1]));
-  LUT3 #(
-    .INIT(8'h01)) 
-    \matrix_work[1][1]_i_2 
-       (.I0(symshift_count[1]),
-        .I1(symshift_count[0]),
-        .I2(symshift_count[2]),
-        .O(\matrix_work[1][1]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'h05F5030305F5F3F3)) 
-    \matrix_work[1][1]_i_4 
-       (.I0(\matrix_state_reg_n_0_[4][1] ),
-        .I1(\matrix_state_reg_n_0_[5][1] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[6][1] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[7][1] ),
-        .O(\matrix_work[1][1]_i_4_n_0 ));
-  LUT6 #(
-    .INIT(64'h505F3030505F3F3F)) 
-    \matrix_work[1][1]_i_5 
-       (.I0(\matrix_state_reg_n_0_[2][1] ),
-        .I1(\matrix_state_reg_n_0_[3][1] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[0][1] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[1][1] ),
-        .O(\matrix_work[1][1]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'h505F3030505F3F3F)) 
-    \matrix_work[1][2]_i_2 
-       (.I0(\matrix_state_reg_n_0_[2][2] ),
-        .I1(\matrix_state_reg_n_0_[3][2] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[0][2] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[1][2] ),
-        .O(\matrix_state_reg[2][2]_0 ));
-  LUT6 #(
-    .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    \matrix_work[1][2]_i_3 
-       (.I0(\matrix_state_reg_n_0_[6][2] ),
-        .I1(\matrix_state_reg_n_0_[7][2] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[4][2] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[5][2] ),
-        .O(\matrix_state_reg[6][2]_0 ));
-  LUT6 #(
-    .INIT(64'h505F3030505F3F3F)) 
-    \matrix_work[1][3]_i_2 
-       (.I0(\matrix_state_reg_n_0_[2][3] ),
-        .I1(\matrix_state_reg_n_0_[3][3] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[0][3] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[1][3] ),
-        .O(\matrix_state_reg[2][3]_0 ));
-  LUT6 #(
-    .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    \matrix_work[1][3]_i_3 
-       (.I0(\matrix_state_reg_n_0_[6][3] ),
-        .I1(\matrix_state_reg_n_0_[7][3] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[4][3] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[5][3] ),
-        .O(\matrix_state_reg[6][3]_0 ));
-  LUT6 #(
-    .INIT(64'h505F3030505F3F3F)) 
-    \matrix_work[1][4]_i_2 
-       (.I0(\matrix_state_reg_n_0_[2][4] ),
-        .I1(\matrix_state_reg_n_0_[3][4] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[0][4] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[1][4] ),
-        .O(\matrix_state_reg[2][4]_0 ));
-  LUT6 #(
-    .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    \matrix_work[1][4]_i_3 
-       (.I0(\matrix_state_reg_n_0_[6][4] ),
-        .I1(\matrix_state_reg_n_0_[7][4] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[4][4] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[5][4] ),
-        .O(\matrix_state_reg[6][4]_0 ));
-  LUT6 #(
-    .INIT(64'h505F3030505F3F3F)) 
-    \matrix_work[1][5]_i_2 
-       (.I0(\matrix_state_reg_n_0_[2][5] ),
-        .I1(\matrix_state_reg_n_0_[3][5] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[0][5] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[1][5] ),
-        .O(\matrix_state_reg[2][5]_0 ));
-  LUT6 #(
-    .INIT(64'h505F3030505F3F3F)) 
-    \matrix_work[1][5]_i_3 
-       (.I0(\matrix_state_reg_n_0_[6][5] ),
-        .I1(\matrix_state_reg_n_0_[7][5] ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg_n_0_[4][5] ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg_n_0_[5][5] ),
-        .O(\matrix_state_reg[6][5]_0 ));
-  LUT6 #(
-    .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    \matrix_work_ex[14]_i_2 
-       (.I0(\matrix_state_reg[6][6]_1 ),
-        .I1(\matrix_state_reg[7][6]_0 ),
-        .I2(\matrix_work_ex_reg[13] ),
-        .I3(\matrix_state_reg[4][6]_0 ),
-        .I4(\matrix_work_reg[0][1] ),
-        .I5(\matrix_state_reg[5][6]_0 ),
-        .O(\matrix_state_reg[6][6]_0 ));
-  MUXF7 \matrix_work_reg[1][0]_i_1 
-       (.I0(\matrix_work[1][0]_i_2_n_0 ),
-        .I1(\matrix_work[1][0]_i_3_n_0 ),
-        .O(\symshift_count_reg[1]_0 [0]),
-        .S(\matrix_work_reg[0][0] ));
   CARRY4 neqOp_carry
        (.CI(1'b0),
         .CO({neqOp,neqOp_carry_n_1,neqOp_carry_n_2,neqOp_carry_n_3}),
@@ -8477,10 +8771,10 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
     neqOp_carry_i_4
        (.I0(ps2_last_keycode[2]),
         .I1(ram_q_reg_0[2]),
-        .I2(ps2_last_keycode[1]),
-        .I3(ram_q_reg_0[1]),
-        .I4(ram_q_reg_0[0]),
-        .I5(ps2_last_keycode[0]),
+        .I2(ps2_last_keycode[0]),
+        .I3(ram_q_reg_0[0]),
+        .I4(ram_q_reg_0[1]),
+        .I5(ps2_last_keycode[1]),
         .O(neqOp_carry_i_4_n_0));
   FDSE o_divmmc_nmi_n_reg
        (.C(clk_peripheral),
@@ -8635,7 +8929,7 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .Q(D),
         .R(ps2_key_extend0));
   LUT6 #(
-    .INIT(64'h000000000000BAAA)) 
+    .INIT(64'h000000000000AABA)) 
     ps2_key_release_i_1
        (.I0(ps2_current_keycode),
         .I1(ps2_receive_valid_d),
@@ -8769,33 +9063,33 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
        (.I0(ps2_keyb_0_o_ps2_func_keys_n[7]),
         .O(spkey_function[5]));
   LUT6 #(
-    .INIT(64'h5555FFFFA8AA0000)) 
+    .INIT(64'h5555FFFFAAA20000)) 
     \symshift_count[0]_i_1 
        (.I0(ps2_keymap_data[7]),
-        .I1(symshift_count[1]),
-        .I2(symshift_count[2]),
-        .I3(ps2_current_keycode),
+        .I1(ps2_current_keycode),
+        .I2(symshift_count[1]),
+        .I3(symshift_count[2]),
         .I4(ram_q_reg),
         .I5(symshift_count[0]),
         .O(\symshift_count[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hDD772280FFFF0000)) 
+    .INIT(64'hF0585AF0F0F0F0F0)) 
     \symshift_count[1]_i_1 
        (.I0(ram_q_reg),
-        .I1(ps2_current_keycode),
-        .I2(symshift_count[2]),
+        .I1(symshift_count[2]),
+        .I2(symshift_count[1]),
         .I3(symshift_count[0]),
-        .I4(symshift_count[1]),
+        .I4(ps2_current_keycode),
         .I5(ps2_keymap_data[7]),
         .O(\symshift_count[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hD2F0F070F0F0F0F0)) 
+    .INIT(64'hCCC46CCCCCCCCCCC)) 
     \symshift_count[2]_i_1 
        (.I0(ram_q_reg),
-        .I1(ps2_current_keycode),
-        .I2(symshift_count[2]),
+        .I1(symshift_count[2]),
+        .I2(symshift_count[1]),
         .I3(symshift_count[0]),
-        .I4(symshift_count[1]),
+        .I4(ps2_current_keycode),
         .I5(ps2_keymap_data[7]),
         .O(\symshift_count[2]_i_1_n_0 ));
   FDRE \symshift_count_reg[0] 
@@ -8816,6 +9110,204 @@ module zxnexys_zxkeyboard_0_0_ps2_keyb
         .D(\symshift_count[2]_i_1_n_0 ),
         .Q(symshift_count[2]),
         .R(\o_ps2_func_keys_n_reg[0]_0 ));
+  MUXF7 util_vector_logic_0_i_1
+       (.I0(util_vector_logic_0_i_9_n_0),
+        .I1(util_vector_logic_0_i_10_n_0),
+        .O(Op2[6]),
+        .S(\matrix_work_reg[0][6] ));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_10
+       (.I0(\matrix_state_reg_n_0_[6][6] ),
+        .I1(\matrix_state_reg_n_0_[7][6] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[4][6] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[5][6] ),
+        .O(util_vector_logic_0_i_10_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_11
+       (.I0(\matrix_state_reg_n_0_[2][5] ),
+        .I1(\matrix_state_reg_n_0_[3][5] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][5] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][5] ),
+        .O(util_vector_logic_0_i_11_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_12
+       (.I0(\matrix_state_reg_n_0_[6][5] ),
+        .I1(\matrix_state_reg_n_0_[7][5] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[4][5] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[5][5] ),
+        .O(util_vector_logic_0_i_12_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_13
+       (.I0(\matrix_state_reg_n_0_[2][4] ),
+        .I1(\matrix_state_reg_n_0_[3][4] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][4] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][4] ),
+        .O(util_vector_logic_0_i_13_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_14
+       (.I0(\matrix_state_reg_n_0_[6][4] ),
+        .I1(\matrix_state_reg_n_0_[7][4] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[4][4] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[5][4] ),
+        .O(util_vector_logic_0_i_14_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_15
+       (.I0(\matrix_state_reg_n_0_[2][3] ),
+        .I1(\matrix_state_reg_n_0_[3][3] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][3] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][3] ),
+        .O(util_vector_logic_0_i_15_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_16
+       (.I0(\matrix_state_reg_n_0_[6][3] ),
+        .I1(\matrix_state_reg_n_0_[7][3] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[4][3] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[5][3] ),
+        .O(util_vector_logic_0_i_16_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_17
+       (.I0(\matrix_state_reg_n_0_[2][2] ),
+        .I1(\matrix_state_reg_n_0_[3][2] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][2] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][2] ),
+        .O(util_vector_logic_0_i_17_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_18
+       (.I0(\matrix_state_reg_n_0_[6][2] ),
+        .I1(\matrix_state_reg_n_0_[7][2] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[4][2] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[5][2] ),
+        .O(util_vector_logic_0_i_18_n_0));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_19
+       (.I0(\matrix_state_reg_n_0_[2][1] ),
+        .I1(\matrix_state_reg_n_0_[3][1] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][1] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][1] ),
+        .O(util_vector_logic_0_i_19_n_0));
+  MUXF7 util_vector_logic_0_i_2
+       (.I0(util_vector_logic_0_i_11_n_0),
+        .I1(util_vector_logic_0_i_12_n_0),
+        .O(Op2[5]),
+        .S(\matrix_work_reg[0][6] ));
+  LUT6 #(
+    .INIT(64'hAFAFCFC0A0A0CFC0)) 
+    util_vector_logic_0_i_20
+       (.I0(\matrix_state_reg_n_0_[6][1] ),
+        .I1(\matrix_state_reg_n_0_[7][1] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[5][1] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[4][1] ),
+        .O(util_vector_logic_0_i_20_n_0));
+  LUT3 #(
+    .INIT(8'hFE)) 
+    util_vector_logic_0_i_23
+       (.I0(symshift_count[0]),
+        .I1(symshift_count[1]),
+        .I2(symshift_count[2]),
+        .O(util_vector_logic_0_i_23_n_0));
+  LUT6 #(
+    .INIT(64'hCFC0AFAFCFC0A0A0)) 
+    util_vector_logic_0_i_24
+       (.I0(\matrix_state_reg_n_0_[3][0] ),
+        .I1(\matrix_state_reg_n_0_[2][0] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][0] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][0] ),
+        .O(util_vector_logic_0_i_24_n_0));
+  LUT6 #(
+    .INIT(64'hCFCFAFA0C0C0AFA0)) 
+    util_vector_logic_0_i_25
+       (.I0(\matrix_state_reg_n_0_[7][0] ),
+        .I1(\matrix_state_reg_n_0_[6][0] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[5][0] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[4][0] ),
+        .O(util_vector_logic_0_i_25_n_0));
+  LUT4 #(
+    .INIT(16'h5554)) 
+    util_vector_logic_0_i_26
+       (.I0(util_vector_logic_0_i_7_0),
+        .I1(capshift_count[2]),
+        .I2(capshift_count[1]),
+        .I3(capshift_count[0]),
+        .O(util_vector_logic_0_i_26_n_0));
+  MUXF7 util_vector_logic_0_i_3
+       (.I0(util_vector_logic_0_i_13_n_0),
+        .I1(util_vector_logic_0_i_14_n_0),
+        .O(Op2[4]),
+        .S(\matrix_work_reg[0][6] ));
+  MUXF7 util_vector_logic_0_i_4
+       (.I0(util_vector_logic_0_i_15_n_0),
+        .I1(util_vector_logic_0_i_16_n_0),
+        .O(Op2[3]),
+        .S(\matrix_work_reg[0][6] ));
+  MUXF7 util_vector_logic_0_i_5
+       (.I0(util_vector_logic_0_i_17_n_0),
+        .I1(util_vector_logic_0_i_18_n_0),
+        .O(Op2[2]),
+        .S(\matrix_work_reg[0][6] ));
+  LUT6 #(
+    .INIT(64'hCA0ACACACACACACA)) 
+    util_vector_logic_0_i_6
+       (.I0(util_vector_logic_0_i_19_n_0),
+        .I1(util_vector_logic_0_i_20_n_0),
+        .I2(\matrix_work_reg[0][6] ),
+        .I3(\matrix_work_reg[0][1] ),
+        .I4(\matrix_work_reg[0][1]_0 ),
+        .I5(util_vector_logic_0_i_23_n_0),
+        .O(Op2[1]));
+  LUT4 #(
+    .INIT(16'h00E2)) 
+    util_vector_logic_0_i_7
+       (.I0(util_vector_logic_0_i_24_n_0),
+        .I1(\matrix_work_reg[0][6] ),
+        .I2(util_vector_logic_0_i_25_n_0),
+        .I3(util_vector_logic_0_i_26_n_0),
+        .O(Op2[0]));
+  LUT6 #(
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
+    util_vector_logic_0_i_9
+       (.I0(\matrix_state_reg_n_0_[2][6] ),
+        .I1(\matrix_state_reg_n_0_[3][6] ),
+        .I2(\matrix_work_reg[0][1]_0 ),
+        .I3(\matrix_state_reg_n_0_[0][6] ),
+        .I4(\matrix_work_reg[0][1] ),
+        .I5(\matrix_state_reg_n_0_[1][6] ),
+        .O(util_vector_logic_0_i_9_n_0));
 endmodule
 
 (* ORIG_REF_NAME = "special_keys" *) 
@@ -8856,6 +9348,262 @@ module zxnexys_zxkeyboard_0_0_special_keys
         .I1(ps2_keyb_0_o_divmmc_nmi_n),
         .O(spkey_function[2]));
 endmodule
+
+(* ORIG_REF_NAME = "util_vector_logic_v2_0_1_util_vector_logic" *) 
+module zxnexys_zxkeyboard_0_0_util_vector_logic_v2_0_1_util_vector_logic
+   (Res,
+    Op1,
+    Op2);
+  output [6:0]Res;
+  input [6:0]Op1;
+  input [6:0]Op2;
+
+  wire [6:0]Op1;
+  wire [6:0]Op2;
+  wire [6:0]Res;
+
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[0]_INST_0 
+       (.I0(Op1[0]),
+        .I1(Op2[0]),
+        .O(Res[0]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[1]_INST_0 
+       (.I0(Op1[1]),
+        .I1(Op2[1]),
+        .O(Res[1]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[2]_INST_0 
+       (.I0(Op1[2]),
+        .I1(Op2[2]),
+        .O(Res[2]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[3]_INST_0 
+       (.I0(Op1[3]),
+        .I1(Op2[3]),
+        .O(Res[3]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[4]_INST_0 
+       (.I0(Op1[4]),
+        .I1(Op2[4]),
+        .O(Res[4]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[5]_INST_0 
+       (.I0(Op1[5]),
+        .I1(Op2[5]),
+        .O(Res[5]));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Res[6]_INST_0 
+       (.I0(Op1[6]),
+        .I1(Op2[6]),
+        .O(Res[6]));
+endmodule
+`pragma protect begin_protected
+`pragma protect version = 1
+`pragma protect encrypt_agent = "XILINX"
+`pragma protect encrypt_agent_info = "Xilinx Encryption Tool 2021.2"
+`pragma protect key_keyowner="Synopsys", key_keyname="SNPS-VCS-RSA-2", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=128)
+`pragma protect key_block
+qBHgXmwbTbZKEU9tcjZbsi+ExctvD8XefVx14BkxLFOTaColWRgtKU9vhojRxOADVyuCsE7IUw5/
+fIBh9Lwwg/1gRLE7njxHZhWAz9S1sVJTpj4NzEQ/HyJYMIoxPpczRyPcn1WxmVNQqNuYI1QUkQdA
+njnTdD+zeIXLmFmD1F8=
+
+`pragma protect key_keyowner="Aldec", key_keyname="ALDEC15_001", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=256)
+`pragma protect key_block
+V/TizgGPju21MuRFF7y/ABvr1JqliOqk4fYco5uCOBoyUST+UXZx+hvy+kbS/LIOoofVkSPNsgIB
+cZoZuq7YCpk/jDm/+3eTRWDEB56vO8JkeH1jwR7EzYU3QoipBAujdnlLacwL/Qy/9BMtpw8ZC+MO
+wBnu3Kj0Q1dJVGnfxGEY6YDPJ+d21AYrk0MUpKHc8NVxv4Hojk39AhtxcEVXw2v2A/fQ9jZC/Ndf
+05gPeW4R8LQP/EGbOdtsgq9I5dfdsNv7iKW511rAce2zY8b2yC3vfsAK+YvJlJhR9xErRgfrNVjL
+Wf/LCVNpz2k1nBpoU73eFFZpZpBgcK2RDNk23w==
+
+`pragma protect key_keyowner="Mentor Graphics Corporation", key_keyname="MGC-VELOCE-RSA", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=128)
+`pragma protect key_block
+Bq6b1vbyY3ChcNU6TEnpKgFXql2W7SCpYB5BjNQXc3pXJDMmVkEfYRRu3dus6SDMFXRHG0YcdGWS
+/wS2NHW3Y4jbYKRazEyz7v6YOZcyrun1KL6tR+AG/wFDOveXfxNNB+zhBzCpD4rjZneOXH/S238v
+1RhzzAtXry9bFvLFEvM=
+
+`pragma protect key_keyowner="Mentor Graphics Corporation", key_keyname="MGC-VERIF-SIM-RSA-2", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=256)
+`pragma protect key_block
+bYFsVmVVlPDgpJA7LNUGgEzYGUdTNv5Vsc3Jwzl3M7dMROVIX3hQvamUB9EXDcek0Zh/sGPCLhKi
+ldQUStkE/1cexALf6/IyDRsZwk6TfIOli5xAX33R98gH53kMGqm4LeMSjvxdw1HFasq3DFQf9MFS
+2Vd3MBk2RQ7oHEiynkyQ6u6rVzyv/fEvYXD4vddz2P59pyQWGFNkNK2IO+xY995zx5+zEWsxRbhY
+BiKHBy3THjpQOfIu9GAuI55cn3CQjjpvKXcx+Y3heO9CKpqZLGfEqa24KfEbqGfiApu6kTIVexUg
+dDBIIdD+N8LJltHRpZ+jbHfXPp+zcquX5mHHjw==
+
+`pragma protect key_keyowner="Real Intent", key_keyname="RI-RSA-KEY-1", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=256)
+`pragma protect key_block
+Qj/0qDRoIRfY71MSM/IDZuivT67/prQAAFtf0lEbUPKKco5uVYjUx2y9eBkAfFGhs2fZalRebtNk
+xUbSGT68uQ1coh2Q6nhS4cdo4YPsspTH1Nhu4RIhtPgRxdUttXHYX/Gr97N9TcXoMsfDghFW64X1
+k5hEWEfn83fPzGIjm+7kdnV/4img9Fa3ZxxYUrgr5ny+/n9TADBfPj0nanLXP9IfpXIXFMO4cZ0z
+Bn1eYo5PYUkIMm2NtSetwGM6Rot106wWg5O8rFVPs19cOE8+1EqXo7dNBHsY+L8Kc+GyZSZKYJeV
+JveQ0goTcw48qT7c20RAD9/7ios9uAXp0PTvpQ==
+
+`pragma protect key_keyowner="Xilinx", key_keyname="xilinxt_2021_01", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=256)
+`pragma protect key_block
+n4eN8OcgE2ytgAerPG7drDMcMy/2Ng9XyKzdLoueXaLeh19zquDnQa2TeOOi0kQM7hGEW4N0KSLe
+m6/JDweeF+Zh9xzzoNG/7KoO99Lq3PLQiMZJ59hyawaj7oI6PxjJXrmtNuERK3VaiwAJCkdIROIA
+KQWVzBm/UM8v21JbncRVWz79jVq9PoB0JyDeHd8yQSMkqhlQuqJk6w0/g6hvk6v0eZ8cm+YQPd0g
+lcExsPMEJVUIstZmgw7cO9bw9rbVgiwyICyHMF9e9m+Fe/Erm8j76lm7U0ARiW5L4G85A2pA7Npy
+R4KxewsytXQLOLLLVKSJgeQsFsNGQkjyZbzRJw==
+
+`pragma protect key_keyowner="Metrics Technologies Inc.", key_keyname="DSim", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=256)
+`pragma protect key_block
+Xr27ZXCB8OnsIkHZpOeCueAdq2OspASj7YxAKEG4q8NqrecPF23quvvBjuwcB49ClOEqtHMTy8Wx
+weKE0jw+n98eLI9Twla9KkITonZCHdMyBRODorH0IaSSb4J6rlebTz4yIeDkU+T39FfS19iVrJv9
+YqXU3m1SGEsOT1DI4s/uVoxGxOXgwU9vp+nGCLp4cWSDJ5NmNma3Bkvy1AofNpsy04s51ATfy536
+dpOLpy/2AJscmf6UromXJmy3AjFYU5O9tgB+VG+ew3ZTMKUxBUQgIg6qI3jmIkWZ3kN/k2X52CIU
+cKg6JWkdfO6Yk9nM2sROGf/SLG8ybirlacy0SQ==
+
+`pragma protect key_keyowner="Atrenta", key_keyname="ATR-SG-RSA-1", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=384)
+`pragma protect key_block
+R2nz22UK9YsaRdZIY3kGldutQifE5DDy7NbJzgHH9NuMVkNCseU6780lVUn1OPAvaNVfCBMh5aZB
+Qa0UQVeAStJarB7+LT6a3OM60oJ6FEegSw1JKYWlpr0J4bm0S8AP9vR86sm2qfGICS2ZYl4qJmT8
+m4T3EkhhzBehr+YTSE5DVzXiDX1G5ichGCmCZeSTKbpaMUP4CxdLB3GXI3i/Q8iml9J42mVCnpUw
+iemH4c94zF6h8A9D4QXZyzCcG7ls+jKtBjHptjiIu8+V0cg9S7zgQsphkLKIetlWBVuL7zqnpbWe
+8s/b5fnpCatZemVgKkFuy8UKlkzOt0yBn4MFWqFhLaoZWztlyHiXcUuSgmaIK7C0o6rpozCRxgkr
+/krI39PGhNLvh9r+dLgiXtDNHEPG7Rc1kGWMV4Tv/wTcuizsdwyK5ULiX9zDkm9Wp8wc2FmonXXs
+zUMW2MTsj6qNgl3ly6aR71kz80w3HEm6vpYE0PgIioLUHtXSJrNI0YZH
+
+`pragma protect key_keyowner="Cadence Design Systems.", key_keyname="CDS_RSA_KEY_VER_1", key_method="rsa"
+`pragma protect encoding = (enctype="BASE64", line_length=76, bytes=256)
+`pragma protect key_block
+KxbkAZO3A4DCLBukfrGMdxDyiqe7FeV3hRi5vLrwE66pgRsrzhpdsdVNVm9GBFGyirgfJc8Msa9K
+Y4YDSFDYTsg59E8GFTF+GyDnevyA+S2gpVNFB0n2xfXaYhsh3iGMlmbrfQJILt4u+8Vuch+DunTO
+8I4THbi625TC6yg0oe4r3JPCuc0C+w0RF2tsnPzM8RExC1kOIqKZaY9q1/wcBS5yGvCu13nNJIh8
+IjjeDlgUK3GKB5FLzKJjUN79rMWT/qzH5OvgP7qaduyP5OfGm9E21O9eYtZEDGyGoM6ob08/TjSI
+IIIPgVDQr6hOVM58Dogadky8yVeXSxHRau5RRA==
+
+`pragma protect data_method = "AES128-CBC"
+`pragma protect encoding = (enctype = "BASE64", line_length = 76, bytes = 6384)
+`pragma protect data_block
+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
+`pragma protect end_protected
 `ifndef GLBL
 `define GLBL
 `timescale  1 ps / 1 ps

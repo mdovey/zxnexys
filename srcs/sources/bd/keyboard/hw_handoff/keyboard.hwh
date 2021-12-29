@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 14:11:31 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 28 18:55:36 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="keyboard" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -16,6 +16,8 @@
         <CONNECTION INSTANCE="keyb_clocks_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="membrane_0" PORT="i_CLK"/>
         <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_CLK"/>
+        <CONNECTION INSTANCE="udk_map_0" PORT="clk"/>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_CLK"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral_n">
@@ -36,11 +38,14 @@
     <PORT DIR="I" LEFT="8" NAME="keymap_addr" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_addr">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_keymap_addr"/>
+        <CONNECTION INSTANCE="xlslice_0" PORT="Din"/>
+        <CONNECTION INSTANCE="xlslice_1" PORT="Din"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="7" NAME="keymap_data" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_data">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_keymap_data"/>
+        <CONNECTION INSTANCE="xlslice_2" PORT="Din"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="keymap_we" SIGIS="undef" SIGNAME="External_Ports_keymap_we">
@@ -85,6 +90,7 @@
         <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
         <CONNECTION INSTANCE="membrane_0" PORT="i_reset"/>
         <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_reset"/>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="7" NAME="row" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_row">
@@ -100,6 +106,36 @@
     <PORT DIR="O" LEFT="10" NAME="spkey_function" RIGHT="1" SIGIS="undef" SIGNAME="special_keys_0_spkey_function">
       <CONNECTIONS>
         <CONNECTION INSTANCE="special_keys_0" PORT="spkey_function"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="joymap_we" SIGIS="undef" SIGNAME="External_Ports_joymap_we">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="udk_map_0" PORT="we"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="joy_io_mode_en" SIGIS="undef" SIGNAME="External_Ports_joy_io_mode_en">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_joy_en_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="joy_left_type" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_left_type">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_joy_left_type"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="joy_right_type" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_right_type">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_joy_right_type"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="10" NAME="joy_right" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_right">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_joy_right"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="10" NAME="joy_left" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_left">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_joy_left"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -269,6 +305,7 @@
         <PORT DIR="O" NAME="membrane_enable" SIGIS="undef" SIGNAME="keyb_clocks_0_membrane_enable">
           <CONNECTIONS>
             <CONNECTION INSTANCE="membrane_0" PORT="i_CLK_EN"/>
+            <CONNECTION INSTANCE="membrane_stick_0" PORT="i_CLK_EN"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
@@ -320,11 +357,12 @@
         <PORT DIR="O" LEFT="2" NAME="o_membrane_ridx" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_membrane_ridx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_membrane_row"/>
+            <CONNECTION INSTANCE="membrane_stick_0" PORT="i_membrane_row"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="6" NAME="i_membrane_cols" RIGHT="0" SIGIS="undef" SIGNAME="ps2_keyb_0_o_membrane_col">
+        <PORT DIR="I" LEFT="6" NAME="i_membrane_cols" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_membrane_col"/>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="i_cancel_extended_entries" SIGIS="undef" SIGNAME="External_Ports_cancel">
@@ -339,6 +377,103 @@
         </PORT>
       </PORTS>
       <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/membrane_stick_0" HWVERSION="1.0" INSTANCE="membrane_stick_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="membrane_stick" VLNV="xilinx.com:module_ref:membrane_stick:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_membrane_stick_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="i_CLK" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_CLK_EN" SIGIS="undef" SIGNAME="keyb_clocks_0_membrane_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="membrane_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="i_joy_en_n" SIGIS="undef" SIGNAME="External_Ports_joy_io_mode_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_io_mode_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="10" NAME="i_joy_left" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_left">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_left"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="i_joy_left_type" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_left_type">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_left_type"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="10" NAME="i_joy_right" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_right">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_right"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="i_joy_right_type" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_right_type">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_right_type"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="i_membrane_row" RIGHT="0" SIGIS="undef" SIGNAME="membrane_0_o_membrane_ridx">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="o_membrane_ridx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="6" NAME="o_membrane_col" RIGHT="0" SIGIS="undef" SIGNAME="membrane_stick_0_o_membrane_col">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Op1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="joy_keymap_addr" RIGHT="0" SIGIS="undef" SIGNAME="membrane_stick_0_joy_keymap_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="udk_map_0" PORT="dpra"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="joy_keymap_do" RIGHT="0" SIGIS="undef" SIGNAME="udk_map_0_dpo">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="udk_map_0" PORT="dpo"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="i_joy" TYPE="TARGET" VLNV="specnext.com:specnext:audio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="left" PHYSICAL="i_joy_left"/>
+            <PORTMAP LOGICAL="right" PHYSICAL="i_joy_right"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="i_joy_type" TYPE="TARGET" VLNV="specnext.com:specnext:audio:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="left" PHYSICAL="i_joy_left_type"/>
+            <PORTMAP LOGICAL="right" PHYSICAL="i_joy_right_type"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="i" TYPE="TARGET" VLNV="specnext.com:specnext:joystick:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="joy_left" PHYSICAL="i_joy_left"/>
+            <PORTMAP LOGICAL="joy_right" PHYSICAL="i_joy_right"/>
+            <PORTMAP LOGICAL="joy_left_type" PHYSICAL="i_joy_left_type"/>
+            <PORTMAP LOGICAL="joy_right_type" PHYSICAL="i_joy_right_type"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="i_type" TYPE="TARGET" VLNV="specnext.com:specnext:joystick:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="joy_left" PHYSICAL="i_joy_left_type"/>
+            <PORTMAP LOGICAL="joy_right" PHYSICAL="i_joy_right_type"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
     </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/ps2_keyb_0" HWVERSION="1.0" INSTANCE="ps2_keyb_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="ps2_keyb" VLNV="xilinx.com:module_ref:ps2_keyb:1.0">
       <DOCUMENTS/>
@@ -390,7 +525,7 @@
         </PORT>
         <PORT DIR="O" LEFT="6" NAME="o_membrane_col" RIGHT="0" SIGIS="undef" SIGNAME="ps2_keyb_0_o_membrane_col">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="membrane_0" PORT="i_membrane_cols"/>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Op2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="o_mf_nmi_n" SIGIS="undef" SIGNAME="ps2_keyb_0_o_mf_nmi_n">
@@ -481,6 +616,293 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/udk_map_0" HWVERSION="8.0" INSTANCE="udk_map_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="dist_mem_gen" VLNV="xilinx.com:ip:dist_mem_gen:8.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=dist_mem_gen;v=v8_0;d=pg063-dist-mem-gen.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_FAMILY" VALUE="artix7"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="64"/>
+        <PARAMETER NAME="C_HAS_CLK" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_D" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_DPO" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_DPRA" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_I_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QDPO" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QDPO_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QDPO_CLK" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QDPO_RST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QDPO_SRST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QSPO" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QSPO_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QSPO_RST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_QSPO_SRST" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SPO" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_WE" VALUE="1"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="keyboard_dist_mem_gen_0_0.mif"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_MEM_TYPE" VALUE="4"/>
+        <PARAMETER NAME="C_PIPELINE_STAGES" VALUE="0"/>
+        <PARAMETER NAME="C_QCE_JOINED" VALUE="0"/>
+        <PARAMETER NAME="C_QUALIFY_WE" VALUE="0"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="1"/>
+        <PARAMETER NAME="C_REG_A_D_INPUTS" VALUE="0"/>
+        <PARAMETER NAME="C_REG_DPRA_INPUT" VALUE="0"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="1"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="1"/>
+        <PARAMETER NAME="depth" VALUE="64"/>
+        <PARAMETER NAME="data_width" VALUE="6"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_dist_mem_gen_0_0"/>
+        <PARAMETER NAME="memory_type" VALUE="simple_dual_port_ram"/>
+        <PARAMETER NAME="input_options" VALUE="non_registered"/>
+        <PARAMETER NAME="input_clock_enable" VALUE="false"/>
+        <PARAMETER NAME="qualify_we_with_i_ce" VALUE="false"/>
+        <PARAMETER NAME="dual_port_address" VALUE="non_registered"/>
+        <PARAMETER NAME="simple_dual_port_address" VALUE="non_registered"/>
+        <PARAMETER NAME="output_options" VALUE="non_registered"/>
+        <PARAMETER NAME="Pipeline_Stages" VALUE="0"/>
+        <PARAMETER NAME="common_output_clk" VALUE="false"/>
+        <PARAMETER NAME="single_port_output_clock_enable" VALUE="false"/>
+        <PARAMETER NAME="common_output_ce" VALUE="false"/>
+        <PARAMETER NAME="dual_port_output_clock_enable" VALUE="false"/>
+        <PARAMETER NAME="simple_dual_port_output_clock_enable" VALUE="false"/>
+        <PARAMETER NAME="coefficient_file" VALUE="../../../../imports/ZXNext/ram/init/keyjoy_64_6.coe"/>
+        <PARAMETER NAME="default_data_radix" VALUE="2"/>
+        <PARAMETER NAME="default_data" VALUE="0"/>
+        <PARAMETER NAME="reset_qspo" VALUE="false"/>
+        <PARAMETER NAME="reset_qdpo" VALUE="false"/>
+        <PARAMETER NAME="reset_qsdpo" VALUE="false"/>
+        <PARAMETER NAME="sync_reset_qspo" VALUE="false"/>
+        <PARAMETER NAME="sync_reset_qdpo" VALUE="false"/>
+        <PARAMETER NAME="sync_reset_qsdpo" VALUE="false"/>
+        <PARAMETER NAME="ce_overrides" VALUE="ce_overrides_sync_controls"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="5" NAME="a" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="d" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_2_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlslice_2" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="dpra" RIGHT="0" SIGIS="undef" SIGNAME="membrane_stick_0_joy_keymap_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_stick_0" PORT="joy_keymap_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="we" SIGIS="undef" SIGNAME="External_Ports_joymap_we">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joymap_we"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="dpo" RIGHT="0" SIGIS="undef" SIGNAME="udk_map_0_dpo">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_stick_0" PORT="joy_keymap_do"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/util_vector_logic_0" HWVERSION="2.0" INSTANCE="util_vector_logic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_vector_logic" VLNV="xilinx.com:ip:util_vector_logic:2.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_OPERATION" VALUE="and"/>
+        <PARAMETER NAME="C_SIZE" VALUE="7"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_util_vector_logic_0_0"/>
+        <PARAMETER NAME="LOGO_FILE" VALUE="data/sym_andgate.png"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="6" NAME="Op1" RIGHT="0" SIGIS="undef" SIGNAME="membrane_stick_0_o_membrane_col">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_stick_0" PORT="o_membrane_col"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="6" NAME="Op2" RIGHT="0" SIGIS="undef" SIGNAME="ps2_keyb_0_o_membrane_col">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="o_membrane_col"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="6" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="membrane_0" PORT="i_membrane_cols"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="4" FULLNAME="/xlconcat_0" HWVERSION="2.1" INSTANCE="xlconcat_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN32_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN33_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN34_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN35_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN36_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN37_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN38_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN39_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN40_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN41_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN42_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN43_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN44_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN45_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN46_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN47_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN48_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN49_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN50_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN51_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN52_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN53_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN54_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN55_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN56_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN57_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN58_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN59_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN60_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN61_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN62_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN63_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN64_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN65_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN66_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN67_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN68_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN69_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN70_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN71_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN72_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN73_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN74_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN75_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN76_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN77_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN78_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN79_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN80_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN81_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN82_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN83_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN84_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN85_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN86_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN87_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN88_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN89_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN90_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN91_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN92_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN93_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN94_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN95_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN96_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN97_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN98_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN99_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN100_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN101_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN102_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN103_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN104_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN105_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN106_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN107_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN108_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN109_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN110_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN111_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN112_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN113_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN114_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN115_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN116_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN117_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN118_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN119_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN120_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN121_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN122_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN123_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN124_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN125_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN126_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN127_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="6"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="3"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_xlconcat_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="3" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_high_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_high" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In2" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_1_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlslice_1" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="udk_map_0" PORT="a"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="7" FULLNAME="/xlconstant_high" HWVERSION="1.1" INSTANCE="xlconstant_high" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -494,6 +916,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_button_m1_n"/>
             <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_button_reset_n"/>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -511,6 +934,78 @@
         <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_selftest_ok_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Ps2Interface_0" PORT="tx_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/xlslice_0" HWVERSION="1.0" INSTANCE="xlslice_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="9"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="3"/>
+        <PARAMETER NAME="DIN_TO" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_xlslice_0_0"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="8" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="keymap_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/xlslice_1" HWVERSION="1.0" INSTANCE="xlslice_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="9"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="4"/>
+        <PARAMETER NAME="DIN_TO" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_xlslice_1_0"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="8" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_addr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="keymap_addr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_1_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/xlslice_2" HWVERSION="1.0" INSTANCE="xlslice_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="5"/>
+        <PARAMETER NAME="DIN_TO" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="keyboard_xlslice_1_1"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_keymap_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="keymap_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_2_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="udk_map_0" PORT="d"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

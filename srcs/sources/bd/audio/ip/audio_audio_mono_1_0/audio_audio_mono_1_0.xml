@@ -14,7 +14,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6f41525d</spirit:value>
+            <spirit:value>9:51a3779c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -25,7 +25,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6f41525d</spirit:value>
+            <spirit:value>9:51a3779c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -41,11 +41,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 21 12:12:24 UTC 2021</spirit:value>
+            <spirit:value>Tue Dec 28 22:11:56 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6f41525d</spirit:value>
+            <spirit:value>9:51a3779c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -57,7 +57,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cf26f928</spirit:value>
+            <spirit:value>9:c4263ab7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -73,11 +73,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 21 12:12:24 UTC 2021</spirit:value>
+            <spirit:value>Tue Dec 28 22:11:56 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:cf26f928</spirit:value>
+            <spirit:value>9:c4263ab7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -91,11 +91,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 21 12:19:25 UTC 2021</spirit:value>
+            <spirit:value>Tue Dec 28 23:58:40 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6f41525d</spirit:value>
+            <spirit:value>9:51a3779c</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -159,6 +159,11 @@
         <spirit:displayName>Audio Dw</spirit:displayName>
         <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.AUDIO_DW">16</spirit:value>
       </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>SHIFT</spirit:name>
+        <spirit:displayName>Shift</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.SHIFT">1</spirit:value>
+      </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
   <spirit:fileSets>
@@ -221,6 +226,11 @@
       <spirit:name>AUDIO_DW</spirit:name>
       <spirit:displayName>Audio Dw</spirit:displayName>
       <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.AUDIO_DW">16</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>SHIFT</spirit:name>
+      <spirit:displayName>Shift</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.SHIFT">1</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

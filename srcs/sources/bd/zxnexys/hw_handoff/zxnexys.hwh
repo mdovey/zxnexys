@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 24 15:53:05 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 29 10:17:05 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxnexys" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -39,14 +39,14 @@
         <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="ca"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="AUD_PWM" SIGIS="undef" SIGNAME="zxaudio_0_tape_pwm">
+    <PORT DIR="O" NAME="AUD_PWM" SIGIS="undef" SIGNAME="zxaudio_0_aud_pwm">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxaudio_0" PORT="tape_pwm"/>
+        <CONNECTION INSTANCE="zxaudio_0" PORT="aud_pwm"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="AUD_SD" SIGIS="undef" SIGNAME="zxaudio_0_tape_sd">
+    <PORT DIR="O" NAME="AUD_SD" SIGIS="undef" SIGNAME="zxaudio_0_aud_sd">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxaudio_0" PORT="tape_sd"/>
+        <CONNECTION INSTANCE="zxaudio_0" PORT="aud_sd"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="O" LEFT="3" NAME="VGA_B" RIGHT="0" SIGIS="undef" SIGNAME="zxvga_0_vga_b">
@@ -4340,14 +4340,21 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="5" FULLNAME="/zxaudio_0" HWVERSION="2.3" INSTANCE="zxaudio_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxaudio" VLNV="specnext.com:specnext:zxaudio:2.3">
+    <MODULE COREREVISION="21" FULLNAME="/zxaudio_0" HWVERSION="2.4" INSTANCE="zxaudio_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxaudio" VLNV="specnext.com:specnext:zxaudio:2.4">
       <DOCUMENTS/>
       <PARAMETERS>
+        <PARAMETER NAME="mono_tape" VALUE="0"/>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxaudio_0_0"/>
-        <PARAMETER NAME="PMOD_I2S2" VALUE="true"/>
+        <PARAMETER NAME="i2s2_out" VALUE="true"/>
+        <PARAMETER NAME="i2s2_in" VALUE="true"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
+        <PORT DIR="O" NAME="aud_sd" SIGIS="undef" SIGNAME="zxaudio_0_aud_sd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="AUD_SD"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="12" NAME="audio_left" RIGHT="0" SIGIS="undef" SIGNAME="zxaudio_0_audio_left">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxnext_0" PORT="o_AUDIO_L"/>
@@ -4428,14 +4435,9 @@
             <CONNECTION INSTANCE="zxnext_0" PORT="o_AUDIO_MIC"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="tape_pwm" SIGIS="undef" SIGNAME="zxaudio_0_tape_pwm">
+        <PORT DIR="O" NAME="aud_pwm" SIGIS="undef" SIGNAME="zxaudio_0_aud_pwm">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="AUD_PWM"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="tape_sd" SIGIS="undef" SIGNAME="zxaudio_0_tape_sd">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="AUD_SD"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4514,24 +4516,24 @@
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_peripheral" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxjoystick_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxmouse_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxsdcard_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxrtc_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxaudio_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxsdcard_1" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxesp32_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxreset_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxvga_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxaudio_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral_n">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral_n"/>
             <CONNECTION INSTANCE="zxram_0" PORT="clk_peripheral_n"/>
+            <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_audio" SIGIS="clk" SIGNAME="zxclock_0_clk_audio">
@@ -4810,11 +4812,13 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="5" FULLNAME="/zxkeyboard_0" HWVERSION="2.3" INSTANCE="zxkeyboard_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxkeyboard" VLNV="specnext.com:specnext:zxkeyboard:2.3">
+    <MODULE COREREVISION="11" FULLNAME="/zxkeyboard_0" HWVERSION="2.4" INSTANCE="zxkeyboard_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxkeyboard" VLNV="specnext.com:specnext:zxkeyboard:2.4">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxkeyboard_0_0"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+        <PARAMETER NAME="joystick" VALUE="true"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="MONITOR"/>
+        <PARAMETER NAME="EDK_SPECIAL" VALUE="MONITOR"/>
       </PARAMETERS>
       <PORTS>
         <PORT DIR="I" NAME="cancel" SIGIS="undef" SIGNAME="zxkeyboard_0_cancel">
@@ -4840,6 +4844,16 @@
         <PORT DIR="O" LEFT="15" NAME="extended_keys" RIGHT="0" SIGIS="undef" SIGNAME="zxkeyboard_0_extended_keys">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxnext_0" PORT="i_KBD_EXTENDED_KEYS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="joy_io_mode_en" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="10" NAME="joy_left" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="2" NAME="joy_left_type" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="10" NAME="joy_right" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="2" NAME="joy_right_type" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="joymap_we" SIGIS="undef" SIGNAME="zxkeyboard_0_joymap_we">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxnext_0" PORT="o_JOYMAP_WE"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="8" NAME="keymap_addr" RIGHT="0" SIGIS="undef" SIGNAME="zxkeyboard_0_keymap_addr">
@@ -4920,6 +4934,7 @@
             <PORTMAP LOGICAL="keymap_addr" PHYSICAL="keymap_addr"/>
             <PORTMAP LOGICAL="keymap_data" PHYSICAL="keymap_data"/>
             <PORTMAP LOGICAL="keymap_we" PHYSICAL="keymap_we"/>
+            <PORTMAP LOGICAL="joymap_we" PHYSICAL="joymap_we"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="zxkeyboard_0_ps2_clk" NAME="ps2_clk" TYPE="INITIATOR" VLNV="xilinx.com:interface:gpio:1.0">
@@ -4938,6 +4953,15 @@
             <PORTMAP LOGICAL="TRI_O" PHYSICAL="ps2_data_o"/>
             <PORTMAP LOGICAL="TRI_T" PHYSICAL="ps2_data_t"/>
             <PORTMAP LOGICAL="TRI_I" PHYSICAL="ps2_data_i"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="zxnext_0_joystick" NAME="joystick" TYPE="MONITOR" VLNV="specnext.com:specnext:joystick:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="joy_io_mode_en" PHYSICAL="joy_io_mode_en"/>
+            <PORTMAP LOGICAL="joy_left" PHYSICAL="joy_left"/>
+            <PORTMAP LOGICAL="joy_left_type" PHYSICAL="joy_left_type"/>
+            <PORTMAP LOGICAL="joy_right_type" PHYSICAL="joy_right_type"/>
+            <PORTMAP LOGICAL="joy_right" PHYSICAL="joy_right"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -5166,7 +5190,11 @@
             <CONNECTION INSTANCE="zxkeyboard_0" PORT="keymap_we"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="o_JOYMAP_WE" SIGIS="undef"/>
+        <PORT DIR="O" NAME="o_JOYMAP_WE" SIGIS="undef" SIGNAME="zxkeyboard_0_joymap_we">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxkeyboard_0" PORT="joymap_we"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="10" NAME="i_JOY_LEFT" RIGHT="0" SIGIS="undef" SIGNAME="zxjoystick_0_joy_left">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxjoystick_0" PORT="joy_left"/>
@@ -6275,16 +6303,16 @@
         <PORT DIR="O" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxjoystick_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxkeyboard_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxmouse_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxnexys_mic_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxsdcard_1" PORT="reset"/>
             <CONNECTION INSTANCE="zxsdcard_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxrtc_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxaudio_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxesp32_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="reset"/>
+            <CONNECTION INSTANCE="zxkeyboard_0" PORT="reset"/>
+            <CONNECTION INSTANCE="zxaudio_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="video_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_video_reset">

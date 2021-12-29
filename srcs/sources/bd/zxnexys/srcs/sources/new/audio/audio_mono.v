@@ -23,7 +23,8 @@
 
 
 module audio_mono #(
-    parameter   AUDIO_DW    =   16
+    parameter   AUDIO_DW    =   16,
+    parameter   SHIFT       =   1
 )(
     input       [AUDIO_DW-1:0]   left_in,
     input       [AUDIO_DW-1:0]   right_in,
@@ -31,14 +32,11 @@ module audio_mono #(
     output      [AUDIO_DW-1:0]   mono_out
     );
     
-    wire    [AUDIO_DW+7:0]  l;
-    wire    [AUDIO_DW+7:0]  r;
-    wire    [AUDIO_DW+7:0]  m;
+    wire    [AUDIO_DW-1:0]  l;
+    wire    [AUDIO_DW-1:0]  r;
 
-    assign l          =   {{8{ left_in[AUDIO_DW-1]}}, left_in[AUDIO_DW-1:0]};     
-    assign r          =   {{8{right_in[AUDIO_DW-1]}},right_in[AUDIO_DW-1:0]};  
-    assign m          =   l + r;   
-    
-    assign mono_out     = {m[AUDIO_DW+7], m[AUDIO_DW-1:1]};
+    assign l          =   left_in  >>> SHIFT;     
+    assign r          =   right_in >>> SHIFT;  
+    assign mono_out   =   l + r;   
 
 endmodule

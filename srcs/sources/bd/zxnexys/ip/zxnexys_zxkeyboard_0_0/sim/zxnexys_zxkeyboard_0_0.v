@@ -47,8 +47,8 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: specnext.com:specnext:zxkeyboard:2.3
-// IP Revision: 5
+// IP VLNV: specnext.com:specnext:zxkeyboard:2.4
+// IP Revision: 11
 
 `timescale 1ns/1ps
 
@@ -60,6 +60,12 @@ module zxnexys_zxkeyboard_0_0 (
   clk_peripheral_n,
   column,
   extended_keys,
+  joy_io_mode_en,
+  joy_left,
+  joy_left_type,
+  joy_right,
+  joy_right_type,
+  joymap_we,
   keymap_addr,
   keymap_data,
   keymap_we,
@@ -87,6 +93,18 @@ input wire clk_peripheral_n;
 output wire [4 : 0] column;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard extended_keys" *)
 output wire [15 : 0] extended_keys;
+(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_io_mode_en" *)
+input wire joy_io_mode_en;
+(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left" *)
+input wire [10 : 0] joy_left;
+(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left_type" *)
+input wire [2 : 0] joy_left_type;
+(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right" *)
+input wire [10 : 0] joy_right;
+(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right_type" *)
+input wire [2 : 0] joy_right_type;
+(* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard joymap_we" *)
+input wire joymap_we;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard keymap_addr" *)
 input wire [8 : 0] keymap_addr;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard keymap_data" *)
@@ -121,6 +139,12 @@ output wire [10 : 1] spkey_function;
     .clk_peripheral_n(clk_peripheral_n),
     .column(column),
     .extended_keys(extended_keys),
+    .joy_io_mode_en(joy_io_mode_en),
+    .joy_left(joy_left),
+    .joy_left_type(joy_left_type),
+    .joy_right(joy_right),
+    .joy_right_type(joy_right_type),
+    .joymap_we(joymap_we),
     .keymap_addr(keymap_addr),
     .keymap_data(keymap_data),
     .keymap_we(keymap_we),

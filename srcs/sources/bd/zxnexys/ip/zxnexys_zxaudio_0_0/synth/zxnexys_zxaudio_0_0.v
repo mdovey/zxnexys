@@ -47,14 +47,15 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: specnext.com:specnext:zxaudio:2.3
-// IP Revision: 5
+// IP VLNV: specnext.com:specnext:zxaudio:2.4
+// IP Revision: 21
 
 (* X_CORE_INFO = "audio_wrapper,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxaudio_0_0,audio_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module zxnexys_zxaudio_0_0 (
+  aud_sd,
   audio_left,
   audio_right,
   clk_audio,
@@ -71,10 +72,10 @@ module zxnexys_zxaudio_0_0 (
   reset,
   tape_ear,
   tape_mic,
-  tape_pwm,
-  tape_sd
+  aud_pwm
 );
 
+output wire aud_sd;
 (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio left" *)
 input wire [12 : 0] audio_left;
 (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio right" *)
@@ -102,14 +103,14 @@ input wire reset;
 output wire tape_ear;
 (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_mic" *)
 input wire tape_mic;
-output wire tape_pwm;
-output wire tape_sd;
+output wire aud_pwm;
 
-  audio_wrapper inst (
+  audio_wrapper #(
+    .mono_tape(0)
+  ) inst (
+    .aud_sd(aud_sd),
     .audio_left(audio_left),
-    .audio_pwm(),
     .audio_right(audio_right),
-    .audio_sd(),
     .clk_audio(clk_audio),
     .clk_peripheral(clk_peripheral),
     .linein_lrck(linein_lrck),
@@ -124,7 +125,6 @@ output wire tape_sd;
     .reset(reset),
     .tape_ear(tape_ear),
     .tape_mic(tape_mic),
-    .tape_pwm(tape_pwm),
-    .tape_sd(tape_sd)
+    .aud_pwm(aud_pwm)
   );
 endmodule

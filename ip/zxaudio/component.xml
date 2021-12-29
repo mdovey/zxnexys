@@ -3,7 +3,7 @@
   <spirit:vendor>specnext.com</spirit:vendor>
   <spirit:library>specnext</spirit:library>
   <spirit:name>zxaudio</spirit:name>
-  <spirit:version>2.3</spirit:version>
+  <spirit:version>2.4</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
       <spirit:name>audio</spirit:name>
@@ -63,7 +63,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.tape" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.tape" xilinx:dependency="$i2s2_in or $mono_tape = 1">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -149,7 +149,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5ede5047</spirit:value>
+            <spirit:value>ef2e2443</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -165,7 +165,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b454b664</spirit:value>
+            <spirit:value>e622d493</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -179,12 +179,25 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>2d0354fb</spirit:value>
+            <spirit:value>f41f09c1</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
     </spirit:views>
     <spirit:ports>
+      <spirit:port>
+        <spirit:name>aud_sd</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
       <spirit:port>
         <spirit:name>audio_left</spirit:name>
         <spirit:wire>
@@ -206,26 +219,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>audio_pwm</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.audio_pwm" xilinx:dependency="not ($PMOD_I2S2)">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>audio_right</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -244,26 +237,6 @@
             <spirit:defaultValue spirit:format="long">0</spirit:defaultValue>
           </spirit:driver>
         </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>audio_sd</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.audio_sd" xilinx:dependency="not ($PMOD_I2S2)">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
         <spirit:name>clk_audio</spirit:name>
@@ -306,7 +279,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_lrck" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_lrck" xilinx:dependency="$i2s2_in">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -326,7 +299,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_mclk" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_mclk" xilinx:dependency="$i2s2_in">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -346,7 +319,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_sclk" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_sclk" xilinx:dependency="$i2s2_in">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -369,7 +342,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_sdin" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.linein_sdin" xilinx:dependency="$i2s2_in">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -389,7 +362,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_lrck" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_lrck" xilinx:dependency="$i2s2_out">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -409,7 +382,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_mclk" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_mclk" xilinx:dependency="$i2s2_out">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -429,7 +402,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_sclk" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_sclk" xilinx:dependency="$i2s2_out">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -449,7 +422,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_sdout" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.lineout_sdout" xilinx:dependency="$i2s2_out">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -510,7 +483,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>tape_pwm</spirit:name>
+        <spirit:name>aud_pwm</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
@@ -521,93 +494,33 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.tape_pwm" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>tape_sd</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.tape_sd" xilinx:dependency="$PMOD_I2S2">true</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
     </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="integer">
+        <spirit:name>mono_tape</spirit:name>
+        <spirit:displayName>Mono Tape</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.mono_tape">1</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_pairs_de212931</spirit:name>
+      <spirit:enumeration spirit:text="Audio">0</spirit:enumeration>
+      <spirit:enumeration spirit:text="Tape">1</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>src/audio_ooc.xdc</spirit:name>
-        <spirit:userFileType>xdc</spirit:userFileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-        <spirit:userFileType>SCOPED_TO_REF_audio</spirit:userFileType>
-        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
       <spirit:file>
         <spirit:name>src/audio_DC_blocker_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/audio_DC_blocker_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_IIR_filter_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_audio_filter_control_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_audio_mono_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_audio_mono_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/audio_audio_prefilter_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_audio_prefilter_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_audio_psg_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -637,52 +550,12 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/audio_filter_control.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/audio_i2s_transceiver_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/audio_mono.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_prefilter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_psg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_reset.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_scaler.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>src/audio_sigma_delta_dac_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_sigma_delta_dac_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -697,7 +570,27 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/audio_IIR_filter_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/audio_twos_complement_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_audio_prefilter_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_audio_psg_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_sigma_delta_dac_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -707,8 +600,53 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>src/audio_DC_blocker_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_audio_filter_control_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_audio_mono_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_audio_mono_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>src/iir_filter.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_prefilter.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_reset.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_scaler.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_sync.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/i2s_transceiver.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
@@ -732,23 +670,37 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/i2s_transceiver.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:name>src/audio_psg.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_filter_control.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_mono.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_ooc.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+        <spirit:userFileType>SCOPED_TO_REF_audio</spirit:userFileType>
+        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/audio_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_3f7698e0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_47df0a42</spirit:userFileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_DC_blocker_0_0/synth/audio_DC_blocker_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_prefilter_0_0/synth/audio_audio_prefilter_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_reset_0_0/synth/audio_audio_reset_0_0.v</spirit:name>
@@ -760,14 +712,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_scaler_1_0/synth/audio_audio_scaler_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_0_0/synth/audio_audio_sync_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_1_0/synth/audio_audio_sync_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -787,26 +731,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_IIR_filter_0_0/synth/audio_IIR_filter_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_twos_complement_0_0/synth/audio_twos_complement_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_1_0/synth/audio_audio_mono_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_0_0/synth/audio_audio_mono_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_prefilter_1_0/synth/audio_audio_prefilter_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_psg_0_0/synth/audio_audio_psg_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -815,23 +739,19 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_twos_complement_1_0/synth/audio_twos_complement_1_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_0_0/synth/audio_audio_mono_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_DC_blocker_1_0/synth/audio_DC_blocker_1_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_1_0/synth/audio_audio_mono_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_filter_control_0_0/synth/audio_audio_filter_control_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_0_0/synth/audio_audio_sync_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/imports/MISTer/iir_filter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_prefilter.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_0_1/synth/audio_audio_sync_0_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -840,10 +760,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/audio/audio_scaler.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -863,7 +779,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/twos_complement.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/audio/audio_psg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -871,11 +787,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_psg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_filter_control.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/audio/audio_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -889,30 +801,125 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/hdl/audio_wrapper.v</spirit:name>
+        <spirit:name>../../synth/zxaudio/zxaudio.srcs/sources_1/imports/hdl/audio_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_3f7698e0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_47df0a42</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>src/audio_filter_control.v</spirit:name>
+        <spirit:name>sim/audio_DC_blocker_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/audio_mono.v</spirit:name>
+        <spirit:name>sim/audio_audio_prefilter_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_reset_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_scaler_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_scaler_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_sync_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_sync_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_i2s_transceiver_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_sigma_delta_dac_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_tape_ear_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_tape_mic_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_IIR_filter_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_twos_complement_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_prefilter_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_psg_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_sigma_delta_dac_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_twos_complement_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_DC_blocker_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_filter_control_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_mono_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio_audio_mono_1_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/iir_filter.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/audio_prefilter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>src/audio_psg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
@@ -932,8 +939,8 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/iir_filter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:name>src/i2s_transceiver.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
@@ -957,22 +964,29 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>src/i2s_transceiver.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:name>src/audio_psg.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_filter_control.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>src/audio_mono.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>sim/audio.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>src/audio_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_DC_blocker_0_0/sim/audio_DC_blocker_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_prefilter_0_0/sim/audio_audio_prefilter_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_reset_0_0/sim/audio_audio_reset_0_0.v</spirit:name>
@@ -984,14 +998,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_scaler_1_0/sim/audio_audio_scaler_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_0_0/sim/audio_audio_sync_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_1_0/sim/audio_audio_sync_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1011,26 +1017,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_IIR_filter_0_0/sim/audio_IIR_filter_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_twos_complement_0_0/sim/audio_twos_complement_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_1_0/sim/audio_audio_mono_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_0_0/sim/audio_audio_mono_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_prefilter_1_0/sim/audio_audio_prefilter_1_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_psg_0_0/sim/audio_audio_psg_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1039,23 +1025,19 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_twos_complement_1_0/sim/audio_twos_complement_1_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_0_0/sim/audio_audio_mono_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_DC_blocker_1_0/sim/audio_DC_blocker_1_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_mono_1_0/sim/audio_audio_mono_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_filter_control_0_0/sim/audio_audio_filter_control_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_0_0/sim/audio_audio_sync_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/imports/MISTer/iir_filter.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_prefilter.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/audio/ip/audio_audio_sync_0_1/sim/audio_audio_sync_0_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1064,10 +1046,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/audio/audio_scaler.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1087,7 +1065,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/twos_complement.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/audio/audio_psg.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1095,11 +1073,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_psg.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/audio/audio_filter_control.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/audio/audio_sync.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1107,30 +1081,40 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/audio/hdl/audio_wrapper.v</spirit:name>
+        <spirit:name>../../synth/zxaudio/zxaudio.srcs/sources_1/imports/hdl/audio_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
       <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>xgui/zxaudio_v2_3.tcl</spirit:name>
+        <spirit:name>xgui/zxaudio_v2_4.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_2d0354fb</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_f41f09c1</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
   </spirit:fileSets>
-  <spirit:description>zxaudio_v2_3</spirit:description>
+  <spirit:description>zxaudio_v2_4</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
       <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">audio_wrapper_v1_0</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
-      <spirit:name>PMOD_I2S2</spirit:name>
-      <spirit:displayName>Pmod I2s2</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.PMOD_I2S2">true</spirit:value>
+      <spirit:name>mono_tape</spirit:name>
+      <spirit:displayName>PWM Output</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.mono_tape" spirit:choiceRef="choice_pairs_de212931">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>i2s2_out</spirit:name>
+      <spirit:displayName>I2s2 Out</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.i2s2_out">true</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>i2s2_in</spirit:name>
+      <spirit:displayName>I2s2 In</spirit:displayName>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.i2s2_in">true</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1141,13 +1125,13 @@
       <xilinx:taxonomies>
         <xilinx:taxonomy>/specnext</xilinx:taxonomy>
       </xilinx:taxonomies>
-      <xilinx:displayName>zxaudio_v2_3</xilinx:displayName>
+      <xilinx:displayName>zxaudio_v2_4</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>21</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:audio_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-22T19:06:38Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-29T09:08:19Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2adc191f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@272f3c7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
@@ -1224,14 +1208,210 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@99bf066_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@79ed2572_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@60f79df4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4858ef8f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22514aff_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@734e78f8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1609cf9f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a38fba0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1efd1aa7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2767442b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76ddf7b2_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22b575f7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bb64767_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@663ee437_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18765a84_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b6cdfa4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f464d66_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1467151a_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21961df0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e1a7e85_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9d0494d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56c0d614_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f270259_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72135b1b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50ec9a82_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@237f9e20_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36ffcf09_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d4e0f45_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a9fa341_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55bc719c_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13bbcc1b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f683934_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7de27beb_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bafebd_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@457c4227_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e684222_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f381a2e_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38652602_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6612570a_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9d62f77_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15944157_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@107b4a1_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ad6efea_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@695b0039_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72386b91_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54b65be0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b28deec_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6440383f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@355a8cee_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19ab7cd1_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d34edc7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6da08c35_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1aefb162_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bbb3da8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@607ee452_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12fcf1f2_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a675c4b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48db48d8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e32bcce_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2388050d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14c97810_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67637394_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4eaf5e93_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e0133b6_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b3176b4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b096b2a_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ee5231d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@103f1cf0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@771c906_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f88e4b7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b95f50f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cad2dde_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5aed90ae_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f316748_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3947763a_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10af98e0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@658ada82_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a05f05b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@719d95ce_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@709dd6de_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36a0f380_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@178cbee5_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@219bd6b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bf196f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a5bb6db_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f4a572d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a7fd458_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56799dba_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@564971b8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5bd02a2d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@650144a7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ace3d55_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23bfa72_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bdeeaf9_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13746cf_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50e7f672_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b50c3cf_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4a97b1_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36c289e9_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c2d72e8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bdf6469_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12412b49_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6def6756_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d119647_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f98109c_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@673be1e6_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@435ea367_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57661173_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@262cd7a0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a0777c4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1120b266_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11c12ef6_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d82d6c1_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@301c8267_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2422e0a6_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@268eea8d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e85db01_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@100910d4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fa52ca8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@322c0610_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@386165cd_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7195b602_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@543c4e0b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73f6fa4d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@480e84c9_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@552bde37_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@398dbeec_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f37d518_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a16d733_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cda3f20_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a783526_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12e7539b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33ba8246_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7093ac03_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26acd4db_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@238adc3f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c7220f2_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7cf1feeb_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43a02726_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@725ce347_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f7e9526_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@797b39f9_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5568d4dd_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77ef0372_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1aa179b0_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b944340_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@162011aa_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c3e8251_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7548360b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5864627f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2488ce54_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42815c2b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@444e3a4d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@731851b5_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5cc9f87a_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fb4db80_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b328a95_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70f0ed11_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ce7facb_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1918bdfb_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11f10f9c_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2eb0aae_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f1ba863_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76044dfd_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46b18445_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c6a3a9b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6439fa4b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fdb81dd_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@671a5b9d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28e096ac_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@446a4232_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79c0228_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7320a751_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a80f8b7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56438034_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a9eb0c_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67af04f8_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@418cb205_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49074697_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fa975c4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f3a3e20_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c3aa452_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4916733b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43aaab05_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15eb2cbe_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b32fc7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@456ad46f_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b7ebd28_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45e80e99_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8b1c55b_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e6351e2_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f029e0d_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@420c3032_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c796e05_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67a4f317_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33c677e4_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f826ac7_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76687bb3_ARCHIVE_LOCATION">v:/ip/zxaudio</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="4c24dd7f"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ea65509c"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="09cf98fb"/>
-      <xilinx:checksum xilinx:scope="parameters" xilinx:value="4291cb87"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="0ceef53d"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="0bcba2ea"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b8a045b0"/>
+      <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="8bc358bd"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="9660bc4f"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>
 </spirit:component>
