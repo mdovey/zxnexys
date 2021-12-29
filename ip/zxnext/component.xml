@@ -542,30 +542,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>mb_monitor</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_monitor" spirit:version="2.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_monitor_rtl" spirit:version="2.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ram_addr</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_RAM_A_ADDR</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_speed</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>o_CPU_SPEED</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>mb_reset</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_reset_rtl" spirit:version="1.0"/>
@@ -3642,11 +3618,11 @@
       <xilinx:xpmLibraries>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:zxnext:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T11:43:20Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-29T11:42:29Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@32ae8efc_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@59862add_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
@@ -3696,11 +3672,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@595af0ac_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7d7b1c6b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2c693976_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54c5cc5f_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e1672e2_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35ddd9c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e6b1c47_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@365bc0ee_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c37640_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60019109_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29315cd4_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@331f21c_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6883d0bb_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ac4b89b_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b7c3f6a_ARCHIVE_LOCATION">v:/ip/zxnext</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="3d143225"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="01fed754"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7899ebc2"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="133255e5"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="35137edd"/>

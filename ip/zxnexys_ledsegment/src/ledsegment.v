@@ -23,10 +23,7 @@
 
 
 module ledsegment (
-
-(* X_INTERFACE_INFO = "specnext.com:specnext:mb_monitor:2.0 mb_monitor ram_addr" *)
 	input		[20:0]	address,
-(* X_INTERFACE_INFO = "specnext.com:specnext:mb_monitor:2.0 mb_monitor cpu_speed" *)
     input       [1:0]   cpu_speed,
 
     output      [7:0]   an,

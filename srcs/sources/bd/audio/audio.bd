@@ -608,6 +608,11 @@
         "xci_name": "audio_audio_mono_1_0",
         "xci_path": "ip\\audio_audio_mono_1_0\\audio_audio_mono_1_0.xci",
         "inst_hier_path": "audio_mono_1",
+        "parameters": {
+          "SHIFT": {
+            "value": "2"
+          }
+        },
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "audio_mono",

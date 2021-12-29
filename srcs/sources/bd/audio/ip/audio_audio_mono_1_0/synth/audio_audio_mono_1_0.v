@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "audio_mono,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "audio_audio_mono_1_0,audio_mono,{}" *)
-(* CORE_GENERATION_INFO = "audio_audio_mono_1_0,audio_mono,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=audio_mono,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,SHIFT=1}" *)
+(* CORE_GENERATION_INFO = "audio_audio_mono_1_0,audio_mono,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=audio_mono,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,SHIFT=2}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module audio_audio_mono_1_0 (
@@ -67,7 +67,7 @@ output wire [15 : 0] mono_out;
 
   audio_mono #(
     .AUDIO_DW(16),
-    .SHIFT(1)
+    .SHIFT(2)
   ) inst (
     .left_in(left_in),
     .right_in(right_in),

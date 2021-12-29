@@ -66,7 +66,7 @@ output wire [15 : 0] mono_out;
 
   audio_mono #(
     .AUDIO_DW(16),
-    .SHIFT(1)
+    .SHIFT(2)
   ) inst (
     .left_in(left_in),
     .right_in(right_in),

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 29 09:01:02 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 29 11:46:19 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="audio" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -143,7 +143,7 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="AUDIO_DW" VALUE="16"/>
-        <PARAMETER NAME="SHIFT" VALUE="1"/>
+        <PARAMETER NAME="SHIFT" VALUE="2"/>
         <PARAMETER NAME="Component_Name" VALUE="audio_audio_mono_1_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>

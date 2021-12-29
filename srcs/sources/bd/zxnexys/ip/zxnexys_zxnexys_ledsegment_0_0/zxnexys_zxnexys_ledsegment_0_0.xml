@@ -6,30 +6,6 @@
   <spirit:version>1.0</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>mb_monitor</spirit:name>
-      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_monitor" spirit:version="2.0"/>
-      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_monitor_rtl" spirit:version="2.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>ram_addr</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>address</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>cpu_speed</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>cpu_speed</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_peripheral</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -78,7 +54,7 @@
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>CLK_DOMAIN</spirit:name>
-          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN">zxnexys_zxclock_0_0_clk_peripheral</spirit:value>
+          <spirit:value spirit:resolve="generated" spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN"/>
           <spirit:vendorExtensions>
             <xilinx:parameterInfo>
               <xilinx:parameterUsage>none</xilinx:parameterUsage>
@@ -145,117 +121,40 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>mb_clock</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock_rtl" spirit:version="1.0"/>
+      <spirit:monitor spirit:interfaceMode="slave"/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>speed</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>cpu_speed</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>ram_port_a</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="ram_port_a" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="ram_port_a_rtl" spirit:version="1.0"/>
+      <spirit:monitor spirit:interfaceMode="slave"/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>ram_addr</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>address</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
-    <spirit:views>
-      <spirit:view>
-        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
-        <spirit:displayName>Synthesis</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
-        <spirit:modelName>ledsegment</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:03:23 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2c7efd64</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_synthesisconstraints</spirit:name>
-        <spirit:displayName>Synthesis Constraints</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:synthesis.constraints</spirit:envIdentifier>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2c7efd64</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_verilogsynthesiswrapper</spirit:name>
-        <spirit:displayName>Verilog Synthesis Wrapper</spirit:displayName>
-        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
-        <spirit:language>verilog</spirit:language>
-        <spirit:modelName>zxnexys_zxnexys_ledsegment_0_0</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_verilogsynthesiswrapper_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:03:23 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2c7efd64</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
-        <spirit:displayName>Simulation</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
-        <spirit:modelName>ledsegment</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:03:23 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b1be4977</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_verilogsimulationwrapper</spirit:name>
-        <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
-        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
-        <spirit:language>verilog</spirit:language>
-        <spirit:modelName>zxnexys_zxnexys_ledsegment_0_0</spirit:modelName>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:03:23 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:b1be4977</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-      <spirit:view>
-        <spirit:name>xilinx_externalfiles</spirit:name>
-        <spirit:displayName>External Files</spirit:displayName>
-        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
-        <spirit:fileSetRef>
-          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
-        </spirit:fileSetRef>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:07:30 UTC 2021</spirit:value>
-          </spirit:parameter>
-          <spirit:parameter>
-            <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2c7efd64</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:view>
-    </spirit:views>
     <spirit:ports>
       <spirit:port>
         <spirit:name>address</spirit:name>
@@ -268,8 +167,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -288,8 +186,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
           <spirit:driver>
@@ -308,8 +205,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -325,8 +221,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic_vector</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -338,8 +233,7 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
@@ -351,90 +245,13 @@
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
       </spirit:port>
     </spirit:ports>
   </spirit:model>
-  <spirit:fileSets>
-    <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>../../ipshared/5afa/src/ledsegment.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/ledsegment.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_verilogsynthesiswrapper_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>synth/zxnexys_zxnexys_ledsegment_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>../../ipshared/5afa/src/ledsegment.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/ledsegment.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>sim/zxnexys_zxnexys_ledsegment_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-    <spirit:fileSet>
-      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
-      <spirit:file>
-        <spirit:name>zxnexys_zxnexys_ledsegment_0_0.dcp</spirit:name>
-        <spirit:userFileType>dcp</spirit:userFileType>
-        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxnexys_ledsegment_0_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxnexys_ledsegment_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxnexys_ledsegment_0_0_sim_netlist.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxnexys_ledsegment_0_0_sim_netlist.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
-        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-    </spirit:fileSet>
-  </spirit:fileSets>
   <spirit:description>zxnexys_ledsegment_v1_3</spirit:description>
   <spirit:parameters>
     <spirit:parameter>
@@ -446,7 +263,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxnexys_ledsegment_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6364bc72_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@45d2eb01_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
@@ -483,12 +300,38 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@7a3dfebd_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2085039d_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@58998530_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d17d52f_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a943e85_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e19ee3e_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d0d6b5e_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1257a1e_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@646e5e19_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@281948b3_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f425573_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15b0dd6a_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b37294d_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e4e80f9_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c897856_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e5cc131_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e057b2d_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f7d99b3_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b5289b8_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d3221e1_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4013f0e2_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@464e4204_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d5ed639_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@137e8c84_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18b22f5c_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@317967dd_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60a412ac_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30c24afc_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@457bb197_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_PORT" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN" xilinx:valueSource="default_prop" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.CLK_DOMAIN" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.PHASE" xilinx:valuePermission="bd_and_user"/>
@@ -497,8 +340,8 @@
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="25bc3555"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="cf16e1f6"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="32f07fe4"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8bcc81c3"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="19b6b397"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2432bb96"/>
     </xilinx:packagingInfo>
