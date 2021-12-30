@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 29 10:12:32 2021
+// Date        : Thu Dec 30 12:13:33 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxnexys_pi_led_sw_ua_0_0 -prefix
+//               zxnexys_zxnexys_pi_led_sw_ua_0_0_ zxnexys_zxnexys_pi_led_sw_ua_0_0_sim_netlist.v
 // Design      : zxnexys_zxnexys_pi_led_sw_ua_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,104 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_pi_led_sw_ua_0_0,pi_led_sw_uart_i2s,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "pi_led_sw_uart_i2s,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxnexys_pi_led_sw_ua_0_0
-   (gpio_o,
-    gpio_i,
-    gpio_t,
-    uart_rx,
-    uart_tx,
-    uart_cts,
-    uart_rts,
-    i2s_sclk,
-    i2s_wclk,
-    i2s_dout,
-    i2s_din,
-    led,
-    sw,
-    led16_r,
-    led16_g,
-    led16_b,
-    led17_r,
-    led17_g,
-    led17_b,
-    clk_peripheral,
-    reset);
-  (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_o" *) input [27:0]gpio_o;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_i" *) output [27:0]gpio_i;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_t" *) input [27:0]gpio_t;
-  output uart_rx;
-  input uart_tx;
-  output uart_cts;
-  input uart_rts;
-  input i2s_sclk;
-  input i2s_wclk;
-  input i2s_dout;
-  output i2s_din;
-  output [15:0]led;
-  input [15:0]sw;
-  output led16_r;
-  output led16_g;
-  output led16_b;
-  output led17_r;
-  output led17_g;
-  output led17_b;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-
-  wire \<const0> ;
-  wire clk_peripheral;
-  wire [27:0]gpio_o;
-  wire [27:0]gpio_t;
-  wire i2s_dout;
-  wire [15:0]led;
-  wire led16_b;
-  wire led16_g;
-  wire led16_r;
-  wire led17_b;
-  wire led17_g;
-  wire led17_r;
-  wire reset;
-  wire [15:0]sw;
-  wire uart_rts;
-  wire uart_tx;
-
-  assign gpio_i[27] = \<const0> ;
-  assign gpio_i[26] = \<const0> ;
-  assign gpio_i[25:22] = sw[15:12];
-  assign gpio_i[21] = \<const0> ;
-  assign gpio_i[20] = i2s_dout;
-  assign gpio_i[19] = \<const0> ;
-  assign gpio_i[18] = \<const0> ;
-  assign gpio_i[17] = uart_rts;
-  assign gpio_i[16] = \<const0> ;
-  assign gpio_i[15] = uart_tx;
-  assign gpio_i[14] = \<const0> ;
-  assign gpio_i[13:2] = sw[11:0];
-  assign gpio_i[1] = \<const0> ;
-  assign gpio_i[0] = \<const0> ;
-  assign i2s_din = \<const0> ;
-  assign uart_cts = gpio_o[16];
-  assign uart_rx = gpio_o[14];
-  GND GND
-       (.G(\<const0> ));
-  zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s inst
-       (.clk_peripheral(clk_peripheral),
-        .gpio_o({gpio_o[27:22],gpio_o[13:2]}),
-        .gpio_t({gpio_t[26:22],gpio_t[13:2]}),
-        .led(led),
-        .led16_b(led16_b),
-        .led16_g(led16_g),
-        .led16_r(led16_r),
-        .led17_b(led17_b),
-        .led17_g(led17_g),
-        .led17_r(led17_r),
-        .reset(reset));
-endmodule
-
-(* ORIG_REF_NAME = "pi_led_sw_uart_i2s" *) 
 module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
    (led,
     led16_r,
@@ -508,7 +410,6 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
         .led17_r_0(\rgb17_reg_n_0_[0] ));
 endmodule
 
-(* ORIG_REF_NAME = "rgb" *) 
 module zxnexys_zxnexys_pi_led_sw_ua_0_0_rgb
    (led16_r,
     led16_b,
@@ -692,6 +593,103 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_rgb_0
         .I2(count[1]),
         .I3(led17_r_0),
         .O(led17_r));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_pi_led_sw_ua_0_0,pi_led_sw_uart_i2s,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "pi_led_sw_uart_i2s,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxnexys_pi_led_sw_ua_0_0
+   (gpio_o,
+    gpio_i,
+    gpio_t,
+    uart_rx,
+    uart_tx,
+    uart_cts,
+    uart_rts,
+    i2s_sclk,
+    i2s_wclk,
+    i2s_dout,
+    i2s_din,
+    led,
+    sw,
+    led16_r,
+    led16_g,
+    led16_b,
+    led17_r,
+    led17_g,
+    led17_b,
+    clk_peripheral,
+    reset);
+  (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_o" *) input [27:0]gpio_o;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_i" *) output [27:0]gpio_i;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_t" *) input [27:0]gpio_t;
+  output uart_rx;
+  input uart_tx;
+  output uart_cts;
+  input uart_rts;
+  input i2s_sclk;
+  input i2s_wclk;
+  input i2s_dout;
+  output i2s_din;
+  output [15:0]led;
+  input [15:0]sw;
+  output led16_r;
+  output led16_g;
+  output led16_b;
+  output led17_r;
+  output led17_g;
+  output led17_b;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+
+  wire \<const0> ;
+  wire clk_peripheral;
+  wire [27:0]gpio_o;
+  wire [27:0]gpio_t;
+  wire i2s_dout;
+  wire [15:0]led;
+  wire led16_b;
+  wire led16_g;
+  wire led16_r;
+  wire led17_b;
+  wire led17_g;
+  wire led17_r;
+  wire reset;
+  wire [15:0]sw;
+  wire uart_rts;
+  wire uart_tx;
+
+  assign gpio_i[27] = \<const0> ;
+  assign gpio_i[26] = \<const0> ;
+  assign gpio_i[25:22] = sw[15:12];
+  assign gpio_i[21] = \<const0> ;
+  assign gpio_i[20] = i2s_dout;
+  assign gpio_i[19] = \<const0> ;
+  assign gpio_i[18] = \<const0> ;
+  assign gpio_i[17] = uart_rts;
+  assign gpio_i[16] = \<const0> ;
+  assign gpio_i[15] = uart_tx;
+  assign gpio_i[14] = \<const0> ;
+  assign gpio_i[13:2] = sw[11:0];
+  assign gpio_i[1] = \<const0> ;
+  assign gpio_i[0] = \<const0> ;
+  assign i2s_din = \<const0> ;
+  assign uart_cts = gpio_o[16];
+  assign uart_rx = gpio_o[14];
+  GND GND
+       (.G(\<const0> ));
+  zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s inst
+       (.clk_peripheral(clk_peripheral),
+        .gpio_o({gpio_o[27:22],gpio_o[13:2]}),
+        .gpio_t({gpio_t[26:22],gpio_t[13:2]}),
+        .led(led),
+        .led16_b(led16_b),
+        .led16_g(led16_g),
+        .led16_r(led16_r),
+        .led17_b(led17_b),
+        .led17_g(led17_g),
+        .led17_r(led17_r),
+        .reset(reset));
 endmodule
 `ifndef GLBL
 `define GLBL

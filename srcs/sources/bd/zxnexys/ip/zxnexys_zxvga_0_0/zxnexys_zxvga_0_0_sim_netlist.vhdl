@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Wed Dec 29 10:14:49 2021
+-- Date        : Thu Dec 30 12:15:52 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxvga_0_0/zxnexys_zxvga_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top zxnexys_zxvga_0_0 -prefix
+--               zxnexys_zxvga_0_0_ zxnexys_zxvga_0_0_sim_netlist.vhdl
 -- Design      : zxnexys_zxvga_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -26,8 +26,6 @@ entity zxnexys_zxvga_0_0_dpram2 is
     impar_31 : in STD_LOGIC;
     blank_s : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_dpram2 : entity is "dpram2";
 end zxnexys_zxvga_0_0_dpram2;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_dpram2 is
@@ -418,8 +416,6 @@ entity zxnexys_zxvga_0_0_s_fix is
     scandoubler_0_v_sync : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_s_fix : entity is "s_fix";
 end zxnexys_zxvga_0_0_s_fix;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_s_fix is
@@ -4147,8 +4143,6 @@ entity zxnexys_zxvga_0_0_scandoubler is
     \b_reg[2]_0\ : in STD_LOGIC;
     \b_reg[1]_0\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_scandoubler : entity is "scandoubler";
 end zxnexys_zxvga_0_0_scandoubler;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_scandoubler is
@@ -4313,8 +4307,6 @@ entity zxnexys_zxvga_0_0_scan_convert is
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_scan_convert : entity is "scan_convert";
 end zxnexys_zxvga_0_0_scan_convert;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_scan_convert is
@@ -6529,8 +6521,6 @@ entity zxnexys_zxvga_0_0_vga_s_fix_0_0 is
     scandoubler_0_h_sync : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga_s_fix_0_0 : entity is "vga_s_fix_0_0";
 end zxnexys_zxvga_0_0_vga_s_fix_0_0;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_vga_s_fix_0_0 is
@@ -6552,8 +6542,6 @@ entity zxnexys_zxvga_0_0_vga_s_fix_1_0 is
     scandoubler_0_v_sync : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga_s_fix_1_0 : entity is "vga_s_fix_1_0";
 end zxnexys_zxvga_0_0_vga_s_fix_1_0;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_vga_s_fix_1_0 is
@@ -6590,8 +6578,6 @@ entity zxnexys_zxvga_0_0_vga_scandoubler_0_0 is
     \b_reg[2]\ : in STD_LOGIC;
     \b_reg[1]\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga_scandoubler_0_0 : entity is "vga_scandoubler_0_0";
 end zxnexys_zxvga_0_0_vga_scandoubler_0_0;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_vga_scandoubler_0_0 is
@@ -6645,8 +6631,6 @@ entity zxnexys_zxvga_0_0_vga_scan_convert_0_0 is
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga_scan_convert_0_0 : entity is "vga_scan_convert_0_0";
 end zxnexys_zxvga_0_0_vga_scan_convert_0_0;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_vga_scan_convert_0_0 is
@@ -6697,8 +6681,6 @@ entity zxnexys_zxvga_0_0_vga is
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga : entity is "vga";
 end zxnexys_zxvga_0_0_vga;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_vga is
@@ -6800,8 +6782,6 @@ entity zxnexys_zxvga_0_0_vga_wrapper is
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga_wrapper : entity is "vga_wrapper";
 end zxnexys_zxvga_0_0_vga_wrapper;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_vga_wrapper is

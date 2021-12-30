@@ -91,6 +91,22 @@
             <spirit:name>joymap_we</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>joy_left_type</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>joy_left_type</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>joy_right_type</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>joy_right_type</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
@@ -267,22 +283,6 @@
         </spirit:portMap>
         <spirit:portMap>
           <spirit:logicalPort>
-            <spirit:name>joy_left_type</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>joy_left_type</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>joy_right_type</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>joy_right_type</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-        <spirit:portMap>
-          <spirit:logicalPort>
             <spirit:name>joy_right</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
@@ -294,6 +294,43 @@
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
             <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.joystick" xilinx:dependency="$joystick">true</xilinx:isEnabled>
+          </xilinx:enablement>
+        </xilinx:busInterfaceInfo>
+      </spirit:vendorExtensions>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>joy_clk_en</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clockenable" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clockenable_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>joy_clk_en</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>FREQ_HZ</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.JOY_CLK_EN.FREQ_HZ">100000000</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>PHASE</spirit:name>
+          <spirit:value spirit:format="long" spirit:id="BUSIFPARAM_VALUE.JOY_CLK_EN.PHASE">0</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.JOY_CLK_EN.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+      <spirit:vendorExtensions>
+        <xilinx:busInterfaceInfo>
+          <xilinx:enablement>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.joy_clk_en" xilinx:dependency="$joystick">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -328,7 +365,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>74e71ab7</spirit:value>
+            <spirit:value>da8cc036</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -359,7 +396,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>4b390eeb</spirit:value>
+            <spirit:value>b091f1e7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -453,6 +490,22 @@
               <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>joy_clk_en</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+          <spirit:driver>
+            <spirit:defaultValue spirit:format="long">1</spirit:defaultValue>
+          </spirit:driver>
         </spirit:wire>
       </spirit:port>
       <spirit:port>
@@ -864,10 +917,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_keyb_clocks_0_0/synth/keyboard_keyb_clocks_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_emu_fnkeys_0_0/synth/keyboard_emu_fnkeys_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -880,12 +929,16 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/ram/init/keyjoy_64_6.coe</spirit:name>
+        <spirit:userFileType>coe</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_membrane_stick_0_0/synth/keyboard_membrane_stick_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/imports/ZXNext/ram/init/keyjoy_64_6.coe</spirit:name>
-        <spirit:userFileType>coe</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_keyb_clocks_0_0/synth/keyboard_keyb_clocks_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/imports/ZXNext/input/keyboard/keymaps.vhd</spirit:name>
@@ -897,10 +950,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/keyboard/special_keys.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -923,10 +972,6 @@
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_util_vector_logic_0_0/keyboard_util_vector_logic_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/imports/ZXNext/input/membrane/membrane_stick.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_dist_mem_gen_0_0/keyboard_dist_mem_gen_0_0.xci</spirit:name>
@@ -964,6 +1009,14 @@
         <spirit:userFileType>CELL_NAME_xlconcat_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/input/membrane/membrane_stick.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/synth/keyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -976,7 +1029,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/hdl/keyboard_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_4bece4ef</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_2cc08690</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -1097,10 +1150,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_keyb_clocks_0_0/sim/keyboard_keyb_clocks_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_emu_fnkeys_0_0/sim/keyboard_emu_fnkeys_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -1113,12 +1162,16 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/ram/init/keyjoy_64_6.coe</spirit:name>
+        <spirit:userFileType>coe</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_membrane_stick_0_0/sim/keyboard_membrane_stick_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/imports/ZXNext/ram/init/keyjoy_64_6.coe</spirit:name>
-        <spirit:userFileType>coe</spirit:userFileType>
+        <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_keyb_clocks_0_0/sim/keyboard_keyb_clocks_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/imports/ZXNext/input/keyboard/keymaps.vhd</spirit:name>
@@ -1130,10 +1183,6 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/keyboard/special_keys.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1156,10 +1205,6 @@
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_util_vector_logic_0_0/keyboard_util_vector_logic_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/imports/ZXNext/input/membrane/membrane_stick.vhd</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_dist_mem_gen_0_0/keyboard_dist_mem_gen_0_0.xci</spirit:name>
@@ -1195,6 +1240,14 @@
         <spirit:name>../../srcs/sources/bd/keyboard/ip/keyboard_xlconcat_0_0/keyboard_xlconcat_0_0.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconcat_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/ZXNext/input/membrane/membrane_stick.vhd</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/keyboard/sim/keyboard.v</spirit:name>
@@ -1287,8 +1340,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxkeyboard_v2_4</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>11</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-28T18:59:11Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>17</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-30T13:23:34Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@531bd9c0_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@681670fb_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
@@ -1436,13 +1489,82 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@695f9d25_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@ce82c50_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@578ad577_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7afa0a10_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24bee3cd_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59b25f21_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49df70e7_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1806c865_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5553f0dd_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@db5f866_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f76ee0a_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c6de82e_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6dcafd22_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e70cb43_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f11ae6e_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a389418_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49224a2e_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d33c241_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53e1b36c_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24265b0f_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7656d8d0_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6aacc591_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2518ae03_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@269e25b_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24e6b382_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45fa0b3e_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27e0fa28_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@769c7621_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d69fc64_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ab23af4_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25af4e9c_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@491a94b5_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d3b4284_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24b6c9be_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5705b724_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39785df7_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60d843ce_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@101fb23f_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a51bc8c_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c42547c_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a442acf_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@769a3977_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@315f4022_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7efee384_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f20027c_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18aba270_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5287dd26_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a9c7849_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28c2ca49_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a53b916_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c942cc3_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@706c16f2_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@165d2444_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c88d31e_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@abda7a5_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59624b7b_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ed004db_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b3f7715_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7890e07b_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@99189b2_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60707095_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7fa35139_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43c1dea5_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3831040e_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c5ccde2_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a5f7383_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@447bb0bf_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e1d96d_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@743b152_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fb5f179_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@344b61ab_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79edfbd9_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7fbe0b3d"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="dcbda3b2"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="464e708c"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="aee9190a"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e5a9a517"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="d6d71e35"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="3f73a46c"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

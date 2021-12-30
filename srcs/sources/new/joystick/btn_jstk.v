@@ -23,7 +23,11 @@
 
 
 module btn_jstk(
-    output [10:0]   joystick,
+    output              r,
+    output              l,
+    output              d,
+    output              u,
+    output              f1,
 
     input           btnc,
     input           btnu,
@@ -40,6 +44,6 @@ module btn_jstk(
     input	        reset 
     );
     
-    assign joystick = {3'b000, btnc, 3'b000, btnu, btnd, btnl, btnr};
+    assign joystick = {6'b00_0000, btnc, btnu, btnd, btnl, btnr};
     
 endmodule

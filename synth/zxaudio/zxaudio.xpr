@@ -47,8 +47,9 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip"/>
-    <Option Name="IPOutputRepo" Val="V:/.cache"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip/zxaudio"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip/if"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
@@ -65,13 +66,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="2"/>
-    <Option Name="WTModelSimExportSim" Val="2"/>
-    <Option Name="WTQuestaExportSim" Val="2"/>
+    <Option Name="WTXSimExportSim" Val="4"/>
+    <Option Name="WTModelSimExportSim" Val="4"/>
+    <Option Name="WTQuestaExportSim" Val="4"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="2"/>
-    <Option Name="WTRivieraExportSim" Val="2"/>
-    <Option Name="WTActivehdlExportSim" Val="2"/>
+    <Option Name="WTVcsExportSim" Val="4"/>
+    <Option Name="WTRivieraExportSim" Val="4"/>
+    <Option Name="WTActivehdlExportSim" Val="4"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -150,50 +151,59 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../srcs/sources/imports/ZXNext/misc/debounce.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../srcs/sources/bd/audio/audio.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_sync_0_0/audio_audio_sync_0_0.xci">
-          <Proxy FileSetName="audio_audio_sync_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_sigma_delta_dac_1_0/audio_sigma_delta_dac_1_0.xci">
-          <Proxy FileSetName="audio_sigma_delta_dac_1_0"/>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_psg_0_0/audio_audio_psg_0_0.xci">
+          <Proxy FileSetName="audio_audio_psg_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_scaler_0_0/audio_audio_scaler_0_0.xci">
           <Proxy FileSetName="audio_audio_scaler_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_psg_0_0/audio_audio_psg_0_0.xci">
-          <Proxy FileSetName="audio_audio_psg_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_reset_0_0/audio_audio_reset_0_0.xci">
           <Proxy FileSetName="audio_audio_reset_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_sigma_delta_dac_0_0/audio_sigma_delta_dac_0_0.xci">
-          <Proxy FileSetName="audio_sigma_delta_dac_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_mono_0_0/audio_audio_mono_0_0.xci">
-          <Proxy FileSetName="audio_audio_mono_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_mono_1_0/audio_audio_mono_1_0.xci">
-          <Proxy FileSetName="audio_audio_mono_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_scaler_1_0/audio_audio_scaler_1_0.xci">
-          <Proxy FileSetName="audio_audio_scaler_1_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_i2s_transceiver_0_0/audio_i2s_transceiver_0_0.xci">
           <Proxy FileSetName="audio_i2s_transceiver_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_sigma_delta_dac_0_0/audio_sigma_delta_dac_0_0.xci">
+          <Proxy FileSetName="audio_sigma_delta_dac_0_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_tape_ear_0_0/audio_tape_ear_0_0.xci">
           <Proxy FileSetName="audio_tape_ear_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_scaler_1_0/audio_audio_scaler_1_0.xci">
+          <Proxy FileSetName="audio_audio_scaler_1_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_sigma_delta_dac_1_0/audio_sigma_delta_dac_1_0.xci">
+          <Proxy FileSetName="audio_sigma_delta_dac_1_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_sync_0_1/audio_audio_sync_0_1.xci">
+          <Proxy FileSetName="audio_audio_sync_0_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_debounce_0_0/audio_debounce_0_0.xci">
+          <Proxy FileSetName="audio_debounce_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_sync_0_0/audio_audio_sync_0_0.xci">
+          <Proxy FileSetName="audio_audio_sync_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_mono_1_0/audio_audio_mono_1_0.xci">
+          <Proxy FileSetName="audio_audio_mono_1_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_tape_mic_0_0/audio_tape_mic_0_0.xci">
           <Proxy FileSetName="audio_tape_mic_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_sync_0_1/audio_audio_sync_0_1.xci">
-          <Proxy FileSetName="audio_audio_sync_0_1"/>
+        <CompFileExtendedInfo CompFileName="audio.bd" FileRelPathName="ip/audio_audio_mono_0_0/audio_audio_mono_0_0.xci">
+          <Proxy FileSetName="audio_audio_mono_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/hdl/audio_wrapper.v">
@@ -242,6 +252,7 @@
       <File Path="$PPRDIR/../../ip/zxaudio/component.xml">
         <FileInfo SFType="IPXACT"/>
       </File>
+      <File Path="$PPRDIR/../../srcs/sources/imports/ZXNext/ZXNext.txt"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="audio_wrapper"/>
@@ -275,6 +286,24 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
+    <FileSet Name="audio_audio_scaler_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_scaler_1_0" RelGenDir="$PGENDIR/audio_audio_scaler_1_0">
+      <Config>
+        <Option Name="TopModule" Val="audio_audio_scaler_1_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="audio_sigma_delta_dac_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_sigma_delta_dac_1_0" RelGenDir="$PGENDIR/audio_sigma_delta_dac_1_0">
+      <Config>
+        <Option Name="TopModule" Val="audio_sigma_delta_dac_1_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="audio_audio_psg_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_psg_0_0" RelGenDir="$PGENDIR/audio_audio_psg_0_0">
+      <Config>
+        <Option Name="TopModule" Val="audio_audio_psg_0_0"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
     <FileSet Name="audio_audio_reset_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_reset_0_0" RelGenDir="$PGENDIR/audio_audio_reset_0_0">
       <Config>
         <Option Name="TopModule" Val="audio_audio_reset_0_0"/>
@@ -284,12 +313,6 @@
     <FileSet Name="audio_audio_scaler_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_scaler_0_0" RelGenDir="$PGENDIR/audio_audio_scaler_0_0">
       <Config>
         <Option Name="TopModule" Val="audio_audio_scaler_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="audio_audio_scaler_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_scaler_1_0" RelGenDir="$PGENDIR/audio_audio_scaler_1_0">
-      <Config>
-        <Option Name="TopModule" Val="audio_audio_scaler_1_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -317,18 +340,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="audio_audio_psg_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_psg_0_0" RelGenDir="$PGENDIR/audio_audio_psg_0_0">
-      <Config>
-        <Option Name="TopModule" Val="audio_audio_psg_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="audio_sigma_delta_dac_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_sigma_delta_dac_1_0" RelGenDir="$PGENDIR/audio_sigma_delta_dac_1_0">
-      <Config>
-        <Option Name="TopModule" Val="audio_sigma_delta_dac_1_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="audio_audio_mono_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_mono_0_0" RelGenDir="$PGENDIR/audio_audio_mono_0_0">
       <Config>
         <Option Name="TopModule" Val="audio_audio_mono_0_0"/>
@@ -350,6 +361,12 @@
     <FileSet Name="audio_audio_sync_0_1" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_audio_sync_0_1" RelGenDir="$PGENDIR/audio_audio_sync_0_1">
       <Config>
         <Option Name="TopModule" Val="audio_audio_sync_0_1"/>
+        <Option Name="UseBlackboxStub" Val="1"/>
+      </Config>
+    </FileSet>
+    <FileSet Name="audio_debounce_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/audio_debounce_0_0" RelGenDir="$PGENDIR/audio_debounce_0_0">
+      <Config>
+        <Option Name="TopModule" Val="audio_debounce_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -375,6 +392,38 @@
   <Runs Version="1" Minor="15">
     <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" IncrementalCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_wrapper.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
       <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
+          <Desc>Vivado Synthesis Defaults</Desc>
+        </StratHandle>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_audio_scaler_1_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_scaler_1_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_scaler_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_scaler_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_scaler_1_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_sigma_delta_dac_1_0_synth_1" Type="Ft3:Synth" SrcSet="audio_sigma_delta_dac_1_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_sigma_delta_dac_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_sigma_delta_dac_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_sigma_delta_dac_1_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_audio_psg_0_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_psg_0_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_psg_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_psg_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_psg_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
@@ -394,16 +443,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="audio_audio_scaler_0_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_scaler_0_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_scaler_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_scaler_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_scaler_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="audio_audio_scaler_1_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_scaler_1_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_scaler_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_scaler_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_scaler_1_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
@@ -453,26 +492,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="audio_audio_psg_0_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_psg_0_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_psg_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_psg_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_psg_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="audio_sigma_delta_dac_1_0_synth_1" Type="Ft3:Synth" SrcSet="audio_sigma_delta_dac_1_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_sigma_delta_dac_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_sigma_delta_dac_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_sigma_delta_dac_1_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="audio_audio_mono_0_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_mono_0_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_mono_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_mono_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_mono_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
@@ -495,9 +514,7 @@
     </Run>
     <Run Id="audio_audio_sync_0_0_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_sync_0_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_sync_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_sync_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_sync_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -507,9 +524,17 @@
     </Run>
     <Run Id="audio_audio_sync_0_1_synth_1" Type="Ft3:Synth" SrcSet="audio_audio_sync_0_1" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_sync_0_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_audio_sync_0_1_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_sync_0_1_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
+        <Step Id="synth_design"/>
+      </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
+      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_debounce_0_0_synth_1" Type="Ft3:Synth" SrcSet="audio_debounce_0_0" Part="xc7a100tcsg324-1" ConstrsSet="audio_debounce_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/audio_debounce_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_debounce_0_0_synth_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -518,6 +543,59 @@
       <RQSFiles/>
     </Run>
     <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+          <Desc>Default settings for Implementation.</Desc>
+        </StratHandle>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_audio_scaler_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_scaler_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_scaler_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_scaler_1_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_sigma_delta_dac_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_sigma_delta_dac_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_sigma_delta_dac_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_sigma_delta_dac_1_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_audio_psg_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_psg_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_psg_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_psg_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
@@ -552,23 +630,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="audio_audio_scaler_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_scaler_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_scaler_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_scaler_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="audio_audio_scaler_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_scaler_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_scaler_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_scaler_1_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
@@ -653,40 +714,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="audio_audio_psg_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_psg_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_psg_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_psg_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="audio_sigma_delta_dac_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_sigma_delta_dac_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_sigma_delta_dac_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_sigma_delta_dac_1_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="audio_audio_mono_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_mono_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_mono_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_mono_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
@@ -723,9 +750,7 @@
     </Run>
     <Run Id="audio_audio_sync_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_sync_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_sync_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_sync_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -742,9 +767,24 @@
     </Run>
     <Run Id="audio_audio_sync_0_1_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_audio_sync_0_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_audio_sync_0_1_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_audio_sync_0_1_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+        <Step Id="init_design"/>
+        <Step Id="opt_design"/>
+        <Step Id="power_opt_design"/>
+        <Step Id="place_design"/>
+        <Step Id="post_place_power_opt_design"/>
+        <Step Id="phys_opt_design"/>
+        <Step Id="route_design"/>
+        <Step Id="post_route_phys_opt_design"/>
+        <Step Id="write_bitstream"/>
+      </Strategy>
+      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
+      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
+      <RQSFiles/>
+    </Run>
+    <Run Id="audio_debounce_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="audio_debounce_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="audio_debounce_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/audio_debounce_0_0_impl_1">
+      <Strategy Version="1" Minor="2">
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

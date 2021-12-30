@@ -58,6 +58,7 @@ module keyboard_keyb_clocks_0_0 (
   clk_ps2,
   fnkeys_enable,
   membrane_enable,
+  joy_clk_en,
   clk_peripheral,
   reset
 );
@@ -65,6 +66,7 @@ module keyboard_keyb_clocks_0_0 (
 output wire clk_ps2;
 output wire fnkeys_enable;
 output wire membrane_enable;
+input wire joy_clk_en;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN keyboard_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
@@ -76,6 +78,7 @@ input wire reset;
     .clk_ps2(clk_ps2),
     .fnkeys_enable(fnkeys_enable),
     .membrane_enable(membrane_enable),
+    .joy_clk_en(joy_clk_en),
     .clk_peripheral(clk_peripheral),
     .reset(reset)
   );

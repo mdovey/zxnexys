@@ -1699,11 +1699,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxpi_accel_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:pi_accel:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T20:05:21Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:32:42Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@d866c9e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@11cbd17e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
@@ -1787,6 +1787,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@3407a68a_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@13b34a5e_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2e91c1d5_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50750e70_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3db9e7ba_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62e707e8_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58b23516_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e9ebdee_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33521c3d_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30fbd32d_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e8a0c34_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25f1de09_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1eaaf7ae_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76d15375_ARCHIVE_LOCATION">v:/ip/zxpi_accel</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

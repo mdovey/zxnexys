@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 28 18:55:34 2021
+//Date        : Thu Dec 30 13:15:32 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target keyboard.bd
 //Design      : keyboard
@@ -16,6 +16,7 @@ module keyboard
     clk_peripheral_n,
     column,
     extended_keys,
+    joy_clk_en,
     joy_io_mode_en,
     joy_left,
     joy_left_type,
@@ -40,6 +41,7 @@ module keyboard
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_PERIPHERAL_N CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_PERIPHERAL_N, CLK_DOMAIN keyboard_clk_peripheral_n, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_peripheral_n;
   output [4:0]column;
   output [15:0]extended_keys;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clockenable:1.0 CE.JOY_CLK_EN CE" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CE.JOY_CLK_EN, POLARITY ACTIVE_LOW" *) input joy_clk_en;
   input joy_io_mode_en;
   input [10:0]joy_left;
   input [2:0]joy_left_type;
@@ -73,6 +75,7 @@ module keyboard
   wire [4:0]emu_fnkeys_0_o_cols_filtered;
   wire [10:1]emu_fnkeys_0_o_fnkeys;
   wire [7:0]emu_fnkeys_0_o_rows_filtered;
+  wire joy_clk_en_1;
   wire joy_io_mode_en_1;
   wire [10:0]joy_left_1;
   wire [2:0]joy_left_type_1;
@@ -114,6 +117,7 @@ module keyboard
   assign clk_peripheral_n_1 = clk_peripheral_n;
   assign column[4:0] = emu_fnkeys_0_o_cols_filtered;
   assign extended_keys[15:0] = membrane_0_o_extended_keys;
+  assign joy_clk_en_1 = joy_clk_en;
   assign joy_io_mode_en_1 = joy_io_mode_en;
   assign joy_left_1 = joy_left[10:0];
   assign joy_left_type_1 = joy_left_type[2:0];
@@ -161,6 +165,7 @@ module keyboard
        (.clk_peripheral(clk_peripheral_1),
         .clk_ps2(keyb_clocks_0_clk_ps2),
         .fnkeys_enable(keyb_clocks_0_fnkeys_enable),
+        .joy_clk_en(joy_clk_en_1),
         .membrane_enable(keyb_clocks_0_membrane_enable),
         .reset(reset_1));
   keyboard_membrane_0_0 membrane_0

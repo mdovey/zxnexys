@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 29 10:07:34 2021
+// Date        : Thu Dec 30 13:33:40 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_sim_netlist.v
@@ -22,6 +22,7 @@ module zxnexys_zxjoystick_0_0
     btnr,
     btnu,
     clk_peripheral,
+    joy_clk_en,
     joy_left,
     joy_right,
     jstk_clk,
@@ -35,6 +36,7 @@ module zxnexys_zxjoystick_0_0
   input btnr;
   input btnu;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clockenable:1.0 joy_clk_en CE" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME joy_clk_en, FREQ_HZ 100000000, PHASE 0, POLARITY ACTIVE_HIGH" *) output joy_clk_en;
   (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left" *) output [10:0]joy_left;
   (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right" *) output [10:0]joy_right;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 jstk_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME jstk_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxjoystick_0_0_jstk_clk, INSERT_VIP 0" *) output jstk_clk;
@@ -50,7 +52,9 @@ module zxnexys_zxjoystick_0_0
   wire btnr;
   wire btnu;
   wire clk_peripheral;
-  wire [7:0]\^joy_right ;
+  wire joy_clk_en;
+  wire [4:0]\^joy_left ;
+  wire [5:0]\^joy_right ;
   wire jstk_clk;
   wire jstk_miso;
   wire jstk_mosi;
@@ -60,27 +64,28 @@ module zxnexys_zxjoystick_0_0
   assign joy_left[10] = \<const0> ;
   assign joy_left[9] = \<const0> ;
   assign joy_left[8] = \<const0> ;
-  assign joy_left[7] = btnc;
+  assign joy_left[7] = \<const0> ;
   assign joy_left[6] = \<const0> ;
   assign joy_left[5] = \<const0> ;
-  assign joy_left[4] = \<const0> ;
-  assign joy_left[3] = btnu;
-  assign joy_left[2] = btnd;
-  assign joy_left[1] = btnl;
-  assign joy_left[0] = btnr;
+  assign joy_left[4:0] = \^joy_left [4:0];
   assign joy_right[10] = \<const0> ;
   assign joy_right[9] = \<const0> ;
   assign joy_right[8] = \<const0> ;
-  assign joy_right[7] = \^joy_right [7];
+  assign joy_right[7] = \<const0> ;
   assign joy_right[6] = \<const0> ;
-  assign joy_right[5] = \^joy_right [5];
-  assign joy_right[4] = \<const0> ;
-  assign joy_right[3:0] = \^joy_right [3:0];
+  assign joy_right[5:0] = \^joy_right [5:0];
   GND GND
        (.G(\<const0> ));
   zxnexys_zxjoystick_0_0_joystick_wrapper inst
-       (.clk_peripheral(clk_peripheral),
-        .joy_right({\^joy_right [7],\^joy_right [5],\^joy_right [3:0]}),
+       (.btnc(btnc),
+        .btnd(btnd),
+        .btnl(btnl),
+        .btnr(btnr),
+        .btnu(btnu),
+        .clk_peripheral(clk_peripheral),
+        .joy_clk_en(joy_clk_en),
+        .joy_left(\^joy_left ),
+        .joy_right(\^joy_right ),
         .jstk_clk(jstk_clk),
         .jstk_miso(jstk_miso),
         .jstk_mosi(jstk_mosi),
@@ -130,7 +135,7 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   wire \o_RX_Byte[7]_i_1_n_0 ;
   wire \o_RX_Byte[7]_i_2_n_0 ;
   wire o_RX_DV;
-  wire o_RX_DV_i_1_n_0;
+  wire o_RX_DV5_out;
   wire o_SPI_Clk_i_1_n_0;
   wire o_SPI_MOSI_i_1_n_0;
   wire o_SPI_MOSI_i_2_n_0;
@@ -318,12 +323,12 @@ module zxnexys_zxjoystick_0_0_SPI_Master
         .I2(o_TX_Ready_reg_0),
         .I3(\r_RX_Bit_Count_reg_n_0_[1] ),
         .I4(\r_RX_Bit_Count_reg_n_0_[0] ),
-        .O(o_RX_DV_i_1_n_0));
+        .O(o_RX_DV5_out));
   FDCE o_RX_DV_reg
        (.C(clk_peripheral),
         .CE(1'b1),
         .CLR(o_SPI_Clk_i_1_n_0),
-        .D(o_RX_DV_i_1_n_0),
+        .D(o_RX_DV5_out),
         .Q(o_RX_DV));
   LUT1 #(
     .INIT(2'h1)) 
@@ -722,26 +727,1979 @@ module zxnexys_zxjoystick_0_0_SPI_Master
         .Q(r_Trailing_Edge_reg_n_0));
 endmodule
 
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce
+   (In4,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0]_0 ,
+    E);
+  output [0:0]In4;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input [0:0]\button_reg[0]_0 ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In4;
+  wire [0:0]Q;
+  wire button_db_i_1__9_n_0;
+  wire button_noise;
+  wire [0:0]\button_reg[0]_0 ;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire invalid;
+  wire p_0_in;
+  wire [4:0]plusOp__9;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__9
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In4),
+        .O(button_db_i_1__9_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__9_n_0),
+        .Q(In4),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg[0]_0 ),
+        .Q(\button_reg_n_0_[0] ),
+        .R(invalid));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__9 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__9[0]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__9 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__9[1]));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__9 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__9[2]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__9 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__9[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__9 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__9 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__9[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__9[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__9[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__9[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__9[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__9[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_0
+   (In3,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0]_0 ,
+    E);
+  output [0:0]In3;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input \button_reg[0]_0 ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In3;
+  wire [0:0]Q;
+  wire button_db_i_1__8_n_0;
+  wire button_noise;
+  wire \button_reg[0]_0 ;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire invalid;
+  wire p_0_in;
+  wire [4:0]plusOp__8;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__8
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In3),
+        .O(button_db_i_1__8_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__8_n_0),
+        .Q(In3),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg[0]_0 ),
+        .Q(\button_reg_n_0_[0] ),
+        .R(invalid));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__8 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__8[0]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__8 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__8[1]));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__8 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__8[2]));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__8 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__8[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__8 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__8 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__8[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__8[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__8[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__8[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__8[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__8[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_1
+   (In2,
+    Q,
+    clk_peripheral,
+    invalid,
+    d0,
+    E);
+  output [0:0]In2;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input d0;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In2;
+  wire [0:0]Q;
+  wire button_db_i_1__7_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire d0;
+  wire invalid;
+  wire p_0_in;
+  wire [4:0]plusOp__7;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__7
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In2),
+        .O(button_db_i_1__7_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__7_n_0),
+        .Q(In2),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(d0),
+        .Q(\button_reg_n_0_[0] ),
+        .R(invalid));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__7 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__7[0]));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__7 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__7[1]));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__7 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__7[2]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__7 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__7[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__7 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__7 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__7[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__7[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__7[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__7[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__7[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__7[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_2
+   (In1,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0]_0 ,
+    E);
+  output [0:0]In1;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input \button_reg[0]_0 ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In1;
+  wire [0:0]Q;
+  wire button_db_i_1__6_n_0;
+  wire button_noise;
+  wire \button_reg[0]_0 ;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire invalid;
+  wire p_0_in;
+  wire [4:0]plusOp__6;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__6
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In1),
+        .O(button_db_i_1__6_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__6_n_0),
+        .Q(In1),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg[0]_0 ),
+        .Q(\button_reg_n_0_[0] ),
+        .R(invalid));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__6 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__6[0]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__6 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__6[1]));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__6 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__6[2]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__6 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__6[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__6 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__6 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__6[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__6[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__6[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__6[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__6[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__6[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_3
+   (In0,
+    Q,
+    clk_peripheral,
+    invalid,
+    r00_in,
+    E);
+  output [0:0]In0;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input r00_in;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In0;
+  wire [0:0]Q;
+  wire button_db_i_1__5_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire invalid;
+  wire p_0_in;
+  wire [4:0]plusOp__5;
+  wire r00_in;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__5
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In0),
+        .O(button_db_i_1__5_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__5_n_0),
+        .Q(In0),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(r00_in),
+        .Q(\button_reg_n_0_[0] ),
+        .R(invalid));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__5 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__5[0]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__5 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__5[1]));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__5 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__5[2]));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__5 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__5[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__5 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__5 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__5[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__5[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__5[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__5[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__5[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__5[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_4
+   (In4,
+    Q,
+    clk_peripheral,
+    btnc,
+    E);
+  output [0:0]In4;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnc;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In4;
+  wire [0:0]Q;
+  wire btnc;
+  wire button_db_i_1__4_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire p_0_in;
+  wire [4:0]plusOp__4;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__4
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In4),
+        .O(button_db_i_1__4_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__4_n_0),
+        .Q(In4),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(btnc),
+        .Q(\button_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__4 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__4[0]));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__4 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__4[1]));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__4 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__4[2]));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__4 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__4[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__4 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__4 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__4[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__4[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__4[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__4[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__4[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__4[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_5
+   (In3,
+    Q,
+    clk_peripheral,
+    btnu,
+    E);
+  output [0:0]In3;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnu;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In3;
+  wire [0:0]Q;
+  wire btnu;
+  wire button_db_i_1__3_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire p_0_in;
+  wire [4:0]plusOp__3;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__3
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In3),
+        .O(button_db_i_1__3_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__3_n_0),
+        .Q(In3),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(btnu),
+        .Q(\button_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__3 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__3[0]));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__3 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__3[1]));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__3 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__3[2]));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__3 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__3[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__3 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__3 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__3[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__3[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__3[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__3[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__3[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__3[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_6
+   (In2,
+    Q,
+    clk_peripheral,
+    btnd,
+    E);
+  output [0:0]In2;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnd;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In2;
+  wire [0:0]Q;
+  wire btnd;
+  wire button_db_i_1__2_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire p_0_in;
+  wire [4:0]plusOp__2;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__2
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In2),
+        .O(button_db_i_1__2_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__2_n_0),
+        .Q(In2),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(btnd),
+        .Q(\button_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__2 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__2[0]));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__2 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__2[1]));
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__2 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__2[2]));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__2 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__2[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__2 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__2 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__2[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__2[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__2[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__2[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__2[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__2[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_7
+   (In5,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0]_0 ,
+    E);
+  output [0:0]In5;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input [0:0]\button_reg[0]_0 ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In5;
+  wire [0:0]Q;
+  wire button_db_i_1__1_n_0;
+  wire button_noise;
+  wire [0:0]\button_reg[0]_0 ;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire invalid;
+  wire p_0_in;
+  wire [4:0]plusOp__1;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__1
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In5),
+        .O(button_db_i_1__1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__1_n_0),
+        .Q(In5),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg[0]_0 ),
+        .Q(\button_reg_n_0_[0] ),
+        .R(invalid));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__1 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__1[0]));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__1 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__1[1]));
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__1 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__1[2]));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__1 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__1[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__1 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__1 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__1[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__1[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__1[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__1[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__1[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__1[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_8
+   (In1,
+    Q,
+    clk_peripheral,
+    btnl,
+    E);
+  output [0:0]In1;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnl;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In1;
+  wire [0:0]Q;
+  wire btnl;
+  wire button_db_i_1__0_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire p_0_in;
+  wire [4:0]plusOp__0;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1__0
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In1),
+        .O(button_db_i_1__0_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1__0_n_0),
+        .Q(In1),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(btnl),
+        .Q(\button_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1__0 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1__0 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1__0 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp__0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1__0 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp__0[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1__0 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3__0 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp__0[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__0[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__0[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__0[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__0[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp__0[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "debounce" *) 
+module zxnexys_zxjoystick_0_0_debounce_9
+   (In0,
+    Q,
+    clk_peripheral,
+    btnr,
+    E);
+  output [0:0]In0;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnr;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In0;
+  wire [0:0]Q;
+  wire btnr;
+  wire button_db_i_1_n_0;
+  wire button_noise;
+  wire \button_reg_n_0_[0] ;
+  wire clk_peripheral;
+  wire \counter_reg_n_0_[0] ;
+  wire \counter_reg_n_0_[1] ;
+  wire \counter_reg_n_0_[2] ;
+  wire \counter_reg_n_0_[3] ;
+  wire p_0_in;
+  wire [4:0]plusOp;
+
+  LUT3 #(
+    .INIT(8'hB8)) 
+    button_db_i_1
+       (.I0(p_0_in),
+        .I1(Q),
+        .I2(In0),
+        .O(button_db_i_1_n_0));
+  FDRE #(
+    .INIT(1'b0)) 
+    button_db_reg
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(button_db_i_1_n_0),
+        .Q(In0),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \button_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(btnr),
+        .Q(\button_reg_n_0_[0] ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b1)) 
+    \button_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\button_reg_n_0_[0] ),
+        .Q(p_0_in),
+        .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \counter[0]_i_1 
+       (.I0(\counter_reg_n_0_[0] ),
+        .O(plusOp[0]));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[1]_i_1 
+       (.I0(\counter_reg_n_0_[0] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .O(plusOp[1]));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \counter[2]_i_1 
+       (.I0(\counter_reg_n_0_[1] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[2] ),
+        .O(plusOp[2]));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \counter[3]_i_1 
+       (.I0(\counter_reg_n_0_[2] ),
+        .I1(\counter_reg_n_0_[0] ),
+        .I2(\counter_reg_n_0_[1] ),
+        .I3(\counter_reg_n_0_[3] ),
+        .O(plusOp[3]));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \counter[4]_i_1 
+       (.I0(p_0_in),
+        .I1(\button_reg_n_0_[0] ),
+        .O(button_noise));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \counter[4]_i_3 
+       (.I0(\counter_reg_n_0_[3] ),
+        .I1(\counter_reg_n_0_[1] ),
+        .I2(\counter_reg_n_0_[0] ),
+        .I3(\counter_reg_n_0_[2] ),
+        .O(plusOp[4]));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[0] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp[0]),
+        .Q(\counter_reg_n_0_[0] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[1] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp[1]),
+        .Q(\counter_reg_n_0_[1] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[2] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp[2]),
+        .Q(\counter_reg_n_0_[2] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[3] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp[3]),
+        .Q(\counter_reg_n_0_[3] ),
+        .R(button_noise));
+  FDRE #(
+    .INIT(1'b0)) 
+    \counter_reg[4] 
+       (.C(clk_peripheral),
+        .CE(E),
+        .D(plusOp[4]),
+        .Q(Q),
+        .R(button_noise));
+endmodule
+
+(* ORIG_REF_NAME = "joy_clock_enable" *) 
+module zxnexys_zxjoystick_0_0_joy_clock_enable
+   (E,
+    \clk_28_div_reg[6]_0 ,
+    \clk_28_div_reg[6]_1 ,
+    \clk_28_div_reg[6]_2 ,
+    \clk_28_div_reg[6]_3 ,
+    \clk_28_div_reg[6]_4 ,
+    \clk_28_div_reg[6]_5 ,
+    \clk_28_div_reg[6]_6 ,
+    \clk_28_div_reg[6]_7 ,
+    \clk_28_div_reg[6]_8 ,
+    \clk_28_div_reg[6]_9 ,
+    joy_clk_en,
+    Q,
+    \counter_reg[4] ,
+    \counter_reg[4]_0 ,
+    \counter_reg[4]_1 ,
+    \counter_reg[4]_2 ,
+    \counter_reg[4]_3 ,
+    \counter_reg[4]_4 ,
+    \counter_reg[4]_5 ,
+    \counter_reg[4]_6 ,
+    \counter_reg[4]_7 ,
+    \counter_reg[4]_8 ,
+    clk_peripheral);
+  output [0:0]E;
+  output [0:0]\clk_28_div_reg[6]_0 ;
+  output [0:0]\clk_28_div_reg[6]_1 ;
+  output [0:0]\clk_28_div_reg[6]_2 ;
+  output [0:0]\clk_28_div_reg[6]_3 ;
+  output [0:0]\clk_28_div_reg[6]_4 ;
+  output [0:0]\clk_28_div_reg[6]_5 ;
+  output [0:0]\clk_28_div_reg[6]_6 ;
+  output [0:0]\clk_28_div_reg[6]_7 ;
+  output [0:0]\clk_28_div_reg[6]_8 ;
+  output [0:0]\clk_28_div_reg[6]_9 ;
+  output joy_clk_en;
+  input [0:0]Q;
+  input [0:0]\counter_reg[4] ;
+  input [0:0]\counter_reg[4]_0 ;
+  input [0:0]\counter_reg[4]_1 ;
+  input [0:0]\counter_reg[4]_2 ;
+  input [0:0]\counter_reg[4]_3 ;
+  input [0:0]\counter_reg[4]_4 ;
+  input [0:0]\counter_reg[4]_5 ;
+  input [0:0]\counter_reg[4]_6 ;
+  input [0:0]\counter_reg[4]_7 ;
+  input [0:0]\counter_reg[4]_8 ;
+  input clk_peripheral;
+
+  wire [0:0]E;
+  wire [0:0]Q;
+  wire [6:0]clk_28_div_reg;
+  wire [0:0]\clk_28_div_reg[6]_0 ;
+  wire [0:0]\clk_28_div_reg[6]_1 ;
+  wire [0:0]\clk_28_div_reg[6]_2 ;
+  wire [0:0]\clk_28_div_reg[6]_3 ;
+  wire [0:0]\clk_28_div_reg[6]_4 ;
+  wire [0:0]\clk_28_div_reg[6]_5 ;
+  wire [0:0]\clk_28_div_reg[6]_6 ;
+  wire [0:0]\clk_28_div_reg[6]_7 ;
+  wire [0:0]\clk_28_div_reg[6]_8 ;
+  wire [0:0]\clk_28_div_reg[6]_9 ;
+  wire clk_peripheral;
+  wire [0:0]\counter_reg[4] ;
+  wire [0:0]\counter_reg[4]_0 ;
+  wire [0:0]\counter_reg[4]_1 ;
+  wire [0:0]\counter_reg[4]_2 ;
+  wire [0:0]\counter_reg[4]_3 ;
+  wire [0:0]\counter_reg[4]_4 ;
+  wire [0:0]\counter_reg[4]_5 ;
+  wire [0:0]\counter_reg[4]_6 ;
+  wire [0:0]\counter_reg[4]_7 ;
+  wire [0:0]\counter_reg[4]_8 ;
+  wire joy_clk_en;
+  wire joy_clk_en_INST_0_i_1_n_0;
+  wire [6:0]p_0_in__0;
+
+  LUT1 #(
+    .INIT(2'h1)) 
+    \clk_28_div[0]_i_1 
+       (.I0(clk_28_div_reg[0]),
+        .O(p_0_in__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \clk_28_div[1]_i_1 
+       (.I0(clk_28_div_reg[0]),
+        .I1(clk_28_div_reg[1]),
+        .O(p_0_in__0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \clk_28_div[2]_i_1 
+       (.I0(clk_28_div_reg[1]),
+        .I1(clk_28_div_reg[0]),
+        .I2(clk_28_div_reg[2]),
+        .O(p_0_in__0[2]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \clk_28_div[3]_i_1 
+       (.I0(clk_28_div_reg[2]),
+        .I1(clk_28_div_reg[0]),
+        .I2(clk_28_div_reg[1]),
+        .I3(clk_28_div_reg[3]),
+        .O(p_0_in__0[3]));
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  LUT5 #(
+    .INIT(32'h7FFF8000)) 
+    \clk_28_div[4]_i_1 
+       (.I0(clk_28_div_reg[3]),
+        .I1(clk_28_div_reg[1]),
+        .I2(clk_28_div_reg[0]),
+        .I3(clk_28_div_reg[2]),
+        .I4(clk_28_div_reg[4]),
+        .O(p_0_in__0[4]));
+  LUT6 #(
+    .INIT(64'h7FFFFFFF80000000)) 
+    \clk_28_div[5]_i_1 
+       (.I0(clk_28_div_reg[4]),
+        .I1(clk_28_div_reg[2]),
+        .I2(clk_28_div_reg[0]),
+        .I3(clk_28_div_reg[1]),
+        .I4(clk_28_div_reg[3]),
+        .I5(clk_28_div_reg[5]),
+        .O(p_0_in__0[5]));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  LUT2 #(
+    .INIT(4'h9)) 
+    \clk_28_div[6]_i_1 
+       (.I0(joy_clk_en_INST_0_i_1_n_0),
+        .I1(clk_28_div_reg[6]),
+        .O(p_0_in__0[6]));
+  FDRE \clk_28_div_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[0]),
+        .Q(clk_28_div_reg[0]),
+        .R(1'b0));
+  FDRE \clk_28_div_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[1]),
+        .Q(clk_28_div_reg[1]),
+        .R(1'b0));
+  FDRE \clk_28_div_reg[2] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[2]),
+        .Q(clk_28_div_reg[2]),
+        .R(1'b0));
+  FDRE \clk_28_div_reg[3] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[3]),
+        .Q(clk_28_div_reg[3]),
+        .R(1'b0));
+  FDRE \clk_28_div_reg[4] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[4]),
+        .Q(clk_28_div_reg[4]),
+        .R(1'b0));
+  FDRE \clk_28_div_reg[5] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[5]),
+        .Q(clk_28_div_reg[5]),
+        .R(1'b0));
+  FDRE \clk_28_div_reg[6] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in__0[6]),
+        .Q(clk_28_div_reg[6]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(Q),
+        .O(E));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__0 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4] ),
+        .O(\clk_28_div_reg[6]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__1 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_0 ),
+        .O(\clk_28_div_reg[6]_1 ));
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__2 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_1 ),
+        .O(\clk_28_div_reg[6]_2 ));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__3 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_2 ),
+        .O(\clk_28_div_reg[6]_3 ));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__4 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_3 ),
+        .O(\clk_28_div_reg[6]_4 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__5 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_4 ),
+        .O(\clk_28_div_reg[6]_5 ));
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__6 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_5 ),
+        .O(\clk_28_div_reg[6]_6 ));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__7 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_6 ),
+        .O(\clk_28_div_reg[6]_7 ));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__8 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_7 ),
+        .O(\clk_28_div_reg[6]_8 ));
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  LUT3 #(
+    .INIT(8'h02)) 
+    \counter[4]_i_2__9 
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .I2(\counter_reg[4]_8 ),
+        .O(\clk_28_div_reg[6]_9 ));
+  LUT2 #(
+    .INIT(4'h2)) 
+    joy_clk_en_INST_0
+       (.I0(clk_28_div_reg[6]),
+        .I1(joy_clk_en_INST_0_i_1_n_0),
+        .O(joy_clk_en));
+  LUT6 #(
+    .INIT(64'h7FFFFFFFFFFFFFFF)) 
+    joy_clk_en_INST_0_i_1
+       (.I0(clk_28_div_reg[4]),
+        .I1(clk_28_div_reg[2]),
+        .I2(clk_28_div_reg[0]),
+        .I3(clk_28_div_reg[1]),
+        .I4(clk_28_div_reg[3]),
+        .I5(clk_28_div_reg[5]),
+        .O(joy_clk_en_INST_0_i_1_n_0));
+endmodule
+
 (* ORIG_REF_NAME = "joystick" *) 
 module zxnexys_zxjoystick_0_0_joystick
-   (jstk_clk,
-    jstk_sel,
+   (joy_left,
     joy_right,
+    jstk_clk,
+    jstk_sel,
+    joy_clk_en,
     jstk_mosi,
     reset,
     clk_peripheral,
+    btnr,
+    btnl,
+    btnd,
+    btnu,
+    btnc,
     jstk_miso);
+  output [4:0]joy_left;
+  output [5:0]joy_right;
   output jstk_clk;
   output jstk_sel;
-  output [5:0]joy_right;
+  output joy_clk_en;
   output jstk_mosi;
   input reset;
   input clk_peripheral;
+  input btnr;
+  input btnl;
+  input btnd;
+  input btnu;
+  input btnc;
   input jstk_miso;
 
   wire SPI_Master_0_n_3;
   wire SPI_Master_0_o_TX_Ready;
+  wire btnc;
+  wire btnd;
+  wire btnl;
+  wire btnr;
+  wire btnu;
   wire clk_peripheral;
+  wire d0;
+  wire debounce_0_button_o;
+  wire debounce_10_button_o;
+  wire debounce_1_button_o;
+  wire debounce_2_button_o;
+  wire debounce_3_button_o;
+  wire debounce_4_button_o;
+  wire debounce_5_button_o;
+  wire debounce_6_button_o;
+  wire debounce_7_button_o;
+  wire debounce_8_button_o;
+  wire debounce_9_button_o;
+  wire [4:4]\inst/counter_reg ;
+  wire [4:4]\inst/counter_reg_0 ;
+  wire [4:4]\inst/counter_reg_1 ;
+  wire [4:4]\inst/counter_reg_2 ;
+  wire [4:4]\inst/counter_reg_3 ;
+  wire [4:4]\inst/counter_reg_4 ;
+  wire [4:4]\inst/counter_reg_5 ;
+  wire [4:4]\inst/counter_reg_6 ;
+  wire [4:4]\inst/counter_reg_7 ;
+  wire [4:4]\inst/counter_reg_8 ;
+  wire [4:4]\inst/counter_reg_9 ;
+  wire \inst/p_1_in ;
+  wire invalid;
+  wire joy_clk_en;
+  wire joy_clock_enable_0_n_0;
+  wire joy_clock_enable_0_n_1;
+  wire joy_clock_enable_0_n_10;
+  wire joy_clock_enable_0_n_2;
+  wire joy_clock_enable_0_n_3;
+  wire joy_clock_enable_0_n_4;
+  wire joy_clock_enable_0_n_5;
+  wire joy_clock_enable_0_n_6;
+  wire joy_clock_enable_0_n_7;
+  wire joy_clock_enable_0_n_8;
+  wire joy_clock_enable_0_n_9;
+  wire [4:0]joy_left;
   wire [5:0]joy_right;
   wire jstk_clk;
   wire jstk_miso;
@@ -750,9 +2708,15 @@ module zxnexys_zxjoystick_0_0_joystick
   wire [7:0]o_RX_Byte;
   wire o_RX_DV;
   wire pmod_jstk2_0_n_2;
+  wire pmod_jstk2_0_n_4;
+  wire pmod_jstk2_0_n_6;
+  wire pmod_jstk2_0_n_8;
   wire pmod_jstk2_0_wv;
+  wire r00_in;
   wire reset;
   wire util_vector_logic_0_Res;
+  wire [10:5]NLW_xlconcat_0_dout_UNCONNECTED;
+  wire [10:6]NLW_xlconcat_1_dout_UNCONNECTED;
 
   (* X_CORE_INFO = "SPI_Master,Vivado 2021.2" *) 
   zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0 SPI_Master_0
@@ -767,24 +2731,161 @@ module zxnexys_zxjoystick_0_0_joystick
         .pmod_jstk2_0_wv(pmod_jstk2_0_wv),
         .\r_TX_Byte_reg[6] (SPI_Master_0_n_3),
         .\r_TX_Byte_reg[6]_0 (pmod_jstk2_0_n_2));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_0_0 debounce_0
+       (.E(joy_clock_enable_0_n_10),
+        .In0(debounce_0_button_o),
+        .Q(\inst/counter_reg ),
+        .btnr(btnr),
+        .clk_peripheral(clk_peripheral));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_0_1 debounce_1
+       (.E(joy_clock_enable_0_n_9),
+        .In1(debounce_1_button_o),
+        .Q(\inst/counter_reg_0 ),
+        .btnl(btnl),
+        .clk_peripheral(clk_peripheral));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_2_1 debounce_10
+       (.E(joy_clock_enable_0_n_8),
+        .In5(debounce_10_button_o),
+        .Q(\inst/counter_reg_1 ),
+        .\button_reg[0] (pmod_jstk2_0_n_4),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_0_2 debounce_2
+       (.E(joy_clock_enable_0_n_7),
+        .In2(debounce_2_button_o),
+        .Q(\inst/counter_reg_2 ),
+        .btnd(btnd),
+        .clk_peripheral(clk_peripheral));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_1_0 debounce_3
+       (.E(joy_clock_enable_0_n_6),
+        .In3(debounce_3_button_o),
+        .Q(\inst/counter_reg_3 ),
+        .btnu(btnu),
+        .clk_peripheral(clk_peripheral));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_0_3 debounce_4
+       (.E(joy_clock_enable_0_n_5),
+        .In4(debounce_4_button_o),
+        .Q(\inst/counter_reg_4 ),
+        .btnc(btnc),
+        .clk_peripheral(clk_peripheral));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_1_1 debounce_5
+       (.E(joy_clock_enable_0_n_4),
+        .In0(debounce_5_button_o),
+        .Q(\inst/counter_reg_5 ),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid),
+        .r00_in(r00_in));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_2_0 debounce_6
+       (.E(joy_clock_enable_0_n_3),
+        .In1(debounce_6_button_o),
+        .Q(\inst/counter_reg_6 ),
+        .\button_reg[0] (pmod_jstk2_0_n_6),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_3_0 debounce_7
+       (.E(joy_clock_enable_0_n_2),
+        .In2(debounce_7_button_o),
+        .Q(\inst/counter_reg_7 ),
+        .clk_peripheral(clk_peripheral),
+        .d0(d0),
+        .invalid(invalid));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_0_4 debounce_8
+       (.E(joy_clock_enable_0_n_1),
+        .In3(debounce_8_button_o),
+        .Q(\inst/counter_reg_8 ),
+        .\button_reg[0] (pmod_jstk2_0_n_8),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_debounce_1_2 debounce_9
+       (.E(joy_clock_enable_0_n_0),
+        .In4(debounce_9_button_o),
+        .Q(\inst/counter_reg_9 ),
+        .\button_reg[0] (\inst/p_1_in ),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+  (* X_CORE_INFO = "joy_clock_enable,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_joy_clock_enable_0_0 joy_clock_enable_0
+       (.E(joy_clock_enable_0_n_0),
+        .Q(\inst/counter_reg_9 ),
+        .\clk_28_div_reg[6] (joy_clock_enable_0_n_1),
+        .\clk_28_div_reg[6]_0 (joy_clock_enable_0_n_2),
+        .\clk_28_div_reg[6]_1 (joy_clock_enable_0_n_3),
+        .\clk_28_div_reg[6]_2 (joy_clock_enable_0_n_4),
+        .\clk_28_div_reg[6]_3 (joy_clock_enable_0_n_5),
+        .\clk_28_div_reg[6]_4 (joy_clock_enable_0_n_6),
+        .\clk_28_div_reg[6]_5 (joy_clock_enable_0_n_7),
+        .\clk_28_div_reg[6]_6 (joy_clock_enable_0_n_8),
+        .\clk_28_div_reg[6]_7 (joy_clock_enable_0_n_9),
+        .\clk_28_div_reg[6]_8 (joy_clock_enable_0_n_10),
+        .clk_peripheral(clk_peripheral),
+        .\counter_reg[4] (\inst/counter_reg_8 ),
+        .\counter_reg[4]_0 (\inst/counter_reg_7 ),
+        .\counter_reg[4]_1 (\inst/counter_reg_6 ),
+        .\counter_reg[4]_2 (\inst/counter_reg_5 ),
+        .\counter_reg[4]_3 (\inst/counter_reg_4 ),
+        .\counter_reg[4]_4 (\inst/counter_reg_3 ),
+        .\counter_reg[4]_5 (\inst/counter_reg_2 ),
+        .\counter_reg[4]_6 (\inst/counter_reg_1 ),
+        .\counter_reg[4]_7 (\inst/counter_reg_0 ),
+        .\counter_reg[4]_8 (\inst/counter_reg ),
+        .joy_clk_en(joy_clk_en));
   (* X_CORE_INFO = "pmod_jstk2,Vivado 2021.2" *) 
   zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0 pmod_jstk2_0
        (.D(o_RX_Byte),
+        .Q({\inst/p_1_in ,pmod_jstk2_0_n_4}),
         .SPI_Master_0_o_TX_Ready(SPI_Master_0_o_TX_Ready),
         .clk_peripheral(clk_peripheral),
-        .joy_right(joy_right),
+        .d0(d0),
+        .invalid(invalid),
         .jstk_sel(jstk_sel),
         .o_RX_DV(o_RX_DV),
         .pmod_jstk2_0_wv(pmod_jstk2_0_wv),
+        .r00_in(r00_in),
         .\r_TX_Byte_reg[6] (SPI_Master_0_n_3),
         .reset(reset),
-        .wv_reg(pmod_jstk2_0_n_2));
+        .wv_reg(pmod_jstk2_0_n_2),
+        .\x_reg[7] (pmod_jstk2_0_n_6),
+        .\y_reg[7] (pmod_jstk2_0_n_8));
   (* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
   (* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2" *) 
   zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 util_vector_logic_0
        (.Op1(reset),
         .Res(util_vector_logic_0_Res));
+  (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 xlconcat_0
+       (.In0(debounce_0_button_o),
+        .In1(debounce_1_button_o),
+        .In2(debounce_2_button_o),
+        .In3(debounce_3_button_o),
+        .In4(debounce_4_button_o),
+        .In5({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .dout({NLW_xlconcat_0_dout_UNCONNECTED[10:5],joy_left}));
+  (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_1,xlconcat_v2_1_4_xlconcat,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+  zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 xlconcat_1
+       (.In0(debounce_5_button_o),
+        .In1(debounce_6_button_o),
+        .In2(debounce_7_button_o),
+        .In3(debounce_8_button_o),
+        .In4(debounce_9_button_o),
+        .In5(debounce_10_button_o),
+        .In6({1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .dout({NLW_xlconcat_1_dout_UNCONNECTED[10:6],joy_right}));
 endmodule
 
 (* ORIG_REF_NAME = "joystick_SPI_Master_0_0" *) 
@@ -838,12 +2939,441 @@ module zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
         .\r_TX_Byte_reg[6]_1 (\r_TX_Byte_reg[6]_0 ));
 endmodule
 
+(* ORIG_REF_NAME = "joystick_debounce_0_0" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_0_0
+   (In0,
+    Q,
+    clk_peripheral,
+    btnr,
+    E);
+  output [0:0]In0;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnr;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In0;
+  wire [0:0]Q;
+  wire btnr;
+  wire clk_peripheral;
+
+  zxnexys_zxjoystick_0_0_debounce_9 inst
+       (.E(E),
+        .In0(In0),
+        .Q(Q),
+        .btnr(btnr),
+        .clk_peripheral(clk_peripheral));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_0_1" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_0_1
+   (In1,
+    Q,
+    clk_peripheral,
+    btnl,
+    E);
+  output [0:0]In1;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnl;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In1;
+  wire [0:0]Q;
+  wire btnl;
+  wire clk_peripheral;
+
+  zxnexys_zxjoystick_0_0_debounce_8 inst
+       (.E(E),
+        .In1(In1),
+        .Q(Q),
+        .btnl(btnl),
+        .clk_peripheral(clk_peripheral));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_0_2" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_0_2
+   (In2,
+    Q,
+    clk_peripheral,
+    btnd,
+    E);
+  output [0:0]In2;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnd;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In2;
+  wire [0:0]Q;
+  wire btnd;
+  wire clk_peripheral;
+
+  zxnexys_zxjoystick_0_0_debounce_6 inst
+       (.E(E),
+        .In2(In2),
+        .Q(Q),
+        .btnd(btnd),
+        .clk_peripheral(clk_peripheral));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_0_3" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_0_3
+   (In4,
+    Q,
+    clk_peripheral,
+    btnc,
+    E);
+  output [0:0]In4;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnc;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In4;
+  wire [0:0]Q;
+  wire btnc;
+  wire clk_peripheral;
+
+  zxnexys_zxjoystick_0_0_debounce_4 inst
+       (.E(E),
+        .In4(In4),
+        .Q(Q),
+        .btnc(btnc),
+        .clk_peripheral(clk_peripheral));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_0_4" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_0_4
+   (In3,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0] ,
+    E);
+  output [0:0]In3;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input \button_reg[0] ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In3;
+  wire [0:0]Q;
+  wire \button_reg[0] ;
+  wire clk_peripheral;
+  wire invalid;
+
+  zxnexys_zxjoystick_0_0_debounce_0 inst
+       (.E(E),
+        .In3(In3),
+        .Q(Q),
+        .\button_reg[0]_0 (\button_reg[0] ),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_1_0" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_1_0
+   (In3,
+    Q,
+    clk_peripheral,
+    btnu,
+    E);
+  output [0:0]In3;
+  output [0:0]Q;
+  input clk_peripheral;
+  input btnu;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In3;
+  wire [0:0]Q;
+  wire btnu;
+  wire clk_peripheral;
+
+  zxnexys_zxjoystick_0_0_debounce_5 inst
+       (.E(E),
+        .In3(In3),
+        .Q(Q),
+        .btnu(btnu),
+        .clk_peripheral(clk_peripheral));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_1_1" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_1_1
+   (In0,
+    Q,
+    clk_peripheral,
+    invalid,
+    r00_in,
+    E);
+  output [0:0]In0;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input r00_in;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In0;
+  wire [0:0]Q;
+  wire clk_peripheral;
+  wire invalid;
+  wire r00_in;
+
+  zxnexys_zxjoystick_0_0_debounce_3 inst
+       (.E(E),
+        .In0(In0),
+        .Q(Q),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid),
+        .r00_in(r00_in));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_1_2" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_1_2
+   (In4,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0] ,
+    E);
+  output [0:0]In4;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input [0:0]\button_reg[0] ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In4;
+  wire [0:0]Q;
+  wire [0:0]\button_reg[0] ;
+  wire clk_peripheral;
+  wire invalid;
+
+  zxnexys_zxjoystick_0_0_debounce inst
+       (.E(E),
+        .In4(In4),
+        .Q(Q),
+        .\button_reg[0]_0 (\button_reg[0] ),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_2_0" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_2_0
+   (In1,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0] ,
+    E);
+  output [0:0]In1;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input \button_reg[0] ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In1;
+  wire [0:0]Q;
+  wire \button_reg[0] ;
+  wire clk_peripheral;
+  wire invalid;
+
+  zxnexys_zxjoystick_0_0_debounce_2 inst
+       (.E(E),
+        .In1(In1),
+        .Q(Q),
+        .\button_reg[0]_0 (\button_reg[0] ),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_2_1" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_2_1
+   (In5,
+    Q,
+    clk_peripheral,
+    invalid,
+    \button_reg[0] ,
+    E);
+  output [0:0]In5;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input [0:0]\button_reg[0] ;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In5;
+  wire [0:0]Q;
+  wire [0:0]\button_reg[0] ;
+  wire clk_peripheral;
+  wire invalid;
+
+  zxnexys_zxjoystick_0_0_debounce_7 inst
+       (.E(E),
+        .In5(In5),
+        .Q(Q),
+        .\button_reg[0]_0 (\button_reg[0] ),
+        .clk_peripheral(clk_peripheral),
+        .invalid(invalid));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_debounce_3_0" *) 
+module zxnexys_zxjoystick_0_0_joystick_debounce_3_0
+   (In2,
+    Q,
+    clk_peripheral,
+    invalid,
+    d0,
+    E);
+  output [0:0]In2;
+  output [0:0]Q;
+  input clk_peripheral;
+  input invalid;
+  input d0;
+  input [0:0]E;
+
+  wire [0:0]E;
+  wire [0:0]In2;
+  wire [0:0]Q;
+  wire clk_peripheral;
+  wire d0;
+  wire invalid;
+
+  zxnexys_zxjoystick_0_0_debounce_1 inst
+       (.E(E),
+        .In2(In2),
+        .Q(Q),
+        .clk_peripheral(clk_peripheral),
+        .d0(d0),
+        .invalid(invalid));
+endmodule
+
+(* ORIG_REF_NAME = "joystick_joy_clock_enable_0_0" *) 
+module zxnexys_zxjoystick_0_0_joystick_joy_clock_enable_0_0
+   (E,
+    \clk_28_div_reg[6] ,
+    \clk_28_div_reg[6]_0 ,
+    \clk_28_div_reg[6]_1 ,
+    \clk_28_div_reg[6]_2 ,
+    \clk_28_div_reg[6]_3 ,
+    \clk_28_div_reg[6]_4 ,
+    \clk_28_div_reg[6]_5 ,
+    \clk_28_div_reg[6]_6 ,
+    \clk_28_div_reg[6]_7 ,
+    \clk_28_div_reg[6]_8 ,
+    joy_clk_en,
+    Q,
+    \counter_reg[4] ,
+    \counter_reg[4]_0 ,
+    \counter_reg[4]_1 ,
+    \counter_reg[4]_2 ,
+    \counter_reg[4]_3 ,
+    \counter_reg[4]_4 ,
+    \counter_reg[4]_5 ,
+    \counter_reg[4]_6 ,
+    \counter_reg[4]_7 ,
+    \counter_reg[4]_8 ,
+    clk_peripheral);
+  output [0:0]E;
+  output [0:0]\clk_28_div_reg[6] ;
+  output [0:0]\clk_28_div_reg[6]_0 ;
+  output [0:0]\clk_28_div_reg[6]_1 ;
+  output [0:0]\clk_28_div_reg[6]_2 ;
+  output [0:0]\clk_28_div_reg[6]_3 ;
+  output [0:0]\clk_28_div_reg[6]_4 ;
+  output [0:0]\clk_28_div_reg[6]_5 ;
+  output [0:0]\clk_28_div_reg[6]_6 ;
+  output [0:0]\clk_28_div_reg[6]_7 ;
+  output [0:0]\clk_28_div_reg[6]_8 ;
+  output joy_clk_en;
+  input [0:0]Q;
+  input [0:0]\counter_reg[4] ;
+  input [0:0]\counter_reg[4]_0 ;
+  input [0:0]\counter_reg[4]_1 ;
+  input [0:0]\counter_reg[4]_2 ;
+  input [0:0]\counter_reg[4]_3 ;
+  input [0:0]\counter_reg[4]_4 ;
+  input [0:0]\counter_reg[4]_5 ;
+  input [0:0]\counter_reg[4]_6 ;
+  input [0:0]\counter_reg[4]_7 ;
+  input [0:0]\counter_reg[4]_8 ;
+  input clk_peripheral;
+
+  wire [0:0]E;
+  wire [0:0]Q;
+  wire [0:0]\clk_28_div_reg[6] ;
+  wire [0:0]\clk_28_div_reg[6]_0 ;
+  wire [0:0]\clk_28_div_reg[6]_1 ;
+  wire [0:0]\clk_28_div_reg[6]_2 ;
+  wire [0:0]\clk_28_div_reg[6]_3 ;
+  wire [0:0]\clk_28_div_reg[6]_4 ;
+  wire [0:0]\clk_28_div_reg[6]_5 ;
+  wire [0:0]\clk_28_div_reg[6]_6 ;
+  wire [0:0]\clk_28_div_reg[6]_7 ;
+  wire [0:0]\clk_28_div_reg[6]_8 ;
+  wire clk_peripheral;
+  wire [0:0]\counter_reg[4] ;
+  wire [0:0]\counter_reg[4]_0 ;
+  wire [0:0]\counter_reg[4]_1 ;
+  wire [0:0]\counter_reg[4]_2 ;
+  wire [0:0]\counter_reg[4]_3 ;
+  wire [0:0]\counter_reg[4]_4 ;
+  wire [0:0]\counter_reg[4]_5 ;
+  wire [0:0]\counter_reg[4]_6 ;
+  wire [0:0]\counter_reg[4]_7 ;
+  wire [0:0]\counter_reg[4]_8 ;
+  wire joy_clk_en;
+
+  zxnexys_zxjoystick_0_0_joy_clock_enable inst
+       (.E(E),
+        .Q(Q),
+        .\clk_28_div_reg[6]_0 (\clk_28_div_reg[6] ),
+        .\clk_28_div_reg[6]_1 (\clk_28_div_reg[6]_0 ),
+        .\clk_28_div_reg[6]_2 (\clk_28_div_reg[6]_1 ),
+        .\clk_28_div_reg[6]_3 (\clk_28_div_reg[6]_2 ),
+        .\clk_28_div_reg[6]_4 (\clk_28_div_reg[6]_3 ),
+        .\clk_28_div_reg[6]_5 (\clk_28_div_reg[6]_4 ),
+        .\clk_28_div_reg[6]_6 (\clk_28_div_reg[6]_5 ),
+        .\clk_28_div_reg[6]_7 (\clk_28_div_reg[6]_6 ),
+        .\clk_28_div_reg[6]_8 (\clk_28_div_reg[6]_7 ),
+        .\clk_28_div_reg[6]_9 (\clk_28_div_reg[6]_8 ),
+        .clk_peripheral(clk_peripheral),
+        .\counter_reg[4] (\counter_reg[4] ),
+        .\counter_reg[4]_0 (\counter_reg[4]_0 ),
+        .\counter_reg[4]_1 (\counter_reg[4]_1 ),
+        .\counter_reg[4]_2 (\counter_reg[4]_2 ),
+        .\counter_reg[4]_3 (\counter_reg[4]_3 ),
+        .\counter_reg[4]_4 (\counter_reg[4]_4 ),
+        .\counter_reg[4]_5 (\counter_reg[4]_5 ),
+        .\counter_reg[4]_6 (\counter_reg[4]_6 ),
+        .\counter_reg[4]_7 (\counter_reg[4]_7 ),
+        .\counter_reg[4]_8 (\counter_reg[4]_8 ),
+        .joy_clk_en(joy_clk_en));
+endmodule
+
 (* ORIG_REF_NAME = "joystick_pmod_jstk2_0_0" *) 
 module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
    (pmod_jstk2_0_wv,
     jstk_sel,
     wv_reg,
-    joy_right,
+    Q,
+    r00_in,
+    \x_reg[7] ,
+    d0,
+    \y_reg[7] ,
+    invalid,
     clk_peripheral,
     SPI_Master_0_o_TX_Ready,
     o_RX_DV,
@@ -853,7 +3383,12 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
   output pmod_jstk2_0_wv;
   output jstk_sel;
   output wv_reg;
-  output [5:0]joy_right;
+  output [1:0]Q;
+  output r00_in;
+  output \x_reg[7] ;
+  output d0;
+  output \y_reg[7] ;
+  output invalid;
   input clk_peripheral;
   input SPI_Master_0_o_TX_Ready;
   input o_RX_DV;
@@ -862,27 +3397,37 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
   input [7:0]D;
 
   wire [7:0]D;
+  wire [1:0]Q;
   wire SPI_Master_0_o_TX_Ready;
   wire clk_peripheral;
-  wire [5:0]joy_right;
+  wire d0;
+  wire invalid;
   wire jstk_sel;
   wire o_RX_DV;
   wire pmod_jstk2_0_wv;
+  wire r00_in;
   wire \r_TX_Byte_reg[6] ;
   wire reset;
   wire wv_reg;
+  wire \x_reg[7] ;
+  wire \y_reg[7] ;
 
   zxnexys_zxjoystick_0_0_pmod_jstk2 inst
        (.D(D),
+        .Q(Q),
         .SPI_Master_0_o_TX_Ready(SPI_Master_0_o_TX_Ready),
         .clk_peripheral(clk_peripheral),
-        .joy_right(joy_right),
+        .d0(d0),
+        .invalid(invalid),
         .jstk_sel(jstk_sel),
         .o_RX_DV(o_RX_DV),
+        .r00_in(r00_in),
         .\r_TX_Byte_reg[6] (\r_TX_Byte_reg[6] ),
         .reset(reset),
         .wv_reg_0(pmod_jstk2_0_wv),
-        .wv_reg_1(wv_reg));
+        .wv_reg_1(wv_reg),
+        .\x_reg[7]_0 (\x_reg[7] ),
+        .\y_reg[7]_0 (\y_reg[7] ));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_util_vector_logic_0_0" *) 
@@ -905,22 +3450,43 @@ endmodule
 
 (* ORIG_REF_NAME = "joystick_wrapper" *) 
 module zxnexys_zxjoystick_0_0_joystick_wrapper
-   (jstk_clk,
-    jstk_sel,
+   (joy_left,
     joy_right,
+    jstk_clk,
+    jstk_sel,
+    joy_clk_en,
     jstk_mosi,
     reset,
     clk_peripheral,
+    btnr,
+    btnl,
+    btnd,
+    btnu,
+    btnc,
     jstk_miso);
+  output [4:0]joy_left;
+  output [5:0]joy_right;
   output jstk_clk;
   output jstk_sel;
-  output [5:0]joy_right;
+  output joy_clk_en;
   output jstk_mosi;
   input reset;
   input clk_peripheral;
+  input btnr;
+  input btnl;
+  input btnd;
+  input btnu;
+  input btnc;
   input jstk_miso;
 
+  wire btnc;
+  wire btnd;
+  wire btnl;
+  wire btnr;
+  wire btnu;
   wire clk_peripheral;
+  wire joy_clk_en;
+  wire [4:0]joy_left;
   wire [5:0]joy_right;
   wire jstk_clk;
   wire jstk_miso;
@@ -929,7 +3495,14 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
   wire reset;
 
   zxnexys_zxjoystick_0_0_joystick joystick_i
-       (.clk_peripheral(clk_peripheral),
+       (.btnc(btnc),
+        .btnd(btnd),
+        .btnl(btnl),
+        .btnr(btnr),
+        .btnu(btnu),
+        .clk_peripheral(clk_peripheral),
+        .joy_clk_en(joy_clk_en),
+        .joy_left(joy_left),
         .joy_right(joy_right),
         .jstk_clk(jstk_clk),
         .jstk_miso(jstk_miso),
@@ -938,12 +3511,100 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
         .reset(reset));
 endmodule
 
+(* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_xlconcat_0_0" *) 
+(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+module zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0
+   (In0,
+    In1,
+    In2,
+    In3,
+    In4,
+    In5,
+    dout);
+  input [0:0]In0;
+  input [0:0]In1;
+  input [0:0]In2;
+  input [0:0]In3;
+  input [0:0]In4;
+  input [5:0]In5;
+  output [10:0]dout;
+
+  wire \<const0> ;
+  wire [0:0]In0;
+  wire [0:0]In1;
+  wire [0:0]In2;
+  wire [0:0]In3;
+  wire [0:0]In4;
+
+  assign dout[10] = \<const0> ;
+  assign dout[9] = \<const0> ;
+  assign dout[8] = \<const0> ;
+  assign dout[7] = \<const0> ;
+  assign dout[6] = \<const0> ;
+  assign dout[5] = \<const0> ;
+  assign dout[4] = In4;
+  assign dout[3] = In3;
+  assign dout[2] = In2;
+  assign dout[1] = In1;
+  assign dout[0] = In0;
+  GND GND
+       (.G(\<const0> ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_1,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_xlconcat_0_1" *) 
+(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+module zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1
+   (In0,
+    In1,
+    In2,
+    In3,
+    In4,
+    In5,
+    In6,
+    dout);
+  input [0:0]In0;
+  input [0:0]In1;
+  input [0:0]In2;
+  input [0:0]In3;
+  input [0:0]In4;
+  input [0:0]In5;
+  input [4:0]In6;
+  output [10:0]dout;
+
+  wire \<const0> ;
+  wire [0:0]In0;
+  wire [0:0]In1;
+  wire [0:0]In2;
+  wire [0:0]In3;
+  wire [0:0]In4;
+  wire [0:0]In5;
+
+  assign dout[10] = \<const0> ;
+  assign dout[9] = \<const0> ;
+  assign dout[8] = \<const0> ;
+  assign dout[7] = \<const0> ;
+  assign dout[6] = \<const0> ;
+  assign dout[5] = In5;
+  assign dout[4] = In4;
+  assign dout[3] = In3;
+  assign dout[2] = In2;
+  assign dout[1] = In1;
+  assign dout[0] = In0;
+  GND GND
+       (.G(\<const0> ));
+endmodule
+
 (* ORIG_REF_NAME = "pmod_jstk2" *) 
 module zxnexys_zxjoystick_0_0_pmod_jstk2
    (wv_reg_0,
     jstk_sel,
     wv_reg_1,
-    joy_right,
+    Q,
+    r00_in,
+    \x_reg[7]_0 ,
+    d0,
+    \y_reg[7]_0 ,
+    invalid,
     clk_peripheral,
     SPI_Master_0_o_TX_Ready,
     o_RX_DV,
@@ -953,7 +3614,12 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
   output wv_reg_0;
   output jstk_sel;
   output wv_reg_1;
-  output [5:0]joy_right;
+  output [1:0]Q;
+  output r00_in;
+  output \x_reg[7]_0 ;
+  output d0;
+  output \y_reg[7]_0 ;
+  output invalid;
   input clk_peripheral;
   input SPI_Master_0_o_TX_Ready;
   input o_RX_DV;
@@ -985,20 +3651,22 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
   wire \FSM_onehot_cState_reg_n_0_[4] ;
   wire \FSM_onehot_cState_reg_n_0_[5] ;
   wire \FSM_onehot_cState_reg_n_0_[7] ;
+  wire [1:0]Q;
   wire SPI_Master_0_o_TX_Ready;
   wire [2:0]bc;
   wire bc0;
   wire \bc[0]_i_1_n_0 ;
   wire \bc[1]_i_1_n_0 ;
   wire \bc[2]_i_1_n_0 ;
-  wire bc_2;
+  wire bc_0;
+  wire \button[0]_i_2__0_n_0 ;
+  wire \button[0]_i_2__1_n_0 ;
+  wire \button[0]_i_2__2_n_0 ;
+  wire \button[0]_i_2_n_0 ;
   wire clk_peripheral;
+  wire d0;
   wire [17:1]in13;
-  wire [5:0]joy_right;
-  wire \joy_right[0]_INST_0_i_1_n_0 ;
-  wire \joy_right[1]_INST_0_i_1_n_0 ;
-  wire \joy_right[2]_INST_0_i_1_n_0 ;
-  wire \joy_right[3]_INST_0_i_1_n_0 ;
+  wire invalid;
   wire jstk_sel;
   wire o_RX_DV;
   wire pause0_carry__0_n_0;
@@ -1037,17 +3705,38 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
   wire \pause_reg_n_0_[7] ;
   wire \pause_reg_n_0_[8] ;
   wire \pause_reg_n_0_[9] ;
+  wire r00_in;
   wire \r_TX_Byte_reg[6] ;
   wire reset;
-  wire \s[0]_i_1_n_0 ;
-  wire \s[1]_i_1_n_0 ;
+  wire s;
+  wire \s_reg_n_0_[2] ;
+  wire \s_reg_n_0_[3] ;
+  wire \s_reg_n_0_[4] ;
+  wire \s_reg_n_0_[5] ;
+  wire \s_reg_n_0_[6] ;
   wire sel_i_1_n_0;
   wire wv_reg_0;
   wire wv_reg_1;
-  wire [7:0]x;
-  wire x_0;
-  wire [7:0]y;
-  wire y_1;
+  wire x;
+  wire \x_reg[7]_0 ;
+  wire \x_reg_n_0_[0] ;
+  wire \x_reg_n_0_[1] ;
+  wire \x_reg_n_0_[2] ;
+  wire \x_reg_n_0_[3] ;
+  wire \x_reg_n_0_[4] ;
+  wire \x_reg_n_0_[5] ;
+  wire \x_reg_n_0_[6] ;
+  wire \x_reg_n_0_[7] ;
+  wire y;
+  wire \y_reg[7]_0 ;
+  wire \y_reg_n_0_[0] ;
+  wire \y_reg_n_0_[1] ;
+  wire \y_reg_n_0_[2] ;
+  wire \y_reg_n_0_[3] ;
+  wire \y_reg_n_0_[4] ;
+  wire \y_reg_n_0_[5] ;
+  wire \y_reg_n_0_[6] ;
+  wire \y_reg_n_0_[7] ;
   wire [3:0]NLW_pause0_carry__3_CO_UNCONNECTED;
   wire [3:1]NLW_pause0_carry__3_O_UNCONNECTED;
 
@@ -1059,7 +3748,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I2(bc[0]),
         .I3(bc[1]),
         .I4(bc[2]),
-        .I5(bc_2),
+        .I5(bc_0),
         .O(\FSM_onehot_cState[0]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hF4F4F444)) 
@@ -1104,7 +3793,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I2(\pause_reg_n_0_[13] ),
         .I3(\pause_reg_n_0_[12] ),
         .O(\FSM_onehot_cState[1]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \FSM_onehot_cState[1]_i_6 
@@ -1141,7 +3830,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I4(\FSM_onehot_cState[7]_i_2_n_0 ),
         .I5(\FSM_onehot_cState_reg_n_0_[7] ),
         .O(\FSM_onehot_cState[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'h8F88)) 
     \FSM_onehot_cState[4]_i_1 
@@ -1150,7 +3839,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I2(wv_reg_0),
         .I3(\FSM_onehot_cState_reg_n_0_[4] ),
         .O(\FSM_onehot_cState[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'hF444)) 
     \FSM_onehot_cState[5]_i_1 
@@ -1159,7 +3848,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I2(wv_reg_0),
         .I3(\FSM_onehot_cState_reg_n_0_[4] ),
         .O(\FSM_onehot_cState[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \FSM_onehot_cState[6]_i_1 
@@ -1172,7 +3861,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
        (.I0(\FSM_onehot_cState[7]_i_2_n_0 ),
         .I1(\FSM_onehot_cState_reg_n_0_[7] ),
         .I2(bc[2]),
-        .I3(bc_2),
+        .I3(bc_0),
         .I4(bc[0]),
         .I5(bc[1]),
         .O(\FSM_onehot_cState[7]_i_1_n_0 ));
@@ -1186,7 +3875,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I4(\pause_reg_n_0_[5] ),
         .I5(\FSM_onehot_cState[7]_i_4_n_0 ),
         .O(\FSM_onehot_cState[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'h7FFF)) 
     \FSM_onehot_cState[7]_i_3 
@@ -1195,7 +3884,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .I2(\pause_reg_n_0_[10] ),
         .I3(\pause_reg_n_0_[9] ),
         .O(\FSM_onehot_cState[7]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT5 #(
     .INIT(32'h7FFFFFFF)) 
     \FSM_onehot_cState[7]_i_4 
@@ -1266,7 +3955,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\FSM_onehot_cState[6]_i_1_n_0 ),
-        .Q(bc_2),
+        .Q(bc_0),
         .R(reset));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
@@ -1277,29 +3966,29 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .D(\FSM_onehot_cState[7]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[7] ),
         .R(reset));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'h06)) 
     \bc[0]_i_1 
        (.I0(bc[0]),
-        .I1(bc_2),
+        .I1(bc_0),
         .I2(bc0),
         .O(\bc[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'h006A)) 
     \bc[1]_i_1 
        (.I0(bc[1]),
-        .I1(bc_2),
+        .I1(bc_0),
         .I2(bc[0]),
         .I3(bc0),
         .O(\bc[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT5 #(
     .INIT(32'h00006AAA)) 
     \bc[2]_i_1 
        (.I0(bc[2]),
-        .I1(bc_2),
+        .I1(bc_0),
         .I2(bc[0]),
         .I3(bc[1]),
         .I4(bc0),
@@ -1322,78 +4011,87 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .D(\bc[2]_i_1_n_0 ),
         .Q(bc[2]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'h80)) 
-    \joy_right[0]_INST_0 
-       (.I0(x[6]),
-        .I1(\joy_right[0]_INST_0_i_1_n_0 ),
-        .I2(x[7]),
-        .O(joy_right[0]));
-  LUT6 #(
-    .INIT(64'hEEEEEEEAAAAAAAAA)) 
-    \joy_right[0]_INST_0_i_1 
-       (.I0(x[5]),
-        .I1(x[4]),
-        .I2(x[2]),
-        .I3(x[0]),
-        .I4(x[1]),
-        .I5(x[3]),
-        .O(\joy_right[0]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+    \button[0]_i_1 
+       (.I0(\x_reg_n_0_[6] ),
+        .I1(\button[0]_i_2_n_0 ),
+        .I2(\x_reg_n_0_[7] ),
+        .O(r00_in));
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT3 #(
     .INIT(8'h02)) 
-    \joy_right[1]_INST_0 
-       (.I0(\joy_right[1]_INST_0_i_1_n_0 ),
-        .I1(x[7]),
-        .I2(x[6]),
-        .O(joy_right[1]));
-  LUT6 #(
-    .INIT(64'h01111111FFFFFFFF)) 
-    \joy_right[1]_INST_0_i_1 
-       (.I0(x[3]),
-        .I1(x[4]),
-        .I2(x[2]),
-        .I3(x[1]),
-        .I4(x[0]),
-        .I5(x[5]),
-        .O(\joy_right[1]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+    \button[0]_i_1__0 
+       (.I0(\button[0]_i_2__0_n_0 ),
+        .I1(\x_reg_n_0_[7] ),
+        .I2(\x_reg_n_0_[6] ),
+        .O(\x_reg[7]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'h80)) 
-    \joy_right[2]_INST_0 
-       (.I0(y[6]),
-        .I1(\joy_right[2]_INST_0_i_1_n_0 ),
-        .I2(y[7]),
-        .O(joy_right[2]));
-  LUT6 #(
-    .INIT(64'hEEEEEEEAAAAAAAAA)) 
-    \joy_right[2]_INST_0_i_1 
-       (.I0(y[5]),
-        .I1(y[4]),
-        .I2(y[2]),
-        .I3(y[0]),
-        .I4(y[1]),
-        .I5(y[3]),
-        .O(\joy_right[2]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+    \button[0]_i_1__1 
+       (.I0(\y_reg_n_0_[6] ),
+        .I1(\button[0]_i_2__1_n_0 ),
+        .I2(\y_reg_n_0_[7] ),
+        .O(d0));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'h02)) 
-    \joy_right[3]_INST_0 
-       (.I0(\joy_right[3]_INST_0_i_1_n_0 ),
-        .I1(y[7]),
-        .I2(y[6]),
-        .O(joy_right[3]));
+    \button[0]_i_1__2 
+       (.I0(\button[0]_i_2__2_n_0 ),
+        .I1(\y_reg_n_0_[7] ),
+        .I2(\y_reg_n_0_[6] ),
+        .O(\y_reg[7]_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \button[0]_i_1__3 
+       (.I0(\s_reg_n_0_[2] ),
+        .I1(\s_reg_n_0_[5] ),
+        .I2(\s_reg_n_0_[6] ),
+        .I3(\s_reg_n_0_[3] ),
+        .I4(\s_reg_n_0_[4] ),
+        .O(invalid));
+  LUT6 #(
+    .INIT(64'hEEEEEEEAAAAAAAAA)) 
+    \button[0]_i_2 
+       (.I0(\x_reg_n_0_[5] ),
+        .I1(\x_reg_n_0_[4] ),
+        .I2(\x_reg_n_0_[2] ),
+        .I3(\x_reg_n_0_[0] ),
+        .I4(\x_reg_n_0_[1] ),
+        .I5(\x_reg_n_0_[3] ),
+        .O(\button[0]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'h01111111FFFFFFFF)) 
-    \joy_right[3]_INST_0_i_1 
-       (.I0(y[3]),
-        .I1(y[4]),
-        .I2(y[2]),
-        .I3(y[1]),
-        .I4(y[0]),
-        .I5(y[5]),
-        .O(\joy_right[3]_INST_0_i_1_n_0 ));
+    \button[0]_i_2__0 
+       (.I0(\x_reg_n_0_[3] ),
+        .I1(\x_reg_n_0_[4] ),
+        .I2(\x_reg_n_0_[2] ),
+        .I3(\x_reg_n_0_[1] ),
+        .I4(\x_reg_n_0_[0] ),
+        .I5(\x_reg_n_0_[5] ),
+        .O(\button[0]_i_2__0_n_0 ));
+  LUT6 #(
+    .INIT(64'hEEEEEEEAAAAAAAAA)) 
+    \button[0]_i_2__1 
+       (.I0(\y_reg_n_0_[5] ),
+        .I1(\y_reg_n_0_[4] ),
+        .I2(\y_reg_n_0_[2] ),
+        .I3(\y_reg_n_0_[0] ),
+        .I4(\y_reg_n_0_[1] ),
+        .I5(\y_reg_n_0_[3] ),
+        .O(\button[0]_i_2__1_n_0 ));
+  LUT6 #(
+    .INIT(64'h01111111FFFFFFFF)) 
+    \button[0]_i_2__2 
+       (.I0(\y_reg_n_0_[3] ),
+        .I1(\y_reg_n_0_[4] ),
+        .I2(\y_reg_n_0_[2] ),
+        .I3(\y_reg_n_0_[1] ),
+        .I4(\y_reg_n_0_[0] ),
+        .I5(\y_reg_n_0_[5] ),
+        .O(\button[0]_i_2__2_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 pause0_carry
        (.CI(1'b0),
@@ -1434,7 +4132,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O({NLW_pause0_carry__3_O_UNCONNECTED[3:1],in13[17]}),
         .S({1'b0,1'b0,1'b0,\pause_reg_n_0_[17] }));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \pause[0]_i_1 
@@ -1554,46 +4252,64 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .D(in13[9]),
         .Q(\pause_reg_n_0_[9] ),
         .R(\pause[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \r_TX_Byte[6]_i_1 
        (.I0(wv_reg_0),
         .I1(\r_TX_Byte_reg[6] ),
         .O(wv_reg_1));
-  LUT6 #(
-    .INIT(64'hFEFFFFFF02000000)) 
-    \s[0]_i_1 
-       (.I0(D[0]),
-        .I1(bc[1]),
-        .I2(bc[0]),
-        .I3(bc_2),
-        .I4(bc[2]),
-        .I5(joy_right[4]),
-        .O(\s[0]_i_1_n_0 ));
-  LUT6 #(
-    .INIT(64'hFEFFFFFF02000000)) 
-    \s[1]_i_1 
-       (.I0(D[1]),
-        .I1(bc[1]),
-        .I2(bc[0]),
-        .I3(bc_2),
-        .I4(bc[2]),
-        .I5(joy_right[5]),
-        .O(\s[1]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'h1000)) 
+    \s[6]_i_1 
+       (.I0(bc[1]),
+        .I1(bc[0]),
+        .I2(bc_0),
+        .I3(bc[2]),
+        .O(s));
   FDRE \s_reg[0] 
        (.C(clk_peripheral),
-        .CE(1'b1),
-        .D(\s[0]_i_1_n_0 ),
-        .Q(joy_right[4]),
+        .CE(s),
+        .D(D[0]),
+        .Q(Q[0]),
         .R(1'b0));
   FDRE \s_reg[1] 
        (.C(clk_peripheral),
-        .CE(1'b1),
-        .D(\s[1]_i_1_n_0 ),
-        .Q(joy_right[5]),
+        .CE(s),
+        .D(D[1]),
+        .Q(Q[1]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  FDRE \s_reg[2] 
+       (.C(clk_peripheral),
+        .CE(s),
+        .D(D[2]),
+        .Q(\s_reg_n_0_[2] ),
+        .R(1'b0));
+  FDRE \s_reg[3] 
+       (.C(clk_peripheral),
+        .CE(s),
+        .D(D[3]),
+        .Q(\s_reg_n_0_[3] ),
+        .R(1'b0));
+  FDRE \s_reg[4] 
+       (.C(clk_peripheral),
+        .CE(s),
+        .D(D[4]),
+        .Q(\s_reg_n_0_[4] ),
+        .R(1'b0));
+  FDRE \s_reg[5] 
+       (.C(clk_peripheral),
+        .CE(s),
+        .D(D[5]),
+        .Q(\s_reg_n_0_[5] ),
+        .R(1'b0));
+  FDRE \s_reg[6] 
+       (.C(clk_peripheral),
+        .CE(s),
+        .D(D[6]),
+        .Q(\s_reg_n_0_[6] ),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT2 #(
     .INIT(4'hE)) 
     sel_i_1
@@ -1617,112 +4333,112 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
     \x[7]_i_1 
        (.I0(bc[1]),
         .I1(bc[0]),
-        .I2(bc_2),
+        .I2(bc_0),
         .I3(bc[2]),
-        .O(x_0));
+        .O(x));
   FDRE \x_reg[0] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[0]),
-        .Q(x[0]),
+        .Q(\x_reg_n_0_[0] ),
         .R(1'b0));
   FDRE \x_reg[1] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[1]),
-        .Q(x[1]),
+        .Q(\x_reg_n_0_[1] ),
         .R(1'b0));
   FDRE \x_reg[2] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[2]),
-        .Q(x[2]),
+        .Q(\x_reg_n_0_[2] ),
         .R(1'b0));
   FDRE \x_reg[3] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[3]),
-        .Q(x[3]),
+        .Q(\x_reg_n_0_[3] ),
         .R(1'b0));
   FDRE \x_reg[4] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[4]),
-        .Q(x[4]),
+        .Q(\x_reg_n_0_[4] ),
         .R(1'b0));
   FDRE \x_reg[5] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[5]),
-        .Q(x[5]),
+        .Q(\x_reg_n_0_[5] ),
         .R(1'b0));
   FDRE \x_reg[6] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[6]),
-        .Q(x[6]),
+        .Q(\x_reg_n_0_[6] ),
         .R(1'b0));
   FDRE \x_reg[7] 
        (.C(clk_peripheral),
-        .CE(x_0),
+        .CE(x),
         .D(D[7]),
-        .Q(x[7]),
+        .Q(\x_reg_n_0_[7] ),
         .R(1'b0));
   LUT4 #(
     .INIT(16'h4000)) 
     \y[7]_i_1 
        (.I0(bc[0]),
         .I1(bc[1]),
-        .I2(bc_2),
+        .I2(bc_0),
         .I3(bc[2]),
-        .O(y_1));
+        .O(y));
   FDRE \y_reg[0] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[0]),
-        .Q(y[0]),
+        .Q(\y_reg_n_0_[0] ),
         .R(1'b0));
   FDRE \y_reg[1] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[1]),
-        .Q(y[1]),
+        .Q(\y_reg_n_0_[1] ),
         .R(1'b0));
   FDRE \y_reg[2] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[2]),
-        .Q(y[2]),
+        .Q(\y_reg_n_0_[2] ),
         .R(1'b0));
   FDRE \y_reg[3] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[3]),
-        .Q(y[3]),
+        .Q(\y_reg_n_0_[3] ),
         .R(1'b0));
   FDRE \y_reg[4] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[4]),
-        .Q(y[4]),
+        .Q(\y_reg_n_0_[4] ),
         .R(1'b0));
   FDRE \y_reg[5] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[5]),
-        .Q(y[5]),
+        .Q(\y_reg_n_0_[5] ),
         .R(1'b0));
   FDRE \y_reg[6] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[6]),
-        .Q(y[6]),
+        .Q(\y_reg_n_0_[6] ),
         .R(1'b0));
   FDRE \y_reg[7] 
        (.C(clk_peripheral),
-        .CE(y_1),
+        .CE(y),
         .D(D[7]),
-        .Q(y[7]),
+        .Q(\y_reg_n_0_[7] ),
         .R(1'b0));
 endmodule
 `ifndef GLBL

@@ -359,11 +359,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:12 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:30 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9e1ec6c0</spirit:value>
+            <spirit:value>9:34ae0ecc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -374,7 +374,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9e1ec6c0</spirit:value>
+            <spirit:value>9:34ae0ecc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -390,11 +390,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:12 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:30 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9e1ec6c0</spirit:value>
+            <spirit:value>9:34ae0ecc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -409,11 +409,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:12 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:30 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8cbdaa2e</spirit:value>
+            <spirit:value>9:260d6222</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -429,11 +429,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:12 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:30 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8cbdaa2e</spirit:value>
+            <spirit:value>9:260d6222</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -447,11 +447,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:14:40 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:52 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:9e1ec6c0</spirit:value>
+            <spirit:value>9:34ae0ecc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -668,7 +668,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/49bd/src/sysreset.v</spirit:name>
+        <spirit:name>../../ipshared/798d/src/sysreset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -687,7 +687,7 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/49bd/src/sysreset.v</spirit:name>
+        <spirit:name>../../ipshared/798d/src/sysreset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -713,18 +713,6 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnexys_zxreset_0_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxreset_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxnexys_zxreset_0_0_sim_netlist.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
@@ -736,6 +724,18 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxnexys_zxreset_0_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxnexys_zxreset_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -776,7 +776,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxreset_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreRevision>8</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@15112d1_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5188e74b_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
@@ -855,6 +855,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@6109c374_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@61cbf585_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3e343b46_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55152cb9_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a1c6607_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3bd843c1_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@547b4c2d_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@392af0cd_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c14a8c_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7411b7d6_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f80de36_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b50d1fe_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3725c697_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f456034_ARCHIVE_LOCATION">v:/ip/zxreset</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
@@ -885,7 +896,7 @@
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="2e6060f7"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="db666738"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="d20012ae"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="da66a382"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="269db835"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="e0d1ed56"/>
     </xilinx:packagingInfo>

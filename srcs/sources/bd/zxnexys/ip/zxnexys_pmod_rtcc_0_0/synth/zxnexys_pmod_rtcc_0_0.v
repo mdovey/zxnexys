@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:pmod_rtcc:1.1
-// IP Revision: 2
+// IP Revision: 3
 
 (* X_CORE_INFO = "pmod_rtcc,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_pmod_rtcc_0_0,pmod_rtcc,{}" *)

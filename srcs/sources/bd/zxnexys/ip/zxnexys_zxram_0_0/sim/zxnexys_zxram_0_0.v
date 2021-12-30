@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxram:2.3
-// IP Revision: 10
+// IP Revision: 11
 
 `timescale 1ns/1ps
 

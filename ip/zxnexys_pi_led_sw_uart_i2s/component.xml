@@ -503,8 +503,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_pi_led_sw_uart_i2s_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>10</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-24T14:56:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>12</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-30T11:36:55Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@215b5dc1_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1fd07fa6_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
@@ -607,6 +607,22 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@1f92d1ab_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7c2ead7c_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3a1c56fe_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c006237_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f091a10_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22623d4f_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e193f63_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12de8901_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d7117b4_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f093010_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@adbd85d_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d2cbb2b_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a1c1486_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5dc84995_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e868d6c_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26b8b639_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c9ec7d2_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19daf7d_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b3c4ed_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

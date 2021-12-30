@@ -56,7 +56,12 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module joystick_pmod_jstk2_0_0 (
-  joystick,
+  r,
+  l,
+  d,
+  u,
+  b,
+  c,
   sel,
   dati,
   wv,
@@ -66,7 +71,12 @@ module joystick_pmod_jstk2_0_0 (
   reset
 );
 
-output wire [10 : 0] joystick;
+output wire r;
+output wire l;
+output wire d;
+output wire u;
+output wire b;
+output wire c;
 output wire sel;
 input wire [7 : 0] dati;
 output wire wv;
@@ -83,7 +93,12 @@ input wire reset;
     .LOW_MARGIN(8'B00100111),
     .HIGH_MARGIN(8'B11011000)
   ) inst (
-    .joystick(joystick),
+    .r(r),
+    .l(l),
+    .d(d),
+    .u(u),
+    .b(b),
+    .c(c),
     .sel(sel),
     .dati(dati),
     .wv(wv),

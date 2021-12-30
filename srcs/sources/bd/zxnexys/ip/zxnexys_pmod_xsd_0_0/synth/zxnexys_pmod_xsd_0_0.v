@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:pmod_xsd:1.1
-// IP Revision: 3
+// IP Revision: 4
 
 (* X_CORE_INFO = "pmod_xsd,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_pmod_xsd_0_0,pmod_xsd,{}" *)

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_mic:1.3
-// IP Revision: 5
+// IP Revision: 6
 
 (* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_mic_0_0,mic_i2s_wrapper,{}" *)

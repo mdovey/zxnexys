@@ -26,6 +26,9 @@ module keyb_clocks(
     output      clk_ps2,
     output      fnkeys_enable,
     output      membrane_enable,
+    
+    input       joy_clk_en,
+    
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)
     input clk_peripheral,
@@ -37,8 +40,8 @@ module keyb_clocks(
     
     reg [17:0] clk_div;
     
-    assign fnkeys_enable    = (clk_div[17:0] == {18{1'b1}}) ? 1'b1 : 1'b0;      // 9.36ms period for debounce
-    assign membrane_enable  = (clk_div[8:7] == 2'b11) ? 1'b1 : 1'b0;         // complete scan every 2.5 scanlines (0.018ms per row)
+    assign fnkeys_enable    = (clk_div[17:0] == {18{1'b1}}) ? 1'b1 : 1'b0;              // 9.36ms period for debounce
+    assign membrane_enable  = (clk_div[8:7] == 2'b11 && joy_clk_en) ? 1'b1 : 1'b0;      // complete scan every 2.5 scanlines (0.018ms per row)
     assign clk_ps2          = clk_div[6];
     
    always @(posedge clk_peripheral, posedge reset)

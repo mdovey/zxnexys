@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxjoystick:2.3
-// IP Revision: 4
+// IP Revision: 15
 
 `timescale 1ns/1ps
 
@@ -61,6 +61,7 @@ module zxnexys_zxjoystick_0_0 (
   btnr,
   btnu,
   clk_peripheral,
+  joy_clk_en,
   joy_left,
   joy_right,
   jstk_clk,
@@ -78,6 +79,9 @@ input wire btnu;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME joy_clk_en, FREQ_HZ 100000000, PHASE 0, POLARITY ACTIVE_HIGH" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clockenable:1.0 joy_clk_en CE" *)
+output wire joy_clk_en;
 (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left" *)
 output wire [10 : 0] joy_left;
 (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right" *)
@@ -99,6 +103,7 @@ input wire reset;
     .btnr(btnr),
     .btnu(btnu),
     .clk_peripheral(clk_peripheral),
+    .joy_clk_en(joy_clk_en),
     .joy_left(joy_left),
     .joy_right(joy_right),
     .jstk_clk(jstk_clk),

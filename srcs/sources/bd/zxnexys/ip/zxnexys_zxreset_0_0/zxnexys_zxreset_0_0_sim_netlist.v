@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 29 10:14:40 2021
+// Date        : Thu Dec 30 12:13:48 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxreset_0_0/zxnexys_zxreset_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxreset_0_0 -prefix
+//               zxnexys_zxreset_0_0_ zxnexys_zxreset_0_0_sim_netlist.v
 // Design      : zxnexys_zxreset_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,65 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxreset_0_0,sysreset,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "sysreset,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxreset_0_0
-   (mb_reset,
-    reset_hard,
-    reset_soft,
-    reset_peripheral,
-    clk_locked,
-    ui_clk_locked,
-    memory_calibrated,
-    clk_ui,
-    clk_peripheral,
-    peripheral_reset,
-    video_reset,
-    memory_aresetn,
-    cpu_resetn);
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset mb_reset" *) output mb_reset;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset reset_hard_req" *) (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) input reset_hard;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset reset_soft_req" *) (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) input reset_soft;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset reset_peripheral_req" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mb_reset, POLARITY ACTIVE_HIGH" *) input reset_peripheral;
-  input clk_locked;
-  input ui_clk_locked;
-  input memory_calibrated;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_ui CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_ui, ASSOCIATED_RESET memory_aresetn, FREQ_HZ 150015002, FREQ_TOLERANCE_HZ 0, PHASE 0, CLK_DOMAIN zxnexys_mig_7series_0_0_ui_clk, INSERT_VIP 0" *) input clk_ui;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET mb_reset:peripheral_reset:video_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) output peripheral_reset;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME video_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) output video_reset;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 memory_aresetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME memory_aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output memory_aresetn;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 cpu_resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME cpu_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input cpu_resetn;
-
-  wire clk_locked;
-  wire clk_peripheral;
-  wire cpu_resetn;
-  wire memory_aresetn;
-  wire memory_calibrated;
-  wire peripheral_reset;
-  wire reset_hard;
-  wire reset_peripheral;
-  wire reset_soft;
-  wire ui_clk_locked;
-  wire video_reset;
-
-  assign mb_reset = video_reset;
-  zxnexys_zxreset_0_0_sysreset inst
-       (.clk_locked(clk_locked),
-        .clk_peripheral(clk_peripheral),
-        .cpu_resetn(cpu_resetn),
-        .memory_aresetn(memory_aresetn),
-        .memory_calibrated(memory_calibrated),
-        .peripheral_reset(peripheral_reset),
-        .reset_hard(reset_hard),
-        .reset_peripheral(reset_peripheral),
-        .reset_soft(reset_soft),
-        .ui_clk_locked(ui_clk_locked),
-        .video_reset(video_reset));
-endmodule
-
-(* ORIG_REF_NAME = "async_input_sync" *) 
 module zxnexys_zxreset_0_0_async_input_sync
    (peripheral_rst,
     clk_peripheral,
@@ -288,7 +229,6 @@ module zxnexys_zxreset_0_0_async_input_sync_1
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "held_reset" *) 
 module zxnexys_zxreset_0_0_held_reset
    (memory_aresetn,
     clk_peripheral,
@@ -2123,7 +2063,6 @@ module zxnexys_zxreset_0_0_held_reset__parameterized1
         .Q(peripheral_reset));
 endmodule
 
-(* ORIG_REF_NAME = "held_resetn" *) 
 module zxnexys_zxreset_0_0_held_resetn
    (memory_aresetn,
     clk_peripheral,
@@ -2142,7 +2081,6 @@ module zxnexys_zxreset_0_0_held_resetn
         .memory_aresetn(memory_aresetn));
 endmodule
 
-(* ORIG_REF_NAME = "sysreset" *) 
 module zxnexys_zxreset_0_0_sysreset
    (video_reset,
     peripheral_reset,
@@ -2217,6 +2155,64 @@ module zxnexys_zxreset_0_0_sysreset
         .reset_hard(reset_hard),
         .soft_rst(soft_rst),
         .ui_clk_locked(ui_clk_locked));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "zxnexys_zxreset_0_0,sysreset,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "sysreset,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxreset_0_0
+   (mb_reset,
+    reset_hard,
+    reset_soft,
+    reset_peripheral,
+    clk_locked,
+    ui_clk_locked,
+    memory_calibrated,
+    clk_ui,
+    clk_peripheral,
+    peripheral_reset,
+    video_reset,
+    memory_aresetn,
+    cpu_resetn);
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset mb_reset" *) output mb_reset;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset reset_hard_req" *) (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) input reset_hard;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset reset_soft_req" *) (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) input reset_soft;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset reset_peripheral_req" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mb_reset, POLARITY ACTIVE_HIGH" *) input reset_peripheral;
+  input clk_locked;
+  input ui_clk_locked;
+  input memory_calibrated;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_ui CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_ui, ASSOCIATED_RESET memory_aresetn, FREQ_HZ 150015002, FREQ_TOLERANCE_HZ 0, PHASE 0, CLK_DOMAIN zxnexys_mig_7series_0_0_ui_clk, INSERT_VIP 0" *) input clk_ui;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET mb_reset:peripheral_reset:video_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) output peripheral_reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME video_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) output video_reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 memory_aresetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME memory_aresetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) output memory_aresetn;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 cpu_resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME cpu_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input cpu_resetn;
+
+  wire clk_locked;
+  wire clk_peripheral;
+  wire cpu_resetn;
+  wire memory_aresetn;
+  wire memory_calibrated;
+  wire peripheral_reset;
+  wire reset_hard;
+  wire reset_peripheral;
+  wire reset_soft;
+  wire ui_clk_locked;
+  wire video_reset;
+
+  assign mb_reset = video_reset;
+  zxnexys_zxreset_0_0_sysreset inst
+       (.clk_locked(clk_locked),
+        .clk_peripheral(clk_peripheral),
+        .cpu_resetn(cpu_resetn),
+        .memory_aresetn(memory_aresetn),
+        .memory_calibrated(memory_calibrated),
+        .peripheral_reset(peripheral_reset),
+        .reset_hard(reset_hard),
+        .reset_peripheral(reset_peripheral),
+        .reset_soft(reset_soft),
+        .ui_clk_locked(ui_clk_locked),
+        .video_reset(video_reset));
 endmodule
 `ifndef GLBL
 `define GLBL

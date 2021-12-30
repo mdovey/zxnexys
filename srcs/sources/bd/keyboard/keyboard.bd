@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC19D169CD58E9434",
+      "boundary_crc": "0xB11515D39EF84591",
       "device": "xc7a100tcsg324-1",
       "name": "keyboard",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -12,7 +12,6 @@
     "design_tree": {
       "Ps2Interface_0": "",
       "emu_fnkeys_0": "",
-      "keyb_clocks_0": "",
       "membrane_0": "",
       "ps2_keyb_0": "",
       "special_keys_0": "",
@@ -24,7 +23,8 @@
       "udk_map_0": "",
       "xlslice_2": "",
       "xlconcat_0": "",
-      "membrane_stick_0": ""
+      "membrane_stick_0": "",
+      "keyb_clocks_0": ""
     },
     "ports": {
       "cancel": {
@@ -178,6 +178,16 @@
         "direction": "I",
         "left": "10",
         "right": "0"
+      },
+      "joy_clk_en": {
+        "type": "ce",
+        "direction": "I",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -354,56 +364,6 @@
             "direction": "O",
             "left": "10",
             "right": "1"
-          }
-        }
-      },
-      "keyb_clocks_0": {
-        "vlnv": "xilinx.com:module_ref:keyb_clocks:1.0",
-        "xci_name": "keyboard_keyb_clocks_0_0",
-        "xci_path": "ip\\keyboard_keyb_clocks_0_0\\keyboard_keyb_clocks_0_0.xci",
-        "inst_hier_path": "keyb_clocks_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "keyb_clocks",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk_ps2": {
-            "direction": "O"
-          },
-          "fnkeys_enable": {
-            "direction": "O"
-          },
-          "membrane_enable": {
-            "direction": "O"
-          },
-          "clk_peripheral": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "reset",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "keyboard_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
           }
         }
       },
@@ -755,10 +715,22 @@
             "value": "6"
           },
           "default_data_radix": {
-            "value": "2"
+            "value": "10"
+          },
+          "input_options": {
+            "value": "non_registered"
           },
           "memory_type": {
             "value": "simple_dual_port_ram"
+          },
+          "output_options": {
+            "value": "non_registered"
+          },
+          "simple_dual_port_address": {
+            "value": "non_registered"
+          },
+          "simple_dual_port_output_clock_enable": {
+            "value": "false"
           }
         }
       },
@@ -855,18 +827,6 @@
                 "direction": "I",
                 "left": "10",
                 "right": "0"
-              },
-              "joy_left_type": {
-                "physical_name": "i_joy_left_type",
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              },
-              "joy_right_type": {
-                "physical_name": "i_joy_right_type",
-                "direction": "I",
-                "left": "2",
-                "right": "0"
               }
             }
           },
@@ -956,6 +916,65 @@
             "right": "0"
           }
         }
+      },
+      "keyb_clocks_0": {
+        "vlnv": "xilinx.com:module_ref:keyb_clocks:1.0",
+        "xci_name": "keyboard_keyb_clocks_0_0",
+        "xci_path": "ip\\keyboard_keyb_clocks_0_0\\keyboard_keyb_clocks_0_0.xci",
+        "inst_hier_path": "keyb_clocks_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "keyb_clocks",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_ps2": {
+            "direction": "O"
+          },
+          "fnkeys_enable": {
+            "direction": "O"
+          },
+          "membrane_enable": {
+            "direction": "O"
+          },
+          "joy_clk_en": {
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_peripheral": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "keyboard_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
@@ -1006,11 +1025,11 @@
           "clk_peripheral",
           "Ps2Interface_0/clk",
           "emu_fnkeys_0/i_CLK",
-          "keyb_clocks_0/clk_peripheral",
           "membrane_0/i_CLK",
           "ps2_keyb_0/i_CLK",
           "udk_map_0/clk",
-          "membrane_stick_0/i_CLK"
+          "membrane_stick_0/i_CLK",
+          "keyb_clocks_0/clk_peripheral"
         ]
       },
       "clk_peripheral_n_1": {
@@ -1041,6 +1060,12 @@
         "ports": [
           "emu_fnkeys_0/o_rows_filtered",
           "membrane_0/i_rows"
+        ]
+      },
+      "joy_clk_en_1": {
+        "ports": [
+          "joy_clk_en",
+          "keyb_clocks_0/joy_clk_en"
         ]
       },
       "joy_io_mode_en_1": {
@@ -1197,10 +1222,10 @@
           "reset",
           "Ps2Interface_0/rst",
           "emu_fnkeys_0/i_reset",
-          "keyb_clocks_0/reset",
           "membrane_0/i_reset",
           "ps2_keyb_0/i_reset",
-          "membrane_stick_0/i_reset"
+          "membrane_stick_0/i_reset",
+          "keyb_clocks_0/reset"
         ]
       },
       "row_1": {

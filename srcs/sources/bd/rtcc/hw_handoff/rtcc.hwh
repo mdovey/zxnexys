@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 17:27:05 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 30 01:16:16 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="rtcc" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -10,9 +10,9 @@
         <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aclk"/>
         <CONNECTION INSTANCE="fifo_generator_0" PORT="clk"/>
         <CONNECTION INSTANCE="fifo_generator_1" PORT="clk"/>
-        <CONNECTION INSTANCE="registers_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="rtc_0" PORT="clk"/>
         <CONNECTION INSTANCE="rtc_reset_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="registers_0" PORT="clk_peripheral"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="iic_rtcc_scl_i" SIGIS="undef" SIGNAME="External_Ports_iic_rtcc_scl_i">

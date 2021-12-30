@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxclock:1.3
-// IP Revision: 2
+// IP Revision: 3
 
 (* X_CORE_INFO = "sysclock,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxclock_0_0,sysclock,{}" *)

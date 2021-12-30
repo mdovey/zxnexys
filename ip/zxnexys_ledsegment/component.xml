@@ -312,11 +312,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_ledsegment_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:ledsegment:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-29T11:47:57Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:39:47Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6364bc72_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@45d2eb01_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
@@ -379,6 +379,16 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@60a412ac_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@30c24afc_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@457bb197_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18f5c1ce_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62571dbf_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9efea8a_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30272bdf_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18e4f9b9_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e590139_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@461718ea_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5aa6ada1_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ffbb925_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7257656a_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

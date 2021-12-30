@@ -26,7 +26,12 @@ module pmod_jstk2 #(
     parameter   LOW_MARGIN   = 8'h27,
     parameter   HIGH_MARGIN  = 8'hd8    
 )(
-    output      [10:0]  joystick,
+    output              r,
+    output              l,
+    output              d,
+    output              u,
+    output              b,
+    output              c,
 
     output reg          sel,    
 
@@ -63,17 +68,16 @@ module pmod_jstk2 #(
     reg  [7:0]      y;
     reg  [7:0]      s;
     
-    assign  joystick[0]  = (x > HIGH_MARGIN);
-    assign  joystick[1]  = (x < LOW_MARGIN);
-    assign  joystick[2]  = (y > HIGH_MARGIN);
-    assign  joystick[3]  = (y < LOW_MARGIN);
-    assign  joystick[4]  = 1'b0;
-    assign  joystick[5]  = s[0];
-    assign  joystick[6]  = 1'b0;
-    assign  joystick[7]  = s[1];
-    assign  joystick[8]  = 1'b0;
-    assign  joystick[9]  = 1'b0;
-    assign  joystick[10] = 1'b0;
+    wire            invalid;
+    
+    assign invalid   = |s[6:2];
+    
+    assign  r  = (x > HIGH_MARGIN) && !invalid;
+    assign  l  = (x < LOW_MARGIN) && !invalid;
+    assign  d  = (y > HIGH_MARGIN) && !invalid;
+    assign  u  = (y < LOW_MARGIN) && !invalid;
+    assign  b  = s[1] && !invalid;
+    assign  c  = s[0] && !invalid;
         
     always @(posedge clk_peripheral)
         if (reset)

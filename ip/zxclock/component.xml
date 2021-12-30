@@ -702,11 +702,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxclock_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>3</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:sysclock:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T08:46:06Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:53:07Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@26b76a37_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@ff1ae5e_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
@@ -736,6 +736,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@1b61ca55_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@97e8d4_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6a586103_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ee2a739_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c04c220_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f864776_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5cf46122_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ee84ea6_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a024a23_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@180edd1d_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@667cb408_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12eee06f_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f2dc244_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d842f5f_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

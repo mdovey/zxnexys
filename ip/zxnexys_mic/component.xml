@@ -428,8 +428,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_mic_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-22T20:22:46Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-30T11:38:59Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@b84fc22_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1e549304_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
@@ -472,6 +472,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@7b5c3117_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@5ecf37ce_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1017588b_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@669d6671_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58e2d82b_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@199045a5_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f0985be_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c6a28bf_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62fd1426_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28ed6947_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ffb8ba3_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69958672_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fcb0e93_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70dbad9_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

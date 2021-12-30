@@ -21,6 +21,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
+
+
 module registers #(
     parameter CLOCK_RATE    =   28000000
 )(
@@ -48,7 +50,14 @@ module registers #(
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
     input 		clk_peripheral
 );
-    
+    localparam SEC  = 0;
+    localparam MIN  = 1;
+    localparam HR   = 2;
+    localparam DAY  = 3;
+    localparam DATE = 4;
+    localparam MON  = 5;
+    localparam YEAR = 6;
+        
 	reg  [7:0] data[63:0];
 	reg [31:0] seccnt = 0;
 	reg  [6:0] refresh = 0;
@@ -110,5 +119,63 @@ always @(posedge clk_peripheral)
         data[wr_reg_i]      <= wr_data_i;
     else if (~underflow) 
         data[rd_data[13:8]] <= rd_data[7:0];
+    else if (refresh == 7'b000_0000)
+        if (data[SEC][3:0] != 9) data[SEC][3:0] <= data[SEC][3:0] + 1'd1;
+        else begin
+            data[SEC][3:0] <= 0;
+            if (data[SEC][6:4] != 5) data[SEC][6:4] <= data[SEC][6:4] + 1'd1;
+            else begin
+                data[SEC][6:4] <= 0;
+                if (data[MIN][3:0] != 9) data[MIN][3:0] <= data[MIN][3:0] + 1'd1;
+                else begin
+                    data[MIN][3:0] <= 0;
+                    if (data[MIN][6:4] != 5) data[MIN][6:4] <= data[MIN][6:4] + 1'd1;
+                    else begin
+                        data[MIN][6:4] <= 0;
+                        if (data[HR][3:0] == 9) begin
+                            data[HR][3:0] <= 0;
+                            data[HR][5:4] <= data[HR][5:4] + 1'd1;
+                        end
+                        else if (data[HR][6:0] == {2'b10,5'd12}) begin
+                            data[HR][4:0] <= 1;
+                            data[HR][5]   <= 1;
+                        end
+                        else if ((data[HR][6:0] != {2'b11,5'd12}) &&	(data[HR][6:0] != 23)) data[HR][3:0] <= data[HR][3:0] + 1'd1;
+                        else begin
+                            if (data[HR][6]) data[HR][5:0] <= 1;
+                            else data[HR][5:0] <= 0;
+
+                            data[DAY][2:0] <= &data[DAY][2:0] ? 3'd1 : (data[DAY][2:0] + 1'd1);
+
+                            if (({data[MON], data[DATE]} == (({data[YEAR][4],1'b0} + data[YEAR][1:0]) ? 16'h0228 : 16'h0229)) ||
+                                 ({data[MON], data[DATE]} == 16'h0430) ||
+                                 ({data[MON], data[DATE]} == 16'h0630) ||
+                                 ({data[MON], data[DATE]} == 16'h0930) ||
+                                 ({data[MON], data[DATE]} == 16'h1130) ||
+                                 (data[DATE] == 8'h31)) begin
+                                
+                                data[DATE][5:0] <= 1;
+                                if (data[MON][3:0] == 9) data[MON][4:0] <= 'h10;
+                                else if (data[MON][4:0] != 'h12) data[MON][3:0] <= data[MON][3:0] + 1'd1;
+                                else begin 
+                                    data[MON][4:0] <= 1;
+                                    if (data[YEAR][3:0] != 9) data[YEAR][3:0] <= data[YEAR][3:0] + 1'd1;
+                                    else begin
+                                        data[YEAR][3:0] <= 0;
+                                        if (data[YEAR][7:4] != 9) data[YEAR][7:4] <= data[YEAR][7:4] + 1'd1;
+                                        else data[YEAR][7:4] <= 0;
+                                    end
+                                end
+                            end
+                            else if (data[DATE][3:0] != 9) data[DATE][3:0] <= data[DATE][3:0] + 1'd1;
+                            else begin
+                                data[DATE][3:0] <= 0;
+                                data[DATE][5:4] <= data[DATE][5:4] + 1'd1;
+                            end
+                        end
+                    end
+                end
+            end
+        end
 
 endmodule

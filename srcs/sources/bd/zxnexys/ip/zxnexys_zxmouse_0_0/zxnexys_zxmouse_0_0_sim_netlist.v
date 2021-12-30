@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 29 10:07:36 2021
+// Date        : Thu Dec 30 12:11:26 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxmouse_0_0 -prefix
+//               zxnexys_zxmouse_0_0_ zxnexys_zxmouse_0_0_sim_netlist.v
 // Design      : zxnexys_zxmouse_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,66 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxmouse_0_0,mouse_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "mouse_wrapper,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxmouse_0_0
-   (button,
-    clk_peripheral,
-    mouse_control,
-    ps2_clk_i,
-    ps2_clk_o,
-    ps2_clk_t,
-    ps2_data_i,
-    ps2_data_o,
-    ps2_data_t,
-    reset,
-    wheel,
-    x,
-    y);
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse button" *) output [2:0]button;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse mouse_control" *) input [2:0]mouse_control;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_I" *) input ps2_clk_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_O" *) output ps2_clk_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_T" *) output ps2_clk_t;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_I" *) input ps2_data_i;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_O" *) output ps2_data_o;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_T" *) output ps2_data_t;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse wheel" *) output [3:0]wheel;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse x" *) output [7:0]x;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse y" *) output [7:0]y;
-
-  wire [2:0]button;
-  wire clk_peripheral;
-  wire [2:0]mouse_control;
-  wire ps2_clk_i;
-  wire ps2_clk_o;
-  wire ps2_data_i;
-  wire ps2_data_o;
-  wire reset;
-  wire [3:0]wheel;
-  wire [7:0]x;
-  wire [7:0]y;
-
-  assign ps2_clk_t = ps2_clk_o;
-  assign ps2_data_t = ps2_data_o;
-  zxnexys_zxmouse_0_0_mouse_wrapper inst
-       (.button(button),
-        .clk_peripheral(clk_peripheral),
-        .mouse_control(mouse_control),
-        .ps2_clk_i(ps2_clk_i),
-        .ps2_clk_o(ps2_clk_o),
-        .ps2_data_i(ps2_data_i),
-        .ps2_data_o(ps2_data_o),
-        .reset(reset),
-        .wheel(wheel),
-        .x(x),
-        .y(y));
-endmodule
-
-(* ORIG_REF_NAME = "mouse" *) 
 module zxnexys_zxmouse_0_0_mouse
    (ps2_data_o,
     y,
@@ -143,7 +83,6 @@ module zxnexys_zxmouse_0_0_mouse
         .Dout(wheel));
 endmodule
 
-(* ORIG_REF_NAME = "mouse_ps2_mouse_0_0" *) 
 module zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
    (ps2_data_o,
     zcount,
@@ -202,7 +141,6 @@ module zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
         .zcount(zcount));
 endmodule
 
-(* ORIG_REF_NAME = "mouse_wrapper" *) 
 module zxnexys_zxmouse_0_0_mouse_wrapper
    (ps2_data_o,
     y,
@@ -253,8 +191,7 @@ module zxnexys_zxmouse_0_0_mouse_wrapper
         .y(y));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "mouse_xlconcat_0_0" *) 
-(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+(* CHECK_LICENSE_TYPE = "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
 module zxnexys_zxmouse_0_0_mouse_xlconcat_0_0
    (In0,
     In1,
@@ -274,8 +211,7 @@ module zxnexys_zxmouse_0_0_mouse_xlconcat_0_0
   assign dout[0] = In0;
 endmodule
 
-(* CHECK_LICENSE_TYPE = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "mouse_xlslice_0_0" *) 
-(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+(* CHECK_LICENSE_TYPE = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
 module zxnexys_zxmouse_0_0_mouse_xlslice_0_0
    (Din,
     Dout);
@@ -287,7 +223,6 @@ module zxnexys_zxmouse_0_0_mouse_xlslice_0_0
   assign Dout[3:0] = Din[3:0];
 endmodule
 
-(* ORIG_REF_NAME = "ps2_mouse" *) 
 module zxnexys_zxmouse_0_0_ps2_mouse
    (ps2_data_o,
     zcount,
@@ -1746,6 +1681,65 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .D(zcount0[3]),
         .Q(zcount[3]),
         .R(reset));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "zxnexys_zxmouse_0_0,mouse_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "mouse_wrapper,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxmouse_0_0
+   (button,
+    clk_peripheral,
+    mouse_control,
+    ps2_clk_i,
+    ps2_clk_o,
+    ps2_clk_t,
+    ps2_data_i,
+    ps2_data_o,
+    ps2_data_t,
+    reset,
+    wheel,
+    x,
+    y);
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse button" *) output [2:0]button;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse mouse_control" *) input [2:0]mouse_control;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_I" *) input ps2_clk_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_O" *) output ps2_clk_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_T" *) output ps2_clk_t;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_I" *) input ps2_data_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_O" *) output ps2_data_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_T" *) output ps2_data_t;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse wheel" *) output [3:0]wheel;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse x" *) output [7:0]x;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse y" *) output [7:0]y;
+
+  wire [2:0]button;
+  wire clk_peripheral;
+  wire [2:0]mouse_control;
+  wire ps2_clk_i;
+  wire ps2_clk_o;
+  wire ps2_data_i;
+  wire ps2_data_o;
+  wire reset;
+  wire [3:0]wheel;
+  wire [7:0]x;
+  wire [7:0]y;
+
+  assign ps2_clk_t = ps2_clk_o;
+  assign ps2_data_t = ps2_data_o;
+  zxnexys_zxmouse_0_0_mouse_wrapper inst
+       (.button(button),
+        .clk_peripheral(clk_peripheral),
+        .mouse_control(mouse_control),
+        .ps2_clk_i(ps2_clk_i),
+        .ps2_clk_o(ps2_clk_o),
+        .ps2_data_i(ps2_data_i),
+        .ps2_data_o(ps2_data_o),
+        .reset(reset),
+        .wheel(wheel),
+        .x(x),
+        .y(y));
 endmodule
 `ifndef GLBL
 `define GLBL

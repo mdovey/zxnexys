@@ -1,49 +1,60 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 22 19:09:43 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 30 13:19:25 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="joystick" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
     <PORT DIR="I" NAME="btnc" SIGIS="undef" SIGNAME="External_Ports_btnc">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnc"/>
+        <CONNECTION INSTANCE="debounce_4" PORT="button_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="btnd" SIGIS="undef" SIGNAME="External_Ports_btnd">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnd"/>
+        <CONNECTION INSTANCE="debounce_2" PORT="button_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="btnl" SIGIS="undef" SIGNAME="External_Ports_btnl">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnl"/>
+        <CONNECTION INSTANCE="debounce_1" PORT="button_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="btnr" SIGIS="undef" SIGNAME="External_Ports_btnr">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnr"/>
+        <CONNECTION INSTANCE="debounce_0" PORT="button_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="btnu" SIGIS="undef" SIGNAME="External_Ports_btnu">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="btnu"/>
+        <CONNECTION INSTANCE="debounce_3" PORT="button_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
       <CONNECTIONS>
         <CONNECTION INSTANCE="SPI_Master_0" PORT="i_Clk"/>
+        <CONNECTION INSTANCE="debounce_5" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_6" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_7" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_8" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_9" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_10" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_0" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_1" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_2" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_3" PORT="clk_i"/>
+        <CONNECTION INSTANCE="debounce_4" PORT="clk_i"/>
         <CONNECTION INSTANCE="pmod_jstk2_0" PORT="clk_peripheral"/>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_peripheral"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="10" NAME="joy_left" RIGHT="0" SIGIS="undef" SIGNAME="btn_jstk_0_joystick">
+    <PORT DIR="O" LEFT="10" NAME="joy_left" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="joystick"/>
+        <CONNECTION INSTANCE="xlconcat_0" PORT="dout"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="10" NAME="joy_right" RIGHT="0" SIGIS="undef" SIGNAME="pmod_jstk2_0_joystick">
+    <PORT DIR="O" LEFT="10" NAME="joy_right" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_1_dout">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="joystick"/>
+        <CONNECTION INSTANCE="xlconcat_1" PORT="dout"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="O" NAME="jstk_clk" SIGIS="clk" SIGNAME="SPI_Master_0_o_SPI_Clk">
@@ -68,9 +79,13 @@
     </PORT>
     <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="reset"/>
         <CONNECTION INSTANCE="util_vector_logic_0" PORT="Op1"/>
-        <CONNECTION INSTANCE="btn_jstk_0" PORT="reset"/>
+        <CONNECTION INSTANCE="pmod_jstk2_0" PORT="reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="joy_clk_en" POLARITY="ACTIVE_LOW" SIGIS="ce" SIGNAME="joy_clock_enable_0_clk_en">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -151,51 +166,384 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/btn_jstk_0" HWVERSION="1.0" INSTANCE="btn_jstk_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="btn_jstk" VLNV="xilinx.com:module_ref:btn_jstk:1.0">
+    <MODULE COREREVISION="1" FULLNAME="/debounce_0" HWVERSION="1.0" INSTANCE="debounce_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="joystick_btn_jstk_0_0"/>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="10" NAME="joystick" RIGHT="0" SIGIS="undef" SIGNAME="btn_jstk_0_joystick">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="joy_left"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="btnc" SIGIS="undef" SIGNAME="External_Ports_btnc">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="btnc"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="btnu" SIGIS="undef" SIGNAME="External_Ports_btnu">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="btnu"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="btnd" SIGIS="undef" SIGNAME="External_Ports_btnd">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="btnd"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="btnl" SIGIS="undef" SIGNAME="External_Ports_btnl">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="btnl"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="btnr" SIGIS="undef" SIGNAME="External_Ports_btnr">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="btnr"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="External_Ports_btnr">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnr"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_0_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_1" HWVERSION="1.0" INSTANCE="debounce_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="External_Ports_btnl">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnl"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_1_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_10" HWVERSION="1.0" INSTANCE="debounce_10" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_2_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="pmod_jstk2_0_c">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="c"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_10_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In5"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_2" HWVERSION="1.0" INSTANCE="debounce_2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_0_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="External_Ports_btnd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_2_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_3" HWVERSION="1.0" INSTANCE="debounce_3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_1_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="External_Ports_btnu">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnu"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_3_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In3"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_4" HWVERSION="1.0" INSTANCE="debounce_4" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_0_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="External_Ports_btnc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="btnc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_4_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In4"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_5" HWVERSION="1.0" INSTANCE="debounce_5" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_1_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="pmod_jstk2_0_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_5_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_6" HWVERSION="1.0" INSTANCE="debounce_6" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_2_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="pmod_jstk2_0_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="l"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_6_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_7" HWVERSION="1.0" INSTANCE="debounce_7" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_3_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="pmod_jstk2_0_d">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="d"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_7_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_8" HWVERSION="1.0" INSTANCE="debounce_8" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_0_4"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="pmod_jstk2_0_u">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="u"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_8_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In3"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_9" HWVERSION="1.0" INSTANCE="debounce_9" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_debounce_1_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="joy_clock_enable_0" PORT="clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="pmod_jstk2_0_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_jstk2_0" PORT="b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_9_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In4"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/joy_clock_enable_0" HWVERSION="1.0" INSTANCE="joy_clock_enable_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="joy_clock_enable" VLNV="xilinx.com:module_ref:joy_clock_enable:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_joy_clock_enable_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" NAME="clk_en" SIGIS="undef" SIGNAME="joy_clock_enable_0_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_1" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_5" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_6" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_7" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_8" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_9" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_10" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_0" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_2" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_3" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="debounce_4" PORT="clk_en_i"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_clk_en"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_peripheral" SIGIS="undef" SIGNAME="External_Ports_clk_peripheral">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -210,9 +558,34 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="O" LEFT="10" NAME="joystick" RIGHT="0" SIGIS="undef" SIGNAME="pmod_jstk2_0_joystick">
+        <PORT DIR="O" NAME="r" SIGIS="undef" SIGNAME="pmod_jstk2_0_r">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="joy_right"/>
+            <CONNECTION INSTANCE="debounce_5" PORT="button_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="l" SIGIS="undef" SIGNAME="pmod_jstk2_0_l">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_6" PORT="button_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="d" SIGIS="undef" SIGNAME="pmod_jstk2_0_d">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_7" PORT="button_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="u" SIGIS="undef" SIGNAME="pmod_jstk2_0_u">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_8" PORT="button_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="b" SIGIS="undef" SIGNAME="pmod_jstk2_0_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_9" PORT="button_i"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="c" SIGIS="undef" SIGNAME="pmod_jstk2_0_c">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_10" PORT="button_i"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="sel" SIGIS="undef" SIGNAME="pmod_jstk2_0_sel">
@@ -276,6 +649,361 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="4" FULLNAME="/xlconcat_0" HWVERSION="2.1" INSTANCE="xlconcat_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN32_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN33_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN34_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN35_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN36_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN37_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN38_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN39_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN40_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN41_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN42_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN43_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN44_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN45_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN46_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN47_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN48_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN49_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN50_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN51_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN52_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN53_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN54_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN55_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN56_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN57_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN58_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN59_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN60_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN61_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN62_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN63_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN64_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN65_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN66_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN67_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN68_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN69_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN70_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN71_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN72_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN73_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN74_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN75_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN76_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN77_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN78_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN79_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN80_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN81_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN82_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN83_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN84_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN85_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN86_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN87_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN88_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN89_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN90_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN91_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN92_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN93_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN94_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN95_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN96_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN97_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN98_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN99_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN100_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN101_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN102_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN103_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN104_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN105_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN106_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN107_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN108_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN109_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN110_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN111_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN112_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN113_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN114_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN115_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN116_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN117_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN118_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN119_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN120_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN121_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN122_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN123_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN124_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN125_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN126_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN127_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="11"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="6"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_xlconcat_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="debounce_0_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_0" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="debounce_1_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_1" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In2" RIGHT="0" SIGIS="undef" SIGNAME="debounce_2_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_2" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In3" RIGHT="0" SIGIS="undef" SIGNAME="debounce_3_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_3" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In4" RIGHT="0" SIGIS="undef" SIGNAME="debounce_4_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_4" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="In5" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_000000_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_000000" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="10" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_0_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_left"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="4" FULLNAME="/xlconcat_1" HWVERSION="2.1" INSTANCE="xlconcat_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="5"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN32_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN33_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN34_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN35_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN36_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN37_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN38_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN39_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN40_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN41_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN42_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN43_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN44_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN45_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN46_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN47_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN48_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN49_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN50_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN51_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN52_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN53_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN54_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN55_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN56_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN57_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN58_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN59_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN60_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN61_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN62_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN63_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN64_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN65_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN66_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN67_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN68_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN69_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN70_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN71_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN72_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN73_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN74_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN75_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN76_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN77_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN78_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN79_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN80_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN81_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN82_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN83_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN84_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN85_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN86_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN87_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN88_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN89_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN90_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN91_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN92_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN93_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN94_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN95_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN96_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN97_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN98_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN99_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN100_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN101_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN102_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN103_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN104_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN105_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN106_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN107_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN108_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN109_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN110_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN111_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN112_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN113_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN114_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN115_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN116_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN117_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN118_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN119_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN120_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN121_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN122_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN123_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN124_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN125_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN126_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN127_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="11"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="7"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_xlconcat_0_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="debounce_5_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_5" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="debounce_6_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_6" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In2" RIGHT="0" SIGIS="undef" SIGNAME="debounce_7_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_7" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In3" RIGHT="0" SIGIS="undef" SIGNAME="debounce_8_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_8" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In4" RIGHT="0" SIGIS="undef" SIGNAME="debounce_9_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_9" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In5" RIGHT="0" SIGIS="undef" SIGNAME="debounce_10_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_10" PORT="button_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="4" NAME="In6" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_00000_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_00000" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="10" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconcat_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_right"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="7" FULLNAME="/xlconstant_0" HWVERSION="1.1" INSTANCE="xlconstant_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -288,6 +1016,40 @@
         <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="SPI_Master_0" PORT="i_TX_Byte"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_00000" HWVERSION="1.1" INSTANCE="xlconstant_00000" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="5"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_xlconstant_1_2"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="4" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_00000_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_1" PORT="In6"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_000000" HWVERSION="1.1" INSTANCE="xlconstant_000000" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00"/>
+        <PARAMETER NAME="Component_Name" VALUE="joystick_xlconstant_1_1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="5" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_000000_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconcat_0" PORT="In5"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

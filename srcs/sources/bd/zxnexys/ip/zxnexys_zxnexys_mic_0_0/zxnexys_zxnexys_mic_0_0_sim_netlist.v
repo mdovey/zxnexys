@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 29 10:10:14 2021
+// Date        : Thu Dec 30 12:11:33 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxnexys_mic_0_0 -prefix
+//               zxnexys_zxnexys_mic_0_0_ zxnexys_zxnexys_mic_0_0_sim_netlist.v
 // Design      : zxnexys_zxnexys_mic_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,51 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_mic_0_0,mic_i2s_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxnexys_mic_0_0
-   (clk_audio,
-    i2s_din,
-    i2s_dout,
-    i2s_sclk,
-    i2s_wclk,
-    m_clk,
-    m_data,
-    m_lrsel,
-    reset);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *) input clk_audio;
-  input i2s_din;
-  output i2s_dout;
-  output i2s_sclk;
-  output i2s_wclk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxnexys_mic_0_0_m_clk, INSERT_VIP 0" *) output m_clk;
-  input m_data;
-  output m_lrsel;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-
-  wire \<const0> ;
-  wire clk_audio;
-  wire i2s_dout;
-  wire i2s_sclk;
-  wire i2s_wclk;
-  wire m_data;
-  wire reset;
-
-  assign m_clk = clk_audio;
-  assign m_lrsel = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper inst
-       (.clk_audio(clk_audio),
-        .i2s_dout(i2s_dout),
-        .i2s_sclk(i2s_sclk),
-        .m_data(m_data),
-        .reset(reset),
-        .ws_int_reg(i2s_wclk));
-endmodule
-
-(* ORIG_REF_NAME = "i2s_transceiver" *) 
 module zxnexys_zxnexys_mic_0_0_i2s_transceiver
    (sclk_int_reg_0,
     CO,
@@ -2255,7 +2210,6 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
         .Q(ws_int_reg_0));
 endmodule
 
-(* ORIG_REF_NAME = "mic_i2s" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s
    (i2s_sclk,
     AR,
@@ -2315,7 +2269,6 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
         .\rcnt_reg[7] (i2s_transceiver_0_n_4));
 endmodule
 
-(* ORIG_REF_NAME = "mic_i2s_i2s_transceiver_0_0" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0
    (sclk_int_reg,
     CO,
@@ -2366,7 +2319,6 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0
         .ws_int_reg_1(ws_int_reg_0));
 endmodule
 
-(* ORIG_REF_NAME = "mic_i2s_mic_reset_0_0" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0
    (resetn_reg,
     clk_audio,
@@ -2385,7 +2337,6 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0
         .resetn_reg_0(resetn_reg));
 endmodule
 
-(* ORIG_REF_NAME = "mic_i2s_pwm_decode_0_0" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
    (D,
     Q,
@@ -2428,7 +2379,6 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
         .\rcnt_reg[7]_0 (\rcnt_reg[7] ));
 endmodule
 
-(* ORIG_REF_NAME = "mic_i2s_wrapper" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
    (i2s_sclk,
     ws_int_reg,
@@ -2459,7 +2409,6 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "mic_reset" *) 
 module zxnexys_zxnexys_mic_0_0_mic_reset
    (resetn_reg_0,
     clk_audio,
@@ -2488,7 +2437,6 @@ module zxnexys_zxnexys_mic_0_0_mic_reset
         .O(resetn_reg_0));
 endmodule
 
-(* ORIG_REF_NAME = "pwm_decode" *) 
 module zxnexys_zxnexys_mic_0_0_pwm_decode
    (D,
     \r_reg[0]_0 ,
@@ -2903,6 +2851,50 @@ module zxnexys_zxnexys_mic_0_0_pwm_decode
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[7]),
         .Q(rcnt_reg[7]));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_mic_0_0,mic_i2s_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxnexys_mic_0_0
+   (clk_audio,
+    i2s_din,
+    i2s_dout,
+    i2s_sclk,
+    i2s_wclk,
+    m_clk,
+    m_data,
+    m_lrsel,
+    reset);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *) input clk_audio;
+  input i2s_din;
+  output i2s_dout;
+  output i2s_sclk;
+  output i2s_wclk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxnexys_mic_0_0_m_clk, INSERT_VIP 0" *) output m_clk;
+  input m_data;
+  output m_lrsel;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+
+  wire \<const0> ;
+  wire clk_audio;
+  wire i2s_dout;
+  wire i2s_sclk;
+  wire i2s_wclk;
+  wire m_data;
+  wire reset;
+
+  assign m_clk = clk_audio;
+  assign m_lrsel = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper inst
+       (.clk_audio(clk_audio),
+        .i2s_dout(i2s_dout),
+        .i2s_sclk(i2s_sclk),
+        .m_data(m_data),
+        .reset(reset),
+        .ws_int_reg(i2s_wclk));
 endmodule
 `ifndef GLBL
 `define GLBL

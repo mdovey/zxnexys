@@ -753,11 +753,11 @@
       <xilinx:displayName>pmod_i2s2_v1_1</xilinx:displayName>
       <xilinx:autoFamilySupportLevel>level_0</xilinx:autoFamilySupportLevel>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>2</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:pmod_i2s2:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-20T19:29:35Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:19:36Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@45bc0c7_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4a16271d_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
@@ -781,6 +781,22 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@5bdea7f8_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1bb1f889_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7a292e02_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e4ed712_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20b69e54_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a07125b_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a09977d_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c444f03_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@162d341_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ee3aaa2_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@638b4e75_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48c97718_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@342e2ea9_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d03c6f5_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4deb6087_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14185bae_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@784d0037_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f3293ff_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ea23a88_ARCHIVE_LOCATION">v:/ip/pmod_i2s2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 29 11:46:19 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Dec 29 23:35:08 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="audio" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -35,6 +35,7 @@
         <CONNECTION INSTANCE="tape_ear_0" PORT="clk"/>
         <CONNECTION INSTANCE="audio_sync_1" PORT="clk"/>
         <CONNECTION INSTANCE="audio_sync_0" PORT="clk"/>
+        <CONNECTION INSTANCE="debounce_0" PORT="clk_i"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
@@ -92,9 +93,9 @@
         <CONNECTION INSTANCE="audio_reset_0" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="tape_ear" SIGIS="undef" SIGNAME="tape_ear_0_ear">
+    <PORT DIR="O" NAME="tape_ear" SIGIS="undef" SIGNAME="debounce_0_button_o">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="tape_ear_0" PORT="ear"/>
+        <CONNECTION INSTANCE="debounce_0" PORT="button_o"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="tape_mic" SIGIS="undef" SIGNAME="External_Ports_tape_mic">
@@ -322,6 +323,38 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/debounce_0" HWVERSION="1.0" INSTANCE="debounce_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="debounce" VLNV="xilinx.com:module_ref:debounce:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="INITIAL_STATE" VALUE="&quot;0&quot;"/>
+        <PARAMETER NAME="COUNTER_SIZE" VALUE="2"/>
+        <PARAMETER NAME="Component_Name" VALUE="audio_debounce_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_i" SIGIS="undef" SIGNAME="External_Ports_clk_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_audio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_en_i" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="xlconstant_1" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="button_i" SIGIS="undef" SIGNAME="tape_ear_0_ear">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="tape_ear_0" PORT="ear"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="button_o" SIGIS="undef" SIGNAME="debounce_0_button_o">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tape_ear"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="1" FULLNAME="/i2s_transceiver_0" HWVERSION="1.0" INSTANCE="i2s_transceiver_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="i2s_transceiver" VLNV="xilinx.com:module_ref:i2s_transceiver:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
@@ -467,7 +500,7 @@
         </PORT>
         <PORT DIR="O" NAME="ear" SIGIS="undef" SIGNAME="tape_ear_0_ear">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="tape_ear"/>
+            <CONNECTION INSTANCE="debounce_0" PORT="button_i"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="12280700" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_audio">
@@ -495,6 +528,23 @@
         <PORT DIR="O" LEFT="15" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="tape_mic_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="DACin"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="7" FULLNAME="/xlconstant_1" HWVERSION="1.1" INSTANCE="xlconstant_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x1"/>
+        <PARAMETER NAME="Component_Name" VALUE="audio_xlconstant_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_1_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="debounce_0" PORT="clk_en_i"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

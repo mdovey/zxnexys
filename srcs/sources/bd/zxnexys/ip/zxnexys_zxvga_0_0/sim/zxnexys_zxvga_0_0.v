@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxvga:2.3
-// IP Revision: 5
+// IP Revision: 6
 
 `timescale 1ns/1ps
 

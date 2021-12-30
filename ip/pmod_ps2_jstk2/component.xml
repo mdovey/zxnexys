@@ -905,11 +905,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>pmod_ps2_jstk2_v1_1</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreRevision>7</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:pmod_ps2_jstk2:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-21T00:48:30Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:20:22Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@61c004bc_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@65d8ea38_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
@@ -970,6 +970,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@7fcde443_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@8700742_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3dcc710a_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72a697af_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2200da50_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40db3886_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e183e2c_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cf445ab_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15f79f6_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@556d0ca_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45f775c6_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5560915c_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6adfba8e_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@562e6a34_ARCHIVE_LOCATION">v:/ip/pmod_ps2_jstk2</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

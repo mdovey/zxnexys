@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxmouse:2.3
-// IP Revision: 3
+// IP Revision: 4
 
 (* X_CORE_INFO = "mouse_wrapper,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxmouse_0_0,mouse_wrapper,{}" *)

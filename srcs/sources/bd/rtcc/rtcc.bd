@@ -14,9 +14,9 @@
       "axi_iic_0": "",
       "fifo_generator_0": "",
       "fifo_generator_1": "",
-      "registers_0": "",
       "rtc_0": "",
-      "rtc_reset_0": ""
+      "rtc_reset_0": "",
+      "registers_0": ""
     },
     "ports": {
       "clk_peripheral": {
@@ -426,95 +426,6 @@
           }
         }
       },
-      "registers_0": {
-        "vlnv": "xilinx.com:module_ref:registers:1.0",
-        "xci_name": "rtcc_registers_0_0",
-        "xci_path": "ip\\rtcc_registers_0_0\\rtcc_registers_0_0.xci",
-        "inst_hier_path": "registers_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "registers",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "fifo_write": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:fifo_write:1.0",
-            "vlnv": "xilinx.com:interface:fifo_write_rtl:1.0",
-            "port_maps": {
-              "WR_DATA": {
-                "physical_name": "wr_data",
-                "direction": "O",
-                "left": "14",
-                "right": "0"
-              },
-              "WR_EN": {
-                "physical_name": "wr_en",
-                "direction": "O"
-              }
-            }
-          },
-          "fifo_read": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:fifo_read:1.0",
-            "vlnv": "xilinx.com:interface:fifo_read_rtl:1.0",
-            "port_maps": {
-              "RD_DATA": {
-                "physical_name": "rd_data",
-                "direction": "I",
-                "left": "13",
-                "right": "0"
-              },
-              "RD_EN": {
-                "physical_name": "rd_en",
-                "direction": "O"
-              }
-            }
-          }
-        },
-        "ports": {
-          "rd_data_o": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "rd_reg_i": {
-            "direction": "I",
-            "left": "5",
-            "right": "0"
-          },
-          "update_t": {
-            "direction": "I"
-          },
-          "wr_reg_i": {
-            "direction": "I",
-            "left": "5",
-            "right": "0"
-          },
-          "wr_data_i": {
-            "direction": "I",
-            "left": "7",
-            "right": "0"
-          },
-          "underflow": {
-            "direction": "I"
-          },
-          "clk_peripheral": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "rtcc_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
       "rtc_0": {
         "vlnv": "xilinx.com:module_ref:rtc:1.0",
         "xci_name": "rtcc_rtc_0_0",
@@ -642,6 +553,95 @@
             }
           }
         }
+      },
+      "registers_0": {
+        "vlnv": "xilinx.com:module_ref:registers:1.0",
+        "xci_name": "rtcc_registers_0_0",
+        "xci_path": "ip\\rtcc_registers_0_0\\rtcc_registers_0_0.xci",
+        "inst_hier_path": "registers_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "registers",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "fifo_write": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:fifo_write:1.0",
+            "vlnv": "xilinx.com:interface:fifo_write_rtl:1.0",
+            "port_maps": {
+              "WR_DATA": {
+                "physical_name": "wr_data",
+                "direction": "O",
+                "left": "14",
+                "right": "0"
+              },
+              "WR_EN": {
+                "physical_name": "wr_en",
+                "direction": "O"
+              }
+            }
+          },
+          "fifo_read": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:fifo_read:1.0",
+            "vlnv": "xilinx.com:interface:fifo_read_rtl:1.0",
+            "port_maps": {
+              "RD_DATA": {
+                "physical_name": "rd_data",
+                "direction": "I",
+                "left": "13",
+                "right": "0"
+              },
+              "RD_EN": {
+                "physical_name": "rd_en",
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "ports": {
+          "rd_data_o": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "rd_reg_i": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "update_t": {
+            "direction": "I"
+          },
+          "wr_reg_i": {
+            "direction": "I",
+            "left": "5",
+            "right": "0"
+          },
+          "wr_data_i": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "underflow": {
+            "direction": "I"
+          },
+          "clk_peripheral": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "rtcc_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -708,9 +708,9 @@
           "axi_iic_0/s_axi_aclk",
           "fifo_generator_0/clk",
           "fifo_generator_1/clk",
-          "registers_0/clk_peripheral",
           "rtc_0/clk",
-          "rtc_reset_0/clk_peripheral"
+          "rtc_reset_0/clk_peripheral",
+          "registers_0/clk_peripheral"
         ]
       },
       "fifo_generator_1_underflow": {

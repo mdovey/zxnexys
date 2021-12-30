@@ -79,11 +79,11 @@ input wire i_reset;
 input wire i_joy_en_n;
 (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 i_joy left, specnext.com:specnext:joystick:1.0 i joy_left" *)
 input wire [10 : 0] i_joy_left;
-(* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 i_joy_type left, specnext.com:specnext:joystick:1.0 i joy_left_type, specnext.com:specnext:joystick:1.0 i_type joy_left" *)
+(* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 i_joy_type left, specnext.com:specnext:joystick:1.0 i_type joy_left" *)
 input wire [2 : 0] i_joy_left_type;
 (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 i_joy right, specnext.com:specnext:joystick:1.0 i joy_right" *)
 input wire [10 : 0] i_joy_right;
-(* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 i_joy_type right, specnext.com:specnext:joystick:1.0 i joy_right_type, specnext.com:specnext:joystick:1.0 i_type joy_right" *)
+(* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 i_joy_type right, specnext.com:specnext:joystick:1.0 i_type joy_right" *)
 input wire [2 : 0] i_joy_right_type;
 input wire [2 : 0] i_membrane_row;
 output wire [6 : 0] o_membrane_col;

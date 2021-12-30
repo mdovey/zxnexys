@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxreset:1.3
-// IP Revision: 7
+// IP Revision: 8
 
 (* X_CORE_INFO = "sysreset,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxreset_0_0,sysreset,{}" *)

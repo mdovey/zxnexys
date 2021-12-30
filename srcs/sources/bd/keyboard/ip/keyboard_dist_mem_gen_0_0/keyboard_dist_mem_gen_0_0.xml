@@ -22,7 +22,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:64bb13d8</spirit:value>
+            <spirit:value>9:58695c64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -33,7 +33,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:64bb13d8</spirit:value>
+            <spirit:value>9:58695c64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -49,11 +49,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 28 18:55:35 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 10:33:40 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:64bb13d8</spirit:value>
+            <spirit:value>9:58695c64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -73,7 +73,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ecad3249</spirit:value>
+            <spirit:value>9:e032a220</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -89,11 +89,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 28 18:55:35 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 10:33:40 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:ecad3249</spirit:value>
+            <spirit:value>9:e032a220</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -107,11 +107,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 28 18:57:06 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 10:35:41 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:64bb13d8</spirit:value>
+            <spirit:value>9:58695c64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -869,7 +869,7 @@
     <spirit:parameter>
       <spirit:name>default_data_radix</spirit:name>
       <spirit:displayName>Radix :</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.default_data_radix" spirit:choiceRef="choice_list_7275e8e7" spirit:order="19">2</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.default_data_radix" spirit:choiceRef="choice_list_7275e8e7" spirit:order="19">10</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>default_data</spirit:name>
@@ -919,7 +919,11 @@
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.coefficient_file" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.data_width" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.default_data_radix" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.input_options" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.memory_type" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.output_options" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.simple_dual_port_address" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.simple_dual_port_output_clock_enable" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

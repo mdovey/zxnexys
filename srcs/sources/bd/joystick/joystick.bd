@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xF8AB16D6DD11D123",
+      "boundary_crc": "0xC41476658727DCBC",
       "device": "xc7a100tcsg324-1",
       "name": "joystick",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -11,10 +11,25 @@
     },
     "design_tree": {
       "SPI_Master_0": "",
-      "pmod_jstk2_0": "",
       "util_vector_logic_0": "",
       "xlconstant_0": "",
-      "btn_jstk_0": ""
+      "xlconstant_000000": "",
+      "xlconstant_00000": "",
+      "xlconcat_0": "",
+      "xlconcat_1": "",
+      "debounce_0": "",
+      "debounce_1": "",
+      "debounce_2": "",
+      "debounce_3": "",
+      "debounce_4": "",
+      "debounce_5": "",
+      "debounce_6": "",
+      "debounce_7": "",
+      "debounce_8": "",
+      "debounce_9": "",
+      "debounce_10": "",
+      "pmod_jstk2_0": "",
+      "joy_clock_enable_0": ""
     },
     "ports": {
       "btnc": {
@@ -64,12 +79,24 @@
       "joy_left": {
         "direction": "O",
         "left": "10",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "PortWidth": {
+            "value": "11",
+            "value_src": "ip_prop"
+          }
+        }
       },
       "joy_right": {
         "direction": "O",
         "left": "10",
-        "right": "0"
+        "right": "0",
+        "parameters": {
+          "PortWidth": {
+            "value": "11",
+            "value_src": "ip_prop"
+          }
+        }
       },
       "jstk_clk": {
         "type": "clk",
@@ -116,6 +143,16 @@
           },
           "POLARITY": {
             "value": "ACTIVE_HIGH"
+          }
+        }
+      },
+      "joy_clk_en": {
+        "type": "ce",
+        "direction": "O",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
           }
         }
       }
@@ -217,6 +254,513 @@
           }
         }
       },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "joystick_util_vector_logic_0_0",
+        "xci_path": "ip\\joystick_util_vector_logic_0_0\\joystick_util_vector_logic_0_0.xci",
+        "inst_hier_path": "util_vector_logic_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
+          }
+        }
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "joystick_xlconstant_0_0",
+        "xci_path": "ip\\joystick_xlconstant_0_0\\joystick_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0xc0"
+          },
+          "CONST_WIDTH": {
+            "value": "8"
+          }
+        }
+      },
+      "xlconstant_000000": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "joystick_xlconstant_1_1",
+        "xci_path": "ip\\joystick_xlconstant_1_1\\joystick_xlconstant_1_1.xci",
+        "inst_hier_path": "xlconstant_000000",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "6"
+          }
+        }
+      },
+      "xlconstant_00000": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "joystick_xlconstant_1_2",
+        "xci_path": "ip\\joystick_xlconstant_1_2\\joystick_xlconstant_1_2.xci",
+        "inst_hier_path": "xlconstant_00000",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "5"
+          }
+        }
+      },
+      "xlconcat_0": {
+        "vlnv": "xilinx.com:ip:xlconcat:2.1",
+        "xci_name": "joystick_xlconcat_0_0",
+        "xci_path": "ip\\joystick_xlconcat_0_0\\joystick_xlconcat_0_0.xci",
+        "inst_hier_path": "xlconcat_0",
+        "parameters": {
+          "NUM_PORTS": {
+            "value": "6"
+          }
+        }
+      },
+      "xlconcat_1": {
+        "vlnv": "xilinx.com:ip:xlconcat:2.1",
+        "xci_name": "joystick_xlconcat_0_1",
+        "xci_path": "ip\\joystick_xlconcat_0_1\\joystick_xlconcat_0_1.xci",
+        "inst_hier_path": "xlconcat_1",
+        "parameters": {
+          "NUM_PORTS": {
+            "value": "7"
+          }
+        }
+      },
+      "debounce_0": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_0_0",
+        "xci_path": "ip\\joystick_debounce_0_0\\joystick_debounce_0_0.xci",
+        "inst_hier_path": "debounce_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_1": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_0_1",
+        "xci_path": "ip\\joystick_debounce_0_1\\joystick_debounce_0_1.xci",
+        "inst_hier_path": "debounce_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_2": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_0_2",
+        "xci_path": "ip\\joystick_debounce_0_2\\joystick_debounce_0_2.xci",
+        "inst_hier_path": "debounce_2",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_3": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_1_0",
+        "xci_path": "ip\\joystick_debounce_1_0\\joystick_debounce_1_0.xci",
+        "inst_hier_path": "debounce_3",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_4": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_0_3",
+        "xci_path": "ip\\joystick_debounce_0_3\\joystick_debounce_0_3.xci",
+        "inst_hier_path": "debounce_4",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_5": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_1_1",
+        "xci_path": "ip\\joystick_debounce_1_1\\joystick_debounce_1_1.xci",
+        "inst_hier_path": "debounce_5",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_6": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_2_0",
+        "xci_path": "ip\\joystick_debounce_2_0\\joystick_debounce_2_0.xci",
+        "inst_hier_path": "debounce_6",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_7": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_3_0",
+        "xci_path": "ip\\joystick_debounce_3_0\\joystick_debounce_3_0.xci",
+        "inst_hier_path": "debounce_7",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_8": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_0_4",
+        "xci_path": "ip\\joystick_debounce_0_4\\joystick_debounce_0_4.xci",
+        "inst_hier_path": "debounce_8",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_9": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_1_2",
+        "xci_path": "ip\\joystick_debounce_1_2\\joystick_debounce_1_2.xci",
+        "inst_hier_path": "debounce_9",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
+      "debounce_10": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_2_1",
+        "xci_path": "ip\\joystick_debounce_2_1\\joystick_debounce_2_1.xci",
+        "inst_hier_path": "debounce_10",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
       "pmod_jstk2_0": {
         "vlnv": "xilinx.com:module_ref:pmod_jstk2:1.0",
         "xci_name": "joystick_pmod_jstk2_0_0",
@@ -228,10 +772,23 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "joystick": {
-            "direction": "O",
-            "left": "10",
-            "right": "0"
+          "r": {
+            "direction": "O"
+          },
+          "l": {
+            "direction": "O"
+          },
+          "d": {
+            "direction": "O"
+          },
+          "u": {
+            "direction": "O"
+          },
+          "b": {
+            "direction": "O"
+          },
+          "c": {
+            "direction": "O"
           },
           "sel": {
             "direction": "O"
@@ -280,90 +837,34 @@
           }
         }
       },
-      "util_vector_logic_0": {
-        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
-        "xci_name": "joystick_util_vector_logic_0_0",
-        "xci_path": "ip\\joystick_util_vector_logic_0_0\\joystick_util_vector_logic_0_0.xci",
-        "inst_hier_path": "util_vector_logic_0",
-        "parameters": {
-          "C_OPERATION": {
-            "value": "not"
-          },
-          "C_SIZE": {
-            "value": "1"
-          }
-        }
-      },
-      "xlconstant_0": {
-        "vlnv": "xilinx.com:ip:xlconstant:1.1",
-        "xci_name": "joystick_xlconstant_0_0",
-        "xci_path": "ip\\joystick_xlconstant_0_0\\joystick_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0",
-        "parameters": {
-          "CONST_VAL": {
-            "value": "0xc0"
-          },
-          "CONST_WIDTH": {
-            "value": "8"
-          }
-        }
-      },
-      "btn_jstk_0": {
-        "vlnv": "xilinx.com:module_ref:btn_jstk:1.0",
-        "xci_name": "joystick_btn_jstk_0_0",
-        "xci_path": "ip\\joystick_btn_jstk_0_0\\joystick_btn_jstk_0_0.xci",
-        "inst_hier_path": "btn_jstk_0",
+      "joy_clock_enable_0": {
+        "vlnv": "xilinx.com:module_ref:joy_clock_enable:1.0",
+        "xci_name": "joystick_joy_clock_enable_0_0",
+        "xci_path": "ip\\joystick_joy_clock_enable_0_0\\joystick_joy_clock_enable_0_0.xci",
+        "inst_hier_path": "joy_clock_enable_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "btn_jstk",
+          "ref_name": "joy_clock_enable",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "joystick": {
-            "direction": "O",
-            "left": "10",
-            "right": "0"
-          },
-          "btnc": {
-            "direction": "I"
-          },
-          "btnu": {
-            "direction": "I"
-          },
-          "btnd": {
-            "direction": "I"
-          },
-          "btnl": {
-            "direction": "I"
-          },
-          "btnr": {
-            "direction": "I"
+          "clk_en": {
+            "direction": "O"
           },
           "clk_peripheral": {
-            "type": "clk",
             "direction": "I",
             "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "reset",
-                "value_src": "constant"
-              },
               "FREQ_HZ": {
                 "value": "28000000",
                 "value_src": "user_prop"
               },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
               "CLK_DOMAIN": {
                 "value": "joystick_clk_peripheral",
                 "value_src": "default_prop"
-              }
-            }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
               }
             }
           }
@@ -375,16 +876,26 @@
         "ports": [
           "clk_peripheral",
           "SPI_Master_0/i_Clk",
+          "debounce_5/clk_i",
+          "debounce_6/clk_i",
+          "debounce_7/clk_i",
+          "debounce_8/clk_i",
+          "debounce_9/clk_i",
+          "debounce_10/clk_i",
+          "debounce_0/clk_i",
+          "debounce_1/clk_i",
+          "debounce_2/clk_i",
+          "debounce_3/clk_i",
+          "debounce_4/clk_i",
           "pmod_jstk2_0/clk_peripheral",
-          "btn_jstk_0/clk_peripheral"
+          "joy_clock_enable_0/clk_peripheral"
         ]
       },
       "Net1": {
         "ports": [
           "reset",
-          "pmod_jstk2_0/reset",
           "util_vector_logic_0/Op1",
-          "btn_jstk_0/reset"
+          "pmod_jstk2_0/reset"
         ]
       },
       "SPI_Master_0_o_RX_Byte": {
@@ -419,38 +930,104 @@
       },
       "btn_jstk_0_joystick": {
         "ports": [
-          "btn_jstk_0/joystick",
+          "xlconcat_0/dout",
           "joy_left"
         ]
       },
-      "btnc_0_1": {
+      "btnc_1": {
         "ports": [
           "btnc",
-          "btn_jstk_0/btnc"
+          "debounce_4/button_i"
         ]
       },
-      "btnd_0_1": {
+      "btnd_1": {
         "ports": [
           "btnd",
-          "btn_jstk_0/btnd"
+          "debounce_2/button_i"
         ]
       },
-      "btnl_0_1": {
+      "btnl_1": {
         "ports": [
           "btnl",
-          "btn_jstk_0/btnl"
+          "debounce_1/button_i"
         ]
       },
-      "btnr_0_1": {
+      "btnr_1": {
         "ports": [
           "btnr",
-          "btn_jstk_0/btnr"
+          "debounce_0/button_i"
         ]
       },
-      "btnu_0_1": {
+      "btnu_1": {
         "ports": [
           "btnu",
-          "btn_jstk_0/btnu"
+          "debounce_3/button_i"
+        ]
+      },
+      "debounce_0_button_o": {
+        "ports": [
+          "debounce_0/button_o",
+          "xlconcat_0/In0"
+        ]
+      },
+      "debounce_10_button_o": {
+        "ports": [
+          "debounce_10/button_o",
+          "xlconcat_1/In5"
+        ]
+      },
+      "debounce_1_button_o": {
+        "ports": [
+          "debounce_1/button_o",
+          "xlconcat_0/In1"
+        ]
+      },
+      "debounce_2_button_o": {
+        "ports": [
+          "debounce_2/button_o",
+          "xlconcat_0/In2"
+        ]
+      },
+      "debounce_3_button_o": {
+        "ports": [
+          "debounce_3/button_o",
+          "xlconcat_0/In3"
+        ]
+      },
+      "debounce_4_button_o": {
+        "ports": [
+          "debounce_4/button_o",
+          "xlconcat_0/In4"
+        ]
+      },
+      "debounce_5_button_o": {
+        "ports": [
+          "debounce_5/button_o",
+          "xlconcat_1/In0"
+        ]
+      },
+      "debounce_6_button_o": {
+        "ports": [
+          "debounce_6/button_o",
+          "xlconcat_1/In1"
+        ]
+      },
+      "debounce_7_button_o": {
+        "ports": [
+          "debounce_7/button_o",
+          "xlconcat_1/In2"
+        ]
+      },
+      "debounce_8_button_o": {
+        "ports": [
+          "debounce_8/button_o",
+          "xlconcat_1/In3"
+        ]
+      },
+      "debounce_9_button_o": {
+        "ports": [
+          "debounce_9/button_o",
+          "xlconcat_1/In4"
         ]
       },
       "jstk_miso_1": {
@@ -459,16 +1036,52 @@
           "SPI_Master_0/i_SPI_MISO"
         ]
       },
+      "pmod_jstk2_0_d": {
+        "ports": [
+          "pmod_jstk2_0/d",
+          "debounce_7/button_i"
+        ]
+      },
+      "pmod_jstk2_0_f1": {
+        "ports": [
+          "pmod_jstk2_0/b",
+          "debounce_9/button_i"
+        ]
+      },
+      "pmod_jstk2_0_f2": {
+        "ports": [
+          "pmod_jstk2_0/c",
+          "debounce_10/button_i"
+        ]
+      },
       "pmod_jstk2_0_joystick": {
         "ports": [
-          "pmod_jstk2_0/joystick",
+          "xlconcat_1/dout",
           "joy_right"
+        ]
+      },
+      "pmod_jstk2_0_l": {
+        "ports": [
+          "pmod_jstk2_0/l",
+          "debounce_6/button_i"
+        ]
+      },
+      "pmod_jstk2_0_r": {
+        "ports": [
+          "pmod_jstk2_0/r",
+          "debounce_5/button_i"
         ]
       },
       "pmod_jstk2_0_sel": {
         "ports": [
           "pmod_jstk2_0/sel",
           "jstk_sel"
+        ]
+      },
+      "pmod_jstk2_0_u": {
+        "ports": [
+          "pmod_jstk2_0/u",
+          "debounce_8/button_i"
         ]
       },
       "pmod_jstk2_0_wv": {
@@ -483,10 +1096,39 @@
           "SPI_Master_0/i_Rst_L"
         ]
       },
+      "xlconstant_000000_dout": {
+        "ports": [
+          "xlconstant_000000/dout",
+          "xlconcat_0/In5"
+        ]
+      },
+      "xlconstant_00000_dout": {
+        "ports": [
+          "xlconstant_00000/dout",
+          "xlconcat_1/In6"
+        ]
+      },
       "xlconstant_0_dout": {
         "ports": [
           "xlconstant_0/dout",
           "SPI_Master_0/i_TX_Byte"
+        ]
+      },
+      "xlconstant_1_dout": {
+        "ports": [
+          "joy_clock_enable_0/clk_en",
+          "debounce_1/clk_en_i",
+          "debounce_5/clk_en_i",
+          "debounce_6/clk_en_i",
+          "debounce_7/clk_en_i",
+          "debounce_8/clk_en_i",
+          "debounce_9/clk_en_i",
+          "debounce_10/clk_en_i",
+          "debounce_0/clk_en_i",
+          "debounce_2/clk_en_i",
+          "debounce_3/clk_en_i",
+          "debounce_4/clk_en_i",
+          "joy_clk_en"
         ]
       }
     }

@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Wed Dec 29 09:01:01 2021
+//Date        : Wed Dec 29 23:35:06 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target audio.bd
 //Design      : audio
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "audio,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=audio,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=13,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=13,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "audio.hwdef" *) 
+(* CORE_GENERATION_INFO = "audio,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=audio,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=15,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "audio.hwdef" *) 
 module audio
    (aud_sd,
     audio_left,
@@ -63,6 +63,7 @@ module audio
   wire [12:0]audio_sync_1_dout;
   wire clk_audio_1;
   wire clk_peripheral_1;
+  wire debounce_0_button_o;
   wire [15:0]i2s_transceiver_0_l_data_rx;
   wire [15:0]i2s_transceiver_0_r_data_rx;
   wire i2s_transceiver_0_sclk;
@@ -75,6 +76,7 @@ module audio
   wire tape_ear_0_ear;
   wire [15:0]tape_mic_0_dout;
   wire tape_mic_1;
+  wire [0:0]xlconstant_1_dout;
 
   assign aud_sd = audio_reset_0_rstn;
   assign audio_left_1 = audio_left[12:0];
@@ -92,7 +94,7 @@ module audio
   assign lineout_sdout = i2s_transceiver_0_sd_tx;
   assign psg_en = audio_psg_0_psg_en;
   assign reset_1 = reset;
-  assign tape_ear = tape_ear_0_ear;
+  assign tape_ear = debounce_0_button_o;
   assign tape_mic_1 = tape_mic;
   assign tape_pwm = sigma_delta_dac_1_DACout;
   audio_audio_mono_0_0 audio_mono_0
@@ -125,6 +127,11 @@ module audio
        (.clk(clk_audio_1),
         .din(audio_right_1),
         .dout(audio_sync_1_dout));
+  audio_debounce_0_0 debounce_0
+       (.button_i(tape_ear_0_ear),
+        .button_o(debounce_0_button_o),
+        .clk_en_i(xlconstant_1_dout),
+        .clk_i(clk_audio_1));
   audio_i2s_transceiver_0_0 i2s_transceiver_0
        (.l_data_rx(i2s_transceiver_0_l_data_rx),
         .l_data_tx(audio_scaler_0_dout),
@@ -153,4 +160,6 @@ module audio
   audio_tape_mic_0_0 tape_mic_0
        (.din(tape_mic_1),
         .dout(tape_mic_0_dout));
+  audio_xlconstant_0_0 xlconstant_1
+       (.dout(xlconstant_1_dout));
 endmodule

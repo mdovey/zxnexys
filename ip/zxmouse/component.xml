@@ -613,11 +613,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxmouse_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreRevision>4</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:mouse_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-22T20:18:45Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:46:50Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@31494e50_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@46c6c310_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
@@ -673,6 +673,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@111f5ddd_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@e28c90_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@62952fbb_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23be9d49_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46094619_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a8b821b_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e4338b8_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3347df09_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10fdefea_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c2d00a8_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e0add16_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@131310a1_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75c25b3f_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@615051b3_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

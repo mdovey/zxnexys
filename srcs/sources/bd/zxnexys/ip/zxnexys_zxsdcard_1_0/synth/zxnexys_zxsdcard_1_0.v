@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxsdcard:1.3
-// IP Revision: 4
+// IP Revision: 6
 
 (* X_CORE_INFO = "sdcard,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxsdcard_1_0,sdcard,{}" *)

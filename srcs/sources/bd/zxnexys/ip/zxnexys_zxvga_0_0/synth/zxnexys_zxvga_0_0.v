@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxvga:2.3
-// IP Revision: 5
+// IP Revision: 6
 
 (* X_CORE_INFO = "vga_wrapper,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxvga_0_0,vga_wrapper,{}" *)

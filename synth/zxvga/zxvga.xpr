@@ -47,8 +47,9 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip"/>
-    <Option Name="IPOutputRepo" Val="V:/.cache"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip/zxvga"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip/if"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
@@ -65,13 +66,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="2"/>
-    <Option Name="WTModelSimExportSim" Val="2"/>
-    <Option Name="WTQuestaExportSim" Val="2"/>
+    <Option Name="WTXSimExportSim" Val="3"/>
+    <Option Name="WTModelSimExportSim" Val="3"/>
+    <Option Name="WTQuestaExportSim" Val="3"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="2"/>
-    <Option Name="WTRivieraExportSim" Val="2"/>
-    <Option Name="WTActivehdlExportSim" Val="2"/>
+    <Option Name="WTVcsExportSim" Val="3"/>
+    <Option Name="WTRivieraExportSim" Val="3"/>
+    <Option Name="WTActivehdlExportSim" Val="3"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -127,11 +128,8 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_scan_convert_0_0/vga_scan_convert_0_0.xci">
-          <Proxy FileSetName="vga_scan_convert_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_scandoubler_0_0/vga_scandoubler_0_0.xci">
-          <Proxy FileSetName="vga_scandoubler_0_0"/>
+        <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_front_porch_0_0/vga_front_porch_0_0.xci">
+          <Proxy FileSetName="vga_front_porch_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_s_fix_0_0/vga_s_fix_0_0.xci">
           <Proxy FileSetName="vga_s_fix_0_0"/>
@@ -139,8 +137,11 @@
         <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_s_fix_1_0/vga_s_fix_1_0.xci">
           <Proxy FileSetName="vga_s_fix_1_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_front_porch_0_0/vga_front_porch_0_0.xci">
-          <Proxy FileSetName="vga_front_porch_0_0"/>
+        <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_scan_convert_0_0/vga_scan_convert_0_0.xci">
+          <Proxy FileSetName="vga_scan_convert_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="vga.bd" FileRelPathName="ip/vga_scandoubler_0_0/vga_scandoubler_0_0.xci">
+          <Proxy FileSetName="vga_scandoubler_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/../../srcs/sources/bd/vga/hdl/vga_wrapper.v">
@@ -302,9 +303,7 @@
     </Run>
     <Run Id="vga_scandoubler_0_0_synth_1" Type="Ft3:Synth" SrcSet="vga_scandoubler_0_0" Part="xc7a100tcsg324-1" ConstrsSet="vga_scandoubler_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/vga_scandoubler_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/vga_scandoubler_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -401,9 +400,7 @@
     </Run>
     <Run Id="vga_scandoubler_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="vga_scandoubler_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="vga_scandoubler_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/vga_scandoubler_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

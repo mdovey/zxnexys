@@ -47,8 +47,9 @@
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
-    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip"/>
-    <Option Name="IPOutputRepo" Val="V:/.cache"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip/zxkeyboard"/>
+    <Option Name="IPRepoPath" Val="$PPRDIR/../../ip/if"/>
+    <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
     <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
@@ -65,13 +66,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="6"/>
-    <Option Name="WTModelSimExportSim" Val="6"/>
-    <Option Name="WTQuestaExportSim" Val="6"/>
+    <Option Name="WTXSimExportSim" Val="7"/>
+    <Option Name="WTModelSimExportSim" Val="7"/>
+    <Option Name="WTQuestaExportSim" Val="7"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="6"/>
-    <Option Name="WTRivieraExportSim" Val="6"/>
-    <Option Name="WTActivehdlExportSim" Val="6"/>
+    <Option Name="WTVcsExportSim" Val="7"/>
+    <Option Name="WTRivieraExportSim" Val="7"/>
+    <Option Name="WTActivehdlExportSim" Val="7"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -106,13 +107,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../srcs/sources/new/keyboard/keyb_clocks.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../../srcs/sources/imports/ZXNext/input/membrane/membrane.vhd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -144,38 +138,39 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../../srcs/sources/new/keyboard/keyb_clocks.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PPRDIR/../../srcs/sources/bd/keyboard/keyboard.bd">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_emu_fnkeys_0_0/keyboard_emu_fnkeys_0_0.xci">
-          <Proxy FileSetName="keyboard_emu_fnkeys_0_0"/>
+        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_ps2_keyb_0_0/keyboard_ps2_keyb_0_0.xci">
+          <Proxy FileSetName="keyboard_ps2_keyb_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_util_vector_logic_0_0/keyboard_util_vector_logic_0_0.xci">
+          <Proxy FileSetName="keyboard_util_vector_logic_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_Ps2Interface_0_0/keyboard_Ps2Interface_0_0.xci">
           <Proxy FileSetName="keyboard_Ps2Interface_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_ps2_keyb_0_0/keyboard_ps2_keyb_0_0.xci">
-          <Proxy FileSetName="keyboard_ps2_keyb_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_keyb_clocks_0_0/keyboard_keyb_clocks_0_0.xci">
-          <Proxy FileSetName="keyboard_keyb_clocks_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_membrane_stick_0_0/keyboard_membrane_stick_0_0.xci">
-          <Proxy FileSetName="keyboard_membrane_stick_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_dist_mem_gen_0_0/keyboard_dist_mem_gen_0_0.xci">
-          <Proxy FileSetName="keyboard_dist_mem_gen_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_util_vector_logic_0_0/keyboard_util_vector_logic_0_0.xci">
-          <Proxy FileSetName="keyboard_util_vector_logic_0_0"/>
+        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_emu_fnkeys_0_0/keyboard_emu_fnkeys_0_0.xci">
+          <Proxy FileSetName="keyboard_emu_fnkeys_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_membrane_0_0/keyboard_membrane_0_0.xci">
           <Proxy FileSetName="keyboard_membrane_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_special_keys_0_0/keyboard_special_keys_0_0.xci">
           <Proxy FileSetName="keyboard_special_keys_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="keyboard.bd" FileRelPathName="ip/keyboard_dist_mem_gen_0_0/keyboard_dist_mem_gen_0_0.xci">
+          <Proxy FileSetName="keyboard_dist_mem_gen_0_0"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/../../srcs/sources/bd/keyboard/hdl/keyboard_wrapper.v">
@@ -252,12 +247,6 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="keyboard_keyb_clocks_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/keyboard_keyb_clocks_0_0" RelGenDir="$PGENDIR/keyboard_keyb_clocks_0_0">
-      <Config>
-        <Option Name="TopModule" Val="keyboard_keyb_clocks_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="keyboard_emu_fnkeys_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/keyboard_emu_fnkeys_0_0" RelGenDir="$PGENDIR/keyboard_emu_fnkeys_0_0">
       <Config>
         <Option Name="TopModule" Val="keyboard_emu_fnkeys_0_0"/>
@@ -279,12 +268,6 @@
     <FileSet Name="keyboard_util_vector_logic_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/keyboard_util_vector_logic_0_0" RelGenDir="$PGENDIR/keyboard_util_vector_logic_0_0">
       <Config>
         <Option Name="TopModule" Val="keyboard_util_vector_logic_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="keyboard_membrane_stick_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/keyboard_membrane_stick_0_0" RelGenDir="$PGENDIR/keyboard_membrane_stick_0_0">
-      <Config>
-        <Option Name="TopModule" Val="keyboard_membrane_stick_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -344,16 +327,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="keyboard_keyb_clocks_0_0_synth_1" Type="Ft3:Synth" SrcSet="keyboard_keyb_clocks_0_0" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_keyb_clocks_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/keyboard_keyb_clocks_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_keyb_clocks_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="keyboard_emu_fnkeys_0_0_synth_1" Type="Ft3:Synth" SrcSet="keyboard_emu_fnkeys_0_0" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_emu_fnkeys_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/keyboard_emu_fnkeys_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_emu_fnkeys_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
@@ -385,16 +358,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="keyboard_util_vector_logic_0_0_synth_1" Type="Ft3:Synth" SrcSet="keyboard_util_vector_logic_0_0" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_util_vector_logic_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/keyboard_util_vector_logic_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_util_vector_logic_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="keyboard_membrane_stick_0_0_synth_1" Type="Ft3:Synth" SrcSet="keyboard_membrane_stick_0_0" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_membrane_stick_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/keyboard_membrane_stick_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_membrane_stick_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
         <Step Id="synth_design"/>
@@ -465,23 +428,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="keyboard_keyb_clocks_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_keyb_clocks_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="keyboard_keyb_clocks_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_keyb_clocks_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="keyboard_emu_fnkeys_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_emu_fnkeys_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="keyboard_emu_fnkeys_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_emu_fnkeys_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
@@ -534,23 +480,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="keyboard_util_vector_logic_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_util_vector_logic_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="keyboard_util_vector_logic_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_util_vector_logic_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2021"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="keyboard_membrane_stick_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-1" ConstrsSet="keyboard_membrane_stick_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="keyboard_membrane_stick_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/keyboard_membrane_stick_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
         <Step Id="init_design"/>

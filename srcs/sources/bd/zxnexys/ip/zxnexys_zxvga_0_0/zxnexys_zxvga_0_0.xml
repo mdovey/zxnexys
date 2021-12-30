@@ -289,11 +289,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:13 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:34 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c9dd23dd</spirit:value>
+            <spirit:value>9:5d28b61e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -304,7 +304,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c9dd23dd</spirit:value>
+            <spirit:value>9:5d28b61e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -320,11 +320,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:13 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:34 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c9dd23dd</spirit:value>
+            <spirit:value>9:5d28b61e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -339,11 +339,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:13 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:34 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8b65ae68</spirit:value>
+            <spirit:value>9:1f903bab</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -359,11 +359,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:04:13 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:34 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:8b65ae68</spirit:value>
+            <spirit:value>9:1f903bab</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -377,11 +377,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed Dec 29 10:14:49 UTC 2021</spirit:value>
+            <spirit:value>Thu Dec 30 13:31:55 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:c9dd23dd</spirit:value>
+            <spirit:value>9:5d28b61e</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -639,51 +639,51 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/front_porch.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/front_porch.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/scandoubler.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/scandoubler.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_front_porch_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_front_porch_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_s_fix_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_s_fix_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_s_fix_1_0.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_s_fix_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_scan_convert_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_scan_convert_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_scandoubler_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_scandoubler_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/video_cleaner.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/video_cleaner.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/dpram2.vhd</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/dpram2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/scan_convert.vhd</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/scan_convert.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -752,27 +752,27 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/front_porch.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/front_porch.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/scandoubler.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/scandoubler.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/video_cleaner.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/video_cleaner.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/dpram2.vhd</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/dpram2.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/scan_convert.vhd</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/scan_convert.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/e297/src/vga_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/ed67/src/vga_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -842,18 +842,6 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
-        <spirit:name>zxnexys_zxvga_0_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>zxnexys_zxvga_0_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>zxnexys_zxvga_0_0_sim_netlist.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
@@ -865,6 +853,18 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxnexys_zxvga_0_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>zxnexys_zxvga_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>
@@ -880,7 +880,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxvga_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1f3773de_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@11dc41b2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
@@ -962,6 +962,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d2eee1b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7c9f9e45_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1b647996_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b39d9c0_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46d3130b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@505ba3e8_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f7c15e2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b4a6f37_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6675c5f2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a78e85c_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a8b0bec_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54756b2b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3526e3ac_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@599a28ca_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>

@@ -657,11 +657,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxvga_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreRevision>6</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:vga_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-24T14:49:36Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2021-12-30T11:23:32Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1f3773de_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@11dc41b2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
@@ -743,6 +743,17 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@4d2eee1b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7c9f9e45_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1b647996_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b39d9c0_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46d3130b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@505ba3e8_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f7c15e2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b4a6f37_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6675c5f2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a78e85c_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a8b0bec_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54756b2b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3526e3ac_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@599a28ca_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

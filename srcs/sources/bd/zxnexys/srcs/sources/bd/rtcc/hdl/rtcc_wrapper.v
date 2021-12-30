@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 17:27:03 2021
+//Date        : Thu Dec 30 01:16:15 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target rtcc_wrapper.bd
 //Design      : rtcc_wrapper

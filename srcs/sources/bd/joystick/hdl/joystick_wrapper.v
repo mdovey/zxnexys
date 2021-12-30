@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Wed Dec 22 19:09:42 2021
+//Date        : Thu Dec 30 13:19:25 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target joystick_wrapper.bd
 //Design      : joystick_wrapper
@@ -16,6 +16,7 @@ module joystick_wrapper
     btnr,
     btnu,
     clk_peripheral,
+    joy_clk_en,
     joy_left,
     joy_right,
     jstk_clk,
@@ -29,6 +30,7 @@ module joystick_wrapper
   input btnr;
   input btnu;
   input clk_peripheral;
+  output joy_clk_en;
   output [10:0]joy_left;
   output [10:0]joy_right;
   output jstk_clk;
@@ -43,6 +45,7 @@ module joystick_wrapper
   wire btnr;
   wire btnu;
   wire clk_peripheral;
+  wire joy_clk_en;
   wire [10:0]joy_left;
   wire [10:0]joy_right;
   wire jstk_clk;
@@ -58,6 +61,7 @@ module joystick_wrapper
         .btnr(btnr),
         .btnu(btnu),
         .clk_peripheral(clk_peripheral),
+        .joy_clk_en(joy_clk_en),
         .joy_left(joy_left),
         .joy_right(joy_right),
         .jstk_clk(jstk_clk),

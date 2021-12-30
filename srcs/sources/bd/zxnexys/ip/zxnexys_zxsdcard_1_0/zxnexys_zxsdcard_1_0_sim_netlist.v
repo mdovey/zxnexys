@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Wed Dec 29 10:12:36 2021
+// Date        : Thu Dec 30 12:15:32 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxsdcard_1_0/zxnexys_zxsdcard_1_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxsdcard_1_0 -prefix
+//               zxnexys_zxsdcard_1_0_ zxnexys_zxsdcard_1_0_sim_netlist.v
 // Design      : zxnexys_zxsdcard_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,73 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxsdcard_1_0,sdcard,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "sdcard,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxsdcard_1_0
-   (sd_cd,
-    sd_sck,
-    sd_cmd,
-    sd_dat0,
-    sd_dat1,
-    sd_dat2,
-    sd_dat3,
-    sd_wp,
-    in_sck,
-    in_mosi,
-    in_miso,
-    enable_n,
-    clk_peripheral,
-    reset);
-  input sd_cd;
-  output sd_sck;
-  output sd_cmd;
-  input sd_dat0;
-  output sd_dat1;
-  output sd_dat2;
-  output sd_dat3;
-  input sd_wp;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in sck" *) (* X_INTERFACE_MODE = "SLAVE" *) input in_sck;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in mosi" *) input in_mosi;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in miso" *) output in_miso;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard_enable:1.0 sdcard_enable enable_n" *) input enable_n;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-
-  wire \<const1> ;
-  wire clk_peripheral;
-  wire enable_n;
-  wire in_miso;
-  wire in_mosi;
-  wire in_sck;
-  wire reset;
-  wire sd_cmd;
-  wire sd_dat0;
-  wire sd_dat3;
-  wire sd_sck;
-
-  assign sd_dat1 = \<const1> ;
-  assign sd_dat2 = \<const1> ;
-  VCC VCC
-       (.P(\<const1> ));
-  LUT2 #(
-    .INIT(4'h2)) 
-    in_miso_INST_0
-       (.I0(sd_dat0),
-        .I1(enable_n),
-        .O(in_miso));
-  zxnexys_zxsdcard_1_0_sdcard inst
-       (.clk_peripheral(clk_peripheral),
-        .enable_n(enable_n),
-        .in_mosi(in_mosi),
-        .in_sck(in_sck),
-        .reset(reset),
-        .sd_cmd(sd_cmd),
-        .sd_dat3(sd_dat3),
-        .sd_sck(sd_sck));
-endmodule
-
-(* ORIG_REF_NAME = "sdcard" *) 
 module zxnexys_zxsdcard_1_0_sdcard
    (sd_cmd,
     sd_sck,
@@ -795,6 +728,72 @@ module zxnexys_zxsdcard_1_0_sdcard
         .D(start_up_counter0[7]),
         .Q(start_up_counter_reg[7]),
         .S(\start_up_counter[7]_i_1_n_0 ));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "zxnexys_zxsdcard_1_0,sdcard,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "sdcard,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxsdcard_1_0
+   (sd_cd,
+    sd_sck,
+    sd_cmd,
+    sd_dat0,
+    sd_dat1,
+    sd_dat2,
+    sd_dat3,
+    sd_wp,
+    in_sck,
+    in_mosi,
+    in_miso,
+    enable_n,
+    clk_peripheral,
+    reset);
+  input sd_cd;
+  output sd_sck;
+  output sd_cmd;
+  input sd_dat0;
+  output sd_dat1;
+  output sd_dat2;
+  output sd_dat3;
+  input sd_wp;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in sck" *) (* X_INTERFACE_MODE = "SLAVE" *) input in_sck;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in mosi" *) input in_mosi;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in miso" *) output in_miso;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard_enable:1.0 sdcard_enable enable_n" *) input enable_n;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+
+  wire \<const1> ;
+  wire clk_peripheral;
+  wire enable_n;
+  wire in_miso;
+  wire in_mosi;
+  wire in_sck;
+  wire reset;
+  wire sd_cmd;
+  wire sd_dat0;
+  wire sd_dat3;
+  wire sd_sck;
+
+  assign sd_dat1 = \<const1> ;
+  assign sd_dat2 = \<const1> ;
+  VCC VCC
+       (.P(\<const1> ));
+  LUT2 #(
+    .INIT(4'h2)) 
+    in_miso_INST_0
+       (.I0(sd_dat0),
+        .I1(enable_n),
+        .O(in_miso));
+  zxnexys_zxsdcard_1_0_sdcard inst
+       (.clk_peripheral(clk_peripheral),
+        .enable_n(enable_n),
+        .in_mosi(in_mosi),
+        .in_sck(in_sck),
+        .reset(reset),
+        .sd_cmd(sd_cmd),
+        .sd_dat3(sd_dat3),
+        .sd_sck(sd_sck));
 endmodule
 `ifndef GLBL
 `define GLBL

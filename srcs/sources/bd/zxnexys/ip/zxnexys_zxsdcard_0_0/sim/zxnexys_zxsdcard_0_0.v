@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxsdcard:1.3
-// IP Revision: 4
+// IP Revision: 6
 
 `timescale 1ns/1ps
 

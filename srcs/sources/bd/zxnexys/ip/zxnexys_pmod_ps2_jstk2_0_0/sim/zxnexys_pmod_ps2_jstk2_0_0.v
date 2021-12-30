@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:pmod_ps2_jstk2:1.1
-// IP Revision: 6
+// IP Revision: 7
 
 `timescale 1ns/1ps
 

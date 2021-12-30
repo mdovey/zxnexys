@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxmouse:2.3
-// IP Revision: 3
+// IP Revision: 4
 
 `timescale 1ns/1ps
 

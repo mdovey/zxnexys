@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:pmod_esp32:1.1
-// IP Revision: 2
+// IP Revision: 3
 
 `timescale 1ns/1ps
 

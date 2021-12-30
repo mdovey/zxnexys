@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 28 18:55:36 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 30 13:15:33 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="keyboard" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -13,11 +13,11 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="Ps2Interface_0" PORT="clk"/>
         <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_CLK"/>
-        <CONNECTION INSTANCE="keyb_clocks_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="membrane_0" PORT="i_CLK"/>
         <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_CLK"/>
         <CONNECTION INSTANCE="udk_map_0" PORT="clk"/>
         <CONNECTION INSTANCE="membrane_stick_0" PORT="i_CLK"/>
+        <CONNECTION INSTANCE="keyb_clocks_0" PORT="clk_peripheral"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral_n">
@@ -87,10 +87,10 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="Ps2Interface_0" PORT="rst"/>
         <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_reset"/>
-        <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
         <CONNECTION INSTANCE="membrane_0" PORT="i_reset"/>
         <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_reset"/>
         <CONNECTION INSTANCE="membrane_stick_0" PORT="i_reset"/>
+        <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="7" NAME="row" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_row">
@@ -136,6 +136,11 @@
     <PORT DIR="I" LEFT="10" NAME="joy_left" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_joy_left">
       <CONNECTIONS>
         <CONNECTION INSTANCE="membrane_stick_0" PORT="i_joy_left"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="joy_clk_en" POLARITY="ACTIVE_LOW" SIGIS="ce" SIGNAME="External_Ports_joy_clk_en">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="keyb_clocks_0" PORT="joy_clk_en"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -308,6 +313,11 @@
             <CONNECTION INSTANCE="membrane_stick_0" PORT="i_CLK_EN"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="joy_clk_en" POLARITY="ACTIVE_LOW" SIGIS="undef" SIGNAME="External_Ports_joy_clk_en">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="joy_clk_en"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
@@ -463,8 +473,6 @@
           <PORTMAPS>
             <PORTMAP LOGICAL="joy_left" PHYSICAL="i_joy_left"/>
             <PORTMAP LOGICAL="joy_right" PHYSICAL="i_joy_right"/>
-            <PORTMAP LOGICAL="joy_left_type" PHYSICAL="i_joy_left_type"/>
-            <PORTMAP LOGICAL="joy_right_type" PHYSICAL="i_joy_right_type"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="__NOC__" NAME="i_type" TYPE="TARGET" VLNV="specnext.com:specnext:joystick:1.0">
@@ -670,7 +678,7 @@
         <PARAMETER NAME="dual_port_output_clock_enable" VALUE="false"/>
         <PARAMETER NAME="simple_dual_port_output_clock_enable" VALUE="false"/>
         <PARAMETER NAME="coefficient_file" VALUE="../../../../imports/ZXNext/ram/init/keyjoy_64_6.coe"/>
-        <PARAMETER NAME="default_data_radix" VALUE="2"/>
+        <PARAMETER NAME="default_data_radix" VALUE="10"/>
         <PARAMETER NAME="default_data" VALUE="0"/>
         <PARAMETER NAME="reset_qspo" VALUE="false"/>
         <PARAMETER NAME="reset_qdpo" VALUE="false"/>

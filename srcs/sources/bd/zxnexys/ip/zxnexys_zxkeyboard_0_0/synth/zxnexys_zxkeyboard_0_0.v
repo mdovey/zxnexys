@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxkeyboard:2.4
-// IP Revision: 11
+// IP Revision: 17
 
 (* X_CORE_INFO = "keyboard_wrapper,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxkeyboard_0_0,keyboard_wrapper,{}" *)
@@ -60,6 +60,7 @@ module zxnexys_zxkeyboard_0_0 (
   clk_peripheral_n,
   column,
   extended_keys,
+  joy_clk_en,
   joy_io_mode_en,
   joy_left,
   joy_left_type,
@@ -93,15 +94,18 @@ input wire clk_peripheral_n;
 output wire [4 : 0] column;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard extended_keys" *)
 output wire [15 : 0] extended_keys;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME joy_clk_en, FREQ_HZ 100000000, PHASE 0, POLARITY ACTIVE_HIGH" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clockenable:1.0 joy_clk_en CE" *)
+input wire joy_clk_en;
 (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_io_mode_en" *)
 input wire joy_io_mode_en;
 (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left" *)
 input wire [10 : 0] joy_left;
-(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left_type" *)
+(* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard joy_left_type" *)
 input wire [2 : 0] joy_left_type;
 (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right" *)
 input wire [10 : 0] joy_right;
-(* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right_type" *)
+(* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard joy_right_type" *)
 input wire [2 : 0] joy_right_type;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard joymap_we" *)
 input wire joymap_we;
@@ -139,6 +143,7 @@ output wire [10 : 1] spkey_function;
     .clk_peripheral_n(clk_peripheral_n),
     .column(column),
     .extended_keys(extended_keys),
+    .joy_clk_en(joy_clk_en),
     .joy_io_mode_en(joy_io_mode_en),
     .joy_left(joy_left),
     .joy_left_type(joy_left_type),

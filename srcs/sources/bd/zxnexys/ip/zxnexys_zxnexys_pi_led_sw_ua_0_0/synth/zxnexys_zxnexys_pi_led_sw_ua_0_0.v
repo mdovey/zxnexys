@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0
-// IP Revision: 10
+// IP Revision: 12
 
 (* X_CORE_INFO = "pi_led_sw_uart_i2s,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_pi_led_sw_ua_0_0,pi_led_sw_uart_i2s,{}" *)
