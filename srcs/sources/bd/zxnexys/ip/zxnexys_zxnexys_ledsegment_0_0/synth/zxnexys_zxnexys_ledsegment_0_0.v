@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_ledsegment:1.3
-// IP Revision: 21
+// IP Revision: 22
 
 (* X_CORE_INFO = "ledsegment,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_ledsegment_0_0,ledsegment,{}" *)

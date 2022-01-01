@@ -170,8 +170,8 @@ always @(posedge cpu_clk, posedge cpu_wait_n)
 rgb rgb16 (
     .clk(clk_peripheral),
     .r(machine_timing[0] ? 3'h4 : 3'h0),
-    .g(machine_timing[1] ? 3'h3 : 3'h0),
-    .b(machine_timing[2] ? 3'h2 : 3'h0),
+    .g(machine_timing[1] ? 3'h2 : 3'h0),
+    .b(machine_timing[2] ? 3'h1 : 3'h0),
     .led_r(led17_r),
     .led_g(led17_g),
     .led_b(led17_b)   
@@ -180,8 +180,8 @@ rgb rgb16 (
 rgb rgb17 (
     .clk(clk_peripheral),
     .r(((memory_resetn && (video_reset || peripheral_reset)) || !(memory_resetn || (video_reset && peripheral_reset)))  ? 3'h4 : 3'h0),
-    .g((!peripheral_reset || !video_reset)                                                                              ? 3'h3 : 3'h0),
-    .b(cpu_wait                                                                                                         ? 3'h2 : 3'h0),
+    .g((!peripheral_reset || !video_reset)                                                                              ? 3'h2 : 3'h0),
+    .b(cpu_wait                                                                                                         ? 3'h1 : 3'h0),
     .led_r(led16_r),
     .led_g(led16_g),
     .led_b(led16_b)   

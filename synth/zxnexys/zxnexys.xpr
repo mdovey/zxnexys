@@ -65,13 +65,13 @@
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="88"/>
-    <Option Name="WTModelSimExportSim" Val="88"/>
-    <Option Name="WTQuestaExportSim" Val="87"/>
+    <Option Name="WTXSimExportSim" Val="89"/>
+    <Option Name="WTModelSimExportSim" Val="89"/>
+    <Option Name="WTQuestaExportSim" Val="88"/>
     <Option Name="WTIesExportSim" Val="0"/>
-    <Option Name="WTVcsExportSim" Val="84"/>
-    <Option Name="WTRivieraExportSim" Val="84"/>
-    <Option Name="WTActivehdlExportSim" Val="83"/>
+    <Option Name="WTVcsExportSim" Val="85"/>
+    <Option Name="WTRivieraExportSim" Val="85"/>
+    <Option Name="WTActivehdlExportSim" Val="84"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -94,71 +94,71 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_clk_wiz_0_0/zxnexys_clk_wiz_0_0.xci">
-          <Proxy FileSetName="zxnexys_clk_wiz_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxclock_0_0/zxnexys_zxclock_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxclock_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_xsd_0_0/zxnexys_pmod_xsd_0_0.xci">
           <Proxy FileSetName="zxnexys_pmod_xsd_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_i2s2_0_0/zxnexys_pmod_i2s2_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_i2s2_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_7series_0_0/zxnexys_mig_7series_0_0.xci">
-          <Proxy FileSetName="zxnexys_mig_7series_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_ps2_jstk2_0_0/zxnexys_pmod_ps2_jstk2_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_ps2_jstk2_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_rtcc_0_0/zxnexys_pmod_rtcc_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_rtcc_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxesp32_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxmouse_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_esp32_0_0/zxnexys_pmod_esp32_0_0.xci">
-          <Proxy FileSetName="zxnexys_pmod_esp32_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxaudio_0_0_4/zxnexys_zxaudio_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxaudio_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnext_0_0/zxnexys_zxnext_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxnext_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxnexys_mic_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxrtc_0_0/zxnexys_zxrtc_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxrtc_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxsdcard_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_1_0/zxnexys_zxsdcard_1_0.xci">
-          <Proxy FileSetName="zxnexys_zxsdcard_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxreset_0_0/zxnexys_zxreset_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxreset_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxvga_0_0/zxnexys_zxvga_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxvga_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxkeyboard_0_0_4/zxnexys_zxkeyboard_0_0.xci">
           <Proxy FileSetName="zxnexys_zxkeyboard_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxnexys_pi_led_sw_ua_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxjoystick_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxclock_0_0/zxnexys_zxclock_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxclock_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxesp32_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_ps2_jstk2_0_0/zxnexys_pmod_ps2_jstk2_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_ps2_jstk2_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_esp32_0_0/zxnexys_pmod_esp32_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_esp32_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_rtcc_0_0/zxnexys_pmod_rtcc_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_rtcc_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnext_0_0/zxnexys_zxnext_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxnext_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_1_0/zxnexys_zxsdcard_1_0.xci">
+          <Proxy FileSetName="zxnexys_zxsdcard_1_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnexys_ledsegment_0_0/zxnexys_zxnexys_ledsegment_0_0.xci">
           <Proxy FileSetName="zxnexys_zxnexys_ledsegment_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0.xci">
-          <Proxy FileSetName="zxnexys_zxjoystick_0_0"/>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxaudio_0_0_4/zxnexys_zxaudio_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxaudio_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxrtc_0_0/zxnexys_zxrtc_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxrtc_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_mig_7series_0_0/zxnexys_mig_7series_0_0.xci">
+          <Proxy FileSetName="zxnexys_mig_7series_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_clk_wiz_0_0/zxnexys_clk_wiz_0_0.xci">
+          <Proxy FileSetName="zxnexys_clk_wiz_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxmouse_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxsdcard_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxnexys_mic_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxreset_0_0/zxnexys_zxreset_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxreset_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_pmod_i2s2_0_0/zxnexys_pmod_i2s2_0_0.xci">
+          <Proxy FileSetName="zxnexys_pmod_i2s2_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxnexys_pi_led_sw_ua_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxvga_0_0/zxnexys_zxvga_0_0.xci">
+          <Proxy FileSetName="zxnexys_zxvga_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="zxnexys.bd" FileRelPathName="ip/zxnexys_zxram_0_0/zxnexys_zxram_0_0.xci">
           <Proxy FileSetName="zxnexys_zxram_0_0"/>

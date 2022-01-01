@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Fri Dec 31 22:47:51 2021
+-- Date        : Sat Jan  1 02:57:56 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_ledsegment_0_0/zxnexys_zxnexys_ledsegment_0_0_sim_netlist.vhdl
@@ -19,8 +19,8 @@ entity zxnexys_zxnexys_ledsegment_0_0_rgb is
     led16_g : out STD_LOGIC;
     led16_r : out STD_LOGIC;
     led17_g : out STD_LOGIC;
-    led17_b : out STD_LOGIC;
     led16_b : out STD_LOGIC;
+    led17_b : out STD_LOGIC;
     led17_r : out STD_LOGIC;
     peripheral_reset : in STD_LOGIC;
     video_reset : in STD_LOGIC;
@@ -35,18 +35,16 @@ end zxnexys_zxnexys_ledsegment_0_0_rgb;
 
 architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0_rgb is
   signal \clk_div[2]_i_1_n_0\ : STD_LOGIC;
-  signal led_g0 : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal p_0_in : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal led_g0 : STD_LOGIC_VECTOR ( 1 to 1 );
+  signal p_0_in : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \rgb17/clk_div_reg\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \clk_div[0]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \clk_div[1]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \clk_div[2]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \clk_div[1]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \clk_div[2]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \clk_div[3]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of led16_b_INST_0 : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of led17_b_INST_0 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of led17_b_INST_0 : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of led17_g_INST_0 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of led17_r_INST_0 : label is "soft_lutpair2";
 begin
 \clk_div[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
@@ -54,7 +52,7 @@ begin
     )
         port map (
       I0 => \rgb17/clk_div_reg\(0),
-      O => led_g0(0)
+      O => p_0_in(0)
     );
 \clk_div[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -90,7 +88,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      D => led_g0(0),
+      D => p_0_in(0),
       Q => \rgb17/clk_div_reg\(0),
       R => '0'
     );
@@ -118,20 +116,21 @@ begin
       Q => \rgb17/clk_div_reg\(3),
       R => '0'
     );
-led16_b_INST_0: unisim.vcomponents.LUT4
+led16_b_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"2000"
+      INIT => X"00004000"
     )
         port map (
-      I0 => \out\,
-      I1 => \rgb17/clk_div_reg\(3),
+      I0 => \rgb17/clk_div_reg\(3),
+      I1 => \rgb17/clk_div_reg\(1),
       I2 => \rgb17/clk_div_reg\(2),
-      I3 => \rgb17/clk_div_reg\(1),
+      I3 => \out\,
+      I4 => \rgb17/clk_div_reg\(0),
       O => led16_b
     );
 led16_g_INST_0: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000707070000000"
+      INIT => X"0000007070000000"
     )
         port map (
       I0 => peripheral_reset,
@@ -154,20 +153,21 @@ led16_r_INST_0: unisim.vcomponents.LUT5
       I4 => \rgb17/clk_div_reg\(3),
       O => led16_r
     );
-led17_b_INST_0: unisim.vcomponents.LUT4
+led17_b_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"2000"
+      INIT => X"00004000"
     )
         port map (
-      I0 => machine_timing(2),
-      I1 => \rgb17/clk_div_reg\(3),
+      I0 => \rgb17/clk_div_reg\(3),
+      I1 => \rgb17/clk_div_reg\(1),
       I2 => \rgb17/clk_div_reg\(2),
-      I3 => \rgb17/clk_div_reg\(1),
+      I3 => machine_timing(2),
+      I4 => \rgb17/clk_div_reg\(0),
       O => led17_b
     );
 led17_g_INST_0: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"00888000"
+      INIT => X"00088000"
     )
         port map (
       I0 => machine_timing(1),
@@ -197,8 +197,8 @@ entity zxnexys_zxnexys_ledsegment_0_0_ledsegment is
     led16_g : out STD_LOGIC;
     led16_r : out STD_LOGIC;
     led17_g : out STD_LOGIC;
-    led17_b : out STD_LOGIC;
     led16_b : out STD_LOGIC;
+    led17_b : out STD_LOGIC;
     led17_r : out STD_LOGIC;
     ca : out STD_LOGIC_VECTOR ( 7 downto 0 );
     an : out STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -308,49 +308,49 @@ architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0_ledsegment is
   signal \NLW_div_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_div_reg[12]_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \a[0]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \a[1]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \a[3]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \a[4]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \a[5]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \a[6]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \a[7]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \an[0]_INST_0\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \an[1]_INST_0\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \an[2]_INST_0\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \an[3]_INST_0\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \an[4]_INST_0\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \an[6]_INST_0\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \c[7]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \ca[0]_INST_0\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \ca[1]_INST_0\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \ca[2]_INST_0\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \ca[3]_INST_0\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \ca[4]_INST_0\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \ca[5]_INST_0\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \ca[6]_INST_0\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \ca[7]_INST_0\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \a[0]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \a[1]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \a[3]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \a[4]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \a[5]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \a[6]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \a[7]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \an[0]_INST_0\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \an[1]_INST_0\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \an[2]_INST_0\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \an[3]_INST_0\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \an[4]_INST_0\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \an[6]_INST_0\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \c[7]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \ca[0]_INST_0\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \ca[1]_INST_0\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \ca[2]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \ca[3]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \ca[4]_INST_0\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \ca[5]_INST_0\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \ca[6]_INST_0\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \ca[7]_INST_0\ : label is "soft_lutpair10";
   attribute ASYNC_REG_boolean : boolean;
   attribute ASYNC_REG_boolean of cpu_wait_reg : label is std.standard.true;
   attribute KEEP : string;
   attribute KEEP of cpu_wait_reg : label is "yes";
-  attribute SOFT_HLUTNM of \display[0][0]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \display[0][1]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \display[0][2]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \display[0][4]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \display[1][0]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \display[1][3]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \display[0][0]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \display[0][1]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \display[0][2]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \display[0][4]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \display[1][0]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \display[1][3]_i_1\ : label is "soft_lutpair19";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \div_reg[0]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \div_reg[12]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \div_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \div_reg[8]_i_1\ : label is 11;
-  attribute SOFT_HLUTNM of g0_b1 : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of g0_b2 : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of g0_b3 : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of g0_b4 : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of g0_b5 : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of g0_b6 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of g0_b1 : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of g0_b2 : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of g0_b3 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of g0_b4 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of g0_b5 : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of g0_b6 : label is "soft_lutpair4";
 begin
 \a[0]_i_1\: unisim.vcomponents.LUT3
     generic map(

@@ -172,7 +172,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5b9bba2b</spirit:value>
+            <spirit:value>6afc1aa5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -188,7 +188,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>5b9bba2b</spirit:value>
+            <spirit:value>6afc1aa5</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -469,7 +469,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/ledsegment.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_42c96640</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_a8c3f306</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -535,11 +535,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_ledsegment_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>21</xilinx:coreRevision>
+      <xilinx:coreRevision>22</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:ledsegment:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-31T22:17:21Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-01-01T02:36:49Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6364bc72_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@45d2eb01_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
@@ -811,12 +811,23 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@300147af_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7ce1912a_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1effc2fa_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@81dc1f0_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3902fe89_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77147221_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d98be0_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@216a91d7_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@bdbea4a_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6a7b39f3_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7223d2a8_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c079cde_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a9aaae7_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47526978_ARCHIVE_LOCATION">v:/ip/zxnexys_ledsegment</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f47af03a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="7accfc0b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="002e8aa2"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="800c0069"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2432bb96"/>
     </xilinx:packagingInfo>
