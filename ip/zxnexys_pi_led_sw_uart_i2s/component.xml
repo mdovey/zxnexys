@@ -96,7 +96,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b1b0fcb7</spirit:value>
+            <spirit:value>e1693a64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -112,7 +112,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b1b0fcb7</spirit:value>
+            <spirit:value>e1693a64</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -331,84 +331,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>led16_r</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>led16_g</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>led16_b</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>led17_r</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>led17_g</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>led17_b</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>clk_peripheral</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -442,7 +364,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/pi_led_sw_uart_i2s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_b1b0fcb7</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_e1693a64</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -503,8 +425,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_pi_led_sw_uart_i2s_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>12</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-30T11:36:55Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>14</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2021-12-30T14:39:48Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@215b5dc1_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1fd07fa6_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
@@ -623,13 +545,35 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@c9ec7d2_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@19daf7d_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6b3c4ed_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a3db94b_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d947ebc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@620abfcd_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32dd8deb_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1882cc8a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b49e552_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f27848d_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b810958_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2faed64e_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5cd4fd7c_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e8a0787_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15685708_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38ce82dd_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5017051b_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7cd25bb8_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ca434bc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5942abdf_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60949a9c_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@794626bc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28081375_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@448dad8a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53ca1dc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7f66f28f"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e26ede31"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="024f931a"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ec872400"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="8aed622f"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="24b86631"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

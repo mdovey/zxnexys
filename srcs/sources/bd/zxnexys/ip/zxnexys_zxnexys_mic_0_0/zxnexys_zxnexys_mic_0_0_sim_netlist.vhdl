@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu Dec 30 12:11:33 2021
+-- Date        : Fri Dec 31 22:43:03 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top zxnexys_zxnexys_mic_0_0 -prefix
---               zxnexys_zxnexys_mic_0_0_ zxnexys_zxnexys_mic_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0_sim_netlist.vhdl
 -- Design      : zxnexys_zxnexys_mic_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,6 +28,8 @@ entity zxnexys_zxnexys_mic_0_0_i2s_transceiver is
     D : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_data_tx_int_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_i2s_transceiver : entity is "i2s_transceiver";
 end zxnexys_zxnexys_mic_0_0_i2s_transceiver;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_i2s_transceiver is
@@ -3191,6 +3193,8 @@ entity zxnexys_zxnexys_mic_0_0_mic_reset is
     clk_audio : in STD_LOGIC;
     reset : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_reset : entity is "mic_reset";
 end zxnexys_zxnexys_mic_0_0_mic_reset;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_reset is
@@ -3233,6 +3237,8 @@ entity zxnexys_zxnexys_mic_0_0_pwm_decode is
     clk_audio : in STD_LOGIC;
     \rcnt_reg[7]_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_pwm_decode : entity is "pwm_decode";
 end zxnexys_zxnexys_mic_0_0_pwm_decode;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_pwm_decode is
@@ -3773,6 +3779,8 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0 is
     D : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_data_tx_int_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0 : entity is "mic_i2s_i2s_transceiver_0_0";
 end zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0 is
@@ -3802,6 +3810,8 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 is
     clk_audio : in STD_LOGIC;
     reset : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 : entity is "mic_i2s_mic_reset_0_0";
 end zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 is
@@ -3829,6 +3839,8 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0 is
     clk_audio : in STD_LOGIC;
     \rcnt_reg[7]\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0 : entity is "mic_i2s_pwm_decode_0_0";
 end zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0 is
@@ -3859,6 +3871,8 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s is
     reset : in STD_LOGIC;
     m_data : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_i2s : entity is "mic_i2s";
 end zxnexys_zxnexys_mic_0_0_mic_i2s;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s is
@@ -3922,6 +3936,8 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper is
     reset : in STD_LOGIC;
     m_data : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper : entity is "mic_i2s_wrapper";
 end zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper is

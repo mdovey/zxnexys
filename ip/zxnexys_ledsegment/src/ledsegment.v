@@ -25,17 +25,34 @@
 module ledsegment (
 	input		[20:0]	address,
     input       [1:0]   cpu_speed,
+    input               cpu_clk,
+    input 		[2:0] 	machine_timing, 
+    input               cpu_wait_n,
 
     output      [7:0]   an,
     output      [7:0]   ca,
 
+    output            led16_r,
+    output            led16_g,
+    output            led16_b,
+
+    output            led17_r,
+    output            led17_g,
+    output            led17_b,
+
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
-(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)    
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET peripheral_reset" *)    
     input               clk_peripheral,    
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)    
-    input               reset
+    input               video_reset,
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)    
+    input               peripheral_reset,
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 memory_resetn RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)    
+    input               memory_resetn
     );
 
     localparam   DIV         =   12;
@@ -44,7 +61,6 @@ module ledsegment (
 	wire    [2:0]         sel_led;
 	
     reg     [DIV+2:0]     div;
-//    reg     [2:0]         sel;
     
     reg     [4:0]         display [7:0];
     
@@ -54,8 +70,11 @@ module ledsegment (
     assign  clk_led         = div[DIV-1];
     assign  sel_led         = div[DIV+2:DIV];
 
-    assign an       = (reset) ? 8'b1111_1111 : a;
-    assign ca       = (reset) ? 8'b1111_1111 : c;
+    assign an[7]    = (~memory_resetn)                  ? 1'b1         : a[7];
+    assign an[6]    = (peripheral_reset & video_reset)  ? 1'b1         : a[6];
+    assign an[5:0]  = (video_reset)                     ? 6'b11_1111   : a[5:0];
+    assign ca       = (~memory_resetn)                  ? 8'b1111_1111 : 
+                      (peripheral_reset & video_reset)  ? 8'b0111_1111 : c;
 
     always @(posedge clk_peripheral)
         case (cpu_speed)
@@ -141,6 +160,52 @@ module ledsegment (
             5'h1_E:     c    <=  8'b0000_0110; 
             5'h1_F:     c    <=  8'b0000_1110; 
         endcase        
+
+(* ASYNC_REG = "TRUE" *)
+    reg    cpu_wait;
     
+always @(posedge cpu_clk, posedge cpu_wait_n)
+    cpu_wait    <= cpu_wait_n ? 1'b0 : 1'b1;
+
+rgb rgb16 (
+    .clk(clk_peripheral),
+    .r(machine_timing[0] ? 3'h4 : 3'h0),
+    .g(machine_timing[1] ? 3'h3 : 3'h0),
+    .b(machine_timing[2] ? 3'h2 : 3'h0),
+    .led_r(led17_r),
+    .led_g(led17_g),
+    .led_b(led17_b)   
+);
+ 
+rgb rgb17 (
+    .clk(clk_peripheral),
+    .r(((memory_resetn && (video_reset || peripheral_reset)) || !(memory_resetn || (video_reset && peripheral_reset)))  ? 3'h4 : 3'h0),
+    .g((!peripheral_reset || !video_reset)                                                                              ? 3'h3 : 3'h0),
+    .b(cpu_wait                                                                                                         ? 3'h2 : 3'h0),
+    .led_r(led16_r),
+    .led_g(led16_g),
+    .led_b(led16_b)   
+);    
 endmodule
 
+module rgb (
+    input           clk,
+    input   [2:0]   r,
+    input   [2:0]   g,
+    input   [2:0]   b,
+    
+    output          led_r,
+    output          led_g,
+    output          led_b
+);
+
+    reg [3:0]   clk_div;
+    
+    assign led_r    = ((clk_div + 4'h0) < r);   
+    assign led_g    = ((clk_div + 4'h5) < g);   
+    assign led_b    = ((clk_div + 4'hA) < b);   
+    
+    always @(posedge clk)
+        clk_div     <= clk_div + 1;
+        
+endmodule

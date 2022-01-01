@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu Dec 30 12:11:26 2021
+// Date        : Fri Dec 31 22:47:51 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxnexys_ledsegment_0_0 -prefix
-//               zxnexys_zxnexys_ledsegment_0_0_ zxnexys_zxnexys_ledsegment_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_ledsegment_0_0/zxnexys_zxnexys_ledsegment_0_0_sim_netlist.v
 // Design      : zxnexys_zxnexys_ledsegment_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,19 +12,119 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module zxnexys_zxnexys_ledsegment_0_0_ledsegment
-   (an,
+(* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_ledsegment_0_0,ledsegment,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "ledsegment,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxnexys_ledsegment_0_0
+   (address,
+    cpu_speed,
+    cpu_clk,
+    machine_timing,
+    cpu_wait_n,
+    an,
     ca,
+    led16_r,
+    led16_g,
+    led16_b,
+    led17_r,
+    led17_g,
+    led17_b,
+    clk_peripheral,
+    video_reset,
+    peripheral_reset,
+    memory_resetn);
+  (* X_INTERFACE_INFO = "specnext.com:specnext:ram_port_a:1.0 ram_port_a ram_addr" *) input [20:0]address;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 mb_clock speed" *) input [1:0]cpu_speed;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 mb_clock cpu_clk" *) input cpu_clk;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *) input [2:0]machine_timing;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:ram_port_a:1.0 ram_port_a wait_n" *) input cpu_wait_n;
+  output [7:0]an;
+  output [7:0]ca;
+  output led16_r;
+  output led16_g;
+  output led16_b;
+  output led17_r;
+  output led17_g;
+  output led17_b;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET peripheral_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME video_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input video_reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input peripheral_reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 memory_resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME memory_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input memory_resetn;
+
+  wire [20:0]address;
+  wire [7:0]an;
+  wire [7:0]ca;
+  wire clk_peripheral;
+  wire cpu_clk;
+  wire [1:0]cpu_speed;
+  wire cpu_wait_n;
+  wire led16_b;
+  wire led16_g;
+  wire led16_r;
+  wire led17_b;
+  wire led17_g;
+  wire led17_r;
+  wire [2:0]machine_timing;
+  wire memory_resetn;
+  wire peripheral_reset;
+  wire video_reset;
+
+  zxnexys_zxnexys_ledsegment_0_0_ledsegment inst
+       (.address(address),
+        .an(an),
+        .ca(ca),
+        .clk_peripheral(clk_peripheral),
+        .cpu_clk(cpu_clk),
+        .cpu_speed(cpu_speed),
+        .cpu_wait_n(cpu_wait_n),
+        .led16_b(led16_b),
+        .led16_g(led16_g),
+        .led16_r(led16_r),
+        .led17_b(led17_b),
+        .led17_g(led17_g),
+        .led17_r(led17_r),
+        .machine_timing(machine_timing),
+        .memory_resetn(memory_resetn),
+        .peripheral_reset(peripheral_reset),
+        .video_reset(video_reset));
+endmodule
+
+(* ORIG_REF_NAME = "ledsegment" *) 
+module zxnexys_zxnexys_ledsegment_0_0_ledsegment
+   (led16_g,
+    led16_r,
+    led17_g,
+    led17_b,
+    led16_b,
+    led17_r,
+    ca,
+    an,
+    peripheral_reset,
+    video_reset,
+    memory_resetn,
+    machine_timing,
     cpu_speed,
     address,
     clk_peripheral,
-    reset);
-  output [7:0]an;
+    cpu_clk,
+    cpu_wait_n);
+  output led16_g;
+  output led16_r;
+  output led17_g;
+  output led17_b;
+  output led16_b;
+  output led17_r;
   output [7:0]ca;
+  output [7:0]an;
+  input peripheral_reset;
+  input video_reset;
+  input memory_resetn;
+  input [2:0]machine_timing;
   input [1:0]cpu_speed;
   input [20:0]address;
   input clk_peripheral;
-  input reset;
+  input cpu_clk;
+  input cpu_wait_n;
 
   wire [7:0]a;
   wire \a[0]_i_1_n_0 ;
@@ -42,7 +142,10 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
   wire [7:0]ca;
   wire clk_led;
   wire clk_peripheral;
+  wire cpu_clk;
   wire [1:0]cpu_speed;
+  (* async_reg = "true" *) wire cpu_wait;
+  wire cpu_wait_n;
   wire [3:0]display;
   wire \display[0][0]_i_1_n_0 ;
   wire \display[0][1]_i_1_n_0 ;
@@ -115,12 +218,21 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
   wire g0_b6_i_8_n_0;
   wire g0_b6_i_9_n_0;
   wire g0_b6_n_0;
-  wire reset;
+  wire led16_b;
+  wire led16_g;
+  wire led16_r;
+  wire led17_b;
+  wire led17_g;
+  wire led17_r;
+  wire [2:0]machine_timing;
+  wire memory_resetn;
+  wire peripheral_reset;
   wire [2:0]sel0;
+  wire video_reset;
   wire [3:2]\NLW_div_reg[12]_i_1_CO_UNCONNECTED ;
   wire [3:3]\NLW_div_reg[12]_i_1_O_UNCONNECTED ;
 
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'h7F)) 
     \a[0]_i_1 
@@ -128,7 +240,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I1(sel0[0]),
         .I2(sel0[1]),
         .O(\a[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hF7)) 
     \a[1]_i_1 
@@ -143,7 +255,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I1(sel0[0]),
         .I2(sel0[1]),
         .O(\a[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hEF)) 
     \a[3]_i_1 
@@ -151,7 +263,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I1(sel0[1]),
         .I2(sel0[2]),
         .O(\a[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT3 #(
     .INIT(8'hF7)) 
     \a[4]_i_1 
@@ -159,7 +271,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I1(sel0[1]),
         .I2(sel0[2]),
         .O(\a[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'hFFF7)) 
     \a[5]_i_1 
@@ -168,7 +280,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(sel0[0]),
         .I3(sel0[2]),
         .O(\a[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hEF)) 
     \a[6]_i_1 
@@ -176,7 +288,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I1(sel0[1]),
         .I2(sel0[0]),
         .O(\a[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     \a[7]_i_1 
@@ -232,63 +344,62 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .D(\a[7]_i_1_n_0 ),
         .Q(a[7]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \an[0]_INST_0 
-       (.I0(a[0]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(a[0]),
         .O(an[0]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \an[1]_INST_0 
-       (.I0(a[1]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(a[1]),
         .O(an[1]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \an[2]_INST_0 
-       (.I0(a[2]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(a[2]),
         .O(an[2]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \an[3]_INST_0 
-       (.I0(a[3]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(a[3]),
         .O(an[3]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \an[4]_INST_0 
-       (.I0(a[4]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(a[4]),
         .O(an[4]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \an[5]_INST_0 
-       (.I0(a[5]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(a[5]),
         .O(an[5]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  LUT3 #(
+    .INIT(8'hF8)) 
     \an[6]_INST_0 
-       (.I0(a[6]),
-        .I1(reset),
+       (.I0(video_reset),
+        .I1(peripheral_reset),
+        .I2(a[6]),
         .O(an[6]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
-    .INIT(4'hE)) 
+    .INIT(4'hB)) 
     \an[7]_INST_0 
        (.I0(a[7]),
-        .I1(reset),
+        .I1(memory_resetn),
         .O(an[7]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'hFFEF)) 
     \c[7]_i_1 
@@ -345,90 +456,114 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .D(\c[7]_i_1_n_0 ),
         .Q(c[7]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[0]_INST_0 
        (.I0(c[0]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[0]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[1]_INST_0 
        (.I0(c[1]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[1]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[2]_INST_0 
        (.I0(c[2]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[2]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[3]_INST_0 
        (.I0(c[3]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[3]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[4]_INST_0 
        (.I0(c[4]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[4]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[5]_INST_0 
        (.I0(c[5]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[5]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'hEAFF)) 
     \ca[6]_INST_0 
        (.I0(c[6]),
-        .I1(reset),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
         .O(ca[6]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'h70FF)) 
     \ca[7]_INST_0 
-       (.I0(c[7]),
-        .I1(reset),
+       (.I0(peripheral_reset),
+        .I1(video_reset),
+        .I2(c[7]),
+        .I3(memory_resetn),
         .O(ca[7]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDCE cpu_wait_reg
+       (.C(cpu_clk),
+        .CE(1'b1),
+        .CLR(cpu_wait_n),
+        .D(1'b1),
+        .Q(cpu_wait));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \display[0][0]_i_1 
        (.I0(cpu_speed[0]),
         .I1(cpu_speed[1]),
         .O(\display[0][0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \display[0][1]_i_1 
        (.I0(cpu_speed[0]),
         .I1(cpu_speed[1]),
         .O(\display[0][1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \display[0][2]_i_1 
        (.I0(cpu_speed[0]),
         .I1(cpu_speed[1]),
         .O(\display[0][2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \display[0][4]_i_1 
        (.I0(cpu_speed[1]),
         .O(\display[0][4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \display[1][0]_i_1 
@@ -440,7 +575,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
     \display[1][2]_i_1 
        (.I0(cpu_speed[0]),
         .O(\display[1][2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \display[1][3]_i_1 
@@ -750,7 +885,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(display[2]),
         .I3(display[3]),
         .O(g0_b0_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'hD860)) 
     g0_b1
@@ -759,7 +894,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(display[2]),
         .I3(display[3]),
         .O(g0_b1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'hD004)) 
     g0_b2
@@ -768,7 +903,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(display[2]),
         .I3(display[3]),
         .O(g0_b2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'h8492)) 
     g0_b3
@@ -777,7 +912,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(display[2]),
         .I3(display[3]),
         .O(g0_b3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'h02BA)) 
     g0_b4
@@ -786,7 +921,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(display[2]),
         .I3(display[3]),
         .O(g0_b4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
     .INIT(16'h208E)) 
     g0_b5
@@ -795,7 +930,7 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I2(display[2]),
         .I3(display[3]),
         .O(g0_b5_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
     .INIT(16'h1083)) 
     g0_b6
@@ -899,39 +1034,174 @@ module zxnexys_zxnexys_ledsegment_0_0_ledsegment
         .I3(sel0[0]),
         .I4(\display_reg[0] [2]),
         .O(g0_b6_i_9_n_0));
+  zxnexys_zxnexys_ledsegment_0_0_rgb rgb16
+       (.clk_peripheral(clk_peripheral),
+        .led16_b(led16_b),
+        .led16_g(led16_g),
+        .led16_r(led16_r),
+        .led17_b(led17_b),
+        .led17_g(led17_g),
+        .led17_r(led17_r),
+        .machine_timing(machine_timing),
+        .memory_resetn(memory_resetn),
+        .out(cpu_wait),
+        .peripheral_reset(peripheral_reset),
+        .video_reset(video_reset));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_ledsegment_0_0,ledsegment,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "ledsegment,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxnexys_ledsegment_0_0
-   (address,
-    cpu_speed,
-    an,
-    ca,
-    clk_peripheral,
-    reset);
-  (* X_INTERFACE_INFO = "specnext.com:specnext:ram_port_a:1.0 ram_port_a ram_addr" *) input [20:0]address;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 mb_clock speed" *) input [1:0]cpu_speed;
-  output [7:0]an;
-  output [7:0]ca;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+(* ORIG_REF_NAME = "rgb" *) 
+module zxnexys_zxnexys_ledsegment_0_0_rgb
+   (led16_g,
+    led16_r,
+    led17_g,
+    led17_b,
+    led16_b,
+    led17_r,
+    peripheral_reset,
+    video_reset,
+    memory_resetn,
+    machine_timing,
+    out,
+    clk_peripheral);
+  output led16_g;
+  output led16_r;
+  output led17_g;
+  output led17_b;
+  output led16_b;
+  output led17_r;
+  input peripheral_reset;
+  input video_reset;
+  input memory_resetn;
+  input [2:0]machine_timing;
+  input out;
+  input clk_peripheral;
 
-  wire [20:0]address;
-  wire [7:0]an;
-  wire [7:0]ca;
+  wire \clk_div[2]_i_1_n_0 ;
   wire clk_peripheral;
-  wire [1:0]cpu_speed;
-  wire reset;
+  wire led16_b;
+  wire led16_g;
+  wire led16_r;
+  wire led17_b;
+  wire led17_g;
+  wire led17_r;
+  wire [1:0]led_g0;
+  wire [2:0]machine_timing;
+  wire memory_resetn;
+  wire out;
+  wire [3:3]p_0_in;
+  wire peripheral_reset;
+  wire [3:0]\rgb17/clk_div_reg ;
+  wire video_reset;
 
-  zxnexys_zxnexys_ledsegment_0_0_ledsegment inst
-       (.address(address),
-        .an(an),
-        .ca(ca),
-        .clk_peripheral(clk_peripheral),
-        .cpu_speed(cpu_speed),
-        .reset(reset));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \clk_div[0]_i_1 
+       (.I0(\rgb17/clk_div_reg [0]),
+        .O(led_g0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT2 #(
+    .INIT(4'h6)) 
+    \clk_div[1]_i_1 
+       (.I0(\rgb17/clk_div_reg [0]),
+        .I1(\rgb17/clk_div_reg [1]),
+        .O(led_g0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h78)) 
+    \clk_div[2]_i_1 
+       (.I0(\rgb17/clk_div_reg [0]),
+        .I1(\rgb17/clk_div_reg [1]),
+        .I2(\rgb17/clk_div_reg [2]),
+        .O(\clk_div[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h7F80)) 
+    \clk_div[3]_i_1 
+       (.I0(\rgb17/clk_div_reg [1]),
+        .I1(\rgb17/clk_div_reg [0]),
+        .I2(\rgb17/clk_div_reg [2]),
+        .I3(\rgb17/clk_div_reg [3]),
+        .O(p_0_in));
+  FDRE \clk_div_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(led_g0[0]),
+        .Q(\rgb17/clk_div_reg [0]),
+        .R(1'b0));
+  FDRE \clk_div_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(led_g0[1]),
+        .Q(\rgb17/clk_div_reg [1]),
+        .R(1'b0));
+  FDRE \clk_div_reg[2] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\clk_div[2]_i_1_n_0 ),
+        .Q(\rgb17/clk_div_reg [2]),
+        .R(1'b0));
+  FDRE \clk_div_reg[3] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(p_0_in),
+        .Q(\rgb17/clk_div_reg [3]),
+        .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'h2000)) 
+    led16_b_INST_0
+       (.I0(out),
+        .I1(\rgb17/clk_div_reg [3]),
+        .I2(\rgb17/clk_div_reg [2]),
+        .I3(\rgb17/clk_div_reg [1]),
+        .O(led16_b));
+  LUT6 #(
+    .INIT(64'h0000707070000000)) 
+    led16_g_INST_0
+       (.I0(peripheral_reset),
+        .I1(video_reset),
+        .I2(\rgb17/clk_div_reg [3]),
+        .I3(\rgb17/clk_div_reg [0]),
+        .I4(\rgb17/clk_div_reg [1]),
+        .I5(\rgb17/clk_div_reg [2]),
+        .O(led16_g));
+  LUT5 #(
+    .INIT(32'h00005415)) 
+    led16_r_INST_0
+       (.I0(\rgb17/clk_div_reg [2]),
+        .I1(peripheral_reset),
+        .I2(video_reset),
+        .I3(memory_resetn),
+        .I4(\rgb17/clk_div_reg [3]),
+        .O(led16_r));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'h2000)) 
+    led17_b_INST_0
+       (.I0(machine_timing[2]),
+        .I1(\rgb17/clk_div_reg [3]),
+        .I2(\rgb17/clk_div_reg [2]),
+        .I3(\rgb17/clk_div_reg [1]),
+        .O(led17_b));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h00888000)) 
+    led17_g_INST_0
+       (.I0(machine_timing[1]),
+        .I1(\rgb17/clk_div_reg [3]),
+        .I2(\rgb17/clk_div_reg [0]),
+        .I3(\rgb17/clk_div_reg [1]),
+        .I4(\rgb17/clk_div_reg [2]),
+        .O(led17_g));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT3 #(
+    .INIT(8'h04)) 
+    led17_r_INST_0
+       (.I0(\rgb17/clk_div_reg [2]),
+        .I1(machine_timing[0]),
+        .I2(\rgb17/clk_div_reg [3]),
+        .O(led17_r));
 endmodule
 `ifndef GLBL
 `define GLBL

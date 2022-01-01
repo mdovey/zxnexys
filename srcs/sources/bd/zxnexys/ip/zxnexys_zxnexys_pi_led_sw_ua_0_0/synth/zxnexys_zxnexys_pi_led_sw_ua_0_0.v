@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0
-// IP Revision: 12
+// IP Revision: 14
 
 (* X_CORE_INFO = "pi_led_sw_uart_i2s,Vivado 2021.2" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_pi_led_sw_ua_0_0,pi_led_sw_uart_i2s,{}" *)
@@ -68,12 +68,6 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0 (
   i2s_din,
   led,
   sw,
-  led16_r,
-  led16_g,
-  led16_b,
-  led17_r,
-  led17_g,
-  led17_b,
   clk_peripheral,
   reset
 );
@@ -94,12 +88,6 @@ input wire i2s_dout;
 output wire i2s_din;
 output wire [15 : 0] led;
 input wire [15 : 0] sw;
-output wire led16_r;
-output wire led16_g;
-output wire led16_b;
-output wire led17_r;
-output wire led17_g;
-output wire led17_b;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
@@ -121,12 +109,6 @@ input wire reset;
     .i2s_din(i2s_din),
     .led(led),
     .sw(sw),
-    .led16_r(led16_r),
-    .led16_g(led16_g),
-    .led16_b(led16_b),
-    .led17_r(led17_r),
-    .led17_g(led17_g),
-    .led17_b(led17_b),
     .clk_peripheral(clk_peripheral),
     .reset(reset)
   );

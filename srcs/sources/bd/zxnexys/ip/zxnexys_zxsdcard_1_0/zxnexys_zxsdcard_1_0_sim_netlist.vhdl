@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu Dec 30 12:15:32 2021
+-- Date        : Fri Dec 31 22:45:03 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top zxnexys_zxsdcard_1_0 -prefix
---               zxnexys_zxsdcard_1_0_ zxnexys_zxsdcard_1_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxsdcard_1_0/zxnexys_zxsdcard_1_0_sim_netlist.vhdl
 -- Design      : zxnexys_zxsdcard_1_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,6 +25,8 @@ entity zxnexys_zxsdcard_1_0_sdcard is
     enable_n : in STD_LOGIC;
     reset : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxsdcard_1_0_sdcard : entity is "sdcard";
 end zxnexys_zxsdcard_1_0_sdcard;
 
 architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is

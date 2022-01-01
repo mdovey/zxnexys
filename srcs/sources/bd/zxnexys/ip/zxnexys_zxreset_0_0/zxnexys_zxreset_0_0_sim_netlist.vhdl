@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu Dec 30 12:13:48 2021
+-- Date        : Fri Dec 31 22:43:03 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top zxnexys_zxreset_0_0 -prefix
---               zxnexys_zxreset_0_0_ zxnexys_zxreset_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxreset_0_0/zxnexys_zxreset_0_0_sim_netlist.vhdl
 -- Design      : zxnexys_zxreset_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,6 +20,8 @@ entity zxnexys_zxreset_0_0_async_input_sync is
     clk_peripheral : in STD_LOGIC;
     reset_peripheral : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxreset_0_0_async_input_sync : entity is "async_input_sync";
 end zxnexys_zxreset_0_0_async_input_sync;
 
 architecture STRUCTURE of zxnexys_zxreset_0_0_async_input_sync is
@@ -288,6 +290,8 @@ entity zxnexys_zxreset_0_0_held_reset is
     clk_peripheral : in STD_LOGIC;
     clk_locked : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxreset_0_0_held_reset : entity is "held_reset";
 end zxnexys_zxreset_0_0_held_reset;
 
 architecture STRUCTURE of zxnexys_zxreset_0_0_held_reset is
@@ -2779,6 +2783,8 @@ entity zxnexys_zxreset_0_0_held_resetn is
     clk_peripheral : in STD_LOGIC;
     clk_locked : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxreset_0_0_held_resetn : entity is "held_resetn";
 end zxnexys_zxreset_0_0_held_resetn;
 
 architecture STRUCTURE of zxnexys_zxreset_0_0_held_resetn is
@@ -2808,6 +2814,8 @@ entity zxnexys_zxreset_0_0_sysreset is
     reset_soft : in STD_LOGIC;
     cpu_resetn : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxreset_0_0_sysreset : entity is "sysreset";
 end zxnexys_zxreset_0_0_sysreset;
 
 architecture STRUCTURE of zxnexys_zxreset_0_0_sysreset is

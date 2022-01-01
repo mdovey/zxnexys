@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu Dec 30 12:09:26 2021
+-- Date        : Thu Dec 30 16:00:44 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top zxnexys_zxaudio_0_0 -prefix
---               zxnexys_zxaudio_0_0_ zxnexys_zxaudio_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               V:/srcs/sources/bd/zxnexys/ip/zxnexys_zxaudio_0_0/zxnexys_zxaudio_0_0_sim_netlist.vhdl
 -- Design      : zxnexys_zxaudio_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -23,6 +23,8 @@ entity zxnexys_zxaudio_0_0_audio_mono is
     \out\ : in STD_LOGIC_VECTOR ( 12 downto 0 );
     \SigmaLatch0_carry__1_i_1\ : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_mono : entity is "audio_mono";
 end zxnexys_zxaudio_0_0_audio_mono;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_mono is
@@ -154,10 +156,12 @@ entity zxnexys_zxaudio_0_0_audio_psg is
     psg_en : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_psg : entity is "audio_psg";
 end zxnexys_zxaudio_0_0_audio_psg;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_psg is
-  signal \p_0_in__0\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal p_0_in : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal psg_div_reg : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \psg_div[1]_i_1\ : label is "soft_lutpair1";
@@ -171,7 +175,7 @@ begin
     )
         port map (
       I0 => psg_div_reg(0),
-      O => \p_0_in__0\(0)
+      O => p_0_in(0)
     );
 \psg_div[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -180,7 +184,7 @@ begin
         port map (
       I0 => psg_div_reg(0),
       I1 => psg_div_reg(1),
-      O => \p_0_in__0\(1)
+      O => p_0_in(1)
     );
 \psg_div[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -190,7 +194,7 @@ begin
       I0 => psg_div_reg(0),
       I1 => psg_div_reg(1),
       I2 => psg_div_reg(2),
-      O => \p_0_in__0\(2)
+      O => p_0_in(2)
     );
 \psg_div[3]_i_1\: unisim.vcomponents.LUT4
     generic map(
@@ -201,13 +205,13 @@ begin
       I1 => psg_div_reg(0),
       I2 => psg_div_reg(2),
       I3 => psg_div_reg(3),
-      O => \p_0_in__0\(3)
+      O => p_0_in(3)
     );
 \psg_div_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk_peripheral,
       CE => '1',
-      D => \p_0_in__0\(0),
+      D => p_0_in(0),
       Q => psg_div_reg(0),
       R => '0'
     );
@@ -215,7 +219,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      D => \p_0_in__0\(1),
+      D => p_0_in(1),
       Q => psg_div_reg(1),
       R => '0'
     );
@@ -223,7 +227,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      D => \p_0_in__0\(2),
+      D => p_0_in(2),
       Q => psg_div_reg(2),
       R => '0'
     );
@@ -231,7 +235,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      D => \p_0_in__0\(3),
+      D => p_0_in(3),
       Q => psg_div_reg(3),
       R => '0'
     );
@@ -259,6 +263,8 @@ entity zxnexys_zxaudio_0_0_audio_reset is
     reset : in STD_LOGIC;
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_reset : entity is "audio_reset";
 end zxnexys_zxaudio_0_0_audio_reset;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_reset is
@@ -323,14 +329,16 @@ entity zxnexys_zxaudio_0_0_audio_sync is
     CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_sync : entity is "audio_sync";
 end zxnexys_zxaudio_0_0_audio_sync;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_sync is
-  signal \c[0]_2\ : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal \c[0]_0\ : STD_LOGIC_VECTOR ( 12 downto 0 );
   attribute async_reg : string;
-  attribute async_reg of \c[0]_2\ : signal is "true";
-  signal \c[1]_3\ : STD_LOGIC_VECTOR ( 12 downto 0 );
-  attribute async_reg of \c[1]_3\ : signal is "true";
+  attribute async_reg of \c[0]_0\ : signal is "true";
+  signal \c[1]_1\ : STD_LOGIC_VECTOR ( 12 downto 0 );
+  attribute async_reg of \c[1]_1\ : signal is "true";
   signal \dout[12]_i_3__0_n_0\ : STD_LOGIC;
   signal \dout[12]_i_4_n_0\ : STD_LOGIC;
   signal \dout[12]_i_5_n_0\ : STD_LOGIC;
@@ -433,7 +441,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(0),
-      Q => \c[0]_2\(0),
+      Q => \c[0]_0\(0),
       R => '0'
     );
 \c_reg[0][10]\: unisim.vcomponents.FDRE
@@ -441,7 +449,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(10),
-      Q => \c[0]_2\(10),
+      Q => \c[0]_0\(10),
       R => '0'
     );
 \c_reg[0][11]\: unisim.vcomponents.FDRE
@@ -449,7 +457,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(11),
-      Q => \c[0]_2\(11),
+      Q => \c[0]_0\(11),
       R => '0'
     );
 \c_reg[0][12]\: unisim.vcomponents.FDRE
@@ -457,7 +465,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(12),
-      Q => \c[0]_2\(12),
+      Q => \c[0]_0\(12),
       R => '0'
     );
 \c_reg[0][1]\: unisim.vcomponents.FDRE
@@ -465,7 +473,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(1),
-      Q => \c[0]_2\(1),
+      Q => \c[0]_0\(1),
       R => '0'
     );
 \c_reg[0][2]\: unisim.vcomponents.FDRE
@@ -473,7 +481,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(2),
-      Q => \c[0]_2\(2),
+      Q => \c[0]_0\(2),
       R => '0'
     );
 \c_reg[0][3]\: unisim.vcomponents.FDRE
@@ -481,7 +489,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(3),
-      Q => \c[0]_2\(3),
+      Q => \c[0]_0\(3),
       R => '0'
     );
 \c_reg[0][4]\: unisim.vcomponents.FDRE
@@ -489,7 +497,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(4),
-      Q => \c[0]_2\(4),
+      Q => \c[0]_0\(4),
       R => '0'
     );
 \c_reg[0][5]\: unisim.vcomponents.FDRE
@@ -497,7 +505,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(5),
-      Q => \c[0]_2\(5),
+      Q => \c[0]_0\(5),
       R => '0'
     );
 \c_reg[0][6]\: unisim.vcomponents.FDRE
@@ -505,7 +513,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(6),
-      Q => \c[0]_2\(6),
+      Q => \c[0]_0\(6),
       R => '0'
     );
 \c_reg[0][7]\: unisim.vcomponents.FDRE
@@ -513,7 +521,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(7),
-      Q => \c[0]_2\(7),
+      Q => \c[0]_0\(7),
       R => '0'
     );
 \c_reg[0][8]\: unisim.vcomponents.FDRE
@@ -521,7 +529,7 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(8),
-      Q => \c[0]_2\(8),
+      Q => \c[0]_0\(8),
       R => '0'
     );
 \c_reg[0][9]\: unisim.vcomponents.FDRE
@@ -529,111 +537,111 @@ begin
       C => clk_audio,
       CE => '1',
       D => audio_right(9),
-      Q => \c[0]_2\(9),
+      Q => \c[0]_0\(9),
       R => '0'
     );
 \c_reg[1][0]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(0),
-      Q => \c[1]_3\(0),
+      D => \c[0]_0\(0),
+      Q => \c[1]_1\(0),
       R => '0'
     );
 \c_reg[1][10]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(10),
-      Q => \c[1]_3\(10),
+      D => \c[0]_0\(10),
+      Q => \c[1]_1\(10),
       R => '0'
     );
 \c_reg[1][11]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(11),
-      Q => \c[1]_3\(11),
+      D => \c[0]_0\(11),
+      Q => \c[1]_1\(11),
       R => '0'
     );
 \c_reg[1][12]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(12),
-      Q => \c[1]_3\(12),
+      D => \c[0]_0\(12),
+      Q => \c[1]_1\(12),
       R => '0'
     );
 \c_reg[1][1]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(1),
-      Q => \c[1]_3\(1),
+      D => \c[0]_0\(1),
+      Q => \c[1]_1\(1),
       R => '0'
     );
 \c_reg[1][2]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(2),
-      Q => \c[1]_3\(2),
+      D => \c[0]_0\(2),
+      Q => \c[1]_1\(2),
       R => '0'
     );
 \c_reg[1][3]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(3),
-      Q => \c[1]_3\(3),
+      D => \c[0]_0\(3),
+      Q => \c[1]_1\(3),
       R => '0'
     );
 \c_reg[1][4]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(4),
-      Q => \c[1]_3\(4),
+      D => \c[0]_0\(4),
+      Q => \c[1]_1\(4),
       R => '0'
     );
 \c_reg[1][5]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(5),
-      Q => \c[1]_3\(5),
+      D => \c[0]_0\(5),
+      Q => \c[1]_1\(5),
       R => '0'
     );
 \c_reg[1][6]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(6),
-      Q => \c[1]_3\(6),
+      D => \c[0]_0\(6),
+      Q => \c[1]_1\(6),
       R => '0'
     );
 \c_reg[1][7]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(7),
-      Q => \c[1]_3\(7),
+      D => \c[0]_0\(7),
+      Q => \c[1]_1\(7),
       R => '0'
     );
 \c_reg[1][8]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(8),
-      Q => \c[1]_3\(8),
+      D => \c[0]_0\(8),
+      Q => \c[1]_1\(8),
       R => '0'
     );
 \c_reg[1][9]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => '1',
-      D => \c[0]_2\(9),
-      Q => \c[1]_3\(9),
+      D => \c[0]_0\(9),
+      Q => \c[1]_1\(9),
       R => '0'
     );
 \dout[12]_i_3__0\: unisim.vcomponents.LUT2
@@ -641,8 +649,8 @@ begin
       INIT => X"9"
     )
         port map (
-      I0 => \c[0]_2\(12),
-      I1 => \c[1]_3\(12),
+      I0 => \c[0]_0\(12),
+      I1 => \c[1]_1\(12),
       O => \dout[12]_i_3__0_n_0\
     );
 \dout[12]_i_4\: unisim.vcomponents.LUT6
@@ -650,12 +658,12 @@ begin
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \c[1]_3\(9),
-      I1 => \c[0]_2\(9),
-      I2 => \c[0]_2\(11),
-      I3 => \c[1]_3\(11),
-      I4 => \c[0]_2\(10),
-      I5 => \c[1]_3\(10),
+      I0 => \c[1]_1\(9),
+      I1 => \c[0]_0\(9),
+      I2 => \c[0]_0\(11),
+      I3 => \c[1]_1\(11),
+      I4 => \c[0]_0\(10),
+      I5 => \c[1]_1\(10),
       O => \dout[12]_i_4_n_0\
     );
 \dout[12]_i_5\: unisim.vcomponents.LUT6
@@ -663,12 +671,12 @@ begin
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \c[1]_3\(6),
-      I1 => \c[0]_2\(6),
-      I2 => \c[0]_2\(8),
-      I3 => \c[1]_3\(8),
-      I4 => \c[0]_2\(7),
-      I5 => \c[1]_3\(7),
+      I0 => \c[1]_1\(6),
+      I1 => \c[0]_0\(6),
+      I2 => \c[0]_0\(8),
+      I3 => \c[1]_1\(8),
+      I4 => \c[0]_0\(7),
+      I5 => \c[1]_1\(7),
       O => \dout[12]_i_5_n_0\
     );
 \dout[12]_i_6\: unisim.vcomponents.LUT6
@@ -676,12 +684,12 @@ begin
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \c[1]_3\(3),
-      I1 => \c[0]_2\(3),
-      I2 => \c[0]_2\(5),
-      I3 => \c[1]_3\(5),
-      I4 => \c[0]_2\(4),
-      I5 => \c[1]_3\(4),
+      I0 => \c[1]_1\(3),
+      I1 => \c[0]_0\(3),
+      I2 => \c[0]_0\(5),
+      I3 => \c[1]_1\(5),
+      I4 => \c[0]_0\(4),
+      I5 => \c[1]_1\(4),
       O => \dout[12]_i_6_n_0\
     );
 \dout[12]_i_7\: unisim.vcomponents.LUT6
@@ -689,19 +697,19 @@ begin
       INIT => X"9009000000009009"
     )
         port map (
-      I0 => \c[1]_3\(0),
-      I1 => \c[0]_2\(0),
-      I2 => \c[0]_2\(2),
-      I3 => \c[1]_3\(2),
-      I4 => \c[0]_2\(1),
-      I5 => \c[1]_3\(1),
+      I0 => \c[1]_1\(0),
+      I1 => \c[0]_0\(0),
+      I2 => \c[0]_0\(2),
+      I3 => \c[1]_1\(2),
+      I4 => \c[0]_0\(1),
+      I5 => \c[1]_1\(1),
       O => \dout[12]_i_7_n_0\
     );
 \dout_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(0),
+      D => \c[1]_1\(0),
       Q => \^out\(0),
       R => '0'
     );
@@ -709,7 +717,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(10),
+      D => \c[1]_1\(10),
       Q => \^out\(10),
       R => '0'
     );
@@ -717,7 +725,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(11),
+      D => \c[1]_1\(11),
       Q => \^out\(11),
       R => '0'
     );
@@ -725,7 +733,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(12),
+      D => \c[1]_1\(12),
       Q => \^out\(12),
       R => '0'
     );
@@ -759,7 +767,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(1),
+      D => \c[1]_1\(1),
       Q => \^out\(1),
       R => '0'
     );
@@ -767,7 +775,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(2),
+      D => \c[1]_1\(2),
       Q => \^out\(2),
       R => '0'
     );
@@ -775,7 +783,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(3),
+      D => \c[1]_1\(3),
       Q => \^out\(3),
       R => '0'
     );
@@ -783,7 +791,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(4),
+      D => \c[1]_1\(4),
       Q => \^out\(4),
       R => '0'
     );
@@ -791,7 +799,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(5),
+      D => \c[1]_1\(5),
       Q => \^out\(5),
       R => '0'
     );
@@ -799,7 +807,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(6),
+      D => \c[1]_1\(6),
       Q => \^out\(6),
       R => '0'
     );
@@ -807,7 +815,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(7),
+      D => \c[1]_1\(7),
       Q => \^out\(7),
       R => '0'
     );
@@ -815,7 +823,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(8),
+      D => \c[1]_1\(8),
       Q => \^out\(8),
       R => '0'
     );
@@ -823,7 +831,7 @@ begin
      port map (
       C => clk_audio,
       CE => \dout_reg[12]_i_1_n_3\,
-      D => \c[1]_3\(9),
+      D => \c[1]_1\(9),
       Q => \^out\(9),
       R => '0'
     );
@@ -844,14 +852,14 @@ use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxaudio_0_0_audio_sync_0 is
   port (
     \out\ : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     DACin : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     audio_left : in STD_LOGIC_VECTOR ( 12 downto 0 );
-    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     S : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \SigmaLatch_reg[9]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \SigmaLatch_reg[13]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \SigmaLatch_reg[17]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk_audio : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -1449,6 +1457,8 @@ entity zxnexys_zxaudio_0_0_debounce is
     tape_ear : out STD_LOGIC;
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_debounce : entity is "debounce";
 end zxnexys_zxaudio_0_0_debounce;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_debounce is
@@ -1598,6 +1608,8 @@ entity zxnexys_zxaudio_0_0_i2s_transceiver is
     \out\ : in STD_LOGIC_VECTOR ( 11 downto 0 );
     \r_data_tx_int_reg[15]_0\ : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_i2s_transceiver : entity is "i2s_transceiver";
 end zxnexys_zxaudio_0_0_i2s_transceiver;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_i2s_transceiver is
@@ -4950,11 +4962,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxaudio_0_0_sigma_delta_dac is
   port (
-    aud_pwm : out STD_LOGIC;
+    audio_pwm : out STD_LOGIC;
     clk_audio : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 );
     DACin : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_sigma_delta_dac : entity is "sigma_delta_dac";
 end zxnexys_zxaudio_0_0_sigma_delta_dac;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_sigma_delta_dac is
@@ -5044,7 +5058,7 @@ DACout_reg: unisim.vcomponents.FDPE
       CE => '1',
       D => DACout_i_1_n_0,
       PRE => AR(0),
-      Q => aud_pwm
+      Q => audio_pwm
     );
 SigmaLatch0_carry: unisim.vcomponents.CARRY4
      port map (
@@ -5414,6 +5428,8 @@ entity zxnexys_zxaudio_0_0_audio_audio_mono_0_0 is
     \out\ : in STD_LOGIC_VECTOR ( 12 downto 0 );
     \SigmaLatch0_carry__1_i_1\ : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_audio_mono_0_0 : entity is "audio_audio_mono_0_0";
 end zxnexys_zxaudio_0_0_audio_audio_mono_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_audio_mono_0_0 is
@@ -5437,6 +5453,8 @@ entity zxnexys_zxaudio_0_0_audio_audio_psg_0_0 is
     psg_en : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_audio_psg_0_0 : entity is "audio_audio_psg_0_0";
 end zxnexys_zxaudio_0_0_audio_audio_psg_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_audio_psg_0_0 is
@@ -5459,6 +5477,8 @@ entity zxnexys_zxaudio_0_0_audio_audio_reset_0_0 is
     reset : in STD_LOGIC;
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_audio_reset_0_0 : entity is "audio_audio_reset_0_0";
 end zxnexys_zxaudio_0_0_audio_audio_reset_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_audio_reset_0_0 is
@@ -5479,16 +5499,18 @@ use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxaudio_0_0_audio_audio_sync_0_0 is
   port (
     \out\ : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     DACin : out STD_LOGIC_VECTOR ( 13 downto 0 );
+    D : out STD_LOGIC_VECTOR ( 0 to 0 );
     audio_left : in STD_LOGIC_VECTOR ( 12 downto 0 );
-    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     S : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \SigmaLatch_reg[9]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \SigmaLatch_reg[13]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     \SigmaLatch_reg[17]\ : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_audio_sync_0_0 : entity is "audio_audio_sync_0_0";
 end zxnexys_zxaudio_0_0_audio_audio_sync_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_audio_sync_0_0 is
@@ -5519,6 +5541,8 @@ entity zxnexys_zxaudio_0_0_audio_audio_sync_0_1 is
     CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_audio_sync_0_1 : entity is "audio_audio_sync_0_1";
 end zxnexys_zxaudio_0_0_audio_audio_sync_0_1;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_audio_sync_0_1 is
@@ -5541,6 +5565,8 @@ entity zxnexys_zxaudio_0_0_audio_debounce_0_0 is
     tape_ear : out STD_LOGIC;
     clk_audio : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_debounce_0_0 : entity is "audio_debounce_0_0";
 end zxnexys_zxaudio_0_0_audio_debounce_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_debounce_0_0 is
@@ -5568,6 +5594,8 @@ entity zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0 is
     \out\ : in STD_LOGIC_VECTOR ( 11 downto 0 );
     \r_data_tx_int_reg[15]\ : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0 : entity is "audio_i2s_transceiver_0_0";
 end zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0 is
@@ -5592,11 +5620,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0 is
   port (
-    aud_pwm : out STD_LOGIC;
+    audio_pwm : out STD_LOGIC;
     clk_audio : in STD_LOGIC;
     AR : in STD_LOGIC_VECTOR ( 0 to 0 );
     DACin : in STD_LOGIC_VECTOR ( 13 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0 : entity is "audio_sigma_delta_dac_0_0";
 end zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0 is
@@ -5605,7 +5635,7 @@ inst: entity work.zxnexys_zxaudio_0_0_sigma_delta_dac
      port map (
       AR(0) => AR(0),
       DACin(13 downto 0) => DACin(13 downto 0),
-      aud_pwm => aud_pwm,
+      audio_pwm => audio_pwm,
       clk_audio => clk_audio
     );
 end STRUCTURE;
@@ -5615,22 +5645,34 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxaudio_0_0_audio is
   port (
-    linein_sclk : out STD_LOGIC;
-    ws_int_reg : out STD_LOGIC;
     aud_sd : out STD_LOGIC;
-    aud_pwm : out STD_LOGIC;
-    psg_en : out STD_LOGIC;
-    tape_ear : out STD_LOGIC;
-    lineout_sdout : out STD_LOGIC;
-    reset : in STD_LOGIC;
     audio_left : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    audio_pwm : out STD_LOGIC;
     audio_right : in STD_LOGIC_VECTOR ( 12 downto 0 );
     clk_audio : in STD_LOGIC;
-    clk_peripheral : in STD_LOGIC
+    clk_peripheral : in STD_LOGIC;
+    linein_lrck : out STD_LOGIC;
+    linein_mclk : out STD_LOGIC;
+    linein_sclk : out STD_LOGIC;
+    linein_sdin : in STD_LOGIC;
+    lineout_lrck : out STD_LOGIC;
+    lineout_mclk : out STD_LOGIC;
+    lineout_sclk : out STD_LOGIC;
+    lineout_sdout : out STD_LOGIC;
+    psg_en : out STD_LOGIC;
+    reset : in STD_LOGIC;
+    tape_ear : out STD_LOGIC;
+    tape_mic : in STD_LOGIC;
+    tape_pwm : out STD_LOGIC
   );
+  attribute HW_HANDOFF : string;
+  attribute HW_HANDOFF of zxnexys_zxaudio_0_0_audio : entity is "audio.hwdef";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio : entity is "audio";
 end zxnexys_zxaudio_0_0_audio;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio is
+  signal \<const0>\ : STD_LOGIC;
   signal DACin : STD_LOGIC_VECTOR ( 15 downto 2 );
   signal audio_mono_0_n_0 : STD_LOGIC;
   signal audio_mono_0_n_1 : STD_LOGIC;
@@ -5648,10 +5690,13 @@ architecture STRUCTURE of zxnexys_zxaudio_0_0_audio is
   signal audio_reset_0_n_2 : STD_LOGIC;
   signal audio_reset_0_rst : STD_LOGIC;
   signal audio_sync_0_dout : STD_LOGIC_VECTOR ( 12 downto 0 );
-  signal audio_sync_0_n_13 : STD_LOGIC;
+  signal audio_sync_0_n_27 : STD_LOGIC;
   signal audio_sync_1_dout : STD_LOGIC_VECTOR ( 12 downto 0 );
   signal audio_sync_1_n_13 : STD_LOGIC;
+  signal \^clk_audio\ : STD_LOGIC;
   signal \inst/ws_cnt1\ : STD_LOGIC;
+  signal \^lineout_lrck\ : STD_LOGIC;
+  signal \^lineout_sclk\ : STD_LOGIC;
   attribute X_CORE_INFO : string;
   attribute X_CORE_INFO of audio_mono_0 : label is "audio_mono,Vivado 2021.2";
   attribute X_CORE_INFO of audio_psg_0 : label is "audio_psg,Vivado 2021.2";
@@ -5661,7 +5706,27 @@ architecture STRUCTURE of zxnexys_zxaudio_0_0_audio is
   attribute X_CORE_INFO of debounce_0 : label is "debounce,Vivado 2021.2";
   attribute X_CORE_INFO of i2s_transceiver_0 : label is "i2s_transceiver,Vivado 2021.2";
   attribute X_CORE_INFO of sigma_delta_dac_0 : label is "sigma_delta_dac,Vivado 2021.2";
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of clk_audio : signal is "xilinx.com:signal:clock:1.0 CLK.CLK_AUDIO CLK";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of clk_audio : signal is "XIL_INTERFACENAME CLK.CLK_AUDIO, CLK_DOMAIN audio_clk_audio, FREQ_HZ 12280700, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 CLK.CLK_PERIPHERAL CLK";
+  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME CLK.CLK_PERIPHERAL, CLK_DOMAIN audio_clk_peripheral, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0";
+  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 RST.RESET RST";
+  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH";
 begin
+  \^clk_audio\ <= clk_audio;
+  linein_lrck <= \^lineout_lrck\;
+  linein_mclk <= \^clk_audio\;
+  linein_sclk <= \^lineout_sclk\;
+  lineout_lrck <= \^lineout_lrck\;
+  lineout_mclk <= \^clk_audio\;
+  lineout_sclk <= \^lineout_sclk\;
+  tape_pwm <= \<const0>\;
+GND: unisim.vcomponents.GND
+     port map (
+      G => \<const0>\
+    );
 audio_mono_0: entity work.zxnexys_zxaudio_0_0_audio_audio_mono_0_0
      port map (
       S(2) => audio_mono_0_n_0,
@@ -5689,14 +5754,14 @@ audio_reset_0: entity work.zxnexys_zxaudio_0_0_audio_audio_reset_0_0
      port map (
       AR(0) => audio_reset_0_rst,
       aud_sd => aud_sd,
-      clk_audio => clk_audio,
+      clk_audio => \^clk_audio\,
       reset => reset,
       rstn_reg => audio_reset_0_n_2
     );
 audio_sync_0: entity work.zxnexys_zxaudio_0_0_audio_audio_sync_0_0
      port map (
       CO(0) => \inst/ws_cnt1\,
-      D(0) => audio_sync_0_n_13,
+      D(0) => audio_sync_0_n_27,
       DACin(13 downto 0) => DACin(15 downto 2),
       S(2) => audio_mono_0_n_0,
       S(1) => audio_mono_0_n_1,
@@ -5712,7 +5777,7 @@ audio_sync_0: entity work.zxnexys_zxaudio_0_0_audio_audio_sync_0_0
       \SigmaLatch_reg[9]\(1) => audio_mono_0_n_5,
       \SigmaLatch_reg[9]\(0) => audio_mono_0_n_6,
       audio_left(12 downto 0) => audio_left(12 downto 0),
-      clk_audio => clk_audio,
+      clk_audio => \^clk_audio\,
       \out\(12 downto 0) => audio_sync_0_dout(12 downto 0)
     );
 audio_sync_1: entity work.zxnexys_zxaudio_0_0_audio_audio_sync_0_1
@@ -5720,33 +5785,33 @@ audio_sync_1: entity work.zxnexys_zxaudio_0_0_audio_audio_sync_0_1
       CO(0) => \inst/ws_cnt1\,
       D(0) => audio_sync_1_n_13,
       audio_right(12 downto 0) => audio_right(12 downto 0),
-      clk_audio => clk_audio,
+      clk_audio => \^clk_audio\,
       \out\(12 downto 0) => audio_sync_1_dout(12 downto 0)
     );
 debounce_0: entity work.zxnexys_zxaudio_0_0_audio_debounce_0_0
      port map (
-      clk_audio => clk_audio,
+      clk_audio => \^clk_audio\,
       tape_ear => tape_ear
     );
 i2s_transceiver_0: entity work.zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0
      port map (
       CO(0) => \inst/ws_cnt1\,
-      D(0) => audio_sync_0_n_13,
-      clk_audio => clk_audio,
+      D(0) => audio_sync_0_n_27,
+      clk_audio => \^clk_audio\,
       lineout_sdout => lineout_sdout,
       \out\(11 downto 0) => audio_sync_0_dout(12 downto 1),
       \r_data_tx_int_reg[15]\(11 downto 0) => audio_sync_1_dout(12 downto 1),
       \r_data_tx_int_reg[3]\(0) => audio_sync_1_n_13,
       \sclk_cnt_reg[0]\ => audio_reset_0_n_2,
-      sclk_int_reg => linein_sclk,
-      ws_int_reg => ws_int_reg
+      sclk_int_reg => \^lineout_sclk\,
+      ws_int_reg => \^lineout_lrck\
     );
 sigma_delta_dac_0: entity work.zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0
      port map (
       AR(0) => audio_reset_0_rst,
       DACin(13 downto 0) => DACin(15 downto 2),
-      aud_pwm => aud_pwm,
-      clk_audio => clk_audio
+      audio_pwm => audio_pwm,
+      clk_audio => \^clk_audio\
     );
 end STRUCTURE;
 library IEEE;
@@ -5755,37 +5820,53 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxaudio_0_0_audio_wrapper is
   port (
-    lineout_sclk : out STD_LOGIC;
-    ws_int_reg : out STD_LOGIC;
     aud_sd : out STD_LOGIC;
     aud_pwm : out STD_LOGIC;
+    linein_lrck : out STD_LOGIC;
+    linein_mclk : out STD_LOGIC;
+    linein_sclk : out STD_LOGIC;
+    lineout_lrck : out STD_LOGIC;
+    lineout_mclk : out STD_LOGIC;
+    lineout_sclk : out STD_LOGIC;
+    lineout_sdout : out STD_LOGIC;
     psg_en : out STD_LOGIC;
     tape_ear : out STD_LOGIC;
-    lineout_sdout : out STD_LOGIC;
-    reset : in STD_LOGIC;
     audio_left : in STD_LOGIC_VECTOR ( 12 downto 0 );
     audio_right : in STD_LOGIC_VECTOR ( 12 downto 0 );
     clk_audio : in STD_LOGIC;
-    clk_peripheral : in STD_LOGIC
+    clk_peripheral : in STD_LOGIC;
+    reset : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxaudio_0_0_audio_wrapper : entity is "audio_wrapper";
 end zxnexys_zxaudio_0_0_audio_wrapper;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_wrapper is
+  signal NLW_audio_i_tape_pwm_UNCONNECTED : STD_LOGIC;
+  attribute HW_HANDOFF : string;
+  attribute HW_HANDOFF of audio_i : label is "audio.hwdef";
 begin
 audio_i: entity work.zxnexys_zxaudio_0_0_audio
      port map (
-      aud_pwm => aud_pwm,
       aud_sd => aud_sd,
       audio_left(12 downto 0) => audio_left(12 downto 0),
+      audio_pwm => aud_pwm,
       audio_right(12 downto 0) => audio_right(12 downto 0),
       clk_audio => clk_audio,
       clk_peripheral => clk_peripheral,
-      linein_sclk => lineout_sclk,
+      linein_lrck => linein_lrck,
+      linein_mclk => linein_mclk,
+      linein_sclk => linein_sclk,
+      linein_sdin => '0',
+      lineout_lrck => lineout_lrck,
+      lineout_mclk => lineout_mclk,
+      lineout_sclk => lineout_sclk,
       lineout_sdout => lineout_sdout,
       psg_en => psg_en,
       reset => reset,
       tape_ear => tape_ear,
-      ws_int_reg => ws_int_reg
+      tape_mic => '0',
+      tape_pwm => NLW_audio_i_tape_pwm_UNCONNECTED
     );
 end STRUCTURE;
 library IEEE;
@@ -5826,9 +5907,6 @@ entity zxnexys_zxaudio_0_0 is
 end zxnexys_zxaudio_0_0;
 
 architecture STRUCTURE of zxnexys_zxaudio_0_0 is
-  signal \^clk_audio\ : STD_LOGIC;
-  signal \^linein_lrck\ : STD_LOGIC;
-  signal \^linein_sclk\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk_audio : signal is "xilinx.com:signal:clock:1.0 clk_audio CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -5843,26 +5921,23 @@ architecture STRUCTURE of zxnexys_zxaudio_0_0 is
   attribute X_INTERFACE_INFO of audio_left : signal is "specnext.com:specnext:audio:1.0 audio left";
   attribute X_INTERFACE_INFO of audio_right : signal is "specnext.com:specnext:audio:1.0 audio right";
 begin
-  \^clk_audio\ <= clk_audio;
-  linein_lrck <= \^linein_lrck\;
-  linein_mclk <= \^clk_audio\;
-  linein_sclk <= \^linein_sclk\;
-  lineout_lrck <= \^linein_lrck\;
-  lineout_mclk <= \^clk_audio\;
-  lineout_sclk <= \^linein_sclk\;
 inst: entity work.zxnexys_zxaudio_0_0_audio_wrapper
      port map (
       aud_pwm => aud_pwm,
       aud_sd => aud_sd,
       audio_left(12 downto 0) => audio_left(12 downto 0),
       audio_right(12 downto 0) => audio_right(12 downto 0),
-      clk_audio => \^clk_audio\,
+      clk_audio => clk_audio,
       clk_peripheral => clk_peripheral,
-      lineout_sclk => \^linein_sclk\,
+      linein_lrck => linein_lrck,
+      linein_mclk => linein_mclk,
+      linein_sclk => linein_sclk,
+      lineout_lrck => lineout_lrck,
+      lineout_mclk => lineout_mclk,
+      lineout_sclk => lineout_sclk,
       lineout_sdout => lineout_sdout,
       psg_en => psg_en,
       reset => reset,
-      tape_ear => tape_ear,
-      ws_int_reg => \^linein_lrck\
+      tape_ear => tape_ear
     );
 end STRUCTURE;

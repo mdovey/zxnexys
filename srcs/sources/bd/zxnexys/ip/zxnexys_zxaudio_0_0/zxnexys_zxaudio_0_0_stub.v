@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu Dec 30 12:09:26 2021
+// Date        : Thu Dec 30 16:00:44 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top zxnexys_zxaudio_0_0 -prefix
-//               zxnexys_zxaudio_0_0_ zxnexys_zxaudio_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               V:/srcs/sources/bd/zxnexys/ip/zxnexys_zxaudio_0_0/zxnexys_zxaudio_0_0_stub.v
 // Design      : zxnexys_zxaudio_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tcsg324-1

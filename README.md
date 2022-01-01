@@ -40,7 +40,7 @@ Displays clock speed, and memory address
 
 ## PI Accelerator
 
-Use of the PI Accel GPIO to access on-board UART, Mic (via I2S), Switches and LEDS (via GPIO pins 2-13, 22-25) and RGB Leds (Enable pin 26, and pulse to change RGB16 colour; pin 27 for RGB17)
+Use of the PI Accel GPIO to access on-board UART, Mic (via I2S), Switches and LEDS (via GPIO pins 2-11, 22-27) 
 
 ## Acknowledgements
 

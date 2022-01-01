@@ -44,14 +44,6 @@ module pi_led_sw_uart_i2s (
     
     output reg [15:0] led,
     input      [15:0] sw,   
-    
-    output            led16_r,
-    output            led16_g,
-    output            led16_b,
-
-    output            led17_r,
-    output            led17_g,
-    output            led17_b,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)	
@@ -61,11 +53,6 @@ module pi_led_sw_uart_i2s (
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
     input           reset	
     );
-    
-    reg [2:0]   rgb16;
-    reg [2:0]   rgb17;
-    reg         gpio26;
-    reg         gpio27;
 
     assign  uart_rx         = gpio_o[14]; 
     assign  gpio_i[15]      = uart_tx;
@@ -77,82 +64,17 @@ module pi_led_sw_uart_i2s (
     assign  gpio_i[20]  	= i2s_dout; 
     assign  i2s_din			= gpio_i[21];
 
-    assign gpio_i[13:2]     = sw[11:0];
-    assign gpio_i[25:22]    = sw[15:12];
+    assign gpio_i[11:2]     = sw[9:0];
+    assign gpio_i[27:22]    = sw[15:10];
 
     always @(posedge clk_peripheral)
     if (reset)
     begin 
         led[15:0]   <= 16'h00;
     end else begin
-        led[11:0]   <= (led[11:0]  & ~gpio_t[13:2])  | (gpio_o[13:2]  & gpio_t[13:2]);
-        led[15:12]  <= (led[15:12] & ~gpio_t[25:22]) | (gpio_o[25:22] & gpio_t[25:22]);
+        led[9:0]   <= (led[9:0]  & ~gpio_t[11:2])  | (gpio_o[11:2]  & gpio_t[11:2]);
+        led[15:10]  <= (led[15:10] & ~gpio_t[27:22]) | (gpio_o[27:22] & gpio_t[27:22]);
     end
-    
-    always @(posedge clk_peripheral)
-        if (reset) begin
-            rgb16   <= 3'h0;
-        end else if (gpio_t[26] == 1'b1)
-        begin
-            gpio26  <= gpio_o[26];
-            if (gpio_o[26] & ~gpio26) begin
-                rgb16   <= rgb16 + 1;
-            end    
-        end else begin
-            rgb16   <= 3'h0;
-        end
- 
-    always @(posedge clk_peripheral)
-        if (reset) begin
-            rgb17   <= 3'h0;
-        end else if (gpio_t[26] == 1'b1)
-        begin
-            gpio27  <= gpio_o[27];
-            if (gpio_o[27] & ~gpio27) begin
-                rgb17   <= rgb17 + 1;
-            end    
-        end else begin
-            rgb17   <= 3'h0;
-        end
-   
-rgb rgb_16 (
-    .clk(clk_peripheral),
-    .led_r(led16_r), 
-    .led_g(led16_g), 
-    .led_b(led16_b),
-    .rgb(rgb16)
-); 
-
-rgb rgb_17 (
-    .clk(clk_peripheral),
-    .led_r(led17_r), 
-    .led_g(led17_g), 
-    .led_b(led17_b),
-    .rgb(rgb17)
-); 
-
 
 endmodule
 
-module rgb (
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
-	input           clk,
-
-    output          led_r,
-    output          led_g,
-    output          led_b,
-    
-    input   [2:0]   rgb
-    
-);
-
-    reg [2:0]   count;
-
-    assign  led_r   = count == 3'b000 && rgb[0] == 1'b1;
-    assign  led_g   = count == 3'b010 && rgb[1] == 1'b1;
-    assign  led_b   = count == 3'b100 && rgb[2] == 1'b1;
-        
-    always @(posedge clk)
-        count <= count + 1;
-
-endmodule

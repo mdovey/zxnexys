@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 30 13:31:39 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 31 22:36:19 2021" VIVADOVERSION="2021.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxnexys" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -144,34 +144,34 @@
         <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LED16_B" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led16_b">
+    <PORT DIR="O" NAME="LED16_B" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led16_b">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led16_b"/>
+        <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="led16_b"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LED16_G" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led16_g">
+    <PORT DIR="O" NAME="LED16_G" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led16_g">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led16_g"/>
+        <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="led16_g"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LED16_R" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led16_r">
+    <PORT DIR="O" NAME="LED16_R" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led16_r">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led16_r"/>
+        <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="led16_r"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LED17_B" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led17_b">
+    <PORT DIR="O" NAME="LED17_B" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led17_b">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led17_b"/>
+        <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="led17_b"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LED17_G" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led17_g">
+    <PORT DIR="O" NAME="LED17_G" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led17_g">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led17_g"/>
+        <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="led17_g"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="LED17_R" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led17_r">
+    <PORT DIR="O" NAME="LED17_R" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led17_r">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="led17_r"/>
+        <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="led17_r"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" LEFT="15" NAME="SW" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_SW">
@@ -4519,8 +4519,6 @@
             <CONNECTION INSTANCE="zxaudio_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxesp32_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxmouse_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxreset_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxrtc_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxsdcard_0" PORT="clk_peripheral"/>
@@ -4528,6 +4526,8 @@
             <CONNECTION INSTANCE="zxvga_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxjoystick_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral_n">
@@ -5667,7 +5667,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="5" FULLNAME="/zxnexys_ledsegment_0" HWVERSION="1.3" INSTANCE="zxnexys_ledsegment_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxnexys_ledsegment" VLNV="specnext.com:specnext:zxnexys_ledsegment:1.3">
+    <MODULE COREREVISION="21" FULLNAME="/zxnexys_ledsegment_0" HWVERSION="1.3" INSTANCE="zxnexys_ledsegment_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxnexys_ledsegment" VLNV="specnext.com:specnext:zxnexys_ledsegment:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxnexys_ledsegment_0_0"/>
@@ -5677,6 +5677,9 @@
       <PORTS>
         <PORT DIR="I" LEFT="20" NAME="address" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="1" NAME="cpu_speed" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="cpu_clk" SIGIS="clk"/>
+        <PORT DIR="I" LEFT="2" NAME="machine_timing" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="cpu_wait_n" SIGIS="undef"/>
         <PORT DIR="O" LEFT="7" NAME="an" RIGHT="0" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_an">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="AN"/>
@@ -5687,14 +5690,54 @@
             <CONNECTION INSTANCE="External_Ports" PORT="CA"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="led16_r" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led16_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED16_R"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led16_g" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led16_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED16_G"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led16_b" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led16_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED16_B"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led17_r" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led17_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED17_R"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led17_g" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led17_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED17_G"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led17_b" SIGIS="undef" SIGNAME="zxnexys_ledsegment_0_led17_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED17_B"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxclock_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="video_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_video_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxreset_0" PORT="video_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="memory_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_memory_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxreset_0" PORT="memory_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5702,11 +5745,18 @@
         <BUSINTERFACE BUSNAME="zxclock_0_mb_clock" NAME="mb_clock" TYPE="MONITOR" VLNV="specnext.com:specnext:mb_clock:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="speed" PHYSICAL="cpu_speed"/>
+            <PORTMAP LOGICAL="cpu_clk" PHYSICAL="cpu_clk"/>
           </PORTMAPS>
         </BUSINTERFACE>
         <BUSINTERFACE BUSNAME="zxnext_0_ram_port_a" NAME="ram_port_a" TYPE="MONITOR" VLNV="specnext.com:specnext:ram_port_a:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="ram_addr" PHYSICAL="address"/>
+            <PORTMAP LOGICAL="wait_n" PHYSICAL="cpu_wait_n"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="zxnext_0_video" NAME="video" TYPE="MONITOR" VLNV="specnext.com:specnext:video:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="machine_timing" PHYSICAL="machine_timing"/>
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
@@ -5766,7 +5816,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="12" FULLNAME="/zxnexys_pi_led_sw_ua_0" HWVERSION="1.0" INSTANCE="zxnexys_pi_led_sw_ua_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxnexys_pi_led_sw_uart_i2s" VLNV="specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0">
+    <MODULE COREREVISION="14" FULLNAME="/zxnexys_pi_led_sw_ua_0" HWVERSION="1.0" INSTANCE="zxnexys_pi_led_sw_ua_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxnexys_pi_led_sw_uart_i2s" VLNV="specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxnexys_pi_led_sw_ua_0_0"/>
@@ -5836,36 +5886,6 @@
         <PORT DIR="I" LEFT="15" NAME="sw" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_SW">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="SW"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="led16_r" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led16_r">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED16_R"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="led16_g" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led16_g">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED16_G"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="led16_b" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led16_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED16_B"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="led17_r" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led17_r">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED17_R"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="led17_g" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led17_g">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED17_G"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="led17_b" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_led17_b">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="LED17_B"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral">
@@ -6316,19 +6336,20 @@
             <CONNECTION INSTANCE="zxaudio_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxesp32_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxmouse_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxnexys_mic_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxrtc_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxsdcard_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxsdcard_1" PORT="reset"/>
             <CONNECTION INSTANCE="zxjoystick_0" PORT="reset"/>
             <CONNECTION INSTANCE="zxkeyboard_0" PORT="reset"/>
+            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="reset"/>
+            <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="peripheral_reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="video_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_video_reset">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxvga_0" PORT="reset"/>
+            <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="video_reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="memory_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_memory_aresetn">
@@ -6336,6 +6357,7 @@
             <CONNECTION INSTANCE="mig_7series_0" PORT="sys_rst"/>
             <CONNECTION INSTANCE="mig_7series_0" PORT="aresetn"/>
             <CONNECTION INSTANCE="zxram_0" PORT="memory_aresetn"/>
+            <CONNECTION INSTANCE="zxnexys_ledsegment_0" PORT="memory_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="cpu_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_CPU_RESETN">

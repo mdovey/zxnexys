@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu Dec 30 12:15:51 2021
+// Date        : Fri Dec 31 22:45:32 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxvga_0_0 -prefix
-//               zxnexys_zxvga_0_0_ zxnexys_zxvga_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxvga_0_0/zxnexys_zxvga_0_0_sim_netlist.v
 // Design      : zxnexys_zxvga_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,6 +12,80 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "zxnexys_zxvga_0_0,vga_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "vga_wrapper,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxvga_0_0
+   (clk_peripheral,
+    clk_video,
+    csync_n,
+    hsync_n,
+    machine_timing,
+    reset,
+    rgb,
+    scandouble,
+    scanlines,
+    vga_b,
+    vga_g,
+    vga_hs,
+    vga_r,
+    vga_vs,
+    vsync_n);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_video CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_video, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_video, INSERT_VIP 0" *) input clk_video;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video csync_n" *) input csync_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hsync_n" *) input hsync_n;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *) input [2:0]machine_timing;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video rgb" *) input [8:0]rgb;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *) input scandouble;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scanlines" *) input [1:0]scanlines;
+  output [3:0]vga_b;
+  output [3:0]vga_g;
+  output vga_hs;
+  output [3:0]vga_r;
+  output vga_vs;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video vsync_n" *) input vsync_n;
+
+  wire clk_peripheral;
+  wire clk_video;
+  wire csync_n;
+  wire hsync_n;
+  wire [2:0]machine_timing;
+  wire reset;
+  wire [8:0]rgb;
+  wire scandouble;
+  wire [1:0]scanlines;
+  wire [3:1]\^vga_b ;
+  wire [3:0]vga_g;
+  wire vga_hs;
+  wire [3:1]\^vga_r ;
+  wire vga_vs;
+  wire vsync_n;
+
+  assign vga_b[3:1] = \^vga_b [3:1];
+  assign vga_b[0] = vga_g[0];
+  assign vga_r[3:1] = \^vga_r [3:1];
+  assign vga_r[0] = vga_g[0];
+  zxnexys_zxvga_0_0_vga_wrapper inst
+       (.clk_peripheral(clk_peripheral),
+        .clk_video(clk_video),
+        .csync_n(csync_n),
+        .hsync_n(hsync_n),
+        .machine_timing(machine_timing[1]),
+        .reset(reset),
+        .rgb(rgb),
+        .scandouble(scandouble),
+        .scanlines(scanlines),
+        .vga_b(\^vga_b ),
+        .vga_g(vga_g[3:1]),
+        .vga_hs(vga_hs),
+        .vga_r({\^vga_r ,vga_g[0]}),
+        .vga_vs(vga_vs),
+        .vsync_n(vsync_n));
+endmodule
+
+(* ORIG_REF_NAME = "dpram2" *) 
 module zxnexys_zxvga_0_0_dpram2
    (D,
     clk_video,
@@ -344,6 +418,7 @@ module zxnexys_zxvga_0_0_dpram2
         .WEBWE({1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
+(* ORIG_REF_NAME = "s_fix" *) 
 module zxnexys_zxvga_0_0_s_fix
    (vga_vs,
     scandoubler_0_v_sync,
@@ -3021,6 +3096,7 @@ module zxnexys_zxvga_0_0_s_fix_0
         .O(vga_hs));
 endmodule
 
+(* ORIG_REF_NAME = "scan_convert" *) 
 module zxnexys_zxvga_0_0_scan_convert
    (O_HSYNC_reg_0,
     \O_VIDEO_31_reg[8]_0 ,
@@ -4721,6 +4797,7 @@ module zxnexys_zxvga_0_0_scan_convert
         .R(impar_312_out));
 endmodule
 
+(* ORIG_REF_NAME = "scandoubler" *) 
 module zxnexys_zxvga_0_0_scandoubler
    (scandoubler_0_h_sync,
     vga_r,
@@ -4876,6 +4953,7 @@ module zxnexys_zxvga_0_0_scandoubler
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "vga" *) 
 module zxnexys_zxvga_0_0_vga
    (vga_r,
     vga_g,
@@ -4991,6 +5069,7 @@ module zxnexys_zxvga_0_0_vga
         .vga_r(vga_r));
 endmodule
 
+(* ORIG_REF_NAME = "vga_s_fix_0_0" *) 
 module zxnexys_zxvga_0_0_vga_s_fix_0_0
    (vga_hs,
     scandoubler_0_h_sync,
@@ -5009,6 +5088,7 @@ module zxnexys_zxvga_0_0_vga_s_fix_0_0
         .vga_hs(vga_hs));
 endmodule
 
+(* ORIG_REF_NAME = "vga_s_fix_1_0" *) 
 module zxnexys_zxvga_0_0_vga_s_fix_1_0
    (vga_vs,
     scandoubler_0_v_sync,
@@ -5027,6 +5107,7 @@ module zxnexys_zxvga_0_0_vga_s_fix_1_0
         .vga_vs(vga_vs));
 endmodule
 
+(* ORIG_REF_NAME = "vga_scan_convert_0_0" *) 
 module zxnexys_zxvga_0_0_vga_scan_convert_0_0
    (O_HSYNC_reg,
     \O_VIDEO_31_reg[8] ,
@@ -5113,6 +5194,7 @@ module zxnexys_zxvga_0_0_vga_scan_convert_0_0
         .vsync_n(vsync_n));
 endmodule
 
+(* ORIG_REF_NAME = "vga_scandoubler_0_0" *) 
 module zxnexys_zxvga_0_0_vga_scandoubler_0_0
    (scandoubler_0_h_sync,
     vga_r,
@@ -5191,6 +5273,7 @@ module zxnexys_zxvga_0_0_vga_scandoubler_0_0
         .vga_r(vga_r));
 endmodule
 
+(* ORIG_REF_NAME = "vga_wrapper" *) 
 module zxnexys_zxvga_0_0_vga_wrapper
    (vga_r,
     vga_g,
@@ -5253,79 +5336,6 @@ module zxnexys_zxvga_0_0_vga_wrapper
         .vga_g(vga_g),
         .vga_hs(vga_hs),
         .vga_r(vga_r),
-        .vga_vs(vga_vs),
-        .vsync_n(vsync_n));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "zxnexys_zxvga_0_0,vga_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "vga_wrapper,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxvga_0_0
-   (clk_peripheral,
-    clk_video,
-    csync_n,
-    hsync_n,
-    machine_timing,
-    reset,
-    rgb,
-    scandouble,
-    scanlines,
-    vga_b,
-    vga_g,
-    vga_hs,
-    vga_r,
-    vga_vs,
-    vsync_n);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_video CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_video, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_video, INSERT_VIP 0" *) input clk_video;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video csync_n" *) input csync_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hsync_n" *) input hsync_n;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *) input [2:0]machine_timing;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video rgb" *) input [8:0]rgb;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *) input scandouble;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scanlines" *) input [1:0]scanlines;
-  output [3:0]vga_b;
-  output [3:0]vga_g;
-  output vga_hs;
-  output [3:0]vga_r;
-  output vga_vs;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video vsync_n" *) input vsync_n;
-
-  wire clk_peripheral;
-  wire clk_video;
-  wire csync_n;
-  wire hsync_n;
-  wire [2:0]machine_timing;
-  wire reset;
-  wire [8:0]rgb;
-  wire scandouble;
-  wire [1:0]scanlines;
-  wire [3:1]\^vga_b ;
-  wire [3:0]vga_g;
-  wire vga_hs;
-  wire [3:1]\^vga_r ;
-  wire vga_vs;
-  wire vsync_n;
-
-  assign vga_b[3:1] = \^vga_b [3:1];
-  assign vga_b[0] = vga_g[0];
-  assign vga_r[3:1] = \^vga_r [3:1];
-  assign vga_r[0] = vga_g[0];
-  zxnexys_zxvga_0_0_vga_wrapper inst
-       (.clk_peripheral(clk_peripheral),
-        .clk_video(clk_video),
-        .csync_n(csync_n),
-        .hsync_n(hsync_n),
-        .machine_timing(machine_timing[1]),
-        .reset(reset),
-        .rgb(rgb),
-        .scandouble(scandouble),
-        .scanlines(scanlines),
-        .vga_b(\^vga_b ),
-        .vga_g(vga_g[3:1]),
-        .vga_hs(vga_hs),
-        .vga_r({\^vga_r ,vga_g[0]}),
         .vga_vs(vga_vs),
         .vsync_n(vsync_n));
 endmodule

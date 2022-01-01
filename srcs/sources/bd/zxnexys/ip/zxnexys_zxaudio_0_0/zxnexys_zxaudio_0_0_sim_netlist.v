@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Thu Dec 30 12:09:26 2021
+// Date        : Thu Dec 30 16:00:44 2021
 // Host        : AW13R3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top zxnexys_zxaudio_0_0 -prefix
-//               zxnexys_zxaudio_0_0_ zxnexys_zxaudio_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               V:/srcs/sources/bd/zxnexys/ip/zxnexys_zxaudio_0_0/zxnexys_zxaudio_0_0_sim_netlist.v
 // Design      : zxnexys_zxaudio_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,34 +12,126 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module zxnexys_zxaudio_0_0_audio
-   (linein_sclk,
-    ws_int_reg,
-    aud_sd,
-    aud_pwm,
-    psg_en,
-    tape_ear,
-    lineout_sdout,
-    reset,
+(* CHECK_LICENSE_TYPE = "zxnexys_zxaudio_0_0,audio_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "audio_wrapper,Vivado 2021.2" *) 
+(* NotValidForBitStream *)
+module zxnexys_zxaudio_0_0
+   (aud_sd,
     audio_left,
     audio_right,
     clk_audio,
-    clk_peripheral);
-  output linein_sclk;
-  output ws_int_reg;
+    clk_peripheral,
+    linein_lrck,
+    linein_mclk,
+    linein_sclk,
+    linein_sdin,
+    lineout_lrck,
+    lineout_mclk,
+    lineout_sclk,
+    lineout_sdout,
+    psg_en,
+    reset,
+    tape_ear,
+    tape_mic,
+    aud_pwm);
   output aud_sd;
-  output aud_pwm;
-  output psg_en;
-  output tape_ear;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio left" *) input [12:0]audio_left;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio right" *) input [12:0]audio_right;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *) input clk_audio;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  output linein_lrck;
+  output linein_mclk;
+  output linein_sclk;
+  input linein_sdin;
+  output lineout_lrck;
+  output lineout_mclk;
+  output lineout_sclk;
   output lineout_sdout;
-  input reset;
-  input [12:0]audio_left;
-  input [12:0]audio_right;
-  input clk_audio;
-  input clk_peripheral;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio psg_en" *) output psg_en;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_ear" *) output tape_ear;
+  (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_mic" *) input tape_mic;
+  output aud_pwm;
 
-  wire [15:2]DACin;
   wire aud_pwm;
+  wire aud_sd;
+  wire [12:0]audio_left;
+  wire [12:0]audio_right;
+  wire clk_audio;
+  wire clk_peripheral;
+  wire linein_lrck;
+  wire linein_mclk;
+  wire linein_sclk;
+  wire lineout_lrck;
+  wire lineout_mclk;
+  wire lineout_sclk;
+  wire lineout_sdout;
+  wire psg_en;
+  wire reset;
+  wire tape_ear;
+
+  zxnexys_zxaudio_0_0_audio_wrapper inst
+       (.aud_pwm(aud_pwm),
+        .aud_sd(aud_sd),
+        .audio_left(audio_left),
+        .audio_right(audio_right),
+        .clk_audio(clk_audio),
+        .clk_peripheral(clk_peripheral),
+        .linein_lrck(linein_lrck),
+        .linein_mclk(linein_mclk),
+        .linein_sclk(linein_sclk),
+        .lineout_lrck(lineout_lrck),
+        .lineout_mclk(lineout_mclk),
+        .lineout_sclk(lineout_sclk),
+        .lineout_sdout(lineout_sdout),
+        .psg_en(psg_en),
+        .reset(reset),
+        .tape_ear(tape_ear));
+endmodule
+
+(* HW_HANDOFF = "audio.hwdef" *) (* ORIG_REF_NAME = "audio" *) 
+module zxnexys_zxaudio_0_0_audio
+   (aud_sd,
+    audio_left,
+    audio_pwm,
+    audio_right,
+    clk_audio,
+    clk_peripheral,
+    linein_lrck,
+    linein_mclk,
+    linein_sclk,
+    linein_sdin,
+    lineout_lrck,
+    lineout_mclk,
+    lineout_sclk,
+    lineout_sdout,
+    psg_en,
+    reset,
+    tape_ear,
+    tape_mic,
+    tape_pwm);
+  output aud_sd;
+  input [12:0]audio_left;
+  output audio_pwm;
+  input [12:0]audio_right;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_AUDIO CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_AUDIO, CLK_DOMAIN audio_clk_audio, FREQ_HZ 12280700, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_audio;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_PERIPHERAL CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_PERIPHERAL, CLK_DOMAIN audio_clk_peripheral, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_peripheral;
+  output linein_lrck;
+  output linein_mclk;
+  output linein_sclk;
+  input linein_sdin;
+  output lineout_lrck;
+  output lineout_mclk;
+  output lineout_sclk;
+  output lineout_sdout;
+  output psg_en;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  output tape_ear;
+  input tape_mic;
+  output tape_pwm;
+
+  wire \<const0> ;
+  wire [15:2]DACin;
   wire aud_sd;
   wire [12:0]audio_left;
   wire audio_mono_0_n_0;
@@ -55,23 +147,31 @@ module zxnexys_zxaudio_0_0_audio
   wire audio_mono_0_n_7;
   wire audio_mono_0_n_8;
   wire audio_mono_0_n_9;
+  wire audio_pwm;
   wire audio_reset_0_n_2;
   wire audio_reset_0_rst;
   wire [12:0]audio_right;
   wire [12:0]audio_sync_0_dout;
-  wire audio_sync_0_n_13;
+  wire audio_sync_0_n_27;
   wire [12:0]audio_sync_1_dout;
   wire audio_sync_1_n_13;
   wire clk_audio;
   wire clk_peripheral;
   wire \inst/ws_cnt1 ;
-  wire linein_sclk;
+  wire lineout_lrck;
+  wire lineout_sclk;
   wire lineout_sdout;
   wire psg_en;
   wire reset;
   wire tape_ear;
-  wire ws_int_reg;
 
+  assign linein_lrck = lineout_lrck;
+  assign linein_mclk = clk_audio;
+  assign linein_sclk = lineout_sclk;
+  assign lineout_mclk = clk_audio;
+  assign tape_pwm = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
   (* X_CORE_INFO = "audio_mono,Vivado 2021.2" *) 
   zxnexys_zxaudio_0_0_audio_audio_mono_0_0 audio_mono_0
        (.S({audio_mono_0_n_0,audio_mono_0_n_1,audio_mono_0_n_2}),
@@ -94,7 +194,7 @@ module zxnexys_zxaudio_0_0_audio
   (* X_CORE_INFO = "audio_sync,Vivado 2021.2" *) 
   zxnexys_zxaudio_0_0_audio_audio_sync_0_0 audio_sync_0
        (.CO(\inst/ws_cnt1 ),
-        .D(audio_sync_0_n_13),
+        .D(audio_sync_0_n_27),
         .DACin(DACin),
         .S({audio_mono_0_n_0,audio_mono_0_n_1,audio_mono_0_n_2}),
         .\SigmaLatch_reg[13] ({audio_mono_0_n_7,audio_mono_0_n_8,audio_mono_0_n_9,audio_mono_0_n_10}),
@@ -117,23 +217,24 @@ module zxnexys_zxaudio_0_0_audio
   (* X_CORE_INFO = "i2s_transceiver,Vivado 2021.2" *) 
   zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0 i2s_transceiver_0
        (.CO(\inst/ws_cnt1 ),
-        .D(audio_sync_0_n_13),
+        .D(audio_sync_0_n_27),
         .clk_audio(clk_audio),
         .lineout_sdout(lineout_sdout),
         .out(audio_sync_0_dout[12:1]),
         .\r_data_tx_int_reg[15] (audio_sync_1_dout[12:1]),
         .\r_data_tx_int_reg[3] (audio_sync_1_n_13),
         .\sclk_cnt_reg[0] (audio_reset_0_n_2),
-        .sclk_int_reg(linein_sclk),
-        .ws_int_reg(ws_int_reg));
+        .sclk_int_reg(lineout_sclk),
+        .ws_int_reg(lineout_lrck));
   (* X_CORE_INFO = "sigma_delta_dac,Vivado 2021.2" *) 
   zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0 sigma_delta_dac_0
        (.AR(audio_reset_0_rst),
         .DACin(DACin),
-        .aud_pwm(aud_pwm),
+        .audio_pwm(audio_pwm),
         .clk_audio(clk_audio));
 endmodule
 
+(* ORIG_REF_NAME = "audio_audio_mono_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_audio_mono_0_0
    (S,
     \dout_reg[6] ,
@@ -164,6 +265,7 @@ module zxnexys_zxaudio_0_0_audio_audio_mono_0_0
         .out(out));
 endmodule
 
+(* ORIG_REF_NAME = "audio_audio_psg_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_audio_psg_0_0
    (psg_en,
     clk_peripheral);
@@ -178,6 +280,7 @@ module zxnexys_zxaudio_0_0_audio_audio_psg_0_0
         .psg_en(psg_en));
 endmodule
 
+(* ORIG_REF_NAME = "audio_audio_reset_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_audio_reset_0_0
    (AR,
     aud_sd,
@@ -204,26 +307,27 @@ module zxnexys_zxaudio_0_0_audio_audio_reset_0_0
         .rstn_reg_0(rstn_reg));
 endmodule
 
+(* ORIG_REF_NAME = "audio_audio_sync_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_audio_sync_0_0
    (out,
-    D,
     DACin,
+    D,
     audio_left,
-    CO,
     S,
     \SigmaLatch_reg[9] ,
     \SigmaLatch_reg[13] ,
     \SigmaLatch_reg[17] ,
+    CO,
     clk_audio);
   output [12:0]out;
-  output [0:0]D;
   output [13:0]DACin;
+  output [0:0]D;
   input [12:0]audio_left;
-  input [0:0]CO;
   input [2:0]S;
   input [3:0]\SigmaLatch_reg[9] ;
   input [3:0]\SigmaLatch_reg[13] ;
   input [1:0]\SigmaLatch_reg[17] ;
+  input [0:0]CO;
   input clk_audio;
 
   wire [0:0]CO;
@@ -250,6 +354,7 @@ module zxnexys_zxaudio_0_0_audio_audio_sync_0_0
         .out(out));
 endmodule
 
+(* ORIG_REF_NAME = "audio_audio_sync_0_1" *) 
 module zxnexys_zxaudio_0_0_audio_audio_sync_0_1
    (out,
     D,
@@ -276,6 +381,7 @@ module zxnexys_zxaudio_0_0_audio_audio_sync_0_1
         .out(out));
 endmodule
 
+(* ORIG_REF_NAME = "audio_debounce_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_debounce_0_0
    (tape_ear,
     clk_audio);
@@ -290,6 +396,7 @@ module zxnexys_zxaudio_0_0_audio_debounce_0_0
         .tape_ear(tape_ear));
 endmodule
 
+(* ORIG_REF_NAME = "audio_i2s_transceiver_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0
    (sclk_int_reg,
     CO,
@@ -336,6 +443,7 @@ module zxnexys_zxaudio_0_0_audio_i2s_transceiver_0_0
         .ws_int_reg_0(ws_int_reg));
 endmodule
 
+(* ORIG_REF_NAME = "audio_mono" *) 
 module zxnexys_zxaudio_0_0_audio_mono
    (S,
     \dout_reg[6] ,
@@ -437,6 +545,7 @@ module zxnexys_zxaudio_0_0_audio_mono
         .O(\dout_reg[6] [1]));
 endmodule
 
+(* ORIG_REF_NAME = "audio_psg" *) 
 module zxnexys_zxaudio_0_0_audio_psg
    (psg_en,
     clk_peripheral);
@@ -444,7 +553,7 @@ module zxnexys_zxaudio_0_0_audio_psg
   input clk_peripheral;
 
   wire clk_peripheral;
-  wire [3:0]p_0_in__0;
+  wire [3:0]p_0_in;
   wire [3:0]psg_div_reg;
   wire psg_en;
 
@@ -452,14 +561,14 @@ module zxnexys_zxaudio_0_0_audio_psg
     .INIT(2'h1)) 
     \psg_div[0]_i_1 
        (.I0(psg_div_reg[0]),
-        .O(p_0_in__0[0]));
+        .O(p_0_in[0]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \psg_div[1]_i_1 
        (.I0(psg_div_reg[0]),
         .I1(psg_div_reg[1]),
-        .O(p_0_in__0[1]));
+        .O(p_0_in[1]));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'h78)) 
@@ -467,7 +576,7 @@ module zxnexys_zxaudio_0_0_audio_psg
        (.I0(psg_div_reg[0]),
         .I1(psg_div_reg[1]),
         .I2(psg_div_reg[2]),
-        .O(p_0_in__0[2]));
+        .O(p_0_in[2]));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
@@ -476,29 +585,29 @@ module zxnexys_zxaudio_0_0_audio_psg
         .I1(psg_div_reg[0]),
         .I2(psg_div_reg[2]),
         .I3(psg_div_reg[3]),
-        .O(p_0_in__0[3]));
+        .O(p_0_in[3]));
   FDRE \psg_div_reg[0] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(p_0_in__0[0]),
+        .D(p_0_in[0]),
         .Q(psg_div_reg[0]),
         .R(1'b0));
   FDRE \psg_div_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(p_0_in__0[1]),
+        .D(p_0_in[1]),
         .Q(psg_div_reg[1]),
         .R(1'b0));
   FDRE \psg_div_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(p_0_in__0[2]),
+        .D(p_0_in[2]),
         .Q(psg_div_reg[2]),
         .R(1'b0));
   FDRE \psg_div_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(p_0_in__0[3]),
+        .D(p_0_in[3]),
         .Q(psg_div_reg[3]),
         .R(1'b0));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
@@ -512,6 +621,7 @@ module zxnexys_zxaudio_0_0_audio_psg
         .O(psg_en));
 endmodule
 
+(* ORIG_REF_NAME = "audio_reset" *) 
 module zxnexys_zxaudio_0_0_audio_reset
    (AR,
     aud_sd,
@@ -561,28 +671,30 @@ module zxnexys_zxaudio_0_0_audio_reset
         .O(rstn_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "audio_sigma_delta_dac_0_0" *) 
 module zxnexys_zxaudio_0_0_audio_sigma_delta_dac_0_0
-   (aud_pwm,
+   (audio_pwm,
     clk_audio,
     AR,
     DACin);
-  output aud_pwm;
+  output audio_pwm;
   input clk_audio;
   input [0:0]AR;
   input [13:0]DACin;
 
   wire [0:0]AR;
   wire [13:0]DACin;
-  wire aud_pwm;
+  wire audio_pwm;
   wire clk_audio;
 
   zxnexys_zxaudio_0_0_sigma_delta_dac inst
        (.AR(AR),
         .DACin(DACin),
-        .aud_pwm(aud_pwm),
+        .audio_pwm(audio_pwm),
         .clk_audio(clk_audio));
 endmodule
 
+(* ORIG_REF_NAME = "audio_sync" *) 
 module zxnexys_zxaudio_0_0_audio_sync
    (out,
     D,
@@ -598,8 +710,8 @@ module zxnexys_zxaudio_0_0_audio_sync
   wire [0:0]CO;
   wire [0:0]D;
   wire [12:0]audio_right;
-  (* async_reg = "true" *) wire [12:0]\c[0]_2 ;
-  (* async_reg = "true" *) wire [12:0]\c[1]_3 ;
+  (* async_reg = "true" *) wire [12:0]\c[0]_0 ;
+  (* async_reg = "true" *) wire [12:0]\c[1]_1 ;
   wire clk_audio;
   wire \dout[12]_i_3__0_n_0 ;
   wire \dout[12]_i_4_n_0 ;
@@ -622,7 +734,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[0]),
-        .Q(\c[0]_2 [0]),
+        .Q(\c[0]_0 [0]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -630,7 +742,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[10]),
-        .Q(\c[0]_2 [10]),
+        .Q(\c[0]_0 [10]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -638,7 +750,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[11]),
-        .Q(\c[0]_2 [11]),
+        .Q(\c[0]_0 [11]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -646,7 +758,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[12]),
-        .Q(\c[0]_2 [12]),
+        .Q(\c[0]_0 [12]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -654,7 +766,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[1]),
-        .Q(\c[0]_2 [1]),
+        .Q(\c[0]_0 [1]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -662,7 +774,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[2]),
-        .Q(\c[0]_2 [2]),
+        .Q(\c[0]_0 [2]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -670,7 +782,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[3]),
-        .Q(\c[0]_2 [3]),
+        .Q(\c[0]_0 [3]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -678,7 +790,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[4]),
-        .Q(\c[0]_2 [4]),
+        .Q(\c[0]_0 [4]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -686,7 +798,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[5]),
-        .Q(\c[0]_2 [5]),
+        .Q(\c[0]_0 [5]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -694,7 +806,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[6]),
-        .Q(\c[0]_2 [6]),
+        .Q(\c[0]_0 [6]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -702,7 +814,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[7]),
-        .Q(\c[0]_2 [7]),
+        .Q(\c[0]_0 [7]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -710,7 +822,7 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[8]),
-        .Q(\c[0]_2 [8]),
+        .Q(\c[0]_0 [8]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
@@ -718,164 +830,164 @@ module zxnexys_zxaudio_0_0_audio_sync
        (.C(clk_audio),
         .CE(1'b1),
         .D(audio_right[9]),
-        .Q(\c[0]_2 [9]),
+        .Q(\c[0]_0 [9]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][0] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [0]),
-        .Q(\c[1]_3 [0]),
+        .D(\c[0]_0 [0]),
+        .Q(\c[1]_1 [0]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][10] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [10]),
-        .Q(\c[1]_3 [10]),
+        .D(\c[0]_0 [10]),
+        .Q(\c[1]_1 [10]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][11] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [11]),
-        .Q(\c[1]_3 [11]),
+        .D(\c[0]_0 [11]),
+        .Q(\c[1]_1 [11]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][12] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [12]),
-        .Q(\c[1]_3 [12]),
+        .D(\c[0]_0 [12]),
+        .Q(\c[1]_1 [12]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][1] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [1]),
-        .Q(\c[1]_3 [1]),
+        .D(\c[0]_0 [1]),
+        .Q(\c[1]_1 [1]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][2] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [2]),
-        .Q(\c[1]_3 [2]),
+        .D(\c[0]_0 [2]),
+        .Q(\c[1]_1 [2]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][3] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [3]),
-        .Q(\c[1]_3 [3]),
+        .D(\c[0]_0 [3]),
+        .Q(\c[1]_1 [3]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][4] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [4]),
-        .Q(\c[1]_3 [4]),
+        .D(\c[0]_0 [4]),
+        .Q(\c[1]_1 [4]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][5] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [5]),
-        .Q(\c[1]_3 [5]),
+        .D(\c[0]_0 [5]),
+        .Q(\c[1]_1 [5]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][6] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [6]),
-        .Q(\c[1]_3 [6]),
+        .D(\c[0]_0 [6]),
+        .Q(\c[1]_1 [6]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][7] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [7]),
-        .Q(\c[1]_3 [7]),
+        .D(\c[0]_0 [7]),
+        .Q(\c[1]_1 [7]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][8] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [8]),
-        .Q(\c[1]_3 [8]),
+        .D(\c[0]_0 [8]),
+        .Q(\c[1]_1 [8]),
         .R(1'b0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \c_reg[1][9] 
        (.C(clk_audio),
         .CE(1'b1),
-        .D(\c[0]_2 [9]),
-        .Q(\c[1]_3 [9]),
+        .D(\c[0]_0 [9]),
+        .Q(\c[1]_1 [9]),
         .R(1'b0));
   LUT2 #(
     .INIT(4'h9)) 
     \dout[12]_i_3__0 
-       (.I0(\c[0]_2 [12]),
-        .I1(\c[1]_3 [12]),
+       (.I0(\c[0]_0 [12]),
+        .I1(\c[1]_1 [12]),
         .O(\dout[12]_i_3__0_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     \dout[12]_i_4 
-       (.I0(\c[1]_3 [9]),
-        .I1(\c[0]_2 [9]),
-        .I2(\c[0]_2 [11]),
-        .I3(\c[1]_3 [11]),
-        .I4(\c[0]_2 [10]),
-        .I5(\c[1]_3 [10]),
+       (.I0(\c[1]_1 [9]),
+        .I1(\c[0]_0 [9]),
+        .I2(\c[0]_0 [11]),
+        .I3(\c[1]_1 [11]),
+        .I4(\c[0]_0 [10]),
+        .I5(\c[1]_1 [10]),
         .O(\dout[12]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     \dout[12]_i_5 
-       (.I0(\c[1]_3 [6]),
-        .I1(\c[0]_2 [6]),
-        .I2(\c[0]_2 [8]),
-        .I3(\c[1]_3 [8]),
-        .I4(\c[0]_2 [7]),
-        .I5(\c[1]_3 [7]),
+       (.I0(\c[1]_1 [6]),
+        .I1(\c[0]_0 [6]),
+        .I2(\c[0]_0 [8]),
+        .I3(\c[1]_1 [8]),
+        .I4(\c[0]_0 [7]),
+        .I5(\c[1]_1 [7]),
         .O(\dout[12]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     \dout[12]_i_6 
-       (.I0(\c[1]_3 [3]),
-        .I1(\c[0]_2 [3]),
-        .I2(\c[0]_2 [5]),
-        .I3(\c[1]_3 [5]),
-        .I4(\c[0]_2 [4]),
-        .I5(\c[1]_3 [4]),
+       (.I0(\c[1]_1 [3]),
+        .I1(\c[0]_0 [3]),
+        .I2(\c[0]_0 [5]),
+        .I3(\c[1]_1 [5]),
+        .I4(\c[0]_0 [4]),
+        .I5(\c[1]_1 [4]),
         .O(\dout[12]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'h9009000000009009)) 
     \dout[12]_i_7 
-       (.I0(\c[1]_3 [0]),
-        .I1(\c[0]_2 [0]),
-        .I2(\c[0]_2 [2]),
-        .I3(\c[1]_3 [2]),
-        .I4(\c[0]_2 [1]),
-        .I5(\c[1]_3 [1]),
+       (.I0(\c[1]_1 [0]),
+        .I1(\c[0]_0 [0]),
+        .I2(\c[0]_0 [2]),
+        .I3(\c[1]_1 [2]),
+        .I4(\c[0]_0 [1]),
+        .I5(\c[1]_1 [1]),
         .O(\dout[12]_i_7_n_0 ));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   FDRE \dout_reg[0] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [0]),
+        .D(\c[1]_1 [0]),
         .Q(out[0]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -883,7 +995,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[10] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [10]),
+        .D(\c[1]_1 [10]),
         .Q(out[10]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -891,7 +1003,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[11] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [11]),
+        .D(\c[1]_1 [11]),
         .Q(out[11]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -899,7 +1011,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[12] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [12]),
+        .D(\c[1]_1 [12]),
         .Q(out[12]),
         .R(1'b0));
   CARRY4 \dout_reg[12]_i_1 
@@ -921,7 +1033,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[1] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [1]),
+        .D(\c[1]_1 [1]),
         .Q(out[1]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -929,7 +1041,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[2] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [2]),
+        .D(\c[1]_1 [2]),
         .Q(out[2]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -937,7 +1049,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[3] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [3]),
+        .D(\c[1]_1 [3]),
         .Q(out[3]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -945,7 +1057,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[4] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [4]),
+        .D(\c[1]_1 [4]),
         .Q(out[4]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -953,7 +1065,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[5] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [5]),
+        .D(\c[1]_1 [5]),
         .Q(out[5]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -961,7 +1073,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[6] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [6]),
+        .D(\c[1]_1 [6]),
         .Q(out[6]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -969,7 +1081,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[7] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [7]),
+        .D(\c[1]_1 [7]),
         .Q(out[7]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -977,7 +1089,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[8] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [8]),
+        .D(\c[1]_1 [8]),
         .Q(out[8]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -985,7 +1097,7 @@ module zxnexys_zxaudio_0_0_audio_sync
   FDRE \dout_reg[9] 
        (.C(clk_audio),
         .CE(\dout_reg[12]_i_1_n_3 ),
-        .D(\c[1]_3 [9]),
+        .D(\c[1]_1 [9]),
         .Q(out[9]),
         .R(1'b0));
   LUT2 #(
@@ -999,24 +1111,24 @@ endmodule
 (* ORIG_REF_NAME = "audio_sync" *) 
 module zxnexys_zxaudio_0_0_audio_sync_0
    (out,
-    D,
     DACin,
+    D,
     audio_left,
-    CO,
     S,
     \SigmaLatch_reg[9] ,
     \SigmaLatch_reg[13] ,
     \SigmaLatch_reg[17] ,
+    CO,
     clk_audio);
   output [12:0]out;
-  output [0:0]D;
   output [13:0]DACin;
+  output [0:0]D;
   input [12:0]audio_left;
-  input [0:0]CO;
   input [2:0]S;
   input [3:0]\SigmaLatch_reg[9] ;
   input [3:0]\SigmaLatch_reg[13] ;
   input [1:0]\SigmaLatch_reg[17] ;
+  input [0:0]CO;
   input clk_audio;
 
   wire [0:0]CO;
@@ -1469,31 +1581,40 @@ module zxnexys_zxaudio_0_0_audio_sync_0
         .O(D));
 endmodule
 
+(* ORIG_REF_NAME = "audio_wrapper" *) 
 module zxnexys_zxaudio_0_0_audio_wrapper
-   (lineout_sclk,
-    ws_int_reg,
-    aud_sd,
+   (aud_sd,
     aud_pwm,
+    linein_lrck,
+    linein_mclk,
+    linein_sclk,
+    lineout_lrck,
+    lineout_mclk,
+    lineout_sclk,
+    lineout_sdout,
     psg_en,
     tape_ear,
-    lineout_sdout,
-    reset,
     audio_left,
     audio_right,
     clk_audio,
-    clk_peripheral);
-  output lineout_sclk;
-  output ws_int_reg;
+    clk_peripheral,
+    reset);
   output aud_sd;
   output aud_pwm;
+  output linein_lrck;
+  output linein_mclk;
+  output linein_sclk;
+  output lineout_lrck;
+  output lineout_mclk;
+  output lineout_sclk;
+  output lineout_sdout;
   output psg_en;
   output tape_ear;
-  output lineout_sdout;
-  input reset;
   input [12:0]audio_left;
   input [12:0]audio_right;
   input clk_audio;
   input clk_peripheral;
+  input reset;
 
   wire aud_pwm;
   wire aud_sd;
@@ -1501,28 +1622,42 @@ module zxnexys_zxaudio_0_0_audio_wrapper
   wire [12:0]audio_right;
   wire clk_audio;
   wire clk_peripheral;
+  wire linein_lrck;
+  wire linein_mclk;
+  wire linein_sclk;
+  wire lineout_lrck;
+  wire lineout_mclk;
   wire lineout_sclk;
   wire lineout_sdout;
   wire psg_en;
   wire reset;
   wire tape_ear;
-  wire ws_int_reg;
+  wire NLW_audio_i_tape_pwm_UNCONNECTED;
 
+  (* HW_HANDOFF = "audio.hwdef" *) 
   zxnexys_zxaudio_0_0_audio audio_i
-       (.aud_pwm(aud_pwm),
-        .aud_sd(aud_sd),
+       (.aud_sd(aud_sd),
         .audio_left(audio_left),
+        .audio_pwm(aud_pwm),
         .audio_right(audio_right),
         .clk_audio(clk_audio),
         .clk_peripheral(clk_peripheral),
-        .linein_sclk(lineout_sclk),
+        .linein_lrck(linein_lrck),
+        .linein_mclk(linein_mclk),
+        .linein_sclk(linein_sclk),
+        .linein_sdin(1'b0),
+        .lineout_lrck(lineout_lrck),
+        .lineout_mclk(lineout_mclk),
+        .lineout_sclk(lineout_sclk),
         .lineout_sdout(lineout_sdout),
         .psg_en(psg_en),
         .reset(reset),
         .tape_ear(tape_ear),
-        .ws_int_reg(ws_int_reg));
+        .tape_mic(1'b0),
+        .tape_pwm(NLW_audio_i_tape_pwm_UNCONNECTED));
 endmodule
 
+(* ORIG_REF_NAME = "debounce" *) 
 module zxnexys_zxaudio_0_0_debounce
    (tape_ear,
     clk_audio);
@@ -1628,6 +1763,7 @@ module zxnexys_zxaudio_0_0_debounce
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "i2s_transceiver" *) 
 module zxnexys_zxaudio_0_0_i2s_transceiver
    (sclk_int_reg_0,
     CO,
@@ -3969,12 +4105,13 @@ module zxnexys_zxaudio_0_0_i2s_transceiver
         .Q(ws_int_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "sigma_delta_dac" *) 
 module zxnexys_zxaudio_0_0_sigma_delta_dac
-   (aud_pwm,
+   (audio_pwm,
     clk_audio,
     AR,
     DACin);
-  output aud_pwm;
+  output audio_pwm;
   input clk_audio;
   input [0:0]AR;
   input [13:0]DACin;
@@ -4045,7 +4182,7 @@ module zxnexys_zxaudio_0_0_sigma_delta_dac
   wire \SigmaLatch_reg_n_0_[7] ;
   wire \SigmaLatch_reg_n_0_[8] ;
   wire \SigmaLatch_reg_n_0_[9] ;
-  wire aud_pwm;
+  wire audio_pwm;
   wire clk_audio;
   wire p_0_in;
   wire [3:3]NLW_SigmaLatch0_carry__2_CO_UNCONNECTED;
@@ -4060,7 +4197,7 @@ module zxnexys_zxaudio_0_0_sigma_delta_dac
         .CE(1'b1),
         .D(DACout_i_1_n_0),
         .PRE(AR),
-        .Q(aud_pwm));
+        .Q(audio_pwm));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 SigmaLatch0_carry
        (.CI(1'b0),
@@ -4290,79 +4427,6 @@ module zxnexys_zxaudio_0_0_sigma_delta_dac
         .CLR(AR),
         .D(SigmaLatch0_carry__0_n_4),
         .Q(\SigmaLatch_reg_n_0_[9] ));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "zxnexys_zxaudio_0_0,audio_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "audio_wrapper,Vivado 2021.2" *) 
-(* NotValidForBitStream *)
-module zxnexys_zxaudio_0_0
-   (aud_sd,
-    audio_left,
-    audio_right,
-    clk_audio,
-    clk_peripheral,
-    linein_lrck,
-    linein_mclk,
-    linein_sclk,
-    linein_sdin,
-    lineout_lrck,
-    lineout_mclk,
-    lineout_sclk,
-    lineout_sdout,
-    psg_en,
-    reset,
-    tape_ear,
-    tape_mic,
-    aud_pwm);
-  output aud_sd;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio left" *) input [12:0]audio_left;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio right" *) input [12:0]audio_right;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *) input clk_audio;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  output linein_lrck;
-  output linein_mclk;
-  output linein_sclk;
-  input linein_sdin;
-  output lineout_lrck;
-  output lineout_mclk;
-  output lineout_sclk;
-  output lineout_sdout;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio psg_en" *) output psg_en;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_ear" *) output tape_ear;
-  (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_mic" *) input tape_mic;
-  output aud_pwm;
-
-  wire aud_pwm;
-  wire aud_sd;
-  wire [12:0]audio_left;
-  wire [12:0]audio_right;
-  wire clk_audio;
-  wire clk_peripheral;
-  wire linein_lrck;
-  wire linein_sclk;
-  wire lineout_sdout;
-  wire psg_en;
-  wire reset;
-  wire tape_ear;
-
-  assign linein_mclk = clk_audio;
-  assign lineout_lrck = linein_lrck;
-  assign lineout_mclk = clk_audio;
-  assign lineout_sclk = linein_sclk;
-  zxnexys_zxaudio_0_0_audio_wrapper inst
-       (.aud_pwm(aud_pwm),
-        .aud_sd(aud_sd),
-        .audio_left(audio_left),
-        .audio_right(audio_right),
-        .clk_audio(clk_audio),
-        .clk_peripheral(clk_peripheral),
-        .lineout_sclk(linein_sclk),
-        .lineout_sdout(lineout_sdout),
-        .psg_en(psg_en),
-        .reset(reset),
-        .tape_ear(tape_ear),
-        .ws_int_reg(linein_lrck));
 endmodule
 `ifndef GLBL
 `define GLBL

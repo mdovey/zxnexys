@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Thu Dec 30 12:11:26 2021
+-- Date        : Fri Dec 31 22:47:51 2021
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top zxnexys_zxnexys_ledsegment_0_0 -prefix
---               zxnexys_zxnexys_ledsegment_0_0_ zxnexys_zxnexys_ledsegment_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_ledsegment_0_0/zxnexys_zxnexys_ledsegment_0_0_sim_netlist.vhdl
 -- Design      : zxnexys_zxnexys_ledsegment_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,15 +14,206 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
+entity zxnexys_zxnexys_ledsegment_0_0_rgb is
+  port (
+    led16_g : out STD_LOGIC;
+    led16_r : out STD_LOGIC;
+    led17_g : out STD_LOGIC;
+    led17_b : out STD_LOGIC;
+    led16_b : out STD_LOGIC;
+    led17_r : out STD_LOGIC;
+    peripheral_reset : in STD_LOGIC;
+    video_reset : in STD_LOGIC;
+    memory_resetn : in STD_LOGIC;
+    machine_timing : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    \out\ : in STD_LOGIC;
+    clk_peripheral : in STD_LOGIC
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_ledsegment_0_0_rgb : entity is "rgb";
+end zxnexys_zxnexys_ledsegment_0_0_rgb;
+
+architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0_rgb is
+  signal \clk_div[2]_i_1_n_0\ : STD_LOGIC;
+  signal led_g0 : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal p_0_in : STD_LOGIC_VECTOR ( 3 to 3 );
+  signal \rgb17/clk_div_reg\ : STD_LOGIC_VECTOR ( 3 downto 0 );
+  attribute SOFT_HLUTNM : string;
+  attribute SOFT_HLUTNM of \clk_div[0]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \clk_div[1]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \clk_div[2]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \clk_div[3]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of led16_b_INST_0 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of led17_b_INST_0 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of led17_g_INST_0 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of led17_r_INST_0 : label is "soft_lutpair2";
+begin
+\clk_div[0]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => \rgb17/clk_div_reg\(0),
+      O => led_g0(0)
+    );
+\clk_div[1]_i_1\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"6"
+    )
+        port map (
+      I0 => \rgb17/clk_div_reg\(0),
+      I1 => \rgb17/clk_div_reg\(1),
+      O => led_g0(1)
+    );
+\clk_div[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"78"
+    )
+        port map (
+      I0 => \rgb17/clk_div_reg\(0),
+      I1 => \rgb17/clk_div_reg\(1),
+      I2 => \rgb17/clk_div_reg\(2),
+      O => \clk_div[2]_i_1_n_0\
+    );
+\clk_div[3]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7F80"
+    )
+        port map (
+      I0 => \rgb17/clk_div_reg\(1),
+      I1 => \rgb17/clk_div_reg\(0),
+      I2 => \rgb17/clk_div_reg\(2),
+      I3 => \rgb17/clk_div_reg\(3),
+      O => p_0_in(3)
+    );
+\clk_div_reg[0]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => led_g0(0),
+      Q => \rgb17/clk_div_reg\(0),
+      R => '0'
+    );
+\clk_div_reg[1]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => led_g0(1),
+      Q => \rgb17/clk_div_reg\(1),
+      R => '0'
+    );
+\clk_div_reg[2]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => \clk_div[2]_i_1_n_0\,
+      Q => \rgb17/clk_div_reg\(2),
+      R => '0'
+    );
+\clk_div_reg[3]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => p_0_in(3),
+      Q => \rgb17/clk_div_reg\(3),
+      R => '0'
+    );
+led16_b_INST_0: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"2000"
+    )
+        port map (
+      I0 => \out\,
+      I1 => \rgb17/clk_div_reg\(3),
+      I2 => \rgb17/clk_div_reg\(2),
+      I3 => \rgb17/clk_div_reg\(1),
+      O => led16_b
+    );
+led16_g_INST_0: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000707070000000"
+    )
+        port map (
+      I0 => peripheral_reset,
+      I1 => video_reset,
+      I2 => \rgb17/clk_div_reg\(3),
+      I3 => \rgb17/clk_div_reg\(0),
+      I4 => \rgb17/clk_div_reg\(1),
+      I5 => \rgb17/clk_div_reg\(2),
+      O => led16_g
+    );
+led16_r_INST_0: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00005415"
+    )
+        port map (
+      I0 => \rgb17/clk_div_reg\(2),
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
+      I4 => \rgb17/clk_div_reg\(3),
+      O => led16_r
+    );
+led17_b_INST_0: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"2000"
+    )
+        port map (
+      I0 => machine_timing(2),
+      I1 => \rgb17/clk_div_reg\(3),
+      I2 => \rgb17/clk_div_reg\(2),
+      I3 => \rgb17/clk_div_reg\(1),
+      O => led17_b
+    );
+led17_g_INST_0: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00888000"
+    )
+        port map (
+      I0 => machine_timing(1),
+      I1 => \rgb17/clk_div_reg\(3),
+      I2 => \rgb17/clk_div_reg\(0),
+      I3 => \rgb17/clk_div_reg\(1),
+      I4 => \rgb17/clk_div_reg\(2),
+      O => led17_g
+    );
+led17_r_INST_0: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"04"
+    )
+        port map (
+      I0 => \rgb17/clk_div_reg\(2),
+      I1 => machine_timing(0),
+      I2 => \rgb17/clk_div_reg\(3),
+      O => led17_r
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_ledsegment_0_0_ledsegment is
   port (
-    an : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    led16_g : out STD_LOGIC;
+    led16_r : out STD_LOGIC;
+    led17_g : out STD_LOGIC;
+    led17_b : out STD_LOGIC;
+    led16_b : out STD_LOGIC;
+    led17_r : out STD_LOGIC;
     ca : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    an : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    peripheral_reset : in STD_LOGIC;
+    video_reset : in STD_LOGIC;
+    memory_resetn : in STD_LOGIC;
+    machine_timing : in STD_LOGIC_VECTOR ( 2 downto 0 );
     cpu_speed : in STD_LOGIC_VECTOR ( 1 downto 0 );
     address : in STD_LOGIC_VECTOR ( 20 downto 0 );
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC
+    cpu_clk : in STD_LOGIC;
+    cpu_wait_n : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxnexys_ledsegment_0_0_ledsegment : entity is "ledsegment";
 end zxnexys_zxnexys_ledsegment_0_0_ledsegment;
 
 architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0_ledsegment is
@@ -38,6 +229,9 @@ architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0_ledsegment is
   signal c : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \c[7]_i_1_n_0\ : STD_LOGIC;
   signal clk_led : STD_LOGIC;
+  signal cpu_wait : STD_LOGIC;
+  attribute async_reg : string;
+  attribute async_reg of cpu_wait : signal is "true";
   signal display : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \display[0][0]_i_1_n_0\ : STD_LOGIC;
   signal \display[0][1]_i_1_n_0\ : STD_LOGIC;
@@ -114,47 +308,49 @@ architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0_ledsegment is
   signal \NLW_div_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_div_reg[12]_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \a[0]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \a[1]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \a[3]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \a[4]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \a[5]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \a[6]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \a[7]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \an[0]_INST_0\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \an[1]_INST_0\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \an[2]_INST_0\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \an[3]_INST_0\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \an[4]_INST_0\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \an[5]_INST_0\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \an[6]_INST_0\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \an[7]_INST_0\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \c[7]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \ca[0]_INST_0\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \ca[1]_INST_0\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \ca[2]_INST_0\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \ca[3]_INST_0\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \ca[4]_INST_0\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \ca[5]_INST_0\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \ca[6]_INST_0\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \ca[7]_INST_0\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \display[0][0]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \display[0][1]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \display[0][2]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \display[0][4]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \display[1][0]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \display[1][3]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \a[0]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \a[1]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \a[3]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \a[4]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \a[5]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \a[6]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \a[7]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \an[0]_INST_0\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \an[1]_INST_0\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \an[2]_INST_0\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \an[3]_INST_0\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \an[4]_INST_0\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \an[6]_INST_0\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \c[7]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \ca[0]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \ca[1]_INST_0\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \ca[2]_INST_0\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \ca[3]_INST_0\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \ca[4]_INST_0\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \ca[5]_INST_0\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \ca[6]_INST_0\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \ca[7]_INST_0\ : label is "soft_lutpair11";
+  attribute ASYNC_REG_boolean : boolean;
+  attribute ASYNC_REG_boolean of cpu_wait_reg : label is std.standard.true;
+  attribute KEEP : string;
+  attribute KEEP of cpu_wait_reg : label is "yes";
+  attribute SOFT_HLUTNM of \display[0][0]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \display[0][1]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \display[0][2]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \display[0][4]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \display[1][0]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \display[1][3]_i_1\ : label is "soft_lutpair20";
   attribute ADDER_THRESHOLD : integer;
   attribute ADDER_THRESHOLD of \div_reg[0]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \div_reg[12]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \div_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \div_reg[8]_i_1\ : label is 11;
-  attribute SOFT_HLUTNM of g0_b1 : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of g0_b2 : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of g0_b3 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of g0_b4 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of g0_b5 : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of g0_b6 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of g0_b1 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of g0_b2 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of g0_b3 : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of g0_b4 : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of g0_b5 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of g0_b6 : label is "soft_lutpair5";
 begin
 \a[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -306,8 +502,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => a(0),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => a(0),
       O => an(0)
     );
 \an[1]_INST_0\: unisim.vcomponents.LUT2
@@ -315,8 +511,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => a(1),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => a(1),
       O => an(1)
     );
 \an[2]_INST_0\: unisim.vcomponents.LUT2
@@ -324,8 +520,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => a(2),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => a(2),
       O => an(2)
     );
 \an[3]_INST_0\: unisim.vcomponents.LUT2
@@ -333,8 +529,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => a(3),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => a(3),
       O => an(3)
     );
 \an[4]_INST_0\: unisim.vcomponents.LUT2
@@ -342,8 +538,8 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => a(4),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => a(4),
       O => an(4)
     );
 \an[5]_INST_0\: unisim.vcomponents.LUT2
@@ -351,26 +547,27 @@ begin
       INIT => X"E"
     )
         port map (
-      I0 => a(5),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => a(5),
       O => an(5)
     );
-\an[6]_INST_0\: unisim.vcomponents.LUT2
+\an[6]_INST_0\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"E"
+      INIT => X"F8"
     )
         port map (
-      I0 => a(6),
-      I1 => reset,
+      I0 => video_reset,
+      I1 => peripheral_reset,
+      I2 => a(6),
       O => an(6)
     );
 \an[7]_INST_0\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"E"
+      INIT => X"B"
     )
         port map (
       I0 => a(7),
-      I1 => reset,
+      I1 => memory_resetn,
       O => an(7)
     );
 \c[7]_i_1\: unisim.vcomponents.LUT4
@@ -448,77 +645,101 @@ begin
       Q => c(7),
       R => '0'
     );
-\ca[0]_INST_0\: unisim.vcomponents.LUT2
+\ca[0]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(0),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(0)
     );
-\ca[1]_INST_0\: unisim.vcomponents.LUT2
+\ca[1]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(1),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(1)
     );
-\ca[2]_INST_0\: unisim.vcomponents.LUT2
+\ca[2]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(2),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(2)
     );
-\ca[3]_INST_0\: unisim.vcomponents.LUT2
+\ca[3]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(3),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(3)
     );
-\ca[4]_INST_0\: unisim.vcomponents.LUT2
+\ca[4]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(4),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(4)
     );
-\ca[5]_INST_0\: unisim.vcomponents.LUT2
+\ca[5]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(5),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(5)
     );
-\ca[6]_INST_0\: unisim.vcomponents.LUT2
+\ca[6]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"EAFF"
     )
         port map (
       I0 => c(6),
-      I1 => reset,
+      I1 => peripheral_reset,
+      I2 => video_reset,
+      I3 => memory_resetn,
       O => ca(6)
     );
-\ca[7]_INST_0\: unisim.vcomponents.LUT2
+\ca[7]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"70FF"
     )
         port map (
-      I0 => c(7),
-      I1 => reset,
+      I0 => peripheral_reset,
+      I1 => video_reset,
+      I2 => c(7),
+      I3 => memory_resetn,
       O => ca(7)
+    );
+cpu_wait_reg: unisim.vcomponents.FDCE
+     port map (
+      C => cpu_clk,
+      CE => '1',
+      CLR => cpu_wait_n,
+      D => '1',
+      Q => cpu_wait
     );
 \display[0][0]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -1206,6 +1427,21 @@ g0_b6_i_9: unisim.vcomponents.LUT5
       I4 => \display_reg[0]\(2),
       O => g0_b6_i_9_n_0
     );
+rgb16: entity work.zxnexys_zxnexys_ledsegment_0_0_rgb
+     port map (
+      clk_peripheral => clk_peripheral,
+      led16_b => led16_b,
+      led16_g => led16_g,
+      led16_r => led16_r,
+      led17_b => led17_b,
+      led17_g => led17_g,
+      led17_r => led17_r,
+      machine_timing(2 downto 0) => machine_timing(2 downto 0),
+      memory_resetn => memory_resetn,
+      \out\ => cpu_wait,
+      peripheral_reset => peripheral_reset,
+      video_reset => video_reset
+    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -1215,10 +1451,21 @@ entity zxnexys_zxnexys_ledsegment_0_0 is
   port (
     address : in STD_LOGIC_VECTOR ( 20 downto 0 );
     cpu_speed : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    cpu_clk : in STD_LOGIC;
+    machine_timing : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    cpu_wait_n : in STD_LOGIC;
     an : out STD_LOGIC_VECTOR ( 7 downto 0 );
     ca : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    led16_r : out STD_LOGIC;
+    led16_g : out STD_LOGIC;
+    led16_b : out STD_LOGIC;
+    led17_r : out STD_LOGIC;
+    led17_g : out STD_LOGIC;
+    led17_b : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC
+    video_reset : in STD_LOGIC;
+    peripheral_reset : in STD_LOGIC;
+    memory_resetn : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_zxnexys_ledsegment_0_0 : entity is true;
@@ -1236,11 +1483,18 @@ architecture STRUCTURE of zxnexys_zxnexys_ledsegment_0_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET peripheral_reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of cpu_clk : signal is "specnext.com:specnext:mb_clock:1.0 mb_clock cpu_clk";
+  attribute X_INTERFACE_INFO of cpu_wait_n : signal is "specnext.com:specnext:ram_port_a:1.0 ram_port_a wait_n";
+  attribute X_INTERFACE_INFO of memory_resetn : signal is "xilinx.com:signal:reset:1.0 memory_resetn RST";
+  attribute X_INTERFACE_PARAMETER of memory_resetn : signal is "XIL_INTERFACENAME memory_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of peripheral_reset : signal is "xilinx.com:signal:reset:1.0 peripheral_reset RST";
+  attribute X_INTERFACE_PARAMETER of peripheral_reset : signal is "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of video_reset : signal is "xilinx.com:signal:reset:1.0 video_reset RST";
+  attribute X_INTERFACE_PARAMETER of video_reset : signal is "XIL_INTERFACENAME video_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of address : signal is "specnext.com:specnext:ram_port_a:1.0 ram_port_a ram_addr";
   attribute X_INTERFACE_INFO of cpu_speed : signal is "specnext.com:specnext:mb_clock:1.0 mb_clock speed";
+  attribute X_INTERFACE_INFO of machine_timing : signal is "specnext.com:specnext:video:1.0 video machine_timing";
 begin
 inst: entity work.zxnexys_zxnexys_ledsegment_0_0_ledsegment
      port map (
@@ -1248,7 +1502,18 @@ inst: entity work.zxnexys_zxnexys_ledsegment_0_0_ledsegment
       an(7 downto 0) => an(7 downto 0),
       ca(7 downto 0) => ca(7 downto 0),
       clk_peripheral => clk_peripheral,
+      cpu_clk => cpu_clk,
       cpu_speed(1 downto 0) => cpu_speed(1 downto 0),
-      reset => reset
+      cpu_wait_n => cpu_wait_n,
+      led16_b => led16_b,
+      led16_g => led16_g,
+      led16_r => led16_r,
+      led17_b => led17_b,
+      led17_g => led17_g,
+      led17_r => led17_r,
+      machine_timing(2 downto 0) => machine_timing(2 downto 0),
+      memory_resetn => memory_resetn,
+      peripheral_reset => peripheral_reset,
+      video_reset => video_reset
     );
 end STRUCTURE;

@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Thu Dec 30 13:30:00 2021
+//Date        : Fri Dec 31 22:34:41 2021
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target zxnexys.bd
 //Design      : zxnexys
@@ -1341,8 +1341,19 @@ module zxnexys
         .an(zxnexys_ledsegment_0_an),
         .ca(zxnexys_ledsegment_0_ca),
         .clk_peripheral(zxclock_0_clk_peripheral),
+        .cpu_clk(zxclock_0_mb_clock_cpu_clk),
         .cpu_speed(zxclock_0_mb_clock_speed),
-        .reset(Net));
+        .cpu_wait_n(zxnext_0_ram_port_a_wait_n),
+        .led16_b(zxnexys_pi_led_sw_ua_0_led16_b),
+        .led16_g(zxnexys_pi_led_sw_ua_0_led16_g),
+        .led16_r(zxnexys_pi_led_sw_ua_0_led16_r),
+        .led17_b(zxnexys_pi_led_sw_ua_0_led17_b),
+        .led17_g(zxnexys_pi_led_sw_ua_0_led17_g),
+        .led17_r(zxnexys_pi_led_sw_ua_0_led17_r),
+        .machine_timing(zxnext_0_video_machine_timing),
+        .memory_resetn(zxreset_0_memory_aresetn),
+        .peripheral_reset(Net),
+        .video_reset(zxreset_0_video_reset));
   zxnexys_zxnexys_mic_0_0 zxnexys_mic_0
        (.clk_audio(zxclock_0_clk_audio),
         .i2s_din(zxnexys_pi_led_sw_ua_0_i2s_din),
@@ -1363,12 +1374,6 @@ module zxnexys
         .i2s_sclk(zxnexys_mic_0_i2s_sclk),
         .i2s_wclk(zxnexys_mic_0_i2s_wclk),
         .led(zxnexys_pi_led_sw_ua_0_led),
-        .led16_b(zxnexys_pi_led_sw_ua_0_led16_b),
-        .led16_g(zxnexys_pi_led_sw_ua_0_led16_g),
-        .led16_r(zxnexys_pi_led_sw_ua_0_led16_r),
-        .led17_b(zxnexys_pi_led_sw_ua_0_led17_b),
-        .led17_g(zxnexys_pi_led_sw_ua_0_led17_g),
-        .led17_r(zxnexys_pi_led_sw_ua_0_led17_r),
         .reset(Net),
         .sw(SW_1),
         .uart_cts(zxnexys_pi_led_sw_ua_0_uart_cts),
