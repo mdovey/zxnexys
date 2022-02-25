@@ -143,7 +143,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>34cdea37</spirit:value>
+            <spirit:value>9e708e5d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -168,7 +168,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>8f2f7d8b</spirit:value>
+            <spirit:value>e744d155</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -568,10 +568,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_debounce_0_0/synth/joystick_debounce_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_debounce_0_1/synth/joystick_debounce_0_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -612,11 +608,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_pmod_jstk2_0_0/synth/joystick_pmod_jstk2_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_joy_clock_enable_0_0/synth/joystick_joy_clock_enable_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_joy_clock_enable_0_0/synth/joystick_joy_clock_enable_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_debounce_0_0/synth/joystick_debounce_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_pmod_jstk2_0_0/synth/joystick_pmod_jstk2_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -633,11 +633,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/joystick/pmod_jstk2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.srcs/sources_1/new/joy_clock_enable.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/joystick/joy_clock_enable.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -666,6 +662,10 @@
         <spirit:userFileType>CELL_NAME_xlconcat_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/new/joystick/pmod_jstk2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/joystick/synth/joystick.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -678,7 +678,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/joystick/hdl/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_5366727d</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_f38354d0</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -859,10 +859,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_debounce_0_0/sim/joystick_debounce_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_debounce_0_1/sim/joystick_debounce_0_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -903,11 +899,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_pmod_jstk2_0_0/sim/joystick_pmod_jstk2_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_joy_clock_enable_0_0/sim/joystick_joy_clock_enable_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_joy_clock_enable_0_0/sim/joystick_joy_clock_enable_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_debounce_0_0/sim/joystick_debounce_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_pmod_jstk2_0_0/sim/joystick_pmod_jstk2_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -924,11 +924,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/joystick/pmod_jstk2.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../synth/zxjoystick/zxjoystick.srcs/sources_1/new/joy_clock_enable.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/joystick/joy_clock_enable.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -955,6 +951,10 @@
         <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_xlconcat_0_1/joystick_xlconcat_0_1.xci</spirit:name>
         <spirit:userFileType>xci</spirit:userFileType>
         <spirit:userFileType>CELL_NAME_xlconcat_1</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/joystick/pmod_jstk2.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/joystick/sim/joystick.v</spirit:name>
@@ -1027,11 +1027,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxjoystick_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>15</xilinx:coreRevision>
+      <xilinx:coreRevision>16</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:joystick_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-30T13:25:51Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-02-21T20:25:47Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@46dfba1f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1bca74f7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
@@ -1233,12 +1233,24 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@1f4f0fc_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@558d8286_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2a15d4cb_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6309dc88_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@748595a4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@491cbaca_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57bb30b8_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14e435a0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3486fab4_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fdb36bc_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3054a1b5_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@674bb08a_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@630fc930_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26ef7860_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d9b9125_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5f3bd425"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="685985a3"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="711c5c39"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="d7be6f83"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2bbc49bc"/>
     </xilinx:packagingInfo>

@@ -1,30 +1,26 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC641FA152544B36B",
+      "boundary_crc": "0xEA7248BFEC013529",
       "device": "xc7a100tcsg324-1",
       "name": "audio",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
-      "audio_scaler_1": "",
       "sigma_delta_dac_1": "",
       "audio_psg_0": "",
       "audio_reset_0": "",
-      "audio_scaler_0": "",
-      "i2s_transceiver_0": "",
       "sigma_delta_dac_0": "",
-      "tape_ear_0": "",
-      "tape_mic_0": "",
-      "audio_mono_0": "",
+      "axis_i2s2_0": "",
+      "audio_axis_master_0": "",
       "audio_mono_1": "",
-      "audio_sync_0": "",
-      "audio_sync_1": "",
+      "tape_mic_0": "",
       "debounce_0": "",
-      "xlconstant_1": ""
+      "xlconstant_0": "",
+      "tape_ear_0": ""
     },
     "ports": {
       "audio_left": {
@@ -49,16 +45,16 @@
           }
         }
       },
-      "clk_audio": {
+      "clk_22m59": {
         "type": "clk",
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "audio_clk_audio",
+            "value": "audio_clk_12m288",
             "value_src": "default"
           },
           "FREQ_HZ": {
-            "value": "12280700"
+            "value": "22590010"
           },
           "FREQ_TOLERANCE_HZ": {
             "value": "0",
@@ -78,6 +74,9 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "reset"
+          },
           "CLK_DOMAIN": {
             "value": "audio_clk_peripheral",
             "value_src": "default"
@@ -106,11 +105,11 @@
         "direction": "O",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "audio_clk_audio",
+            "value": "audio_clk_12m288",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "12280700",
+            "value": "12288000",
             "value_src": "user_prop"
           },
           "PHASE": {
@@ -132,11 +131,11 @@
         "direction": "O",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "audio_clk_audio",
+            "value": "audio_clk_12m288",
             "value_src": "default_prop"
           },
           "FREQ_HZ": {
-            "value": "12280700",
+            "value": "12288000",
             "value_src": "user_prop"
           },
           "PHASE": {
@@ -178,29 +177,6 @@
       }
     },
     "components": {
-      "audio_scaler_1": {
-        "vlnv": "xilinx.com:module_ref:audio_scaler:1.0",
-        "xci_name": "audio_audio_scaler_1_0",
-        "xci_path": "ip\\audio_audio_scaler_1_0\\audio_audio_scaler_1_0.xci",
-        "inst_hier_path": "audio_scaler_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_scaler",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "din": {
-            "direction": "I",
-            "left": "12",
-            "right": "0"
-          },
-          "dout": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
       "sigma_delta_dac_1": {
         "vlnv": "xilinx.com:module_ref:sigma_delta_dac:1.0",
         "xci_name": "audio_sigma_delta_dac_1_0",
@@ -234,11 +210,11 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "12280700",
+                "value": "22590010",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
+                "value": "audio_clk_12m288",
                 "value_src": "default_prop"
               }
             }
@@ -348,117 +324,14 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "12280700",
+                "value": "22590010",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
+                "value": "audio_clk_12m288",
                 "value_src": "default_prop"
               }
             }
-          }
-        }
-      },
-      "audio_scaler_0": {
-        "vlnv": "xilinx.com:module_ref:audio_scaler:1.0",
-        "xci_name": "audio_audio_scaler_0_0",
-        "xci_path": "ip\\audio_audio_scaler_0_0\\audio_audio_scaler_0_0.xci",
-        "inst_hier_path": "audio_scaler_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_scaler",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "din": {
-            "direction": "I",
-            "left": "12",
-            "right": "0"
-          },
-          "dout": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "i2s_transceiver_0": {
-        "vlnv": "xilinx.com:module_ref:i2s_transceiver:1.0",
-        "xci_name": "audio_i2s_transceiver_0_0",
-        "xci_path": "ip\\audio_i2s_transceiver_0_0\\audio_i2s_transceiver_0_0.xci",
-        "inst_hier_path": "i2s_transceiver_0",
-        "parameters": {
-          "d_width": {
-            "value": "16"
-          },
-          "mclk_sclk_ratio": {
-            "value": "4"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "i2s_transceiver",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "reset_n": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "const_prop"
-              }
-            }
-          },
-          "mclk": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "12280700",
-                "value_src": "user_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "sclk": {
-            "direction": "O"
-          },
-          "ws": {
-            "direction": "O"
-          },
-          "sd_tx": {
-            "direction": "O"
-          },
-          "sd_rx": {
-            "direction": "I"
-          },
-          "l_data_tx": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "r_data_tx": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "l_data_rx": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          },
-          "r_data_rx": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
           }
         }
       },
@@ -469,7 +342,7 @@
         "inst_hier_path": "sigma_delta_dac_0",
         "parameters": {
           "MSBI": {
-            "value": "15"
+            "value": "12"
           }
         },
         "reference_info": {
@@ -483,7 +356,7 @@
           },
           "DACin": {
             "direction": "I",
-            "left": "15",
+            "left": "12",
             "right": "0"
           },
           "CLK": {
@@ -495,11 +368,11 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "12280700",
+                "value": "22590010",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
+                "value": "audio_clk_12m288",
                 "value_src": "default_prop"
               }
             }
@@ -516,35 +389,241 @@
           }
         }
       },
-      "tape_ear_0": {
-        "vlnv": "xilinx.com:module_ref:tape_ear:1.0",
-        "xci_name": "audio_tape_ear_0_0",
-        "xci_path": "ip\\audio_tape_ear_0_0\\audio_tape_ear_0_0.xci",
-        "inst_hier_path": "tape_ear_0",
+      "axis_i2s2_0": {
+        "vlnv": "xilinx.com:module_ref:axis_i2s2:1.0",
+        "xci_name": "audio_axis_i2s2_0_0",
+        "xci_path": "ip\\audio_axis_i2s2_0_0\\audio_axis_i2s2_0_0.xci",
+        "inst_hier_path": "axis_i2s2_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "tape_ear",
+          "ref_name": "axis_i2s2",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "din": {
+          "axis_clk": {
+            "type": "clk",
             "direction": "I",
-            "left": "15",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "axis_resetn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "22590010",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "audio_clk_12m288",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "axis_resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "tx_axis_s_data": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
-          "ear": {
+          "tx_axis_s_valid": {
+            "direction": "I"
+          },
+          "tx_axis_s_ready": {
             "direction": "O"
+          },
+          "tx_axis_s_last": {
+            "direction": "I"
+          },
+          "rx_axis_m_data": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "rx_axis_m_valid": {
+            "direction": "O"
+          },
+          "rx_axis_m_ready": {
+            "direction": "I"
+          },
+          "rx_axis_m_last": {
+            "direction": "O"
+          },
+          "tx_mclk": {
+            "direction": "O",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "audio_clk_12m288",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "12288000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "tx_lrck": {
+            "direction": "O"
+          },
+          "tx_sclk": {
+            "direction": "O"
+          },
+          "tx_sdout": {
+            "direction": "O"
+          },
+          "rx_mclk": {
+            "direction": "O",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "audio_clk_12m288",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "12288000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rx_lrck": {
+            "direction": "O"
+          },
+          "rx_sclk": {
+            "direction": "O"
+          },
+          "rx_sdin": {
+            "direction": "I"
+          }
+        }
+      },
+      "audio_axis_master_0": {
+        "vlnv": "xilinx.com:module_ref:audio_axis_master:1.0",
+        "xci_name": "audio_audio_axis_master_0_1",
+        "xci_path": "ip\\audio_audio_axis_master_0_1\\audio_audio_axis_master_0_1.xci",
+        "inst_hier_path": "audio_axis_master_0",
+        "parameters": {
+          "AUDIO_IN_DW": {
+            "value": "13"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "audio_axis_master",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "left_input": {
+            "direction": "I",
+            "left": "12",
+            "right": "0"
+          },
+          "right_input": {
+            "direction": "I",
+            "left": "12",
+            "right": "0"
+          },
+          "axis_data": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "axis_valid": {
+            "direction": "O"
+          },
+          "axis_last": {
+            "direction": "O"
+          },
+          "axis_ready": {
+            "direction": "I"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "22590010",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "audio_clk_12m288",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
+      },
+      "audio_mono_1": {
+        "vlnv": "xilinx.com:module_ref:audio_mono:1.0",
+        "xci_name": "audio_audio_mono_1_0",
+        "xci_path": "ip\\audio_audio_mono_1_0\\audio_audio_mono_1_0.xci",
+        "inst_hier_path": "audio_mono_1",
+        "parameters": {
+          "AUDIO_DW": {
+            "value": "13"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "audio_mono",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "left_in": {
+            "direction": "I",
+            "left": "12",
+            "right": "0"
+          },
+          "right_in": {
+            "direction": "I",
+            "left": "12",
+            "right": "0"
+          },
+          "mono_out": {
+            "direction": "O",
+            "left": "12",
+            "right": "0"
+          },
+          "lrck": {
+            "direction": "I"
           },
           "clk": {
             "type": "clk",
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "12280700",
+                "value": "22590010",
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
+                "value": "audio_clk_12m288",
                 "value_src": "default_prop"
               }
             }
@@ -572,146 +651,6 @@
           }
         }
       },
-      "audio_mono_0": {
-        "vlnv": "xilinx.com:module_ref:audio_mono:1.0",
-        "xci_name": "audio_audio_mono_0_0",
-        "xci_path": "ip\\audio_audio_mono_0_0\\audio_audio_mono_0_0.xci",
-        "inst_hier_path": "audio_mono_0",
-        "parameters": {
-          "SHIFT": {
-            "value": "1"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_mono",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "left_in": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "right_in": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "mono_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "audio_mono_1": {
-        "vlnv": "xilinx.com:module_ref:audio_mono:1.0",
-        "xci_name": "audio_audio_mono_1_0",
-        "xci_path": "ip\\audio_audio_mono_1_0\\audio_audio_mono_1_0.xci",
-        "inst_hier_path": "audio_mono_1",
-        "parameters": {
-          "SHIFT": {
-            "value": "2"
-          }
-        },
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_mono",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "left_in": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "right_in": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "mono_out": {
-            "direction": "O",
-            "left": "15",
-            "right": "0"
-          }
-        }
-      },
-      "audio_sync_0": {
-        "vlnv": "xilinx.com:module_ref:audio_sync:1.0",
-        "xci_name": "audio_audio_sync_0_0",
-        "xci_path": "ip\\audio_audio_sync_0_0\\audio_audio_sync_0_0.xci",
-        "inst_hier_path": "audio_sync_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_sync",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "din": {
-            "direction": "I",
-            "left": "12",
-            "right": "0"
-          },
-          "dout": {
-            "direction": "O",
-            "left": "12",
-            "right": "0"
-          },
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "12280700",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "audio_sync_1": {
-        "vlnv": "xilinx.com:module_ref:audio_sync:1.0",
-        "xci_name": "audio_audio_sync_0_1",
-        "xci_path": "ip\\audio_audio_sync_0_1\\audio_audio_sync_0_1.xci",
-        "inst_hier_path": "audio_sync_1",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_sync",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "din": {
-            "direction": "I",
-            "left": "12",
-            "right": "0"
-          },
-          "dout": {
-            "direction": "O",
-            "left": "12",
-            "right": "0"
-          },
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "12280700",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
       "debounce_0": {
         "vlnv": "xilinx.com:module_ref:debounce:1.0",
         "xci_name": "audio_debounce_0_0",
@@ -732,7 +671,7 @@
             "direction": "I",
             "parameters": {
               "FREQ_HZ": {
-                "value": "12280700",
+                "value": "28000000",
                 "value_src": "user_prop"
               },
               "PHASE": {
@@ -740,7 +679,7 @@
                 "value_src": "default_prop"
               },
               "CLK_DOMAIN": {
-                "value": "audio_clk_audio",
+                "value": "audio_clk_peripheral",
                 "value_src": "default_prop"
               }
             }
@@ -756,30 +695,109 @@
           }
         }
       },
-      "xlconstant_1": {
+      "xlconstant_0": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "audio_xlconstant_0_0",
         "xci_path": "ip\\audio_xlconstant_0_0\\audio_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_1"
+        "inst_hier_path": "xlconstant_0"
+      },
+      "tape_ear_0": {
+        "vlnv": "xilinx.com:module_ref:tape_ear:1.0",
+        "xci_name": "audio_tape_ear_0_0",
+        "xci_path": "ip\\audio_tape_ear_0_0\\audio_tape_ear_0_0.xci",
+        "inst_hier_path": "tape_ear_0",
+        "parameters": {
+          "AUDIO_DW": {
+            "value": "32"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "tape_ear",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "din": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "valid": {
+            "direction": "I"
+          },
+          "last": {
+            "direction": "I"
+          },
+          "ear": {
+            "direction": "O"
+          },
+          "ready": {
+            "direction": "O"
+          },
+          "lrck": {
+            "direction": "I"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "const_prop"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "22590010",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "audio_clk_12m288",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
+      "audio_axis_master_0_axis_data": {
+        "ports": [
+          "audio_axis_master_0/axis_data",
+          "axis_i2s2_0/tx_axis_s_data"
+        ]
+      },
+      "audio_axis_master_0_axis_last": {
+        "ports": [
+          "audio_axis_master_0/axis_last",
+          "axis_i2s2_0/tx_axis_s_last"
+        ]
+      },
+      "audio_axis_master_0_axis_valid": {
+        "ports": [
+          "audio_axis_master_0/axis_valid",
+          "axis_i2s2_0/tx_axis_s_valid"
+        ]
+      },
       "audio_left_1": {
         "ports": [
           "audio_left",
-          "audio_sync_0/din"
-        ]
-      },
-      "audio_mono_0_mono_out": {
-        "ports": [
-          "audio_mono_0/mono_out",
-          "sigma_delta_dac_0/DACin"
+          "audio_axis_master_0/left_input",
+          "audio_mono_1/left_in"
         ]
       },
       "audio_mono_1_mono_out": {
         "ports": [
           "audio_mono_1/mono_out",
-          "tape_ear_0/din"
+          "sigma_delta_dac_0/DACin"
         ]
       },
       "audio_psg_0_psg_en": {
@@ -792,67 +810,110 @@
         "ports": [
           "audio_reset_0/rst",
           "sigma_delta_dac_1/RESET",
-          "sigma_delta_dac_0/RESET"
+          "sigma_delta_dac_0/RESET",
+          "audio_axis_master_0/reset",
+          "tape_ear_0/reset"
         ]
       },
       "audio_reset_0_rstn": {
         "ports": [
           "audio_reset_0/rstn",
           "aud_sd",
-          "i2s_transceiver_0/reset_n"
+          "axis_i2s2_0/axis_resetn"
         ]
       },
       "audio_right_1": {
         "ports": [
           "audio_right",
-          "audio_sync_1/din"
+          "audio_axis_master_0/right_input",
+          "audio_mono_1/right_in"
         ]
       },
-      "audio_scaler_0_dout": {
+      "axis_i2s2_0_rx_axis_m_data": {
         "ports": [
-          "audio_scaler_0/dout",
-          "i2s_transceiver_0/l_data_tx",
-          "audio_mono_0/left_in"
+          "axis_i2s2_0/rx_axis_m_data",
+          "tape_ear_0/din"
         ]
       },
-      "audio_scaler_1_dout": {
+      "axis_i2s2_0_rx_axis_m_last": {
         "ports": [
-          "audio_scaler_1/dout",
-          "i2s_transceiver_0/r_data_tx",
-          "audio_mono_0/right_in"
+          "axis_i2s2_0/rx_axis_m_last",
+          "tape_ear_0/last"
         ]
       },
-      "audio_sync_0_dout": {
+      "axis_i2s2_0_rx_axis_m_valid": {
         "ports": [
-          "audio_sync_0/dout",
-          "audio_scaler_0/din"
+          "axis_i2s2_0/rx_axis_m_valid",
+          "tape_ear_0/valid"
         ]
       },
-      "audio_sync_1_dout": {
+      "axis_i2s2_0_rx_lrck": {
         "ports": [
-          "audio_sync_1/dout",
-          "audio_scaler_1/din"
+          "axis_i2s2_0/rx_lrck",
+          "linein_lrck",
+          "tape_ear_0/lrck"
         ]
       },
-      "clk_audio_1": {
+      "axis_i2s2_0_rx_mclk": {
         "ports": [
-          "clk_audio",
-          "linein_mclk",
-          "lineout_mclk",
+          "axis_i2s2_0/rx_mclk",
+          "linein_mclk"
+        ]
+      },
+      "axis_i2s2_0_rx_sclk": {
+        "ports": [
+          "axis_i2s2_0/rx_sclk",
+          "linein_sclk"
+        ]
+      },
+      "axis_i2s2_0_tx_axis_s_ready": {
+        "ports": [
+          "axis_i2s2_0/tx_axis_s_ready",
+          "audio_axis_master_0/axis_ready"
+        ]
+      },
+      "axis_i2s2_0_tx_lrck": {
+        "ports": [
+          "axis_i2s2_0/tx_lrck",
+          "lineout_lrck",
+          "audio_mono_1/lrck"
+        ]
+      },
+      "axis_i2s2_0_tx_mclk": {
+        "ports": [
+          "axis_i2s2_0/tx_mclk",
+          "lineout_mclk"
+        ]
+      },
+      "axis_i2s2_0_tx_sclk": {
+        "ports": [
+          "axis_i2s2_0/tx_sclk",
+          "lineout_sclk"
+        ]
+      },
+      "axis_i2s2_0_tx_sdout": {
+        "ports": [
+          "axis_i2s2_0/tx_sdout",
+          "lineout_sdout"
+        ]
+      },
+      "clk_22m59": {
+        "ports": [
+          "clk_22m59",
           "sigma_delta_dac_1/CLK",
           "audio_reset_0/clk",
-          "i2s_transceiver_0/mclk",
           "sigma_delta_dac_0/CLK",
-          "tape_ear_0/clk",
-          "audio_sync_1/clk",
-          "audio_sync_0/clk",
-          "debounce_0/clk_i"
+          "axis_i2s2_0/axis_clk",
+          "audio_axis_master_0/clk",
+          "audio_mono_1/clk",
+          "tape_ear_0/clk"
         ]
       },
       "clk_peripheral_1": {
         "ports": [
           "clk_peripheral",
-          "audio_psg_0/clk_peripheral"
+          "audio_psg_0/clk_peripheral",
+          "debounce_0/clk_i"
         ]
       },
       "debounce_0_button_o": {
@@ -861,42 +922,10 @@
           "tape_ear"
         ]
       },
-      "i2s_transceiver_0_l_data_rx": {
-        "ports": [
-          "i2s_transceiver_0/l_data_rx",
-          "audio_mono_1/left_in"
-        ]
-      },
-      "i2s_transceiver_0_r_data_rx": {
-        "ports": [
-          "i2s_transceiver_0/r_data_rx",
-          "audio_mono_1/right_in"
-        ]
-      },
-      "i2s_transceiver_0_sclk": {
-        "ports": [
-          "i2s_transceiver_0/sclk",
-          "linein_sclk",
-          "lineout_sclk"
-        ]
-      },
-      "i2s_transceiver_0_sd_tx": {
-        "ports": [
-          "i2s_transceiver_0/sd_tx",
-          "lineout_sdout"
-        ]
-      },
-      "i2s_transceiver_0_ws": {
-        "ports": [
-          "i2s_transceiver_0/ws",
-          "linein_lrck",
-          "lineout_lrck"
-        ]
-      },
       "linein_sdin_1": {
         "ports": [
           "linein_sdin",
-          "i2s_transceiver_0/sd_rx"
+          "axis_i2s2_0/rx_sdin"
         ]
       },
       "reset_1": {
@@ -923,6 +952,12 @@
           "debounce_0/button_i"
         ]
       },
+      "tape_ear_0_ready": {
+        "ports": [
+          "tape_ear_0/ready",
+          "axis_i2s2_0/rx_axis_m_ready"
+        ]
+      },
       "tape_mic_0_dout": {
         "ports": [
           "tape_mic_0/dout",
@@ -935,9 +970,9 @@
           "tape_mic_0/din"
         ]
       },
-      "xlconstant_1_dout": {
+      "xlconstant_0_dout": {
         "ports": [
-          "xlconstant_1/dout",
+          "xlconstant_0/dout",
           "debounce_0/clk_en_i"
         ]
       }

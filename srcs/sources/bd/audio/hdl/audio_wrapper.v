@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Wed Dec 29 23:35:06 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Thu Feb 17 19:44:02 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target audio_wrapper.bd
 //Design      : audio_wrapper
@@ -14,7 +14,7 @@ module audio_wrapper
     audio_left,
     audio_pwm,
     audio_right,
-    clk_audio,
+    clk_22m59,
     clk_peripheral,
     linein_lrck,
     linein_mclk,
@@ -33,7 +33,7 @@ module audio_wrapper
   input [12:0]audio_left;
   output audio_pwm;
   input [12:0]audio_right;
-  input clk_audio;
+  input clk_22m59;
   input clk_peripheral;
   output linein_lrck;
   output linein_mclk;
@@ -53,7 +53,7 @@ module audio_wrapper
   wire [12:0]audio_left;
   wire audio_pwm;
   wire [12:0]audio_right;
-  wire clk_audio;
+  wire clk_22m59;
   wire clk_peripheral;
   wire linein_lrck;
   wire linein_mclk;
@@ -74,7 +74,7 @@ module audio_wrapper
         .audio_left(audio_left),
         .audio_pwm(audio_pwm),
         .audio_right(audio_right),
-        .clk_audio(clk_audio),
+        .clk_22m59(clk_22m59),
         .clk_peripheral(clk_peripheral),
         .linein_lrck(linein_lrck),
         .linein_mclk(linein_mclk),

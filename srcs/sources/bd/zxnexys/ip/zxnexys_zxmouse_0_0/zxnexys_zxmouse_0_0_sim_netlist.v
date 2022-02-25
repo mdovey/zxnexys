@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:51:23 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:50:58 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0_sim_netlist.v
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "zxnexys_zxmouse_0_0,mouse_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "mouse_wrapper,Vivado 2021.2" *) 
+(* X_CORE_INFO = "mouse_wrapper,Vivado 2021.2.1" *) 
 (* NotValidForBitStream *)
 module zxnexys_zxmouse_0_0
    (button,
@@ -129,7 +129,7 @@ module zxnexys_zxmouse_0_0_mouse
         .zcount(ps2_mouse_0_zcount));
   (* CHECK_LICENSE_TYPE = "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
   zxnexys_zxmouse_0_0_mouse_xlconcat_0_0 xlconcat_0
        (.In0(ps2_mouse_0_mleft),
         .In1(ps2_mouse_0_mright),
@@ -137,7 +137,7 @@ module zxnexys_zxmouse_0_0_mouse
         .dout(button));
   (* CHECK_LICENSE_TYPE = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2.1" *) 
   zxnexys_zxmouse_0_0_mouse_xlslice_0_0 xlslice_0
        (.Din({1'b0,1'b0,1'b0,1'b0,ps2_mouse_0_zcount}),
         .Dout(wheel));
@@ -254,7 +254,7 @@ module zxnexys_zxmouse_0_0_mouse_wrapper
 endmodule
 
 (* CHECK_LICENSE_TYPE = "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "mouse_xlconcat_0_0" *) 
-(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
 module zxnexys_zxmouse_0_0_mouse_xlconcat_0_0
    (In0,
     In1,
@@ -275,7 +275,7 @@ module zxnexys_zxmouse_0_0_mouse_xlconcat_0_0
 endmodule
 
 (* CHECK_LICENSE_TYPE = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "mouse_xlslice_0_0" *) 
-(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *) 
+(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2.1" *) 
 module zxnexys_zxmouse_0_0_mouse_xlslice_0_0
    (Din,
     Dout);

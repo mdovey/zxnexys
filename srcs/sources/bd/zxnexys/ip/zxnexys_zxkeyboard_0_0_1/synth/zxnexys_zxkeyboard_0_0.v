@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,7 +50,7 @@
 // IP VLNV: specnext.com:specnext:zxkeyboard:2.4
 // IP Revision: 17
 
-(* X_CORE_INFO = "keyboard_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "keyboard_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxkeyboard_0_0,keyboard_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

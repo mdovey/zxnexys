@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -47,10 +47,10 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: specnext.com:specnext:zxaudio:2.4
-// IP Revision: 26
+// IP VLNV: specnext.com:specnext:zxaudio:2.5
+// IP Revision: 80
 
-(* X_CORE_INFO = "audio_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "audio_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxaudio_0_0,audio_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -58,7 +58,7 @@ module zxnexys_zxaudio_0_0 (
   aud_sd,
   audio_left,
   audio_right,
-  clk_audio,
+  clk_22m59,
   clk_peripheral,
   linein_lrck,
   linein_mclk,
@@ -80,9 +80,9 @@ output wire aud_sd;
 input wire [12 : 0] audio_left;
 (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio right" *)
 input wire [12 : 0] audio_right;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
-input wire clk_audio;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_22m59, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_22m59 CLK" *)
+input wire clk_22m59;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
@@ -111,7 +111,7 @@ output wire aud_pwm;
     .aud_sd(aud_sd),
     .audio_left(audio_left),
     .audio_right(audio_right),
-    .clk_audio(clk_audio),
+    .clk_22m59(clk_22m59),
     .clk_peripheral(clk_peripheral),
     .linein_lrck(linein_lrck),
     .linein_mclk(linein_mclk),

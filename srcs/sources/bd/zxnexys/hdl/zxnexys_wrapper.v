@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Jan  1 02:44:55 2022
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Fri Feb 25 10:33:30 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target zxnexys_wrapper.bd
 //Design      : zxnexys_wrapper
@@ -176,10 +176,10 @@ module zxnexys_wrapper
   output SD_RESET;
   output SD_SCK;
   input [15:0]SW;
-  output UART_CTS;
-  input UART_RTS;
-  output UART_RXD_OUT;
-  input UART_TXD_IN;
+  input UART_CTS;
+  output UART_RTS;
+  input UART_RXD_OUT;
+  output UART_TXD_IN;
   output [3:0]VGA_B;
   output [3:0]VGA_G;
   output VGA_HS;

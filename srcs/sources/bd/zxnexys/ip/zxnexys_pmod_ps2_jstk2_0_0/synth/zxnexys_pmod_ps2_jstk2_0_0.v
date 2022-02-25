@@ -50,7 +50,7 @@
 // IP VLNV: specnext.com:specnext:pmod_ps2_jstk2:1.1
 // IP Revision: 7
 
-(* X_CORE_INFO = "pmod_ps2_jstk2,Vivado 2021.2" *)
+(* X_CORE_INFO = "pmod_ps2_jstk2,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_pmod_ps2_jstk2_0_0,pmod_ps2_jstk2,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

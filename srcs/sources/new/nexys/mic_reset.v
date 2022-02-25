@@ -33,10 +33,10 @@ module mic_reset(
     (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
     (* X_INTERFACE_PARAMETER = "ASSOCIATED_ASYNC_RESET reset" *)    
     (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET resetn" *)    
-    input           clk_audio
+    input           clk_12m288
     );
     
-    always @(posedge clk_audio, posedge reset)
+    always @(posedge clk_12m288, posedge reset)
         resetn  = reset ? 1'b0 : 1'b1;
     
 endmodule

@@ -1,0 +1,31 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-246,-123",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port mmcm_drp -pg 1 -lvl 3 -x 710 -y 70 -defaultsOSRD
+preplace port port-id_clock_reset -pg 1 -lvl 3 -x 710 -y 130 -defaultsOSRD
+preplace port port-id_dclk -pg 1 -lvl 3 -x 710 -y 110 -defaultsOSRD
+preplace port port-id_locked -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_clk_200 -pg 1 -lvl 0 -x 0 -y 120 -defaultsOSRD
+preplace port port-id_video_mode_locked -pg 1 -lvl 3 -x 710 -y 220 -defaultsOSRD
+preplace portBus video_mode -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace inst xlconstant_low -pg 1 -lvl 1 -x 190 -y 300 -defaultsOSRD
+preplace inst mmcme2_drp_0 -pg 1 -lvl 2 -x 530 -y 110 -defaultsOSRD
+preplace inst video_mode_0 -pg 1 -lvl 1 -x 190 -y 90 -defaultsOSRD
+preplace netloc clk_200_1 1 0 2 20 180 340
+preplace netloc locked_1 1 0 2 30 190 360
+preplace netloc mmcme2_drp_0_DCLK 1 2 1 NJ 110
+preplace netloc mmcme2_drp_0_RST_MMCM 1 0 3 50 230 NJ 230 690
+preplace netloc video_mode_0_locked 1 1 2 330J 220 NJ
+preplace netloc video_mode_0_sen 1 1 1 N 80
+preplace netloc video_mode_1 1 0 2 40 200 350
+preplace netloc xlconstant_low_dout 1 1 1 370J 120n
+preplace netloc mmcme2_drp_0_mmcm_drp 1 2 1 NJ 70
+levelinfo -pg 1 0 190 530 710
+pagesize -pg 1 -db -bbox -sgen -160 0 890 380
+"
+}
+0

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:56:13 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:58:08 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxram_0_0/zxnexys_zxram_0_0_stub.v
@@ -13,7 +13,7 @@
 // This empty module with port declaration file causes synthesis tools to infer a black box for IP.
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
-(* X_CORE_INFO = "ram_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "ram_wrapper,Vivado 2021.2.1" *)
 module zxnexys_zxram_0_0(axi_mig_araddr, axi_mig_arburst, 
   axi_mig_arcache, axi_mig_arid, axi_mig_arlen, axi_mig_arlock, axi_mig_arprot, 
   axi_mig_arqos, axi_mig_arready, axi_mig_arregion, axi_mig_arsize, axi_mig_arvalid, 

@@ -1,0 +1,76 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.975",
+   "Default View_TopLeft":"-341,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_cpu_contend -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
+preplace port port-id_cpu_wait_n -pg 1 -lvl 0 -x -10 -y 540 -defaultsOSRD
+preplace port port-id_cpu_clk -pg 1 -lvl 0 -x -10 -y 520 -defaultsOSRD
+preplace port port-id_peripheral_reset -pg 1 -lvl 0 -x -10 -y 220 -defaultsOSRD
+preplace port port-id_freq_50_60 -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace port port-id_scandouble -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace port port-id_led16_r -pg 1 -lvl 4 -x 960 -y 370 -defaultsOSRD
+preplace port port-id_led16_g -pg 1 -lvl 4 -x 960 -y 390 -defaultsOSRD
+preplace port port-id_led16_b -pg 1 -lvl 4 -x 960 -y 410 -defaultsOSRD
+preplace port port-id_led17_r -pg 1 -lvl 4 -x 960 -y 530 -defaultsOSRD
+preplace port port-id_led17_g -pg 1 -lvl 4 -x 960 -y 550 -defaultsOSRD
+preplace port port-id_led17_b -pg 1 -lvl 4 -x 960 -y 570 -defaultsOSRD
+preplace port port-id_mb_reset -pg 1 -lvl 0 -x -10 -y 200 -defaultsOSRD
+preplace port port-id_clk_200 -pg 1 -lvl 0 -x -10 -y 180 -defaultsOSRD
+preplace port port-id_mig_resetn -pg 1 -lvl 0 -x -10 -y 240 -defaultsOSRD
+preplace portBus video_mode -pg 1 -lvl 0 -x -10 -y 120 -defaultsOSRD
+preplace portBus address -pg 1 -lvl 0 -x -10 -y 140 -defaultsOSRD
+preplace portBus cpu_speed -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace portBus an -pg 1 -lvl 4 -x 960 -y 160 -defaultsOSRD
+preplace portBus ca -pg 1 -lvl 4 -x 960 -y 180 -defaultsOSRD
+preplace portBus pi_accel_opt -pg 1 -lvl 0 -x -10 -y 340 -defaultsOSRD
+preplace inst status_leds_0 -pg 1 -lvl 2 -x 450 -y 530 -defaultsOSRD
+preplace inst status_display_0 -pg 1 -lvl 2 -x 450 -y 150 -defaultsOSRD
+preplace inst led_segment_0 -pg 1 -lvl 3 -x 800 -y 170 -defaultsOSRD
+preplace inst rgb_led_16 -pg 1 -lvl 3 -x 800 -y 400 -defaultsOSRD
+preplace inst rgb_led_17 -pg 1 -lvl 3 -x 800 -y 580 -defaultsOSRD
+preplace inst status_enables_0 -pg 1 -lvl 1 -x 140 -y 340 -defaultsOSRD
+preplace netloc address_1 1 0 2 NJ 140 N
+preplace netloc clk_system_1 1 0 3 N 180 290 300 670
+preplace netloc cpu_clk_1 1 0 2 NJ 520 N
+preplace netloc cpu_contend_1 1 0 2 NJ 500 N
+preplace netloc cpu_speed_1 1 0 2 NJ 160 N
+preplace netloc cpu_wait_n_1 1 0 2 NJ 540 N
+preplace netloc freq_50_60_1 1 0 2 NJ 80 N
+preplace netloc led_segment_0_an 1 3 1 NJ 160
+preplace netloc led_segment_0_ca 1 3 1 NJ 180
+preplace netloc mb_reset_1 1 0 2 NJ 200 280
+preplace netloc mig_resetn_1 1 0 2 N 240 N
+preplace netloc peripheral_reset_1 1 0 2 N 220 270
+preplace netloc rgb_led_16_led_b 1 3 1 920J 410n
+preplace netloc rgb_led_16_led_g 1 3 1 920J 390n
+preplace netloc rgb_led_16_led_r 1 3 1 920J 370n
+preplace netloc rgb_led_17_led_b 1 3 1 940J 570n
+preplace netloc rgb_led_17_led_g 1 3 1 930J 550n
+preplace netloc rgb_led_17_led_r 1 3 1 920J 530n
+preplace netloc scandouble_1 1 0 2 NJ 100 N
+preplace netloc status_display_0_display0 1 2 1 N 80
+preplace netloc status_display_0_display1 1 2 1 N 100
+preplace netloc status_display_0_display2 1 2 1 N 120
+preplace netloc status_display_0_display3 1 2 1 N 140
+preplace netloc status_display_0_display4 1 2 1 N 160
+preplace netloc status_display_0_display5 1 2 1 N 180
+preplace netloc status_display_0_display6 1 2 1 N 200
+preplace netloc status_display_0_display7 1 2 1 N 220
+preplace netloc status_leds_0_led16_b 1 2 1 660 420n
+preplace netloc status_leds_0_led16_g 1 2 1 650 400n
+preplace netloc status_leds_0_led16_r 1 2 1 640 380n
+preplace netloc status_leds_0_led17_b 1 2 1 610 580n
+preplace netloc status_leds_0_led17_g 1 2 1 620 560n
+preplace netloc status_leds_0_led17_r 1 2 1 650 540n
+preplace netloc video_mode_1 1 0 2 NJ 120 N
+preplace netloc status_enables_0_rgb_cs_n 1 1 2 NJ 330 630
+preplace netloc status_enables_0_segment_cs_n 1 1 2 290J 320 660
+preplace netloc enables_1 1 0 1 N 340
+levelinfo -pg 1 -10 140 450 800 960
+pagesize -pg 1 -db -bbox -sgen -170 -20 1060 680
+"
+}
+0

@@ -1,0 +1,590 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xC80049B97EE99003",
+      "device": "xc7a100tcsg324-1",
+      "name": "videomode",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "xlconstant_low": "",
+      "mmcme2_drp_0": "",
+      "video_mode_0": ""
+    },
+    "interface_ports": {
+      "mmcm_drp": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:drp:1.0",
+        "vlnv": "xilinx.com:interface:drp_rtl:1.0"
+      }
+    },
+    "ports": {
+      "video_mode": {
+        "direction": "I",
+        "left": "2",
+        "right": "0"
+      },
+      "clock_reset": {
+        "type": "rst",
+        "direction": "O",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "dclk": {
+        "direction": "O"
+      },
+      "locked": {
+        "direction": "I"
+      },
+      "clk_200": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "videomode_sys_clk"
+          },
+          "FREQ_HZ": {
+            "value": "200000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "video_mode_locked": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "xlconstant_low": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "xci_name": "videomode_xlconstant_0_0",
+        "xci_path": "ip\\videomode_xlconstant_0_0\\videomode_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_low",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
+      "mmcme2_drp_0": {
+        "vlnv": "xilinx.com:module_ref:mmcme2_drp:1.0",
+        "xci_name": "videomode_mmcme2_drp_0_0",
+        "xci_path": "ip\\videomode_mmcme2_drp_0_0\\videomode_mmcme2_drp_0_0.xci",
+        "inst_hier_path": "mmcme2_drp_0",
+        "parameters": {
+          "S1_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S1_CLKFBOUT_FRAC": {
+            "value": "0"
+          },
+          "S1_CLKFBOUT_MULT": {
+            "value": "42"
+          },
+          "S1_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S1_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S1_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S1_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S1_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S1_CLKOUT4_DIVIDE": {
+            "value": "1"
+          },
+          "S1_CLKOUT5_DIVIDE": {
+            "value": "1"
+          },
+          "S1_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "S2_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S2_CLKFBOUT_FRAC": {
+            "value": "0"
+          },
+          "S2_CLKFBOUT_MULT": {
+            "value": "50"
+          },
+          "S2_CLKOUT0_DIVIDE": {
+            "value": "5"
+          },
+          "S2_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S2_CLKOUT1_DIVIDE": {
+            "value": "25"
+          },
+          "S2_CLKOUT2_DIVIDE": {
+            "value": "50"
+          },
+          "S2_CLKOUT3_DIVIDE": {
+            "value": "100"
+          },
+          "S2_CLKOUT4_DIVIDE": {
+            "value": "1"
+          },
+          "S2_CLKOUT5_DIVIDE": {
+            "value": "1"
+          },
+          "S2_CLKOUT6_DIVIDE": {
+            "value": "1"
+          },
+          "S2_CLKOUT6_PHASE": {
+            "value": "0"
+          },
+          "S2_DIVCLK_DIVIDE": {
+            "value": "7"
+          },
+          "S3_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S3_CLKFBOUT_FRAC": {
+            "value": "875"
+          },
+          "S3_CLKFBOUT_MULT": {
+            "value": "61"
+          },
+          "S3_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S3_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S3_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S3_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S3_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S3_DIVCLK_DIVIDE": {
+            "value": "7"
+          },
+          "S4_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S4_CLKFBOUT_FRAC": {
+            "value": "0"
+          },
+          "S4_CLKFBOUT_MULT": {
+            "value": "9"
+          },
+          "S4_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S4_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S4_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S4_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S4_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S4_CLKOUT4_DIVIDE": {
+            "value": "1"
+          },
+          "S4_CLKOUT5_DIVIDE": {
+            "value": "1"
+          },
+          "S4_CLKOUT6_DIVIDE": {
+            "value": "1"
+          },
+          "S4_CLKOUT6_PHASE": {
+            "value": "0"
+          },
+          "S4_DIVCLK_DIVIDE": {
+            "value": "1"
+          },
+          "S5_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S5_CLKFBOUT_FRAC": {
+            "value": "500"
+          },
+          "S5_CLKFBOUT_MULT": {
+            "value": "46"
+          },
+          "S5_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S5_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S5_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S5_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S5_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S5_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "S6_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S6_CLKFBOUT_FRAC": {
+            "value": "0"
+          },
+          "S6_CLKFBOUT_MULT": {
+            "value": "48"
+          },
+          "S6_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S6_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S6_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S6_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S6_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S6_CLKOUT4_DIVIDE": {
+            "value": "1"
+          },
+          "S6_CLKOUT5_DIVIDE": {
+            "value": "1"
+          },
+          "S6_CLKOUT6_DIVIDE": {
+            "value": "1"
+          },
+          "S6_CLKOUT6_PHASE": {
+            "value": "0"
+          },
+          "S6_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "S7_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S7_CLKFBOUT_FRAC": {
+            "value": "500"
+          },
+          "S7_CLKFBOUT_MULT": {
+            "value": "49"
+          },
+          "S7_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S7_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S7_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S7_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S7_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S7_DIVCLK_DIVIDE": {
+            "value": "5"
+          },
+          "S8_BANDWIDTH": {
+            "value": "OPTIMIZED"
+          },
+          "S8_CLKFBOUT_FRAC": {
+            "value": "500"
+          },
+          "S8_CLKFBOUT_MULT": {
+            "value": "40"
+          },
+          "S8_CLKOUT0_DIVIDE": {
+            "value": "6"
+          },
+          "S8_CLKOUT0_FRAC": {
+            "value": "0"
+          },
+          "S8_CLKOUT1_DIVIDE": {
+            "value": "30"
+          },
+          "S8_CLKOUT2_DIVIDE": {
+            "value": "60"
+          },
+          "S8_CLKOUT3_DIVIDE": {
+            "value": "120"
+          },
+          "S8_CLKOUT4_DIVIDE": {
+            "value": "1"
+          },
+          "S8_CLKOUT5_DIVIDE": {
+            "value": "1"
+          },
+          "S8_CLKOUT6_DIVIDE": {
+            "value": "1"
+          },
+          "S8_CLKOUT6_PHASE": {
+            "value": "0"
+          },
+          "S8_DIVCLK_DIVIDE": {
+            "value": "5"
+          }
+        },
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mmcme2_drp",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "mmcm_drp": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:drp:1.0",
+            "vlnv": "xilinx.com:interface:drp_rtl:1.0",
+            "port_maps": {
+              "DEN": {
+                "physical_name": "DEN",
+                "direction": "O"
+              },
+              "DADDR": {
+                "physical_name": "DADDR",
+                "direction": "O",
+                "left": "6",
+                "right": "0"
+              },
+              "DI": {
+                "physical_name": "DATI",
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              },
+              "DO": {
+                "physical_name": "DATO",
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "DRDY": {
+                "physical_name": "DRDY",
+                "direction": "I"
+              },
+              "DWE": {
+                "physical_name": "DWE",
+                "direction": "O"
+              }
+            }
+          }
+        },
+        "ports": {
+          "SADDR": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "SEN": {
+            "direction": "I"
+          },
+          "SCLK": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "videomode_sys_clk",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "RST": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "SRDY": {
+            "direction": "O"
+          },
+          "LOCK_REG_CLK_IN": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "videomode_sys_clk",
+                "value_src": "user_prop"
+              }
+            }
+          },
+          "LOCKED_IN": {
+            "direction": "I"
+          },
+          "DCLK": {
+            "direction": "O"
+          },
+          "RST_MMCM": {
+            "direction": "O"
+          },
+          "LOCKED_OUT": {
+            "direction": "O"
+          }
+        }
+      },
+      "video_mode_0": {
+        "vlnv": "xilinx.com:module_ref:video_mode:1.0",
+        "xci_name": "videomode_video_mode_0_0",
+        "xci_path": "ip\\videomode_video_mode_0_0\\videomode_video_mode_0_0.xci",
+        "inst_hier_path": "video_mode_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "video_mode",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sen": {
+            "direction": "O"
+          },
+          "locked_out": {
+            "direction": "O"
+          },
+          "video_mode": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "rst_mmcm": {
+            "direction": "I"
+          },
+          "locked_in": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "videomode_sys_clk",
+                "value_src": "user_prop"
+              }
+            }
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "mmcme2_drp_0_mmcm_drp": {
+        "interface_ports": [
+          "mmcm_drp",
+          "mmcme2_drp_0/mmcm_drp"
+        ]
+      }
+    },
+    "nets": {
+      "clk_200_1": {
+        "ports": [
+          "clk_200",
+          "mmcme2_drp_0/SCLK",
+          "mmcme2_drp_0/LOCK_REG_CLK_IN",
+          "video_mode_0/clk"
+        ]
+      },
+      "locked_1": {
+        "ports": [
+          "locked",
+          "mmcme2_drp_0/LOCKED_IN",
+          "video_mode_0/locked_in"
+        ]
+      },
+      "mmcme2_drp_0_DCLK": {
+        "ports": [
+          "mmcme2_drp_0/DCLK",
+          "dclk"
+        ]
+      },
+      "mmcme2_drp_0_RST_MMCM": {
+        "ports": [
+          "mmcme2_drp_0/RST_MMCM",
+          "clock_reset",
+          "video_mode_0/rst_mmcm"
+        ]
+      },
+      "video_mode_0_locked": {
+        "ports": [
+          "video_mode_0/locked_out",
+          "video_mode_locked"
+        ]
+      },
+      "video_mode_0_sen": {
+        "ports": [
+          "video_mode_0/sen",
+          "mmcme2_drp_0/SEN"
+        ]
+      },
+      "video_mode_1": {
+        "ports": [
+          "video_mode",
+          "mmcme2_drp_0/SADDR",
+          "video_mode_0/video_mode"
+        ]
+      },
+      "xlconstant_low_dout": {
+        "ports": [
+          "xlconstant_low/dout",
+          "mmcme2_drp_0/RST"
+        ]
+      }
+    }
+  }
+}

@@ -56,13 +56,10 @@
 //  Output     Output      Phase    Duty Cycle   Pk-to-Pk     Phase
 //   Clock     Freq (MHz)  (degrees)    (%)     Jitter (ps)  Error (ps)
 //----------------------------------------------------------------------------
-// _clk_200__200.00000______0.000______50.0______130.488____122.577
-// _clk_140__140.00000______0.000______50.0______139.537____122.577
-// clk_28_n__28.00000____180.000______50.0______193.383____122.577
-// __clk_28__28.00000______0.000______50.0______193.383____122.577
-// __clk_14__14.00000______0.000______50.0______221.798____122.577
-// clk_12m28__12.28070______0.000______50.0______227.577____122.577
-// ___clk_7___7.00000______0.000______50.0______253.969____122.577
+// _clk_140__140.00000______0.000______50.0______272.789____310.955
+// __clk_28__28.00000______0.000______50.0______365.532____310.955
+// __clk_14__14.00000______0.000______50.0______410.498____310.955
+// ___clk_7___7.00000______0.000______50.0______459.723____310.955
 //
 //----------------------------------------------------------------------------
 // Input Clock   Freq (MHz)    Input Jitter (UI)
@@ -71,19 +68,25 @@
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "zxnexys_clk_wiz_0_0,clk_wiz_v6_0_9_0_0,{component_name=zxnexys_clk_wiz_0_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=7,clkin1_period=10.000,clkin2_period=10.000,use_power_down=false,use_reset=false,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "zxnexys_clk_wiz_0_0,clk_wiz_v6_0_9_0_0,{component_name=zxnexys_clk_wiz_0_0,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=true,enable_axi=0,feedback_source=FDBK_AUTO,PRIMITIVE=MMCM,num_out_clk=4,clkin1_period=10.000,clkin2_period=10.000,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,feedback_type=SINGLE,CLOCK_MGR_TYPE=NA,manual_override=false}" *)
 
 module zxnexys_clk_wiz_0_0 
  (
   // Clock out ports
-  output        clk_200,
   output        clk_140,
-  output        clk_28_n,
   output        clk_28,
   output        clk_14,
-  output        clk_12m28,
   output        clk_7,
+  // Dynamic reconfiguration ports
+  input   [6:0] daddr,
+  input         dclk,
+  input         den,
+  input  [15:0] din,
+  output [15:0] dout,
+  output        drdy,
+  input         dwe,
   // Status and control signals
+  input         reset,
   output        locked,
  // Clock in ports
   input         clk_in1
@@ -92,14 +95,20 @@ module zxnexys_clk_wiz_0_0
   zxnexys_clk_wiz_0_0_clk_wiz inst
   (
   // Clock out ports  
-  .clk_200(clk_200),
   .clk_140(clk_140),
-  .clk_28_n(clk_28_n),
   .clk_28(clk_28),
   .clk_14(clk_14),
-  .clk_12m28(clk_12m28),
   .clk_7(clk_7),
+  // Dynamic reconfiguration ports            
+  .daddr(daddr),
+  .dclk(dclk),
+  .den(den),
+  .din(din),
+  .dout(dout),
+  .drdy(drdy),
+  .dwe(dwe),
   // Status and control signals               
+  .reset(reset), 
   .locked(locked),
  // Clock in ports
   .clk_in1(clk_in1)

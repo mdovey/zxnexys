@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:audio_mono:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "audio_mono,Vivado 2021.2" *)
+(* X_CORE_INFO = "audio_mono,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "audio_audio_mono_0_0,audio_mono,{}" *)
-(* CORE_GENERATION_INFO = "audio_audio_mono_0_0,audio_mono,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=audio_mono,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,SHIFT=1}" *)
+(* CORE_GENERATION_INFO = "audio_audio_mono_0_0,audio_mono,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=audio_mono,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,SHIFT=1}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module audio_audio_mono_0_0 (

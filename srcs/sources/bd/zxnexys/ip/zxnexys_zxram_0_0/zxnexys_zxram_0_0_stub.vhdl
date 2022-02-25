@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:56:13 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:58:08 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxram_0_0/zxnexys_zxram_0_0_stub.vhdl
@@ -77,6 +77,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "axi_mig_araddr[26:0],axi_mig_arburst[1:0],axi_mig_arcache[3:0],axi_mig_arid[1:0],axi_mig_arlen[7:0],axi_mig_arlock[0:0],axi_mig_arprot[2:0],axi_mig_arqos[3:0],axi_mig_arready[0:0],axi_mig_arregion[3:0],axi_mig_arsize[2:0],axi_mig_arvalid[0:0],axi_mig_awaddr[26:0],axi_mig_awburst[1:0],axi_mig_awcache[3:0],axi_mig_awid[1:0],axi_mig_awlen[7:0],axi_mig_awlock[0:0],axi_mig_awprot[2:0],axi_mig_awqos[3:0],axi_mig_awready[0:0],axi_mig_awregion[3:0],axi_mig_awsize[2:0],axi_mig_awvalid[0:0],axi_mig_bid[1:0],axi_mig_bready[0:0],axi_mig_bresp[1:0],axi_mig_bvalid[0:0],axi_mig_rdata[63:0],axi_mig_rid[1:0],axi_mig_rlast[0:0],axi_mig_rready[0:0],axi_mig_rresp[1:0],axi_mig_rvalid[0:0],axi_mig_wdata[63:0],axi_mig_wlast[0:0],axi_mig_wready[0:0],axi_mig_wstrb[7:0],axi_mig_wvalid[0:0],clk_memory,clk_peripheral_n,clk_ui,cpu_wait_n,data_a_o[7:0],data_b_o[7:0],memory_aresetn,ram_a_addr[20:0],ram_a_data[7:0],ram_a_rd_n,ram_a_req,ram_b_addr[20:0],ram_b_req_t,reset_ui";
 attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "ram_wrapper,Vivado 2021.2";
+attribute X_CORE_INFO of stub : architecture is "ram_wrapper,Vivado 2021.2.1";
 begin
 end;

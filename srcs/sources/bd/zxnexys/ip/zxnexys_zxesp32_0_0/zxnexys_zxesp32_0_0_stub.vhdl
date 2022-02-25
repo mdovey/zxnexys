@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:51:25 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:43:55 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0_stub.vhdl
@@ -42,6 +42,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "uart_tx_i,uart_rx_i,gpio_in[2:0],gpio_out,gpio_enable,uart_tx_o,uart_rx_o,gpio0_i,gpio0_o,gpio0_t,gpio1_i,gpio1_o,gpio1_t,gpio2_i,gpio2_o,gpio2_t,clk_peripheral,reset";
 attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "esp32,Vivado 2021.2";
+attribute X_CORE_INFO of stub : architecture is "esp32,Vivado 2021.2.1";
 begin
 end;

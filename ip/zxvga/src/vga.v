@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Fri Dec 24 14:34:13 2021
+//Date        : Wed Jan  5 08:30:35 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target vga.bd
 //Design      : vga
@@ -16,7 +16,7 @@ module vga
     csync_n,
     hsync_n,
     machine_timing,
-    reset,
+    resetn,
     rgb,
     scandouble,
     scanlines,
@@ -31,7 +31,7 @@ module vga
   input csync_n;
   input hsync_n;
   input [2:0]machine_timing;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetn;
   input [8:0]rgb;
   input scandouble;
   input [1:0]scanlines;
@@ -48,7 +48,7 @@ module vga
   wire [10:0]front_porch_0_ha_value;
   wire hsync_n_1;
   wire [2:0]machine_timing_1;
-  wire reset_1;
+  wire resetn_1;
   wire [8:0]rgb_1;
   wire s_fix_0_sync_out;
   wire s_fix_1_sync_out;
@@ -70,7 +70,7 @@ module vga
   assign csync_n_1 = csync_n;
   assign hsync_n_1 = hsync_n;
   assign machine_timing_1 = machine_timing[2:0];
-  assign reset_1 = reset;
+  assign resetn_1 = resetn;
   assign rgb_1 = rgb[8:0];
   assign scandouble_1 = scandouble;
   assign scanlines_1 = scanlines[1:0];
@@ -112,7 +112,7 @@ module vga
         .h_sync(scandoubler_0_h_sync),
         .hsync(scan_convert_0_O_HSYNC),
         .r(scandoubler_0_r),
-        .reset(reset_1),
+        .resetn(resetn_1),
         .scandouble(scandouble_1),
         .v_sync(scandoubler_0_v_sync),
         .video_15(scan_convert_0_O_VIDEO_15),

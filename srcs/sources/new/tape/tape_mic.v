@@ -24,13 +24,13 @@
 
 module tape_mic #(
     parameter   AUDIO_DW    =   16,
-    parameter   VOLUME      =   16'b0010_0000_0000_0000
+    parameter   VOLUME      =   16'h20_00
 )(
     input                        din,
 
     output      [AUDIO_DW-1:0]   dout
 );
 
-    assign dout  = din ? VOLUME : {AUDIO_DW{1'b0}} - VOLUME ;
+    assign dout  = din ? VOLUME : {AUDIO_DW{1'b0}};
 
 endmodule

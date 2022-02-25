@@ -50,7 +50,7 @@
 // IP VLNV: specnext.com:specnext:zxkeyboard:2.4
 // IP Revision: 17
 
-(* X_CORE_INFO = "keyboard_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "keyboard_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxkeyboard_0_0,keyboard_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

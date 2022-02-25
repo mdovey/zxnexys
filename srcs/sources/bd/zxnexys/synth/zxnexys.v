@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Sat Jan  1 02:44:55 2022
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Fri Feb 25 10:33:30 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target zxnexys.bd
 //Design      : zxnexys
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "zxnexys,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=zxnexys,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=23,numNonXlnxBlks=21,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "zxnexys.hwdef" *) 
+(* CORE_GENERATION_INFO = "zxnexys,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=zxnexys,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=28,numReposBlks=28,numNonXlnxBlks=22,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=2,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "zxnexys.hwdef" *) 
 module zxnexys
    (AN,
     AUD_PWM,
@@ -345,10 +345,10 @@ module zxnexys
   output SD_RESET;
   output SD_SCK;
   input [15:0]SW;
-  output UART_CTS;
-  input UART_RTS;
-  output UART_RXD_OUT;
-  input UART_TXD_IN;
+  input UART_CTS;
+  output UART_RTS;
+  input UART_RXD_OUT;
+  output UART_TXD_IN;
   output [3:0]VGA_B;
   output [3:0]VGA_G;
   output VGA_HS;
@@ -376,21 +376,24 @@ module zxnexys
   wire SD_CD_1;
   wire SD_DAT0_1;
   wire [15:0]SW_1;
-  wire UART_RTS_1;
+  wire UART_CTS_1;
   wire UART_TXD_IN_1;
   wire btnc_0_1;
   wire btnd_0_1;
   wire btnl_0_1;
   wire btnr_0_1;
   wire btnu_0_1;
-  wire clk_wiz_0_clk_12m28;
   wire clk_wiz_0_clk_14;
   wire clk_wiz_0_clk_140;
-  wire clk_wiz_0_clk_200;
   wire clk_wiz_0_clk_28;
-  wire clk_wiz_0_clk_28_n;
   wire clk_wiz_0_clk_7;
-  wire clk_wiz_0_locked;
+  wire clk_wiz_1_clk_200;
+  wire clk_wiz_1_locked;
+  wire clk_wiz_audio_clk_22m59;
+  wire clk_wiz_next_locked;
+  wire clk_wiz_system_clk_50;
+  wire clk_wiz_system_locked;
+  wire clock_locks_0_hard_resetn;
   wire [12:0]mig_7series_0_DDR2_ADDR;
   wire [2:0]mig_7series_0_DDR2_BA;
   wire mig_7series_0_DDR2_CAS_N;
@@ -534,8 +537,8 @@ module zxnexys
   wire pmod_xsd_0_pmod_xsd_PIN9_T;
   wire pmod_xsd_0_sd_cd;
   wire pmod_xsd_0_sd_dat0;
-  wire pmod_xsd_0_sd_wp;
   wire sys_clock_1;
+  wire zxaudio_0_aud_pwm;
   wire zxaudio_0_linein_lrck;
   wire zxaudio_0_linein_mclk;
   wire zxaudio_0_linein_sclk;
@@ -543,13 +546,10 @@ module zxnexys
   wire zxaudio_0_lineout_mclk;
   wire zxaudio_0_lineout_sclk;
   wire zxaudio_0_lineout_sdout;
-  wire zxaudio_0_tape_pwm;
   wire zxaudio_0_tape_sd;
-  wire zxclock_0_clk_audio;
   wire zxclock_0_clk_memory;
   wire zxclock_0_clk_peripheral;
   wire zxclock_0_clk_peripheral_n;
-  wire zxclock_0_clk_system;
   wire zxclock_0_clk_video;
   wire zxclock_0_mb_clock_clk_14;
   wire zxclock_0_mb_clock_clk_28;
@@ -637,14 +637,14 @@ module zxnexys
   wire zxnext_0_tape_tape_ear;
   wire zxnext_0_tape_tape_mic;
   wire zxnext_0_video_csync_n;
+  wire zxnext_0_video_freq_50_60;
   wire zxnext_0_video_hsync_n;
   wire [2:0]zxnext_0_video_machine_timing;
   wire [8:0]zxnext_0_video_rgb;
   wire zxnext_0_video_scandouble;
   wire [1:0]zxnext_0_video_scanlines;
+  wire [2:0]zxnext_0_video_video_mode;
   wire zxnext_0_video_vsync_n;
-  wire [7:0]zxnexys_ledsegment_0_an;
-  wire [7:0]zxnexys_ledsegment_0_ca;
   wire zxnexys_mic_0_i2s_dout;
   wire zxnexys_mic_0_i2s_sclk;
   wire zxnexys_mic_0_i2s_wclk;
@@ -652,14 +652,17 @@ module zxnexys
   wire zxnexys_mic_0_m_lrsel;
   wire zxnexys_pi_led_sw_ua_0_i2s_din;
   wire [15:0]zxnexys_pi_led_sw_ua_0_led;
-  wire zxnexys_pi_led_sw_ua_0_led16_b;
-  wire zxnexys_pi_led_sw_ua_0_led16_g;
-  wire zxnexys_pi_led_sw_ua_0_led16_r;
-  wire zxnexys_pi_led_sw_ua_0_led17_b;
-  wire zxnexys_pi_led_sw_ua_0_led17_g;
-  wire zxnexys_pi_led_sw_ua_0_led17_r;
-  wire zxnexys_pi_led_sw_ua_0_uart_cts;
-  wire zxnexys_pi_led_sw_ua_0_uart_rx;
+  wire [1:0]zxnexys_pi_led_sw_ua_0_opt;
+  wire zxnexys_pi_led_sw_ua_0_uart_rts;
+  wire zxnexys_pi_led_sw_ua_0_uart_tx;
+  wire [7:0]zxnexys_status_0_an;
+  wire [7:0]zxnexys_status_0_ca;
+  wire zxnexys_status_0_led16_b;
+  wire zxnexys_status_0_led16_g;
+  wire zxnexys_status_0_led16_r;
+  wire zxnexys_status_0_led17_b;
+  wire zxnexys_status_0_led17_g;
+  wire zxnexys_status_0_led17_r;
   wire [26:0]zxram_0_axi_mig_ARADDR;
   wire [1:0]zxram_0_axi_mig_ARBURST;
   wire [3:0]zxram_0_axi_mig_ARCACHE;
@@ -701,8 +704,7 @@ module zxnexys
   wire zxreset_0_mb_reset_reset_hard_req;
   wire zxreset_0_mb_reset_reset_peripheral_req;
   wire zxreset_0_mb_reset_reset_soft_req;
-  wire zxreset_0_memory_aresetn;
-  wire zxreset_0_video_reset;
+  wire zxreset_0_mb_resetn;
   wire zxrtc_0_iic_rtcc_SCL_I;
   wire zxrtc_0_iic_rtcc_SCL_O;
   wire zxrtc_0_iic_rtcc_SCL_T;
@@ -728,11 +730,20 @@ module zxnexys
   wire zxvga_0_vga_hs;
   wire [3:0]zxvga_0_vga_r;
   wire zxvga_0_vga_vs;
+  wire zxvideomode_0_clock_reset;
+  wire zxvideomode_0_dclk;
+  wire [6:0]zxvideomode_0_mmcm_drp_DADDR;
+  wire zxvideomode_0_mmcm_drp_DEN;
+  wire [15:0]zxvideomode_0_mmcm_drp_DI;
+  wire [15:0]zxvideomode_0_mmcm_drp_DO;
+  wire zxvideomode_0_mmcm_drp_DRDY;
+  wire zxvideomode_0_mmcm_drp_DWE;
+  wire zxvideomode_0_video_mode_locked;
 
-  assign AN[7:0] = zxnexys_ledsegment_0_an;
-  assign AUD_PWM = zxaudio_0_tape_pwm;
+  assign AN[7:0] = zxnexys_status_0_an;
+  assign AUD_PWM = zxaudio_0_aud_pwm;
   assign AUD_SD = zxaudio_0_tape_sd;
-  assign CA[7:0] = zxnexys_ledsegment_0_ca;
+  assign CA[7:0] = zxnexys_status_0_ca;
   assign CPU_RESETN_1 = CPU_RESETN;
   assign JA_pin10_o = pmod_xsd_0_pmod_xsd_PIN10_O;
   assign JA_pin10_t = pmod_xsd_0_pmod_xsd_PIN10_T;
@@ -815,12 +826,12 @@ module zxnexys
   assign JXADC_pin9_o = pmod_ps2_jstk2_0_pmod_ps2_jstk2_PIN9_O;
   assign JXADC_pin9_t = pmod_ps2_jstk2_0_pmod_ps2_jstk2_PIN9_T;
   assign LED[15:0] = zxnexys_pi_led_sw_ua_0_led;
-  assign LED16_B = zxnexys_pi_led_sw_ua_0_led16_b;
-  assign LED16_G = zxnexys_pi_led_sw_ua_0_led16_g;
-  assign LED16_R = zxnexys_pi_led_sw_ua_0_led16_r;
-  assign LED17_B = zxnexys_pi_led_sw_ua_0_led17_b;
-  assign LED17_G = zxnexys_pi_led_sw_ua_0_led17_g;
-  assign LED17_R = zxnexys_pi_led_sw_ua_0_led17_r;
+  assign LED16_B = zxnexys_status_0_led16_b;
+  assign LED16_G = zxnexys_status_0_led16_g;
+  assign LED16_R = zxnexys_status_0_led16_r;
+  assign LED17_B = zxnexys_status_0_led17_b;
+  assign LED17_G = zxnexys_status_0_led17_g;
+  assign LED17_R = zxnexys_status_0_led17_r;
   assign M_CLK = zxnexys_mic_0_m_clk;
   assign M_DATA_1 = M_DATA;
   assign M_LRSEL = zxnexys_mic_0_m_lrsel;
@@ -837,10 +848,10 @@ module zxnexys
   assign SD_RESET = zxsdcard_0_sd_reset_n;
   assign SD_SCK = zxsdcard_0_sd_sck;
   assign SW_1 = SW[15:0];
-  assign UART_CTS = zxnexys_pi_led_sw_ua_0_uart_cts;
-  assign UART_RTS_1 = UART_RTS;
-  assign UART_RXD_OUT = zxnexys_pi_led_sw_ua_0_uart_rx;
-  assign UART_TXD_IN_1 = UART_TXD_IN;
+  assign UART_CTS_1 = UART_CTS;
+  assign UART_RTS = zxnexys_pi_led_sw_ua_0_uart_rts;
+  assign UART_TXD_IN = zxnexys_pi_led_sw_ua_0_uart_tx;
+  assign UART_TXD_IN_1 = UART_RXD_OUT;
   assign VGA_B[3:0] = zxvga_0_vga_b;
   assign VGA_G[3:0] = zxvga_0_vga_g;
   assign VGA_HS = zxvga_0_vga_hs;
@@ -905,18 +916,36 @@ module zxnexys
   assign sys_clock_1 = sys_clock;
   assign zxkeyboard_0_ps2_clk_TRI_I = PS2_CLK_tri_i;
   assign zxkeyboard_0_ps2_data_TRI_I = PS2_DATA_tri_i;
-  zxnexys_clk_wiz_0_0 clk_wiz_0
-       (.clk_12m28(clk_wiz_0_clk_12m28),
-        .clk_14(clk_wiz_0_clk_14),
+  zxnexys_clk_wiz_2_0 clk_wiz_audio
+       (.clk_22m59(clk_wiz_audio_clk_22m59),
+        .clk_in1(clk_wiz_system_clk_50));
+  zxnexys_clk_wiz_0_0 clk_wiz_next
+       (.clk_14(clk_wiz_0_clk_14),
         .clk_140(clk_wiz_0_clk_140),
-        .clk_200(clk_wiz_0_clk_200),
         .clk_28(clk_wiz_0_clk_28),
-        .clk_28_n(clk_wiz_0_clk_28_n),
         .clk_7(clk_wiz_0_clk_7),
+        .clk_in1(clk_wiz_system_clk_50),
+        .daddr(zxvideomode_0_mmcm_drp_DADDR),
+        .dclk(zxvideomode_0_dclk),
+        .den(zxvideomode_0_mmcm_drp_DEN),
+        .din(zxvideomode_0_mmcm_drp_DI),
+        .dout(zxvideomode_0_mmcm_drp_DO),
+        .drdy(zxvideomode_0_mmcm_drp_DRDY),
+        .dwe(zxvideomode_0_mmcm_drp_DWE),
+        .locked(clk_wiz_next_locked),
+        .reset(zxvideomode_0_clock_reset));
+  zxnexys_clk_wiz_1_0 clk_wiz_system
+       (.clk_100(clk_wiz_system_clk_50),
+        .clk_200(clk_wiz_1_clk_200),
         .clk_in1(sys_clock_1),
-        .locked(clk_wiz_0_locked));
+        .locked(clk_wiz_system_locked));
+  zxnexys_clock_locks_0_0 clock_locks_0
+       (.hard_resetn(clock_locks_0_hard_resetn),
+        .mig_init_callib_complete(mig_7series_0_init_calib_complete),
+        .mig_mmcm_locked(mig_7series_0_mmcm_locked),
+        .video_mode_locked(zxvideomode_0_video_mode_locked));
   zxnexys_mig_7series_0_0 mig_7series_0
-       (.aresetn(zxreset_0_memory_aresetn),
+       (.aresetn(clk_wiz_1_locked),
         .ddr2_addr(mig_7series_0_DDR2_ADDR),
         .ddr2_ba(mig_7series_0_DDR2_BA),
         .ddr2_cas_n(mig_7series_0_DDR2_CAS_N),
@@ -970,10 +999,15 @@ module zxnexys
         .s_axi_wready(zxram_0_axi_mig_WREADY),
         .s_axi_wstrb(zxram_0_axi_mig_WSTRB),
         .s_axi_wvalid(zxram_0_axi_mig_WVALID),
-        .sys_clk_i(zxclock_0_clk_system),
-        .sys_rst(zxreset_0_memory_aresetn),
+        .sys_clk_i(clk_wiz_1_clk_200),
+        .sys_rst(clk_wiz_1_locked),
         .ui_clk(mig_7series_0_ui_clk),
         .ui_clk_sync_rst(mig_7series_0_ui_clk_sync_rst));
+  zxnexys_mig_reset_0_0 mig_reset_0
+       (.clk_200(clk_wiz_1_clk_200),
+        .clk_locked(clk_wiz_system_locked),
+        .clk_reset(zxvideomode_0_clock_reset),
+        .mig_resetn(clk_wiz_1_locked));
   zxnexys_pmod_esp32_0_0 pmod_esp32_0
        (.gpio0_i(zxesp32_0_gpio0_TRI_I),
         .gpio0_o(zxesp32_0_gpio0_TRI_O),
@@ -1140,14 +1174,13 @@ module zxnexys
         .sd_dat1(zxsdcard_1_sd_dat1),
         .sd_dat2(zxsdcard_1_sd_dat2),
         .sd_dat3(zxsdcard_1_sd_dat3),
-        .sd_sck(zxsdcard_1_sd_sck),
-        .sd_wp(pmod_xsd_0_sd_wp));
+        .sd_sck(zxsdcard_1_sd_sck));
   zxnexys_zxaudio_0_0 zxaudio_0
-       (.aud_pwm(zxaudio_0_tape_pwm),
+       (.aud_pwm(zxaudio_0_aud_pwm),
         .aud_sd(zxaudio_0_tape_sd),
         .audio_left(zxnext_0_audio_left),
         .audio_right(zxnext_0_audio_right),
-        .clk_audio(zxclock_0_clk_audio),
+        .clk_22m59(clk_wiz_audio_clk_22m59),
         .clk_peripheral(zxclock_0_clk_peripheral),
         .linein_lrck(zxaudio_0_linein_lrck),
         .linein_mclk(zxaudio_0_linein_mclk),
@@ -1162,19 +1195,14 @@ module zxnexys
         .tape_ear(zxnext_0_tape_tape_ear),
         .tape_mic(zxnext_0_tape_tape_mic));
   zxnexys_zxclock_0_0 zxclock_0
-       (.clk_12m28(clk_wiz_0_clk_12m28),
-        .clk_14(clk_wiz_0_clk_14),
+       (.clk_14(clk_wiz_0_clk_14),
         .clk_140(clk_wiz_0_clk_140),
-        .clk_200(clk_wiz_0_clk_200),
         .clk_28(clk_wiz_0_clk_28),
-        .clk_28_n(clk_wiz_0_clk_28_n),
         .clk_7(clk_wiz_0_clk_7),
-        .clk_audio(zxclock_0_clk_audio),
         .clk_cpu(zxclock_0_mb_clock_cpu_clk),
         .clk_memory(zxclock_0_clk_memory),
         .clk_peripheral(zxclock_0_clk_peripheral),
         .clk_peripheral_n(zxclock_0_clk_peripheral_n),
-        .clk_system(zxclock_0_clk_system),
         .clk_video(zxclock_0_clk_video),
         .cpu_clk_lsb(zxclock_0_mb_clock_clk_lsb),
         .cpu_contend(zxclock_0_mb_clock_contend),
@@ -1334,28 +1362,12 @@ module zxnexys
         .o_SPI_SS_SD0_n(zxnext_0_sdcard0_enable_enable_n),
         .o_SPI_SS_SD1_n(zxnext_0_sdcard1_enable_enable_n),
         .o_UART0_TX(zxnext_0_esp32_uart_tx),
+        .o_VIDEO_50_60(zxnext_0_video_freq_50_60),
+        .o_VIDEO_MODE(zxnext_0_video_video_mode),
         .o_VIDEO_SCANDOUBLE(zxnext_0_video_scandouble),
         .o_VIDEO_SCANLINES(zxnext_0_video_scanlines));
-  zxnexys_zxnexys_ledsegment_0_0 zxnexys_ledsegment_0
-       (.address(zxnext_0_ram_port_a_ram_addr),
-        .an(zxnexys_ledsegment_0_an),
-        .ca(zxnexys_ledsegment_0_ca),
-        .clk_peripheral(zxclock_0_clk_peripheral),
-        .cpu_clk(zxclock_0_mb_clock_cpu_clk),
-        .cpu_speed(zxclock_0_mb_clock_speed),
-        .cpu_wait_n(zxnext_0_ram_port_a_wait_n),
-        .led16_b(zxnexys_pi_led_sw_ua_0_led16_b),
-        .led16_g(zxnexys_pi_led_sw_ua_0_led16_g),
-        .led16_r(zxnexys_pi_led_sw_ua_0_led16_r),
-        .led17_b(zxnexys_pi_led_sw_ua_0_led17_b),
-        .led17_g(zxnexys_pi_led_sw_ua_0_led17_g),
-        .led17_r(zxnexys_pi_led_sw_ua_0_led17_r),
-        .machine_timing(zxnext_0_video_machine_timing),
-        .memory_resetn(zxreset_0_memory_aresetn),
-        .peripheral_reset(Net),
-        .video_reset(zxreset_0_video_reset));
   zxnexys_zxnexys_mic_0_0 zxnexys_mic_0
-       (.clk_audio(zxclock_0_clk_audio),
+       (.clk_12m288(clk_wiz_audio_clk_22m59),
         .i2s_din(zxnexys_pi_led_sw_ua_0_i2s_din),
         .i2s_dout(zxnexys_mic_0_i2s_dout),
         .i2s_sclk(zxnexys_mic_0_i2s_sclk),
@@ -1374,12 +1386,35 @@ module zxnexys
         .i2s_sclk(zxnexys_mic_0_i2s_sclk),
         .i2s_wclk(zxnexys_mic_0_i2s_wclk),
         .led(zxnexys_pi_led_sw_ua_0_led),
+        .opt(zxnexys_pi_led_sw_ua_0_opt),
         .reset(Net),
         .sw(SW_1),
-        .uart_cts(zxnexys_pi_led_sw_ua_0_uart_cts),
-        .uart_rts(UART_RTS_1),
-        .uart_rx(zxnexys_pi_led_sw_ua_0_uart_rx),
-        .uart_tx(UART_TXD_IN_1));
+        .uart_cts(UART_CTS_1),
+        .uart_rts(zxnexys_pi_led_sw_ua_0_uart_rts),
+        .uart_rx(UART_TXD_IN_1),
+        .uart_tx(zxnexys_pi_led_sw_ua_0_uart_tx));
+  zxnexys_zxnexys_status_0_0 zxnexys_status_0
+       (.address(zxnext_0_ram_port_a_ram_addr),
+        .an(zxnexys_status_0_an),
+        .ca(zxnexys_status_0_ca),
+        .clk_200(clk_wiz_1_clk_200),
+        .cpu_clk(zxclock_0_mb_clock_cpu_clk),
+        .cpu_contend(zxclock_0_mb_clock_contend),
+        .cpu_speed(zxclock_0_mb_clock_speed),
+        .cpu_wait_n(zxnext_0_ram_port_a_wait_n),
+        .freq_50_60(zxnext_0_video_freq_50_60),
+        .led16_b(zxnexys_status_0_led16_b),
+        .led16_g(zxnexys_status_0_led16_g),
+        .led16_r(zxnexys_status_0_led16_r),
+        .led17_b(zxnexys_status_0_led17_b),
+        .led17_g(zxnexys_status_0_led17_g),
+        .led17_r(zxnexys_status_0_led17_r),
+        .mb_reset(zxreset_0_mb_reset_mb_reset),
+        .mig_resetn(clk_wiz_1_locked),
+        .peripheral_reset(Net),
+        .pi_accel_opt(zxnexys_pi_led_sw_ua_0_opt),
+        .scandouble(zxnext_0_video_scandouble),
+        .video_mode(zxnext_0_video_video_mode));
   zxnexys_zxram_0_0 zxram_0
        (.axi_mig_araddr(zxram_0_axi_mig_ARADDR),
         .axi_mig_arburst(zxram_0_axi_mig_ARBURST),
@@ -1424,7 +1459,7 @@ module zxnexys
         .cpu_wait_n(zxnext_0_ram_port_a_wait_n),
         .data_a_o(zxnext_0_ram_port_a_ram_di),
         .data_b_o(zxnext_0_ram_port_b_ram_di),
-        .memory_aresetn(zxreset_0_memory_aresetn),
+        .memory_aresetn(zxreset_0_mb_resetn),
         .ram_a_addr(zxnext_0_ram_port_a_ram_addr),
         .ram_a_data(zxnext_0_ram_port_a_ram_do),
         .ram_a_rd_n(zxnext_0_ram_port_a_ram_rd_n),
@@ -1433,19 +1468,16 @@ module zxnexys
         .ram_b_req_t(zxnext_0_ram_port_b_ram_req),
         .reset_ui(mig_7series_0_ui_clk_sync_rst));
   zxnexys_zxreset_0_0 zxreset_0
-       (.clk_locked(clk_wiz_0_locked),
-        .clk_peripheral(zxclock_0_clk_peripheral),
+       (.clk_peripheral(zxclock_0_clk_peripheral),
         .clk_ui(mig_7series_0_ui_clk),
-        .cpu_resetn(CPU_RESETN_1),
+        .hard_resetn(clock_locks_0_hard_resetn),
         .mb_reset(zxreset_0_mb_reset_mb_reset),
-        .memory_aresetn(zxreset_0_memory_aresetn),
-        .memory_calibrated(mig_7series_0_init_calib_complete),
+        .mb_resetn(zxreset_0_mb_resetn),
         .peripheral_reset(Net),
         .reset_hard(zxreset_0_mb_reset_reset_hard_req),
         .reset_peripheral(zxreset_0_mb_reset_reset_peripheral_req),
         .reset_soft(zxreset_0_mb_reset_reset_soft_req),
-        .ui_clk_locked(mig_7series_0_mmcm_locked),
-        .video_reset(zxreset_0_video_reset));
+        .soft_resetn(CPU_RESETN_1));
   zxnexys_zxrtc_0_0 zxrtc_0
        (.clk_peripheral(zxclock_0_clk_peripheral),
         .iic_rtcc_scl_i(zxrtc_0_iic_rtcc_SCL_I),
@@ -1490,15 +1522,14 @@ module zxnexys
         .sd_dat1(zxsdcard_1_sd_dat1),
         .sd_dat2(zxsdcard_1_sd_dat2),
         .sd_dat3(zxsdcard_1_sd_dat3),
-        .sd_sck(zxsdcard_1_sd_sck),
-        .sd_wp(pmod_xsd_0_sd_wp));
+        .sd_sck(zxsdcard_1_sd_sck));
   zxnexys_zxvga_0_0 zxvga_0
        (.clk_peripheral(zxclock_0_clk_peripheral),
         .clk_video(zxclock_0_clk_video),
         .csync_n(zxnext_0_video_csync_n),
         .hsync_n(zxnext_0_video_hsync_n),
         .machine_timing(zxnext_0_video_machine_timing),
-        .reset(zxreset_0_video_reset),
+        .resetn(zxreset_0_mb_resetn),
         .rgb(zxnext_0_video_rgb),
         .scandouble(zxnext_0_video_scandouble),
         .scanlines(zxnext_0_video_scanlines),
@@ -1508,4 +1539,17 @@ module zxnexys
         .vga_r(zxvga_0_vga_r),
         .vga_vs(zxvga_0_vga_vs),
         .vsync_n(zxnext_0_video_vsync_n));
+  zxnexys_zxvideomode_0_0 zxvideomode_0
+       (.clk_200(clk_wiz_1_clk_200),
+        .clock_reset(zxvideomode_0_clock_reset),
+        .dclk(zxvideomode_0_dclk),
+        .locked(clk_wiz_next_locked),
+        .mmcm_drp_daddr(zxvideomode_0_mmcm_drp_DADDR),
+        .mmcm_drp_den(zxvideomode_0_mmcm_drp_DEN),
+        .mmcm_drp_di(zxvideomode_0_mmcm_drp_DI),
+        .mmcm_drp_do(zxvideomode_0_mmcm_drp_DO),
+        .mmcm_drp_drdy(zxvideomode_0_mmcm_drp_DRDY),
+        .mmcm_drp_dwe(zxvideomode_0_mmcm_drp_DWE),
+        .video_mode(zxnext_0_video_video_mode),
+        .video_mode_locked(zxvideomode_0_video_mode_locked));
 endmodule

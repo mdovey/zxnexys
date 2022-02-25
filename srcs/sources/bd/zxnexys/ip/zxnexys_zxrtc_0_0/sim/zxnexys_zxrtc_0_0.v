@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxrtc:1.3
-// IP Revision: 6
+// IP Revision: 7
 
 `timescale 1ns/1ps
 

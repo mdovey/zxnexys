@@ -48,14 +48,14 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_mic:1.3
-// IP Revision: 6
+// IP Revision: 8
 
-(* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_mic_0_0,mic_i2s_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module zxnexys_zxnexys_mic_0_0 (
-  clk_audio,
+  clk_12m288,
   i2s_din,
   i2s_dout,
   i2s_sclk,
@@ -66,9 +66,9 @@ module zxnexys_zxnexys_mic_0_0 (
   reset
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
-input wire clk_audio;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_12m288, ASSOCIATED_ASYNC_RESET reset, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_12m288 CLK" *)
+input wire clk_12m288;
 input wire i2s_din;
 output wire i2s_dout;
 output wire i2s_sclk;
@@ -83,7 +83,7 @@ output wire m_lrsel;
 input wire reset;
 
   mic_i2s_wrapper inst (
-    .clk_audio(clk_audio),
+    .clk_12m288(clk_12m288),
     .i2s_din(i2s_din),
     .i2s_dout(i2s_dout),
     .i2s_sclk(i2s_sclk),

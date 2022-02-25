@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,29 +50,47 @@
 // IP VLNV: xilinx.com:module_ref:tape_ear:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "tape_ear,Vivado 2021.2" *)
+(* X_CORE_INFO = "tape_ear,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "audio_tape_ear_0_0,tape_ear,{}" *)
-(* CORE_GENERATION_INFO = "audio_tape_ear_0_0,tape_ear,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tape_ear,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,SCHMITT_NOISE_THRESHOLD=0x00FF}" *)
+(* CORE_GENERATION_INFO = "audio_tape_ear_0_0,tape_ear,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tape_ear,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=32,AUDIO_BITRATE=24,SCHMITT_THRESHOLD=0x00020000}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module audio_tape_ear_0_0 (
   din,
+  valid,
+  last,
   ear,
+  ready,
+  lrck,
+  reset,
   clk
 );
 
-input wire [15 : 0] din;
+input wire [31 : 0] din;
+input wire valid;
+input wire last;
 output wire ear;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 12280700, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN audio_clk_audio, INSERT_VIP 0" *)
+output wire ready;
+input wire lrck;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
+input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET reset, FREQ_HZ 22590010, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN audio_clk_12m288, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 
   tape_ear #(
-    .AUDIO_DW(16),
-    .SCHMITT_NOISE_THRESHOLD(16'H00FF)
+    .AUDIO_DW(32),
+    .AUDIO_BITRATE(24),
+    .SCHMITT_THRESHOLD(32'H00020000)
   ) inst (
     .din(din),
+    .valid(valid),
+    .last(last),
     .ear(ear),
+    .ready(ready),
+    .lrck(lrck),
+    .reset(reset),
     .clk(clk)
   );
 endmodule

@@ -48,9 +48,9 @@
 
 
 // IP VLNV: specnext.com:specnext:zxvga:2.3
-// IP Revision: 6
+// IP Revision: 10
 
-(* X_CORE_INFO = "vga_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "vga_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxvga_0_0,vga_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -60,7 +60,7 @@ module zxnexys_zxvga_0_0 (
   csync_n,
   hsync_n,
   machine_timing,
-  reset,
+  resetn,
   rgb,
   scandouble,
   scanlines,
@@ -84,9 +84,9 @@ input wire csync_n;
 input wire hsync_n;
 (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *)
 input wire [2 : 0] machine_timing;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video rgb" *)
 input wire [8 : 0] rgb;
 (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *)
@@ -107,7 +107,7 @@ input wire vsync_n;
     .csync_n(csync_n),
     .hsync_n(hsync_n),
     .machine_timing(machine_timing),
-    .reset(reset),
+    .resetn(resetn),
     .rgb(rgb),
     .scandouble(scandouble),
     .scanlines(scanlines),

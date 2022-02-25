@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 25 10:23:57 2022" VIVADOVERSION="2021.2.1">
+
+  <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="status" PACKAGE="csg324" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="cpu_contend" SIGIS="undef" SIGNAME="External_Ports_cpu_contend">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="cpu_contend"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="cpu_wait_n" SIGIS="undef" SIGNAME="External_Ports_cpu_wait_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="cpu_wait_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="cpu_clk" SIGIS="undef" SIGNAME="External_Ports_cpu_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="cpu_clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_peripheral_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="peripheral_reset"/>
+        <CONNECTION INSTANCE="status_display_0" PORT="peripheral_reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="freq_50_60" SIGIS="undef" SIGNAME="External_Ports_freq_50_60">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="freq_50_60"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="scandouble" SIGIS="undef" SIGNAME="External_Ports_scandouble">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="scandouble"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="2" NAME="video_mode" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_video_mode">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="video_mode"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="20" NAME="address" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_address">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="address"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="1" NAME="cpu_speed" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_cpu_speed">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="cpu_speed"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="an" RIGHT="0" SIGIS="undef" SIGNAME="led_segment_0_an">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="led_segment_0" PORT="an"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="ca" RIGHT="0" SIGIS="undef" SIGNAME="led_segment_0_ca">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="led_segment_0" PORT="ca"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led16_r" SIGIS="undef" SIGNAME="rgb_led_16_led_r">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rgb_led_16" PORT="led_r"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led16_g" SIGIS="undef" SIGNAME="rgb_led_16_led_g">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rgb_led_16" PORT="led_g"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led16_b" SIGIS="undef" SIGNAME="rgb_led_16_led_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rgb_led_16" PORT="led_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led17_r" SIGIS="undef" SIGNAME="rgb_led_17_led_r">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rgb_led_17" PORT="led_r"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led17_g" SIGIS="undef" SIGNAME="rgb_led_17_led_g">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rgb_led_17" PORT="led_g"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led17_b" SIGIS="undef" SIGNAME="rgb_led_17_led_b">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rgb_led_17" PORT="led_b"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_mb_reset">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="mb_reset"/>
+        <CONNECTION INSTANCE="status_display_0" PORT="mb_reset"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk_200" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="clk"/>
+        <CONNECTION INSTANCE="led_segment_0" PORT="clk"/>
+        <CONNECTION INSTANCE="rgb_led_16" PORT="clk"/>
+        <CONNECTION INSTANCE="rgb_led_17" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="mig_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_mig_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_display_0" PORT="mig_resetn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="1" NAME="pi_accel_opt" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pi_accel_opt">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_enables_0" PORT="opt"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/led_segment_0" HWVERSION="1.0" INSTANCE="led_segment_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="led_segment" VLNV="xilinx.com:module_ref:led_segment:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIV" VALUE="15"/>
+        <PARAMETER NAME="Component_Name" VALUE="status_led_segment_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="5" NAME="display0" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display1" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display2" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display3" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display4" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display5" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display6" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="display7" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_display_0" PORT="display7"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="an" RIGHT="0" SIGIS="undef" SIGNAME="led_segment_0_an">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="an"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="ca" RIGHT="0" SIGIS="undef" SIGNAME="led_segment_0_ca">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="ca"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_200"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="cs_n" SIGIS="undef" SIGNAME="status_enables_0_segment_cs_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_enables_0" PORT="segment_cs_n"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/rgb_led_16" HWVERSION="1.0" INSTANCE="rgb_led_16" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="rgb_led" VLNV="xilinx.com:module_ref:rgb_led:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="status_rgb_led_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_200"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="r" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_leds_0" PORT="led16_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="g" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_leds_0" PORT="led16_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="b" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_leds_0" PORT="led16_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="cs_n" SIGIS="undef" SIGNAME="status_enables_0_rgb_cs_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_enables_0" PORT="rgb_cs_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_r" SIGIS="undef" SIGNAME="rgb_led_16_led_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led16_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_g" SIGIS="undef" SIGNAME="rgb_led_16_led_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led16_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_b" SIGIS="undef" SIGNAME="rgb_led_16_led_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led16_b"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/rgb_led_17" HWVERSION="1.0" INSTANCE="rgb_led_17" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="rgb_led" VLNV="xilinx.com:module_ref:rgb_led:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="status_rgb_led_16_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_200"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="r" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led17_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_leds_0" PORT="led17_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="g" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led17_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_leds_0" PORT="led17_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="b" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led17_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_leds_0" PORT="led17_b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="cs_n" SIGIS="undef" SIGNAME="status_enables_0_rgb_cs_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="status_enables_0" PORT="rgb_cs_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_r" SIGIS="undef" SIGNAME="rgb_led_17_led_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led17_r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_g" SIGIS="undef" SIGNAME="rgb_led_17_led_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led17_g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led_b" SIGIS="undef" SIGNAME="rgb_led_17_led_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led17_b"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/status_display_0" HWVERSION="1.0" INSTANCE="status_display_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="status_display" VLNV="xilinx.com:module_ref:status_display:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIV" VALUE="29"/>
+        <PARAMETER NAME="Component_Name" VALUE="status_status_display_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="20" NAME="address" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_address">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="address"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="cpu_speed" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_cpu_speed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cpu_speed"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="2" NAME="video_mode" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_video_mode">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="video_mode"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="freq_50_60" SIGIS="undef" SIGNAME="External_Ports_freq_50_60">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="freq_50_60"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="scandouble" SIGIS="undef" SIGNAME="External_Ports_scandouble">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="scandouble"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display0" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display1" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display2" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display3" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display4" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display4">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display4"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display5" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display5">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display5"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display6" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display6">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display6"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="5" NAME="display7" RIGHT="0" SIGIS="undef" SIGNAME="status_display_0_display7">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="display7"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_200"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_mb_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="mb_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mig_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_mig_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="mig_resetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="specnext_video" TYPE="TARGET" VLNV="specnext.com:specnext:video:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="freq_50_60" PHYSICAL="freq_50_60"/>
+            <PORTMAP LOGICAL="scandouble" PHYSICAL="scandouble"/>
+            <PORTMAP LOGICAL="video_mode" PHYSICAL="video_mode"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/status_enables_0" HWVERSION="1.0" INSTANCE="status_enables_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="status_enables" VLNV="xilinx.com:module_ref:status_enables:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="status_status_enables_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="1" NAME="opt" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pi_accel_opt">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="pi_accel_opt"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="rgb_cs_n" SIGIS="undef" SIGNAME="status_enables_0_rgb_cs_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_16" PORT="cs_n"/>
+            <CONNECTION INSTANCE="rgb_led_17" PORT="cs_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="segment_cs_n" SIGIS="undef" SIGNAME="status_enables_0_segment_cs_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_segment_0" PORT="cs_n"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/status_leds_0" HWVERSION="1.0" INSTANCE="status_leds_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="status_leds" VLNV="xilinx.com:module_ref:status_leds:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="status_status_leds_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="cpu_clk" SIGIS="clk" SIGNAME="External_Ports_cpu_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cpu_clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="cpu_wait_n" SIGIS="undef" SIGNAME="External_Ports_cpu_wait_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cpu_wait_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="cpu_contend" SIGIS="undef" SIGNAME="External_Ports_cpu_contend">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="cpu_contend"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led16_r" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_16" PORT="r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led16_g" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_16" PORT="g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led16_b" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_16" PORT="b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led17_r" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led17_r">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_17" PORT="r"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led17_g" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led17_g">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_17" PORT="g"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="led17_b" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led17_b">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb_led_17" PORT="b"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_mb_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="mb_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_peripheral_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="peripheral_reset"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="cpu" TYPE="TARGET" VLNV="specnext.com:specnext:mb_clock:1.0">
+          <PORTMAPS>
+            <PORTMAP LOGICAL="contend" PHYSICAL="cpu_contend"/>
+            <PORTMAP LOGICAL="cpu_clk" PHYSICAL="cpu_clk"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:51:23 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:50:58 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0_sim_netlist.vhdl
@@ -28,7 +28,7 @@ entity zxnexys_zxmouse_0_0_mouse_xlconcat_0_0 is
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_mouse_xlconcat_0_0 : entity is "mouse_xlconcat_0_0";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxmouse_0_0_mouse_xlconcat_0_0 : entity is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxmouse_0_0_mouse_xlconcat_0_0 : entity is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
 end zxnexys_zxmouse_0_0_mouse_xlconcat_0_0;
 
 architecture STRUCTURE of zxnexys_zxmouse_0_0_mouse_xlconcat_0_0 is
@@ -59,7 +59,7 @@ entity zxnexys_zxmouse_0_0_mouse_xlslice_0_0 is
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_mouse_xlslice_0_0 : entity is "mouse_xlslice_0_0";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxmouse_0_0_mouse_xlslice_0_0 : entity is "xlslice_v1_0_2_xlslice,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxmouse_0_0_mouse_xlslice_0_0 : entity is "xlslice_v1_0_2_xlslice,Vivado 2021.2.1";
 end zxnexys_zxmouse_0_0_mouse_xlslice_0_0;
 
 architecture STRUCTURE of zxnexys_zxmouse_0_0_mouse_xlslice_0_0 is
@@ -2101,10 +2101,10 @@ architecture STRUCTURE of zxnexys_zxmouse_0_0_mouse is
   attribute CHECK_LICENSE_TYPE of xlconcat_0 : label is "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of xlconcat_0 : label is "yes";
-  attribute X_CORE_INFO of xlconcat_0 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2";
+  attribute X_CORE_INFO of xlconcat_0 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE of xlslice_0 : label is "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}";
   attribute DowngradeIPIdentifiedWarnings of xlslice_0 : label is "yes";
-  attribute X_CORE_INFO of xlslice_0 : label is "xlslice_v1_0_2_xlslice,Vivado 2021.2";
+  attribute X_CORE_INFO of xlslice_0 : label is "xlslice_v1_0_2_xlslice,Vivado 2021.2.1";
 begin
 ps2_mouse_0: entity work.zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
      port map (
@@ -2204,7 +2204,7 @@ entity zxnexys_zxmouse_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_zxmouse_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxmouse_0_0 : entity is "mouse_wrapper,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxmouse_0_0 : entity is "mouse_wrapper,Vivado 2021.2.1";
 end zxnexys_zxmouse_0_0;
 
 architecture STRUCTURE of zxnexys_zxmouse_0_0 is

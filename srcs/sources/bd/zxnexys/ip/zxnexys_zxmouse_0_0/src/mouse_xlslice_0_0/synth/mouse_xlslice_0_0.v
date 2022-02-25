@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:xlslice:1.0
 // IP Revision: 2
 
-(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2" *)
+(* X_CORE_INFO = "xlslice_v1_0_2_xlslice,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}" *)
-(* CORE_GENERATION_INFO = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=8,DIN_FROM=3,DIN_TO=0}" *)
+(* CORE_GENERATION_INFO = "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=2,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=8,DIN_FROM=3,DIN_TO=0}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module mouse_xlslice_0_0 (
   Din,

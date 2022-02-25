@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:xlconstant:1.1
 // IP Revision: 7
 
-(* X_CORE_INFO = "xlconstant_v1_1_7_xlconstant,Vivado 2021.2" *)
+(* X_CORE_INFO = "xlconstant_v1_1_7_xlconstant,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "joystick_xlconstant_1_2,xlconstant_v1_1_7_xlconstant,{}" *)
-(* CORE_GENERATION_INFO = "joystick_xlconstant_1_2,xlconstant_v1_1_7_xlconstant,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlconstant,x_ipVersion=1.1,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CONST_WIDTH=5,CONST_VAL=0x00}" *)
+(* CORE_GENERATION_INFO = "joystick_xlconstant_1_2,xlconstant_v1_1_7_xlconstant,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlconstant,x_ipVersion=1.1,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CONST_WIDTH=5,CONST_VAL=0x00}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module joystick_xlconstant_1_2 (
   dout

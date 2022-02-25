@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:sigma_delta_dac:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "sigma_delta_dac,Vivado 2021.2" *)
+(* X_CORE_INFO = "sigma_delta_dac,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "audio_sigma_delta_dac_1_0,sigma_delta_dac,{}" *)
-(* CORE_GENERATION_INFO = "audio_sigma_delta_dac_1_0,sigma_delta_dac,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=sigma_delta_dac,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,MSBI=15,INV=1}" *)
+(* CORE_GENERATION_INFO = "audio_sigma_delta_dac_1_0,sigma_delta_dac,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=sigma_delta_dac,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,MSBI=15,INV=1}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module audio_sigma_delta_dac_1_0 (
@@ -64,7 +64,7 @@ module audio_sigma_delta_dac_1_0 (
 
 output wire DACout;
 input wire [15 : 0] DACin;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK, ASSOCIATED_RESET RESET, FREQ_HZ 12280700, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN audio_clk_audio, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK, ASSOCIATED_RESET RESET, FREQ_HZ 22590010, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN audio_clk_12m288, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK CLK" *)
 input wire CLK;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RESET, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)

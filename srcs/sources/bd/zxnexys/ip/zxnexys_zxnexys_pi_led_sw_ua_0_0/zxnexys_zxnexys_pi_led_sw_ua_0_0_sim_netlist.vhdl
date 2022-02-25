@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:57:25 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:48:42 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0_sim_netlist.vhdl
@@ -16,9 +16,10 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s is
   port (
+    gpio_i : out STD_LOGIC_VECTOR ( 1 downto 0 );
     led : out STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpio_t : in STD_LOGIC_VECTOR ( 15 downto 0 );
-    gpio_o : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    gpio_t : in STD_LOGIC_VECTOR ( 17 downto 0 );
+    gpio_o : in STD_LOGIC_VECTOR ( 17 downto 0 );
     reset : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC
   );
@@ -27,9 +28,13 @@ entity zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s is
 end zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s;
 
 architecture STRUCTURE of zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s is
+  signal \^gpio_i\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^led\ : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal \opt[0]_i_1_n_0\ : STD_LOGIC;
+  signal \opt[1]_i_1_n_0\ : STD_LOGIC;
   signal p_4_out : STD_LOGIC_VECTOR ( 15 downto 0 );
 begin
+  gpio_i(1 downto 0) <= \^gpio_i\(1 downto 0);
   led(15 downto 0) <= \^led\(15 downto 0);
 \led[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -47,8 +52,8 @@ begin
     )
         port map (
       I0 => \^led\(10),
-      I1 => gpio_t(10),
-      I2 => gpio_o(10),
+      I1 => gpio_t(12),
+      I2 => gpio_o(12),
       O => p_4_out(10)
     );
 \led[11]_i_1\: unisim.vcomponents.LUT3
@@ -57,8 +62,8 @@ begin
     )
         port map (
       I0 => \^led\(11),
-      I1 => gpio_t(11),
-      I2 => gpio_o(11),
+      I1 => gpio_t(13),
+      I2 => gpio_o(13),
       O => p_4_out(11)
     );
 \led[12]_i_1\: unisim.vcomponents.LUT3
@@ -67,8 +72,8 @@ begin
     )
         port map (
       I0 => \^led\(12),
-      I1 => gpio_t(12),
-      I2 => gpio_o(12),
+      I1 => gpio_t(14),
+      I2 => gpio_o(14),
       O => p_4_out(12)
     );
 \led[13]_i_1\: unisim.vcomponents.LUT3
@@ -77,8 +82,8 @@ begin
     )
         port map (
       I0 => \^led\(13),
-      I1 => gpio_t(13),
-      I2 => gpio_o(13),
+      I1 => gpio_t(15),
+      I2 => gpio_o(15),
       O => p_4_out(13)
     );
 \led[14]_i_1\: unisim.vcomponents.LUT3
@@ -87,8 +92,8 @@ begin
     )
         port map (
       I0 => \^led\(14),
-      I1 => gpio_t(14),
-      I2 => gpio_o(14),
+      I1 => gpio_t(16),
+      I2 => gpio_o(16),
       O => p_4_out(14)
     );
 \led[15]_i_1\: unisim.vcomponents.LUT3
@@ -97,8 +102,8 @@ begin
     )
         port map (
       I0 => \^led\(15),
-      I1 => gpio_t(15),
-      I2 => gpio_o(15),
+      I1 => gpio_t(17),
+      I2 => gpio_o(17),
       O => p_4_out(15)
     );
 \led[1]_i_1\: unisim.vcomponents.LUT3
@@ -319,6 +324,42 @@ begin
       Q => \^led\(9),
       R => reset
     );
+\opt[0]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"E2"
+    )
+        port map (
+      I0 => \^gpio_i\(0),
+      I1 => gpio_t(10),
+      I2 => gpio_o(10),
+      O => \opt[0]_i_1_n_0\
+    );
+\opt[1]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"E2"
+    )
+        port map (
+      I0 => \^gpio_i\(1),
+      I1 => gpio_t(11),
+      I2 => gpio_o(11),
+      O => \opt[1]_i_1_n_0\
+    );
+\opt_reg[0]\: unisim.vcomponents.FDSE
+     port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => \opt[0]_i_1_n_0\,
+      Q => \^gpio_i\(0),
+      S => reset
+    );
+\opt_reg[1]\: unisim.vcomponents.FDSE
+     port map (
+      C => clk_peripheral,
+      CE => '1',
+      D => \opt[1]_i_1_n_0\,
+      Q => \^gpio_i\(1),
+      S => reset
+    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -329,16 +370,17 @@ entity zxnexys_zxnexys_pi_led_sw_ua_0_0 is
     gpio_o : in STD_LOGIC_VECTOR ( 27 downto 0 );
     gpio_i : out STD_LOGIC_VECTOR ( 27 downto 0 );
     gpio_t : in STD_LOGIC_VECTOR ( 27 downto 0 );
-    uart_rx : out STD_LOGIC;
-    uart_tx : in STD_LOGIC;
-    uart_cts : out STD_LOGIC;
-    uart_rts : in STD_LOGIC;
+    uart_rx : in STD_LOGIC;
+    uart_tx : out STD_LOGIC;
+    uart_cts : in STD_LOGIC;
+    uart_rts : out STD_LOGIC;
     i2s_sclk : in STD_LOGIC;
     i2s_wclk : in STD_LOGIC;
     i2s_dout : in STD_LOGIC;
     i2s_din : out STD_LOGIC;
     led : out STD_LOGIC_VECTOR ( 15 downto 0 );
     sw : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    opt : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clk_peripheral : in STD_LOGIC;
     reset : in STD_LOGIC
   );
@@ -351,16 +393,17 @@ entity zxnexys_zxnexys_pi_led_sw_ua_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_zxnexys_pi_led_sw_ua_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxnexys_pi_led_sw_ua_0_0 : entity is "pi_led_sw_uart_i2s,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxnexys_pi_led_sw_ua_0_0 : entity is "pi_led_sw_uart_i2s,Vivado 2021.2.1";
 end zxnexys_zxnexys_pi_led_sw_ua_0_0;
 
 architecture STRUCTURE of zxnexys_zxnexys_pi_led_sw_ua_0_0 is
   signal \<const0>\ : STD_LOGIC;
+  signal \^gpio_i\ : STD_LOGIC_VECTOR ( 13 downto 12 );
   signal \^gpio_o\ : STD_LOGIC_VECTOR ( 27 downto 0 );
   signal \^i2s_dout\ : STD_LOGIC;
   signal \^sw\ : STD_LOGIC_VECTOR ( 15 downto 0 );
-  signal \^uart_rts\ : STD_LOGIC;
-  signal \^uart_tx\ : STD_LOGIC;
+  signal \^uart_cts\ : STD_LOGIC;
+  signal \^uart_rx\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -373,29 +416,28 @@ architecture STRUCTURE of zxnexys_zxnexys_pi_led_sw_ua_0_0 is
 begin
   \^gpio_o\(27 downto 22) <= gpio_o(27 downto 22);
   \^gpio_o\(16) <= gpio_o(16);
-  \^gpio_o\(14) <= gpio_o(14);
-  \^gpio_o\(11 downto 2) <= gpio_o(11 downto 2);
+  \^gpio_o\(14 downto 2) <= gpio_o(14 downto 2);
   \^i2s_dout\ <= i2s_dout;
   \^sw\(15 downto 0) <= sw(15 downto 0);
-  \^uart_rts\ <= uart_rts;
-  \^uart_tx\ <= uart_tx;
+  \^uart_cts\ <= uart_cts;
+  \^uart_rx\ <= uart_rx;
   gpio_i(27 downto 22) <= \^sw\(15 downto 10);
   gpio_i(21) <= \<const0>\;
   gpio_i(20) <= \^i2s_dout\;
   gpio_i(19) <= \<const0>\;
   gpio_i(18) <= \<const0>\;
-  gpio_i(17) <= \^uart_rts\;
+  gpio_i(17) <= \^uart_cts\;
   gpio_i(16) <= \<const0>\;
-  gpio_i(15) <= \^uart_tx\;
+  gpio_i(15) <= \^uart_rx\;
   gpio_i(14) <= \<const0>\;
-  gpio_i(13) <= \<const0>\;
-  gpio_i(12) <= \<const0>\;
+  gpio_i(13 downto 12) <= \^gpio_i\(13 downto 12);
   gpio_i(11 downto 2) <= \^sw\(9 downto 0);
   gpio_i(1) <= \<const0>\;
   gpio_i(0) <= \<const0>\;
   i2s_din <= \<const0>\;
-  uart_cts <= \^gpio_o\(16);
-  uart_rx <= \^gpio_o\(14);
+  opt(1 downto 0) <= \^gpio_i\(13 downto 12);
+  uart_rts <= \^gpio_o\(16);
+  uart_tx <= \^gpio_o\(14);
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
@@ -403,10 +445,11 @@ GND: unisim.vcomponents.GND
 inst: entity work.zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
      port map (
       clk_peripheral => clk_peripheral,
-      gpio_o(15 downto 10) => \^gpio_o\(27 downto 22),
-      gpio_o(9 downto 0) => \^gpio_o\(11 downto 2),
-      gpio_t(15 downto 10) => gpio_t(27 downto 22),
-      gpio_t(9 downto 0) => gpio_t(11 downto 2),
+      gpio_i(1 downto 0) => \^gpio_i\(13 downto 12),
+      gpio_o(17 downto 12) => \^gpio_o\(27 downto 22),
+      gpio_o(11 downto 0) => \^gpio_o\(13 downto 2),
+      gpio_t(17 downto 12) => gpio_t(27 downto 22),
+      gpio_t(11 downto 0) => gpio_t(13 downto 2),
       led(15 downto 0) => led(15 downto 0),
       reset => reset
     );

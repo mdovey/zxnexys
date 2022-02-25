@@ -23,20 +23,32 @@
 
 
 module audio_mono #(
-    parameter   AUDIO_DW    =   16,
-    parameter   SHIFT       =   1
+    parameter   AUDIO_DW    =   13
 )(
     input       [AUDIO_DW-1:0]   left_in,
     input       [AUDIO_DW-1:0]   right_in,
-    
-    output      [AUDIO_DW-1:0]   mono_out
-    );
-    
-    wire    [AUDIO_DW-1:0]  l;
-    wire    [AUDIO_DW-1:0]  r;
 
-    assign l          =   left_in  >>> SHIFT;     
-    assign r          =   right_in >>> SHIFT;  
-    assign mono_out   =   l + r;   
+(* ASYNC_REG = "TRUE" *)    
+    output reg  [AUDIO_DW-1:0]   mono_out,
+    input                        lrck,
+    input                        clk
+    );
+
+(* ASYNC_REG = "TRUE" *)    
+    reg [AUDIO_DW-1:0]  left;
+(* ASYNC_REG = "TRUE" *)    
+    reg [AUDIO_DW-1:0]  right;
+    
+    reg     lr;
+
+    always @(posedge lrck)
+        lr  <= ~lr;
+
+    always @(posedge clk)
+    begin
+        left        <= left_in;
+        right       <= right_in;
+        mono_out    <= lr ? left : right;
+    end
 
 endmodule

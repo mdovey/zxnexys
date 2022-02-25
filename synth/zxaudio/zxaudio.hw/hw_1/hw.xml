@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product Version: Vivado v2021.2.1 (64-bit)                   -->
+<!--                                                              -->
+<!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.        -->
+
+<hwsession version="1" minor="2">
+  <device name="xc7a100t_0" gui_info="dashboard1=hw_vios[xc7a100t_0/hw_vio_1=VIO_PROBES_1;]"/>
+  <ObjectList object_type="hw_device" gui_info="">
+    <Object name="xc7a100t_0" gui_info="">
+      <Properties Property="FULL_PROBES.FILE" value=""/>
+      <Properties Property="PROBES.FILE" value=""/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/test_wrapper.bit"/>
+      <Properties Property="SLR.COUNT" value="1"/>
+    </Object>
+  </ObjectList>
+  <ObjectList object_type="hw_ila" gui_info="">
+    <Object name="u_ila_0" gui_info="">
+      <Properties Property="CONTROL.CAPTURE_MODE" value="BASIC"/>
+      <Properties Property="CONTROL.TRIGGER_CONDITION" value="AND"/>
+      <Properties Property="CORE_REFRESH_RATE_MS" value="500"/>
+    </Object>
+  </ObjectList>
+  <ObjectList object_type="hw_probe" gui_info="">
+    <Object name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[23:0]" gui_info="Capture Setup=0,Trigger Setup=0"/>
+    <Object name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[31:0]" gui_info="hw_vios/hw_vio_1=0"/>
+  </ObjectList>
+  <probeset name="hw project" active="false">
+    <probe type="ila" busType="bus" source="netlist" spec="ILA_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="CAPTURE_COMPARE_VALUE" value="eq24&apos;hXX_XXXX"/>
+        <Option Id="COMPARE_VALUE.0" value="neq24&apos;b0000_0000_0000_0000_0000_0000"/>
+        <Option Id="DISPLAY_AS_ENUM" value="1"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_RADIX" value="HEX"/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_ILA" value="hw_ila_1"/>
+        <Option Id="LINK_TO_WAVEFORM" value="1"/>
+        <Option Id="MAP" value="probe0[23:0]"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+        <Option Id="TRIGGER_COMPARE_VALUE" value="neq24&apos;b0000_0000_0000_0000_0000_0000"/>
+        <Option Id="WAVEFORM_STYLE" value="Digital"/>
+      </probeOptions>
+      <nets>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[23]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[22]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[21]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[20]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[19]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[18]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[17]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[16]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[15]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[14]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[13]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[12]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[11]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[10]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[9]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[8]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[7]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[6]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[5]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[4]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[3]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[2]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[1]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[0]"/>
+      </nets>
+    </probe>
+    <probe type="vio_input" busType="bus" source="netlist" spec="VIO_INPUT_V2_RT">
+      <probeOptions Id="DebugProbeParams">
+        <Option Id="ACTIVITY_PERSISTENCE" value="SHORT"/>
+        <Option Id="DISPLAY_HINT" value=""/>
+        <Option Id="DISPLAY_VISIBILITY" value=""/>
+        <Option Id="HW_VIO" value="hw_vio_1"/>
+        <Option Id="INPUT_VALUE_RADIX" value="HEX"/>
+        <Option Id="NAME.CUSTOM" value=""/>
+        <Option Id="NAME.SELECT" value="Long"/>
+        <Option Id="SOURCE" value="netlist"/>
+      </probeOptions>
+      <nets>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[31]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[30]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[29]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[28]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[27]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[26]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[25]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[24]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[23]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[22]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[21]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[20]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[19]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[18]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[17]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[16]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[15]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[14]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[13]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[12]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[11]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[10]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[9]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[8]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[7]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[6]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[5]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[4]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[3]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[2]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[1]"/>
+        <net name="test_i/audio_0/axis_i2s2_0_rx_axis_m_data[0]"/>
+      </nets>
+    </probe>
+  </probeset>
+</hwsession>

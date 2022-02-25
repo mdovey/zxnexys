@@ -50,7 +50,7 @@
 // IP VLNV: specnext.com:specnext:pmod_i2s2:1.1
 // IP Revision: 4
 
-(* X_CORE_INFO = "pmod_i2s2,Vivado 2021.2" *)
+(* X_CORE_INFO = "pmod_i2s2,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_pmod_i2s2_0_0,pmod_i2s2,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

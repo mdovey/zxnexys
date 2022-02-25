@@ -22,24 +22,49 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module tape_ear #(
-    parameter   AUDIO_DW                =   16,
-    parameter   SCHMITT_NOISE_THRESHOLD =   16'h00FF
+    parameter   AUDIO_DW                =   32,
+    parameter   AUDIO_BITRATE           =   24,
+    parameter   SCHMITT_THRESHOLD       =   'h02_00_00
 )(
     input       [AUDIO_DW-1:0]   din,
+    input                        valid,
+    input                        last,
     output reg                   ear,
+    output                       ready,
+    
+    input                        lrck,
+    input                        reset,
     input                        clk
+    
 );
+    
+function schmitt(input [AUDIO_BITRATE-1:0]audio);
+begin
+    if (audio[AUDIO_BITRATE-1])
+        schmitt = 1'b0;
+    else if (audio[AUDIO_BITRATE-1:0] < SCHMITT_THRESHOLD)
+        schmitt = 1'b0;
+    else
+        schmitt = 1'b1;
+end            
+endfunction 
 
+    reg left;
+    reg right;
+    
+    assign ready = lrck;
 
-    always @(posedge clk)
-    begin
-        if (din[AUDIO_DW-1]) begin
-            if (~din[AUDIO_DW-1:0] > SCHMITT_NOISE_THRESHOLD)
-                ear <=  1'b0;
-        end else begin
-            if (din[AUDIO_DW-1:0] > SCHMITT_NOISE_THRESHOLD)
-                ear <=  1'b1;
-        end 
-    end    
+    always @(posedge lrck)
+        ear <= left | right;
+    
+    always @(posedge clk, posedge reset)
+        if (reset) begin
+            right    <= 1'b0;
+            left     <= 1'b0;
+        end else if (valid && ready)
+            if (last)
+                right <= schmitt(din[AUDIO_BITRATE-1:0]);
+            else
+                left  <= schmitt(din[AUDIO_BITRATE-1:0]);
 
 endmodule

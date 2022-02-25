@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:59:55 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:49:36 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnext_0_0/zxnexys_zxnext_0_0_stub.vhdl
@@ -132,6 +132,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "i_CLK_28,i_CLK_28_n,i_CLK_14,i_CLK_7,i_CLK_CPU,i_CLK_PSG_EN,o_CPU_SPEED[1:0],o_CPU_CONTEND,o_CPU_CLK_LSB,i_RESET,o_RESET_SOFT,o_RESET_HARD,o_RESET_PERIPHERAL,o_FLASH_BOOT,o_CORE_ID[4:0],i_SPKEY_FUNCTION[10:1],i_SPKEY_BUTTONS[1:0],o_KBD_CANCEL,o_KBD_ROW[7:0],i_KBD_COL[4:0],i_KBD_EXTENDED_KEYS[15:0],o_KEYMAP_ADDR[8:0],o_KEYMAP_DATA[7:0],o_KEYMAP_WE,o_JOYMAP_WE,i_JOY_LEFT[10:0],i_JOY_RIGHT[10:0],o_JOY_IO_MODE_EN,o_JOY_IO_MODE_PIN_7,o_JOY_LEFT_TYPE[2:0],o_JOY_RIGHT_TYPE[2:0],i_MOUSE_X[7:0],i_MOUSE_Y[7:0],i_MOUSE_BUTTON[2:0],i_MOUSE_WHEEL[3:0],o_PS2_MODE,o_MOUSE_CONTROL[2:0],i_I2C_SCL_n,i_I2C_SDA_n,o_I2C_SCL_n,o_I2C_SDA_n,o_SPI_SS_FLASH_n,o_SPI_SS_SD1_n,o_SPI_SS_SD0_n,o_SPI_SCK,o_SPI_MOSI,i_SPI_SD_MISO,i_SPI_FLASH_MISO,i_UART0_RX,o_UART0_TX,o_RGB[8:0],o_RGB_CS_n,o_RGB_VS_n,o_RGB_HS_n,o_RGB_VB_n,o_RGB_HB_n,o_VIDEO_50_60,o_VIDEO_SCANLINES[1:0],o_VIDEO_SCANDOUBLE,o_VIDEO_MODE[2:0],o_MACHINE_TIMING[2:0],o_HDMI_RESET,o_AUDIO_HDMI_AUDIO_EN,o_AUDIO_SPEAKER_EN,o_AUDIO_SPEAKER_BEEP,i_AUDIO_EAR,o_AUDIO_MIC,o_AUDIO_SPEAKER_EAR,o_AUDIO_SPEAKER_MIC,o_AUDIO_L[12:0],o_AUDIO_R[12:0],o_RAM_A_ADDR[20:0],o_RAM_A_REQ,o_RAM_A_RD_n,i_RAM_A_DI[7:0],o_RAM_A_DO[7:0],i_CPU_WAIT_n,o_RAM_B_ADDR[20:0],o_RAM_B_REQ_T,i_RAM_B_DI[7:0],o_BUS_ADDR[15:0],i_BUS_DI[7:0],o_BUS_DO[7:0],o_BUS_MREQ_n,o_BUS_IORQ_n,o_BUS_RD_n,o_BUS_WR_n,o_BUS_M1_n,i_BUS_WAIT_n,i_BUS_NMI_n,i_BUS_INT_n,o_BUS_INT_n,i_BUS_BUSREQ_n,o_BUS_BUSAK_n,o_BUS_HALT_n,o_BUS_RFSH_n,o_BUS_IEO,i_BUS_ROMCS_n,i_BUS_IORQULA_n,o_BUS_EN,o_BUS_CLKEN,o_BUS_NMI_DEBOUNCE_DISABLE,i_ESP_GPIO_20[2:0],o_ESP_GPIO_0,o_ESP_GPIO_0_EN,i_GPIO[27:0],o_GPIO[27:0],o_GPIO_EN[27:0]";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "zxnext,Vivado 2021.2";
+attribute x_core_info of stub : architecture is "zxnext,Vivado 2021.2.1";
 begin
 end;

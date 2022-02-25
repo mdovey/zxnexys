@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:56:52 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:53:15 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxrtc_0_0/zxnexys_zxrtc_0_0_stub.vhdl
@@ -36,6 +36,6 @@ attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
 attribute black_box_pad_pin of stub : architecture is "clk_peripheral,iic_rtcc_scl_i,iic_rtcc_scl_o,iic_rtcc_scl_t,iic_rtcc_sda_i,iic_rtcc_sda_o,iic_rtcc_sda_t,reset,scl_i,scl_o,sda_i,sda_o";
 attribute X_CORE_INFO : string;
-attribute X_CORE_INFO of stub : architecture is "rtcc_wrapper,Vivado 2021.2";
+attribute X_CORE_INFO of stub : architecture is "rtcc_wrapper,Vivado 2021.2.1";
 begin
 end;

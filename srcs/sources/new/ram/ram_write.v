@@ -84,10 +84,10 @@ module ram_write (
     assign AWREGION             = 4'b0000;
     assign AWSIZE               = 3'b0000;
 
-    assign ready                = (cState == stIdle) | (cState == stWait);
+    assign ready                = aresetn && ((cState == stIdle) || (cState == stWait));
     
     assign write_data           = WDATA[7:0];
-    assign write_signal         = (cState == stWrite2) | (cState == stWrite3);
+    assign write_signal         = (cState == stWrite2) || (cState == stWrite3);
 
     always @(posedge clk_memory, negedge aresetn)
         cState          <= (~aresetn) ? stIdle : nState;

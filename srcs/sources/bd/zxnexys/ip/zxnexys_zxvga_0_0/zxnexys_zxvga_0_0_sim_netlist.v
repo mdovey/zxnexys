@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:55:37 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:49:05 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxvga_0_0/zxnexys_zxvga_0_0_sim_netlist.v
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "zxnexys_zxvga_0_0,vga_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "vga_wrapper,Vivado 2021.2" *) 
+(* X_CORE_INFO = "vga_wrapper,Vivado 2021.2.1" *) 
 (* NotValidForBitStream *)
 module zxnexys_zxvga_0_0
    (clk_peripheral,
@@ -21,7 +21,7 @@ module zxnexys_zxvga_0_0
     csync_n,
     hsync_n,
     machine_timing,
-    reset,
+    resetn,
     rgb,
     scandouble,
     scanlines,
@@ -36,7 +36,7 @@ module zxnexys_zxvga_0_0
   (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video csync_n" *) input csync_n;
   (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video hsync_n" *) input hsync_n;
   (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video machine_timing" *) input [2:0]machine_timing;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
   (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video rgb" *) input [8:0]rgb;
   (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *) input scandouble;
   (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scanlines" *) input [1:0]scanlines;
@@ -52,7 +52,7 @@ module zxnexys_zxvga_0_0
   wire csync_n;
   wire hsync_n;
   wire [2:0]machine_timing;
-  wire reset;
+  wire resetn;
   wire [8:0]rgb;
   wire scandouble;
   wire [1:0]scanlines;
@@ -73,7 +73,7 @@ module zxnexys_zxvga_0_0
         .csync_n(csync_n),
         .hsync_n(hsync_n),
         .machine_timing(machine_timing[1]),
-        .reset(reset),
+        .resetn(resetn),
         .rgb(rgb),
         .scandouble(scandouble),
         .scanlines(scanlines),
@@ -138,14 +138,14 @@ module zxnexys_zxvga_0_0_dpram2
         .I1(\O_VIDEO_31[0]_i_2_n_0 ),
         .O(D[0]));
   LUT6 #(
-    .INIT(64'h03C783CF0F07878F)) 
+    .INIT(64'h0088A0A85F5777FF)) 
     \O_VIDEO_31[0]_i_2 
-       (.I0(scanlines[1]),
-        .I1(impar_31),
-        .I2(video_31_s[0]),
-        .I3(video_31_s[1]),
-        .I4(video_31_s[2]),
-        .I5(scanlines[0]),
+       (.I0(impar_31),
+        .I1(scanlines[1]),
+        .I2(scanlines[0]),
+        .I3(video_31_s[2]),
+        .I4(video_31_s[1]),
+        .I5(video_31_s[0]),
         .O(\O_VIDEO_31[0]_i_2_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
@@ -3098,47 +3098,50 @@ endmodule
 
 (* ORIG_REF_NAME = "scan_convert" *) 
 module zxnexys_zxvga_0_0_scan_convert
-   (O_HSYNC_reg_0,
+   (D,
+    \O_VIDEO_15_reg[3]_0 ,
+    \O_VIDEO_15_reg[0]_0 ,
+    O_HSYNC_reg_0,
     \O_VIDEO_31_reg[8]_0 ,
     \O_VIDEO_31_reg[7]_0 ,
-    \O_VIDEO_31_reg[6]_0 ,
     \O_VIDEO_31_reg[5]_0 ,
     \O_VIDEO_31_reg[4]_0 ,
-    \O_VIDEO_31_reg[3]_0 ,
     \O_VIDEO_31_reg[2]_0 ,
     \O_VIDEO_31_reg[1]_0 ,
-    \O_VIDEO_31_reg[0]_0 ,
     O_VSYNC_reg_0,
     clk_video,
     clk_peripheral,
     rgb,
     hsync_n,
     vsync_n,
-    scanlines,
     scandouble,
+    resetn,
+    scanlines,
     csync_n,
     machine_timing);
+  output [0:0]D;
+  output [0:0]\O_VIDEO_15_reg[3]_0 ;
+  output [0:0]\O_VIDEO_15_reg[0]_0 ;
   output O_HSYNC_reg_0;
   output \O_VIDEO_31_reg[8]_0 ;
   output \O_VIDEO_31_reg[7]_0 ;
-  output \O_VIDEO_31_reg[6]_0 ;
   output \O_VIDEO_31_reg[5]_0 ;
   output \O_VIDEO_31_reg[4]_0 ;
-  output \O_VIDEO_31_reg[3]_0 ;
   output \O_VIDEO_31_reg[2]_0 ;
   output \O_VIDEO_31_reg[1]_0 ;
-  output \O_VIDEO_31_reg[0]_0 ;
   output O_VSYNC_reg_0;
   input clk_video;
   input clk_peripheral;
   input [8:0]rgb;
   input hsync_n;
   input vsync_n;
-  input [1:0]scanlines;
   input scandouble;
+  input resetn;
+  input [1:0]scanlines;
   input csync_n;
   input [0:0]machine_timing;
 
+  wire [0:0]D;
   wire O_HSYNC_i_1_n_0;
   wire O_HSYNC_reg_0;
   wire \O_VIDEO_15[0]_i_1_n_0 ;
@@ -3151,13 +3154,12 @@ module zxnexys_zxvga_0_0_scan_convert
   wire \O_VIDEO_15[7]_i_1_n_0 ;
   wire \O_VIDEO_15[8]_i_1_n_0 ;
   wire \O_VIDEO_15[8]_i_2_n_0 ;
-  wire \O_VIDEO_31_reg[0]_0 ;
+  wire [0:0]\O_VIDEO_15_reg[0]_0 ;
+  wire [0:0]\O_VIDEO_15_reg[3]_0 ;
   wire \O_VIDEO_31_reg[1]_0 ;
   wire \O_VIDEO_31_reg[2]_0 ;
-  wire \O_VIDEO_31_reg[3]_0 ;
   wire \O_VIDEO_31_reg[4]_0 ;
   wire \O_VIDEO_31_reg[5]_0 ;
-  wire \O_VIDEO_31_reg[6]_0 ;
   wire \O_VIDEO_31_reg[7]_0 ;
   wire \O_VIDEO_31_reg[8]_0 ;
   wire O_VSYNC_i_1_n_0;
@@ -3228,6 +3230,7 @@ module zxnexys_zxvga_0_0_scan_convert
   wire \p_out_ctrs.trigger_i_1_n_0 ;
   wire [10:0]plusOp;
   wire [10:0]plusOp__0;
+  wire resetn;
   wire [8:0]rgb;
   wire scan_convert_0_O_HSYNC;
   wire [8:0]scan_convert_0_O_VIDEO_15;
@@ -3498,13 +3501,14 @@ module zxnexys_zxvga_0_0_scan_convert
         .D(O_VSYNC_i_1_n_0),
         .Q(scan_convert_0_O_VSYNC),
         .R(1'b0));
-  LUT3 #(
-    .INIT(8'hB8)) 
+  LUT4 #(
+    .INIT(16'hE2FF)) 
     \b[1]_i_1 
-       (.I0(scan_convert_0_O_VIDEO_31[0]),
+       (.I0(scan_convert_0_O_VIDEO_15[0]),
         .I1(scandouble),
-        .I2(scan_convert_0_O_VIDEO_15[0]),
-        .O(\O_VIDEO_31_reg[0]_0 ));
+        .I2(scan_convert_0_O_VIDEO_31[0]),
+        .I3(resetn),
+        .O(\O_VIDEO_15_reg[0]_0 ));
   LUT3 #(
     .INIT(8'hB8)) 
     \b[2]_i_1 
@@ -3514,7 +3518,7 @@ module zxnexys_zxvga_0_0_scan_convert
         .O(\O_VIDEO_31_reg[1]_0 ));
   LUT3 #(
     .INIT(8'hB8)) 
-    \b[3]_i_1 
+    \b[3]_i_2 
        (.I0(scan_convert_0_O_VIDEO_31[2]),
         .I1(scandouble),
         .I2(scan_convert_0_O_VIDEO_15[2]),
@@ -3561,13 +3565,14 @@ module zxnexys_zxvga_0_0_scan_convert
         .I1(hcnt_reg[1]),
         .I2(hcnt_reg[0]),
         .O(eqOp_carry_i_4_n_0));
-  LUT3 #(
-    .INIT(8'hB8)) 
+  LUT4 #(
+    .INIT(16'hE2FF)) 
     \g[1]_i_1 
-       (.I0(scan_convert_0_O_VIDEO_31[3]),
+       (.I0(scan_convert_0_O_VIDEO_15[3]),
         .I1(scandouble),
-        .I2(scan_convert_0_O_VIDEO_15[3]),
-        .O(\O_VIDEO_31_reg[3]_0 ));
+        .I2(scan_convert_0_O_VIDEO_31[3]),
+        .I3(resetn),
+        .O(\O_VIDEO_15_reg[3]_0 ));
   LUT3 #(
     .INIT(8'hB8)) 
     \g[2]_i_1 
@@ -4551,13 +4556,14 @@ module zxnexys_zxvga_0_0_scan_convert
         .D(\p_out_ctrs.trigger_i_1_n_0 ),
         .Q(trigger),
         .R(1'b0));
-  LUT3 #(
-    .INIT(8'hB8)) 
+  LUT4 #(
+    .INIT(16'hE2FF)) 
     \r[1]_i_1 
-       (.I0(scan_convert_0_O_VIDEO_31[6]),
+       (.I0(scan_convert_0_O_VIDEO_15[6]),
         .I1(scandouble),
-        .I2(scan_convert_0_O_VIDEO_15[6]),
-        .O(\O_VIDEO_31_reg[6]_0 ));
+        .I2(scan_convert_0_O_VIDEO_31[6]),
+        .I3(resetn),
+        .O(D));
   LUT3 #(
     .INIT(8'hB8)) 
     \r[2]_i_1 
@@ -4806,17 +4812,17 @@ module zxnexys_zxvga_0_0_scandoubler
     vga_b,
     h_sync_reg_0,
     clk_peripheral,
-    reset,
     v_sync_reg_0,
+    resetn,
+    D,
     \r_reg[3]_0 ,
     \r_reg[2]_0 ,
-    \r_reg[1]_0 ,
+    \g_reg[1]_0 ,
     \g_reg[3]_0 ,
     \g_reg[2]_0 ,
-    \g_reg[1]_0 ,
+    \b_reg[1]_0 ,
     \b_reg[3]_0 ,
-    \b_reg[2]_0 ,
-    \b_reg[1]_0 );
+    \b_reg[2]_0 );
   output scandoubler_0_h_sync;
   output [3:0]vga_r;
   output scandoubler_0_v_sync;
@@ -4824,30 +4830,31 @@ module zxnexys_zxvga_0_0_scandoubler
   output [2:0]vga_b;
   input h_sync_reg_0;
   input clk_peripheral;
-  input reset;
   input v_sync_reg_0;
+  input resetn;
+  input [0:0]D;
   input \r_reg[3]_0 ;
   input \r_reg[2]_0 ;
-  input \r_reg[1]_0 ;
+  input [0:0]\g_reg[1]_0 ;
   input \g_reg[3]_0 ;
   input \g_reg[2]_0 ;
-  input \g_reg[1]_0 ;
+  input [0:0]\b_reg[1]_0 ;
   input \b_reg[3]_0 ;
   input \b_reg[2]_0 ;
-  input \b_reg[1]_0 ;
 
-  wire \b_reg[1]_0 ;
+  wire [0:0]D;
+  wire \b[3]_i_1_n_0 ;
+  wire [0:0]\b_reg[1]_0 ;
   wire \b_reg[2]_0 ;
   wire \b_reg[3]_0 ;
   wire clk_peripheral;
-  wire \g_reg[1]_0 ;
+  wire [0:0]\g_reg[1]_0 ;
   wire \g_reg[2]_0 ;
   wire \g_reg[3]_0 ;
   wire h_sync_reg_0;
-  wire \r_reg[1]_0 ;
   wire \r_reg[2]_0 ;
   wire \r_reg[3]_0 ;
-  wire reset;
+  wire resetn;
   wire scandoubler_0_h_sync;
   wire scandoubler_0_v_sync;
   wire v_sync_reg_0;
@@ -4855,62 +4862,67 @@ module zxnexys_zxvga_0_0_scandoubler
   wire [2:0]vga_g;
   wire [3:0]vga_r;
 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \b[3]_i_1 
+       (.I0(resetn),
+        .O(\b[3]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[0] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(reset),
+        .D(\b[3]_i_1_n_0 ),
         .Q(vga_r[0]),
         .R(1'b0));
-  FDSE #(
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\b_reg[1]_0 ),
         .Q(vga_b[0]),
-        .S(reset));
-  FDSE #(
+        .R(1'b0));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\b_reg[2]_0 ),
         .Q(vga_b[1]),
-        .S(reset));
-  FDSE #(
+        .R(\b[3]_i_1_n_0 ));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \b_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\b_reg[3]_0 ),
         .Q(vga_b[2]),
-        .S(reset));
-  FDSE #(
+        .R(\b[3]_i_1_n_0 ));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \g_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\g_reg[1]_0 ),
         .Q(vga_g[0]),
-        .S(reset));
-  FDSE #(
+        .R(1'b0));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \g_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\g_reg[2]_0 ),
         .Q(vga_g[1]),
-        .S(reset));
-  FDSE #(
+        .R(\b[3]_i_1_n_0 ));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \g_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\g_reg[3]_0 ),
         .Q(vga_g[2]),
-        .S(reset));
+        .R(\b[3]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     h_sync_reg
@@ -4919,30 +4931,30 @@ module zxnexys_zxvga_0_0_scandoubler
         .D(h_sync_reg_0),
         .Q(scandoubler_0_h_sync),
         .R(1'b0));
-  FDSE #(
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \r_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(\r_reg[1]_0 ),
+        .D(D),
         .Q(vga_r[1]),
-        .S(reset));
-  FDSE #(
+        .R(1'b0));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \r_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_reg[2]_0 ),
         .Q(vga_r[2]),
-        .S(reset));
-  FDSE #(
+        .R(\b[3]_i_1_n_0 ));
+  FDRE #(
     .IS_C_INVERTED(1'b1)) 
     \r_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_reg[3]_0 ),
         .Q(vga_r[3]),
-        .S(reset));
+        .R(\b[3]_i_1_n_0 ));
   FDRE #(
     .IS_C_INVERTED(1'b1)) 
     v_sync_reg
@@ -4960,14 +4972,14 @@ module zxnexys_zxvga_0_0_vga
     vga_b,
     vga_hs,
     vga_vs,
+    scandouble,
+    resetn,
     scanlines,
     clk_video,
     clk_peripheral,
     rgb,
     hsync_n,
     vsync_n,
-    reset,
-    scandouble,
     csync_n,
     machine_timing);
   output [3:0]vga_r;
@@ -4975,14 +4987,14 @@ module zxnexys_zxvga_0_0_vga
   output [2:0]vga_b;
   output vga_hs;
   output vga_vs;
+  input scandouble;
+  input resetn;
   input [1:0]scanlines;
   input clk_video;
   input clk_peripheral;
   input [8:0]rgb;
   input hsync_n;
   input vsync_n;
-  input reset;
-  input scandouble;
   input csync_n;
   input [0:0]machine_timing;
 
@@ -4991,7 +5003,7 @@ module zxnexys_zxvga_0_0_vga
   wire csync_n;
   wire hsync_n;
   wire [0:0]machine_timing;
-  wire reset;
+  wire resetn;
   wire [8:0]rgb;
   wire scan_convert_0_n_0;
   wire scan_convert_0_n_1;
@@ -5027,40 +5039,41 @@ module zxnexys_zxvga_0_0_vga
         .vga_vs(vga_vs));
   (* X_CORE_INFO = "scan_convert,Vivado 2021.2" *) 
   zxnexys_zxvga_0_0_vga_scan_convert_0_0 scan_convert_0
-       (.O_HSYNC_reg(scan_convert_0_n_0),
-        .\O_VIDEO_31_reg[0] (scan_convert_0_n_9),
-        .\O_VIDEO_31_reg[1] (scan_convert_0_n_8),
-        .\O_VIDEO_31_reg[2] (scan_convert_0_n_7),
-        .\O_VIDEO_31_reg[3] (scan_convert_0_n_6),
-        .\O_VIDEO_31_reg[4] (scan_convert_0_n_5),
-        .\O_VIDEO_31_reg[5] (scan_convert_0_n_4),
-        .\O_VIDEO_31_reg[6] (scan_convert_0_n_3),
-        .\O_VIDEO_31_reg[7] (scan_convert_0_n_2),
-        .\O_VIDEO_31_reg[8] (scan_convert_0_n_1),
+       (.D(scan_convert_0_n_0),
+        .O_HSYNC_reg(scan_convert_0_n_3),
+        .\O_VIDEO_15_reg[0] (scan_convert_0_n_2),
+        .\O_VIDEO_15_reg[3] (scan_convert_0_n_1),
+        .\O_VIDEO_31_reg[1] (scan_convert_0_n_9),
+        .\O_VIDEO_31_reg[2] (scan_convert_0_n_8),
+        .\O_VIDEO_31_reg[4] (scan_convert_0_n_7),
+        .\O_VIDEO_31_reg[5] (scan_convert_0_n_6),
+        .\O_VIDEO_31_reg[7] (scan_convert_0_n_5),
+        .\O_VIDEO_31_reg[8] (scan_convert_0_n_4),
         .O_VSYNC_reg(scan_convert_0_n_10),
         .clk_peripheral(clk_peripheral),
         .clk_video(clk_video),
         .csync_n(csync_n),
         .hsync_n(hsync_n),
         .machine_timing(machine_timing),
+        .resetn(resetn),
         .rgb(rgb),
         .scandouble(scandouble),
         .scanlines(scanlines),
         .vsync_n(vsync_n));
   (* X_CORE_INFO = "scandoubler,Vivado 2021.2" *) 
   zxnexys_zxvga_0_0_vga_scandoubler_0_0 scandoubler_0
-       (.\b_reg[1] (scan_convert_0_n_9),
-        .\b_reg[2] (scan_convert_0_n_8),
-        .\b_reg[3] (scan_convert_0_n_7),
+       (.D(scan_convert_0_n_0),
+        .\b_reg[1] (scan_convert_0_n_2),
+        .\b_reg[2] (scan_convert_0_n_9),
+        .\b_reg[3] (scan_convert_0_n_8),
         .clk_peripheral(clk_peripheral),
-        .\g_reg[1] (scan_convert_0_n_6),
-        .\g_reg[2] (scan_convert_0_n_5),
-        .\g_reg[3] (scan_convert_0_n_4),
-        .h_sync_reg(scan_convert_0_n_0),
-        .\r_reg[1] (scan_convert_0_n_3),
-        .\r_reg[2] (scan_convert_0_n_2),
-        .\r_reg[3] (scan_convert_0_n_1),
-        .reset(reset),
+        .\g_reg[1] (scan_convert_0_n_1),
+        .\g_reg[2] (scan_convert_0_n_7),
+        .\g_reg[3] (scan_convert_0_n_6),
+        .h_sync_reg(scan_convert_0_n_3),
+        .\r_reg[2] (scan_convert_0_n_5),
+        .\r_reg[3] (scan_convert_0_n_4),
+        .resetn(resetn),
         .scandoubler_0_h_sync(scandoubler_0_h_sync),
         .scandoubler_0_v_sync(scandoubler_0_v_sync),
         .v_sync_reg(scan_convert_0_n_10),
@@ -5109,55 +5122,57 @@ endmodule
 
 (* ORIG_REF_NAME = "vga_scan_convert_0_0" *) 
 module zxnexys_zxvga_0_0_vga_scan_convert_0_0
-   (O_HSYNC_reg,
+   (D,
+    \O_VIDEO_15_reg[3] ,
+    \O_VIDEO_15_reg[0] ,
+    O_HSYNC_reg,
     \O_VIDEO_31_reg[8] ,
     \O_VIDEO_31_reg[7] ,
-    \O_VIDEO_31_reg[6] ,
     \O_VIDEO_31_reg[5] ,
     \O_VIDEO_31_reg[4] ,
-    \O_VIDEO_31_reg[3] ,
     \O_VIDEO_31_reg[2] ,
     \O_VIDEO_31_reg[1] ,
-    \O_VIDEO_31_reg[0] ,
     O_VSYNC_reg,
     clk_video,
     clk_peripheral,
     rgb,
     hsync_n,
     vsync_n,
-    scanlines,
     scandouble,
+    resetn,
+    scanlines,
     csync_n,
     machine_timing);
+  output [0:0]D;
+  output [0:0]\O_VIDEO_15_reg[3] ;
+  output [0:0]\O_VIDEO_15_reg[0] ;
   output O_HSYNC_reg;
   output \O_VIDEO_31_reg[8] ;
   output \O_VIDEO_31_reg[7] ;
-  output \O_VIDEO_31_reg[6] ;
   output \O_VIDEO_31_reg[5] ;
   output \O_VIDEO_31_reg[4] ;
-  output \O_VIDEO_31_reg[3] ;
   output \O_VIDEO_31_reg[2] ;
   output \O_VIDEO_31_reg[1] ;
-  output \O_VIDEO_31_reg[0] ;
   output O_VSYNC_reg;
   input clk_video;
   input clk_peripheral;
   input [8:0]rgb;
   input hsync_n;
   input vsync_n;
-  input [1:0]scanlines;
   input scandouble;
+  input resetn;
+  input [1:0]scanlines;
   input csync_n;
   input [0:0]machine_timing;
 
+  wire [0:0]D;
   wire O_HSYNC_reg;
-  wire \O_VIDEO_31_reg[0] ;
+  wire [0:0]\O_VIDEO_15_reg[0] ;
+  wire [0:0]\O_VIDEO_15_reg[3] ;
   wire \O_VIDEO_31_reg[1] ;
   wire \O_VIDEO_31_reg[2] ;
-  wire \O_VIDEO_31_reg[3] ;
   wire \O_VIDEO_31_reg[4] ;
   wire \O_VIDEO_31_reg[5] ;
-  wire \O_VIDEO_31_reg[6] ;
   wire \O_VIDEO_31_reg[7] ;
   wire \O_VIDEO_31_reg[8] ;
   wire O_VSYNC_reg;
@@ -5166,20 +5181,21 @@ module zxnexys_zxvga_0_0_vga_scan_convert_0_0
   wire csync_n;
   wire hsync_n;
   wire [0:0]machine_timing;
+  wire resetn;
   wire [8:0]rgb;
   wire scandouble;
   wire [1:0]scanlines;
   wire vsync_n;
 
   zxnexys_zxvga_0_0_scan_convert inst
-       (.O_HSYNC_reg_0(O_HSYNC_reg),
-        .\O_VIDEO_31_reg[0]_0 (\O_VIDEO_31_reg[0] ),
+       (.D(D),
+        .O_HSYNC_reg_0(O_HSYNC_reg),
+        .\O_VIDEO_15_reg[0]_0 (\O_VIDEO_15_reg[0] ),
+        .\O_VIDEO_15_reg[3]_0 (\O_VIDEO_15_reg[3] ),
         .\O_VIDEO_31_reg[1]_0 (\O_VIDEO_31_reg[1] ),
         .\O_VIDEO_31_reg[2]_0 (\O_VIDEO_31_reg[2] ),
-        .\O_VIDEO_31_reg[3]_0 (\O_VIDEO_31_reg[3] ),
         .\O_VIDEO_31_reg[4]_0 (\O_VIDEO_31_reg[4] ),
         .\O_VIDEO_31_reg[5]_0 (\O_VIDEO_31_reg[5] ),
-        .\O_VIDEO_31_reg[6]_0 (\O_VIDEO_31_reg[6] ),
         .\O_VIDEO_31_reg[7]_0 (\O_VIDEO_31_reg[7] ),
         .\O_VIDEO_31_reg[8]_0 (\O_VIDEO_31_reg[8] ),
         .O_VSYNC_reg_0(O_VSYNC_reg),
@@ -5188,6 +5204,7 @@ module zxnexys_zxvga_0_0_vga_scan_convert_0_0
         .csync_n(csync_n),
         .hsync_n(hsync_n),
         .machine_timing(machine_timing),
+        .resetn(resetn),
         .rgb(rgb),
         .scandouble(scandouble),
         .scanlines(scanlines),
@@ -5203,17 +5220,17 @@ module zxnexys_zxvga_0_0_vga_scandoubler_0_0
     vga_b,
     h_sync_reg,
     clk_peripheral,
-    reset,
     v_sync_reg,
+    resetn,
+    D,
     \r_reg[3] ,
     \r_reg[2] ,
-    \r_reg[1] ,
+    \g_reg[1] ,
     \g_reg[3] ,
     \g_reg[2] ,
-    \g_reg[1] ,
+    \b_reg[1] ,
     \b_reg[3] ,
-    \b_reg[2] ,
-    \b_reg[1] );
+    \b_reg[2] );
   output scandoubler_0_h_sync;
   output [3:0]vga_r;
   output scandoubler_0_v_sync;
@@ -5221,30 +5238,30 @@ module zxnexys_zxvga_0_0_vga_scandoubler_0_0
   output [2:0]vga_b;
   input h_sync_reg;
   input clk_peripheral;
-  input reset;
   input v_sync_reg;
+  input resetn;
+  input [0:0]D;
   input \r_reg[3] ;
   input \r_reg[2] ;
-  input \r_reg[1] ;
+  input [0:0]\g_reg[1] ;
   input \g_reg[3] ;
   input \g_reg[2] ;
-  input \g_reg[1] ;
+  input [0:0]\b_reg[1] ;
   input \b_reg[3] ;
   input \b_reg[2] ;
-  input \b_reg[1] ;
 
-  wire \b_reg[1] ;
+  wire [0:0]D;
+  wire [0:0]\b_reg[1] ;
   wire \b_reg[2] ;
   wire \b_reg[3] ;
   wire clk_peripheral;
-  wire \g_reg[1] ;
+  wire [0:0]\g_reg[1] ;
   wire \g_reg[2] ;
   wire \g_reg[3] ;
   wire h_sync_reg;
-  wire \r_reg[1] ;
   wire \r_reg[2] ;
   wire \r_reg[3] ;
-  wire reset;
+  wire resetn;
   wire scandoubler_0_h_sync;
   wire scandoubler_0_v_sync;
   wire v_sync_reg;
@@ -5253,7 +5270,8 @@ module zxnexys_zxvga_0_0_vga_scandoubler_0_0
   wire [3:0]vga_r;
 
   zxnexys_zxvga_0_0_scandoubler inst
-       (.\b_reg[1]_0 (\b_reg[1] ),
+       (.D(D),
+        .\b_reg[1]_0 (\b_reg[1] ),
         .\b_reg[2]_0 (\b_reg[2] ),
         .\b_reg[3]_0 (\b_reg[3] ),
         .clk_peripheral(clk_peripheral),
@@ -5261,10 +5279,9 @@ module zxnexys_zxvga_0_0_vga_scandoubler_0_0
         .\g_reg[2]_0 (\g_reg[2] ),
         .\g_reg[3]_0 (\g_reg[3] ),
         .h_sync_reg_0(h_sync_reg),
-        .\r_reg[1]_0 (\r_reg[1] ),
         .\r_reg[2]_0 (\r_reg[2] ),
         .\r_reg[3]_0 (\r_reg[3] ),
-        .reset(reset),
+        .resetn(resetn),
         .scandoubler_0_h_sync(scandoubler_0_h_sync),
         .scandoubler_0_v_sync(scandoubler_0_v_sync),
         .v_sync_reg_0(v_sync_reg),
@@ -5280,14 +5297,14 @@ module zxnexys_zxvga_0_0_vga_wrapper
     vga_b,
     vga_hs,
     vga_vs,
+    scandouble,
+    resetn,
     scanlines,
     clk_video,
     clk_peripheral,
     rgb,
     hsync_n,
     vsync_n,
-    reset,
-    scandouble,
     csync_n,
     machine_timing);
   output [3:0]vga_r;
@@ -5295,14 +5312,14 @@ module zxnexys_zxvga_0_0_vga_wrapper
   output [2:0]vga_b;
   output vga_hs;
   output vga_vs;
+  input scandouble;
+  input resetn;
   input [1:0]scanlines;
   input clk_video;
   input clk_peripheral;
   input [8:0]rgb;
   input hsync_n;
   input vsync_n;
-  input reset;
-  input scandouble;
   input csync_n;
   input [0:0]machine_timing;
 
@@ -5311,7 +5328,7 @@ module zxnexys_zxvga_0_0_vga_wrapper
   wire csync_n;
   wire hsync_n;
   wire [0:0]machine_timing;
-  wire reset;
+  wire resetn;
   wire [8:0]rgb;
   wire scandouble;
   wire [1:0]scanlines;
@@ -5328,7 +5345,7 @@ module zxnexys_zxvga_0_0_vga_wrapper
         .csync_n(csync_n),
         .hsync_n(hsync_n),
         .machine_timing(machine_timing),
-        .reset(reset),
+        .resetn(resetn),
         .rgb(rgb),
         .scandouble(scandouble),
         .scanlines(scanlines),

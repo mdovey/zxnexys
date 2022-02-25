@@ -10,7 +10,7 @@ Stereo audio output using PMOD_I2S2 (on PMOD Connection JB). IP can be reconfigu
 
 ## Tape
 
-Tape input via PMOD_I2S2, Tape output via onboard mono audio jack.
+Tape input via PMOD_I2S2 (on PMOD Connection JB), Tape output via onboard mono audio jack.
 
 ## Joystick
 
@@ -32,7 +32,7 @@ Optional wifi via PMOD_ESP32 (on connection JC)
 
 ## Second SDCard Slot
 
-Optional second SDCard via PMOD_SD or PMOD_MicroSD
+Optional second SDCard via PMOD_SD or PMOD_MicroSD (on PMOD Connection JA)
 
 ## LED Segment Display
 

@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:53:14 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:56:11 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0_sim_netlist.vhdl
@@ -21,7 +21,7 @@ entity zxnexys_zxnexys_mic_0_0_i2s_transceiver is
     ws_int_reg_0 : out STD_LOGIC;
     i2s_dout : out STD_LOGIC;
     ws_int_reg_1 : out STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     \ws_cnt_reg[0]_0\ : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \r_data_tx_int_reg[7]_0\ : in STD_LOGIC_VECTOR ( 6 downto 0 );
@@ -544,7 +544,7 @@ begin
     );
 \l_data_tx_int_reg[0]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => D(0),
@@ -552,7 +552,7 @@ begin
     );
 \l_data_tx_int_reg[1]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[1]_i_1_n_0\,
@@ -560,7 +560,7 @@ begin
     );
 \l_data_tx_int_reg[2]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[2]_i_1_n_0\,
@@ -568,7 +568,7 @@ begin
     );
 \l_data_tx_int_reg[3]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[3]_i_1_n_0\,
@@ -576,7 +576,7 @@ begin
     );
 \l_data_tx_int_reg[4]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[4]_i_1_n_0\,
@@ -584,7 +584,7 @@ begin
     );
 \l_data_tx_int_reg[5]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[5]_i_1_n_0\,
@@ -592,7 +592,7 @@ begin
     );
 \l_data_tx_int_reg[6]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[6]_i_1_n_0\,
@@ -600,7 +600,7 @@ begin
     );
 \l_data_tx_int_reg[7]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \l_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \l_data_tx_int[7]_i_2_n_0\,
@@ -690,7 +690,7 @@ begin
     );
 \r_data_tx_int_reg[0]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int_reg[0]_0\(0),
@@ -698,7 +698,7 @@ begin
     );
 \r_data_tx_int_reg[1]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[1]_i_1_n_0\,
@@ -706,7 +706,7 @@ begin
     );
 \r_data_tx_int_reg[2]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[2]_i_1_n_0\,
@@ -714,7 +714,7 @@ begin
     );
 \r_data_tx_int_reg[3]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[3]_i_1_n_0\,
@@ -722,7 +722,7 @@ begin
     );
 \r_data_tx_int_reg[4]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[4]_i_1_n_0\,
@@ -730,7 +730,7 @@ begin
     );
 \r_data_tx_int_reg[5]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[5]_i_1_n_0\,
@@ -738,7 +738,7 @@ begin
     );
 \r_data_tx_int_reg[6]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[6]_i_1_n_0\,
@@ -746,7 +746,7 @@ begin
     );
 \r_data_tx_int_reg[7]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => \r_data_tx_int[7]_i_1_n_0\,
       CLR => \ws_cnt_reg[0]_0\,
       D => \r_data_tx_int[7]_i_2_n_0\,
@@ -1268,7 +1268,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[0]_i_1_n_7\,
@@ -1298,7 +1298,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[8]_i_1_n_5\,
@@ -1309,7 +1309,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[8]_i_1_n_4\,
@@ -1320,7 +1320,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[12]_i_1_n_7\,
@@ -1349,7 +1349,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[12]_i_1_n_6\,
@@ -1360,7 +1360,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[12]_i_1_n_5\,
@@ -1371,7 +1371,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[12]_i_1_n_4\,
@@ -1382,7 +1382,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[16]_i_1_n_7\,
@@ -1411,7 +1411,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[16]_i_1_n_6\,
@@ -1422,7 +1422,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[16]_i_1_n_5\,
@@ -1433,7 +1433,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[16]_i_1_n_4\,
@@ -1444,7 +1444,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[0]_i_1_n_6\,
@@ -1455,7 +1455,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[20]_i_1_n_7\,
@@ -1484,7 +1484,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[20]_i_1_n_6\,
@@ -1495,7 +1495,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[20]_i_1_n_5\,
@@ -1506,7 +1506,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[20]_i_1_n_4\,
@@ -1517,7 +1517,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[24]_i_1_n_7\,
@@ -1546,7 +1546,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[24]_i_1_n_6\,
@@ -1557,7 +1557,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[24]_i_1_n_5\,
@@ -1568,7 +1568,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[24]_i_1_n_4\,
@@ -1579,7 +1579,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[28]_i_1_n_7\,
@@ -1608,7 +1608,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[28]_i_1_n_6\,
@@ -1619,7 +1619,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[0]_i_1_n_5\,
@@ -1630,7 +1630,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[28]_i_1_n_5\,
@@ -1641,7 +1641,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[28]_i_1_n_4\,
@@ -1652,7 +1652,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[0]_i_1_n_4\,
@@ -1663,7 +1663,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[4]_i_1_n_7\,
@@ -1692,7 +1692,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[4]_i_1_n_6\,
@@ -1703,7 +1703,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[4]_i_1_n_5\,
@@ -1714,7 +1714,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[4]_i_1_n_4\,
@@ -1725,7 +1725,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[8]_i_1_n_7\,
@@ -1754,7 +1754,7 @@ sclk_cnt1_carry_i_5: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => \sclk_cnt_reg[8]_i_1_n_6\,
@@ -1781,7 +1781,7 @@ sclk_int_reg: unisim.vcomponents.FDCE
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => p_0_in,
@@ -2135,7 +2135,7 @@ sd_tx_i_3: unisim.vcomponents.LUT3
     );
 sd_tx_reg: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => sd_tx_i_1_n_0,
@@ -2669,7 +2669,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[0]_i_1_n_7\,
@@ -2699,7 +2699,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[8]_i_1_n_5\,
@@ -2710,7 +2710,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[8]_i_1_n_4\,
@@ -2721,7 +2721,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[12]_i_1_n_7\,
@@ -2750,7 +2750,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[12]_i_1_n_6\,
@@ -2761,7 +2761,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[12]_i_1_n_5\,
@@ -2772,7 +2772,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[12]_i_1_n_4\,
@@ -2783,7 +2783,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[16]_i_1_n_7\,
@@ -2812,7 +2812,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[16]_i_1_n_6\,
@@ -2823,7 +2823,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[16]_i_1_n_5\,
@@ -2834,7 +2834,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[16]_i_1_n_4\,
@@ -2845,7 +2845,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[0]_i_1_n_6\,
@@ -2856,7 +2856,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[20]_i_1_n_7\,
@@ -2885,7 +2885,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[20]_i_1_n_6\,
@@ -2896,7 +2896,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[20]_i_1_n_5\,
@@ -2907,7 +2907,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[20]_i_1_n_4\,
@@ -2918,7 +2918,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[24]_i_1_n_7\,
@@ -2947,7 +2947,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[24]_i_1_n_6\,
@@ -2958,7 +2958,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[24]_i_1_n_5\,
@@ -2969,7 +2969,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[24]_i_1_n_4\,
@@ -2980,7 +2980,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[28]_i_1_n_7\,
@@ -3009,7 +3009,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[28]_i_1_n_6\,
@@ -3020,7 +3020,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[0]_i_1_n_5\,
@@ -3031,7 +3031,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[28]_i_1_n_5\,
@@ -3042,7 +3042,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[28]_i_1_n_4\,
@@ -3053,7 +3053,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[0]_i_1_n_4\,
@@ -3064,7 +3064,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[4]_i_1_n_7\,
@@ -3093,7 +3093,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[4]_i_1_n_6\,
@@ -3104,7 +3104,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[4]_i_1_n_5\,
@@ -3115,7 +3115,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[4]_i_1_n_4\,
@@ -3126,7 +3126,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[8]_i_1_n_7\,
@@ -3155,7 +3155,7 @@ ws_cnt1_carry_i_7: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => p_1_in,
       CLR => \ws_cnt_reg[0]_0\,
       D => \ws_cnt_reg[8]_i_1_n_6\,
@@ -3176,7 +3176,7 @@ ws_int_reg: unisim.vcomponents.FDCE
       INIT => '0'
     )
         port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \ws_cnt_reg[0]_0\,
       D => ws_int_i_1_n_0,
@@ -3190,7 +3190,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_mic_0_0_mic_reset is
   port (
     resetn_reg_0 : out STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     reset : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3206,7 +3206,7 @@ architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_reset is
 begin
 resetn_reg: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => reset,
       D => '1',
@@ -3234,7 +3234,7 @@ entity zxnexys_zxnexys_mic_0_0_pwm_decode is
     m_data : in STD_LOGIC;
     CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     CLK : in STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     \rcnt_reg[7]_0\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3439,7 +3439,7 @@ begin
     );
 \lcnt_reg[0]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(0),
@@ -3447,7 +3447,7 @@ begin
     );
 \lcnt_reg[1]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(1),
@@ -3455,7 +3455,7 @@ begin
     );
 \lcnt_reg[2]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(2),
@@ -3463,7 +3463,7 @@ begin
     );
 \lcnt_reg[3]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(3),
@@ -3471,7 +3471,7 @@ begin
     );
 \lcnt_reg[4]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(4),
@@ -3479,7 +3479,7 @@ begin
     );
 \lcnt_reg[5]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(5),
@@ -3487,7 +3487,7 @@ begin
     );
 \lcnt_reg[6]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(6),
@@ -3495,7 +3495,7 @@ begin
     );
 \lcnt_reg[7]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => CLK,
       D => \p_0_in__0\(7),
@@ -3698,7 +3698,7 @@ begin
     );
 \rcnt_reg[0]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(0),
@@ -3706,7 +3706,7 @@ begin
     );
 \rcnt_reg[1]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(1),
@@ -3714,7 +3714,7 @@ begin
     );
 \rcnt_reg[2]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(2),
@@ -3722,7 +3722,7 @@ begin
     );
 \rcnt_reg[3]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(3),
@@ -3730,7 +3730,7 @@ begin
     );
 \rcnt_reg[4]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(4),
@@ -3738,7 +3738,7 @@ begin
     );
 \rcnt_reg[5]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(5),
@@ -3746,7 +3746,7 @@ begin
     );
 \rcnt_reg[6]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(6),
@@ -3754,7 +3754,7 @@ begin
     );
 \rcnt_reg[7]\: unisim.vcomponents.FDCE
      port map (
-      C => clk_audio,
+      C => clk_12m288,
       CE => '1',
       CLR => \rcnt_reg[7]_0\,
       D => \p_0_in__1\(7),
@@ -3772,7 +3772,7 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0 is
     ws_int_reg : out STD_LOGIC;
     i2s_dout : out STD_LOGIC;
     ws_int_reg_0 : out STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     \ws_cnt_reg[0]\ : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 6 downto 0 );
     \r_data_tx_int_reg[7]\ : in STD_LOGIC_VECTOR ( 6 downto 0 );
@@ -3790,7 +3790,7 @@ inst: entity work.zxnexys_zxnexys_mic_0_0_i2s_transceiver
       CO(0) => CO(0),
       D(0) => D(0),
       Q(6 downto 0) => Q(6 downto 0),
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       i2s_dout => i2s_dout,
       \r_data_tx_int_reg[0]_0\(0) => \r_data_tx_int_reg[0]\(0),
       \r_data_tx_int_reg[7]_0\(6 downto 0) => \r_data_tx_int_reg[7]\(6 downto 0),
@@ -3807,7 +3807,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 is
   port (
     resetn_reg : out STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     reset : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3818,7 +3818,7 @@ architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 is
 begin
 inst: entity work.zxnexys_zxnexys_mic_0_0_mic_reset
      port map (
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       reset => reset,
       resetn_reg_0 => resetn_reg
     );
@@ -3836,7 +3836,7 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0 is
     m_data : in STD_LOGIC;
     CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     CLK : in STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     \rcnt_reg[7]\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3851,7 +3851,7 @@ inst: entity work.zxnexys_zxnexys_mic_0_0_pwm_decode
       CO(0) => CO(0),
       D(0) => D(0),
       Q(6 downto 0) => Q(6 downto 0),
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       m_data => m_data,
       \r_reg[0]_0\(0) => \r_reg[0]\(0),
       \r_reg[7]_0\(6 downto 0) => \r_reg[7]\(6 downto 0),
@@ -3867,7 +3867,7 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s is
     i2s_sclk : out STD_LOGIC;
     AR : out STD_LOGIC_VECTOR ( 0 to 0 );
     i2s_dout : out STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     reset : in STD_LOGIC;
     m_data : in STD_LOGIC
   );
@@ -3895,7 +3895,7 @@ i2s_transceiver_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0
       CO(0) => \inst/ws_cnt1\,
       D(0) => pwm_decode_0_n_0,
       Q(6 downto 0) => l(7 downto 1),
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       i2s_dout => i2s_dout,
       \r_data_tx_int_reg[0]\(0) => pwm_decode_0_n_8,
       \r_data_tx_int_reg[7]\(6 downto 0) => r(7 downto 1),
@@ -3906,7 +3906,7 @@ i2s_transceiver_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0
     );
 mic_reset_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0
      port map (
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       reset => reset,
       resetn_reg => mic_reset_0_n_0
     );
@@ -3916,7 +3916,7 @@ pwm_decode_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
       CO(0) => \inst/ws_cnt1\,
       D(0) => pwm_decode_0_n_0,
       Q(6 downto 0) => l(7 downto 1),
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       m_data => m_data,
       \r_reg[0]\(0) => pwm_decode_0_n_8,
       \r_reg[7]\(6 downto 0) => r(7 downto 1),
@@ -3932,7 +3932,7 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper is
     i2s_sclk : out STD_LOGIC;
     ws_int_reg : out STD_LOGIC;
     i2s_dout : out STD_LOGIC;
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     reset : in STD_LOGIC;
     m_data : in STD_LOGIC
   );
@@ -3945,7 +3945,7 @@ begin
 mic_i2s_i: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s
      port map (
       AR(0) => ws_int_reg,
-      clk_audio => clk_audio,
+      clk_12m288 => clk_12m288,
       i2s_dout => i2s_dout,
       i2s_sclk => i2s_sclk,
       m_data => m_data,
@@ -3958,7 +3958,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_mic_0_0 is
   port (
-    clk_audio : in STD_LOGIC;
+    clk_12m288 : in STD_LOGIC;
     i2s_din : in STD_LOGIC;
     i2s_dout : out STD_LOGIC;
     i2s_sclk : out STD_LOGIC;
@@ -3977,23 +3977,23 @@ entity zxnexys_zxnexys_mic_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_zxnexys_mic_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxnexys_mic_0_0 : entity is "mic_i2s_wrapper,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxnexys_mic_0_0 : entity is "mic_i2s_wrapper,Vivado 2021.2.1";
 end zxnexys_zxnexys_mic_0_0;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0 is
   signal \<const0>\ : STD_LOGIC;
-  signal \^clk_audio\ : STD_LOGIC;
+  signal \^clk_12m288\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of clk_audio : signal is "xilinx.com:signal:clock:1.0 clk_audio CLK";
+  attribute X_INTERFACE_INFO of clk_12m288 : signal is "xilinx.com:signal:clock:1.0 clk_12m288 CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk_audio : signal is "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk_12m288 : signal is "XIL_INTERFACENAME clk_12m288, ASSOCIATED_ASYNC_RESET reset, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_clk : signal is "xilinx.com:signal:clock:1.0 m_clk CLK";
   attribute X_INTERFACE_PARAMETER of m_clk : signal is "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxnexys_mic_0_0_m_clk, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
   attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
 begin
-  \^clk_audio\ <= clk_audio;
-  m_clk <= \^clk_audio\;
+  \^clk_12m288\ <= clk_12m288;
+  m_clk <= \^clk_12m288\;
   m_lrsel <= \<const0>\;
 GND: unisim.vcomponents.GND
      port map (
@@ -4001,7 +4001,7 @@ GND: unisim.vcomponents.GND
     );
 inst: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
      port map (
-      clk_audio => \^clk_audio\,
+      clk_12m288 => \^clk_12m288\,
       i2s_dout => i2s_dout,
       i2s_sclk => i2s_sclk,
       m_data => m_data,

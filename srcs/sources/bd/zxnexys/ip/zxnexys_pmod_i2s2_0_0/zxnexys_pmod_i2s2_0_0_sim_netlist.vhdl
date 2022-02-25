@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:49:14 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:55:27 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_i2s2_0_0/zxnexys_pmod_i2s2_0_0_sim_netlist.vhdl
@@ -58,7 +58,7 @@ entity zxnexys_pmod_i2s2_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_pmod_i2s2_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_pmod_i2s2_0_0 : entity is "pmod_i2s2,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_pmod_i2s2_0_0 : entity is "pmod_i2s2,Vivado 2021.2.1";
 end zxnexys_pmod_i2s2_0_0;
 
 architecture STRUCTURE of zxnexys_pmod_i2s2_0_0 is

@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:57:04 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:44:07 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_sim_netlist.vhdl
@@ -3285,7 +3285,7 @@ entity zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 is
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "joystick_util_vector_logic_0_0";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1";
 end zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0;
 
 architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 is
@@ -3320,7 +3320,7 @@ entity zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 is
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 : entity is "joystick_xlconcat_0_0";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 : entity is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 : entity is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
 end zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0;
 
 architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 is
@@ -3374,7 +3374,7 @@ entity zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 is
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 : entity is "joystick_xlconcat_0_1";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 : entity is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 : entity is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
 end zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1;
 
 architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 is
@@ -5038,7 +5038,7 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick is
   signal NLW_xlconcat_1_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 10 downto 6 );
   attribute X_CORE_INFO : string;
   attribute X_CORE_INFO of SPI_Master_0 : label is "SPI_Master,Vivado 2021.2";
-  attribute X_CORE_INFO of debounce_0 : label is "debounce,Vivado 2021.2";
+  attribute X_CORE_INFO of debounce_0 : label is "debounce,Vivado 2021.2.1";
   attribute X_CORE_INFO of debounce_1 : label is "debounce,Vivado 2021.2";
   attribute X_CORE_INFO of debounce_10 : label is "debounce,Vivado 2021.2";
   attribute X_CORE_INFO of debounce_2 : label is "debounce,Vivado 2021.2";
@@ -5050,18 +5050,18 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick is
   attribute X_CORE_INFO of debounce_8 : label is "debounce,Vivado 2021.2";
   attribute X_CORE_INFO of debounce_9 : label is "debounce,Vivado 2021.2";
   attribute X_CORE_INFO of joy_clock_enable_0 : label is "joy_clock_enable,Vivado 2021.2";
-  attribute X_CORE_INFO of pmod_jstk2_0 : label is "pmod_jstk2,Vivado 2021.2";
+  attribute X_CORE_INFO of pmod_jstk2_0 : label is "pmod_jstk2,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE : string;
   attribute CHECK_LICENSE_TYPE of util_vector_logic_0 : label is "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of util_vector_logic_0 : label is "yes";
-  attribute X_CORE_INFO of util_vector_logic_0 : label is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2";
+  attribute X_CORE_INFO of util_vector_logic_0 : label is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE of xlconcat_0 : label is "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}";
   attribute DowngradeIPIdentifiedWarnings of xlconcat_0 : label is "yes";
-  attribute X_CORE_INFO of xlconcat_0 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2";
+  attribute X_CORE_INFO of xlconcat_0 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE of xlconcat_1 : label is "joystick_xlconcat_0_1,xlconcat_v2_1_4_xlconcat,{}";
   attribute DowngradeIPIdentifiedWarnings of xlconcat_1 : label is "yes";
-  attribute X_CORE_INFO of xlconcat_1 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2";
+  attribute X_CORE_INFO of xlconcat_1 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
 begin
 SPI_Master_0: entity work.zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
      port map (
@@ -5321,7 +5321,7 @@ entity zxnexys_zxjoystick_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_zxjoystick_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0 : entity is "joystick_wrapper,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0 : entity is "joystick_wrapper,Vivado 2021.2.1";
 end zxnexys_zxjoystick_0_0;
 
 architecture STRUCTURE of zxnexys_zxjoystick_0_0 is

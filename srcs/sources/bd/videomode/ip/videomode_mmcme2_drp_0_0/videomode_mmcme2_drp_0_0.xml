@@ -1,0 +1,2925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>xilinx.com</spirit:vendor>
+  <spirit:library>customized_ip</spirit:library>
+  <spirit:name>videomode_mmcme2_drp_0_0</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>mmcm_drp</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="drp" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="drp_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DEN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>DEN</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>DADDR</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DI</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>DATI</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DO</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>DATO</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DRDY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>DRDY</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DWE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>DWE</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>RST</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RST.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RST.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:modelName>mmcme2_drp</spirit:modelName>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:e7df03c3</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_synthesisconstraints</spirit:name>
+        <spirit:displayName>Synthesis Constraints</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis.constraints</spirit:envIdentifier>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:e7df03c3</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsynthesiswrapper</spirit:name>
+        <spirit:displayName>Verilog Synthesis Wrapper</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:synthesis.wrapper</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>videomode_mmcme2_drp_0_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsynthesiswrapper_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Mon Feb 21 17:42:16 UTC 2022</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:e7df03c3</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:modelName>mmcme2_drp</spirit:modelName>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:f8fab2d8</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_verilogsimulationwrapper</spirit:name>
+        <spirit:displayName>Verilog Simulation Wrapper</spirit:displayName>
+        <spirit:envIdentifier>verilogSource:vivado.xilinx.com:simulation.wrapper</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>videomode_mmcme2_drp_0_0</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_verilogsimulationwrapper_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Mon Feb 21 17:42:16 UTC 2022</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:f8fab2d8</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_externalfiles</spirit:name>
+        <spirit:displayName>External Files</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:external.files</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_externalfiles_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Mon Feb 21 17:44:23 UTC 2022</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
+            <spirit:name>outputProductCRC</spirit:name>
+            <spirit:value>9:e7df03c3</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>SADDR</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SEN</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SCLK</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>RST</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>SRDY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DATO</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic_vector</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DRDY</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>LOCK_REG_CLK_IN</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>LOCKED_IN</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DWE</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DEN</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DADDR</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">6</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DATI</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>DCLK</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>RST_MMCM</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>LOCKED_OUT</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>std_logic</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+    <spirit:modelParameters>
+      <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="string">
+        <spirit:name>REGISTER_LOCKED</spirit:name>
+        <spirit:displayName>Register Locked</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.REGISTER_LOCKED">Reg</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>USE_REG_LOCKED</spirit:name>
+        <spirit:displayName>Use Reg Locked</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.USE_REG_LOCKED">No</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S1 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKFBOUT_MULT">42</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S1 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKFBOUT_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S1 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S1_BANDWIDTH</spirit:name>
+        <spirit:displayName>S1 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_DIVCLK_DIVIDE">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S1 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S1 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S1 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S1 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S1_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S1 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S1_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S2 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKFBOUT_MULT">50</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S2 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKFBOUT_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S2 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S2_BANDWIDTH</spirit:name>
+        <spirit:displayName>S2 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_DIVCLK_DIVIDE">7</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT0_DIVIDE">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S2 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S2 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT1_DIVIDE">25</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT2_DIVIDE">50</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT3_DIVIDE">100</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S2 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S2 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S2_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S2 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S2_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S3 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKFBOUT_MULT">61</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S3 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKFBOUT_FRAC">875</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S3 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S3_BANDWIDTH</spirit:name>
+        <spirit:displayName>S3 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_DIVCLK_DIVIDE">7</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S3 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S3 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S3 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S3 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S3_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S3 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S3_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S4 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKFBOUT_MULT">9</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S4 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKFBOUT_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S4 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S4_BANDWIDTH</spirit:name>
+        <spirit:displayName>S4 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_DIVCLK_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S4 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S4 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S4 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S4 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S4_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S4 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S4_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S5 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKFBOUT_MULT">46</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S5 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKFBOUT_FRAC">500</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S5 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S5_BANDWIDTH</spirit:name>
+        <spirit:displayName>S5 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_DIVCLK_DIVIDE">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S5 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S5 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S5 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S5 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S5_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S5 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S5_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S6 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKFBOUT_MULT">48</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S6 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKFBOUT_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S6 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S6_BANDWIDTH</spirit:name>
+        <spirit:displayName>S6 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_DIVCLK_DIVIDE">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S6 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S6 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S6 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S6 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S6_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S6 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S6_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S7 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKFBOUT_MULT">49</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S7 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKFBOUT_FRAC">500</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S7 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S7_BANDWIDTH</spirit:name>
+        <spirit:displayName>S7 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_DIVCLK_DIVIDE">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S7 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S7 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S7 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S7 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S7_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S7 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S7_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKFBOUT_MULT</spirit:name>
+        <spirit:displayName>S8 Clkfbout Mult</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKFBOUT_MULT">40</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKFBOUT_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkfbout Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKFBOUT_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKFBOUT_FRAC</spirit:name>
+        <spirit:displayName>S8 Clkfbout Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKFBOUT_FRAC">500</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKFBOUT_FRAC_EN</spirit:name>
+        <spirit:displayName>S8 Clkfbout Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKFBOUT_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="string">
+        <spirit:name>S8_BANDWIDTH</spirit:name>
+        <spirit:displayName>S8 Bandwidth</spirit:displayName>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_BANDWIDTH">OPTIMIZED</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_DIVCLK_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Divclk Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_DIVCLK_DIVIDE">5</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT0_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout0 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT0_DIVIDE">6</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT0_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout0 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT0_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT0_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout0 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT0_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT0_FRAC</spirit:name>
+        <spirit:displayName>S8 Clkout0 Frac</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT0_FRAC">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT0_FRAC_EN</spirit:name>
+        <spirit:displayName>S8 Clkout0 Frac En</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT0_FRAC_EN">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT1_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout1 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT1_DIVIDE">30</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT1_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout1 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT1_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT1_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout1 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT1_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT2_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout2 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT2_DIVIDE">60</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT2_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout2 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT2_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT2_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout2 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT2_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT3_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout3 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT3_DIVIDE">120</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT3_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout3 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT3_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT3_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout3 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT3_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT4_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout4 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT4_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT4_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout4 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT4_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT4_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout4 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT4_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT5_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout5 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT5_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT5_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout5 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT5_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT5_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout5 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT5_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT6_DIVIDE</spirit:name>
+        <spirit:displayName>S8 Clkout6 Divide</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT6_DIVIDE">1</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT6_PHASE</spirit:name>
+        <spirit:displayName>S8 Clkout6 Phase</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT6_PHASE">0</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>S8_CLKOUT6_DUTY</spirit:name>
+        <spirit:displayName>S8 Clkout6 Duty</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.S8_CLKOUT6_DUTY">50000</spirit:value>
+      </spirit:modelParameter>
+    </spirit:modelParameters>
+  </spirit:model>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsynthesiswrapper_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>synth/videomode_mmcme2_drp_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_verilogsimulationwrapper_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>sim/videomode_mmcme2_drp_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_externalfiles_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>videomode_mmcme2_drp_0_0.dcp</spirit:name>
+        <spirit:userFileType>dcp</spirit:userFileType>
+        <spirit:userFileType>USED_IN_implementation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_synthesis</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>videomode_mmcme2_drp_0_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>videomode_mmcme2_drp_0_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>videomode_mmcme2_drp_0_0_sim_netlist.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>videomode_mmcme2_drp_0_0_sim_netlist.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
+        <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>xilinx.com:module_ref:mmcme2_drp:1.0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>REGISTER_LOCKED</spirit:name>
+      <spirit:displayName>Register Locked</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.REGISTER_LOCKED">Reg</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>USE_REG_LOCKED</spirit:name>
+      <spirit:displayName>Use Reg Locked</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.USE_REG_LOCKED">No</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S1 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKFBOUT_MULT">42</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S1 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKFBOUT_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S1 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_BANDWIDTH</spirit:name>
+      <spirit:displayName>S1 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S1_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_DIVCLK_DIVIDE">5</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S1 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S1 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S1 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S1 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S1_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S1 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S1_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S2 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKFBOUT_MULT">50</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S2 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKFBOUT_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S2 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_BANDWIDTH</spirit:name>
+      <spirit:displayName>S2 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S2_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_DIVCLK_DIVIDE">7</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT0_DIVIDE">5</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S2 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S2 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT1_DIVIDE">25</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT2_DIVIDE">50</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT3_DIVIDE">100</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S2 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S2 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S2_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S2 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S2_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S3 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKFBOUT_MULT">61</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S3 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKFBOUT_FRAC">875</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S3 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_BANDWIDTH</spirit:name>
+      <spirit:displayName>S3 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S3_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_DIVCLK_DIVIDE">7</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S3 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S3 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S3 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S3 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S3_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S3 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S3_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S4 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKFBOUT_MULT">9</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S4 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKFBOUT_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S4 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_BANDWIDTH</spirit:name>
+      <spirit:displayName>S4 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S4_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_DIVCLK_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S4 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S4 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S4 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S4 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S4_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S4 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S4_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S5 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKFBOUT_MULT">46</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S5 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKFBOUT_FRAC">500</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S5 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_BANDWIDTH</spirit:name>
+      <spirit:displayName>S5 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S5_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_DIVCLK_DIVIDE">5</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S5 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S5 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S5 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S5 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S5_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S5 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S5_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S6 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKFBOUT_MULT">48</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S6 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKFBOUT_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S6 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_BANDWIDTH</spirit:name>
+      <spirit:displayName>S6 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S6_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_DIVCLK_DIVIDE">5</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S6 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S6 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S6 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S6 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S6_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S6 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S6_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S7 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKFBOUT_MULT">49</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S7 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKFBOUT_FRAC">500</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S7 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_BANDWIDTH</spirit:name>
+      <spirit:displayName>S7 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S7_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_DIVCLK_DIVIDE">5</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S7 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S7 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S7 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S7 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S7_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S7 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S7_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKFBOUT_MULT</spirit:name>
+      <spirit:displayName>S8 Clkfbout Mult</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKFBOUT_MULT">40</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKFBOUT_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkfbout Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKFBOUT_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKFBOUT_FRAC</spirit:name>
+      <spirit:displayName>S8 Clkfbout Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKFBOUT_FRAC">500</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKFBOUT_FRAC_EN</spirit:name>
+      <spirit:displayName>S8 Clkfbout Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKFBOUT_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_BANDWIDTH</spirit:name>
+      <spirit:displayName>S8 Bandwidth</spirit:displayName>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.S8_BANDWIDTH">OPTIMIZED</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_DIVCLK_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Divclk Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_DIVCLK_DIVIDE">5</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT0_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout0 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT0_DIVIDE">6</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT0_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout0 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT0_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT0_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout0 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT0_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT0_FRAC</spirit:name>
+      <spirit:displayName>S8 Clkout0 Frac</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT0_FRAC">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT0_FRAC_EN</spirit:name>
+      <spirit:displayName>S8 Clkout0 Frac En</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT0_FRAC_EN">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT1_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout1 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT1_DIVIDE">30</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT1_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout1 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT1_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT1_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout1 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT1_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT2_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout2 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT2_DIVIDE">60</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT2_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout2 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT2_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT2_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout2 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT2_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT3_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout3 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT3_DIVIDE">120</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT3_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout3 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT3_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT3_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout3 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT3_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT4_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout4 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT4_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT4_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout4 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT4_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT4_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout4 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT4_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT5_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout5 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT5_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT5_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout5 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT5_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT5_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout5 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT5_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT6_DIVIDE</spirit:name>
+      <spirit:displayName>S8 Clkout6 Divide</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT6_DIVIDE">1</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT6_PHASE</spirit:name>
+      <spirit:displayName>S8 Clkout6 Phase</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT6_PHASE">0</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>S8_CLKOUT6_DUTY</spirit:name>
+      <spirit:displayName>S8 Clkout6 Duty</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.S8_CLKOUT6_DUTY">50000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">videomode_mmcme2_drp_0_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:displayName>mmcme2_drp_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>module_ref</xilinx:definitionSource>
+      <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RST.POLARITY" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT4_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_CLKOUT5_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S1_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT4_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT5_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT6_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_CLKOUT6_PHASE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S2_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S3_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT4_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT5_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT6_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_CLKOUT6_PHASE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S4_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S5_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT4_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT5_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT6_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_CLKOUT6_PHASE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S6_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S7_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_BANDWIDTH" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKFBOUT_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKFBOUT_MULT" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT0_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT0_FRAC" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT1_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT2_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT3_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT4_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT5_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT6_DIVIDE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_CLKOUT6_PHASE" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.S8_DIVCLK_DIVIDE" xilinx:valueSource="user"/>
+      </xilinx:configElementInfos>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>

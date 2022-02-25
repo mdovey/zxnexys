@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 23 09:42:02 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Feb 21 16:08:53 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="ram" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -9,22 +9,22 @@
         <CONNECTION INSTANCE="bram_read_0" PORT="clk_memory"/>
         <CONNECTION INSTANCE="bram_write_0" PORT="clk_memory"/>
         <CONNECTION INSTANCE="bram_write_1" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="ram_a_read_0" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="ram_a_write_0" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="ram_b_read_0" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="ram_b_read_1" PORT="clk_memory"/>
-        <CONNECTION INSTANCE="ram_input_0" PORT="clk_memory"/>
         <CONNECTION INSTANCE="ram_reset_0" PORT="clk_memory"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S03_ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_ACLK"/>
         <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ACLK"/>
+        <CONNECTION INSTANCE="ram_a_read_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="ram_b_read_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="ram_b_read_1" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="ram_a_write_0" PORT="clk_memory"/>
+        <CONNECTION INSTANCE="ram_input_0" PORT="clk_memory"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral_n">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="ram_input_0" PORT="clk_peripheral_n"/>
         <CONNECTION INSTANCE="ram_output_0" PORT="clk_peripheral_n"/>
+        <CONNECTION INSTANCE="ram_input_0" PORT="clk_peripheral_n"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="150015002" DIR="I" NAME="clk_ui" SIGIS="clk" SIGNAME="External_Ports_clk_ui">
@@ -3211,14 +3211,14 @@
             <CONNECTION INSTANCE="bram_read_0" PORT="aresetn"/>
             <CONNECTION INSTANCE="bram_write_0" PORT="aresetn"/>
             <CONNECTION INSTANCE="bram_write_1" PORT="aresetn"/>
-            <CONNECTION INSTANCE="ram_a_read_0" PORT="aresetn"/>
-            <CONNECTION INSTANCE="ram_a_write_0" PORT="aresetn"/>
-            <CONNECTION INSTANCE="ram_b_read_0" PORT="aresetn"/>
-            <CONNECTION INSTANCE="ram_b_read_1" PORT="aresetn"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S03_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S02_ARESETN"/>
             <CONNECTION INSTANCE="axi_interconnect_0" PORT="S01_ARESETN"/>
+            <CONNECTION INSTANCE="ram_a_read_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="ram_b_read_0" PORT="aresetn"/>
+            <CONNECTION INSTANCE="ram_b_read_1" PORT="aresetn"/>
+            <CONNECTION INSTANCE="ram_a_write_0" PORT="aresetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="140000000" DIR="I" NAME="clk_memory" SIGIS="clk" SIGNAME="External_Ports_clk_memory">

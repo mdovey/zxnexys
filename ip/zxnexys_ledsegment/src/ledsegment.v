@@ -78,37 +78,190 @@ module ledsegment (
 
     always @(posedge clk_peripheral)
         case (cpu_speed)
-            2'b00:  display[0]  <= 5'h1_3;
-            2'b01:  display[0]  <= 5'h1_7;
-            2'b10:  display[0]  <= 5'h0_1;
-            2'b11:  display[0]  <= 5'h0_2;
+            2'b00:
+            case (machine_timing)
+                3'h0:
+                begin
+                    display[0]  <= 5'h1_3;
+                    display[1]  <= 5'h0_5;
+                end
+                3'h1:
+                begin
+                    display[0]  <= 5'h1_3;
+                    display[1]  <= 5'h0_6;
+                end
+                3'h2:
+                begin
+                    display[0]  <= 5'h1_3;
+                    display[1]  <= 5'h0_7;
+                end
+                3'h3:
+                begin
+                    display[0]  <= 5'h1_3;
+                    display[1]  <= 5'h0_8;
+                end
+                3'h4:
+                begin
+                    display[0]  <= 5'h1_3;
+                    display[1]  <= 5'h0_9;
+                end
+                3'h5:
+                begin
+                    display[0]  <= 5'h1_4;
+                    display[1]  <= 5'h0_0;
+                end
+                3'h6:
+                begin
+                    display[0]  <= 5'h1_4;
+                    display[1]  <= 5'h0_1;
+                end
+                3'h7:
+                begin
+                    display[0]  <= 5'h1_3;
+                    display[1]  <= 5'h0_4;
+                end
+            endcase    
+            2'b01:
+            case (machine_timing)
+                3'h0:
+                begin
+                    display[0]  <= 5'h1_7;
+                    display[1]  <= 5'h0_0;
+                end
+                3'h1:
+                begin
+                    display[0]  <= 5'h1_7;
+                    display[1]  <= 5'h0_1;
+                end
+                3'h2:
+                begin
+                    display[0]  <= 5'h1_7;
+                    display[1]  <= 5'h0_4;
+                end
+                3'h3:
+                begin
+                    display[0]  <= 5'h1_7;
+                    display[1]  <= 5'h0_5;
+                end
+                3'h4:
+                begin
+                    display[0]  <= 5'h1_7;
+                    display[1]  <= 5'h0_8;
+                end
+                3'h5:
+                begin
+                    display[0]  <= 5'h1_8;
+                    display[1]  <= 5'h0_0;
+                end
+                3'h6:
+                begin
+                    display[0]  <= 5'h1_8;
+                    display[1]  <= 5'h0_3;
+                end
+                3'h7:
+                begin
+                    display[0]  <= 5'h1_6;
+                    display[1]  <= 5'h0_8;
+                end
+            endcase    
+            2'b10:
+            case (machine_timing)
+                3'h0:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_4;
+                end
+                3'h1:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_4;
+                end
+                3'h2:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_5;
+                end
+                3'h3:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_5;
+                end
+                3'h4:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_6;
+                end
+                3'h5:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_6;
+                end
+                3'h6:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_7;
+                end
+                3'h7:
+                begin
+                    display[0]  <= 5'h0_1;
+                    display[1]  <= 5'h0_4;
+                end
+            endcase    
+
+            2'b11:
+            case (machine_timing)
+                3'h0:
+                begin
+                    display[0]  <= 5'h0_2;
+                    display[1]  <= 5'h0_8;
+                end
+                3'h1:
+                begin
+                    display[0]  <= 5'h0_2;
+                    display[1]  <= 5'h0_9;
+                end
+                3'h2:
+                begin
+                    display[0]  <= 5'h0_2;
+                    display[1]  <= 5'h0_9;
+                end
+                3'h3:
+                begin
+                    display[0]  <= 5'h0_3;
+                    display[1]  <= 5'h0_0;
+                end
+                3'h4:
+                begin
+                    display[0]  <= 5'h0_3;
+                    display[1]  <= 5'h0_1;
+                end
+                3'h5:
+                begin
+                    display[0]  <= 5'h0_3;
+                    display[1]  <= 5'h0_2;
+                end
+                3'h6:
+                begin
+                    display[0]  <= 5'h0_3;
+                    display[1]  <= 5'h0_3;
+                end
+                3'h7:
+                begin
+                    display[0]  <= 5'h0_2;
+                    display[1]  <= 5'h0_7;
+                end
+            endcase    
         endcase
 
     always @(posedge clk_peripheral)
-        case (cpu_speed)
-            2'b00:  display[1]  <= 5'h0_5;
-            2'b01:  display[1]  <= 5'h0_0;
-            2'b10:  display[1]  <= 5'h0_4;
-            2'b11:  display[1]  <= 5'h0_8;
-        endcase
-
-    always @(posedge clk_peripheral)
+    begin
         display[2]  <= {4'b0000, address[20:20]};
-
-    always @(posedge clk_peripheral)
         display[3]  <= {1'b0, address[19:16]};
-
-    always @(posedge clk_peripheral)
         display[4]  <= {1'b0, address[15:12]};
-
-    always @(posedge clk_peripheral)
         display[5]  <= {1'b0, address[11:8]};
-
-    always @(posedge clk_peripheral)
         display[6]  <= {1'b0, address[7:4]};
-
-    always @(posedge clk_peripheral)
         display[7]  <= {1'b0, address[3:0]};
+    end
 
     always @(posedge clk_peripheral)
         div <= div + 1;

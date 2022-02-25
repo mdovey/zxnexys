@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:tape_mic:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "tape_mic,Vivado 2021.2" *)
+(* X_CORE_INFO = "tape_mic,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "audio_tape_mic_0_0,tape_mic,{}" *)
-(* CORE_GENERATION_INFO = "audio_tape_mic_0_0,tape_mic,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tape_mic,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,VOLUME=0x2000}" *)
+(* CORE_GENERATION_INFO = "audio_tape_mic_0_0,tape_mic,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=tape_mic,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AUDIO_DW=16,VOLUME=0x2000}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module audio_tape_mic_0_0 (

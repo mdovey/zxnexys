@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:53:14 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:56:11 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0_sim_netlist.v
@@ -13,10 +13,10 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_mic_0_0,mic_i2s_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2" *) 
+(* X_CORE_INFO = "mic_i2s_wrapper,Vivado 2021.2.1" *) 
 (* NotValidForBitStream *)
 module zxnexys_zxnexys_mic_0_0
-   (clk_audio,
+   (clk_12m288,
     i2s_din,
     i2s_dout,
     i2s_sclk,
@@ -25,7 +25,7 @@ module zxnexys_zxnexys_mic_0_0
     m_data,
     m_lrsel,
     reset);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *) input clk_audio;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_12m288 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_12m288, ASSOCIATED_ASYNC_RESET reset, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0" *) input clk_12m288;
   input i2s_din;
   output i2s_dout;
   output i2s_sclk;
@@ -36,19 +36,19 @@ module zxnexys_zxnexys_mic_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
 
   wire \<const0> ;
-  wire clk_audio;
+  wire clk_12m288;
   wire i2s_dout;
   wire i2s_sclk;
   wire i2s_wclk;
   wire m_data;
   wire reset;
 
-  assign m_clk = clk_audio;
+  assign m_clk = clk_12m288;
   assign m_lrsel = \<const0> ;
   GND GND
        (.G(\<const0> ));
   zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper inst
-       (.clk_audio(clk_audio),
+       (.clk_12m288(clk_12m288),
         .i2s_dout(i2s_dout),
         .i2s_sclk(i2s_sclk),
         .m_data(m_data),
@@ -63,7 +63,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
     ws_int_reg_0,
     i2s_dout,
     ws_int_reg_1,
-    clk_audio,
+    clk_12m288,
     \ws_cnt_reg[0]_0 ,
     Q,
     \r_data_tx_int_reg[7]_0 ,
@@ -74,7 +74,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   output ws_int_reg_0;
   output i2s_dout;
   output ws_int_reg_1;
-  input clk_audio;
+  input clk_12m288;
   input \ws_cnt_reg[0]_0 ;
   input [6:0]Q;
   input [6:0]\r_data_tx_int_reg[7]_0 ;
@@ -84,7 +84,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   wire [0:0]CO;
   wire [0:0]D;
   wire [6:0]Q;
-  wire clk_audio;
+  wire clk_12m288;
   wire i2s_dout;
   wire [6:0]l_data_tx_int;
   wire \l_data_tx_int[1]_i_1_n_0 ;
@@ -523,49 +523,49 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
         .I2(Q[6]),
         .O(\l_data_tx_int[7]_i_2_n_0 ));
   FDCE \l_data_tx_int_reg[0] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(D),
         .Q(l_data_tx_int[0]));
   FDCE \l_data_tx_int_reg[1] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[1]_i_1_n_0 ),
         .Q(l_data_tx_int[1]));
   FDCE \l_data_tx_int_reg[2] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[2]_i_1_n_0 ),
         .Q(l_data_tx_int[2]));
   FDCE \l_data_tx_int_reg[3] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[3]_i_1_n_0 ),
         .Q(l_data_tx_int[3]));
   FDCE \l_data_tx_int_reg[4] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[4]_i_1_n_0 ),
         .Q(l_data_tx_int[4]));
   FDCE \l_data_tx_int_reg[5] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[5]_i_1_n_0 ),
         .Q(l_data_tx_int[5]));
   FDCE \l_data_tx_int_reg[6] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[6]_i_1_n_0 ),
         .Q(l_data_tx_int[6]));
   FDCE \l_data_tx_int_reg[7] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\l_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\l_data_tx_int[7]_i_2_n_0 ),
@@ -635,49 +635,49 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
         .I2(\r_data_tx_int_reg[7]_0 [6]),
         .O(\r_data_tx_int[7]_i_2_n_0 ));
   FDCE \r_data_tx_int_reg[0] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int_reg[0]_0 ),
         .Q(r_data_tx_int[0]));
   FDCE \r_data_tx_int_reg[1] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[1]_i_1_n_0 ),
         .Q(r_data_tx_int[1]));
   FDCE \r_data_tx_int_reg[2] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[2]_i_1_n_0 ),
         .Q(r_data_tx_int[2]));
   FDCE \r_data_tx_int_reg[3] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[3]_i_1_n_0 ),
         .Q(r_data_tx_int[3]));
   FDCE \r_data_tx_int_reg[4] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[4]_i_1_n_0 ),
         .Q(r_data_tx_int[4]));
   FDCE \r_data_tx_int_reg[5] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[5]_i_1_n_0 ),
         .Q(r_data_tx_int[5]));
   FDCE \r_data_tx_int_reg[6] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[6]_i_1_n_0 ),
         .Q(r_data_tx_int[6]));
   FDCE \r_data_tx_int_reg[7] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(\r_data_tx_int[7]_i_1_n_0 ),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\r_data_tx_int[7]_i_2_n_0 ),
@@ -1016,7 +1016,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[0] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[0]_i_1_n_7 ),
@@ -1032,7 +1032,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[10] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[8]_i_1_n_5 ),
@@ -1040,7 +1040,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[11] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[8]_i_1_n_4 ),
@@ -1048,7 +1048,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[12] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[12]_i_1_n_7 ),
@@ -1064,7 +1064,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[13] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[12]_i_1_n_6 ),
@@ -1072,7 +1072,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[14] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[12]_i_1_n_5 ),
@@ -1080,7 +1080,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[15] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[12]_i_1_n_4 ),
@@ -1088,7 +1088,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[16] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[16]_i_1_n_7 ),
@@ -1104,7 +1104,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[17] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[16]_i_1_n_6 ),
@@ -1112,7 +1112,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[18] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[16]_i_1_n_5 ),
@@ -1120,7 +1120,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[19] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[16]_i_1_n_4 ),
@@ -1128,7 +1128,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[1] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[0]_i_1_n_6 ),
@@ -1136,7 +1136,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[20] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[20]_i_1_n_7 ),
@@ -1152,7 +1152,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[21] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[20]_i_1_n_6 ),
@@ -1160,7 +1160,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[22] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[20]_i_1_n_5 ),
@@ -1168,7 +1168,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[23] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[20]_i_1_n_4 ),
@@ -1176,7 +1176,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[24] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[24]_i_1_n_7 ),
@@ -1192,7 +1192,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[25] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[24]_i_1_n_6 ),
@@ -1200,7 +1200,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[26] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[24]_i_1_n_5 ),
@@ -1208,7 +1208,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[27] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[24]_i_1_n_4 ),
@@ -1216,7 +1216,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[28] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[28]_i_1_n_7 ),
@@ -1232,7 +1232,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[29] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[28]_i_1_n_6 ),
@@ -1240,7 +1240,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[2] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[0]_i_1_n_5 ),
@@ -1248,7 +1248,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[30] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[28]_i_1_n_5 ),
@@ -1256,7 +1256,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[31] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[28]_i_1_n_4 ),
@@ -1264,7 +1264,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[3] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[0]_i_1_n_4 ),
@@ -1272,7 +1272,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[4] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[4]_i_1_n_7 ),
@@ -1288,7 +1288,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[5] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[4]_i_1_n_6 ),
@@ -1296,7 +1296,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[6] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[4]_i_1_n_5 ),
@@ -1304,7 +1304,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[7] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[4]_i_1_n_4 ),
@@ -1312,7 +1312,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[8] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[8]_i_1_n_7 ),
@@ -1328,7 +1328,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \sclk_cnt_reg[9] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\sclk_cnt_reg[8]_i_1_n_6 ),
@@ -1346,7 +1346,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     sclk_int_reg
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(p_0_in),
@@ -1574,7 +1574,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
         .I2(p_0_in_0),
         .O(sd_tx_i_3_n_0));
   FDCE sd_tx_reg
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(sd_tx_i_1_n_0),
@@ -1920,7 +1920,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[0] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[0]_i_1_n_7 ),
@@ -1936,7 +1936,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[10] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[8]_i_1_n_5 ),
@@ -1944,7 +1944,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[11] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[8]_i_1_n_4 ),
@@ -1952,7 +1952,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[12] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[12]_i_1_n_7 ),
@@ -1968,7 +1968,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[13] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[12]_i_1_n_6 ),
@@ -1976,7 +1976,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[14] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[12]_i_1_n_5 ),
@@ -1984,7 +1984,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[15] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[12]_i_1_n_4 ),
@@ -1992,7 +1992,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[16] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[16]_i_1_n_7 ),
@@ -2008,7 +2008,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[17] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[16]_i_1_n_6 ),
@@ -2016,7 +2016,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[18] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[16]_i_1_n_5 ),
@@ -2024,7 +2024,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[19] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[16]_i_1_n_4 ),
@@ -2032,7 +2032,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[1] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[0]_i_1_n_6 ),
@@ -2040,7 +2040,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[20] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[20]_i_1_n_7 ),
@@ -2056,7 +2056,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[21] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[20]_i_1_n_6 ),
@@ -2064,7 +2064,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[22] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[20]_i_1_n_5 ),
@@ -2072,7 +2072,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[23] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[20]_i_1_n_4 ),
@@ -2080,7 +2080,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[24] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[24]_i_1_n_7 ),
@@ -2096,7 +2096,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[25] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[24]_i_1_n_6 ),
@@ -2104,7 +2104,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[26] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[24]_i_1_n_5 ),
@@ -2112,7 +2112,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[27] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[24]_i_1_n_4 ),
@@ -2120,7 +2120,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[28] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[28]_i_1_n_7 ),
@@ -2136,7 +2136,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[29] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[28]_i_1_n_6 ),
@@ -2144,7 +2144,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[2] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[0]_i_1_n_5 ),
@@ -2152,7 +2152,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[30] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[28]_i_1_n_5 ),
@@ -2160,7 +2160,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[31] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[28]_i_1_n_4 ),
@@ -2168,7 +2168,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[3] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[0]_i_1_n_4 ),
@@ -2176,7 +2176,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[4] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[4]_i_1_n_7 ),
@@ -2192,7 +2192,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[5] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[4]_i_1_n_6 ),
@@ -2200,7 +2200,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[6] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[4]_i_1_n_5 ),
@@ -2208,7 +2208,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[7] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[4]_i_1_n_4 ),
@@ -2216,7 +2216,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[8] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[8]_i_1_n_7 ),
@@ -2232,7 +2232,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     \ws_cnt_reg[9] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(p_1_in),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(\ws_cnt_reg[8]_i_1_n_6 ),
@@ -2248,7 +2248,7 @@ module zxnexys_zxnexys_mic_0_0_i2s_transceiver
   FDCE #(
     .INIT(1'b0)) 
     ws_int_reg
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\ws_cnt_reg[0]_0 ),
         .D(ws_int_i_1_n_0),
@@ -2260,18 +2260,18 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
    (i2s_sclk,
     AR,
     i2s_dout,
-    clk_audio,
+    clk_12m288,
     reset,
     m_data);
   output i2s_sclk;
   output [0:0]AR;
   output i2s_dout;
-  input clk_audio;
+  input clk_12m288;
   input reset;
   input m_data;
 
   wire [0:0]AR;
-  wire clk_audio;
+  wire clk_12m288;
   wire i2s_dout;
   wire i2s_sclk;
   wire i2s_transceiver_0_n_4;
@@ -2289,7 +2289,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
        (.CO(\inst/ws_cnt1 ),
         .D(pwm_decode_0_n_0),
         .Q(l),
-        .clk_audio(clk_audio),
+        .clk_12m288(clk_12m288),
         .i2s_dout(i2s_dout),
         .\r_data_tx_int_reg[0] (pwm_decode_0_n_8),
         .\r_data_tx_int_reg[7] (r),
@@ -2299,7 +2299,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
         .ws_int_reg_0(i2s_transceiver_0_n_4));
   (* X_CORE_INFO = "mic_reset,Vivado 2021.2" *) 
   zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 mic_reset_0
-       (.clk_audio(clk_audio),
+       (.clk_12m288(clk_12m288),
         .reset(reset),
         .resetn_reg(mic_reset_0_n_0));
   (* X_CORE_INFO = "pwm_decode,Vivado 2021.2" *) 
@@ -2308,7 +2308,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
         .CO(\inst/ws_cnt1 ),
         .D(pwm_decode_0_n_0),
         .Q(l),
-        .clk_audio(clk_audio),
+        .clk_12m288(clk_12m288),
         .m_data(m_data),
         .\r_reg[0] (pwm_decode_0_n_8),
         .\r_reg[7] (r),
@@ -2322,7 +2322,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0
     ws_int_reg,
     i2s_dout,
     ws_int_reg_0,
-    clk_audio,
+    clk_12m288,
     \ws_cnt_reg[0] ,
     Q,
     \r_data_tx_int_reg[7] ,
@@ -2333,7 +2333,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0
   output ws_int_reg;
   output i2s_dout;
   output ws_int_reg_0;
-  input clk_audio;
+  input clk_12m288;
   input \ws_cnt_reg[0] ;
   input [6:0]Q;
   input [6:0]\r_data_tx_int_reg[7] ;
@@ -2343,7 +2343,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0
   wire [0:0]CO;
   wire [0:0]D;
   wire [6:0]Q;
-  wire clk_audio;
+  wire clk_12m288;
   wire i2s_dout;
   wire [0:0]\r_data_tx_int_reg[0] ;
   wire [6:0]\r_data_tx_int_reg[7] ;
@@ -2356,7 +2356,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0
        (.CO(CO),
         .D(D),
         .Q(Q),
-        .clk_audio(clk_audio),
+        .clk_12m288(clk_12m288),
         .i2s_dout(i2s_dout),
         .\r_data_tx_int_reg[0]_0 (\r_data_tx_int_reg[0] ),
         .\r_data_tx_int_reg[7]_0 (\r_data_tx_int_reg[7] ),
@@ -2369,18 +2369,18 @@ endmodule
 (* ORIG_REF_NAME = "mic_i2s_mic_reset_0_0" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0
    (resetn_reg,
-    clk_audio,
+    clk_12m288,
     reset);
   output resetn_reg;
-  input clk_audio;
+  input clk_12m288;
   input reset;
 
-  wire clk_audio;
+  wire clk_12m288;
   wire reset;
   wire resetn_reg;
 
   zxnexys_zxnexys_mic_0_0_mic_reset inst
-       (.clk_audio(clk_audio),
+       (.clk_12m288(clk_12m288),
         .reset(reset),
         .resetn_reg_0(resetn_reg));
 endmodule
@@ -2394,7 +2394,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
     m_data,
     CO,
     CLK,
-    clk_audio,
+    clk_12m288,
     \rcnt_reg[7] );
   output [0:0]D;
   output [6:0]Q;
@@ -2403,14 +2403,14 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
   input m_data;
   input [0:0]CO;
   input CLK;
-  input clk_audio;
+  input clk_12m288;
   input \rcnt_reg[7] ;
 
   wire CLK;
   wire [0:0]CO;
   wire [0:0]D;
   wire [6:0]Q;
-  wire clk_audio;
+  wire clk_12m288;
   wire m_data;
   wire [0:0]\r_reg[0] ;
   wire [6:0]\r_reg[7] ;
@@ -2421,7 +2421,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
         .CO(CO),
         .D(D),
         .Q(Q),
-        .clk_audio(clk_audio),
+        .clk_12m288(clk_12m288),
         .m_data(m_data),
         .\r_reg[0]_0 (\r_reg[0] ),
         .\r_reg[7]_0 (\r_reg[7] ),
@@ -2433,17 +2433,17 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
    (i2s_sclk,
     ws_int_reg,
     i2s_dout,
-    clk_audio,
+    clk_12m288,
     reset,
     m_data);
   output i2s_sclk;
   output ws_int_reg;
   output i2s_dout;
-  input clk_audio;
+  input clk_12m288;
   input reset;
   input m_data;
 
-  wire clk_audio;
+  wire clk_12m288;
   wire i2s_dout;
   wire i2s_sclk;
   wire m_data;
@@ -2452,7 +2452,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
 
   zxnexys_zxnexys_mic_0_0_mic_i2s mic_i2s_i
        (.AR(ws_int_reg),
-        .clk_audio(clk_audio),
+        .clk_12m288(clk_12m288),
         .i2s_dout(i2s_dout),
         .i2s_sclk(i2s_sclk),
         .m_data(m_data),
@@ -2462,13 +2462,13 @@ endmodule
 (* ORIG_REF_NAME = "mic_reset" *) 
 module zxnexys_zxnexys_mic_0_0_mic_reset
    (resetn_reg_0,
-    clk_audio,
+    clk_12m288,
     reset);
   output resetn_reg_0;
-  input clk_audio;
+  input clk_12m288;
   input reset;
 
-  wire clk_audio;
+  wire clk_12m288;
   wire reset;
   wire resetn;
   wire resetn_reg_0;
@@ -2476,7 +2476,7 @@ module zxnexys_zxnexys_mic_0_0_mic_reset
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  resetn  RST" *) 
   (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *) 
   FDCE resetn_reg
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(reset),
         .D(1'b1),
@@ -2497,7 +2497,7 @@ module zxnexys_zxnexys_mic_0_0_pwm_decode
     m_data,
     CO,
     CLK,
-    clk_audio,
+    clk_12m288,
     \rcnt_reg[7]_0 );
   output [0:0]D;
   output [0:0]\r_reg[0]_0 ;
@@ -2506,14 +2506,14 @@ module zxnexys_zxnexys_mic_0_0_pwm_decode
   input m_data;
   input [0:0]CO;
   input CLK;
-  input clk_audio;
+  input clk_12m288;
   input \rcnt_reg[7]_0 ;
 
   wire CLK;
   wire [0:0]CO;
   wire [0:0]D;
   wire [6:0]Q;
-  wire clk_audio;
+  wire clk_12m288;
   wire [0:0]l;
   wire \lcnt[7]_i_2_n_0 ;
   wire [7:0]lcnt_reg;
@@ -2660,49 +2660,49 @@ module zxnexys_zxnexys_mic_0_0_pwm_decode
         .I5(lcnt_reg[3]),
         .O(\lcnt[7]_i_2_n_0 ));
   FDCE \lcnt_reg[0] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[0]),
         .Q(lcnt_reg[0]));
   FDCE \lcnt_reg[1] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[1]),
         .Q(lcnt_reg[1]));
   FDCE \lcnt_reg[2] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[2]),
         .Q(lcnt_reg[2]));
   FDCE \lcnt_reg[3] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[3]),
         .Q(lcnt_reg[3]));
   FDCE \lcnt_reg[4] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[4]),
         .Q(lcnt_reg[4]));
   FDCE \lcnt_reg[5] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[5]),
         .Q(lcnt_reg[5]));
   FDCE \lcnt_reg[6] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[6]),
         .Q(lcnt_reg[6]));
   FDCE \lcnt_reg[7] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(CLK),
         .D(p_0_in__0[7]),
@@ -2856,49 +2856,49 @@ module zxnexys_zxnexys_mic_0_0_pwm_decode
         .I5(rcnt_reg[3]),
         .O(\rcnt[7]_i_3_n_0 ));
   FDCE \rcnt_reg[0] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[0]),
         .Q(rcnt_reg[0]));
   FDCE \rcnt_reg[1] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[1]),
         .Q(rcnt_reg[1]));
   FDCE \rcnt_reg[2] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[2]),
         .Q(rcnt_reg[2]));
   FDCE \rcnt_reg[3] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[3]),
         .Q(rcnt_reg[3]));
   FDCE \rcnt_reg[4] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[4]),
         .Q(rcnt_reg[4]));
   FDCE \rcnt_reg[5] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[5]),
         .Q(rcnt_reg[5]));
   FDCE \rcnt_reg[6] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[6]),
         .Q(rcnt_reg[6]));
   FDCE \rcnt_reg[7] 
-       (.C(clk_audio),
+       (.C(clk_12m288),
         .CE(1'b1),
         .CLR(\rcnt_reg[7]_0 ),
         .D(p_0_in__1[7]),

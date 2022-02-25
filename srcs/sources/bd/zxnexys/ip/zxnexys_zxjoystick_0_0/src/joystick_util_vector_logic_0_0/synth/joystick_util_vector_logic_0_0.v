@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:util_vector_logic:2.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2" *)
+(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *)
-(* CORE_GENERATION_INFO = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=util_vector_logic,x_ipVersion=2.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_OPERATION=not,C_SIZE=1}" *)
+(* CORE_GENERATION_INFO = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=util_vector_logic,x_ipVersion=2.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_OPERATION=not,C_SIZE=1}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module joystick_util_vector_logic_0_0 (
   Op1,

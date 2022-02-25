@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -57,7 +57,7 @@
 module mic_i2s_mic_reset_0_0 (
   resetn,
   reset,
-  clk_audio
+  clk_12m288
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -68,11 +68,11 @@ output wire resetn;
 input wire reset;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, ASSOCIATED_RESET resetn, FREQ_HZ 12280700, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN mic_i2s_clk_audio, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
-input wire clk_audio;
+input wire clk_12m288;
 
   mic_reset inst (
     .resetn(resetn),
     .reset(reset),
-    .clk_audio(clk_audio)
+    .clk_12m288(clk_12m288)
   );
 endmodule

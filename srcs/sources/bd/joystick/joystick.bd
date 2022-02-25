@@ -6,7 +6,7 @@
       "name": "joystick",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
@@ -17,7 +17,6 @@
       "xlconstant_00000": "",
       "xlconcat_0": "",
       "xlconcat_1": "",
-      "debounce_0": "",
       "debounce_1": "",
       "debounce_2": "",
       "debounce_3": "",
@@ -28,8 +27,9 @@
       "debounce_8": "",
       "debounce_9": "",
       "debounce_10": "",
-      "pmod_jstk2_0": "",
-      "joy_clock_enable_0": ""
+      "joy_clock_enable_0": "",
+      "debounce_0": "",
+      "pmod_jstk2_0": ""
     },
     "ports": {
       "btnc": {
@@ -329,45 +329,6 @@
         "parameters": {
           "NUM_PORTS": {
             "value": "7"
-          }
-        }
-      },
-      "debounce_0": {
-        "vlnv": "xilinx.com:module_ref:debounce:1.0",
-        "xci_name": "joystick_debounce_0_0",
-        "xci_path": "ip\\joystick_debounce_0_0\\joystick_debounce_0_0.xci",
-        "inst_hier_path": "debounce_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "debounce",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk_i": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "joystick_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "clk_en_i": {
-            "direction": "I"
-          },
-          "button_i": {
-            "direction": "I"
-          },
-          "button_o": {
-            "direction": "O"
           }
         }
       },
@@ -761,6 +722,78 @@
           }
         }
       },
+      "joy_clock_enable_0": {
+        "vlnv": "xilinx.com:module_ref:joy_clock_enable:1.0",
+        "xci_name": "joystick_joy_clock_enable_0_0",
+        "xci_path": "ip\\joystick_joy_clock_enable_0_0\\joystick_joy_clock_enable_0_0.xci",
+        "inst_hier_path": "joy_clock_enable_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "joy_clock_enable",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_en": {
+            "direction": "O"
+          },
+          "clk_peripheral": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
+      },
+      "debounce_0": {
+        "vlnv": "xilinx.com:module_ref:debounce:1.0",
+        "xci_name": "joystick_debounce_0_0",
+        "xci_path": "ip\\joystick_debounce_0_0\\joystick_debounce_0_0.xci",
+        "inst_hier_path": "debounce_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "debounce",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_i": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "joystick_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "clk_en_i": {
+            "direction": "I"
+          },
+          "button_i": {
+            "direction": "I"
+          },
+          "button_o": {
+            "direction": "O"
+          }
+        }
+      },
       "pmod_jstk2_0": {
         "vlnv": "xilinx.com:module_ref:pmod_jstk2:1.0",
         "xci_name": "joystick_pmod_jstk2_0_0",
@@ -836,39 +869,6 @@
             }
           }
         }
-      },
-      "joy_clock_enable_0": {
-        "vlnv": "xilinx.com:module_ref:joy_clock_enable:1.0",
-        "xci_name": "joystick_joy_clock_enable_0_0",
-        "xci_path": "ip\\joystick_joy_clock_enable_0_0\\joystick_joy_clock_enable_0_0.xci",
-        "inst_hier_path": "joy_clock_enable_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "joy_clock_enable",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk_en": {
-            "direction": "O"
-          },
-          "clk_peripheral": {
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "default_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "joystick_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
       }
     },
     "nets": {
@@ -882,13 +882,13 @@
           "debounce_8/clk_i",
           "debounce_9/clk_i",
           "debounce_10/clk_i",
-          "debounce_0/clk_i",
           "debounce_1/clk_i",
           "debounce_2/clk_i",
           "debounce_3/clk_i",
           "debounce_4/clk_i",
-          "pmod_jstk2_0/clk_peripheral",
-          "joy_clock_enable_0/clk_peripheral"
+          "joy_clock_enable_0/clk_peripheral",
+          "debounce_0/clk_i",
+          "pmod_jstk2_0/clk_peripheral"
         ]
       },
       "Net1": {
@@ -1124,11 +1124,11 @@
           "debounce_8/clk_en_i",
           "debounce_9/clk_en_i",
           "debounce_10/clk_en_i",
-          "debounce_0/clk_en_i",
           "debounce_2/clk_en_i",
           "debounce_3/clk_en_i",
           "debounce_4/clk_en_i",
-          "joy_clk_en"
+          "joy_clk_en",
+          "debounce_0/clk_en_i"
         ]
       }
     }

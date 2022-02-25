@@ -48,9 +48,9 @@
 
 
 // IP VLNV: specnext.com:specnext:zxjoystick:2.3
-// IP Revision: 15
+// IP Revision: 16
 
-(* X_CORE_INFO = "joystick_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "joystick_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxjoystick_0_0,joystick_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

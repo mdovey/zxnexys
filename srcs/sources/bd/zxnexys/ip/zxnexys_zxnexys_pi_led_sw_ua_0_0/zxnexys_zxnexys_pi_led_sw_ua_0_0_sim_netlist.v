@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:57:25 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:48:42 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0_sim_netlist.v
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_pi_led_sw_ua_0_0,pi_led_sw_uart_i2s,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "pi_led_sw_uart_i2s,Vivado 2021.2" *) 
+(* X_CORE_INFO = "pi_led_sw_uart_i2s,Vivado 2021.2.1" *) 
 (* NotValidForBitStream *)
 module zxnexys_zxnexys_pi_led_sw_ua_0_0
    (gpio_o,
@@ -29,79 +29,88 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0
     i2s_din,
     led,
     sw,
+    opt,
     clk_peripheral,
     reset);
   (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_o" *) input [27:0]gpio_o;
   (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_i" *) output [27:0]gpio_i;
   (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_t" *) input [27:0]gpio_t;
-  output uart_rx;
-  input uart_tx;
-  output uart_cts;
-  input uart_rts;
+  input uart_rx;
+  output uart_tx;
+  input uart_cts;
+  output uart_rts;
   input i2s_sclk;
   input i2s_wclk;
   input i2s_dout;
   output i2s_din;
   output [15:0]led;
   input [15:0]sw;
+  output [1:0]opt;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
 
   wire \<const0> ;
   wire clk_peripheral;
+  wire [13:12]\^gpio_i ;
   wire [27:0]gpio_o;
   wire [27:0]gpio_t;
   wire i2s_dout;
   wire [15:0]led;
   wire reset;
   wire [15:0]sw;
-  wire uart_rts;
-  wire uart_tx;
+  wire uart_cts;
+  wire uart_rx;
 
   assign gpio_i[27:22] = sw[15:10];
   assign gpio_i[21] = \<const0> ;
   assign gpio_i[20] = i2s_dout;
   assign gpio_i[19] = \<const0> ;
   assign gpio_i[18] = \<const0> ;
-  assign gpio_i[17] = uart_rts;
+  assign gpio_i[17] = uart_cts;
   assign gpio_i[16] = \<const0> ;
-  assign gpio_i[15] = uart_tx;
+  assign gpio_i[15] = uart_rx;
   assign gpio_i[14] = \<const0> ;
-  assign gpio_i[13] = \<const0> ;
-  assign gpio_i[12] = \<const0> ;
+  assign gpio_i[13:12] = \^gpio_i [13:12];
   assign gpio_i[11:2] = sw[9:0];
   assign gpio_i[1] = \<const0> ;
   assign gpio_i[0] = \<const0> ;
   assign i2s_din = \<const0> ;
-  assign uart_cts = gpio_o[16];
-  assign uart_rx = gpio_o[14];
+  assign opt[1:0] = \^gpio_i [13:12];
+  assign uart_rts = gpio_o[16];
+  assign uart_tx = gpio_o[14];
   GND GND
        (.G(\<const0> ));
   zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s inst
        (.clk_peripheral(clk_peripheral),
-        .gpio_o({gpio_o[27:22],gpio_o[11:2]}),
-        .gpio_t({gpio_t[27:22],gpio_t[11:2]}),
+        .gpio_i(\^gpio_i ),
+        .gpio_o({gpio_o[27:22],gpio_o[13:2]}),
+        .gpio_t({gpio_t[27:22],gpio_t[13:2]}),
         .led(led),
         .reset(reset));
 endmodule
 
 (* ORIG_REF_NAME = "pi_led_sw_uart_i2s" *) 
 module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
-   (led,
+   (gpio_i,
+    led,
     gpio_t,
     gpio_o,
     reset,
     clk_peripheral);
+  output [1:0]gpio_i;
   output [15:0]led;
-  input [15:0]gpio_t;
-  input [15:0]gpio_o;
+  input [17:0]gpio_t;
+  input [17:0]gpio_o;
   input reset;
   input clk_peripheral;
 
   wire clk_peripheral;
-  wire [15:0]gpio_o;
-  wire [15:0]gpio_t;
+  wire [1:0]gpio_i;
+  wire [17:0]gpio_o;
+  wire [17:0]gpio_t;
   wire [15:0]led;
+  wire \opt[0]_i_1_n_0 ;
+  wire \opt[1]_i_1_n_0 ;
   wire [15:0]p_4_out;
   wire reset;
 
@@ -116,43 +125,43 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
     .INIT(8'hE2)) 
     \led[10]_i_1 
        (.I0(led[10]),
-        .I1(gpio_t[10]),
-        .I2(gpio_o[10]),
+        .I1(gpio_t[12]),
+        .I2(gpio_o[12]),
         .O(p_4_out[10]));
   LUT3 #(
     .INIT(8'hE2)) 
     \led[11]_i_1 
        (.I0(led[11]),
-        .I1(gpio_t[11]),
-        .I2(gpio_o[11]),
+        .I1(gpio_t[13]),
+        .I2(gpio_o[13]),
         .O(p_4_out[11]));
   LUT3 #(
     .INIT(8'hE2)) 
     \led[12]_i_1 
        (.I0(led[12]),
-        .I1(gpio_t[12]),
-        .I2(gpio_o[12]),
+        .I1(gpio_t[14]),
+        .I2(gpio_o[14]),
         .O(p_4_out[12]));
   LUT3 #(
     .INIT(8'hE2)) 
     \led[13]_i_1 
        (.I0(led[13]),
-        .I1(gpio_t[13]),
-        .I2(gpio_o[13]),
+        .I1(gpio_t[15]),
+        .I2(gpio_o[15]),
         .O(p_4_out[13]));
   LUT3 #(
     .INIT(8'hE2)) 
     \led[14]_i_1 
        (.I0(led[14]),
-        .I1(gpio_t[14]),
-        .I2(gpio_o[14]),
+        .I1(gpio_t[16]),
+        .I2(gpio_o[16]),
         .O(p_4_out[14]));
   LUT3 #(
     .INIT(8'hE2)) 
     \led[15]_i_1 
        (.I0(led[15]),
-        .I1(gpio_t[15]),
-        .I2(gpio_o[15]),
+        .I1(gpio_t[17]),
+        .I2(gpio_o[17]),
         .O(p_4_out[15]));
   LUT3 #(
     .INIT(8'hE2)) 
@@ -313,6 +322,32 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
         .D(p_4_out[9]),
         .Q(led[9]),
         .R(reset));
+  LUT3 #(
+    .INIT(8'hE2)) 
+    \opt[0]_i_1 
+       (.I0(gpio_i[0]),
+        .I1(gpio_t[10]),
+        .I2(gpio_o[10]),
+        .O(\opt[0]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'hE2)) 
+    \opt[1]_i_1 
+       (.I0(gpio_i[1]),
+        .I1(gpio_t[11]),
+        .I2(gpio_o[11]),
+        .O(\opt[1]_i_1_n_0 ));
+  FDSE \opt_reg[0] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\opt[0]_i_1_n_0 ),
+        .Q(gpio_i[0]),
+        .S(reset));
+  FDSE \opt_reg[1] 
+       (.C(clk_peripheral),
+        .CE(1'b1),
+        .D(\opt[1]_i_1_n_0 ),
+        .Q(gpio_i[1]),
+        .S(reset));
 endmodule
 `ifndef GLBL
 `define GLBL

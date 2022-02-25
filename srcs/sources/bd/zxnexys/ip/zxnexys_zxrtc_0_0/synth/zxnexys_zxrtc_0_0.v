@@ -48,9 +48,9 @@
 
 
 // IP VLNV: specnext.com:specnext:zxrtc:1.3
-// IP Revision: 6
+// IP Revision: 7
 
-(* X_CORE_INFO = "rtcc_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "rtcc_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxrtc_0_0,rtcc_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

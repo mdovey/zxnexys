@@ -23,12 +23,13 @@
 
 
 module audio_prefilter #(
-    parameter   AUDIO_DW	    =   16
+    parameter   AUDIO_DW_IN	    =   13,
+    parameter   AUDIO_DW_OUT    =   12
 )(
-    input       [AUDIO_DW-1:0]   din,
-    output      [AUDIO_DW-1:0]   dout
+    input       [AUDIO_DW_IN -1:0]   din,
+    output      [AUDIO_DW_OUT-1:0]   dout
 );
     
-    assign  dout  = din[AUDIO_DW-1] == 1'b1 ? {AUDIO_DW{1'b1}} : {1'b0, din[AUDIO_DW-2:0]};
+    assign  dout  = (din[AUDIO_DW_IN-1:AUDIO_DW_OUT] > 0) ? {AUDIO_DW_OUT{1'b1}} : {1'b0, din[AUDIO_DW_OUT-1:0]};
 
 endmodule

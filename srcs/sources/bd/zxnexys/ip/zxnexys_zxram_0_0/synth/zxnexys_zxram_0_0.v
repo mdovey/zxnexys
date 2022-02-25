@@ -48,9 +48,9 @@
 
 
 // IP VLNV: specnext.com:specnext:zxram:2.3
-// IP Revision: 11
+// IP Revision: 15
 
-(* X_CORE_INFO = "ram_wrapper,Vivado 2021.2" *)
+(* X_CORE_INFO = "ram_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxram_0_0,ram_wrapper,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

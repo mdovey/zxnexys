@@ -96,7 +96,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e1693a64</spirit:value>
+            <spirit:value>56c937ce</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -112,7 +112,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e1693a64</spirit:value>
+            <spirit:value>56c937ce</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -192,7 +192,7 @@
       <spirit:port>
         <spirit:name>uart_rx</spirit:name>
         <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -205,7 +205,7 @@
       <spirit:port>
         <spirit:name>uart_tx</spirit:name>
         <spirit:wire>
-          <spirit:direction>in</spirit:direction>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -221,7 +221,7 @@
       <spirit:port>
         <spirit:name>uart_cts</spirit:name>
         <spirit:wire>
-          <spirit:direction>out</spirit:direction>
+          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -234,7 +234,7 @@
       <spirit:port>
         <spirit:name>uart_rts</spirit:name>
         <spirit:wire>
-          <spirit:direction>in</spirit:direction>
+          <spirit:direction>out</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>std_logic</spirit:typeName>
@@ -331,6 +331,23 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>opt</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">1</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>reg</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>clk_peripheral</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -364,7 +381,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/pi_led_sw_uart_i2s.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_e1693a64</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_56c937ce</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -425,8 +442,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_pi_led_sw_uart_i2s_v1_0</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>14</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2021-12-30T14:39:48Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>21</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-02-25T10:11:20Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@215b5dc1_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1fd07fa6_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
@@ -567,13 +584,78 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@28081375_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@448dad8a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@53ca1dc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@578c17a6_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e37a330_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b183402_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5234f522_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35b92f7f_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d0bdd56_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@768bd0cb_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74484fff_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b7d650a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7e111432_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3eead5e_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64b96474_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b96453d_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@731f223a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3962ae84_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15d0b699_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e745a7e_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1033b83a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62f0f083_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@602b1b24_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7456c654_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f36e677_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25f9cce_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a811a2a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@595c4a1_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70a8a639_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e20ba84_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3bdb2673_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@427a800c_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@dfd72c2_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fcd35d0_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e7df138_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@752f8517_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11daaa6_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@605e13c5_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28640e1d_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a7e6a15_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5205641a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36a672b4_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c226c3e_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fa34113_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@653c6e03_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63ad1966_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d4973_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8a374bc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3baa81e3_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77b6d22b_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a775d62_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@730605a5_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ee9ce56_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b9c771e_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d7f3026_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cfb88bc_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@421a4a2a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c447cdf_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a6b33fb_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@623336f6_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e1977f7_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b83bf41_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64a9229a_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6102bb46_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45bc89bd_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44729808_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@40df4cec_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39aebaea_ARCHIVE_LOCATION">v:/ip/zxnexys_pi_led_sw_uart_i2s</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7f66f28f"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="ec872400"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="8aed622f"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="0875c71c"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="bafd7d43"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="24b86631"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

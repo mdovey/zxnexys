@@ -6,3 +6,4 @@
 **/*.tmp/
 /.cache/
 /settings_restore.bat
+/ZX_Spectrum_Next_FPGA/

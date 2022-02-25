@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:55:12 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:46:24 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxsdcard_1_0/zxnexys_zxsdcard_1_0_sim_netlist.vhdl
@@ -16,6 +16,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxsdcard_1_0_sdcard is
   port (
+    sd_reset_n : out STD_LOGIC;
     sd_cmd : out STD_LOGIC;
     sd_sck : out STD_LOGIC;
     sd_dat3 : out STD_LOGIC;
@@ -35,7 +36,6 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is
   signal \FSM_sequential_cState[0]_i_4_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[0]_i_5_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[0]_i_6_n_0\ : STD_LOGIC;
-  signal \FSM_sequential_cState[0]_i_7_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[1]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[1]_i_3_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[1]_i_4_n_0\ : STD_LOGIC;
@@ -116,6 +116,7 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is
   signal \power_up_counter_reg[8]_i_1_n_5\ : STD_LOGIC;
   signal \power_up_counter_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \power_up_counter_reg[8]_i_1_n_7\ : STD_LOGIC;
+  signal \^sd_reset_n\ : STD_LOGIC;
   signal start_up_counter0 : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \start_up_counter[6]_i_2_n_0\ : STD_LOGIC;
   signal \start_up_counter[7]_i_1_n_0\ : STD_LOGIC;
@@ -124,8 +125,7 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is
   signal \NLW_power_down_counter_reg[8]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_power_up_counter_reg[8]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_sequential_cState[0]_i_5\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \FSM_sequential_cState[0]_i_6\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \FSM_sequential_cState[0]_i_5\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \FSM_sequential_cState[1]_i_2\ : label is "soft_lutpair1";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_sequential_cState_reg[0]\ : label is "stPowerDown:11,stPowerUp:10,stStartUp:00,iSTATE:01";
@@ -138,6 +138,7 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is
   attribute ADDER_THRESHOLD of \power_up_counter_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \power_up_counter_reg[8]_i_1\ : label is 11;
   attribute SOFT_HLUTNM of sd_cmd_INST_0 : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of sd_reset_n_INST_0 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \start_up_counter[0]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \start_up_counter[1]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \start_up_counter[2]_i_1\ : label is "soft_lutpair3";
@@ -145,6 +146,7 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is
   attribute SOFT_HLUTNM of \start_up_counter[4]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \start_up_counter[6]_i_2\ : label is "soft_lutpair4";
 begin
+  sd_reset_n <= \^sd_reset_n\;
 \FSM_sequential_cState[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFE00FE00FE00"
@@ -153,9 +155,9 @@ begin
       I0 => \FSM_sequential_cState[0]_i_2_n_0\,
       I1 => \FSM_sequential_cState[0]_i_3_n_0\,
       I2 => \FSM_sequential_cState[0]_i_4_n_0\,
-      I3 => \FSM_sequential_cState[0]_i_5_n_0\,
-      I4 => \FSM_sequential_cState[0]_i_6_n_0\,
-      I5 => \FSM_sequential_cState[0]_i_7_n_0\,
+      I3 => \^sd_reset_n\,
+      I4 => \FSM_sequential_cState[0]_i_5_n_0\,
+      I5 => \FSM_sequential_cState[0]_i_6_n_0\,
       O => nState(0)
     );
 \FSM_sequential_cState[0]_i_2\: unisim.vcomponents.LUT4
@@ -191,16 +193,7 @@ begin
       I3 => power_down_counter_reg(3),
       O => \FSM_sequential_cState[0]_i_4_n_0\
     );
-\FSM_sequential_cState[0]_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => cState(0),
-      I1 => cState(1),
-      O => \FSM_sequential_cState[0]_i_5_n_0\
-    );
-\FSM_sequential_cState[0]_i_6\: unisim.vcomponents.LUT4
+\FSM_sequential_cState[0]_i_5\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"0001"
     )
@@ -209,9 +202,9 @@ begin
       I1 => cState(0),
       I2 => start_up_counter_reg(3),
       I3 => start_up_counter_reg(2),
-      O => \FSM_sequential_cState[0]_i_6_n_0\
+      O => \FSM_sequential_cState[0]_i_5_n_0\
     );
-\FSM_sequential_cState[0]_i_7\: unisim.vcomponents.LUT6
+\FSM_sequential_cState[0]_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000000000000001"
     )
@@ -222,7 +215,7 @@ begin
       I3 => start_up_counter_reg(7),
       I4 => start_up_counter_reg(1),
       I5 => start_up_counter_reg(0),
-      O => \FSM_sequential_cState[0]_i_7_n_0\
+      O => \FSM_sequential_cState[0]_i_6_n_0\
     );
 \FSM_sequential_cState[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -823,6 +816,15 @@ sd_dat3_INST_0: unisim.vcomponents.LUT2
       I1 => cState(0),
       O => sd_dat3
     );
+sd_reset_n_INST_0: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => cState(0),
+      I1 => cState(1),
+      O => \^sd_reset_n\
+    );
 sd_sck_INST_0: unisim.vcomponents.LUT2
     generic map(
       INIT => X"4"
@@ -1020,6 +1022,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxsdcard_1_0 is
   port (
+    sd_reset_n : out STD_LOGIC;
     sd_cd : in STD_LOGIC;
     sd_sck : out STD_LOGIC;
     sd_cmd : out STD_LOGIC;
@@ -1027,7 +1030,6 @@ entity zxnexys_zxsdcard_1_0 is
     sd_dat1 : out STD_LOGIC;
     sd_dat2 : out STD_LOGIC;
     sd_dat3 : out STD_LOGIC;
-    sd_wp : in STD_LOGIC;
     in_sck : in STD_LOGIC;
     in_mosi : in STD_LOGIC;
     in_miso : out STD_LOGIC;
@@ -1044,7 +1046,7 @@ entity zxnexys_zxsdcard_1_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_zxsdcard_1_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxsdcard_1_0 : entity is "sdcard,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxsdcard_1_0 : entity is "sdcard,Vivado 2021.2.1";
 end zxnexys_zxsdcard_1_0;
 
 architecture STRUCTURE of zxnexys_zxsdcard_1_0 is
@@ -1086,6 +1088,7 @@ inst: entity work.zxnexys_zxsdcard_1_0_sdcard
       reset => reset,
       sd_cmd => sd_cmd,
       sd_dat3 => sd_dat3,
+      sd_reset_n => sd_reset_n,
       sd_sck => sd_sck
     );
 end STRUCTURE;

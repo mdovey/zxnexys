@@ -50,7 +50,7 @@
 // IP VLNV: specnext.com:specnext:zxesp32:1.3
 // IP Revision: 3
 
-(* X_CORE_INFO = "esp32,Vivado 2021.2" *)
+(* X_CORE_INFO = "esp32,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxesp32_0_0,esp32,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)

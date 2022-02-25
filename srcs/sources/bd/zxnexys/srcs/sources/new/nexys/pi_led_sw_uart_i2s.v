@@ -29,10 +29,10 @@ module pi_led_sw_uart_i2s (
 // UART
 // Ports: 14 15 16 17
 
-    output           uart_rx,
-    input            uart_tx,
-    output           uart_cts,
-    input            uart_rts,
+    input            uart_rx,
+    output           uart_tx,
+    input            uart_cts,
+    output           uart_rts,
 
 // I2S
 // Ports: 18 19 20 21
@@ -42,8 +42,14 @@ module pi_led_sw_uart_i2s (
     input            i2s_dout,
     output           i2s_din,
     
+// Ports: 2 - 11 22 - 27    
     output reg [15:0] led,
-    input      [15:0] sw,   
+
+// Ports: 2 - 11 22 - 27    
+    input      [15:0] sw, 
+    
+// Ports: 12 - 13
+    output reg [1:0]  opt,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)	
@@ -54,10 +60,10 @@ module pi_led_sw_uart_i2s (
     input           reset	
     );
 
-    assign  uart_rx         = gpio_o[14]; 
-    assign  gpio_i[15]      = uart_tx;
-    assign  uart_cts        = gpio_o[16]; 
-    assign  gpio_i[17]      = uart_rts; 
+    assign  gpio_i[15]      = uart_rx; 
+    assign  uart_tx         = gpio_o[14];
+    assign  gpio_i[17]      = uart_cts;  
+    assign  uart_rts        = gpio_o[16]; 
 
     assign  i2s_sclk        = gpio_o[18]; 
     assign  i2s_wclk        = gpio_o[19]; 
@@ -75,6 +81,14 @@ module pi_led_sw_uart_i2s (
         led[9:0]   <= (led[9:0]  & ~gpio_t[11:2])  | (gpio_o[11:2]  & gpio_t[11:2]);
         led[15:10]  <= (led[15:10] & ~gpio_t[27:22]) | (gpio_o[27:22] & gpio_t[27:22]);
     end
+
+    assign gpio_i[13:12]    = opt[1:0];
+
+    always @(posedge clk_peripheral)
+    if (reset)
+        opt[1:0]    <= 2'b11;
+    else
+        opt[1:0]   <= (opt[1:0]  & ~gpio_t[13:12])  | (gpio_o[13:12]  & gpio_t[13:12]);
 
 endmodule
 

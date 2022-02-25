@@ -48,9 +48,9 @@
 
 
 // IP VLNV: specnext.com:specnext:zxclock:1.3
-// IP Revision: 3
+// IP Revision: 5
 
-(* X_CORE_INFO = "sysclock,Vivado 2021.2" *)
+(* X_CORE_INFO = "sysclock,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxclock_0_0,sysclock,{}" *)
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
@@ -63,18 +63,13 @@ module zxnexys_zxclock_0_0 (
   mb_clk_28_n,
   mb_clk_14,
   mb_clk_7,
-  clk_system,
   clk_memory,
   clk_peripheral,
   clk_peripheral_n,
-  clk_audio,
   clk_video,
-  clk_200,
   clk_140,
-  clk_28_n,
   clk_28,
   clk_14,
-  clk_12m28,
   clk_7
 );
 
@@ -94,9 +89,6 @@ output wire mb_clk_28_n;
 output wire mb_clk_14;
 (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 mb_clock clk_7" *)
 output wire mb_clk_7;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_system, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_system, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_system CLK" *)
-output wire clk_system;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_memory, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_memory, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
 output wire clk_memory;
@@ -106,31 +98,19 @@ output wire clk_peripheral;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral_n, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral_n CLK" *)
 output wire clk_peripheral_n;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_audio, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
-output wire clk_audio;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_video, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_video, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_video CLK" *)
 output wire clk_video;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_200, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_200 CLK" *)
-input wire clk_200;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_140, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_140, FREQ_HZ 140000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_next_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_140 CLK" *)
 input wire clk_140;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_28_n, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 180.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_28_n CLK" *)
-input wire clk_28_n;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_28, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_28, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_next_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_28 CLK" *)
 input wire clk_28;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_14, FREQ_HZ 14000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_14, FREQ_HZ 14000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_next_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_14 CLK" *)
 input wire clk_14;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_12m28, FREQ_HZ 12280701, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_12m28 CLK" *)
-input wire clk_12m28;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_7, FREQ_HZ 7000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_7, FREQ_HZ 7000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_next_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_7 CLK" *)
 input wire clk_7;
 
@@ -143,18 +123,13 @@ input wire clk_7;
     .mb_clk_28_n(mb_clk_28_n),
     .mb_clk_14(mb_clk_14),
     .mb_clk_7(mb_clk_7),
-    .clk_system(clk_system),
     .clk_memory(clk_memory),
     .clk_peripheral(clk_peripheral),
     .clk_peripheral_n(clk_peripheral_n),
-    .clk_audio(clk_audio),
     .clk_video(clk_video),
-    .clk_200(clk_200),
     .clk_140(clk_140),
-    .clk_28_n(clk_28_n),
     .clk_28(clk_28),
     .clk_14(clk_14),
-    .clk_12m28(clk_12m28),
     .clk_7(clk_7)
   );
 endmodule

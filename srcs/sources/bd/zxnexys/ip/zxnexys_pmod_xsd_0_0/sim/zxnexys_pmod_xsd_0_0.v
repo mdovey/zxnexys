@@ -85,8 +85,7 @@ module zxnexys_pmod_xsd_0_0 (
   sd_dat0,
   sd_dat1,
   sd_dat2,
-  sd_dat3,
-  sd_wp
+  sd_dat3
 );
 
 (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_xsd PIN1_I" *)
@@ -144,7 +143,6 @@ output wire sd_dat0;
 input wire sd_dat1;
 input wire sd_dat2;
 input wire sd_dat3;
-output wire sd_wp;
 
   pmod_xsd inst (
     .pin1_i(pin1_i),
@@ -178,6 +176,6 @@ output wire sd_wp;
     .sd_dat1(sd_dat1),
     .sd_dat2(sd_dat2),
     .sd_dat3(sd_dat3),
-    .sd_wp(sd_wp)
+    .sd_wp()
   );
 endmodule

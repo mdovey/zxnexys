@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -68,7 +68,7 @@ module vga_scandoubler_0_0 (
   h_sync,
   v_sync,
   clk_peripheral,
-  reset
+  resetn
 );
 
 input wire [8 : 0] video_15;
@@ -83,9 +83,9 @@ output wire [3 : 0] b;
 output wire h_sync;
 output wire v_sync;
 input wire clk_peripheral;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   scandoubler inst (
     .video_15(video_15),
@@ -100,6 +100,6 @@ input wire reset;
     .h_sync(h_sync),
     .v_sync(v_sync),
     .clk_peripheral(clk_peripheral),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

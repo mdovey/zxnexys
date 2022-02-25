@@ -47,7 +47,7 @@
 -- DO NOT MODIFY THIS FILE.
 
 -- IP VLNV: specnext.com:specnext:zxnext:3.01.11
--- IP Revision: 8
+-- IP Revision: 10
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
@@ -287,7 +287,7 @@ ARCHITECTURE zxnexys_zxnext_0_0_arch OF zxnexys_zxnext_0_0 IS
     );
   END COMPONENT zxnext;
   ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF zxnexys_zxnext_0_0_arch: ARCHITECTURE IS "zxnext,Vivado 2021.2";
+  ATTRIBUTE X_CORE_INFO OF zxnexys_zxnext_0_0_arch: ARCHITECTURE IS "zxnext,Vivado 2021.2.1";
   ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
   ATTRIBUTE CHECK_LICENSE_TYPE OF zxnexys_zxnext_0_0_arch : ARCHITECTURE IS "zxnexys_zxnext_0_0,zxnext,{}";
   ATTRIBUTE IP_DEFINITION_SOURCE : STRING;

@@ -78,22 +78,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>clk_system</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_system</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_memory</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -142,22 +126,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>clk_audio</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:master/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_audio</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_video</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -174,22 +142,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>clk_200</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_200</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_140</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -201,22 +153,6 @@
           </spirit:logicalPort>
           <spirit:physicalPort>
             <spirit:name>clk_140</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
-      <spirit:name>clk_28_n</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_28_n</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
@@ -254,22 +190,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>clk_12m28</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>CLK</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>clk_12m28</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_7</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -300,7 +220,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>776987ca</spirit:value>
+            <spirit:value>ebf68c24</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -316,7 +236,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>776987ca</spirit:value>
+            <spirit:value>ebf68c24</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -454,19 +374,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_system</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>clk_memory</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -506,19 +413,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_audio</spirit:name>
-        <spirit:wire>
-          <spirit:direction>out</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>clk_video</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -532,33 +426,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_200</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>clk_140</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>clk_28_n</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -597,19 +465,6 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>clk_12m28</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>std_logic</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
         <spirit:name>clk_7</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
@@ -636,7 +491,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/new/clock/sysclock.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_66748cb5</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_b290a44f</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -702,11 +557,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxclock_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>3</xilinx:coreRevision>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:sysclock:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-30T11:53:07Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-01-04T13:00:40Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@26b76a37_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@ff1ae5e_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
@@ -747,13 +602,35 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@12eee06f_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@7f2dc244_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2d842f5f_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9e1b188_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c16004f_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1191ff58_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57012440_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b9c14dd_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@145ddae_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bbf16da_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d4a5946_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2c1b23e4_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fe2cb78_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@20a2dc36_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35bbbdcc_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12a40dde_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1339773f_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3528ace6_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@cc1f592_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2475a407_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d56e28b_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11ca2778_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68b153f2_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3ef26239_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46aa8a8a_ARCHIVE_LOCATION">v:/ip/zxclock</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="94a7b270"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="40566e94"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="fc3c07c5"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="b4eaef3e"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="f22d14bb"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="7b3f17c4"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="65067ada"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

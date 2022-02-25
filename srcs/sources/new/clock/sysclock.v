@@ -41,31 +41,21 @@ module sysclock(
 (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 mb_clock clk_7" *)
     output           	mb_clk_7,
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_system CLK" *)
-    output				clk_system,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_memory CLK" *)
     output				clk_memory,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
     output				clk_peripheral,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral_n CLK" *)
     output				clk_peripheral_n,
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
-    output				clk_audio,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_video CLK" *)
     output				clk_video,
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_200 CLK" *)
-    input           	clk_200,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_140 CLK" *)
     input           	clk_140,
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_28_n CLK" *)
-    input           	clk_28_n,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_28 CLK" *)
     input           	clk_28,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_14 CLK" *)
     input           	clk_14,
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_12m28 CLK" *)
-    input               clk_12m28,
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_7 CLK" *)
     input           	clk_7
     );
@@ -75,24 +65,10 @@ module sysclock(
 
 	reg			     	clk_3m5_cont;
     
-    assign o_cpu_speed          = cpu_speed;  
-    
+    assign clk_memory           = clk_140;
 	assign clk_peripheral	    = mb_clk_28;
 	assign clk_peripheral_n	    = mb_clk_28_n;
 	assign clk_video		    = mb_clk_14;
-
-    assign clk_system           = clk_200;
-
-	// BUFG: Global Clock Simple Buffer
-	//       Artix-7
-	// Xilinx HDL Language Template, version 2021.1
-	
-	BUFG BUFG_clk_140 (
-		.O(clk_memory), // 1-bit output: Clock output
-		.I(clk_140)  // 1-bit input: Clock input
-	);
-	
-	// End of BUFG_inst instantiation
 
 	// BUFG: Global Clock Simple Buffer
 	//       Artix-7
@@ -111,7 +87,7 @@ module sysclock(
 	
 	BUFG BUFG_clk_28_n (
 		.O(mb_clk_28_n), // 1-bit output: Clock output
-		.I(clk_28_n)  // 1-bit input: Clock input
+		.I(~clk_28)  // 1-bit input: Clock input
 	);
 	
 	// End of BUFG_inst instantiation
@@ -123,17 +99,6 @@ module sysclock(
 	BUFG BUFG_clk_14 (
 		.O(mb_clk_14), // 1-bit output: Clock output
 		.I(clk_14)  // 1-bit input: Clock input
-	);
-	
-	// End of BUFG_inst instantiation
-
-	// BUFG: Global Clock Simple Buffer
-	//       Artix-7
-	// Xilinx HDL Language Template, version 2021.1
-	
-	BUFG BUFG_clk_12m28 (
-		.O(clk_audio), // 1-bit output: Clock output
-		.I(clk_12m28)  // 1-bit input: Clock input
 	);
 	
 	// End of BUFG_inst instantiation

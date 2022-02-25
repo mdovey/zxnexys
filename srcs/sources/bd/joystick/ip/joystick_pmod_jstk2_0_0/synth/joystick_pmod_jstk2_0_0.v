@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:module_ref:pmod_jstk2:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "pmod_jstk2,Vivado 2021.2" *)
+(* X_CORE_INFO = "pmod_jstk2,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "joystick_pmod_jstk2_0_0,pmod_jstk2,{}" *)
-(* CORE_GENERATION_INFO = "joystick_pmod_jstk2_0_0,pmod_jstk2,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=pmod_jstk2,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,LOW_MARGIN=00100111,HIGH_MARGIN=11011000}" *)
+(* CORE_GENERATION_INFO = "joystick_pmod_jstk2_0_0,pmod_jstk2,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=pmod_jstk2,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,LOW_MARGIN=00100111,HIGH_MARGIN=11011000}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module joystick_pmod_jstk2_0_0 (

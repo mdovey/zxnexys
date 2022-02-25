@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spirit:component xmlns:xilinx="http://www.xilinx.com" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <spirit:vendor>specnext.com</spirit:vendor>
+  <spirit:library>specnext</spirit:library>
+  <spirit:name>zxvideomode</spirit:name>
+  <spirit:version>1.0</spirit:version>
+  <spirit:busInterfaces>
+    <spirit:busInterface>
+      <spirit:name>clock_reset</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clock_reset</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLOCK_RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>dclk</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>dclk</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>mmcm_drp</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="drp" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="interface" spirit:name="drp_rtl" spirit:version="1.0"/>
+      <spirit:master/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DADDR</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mmcm_drp_daddr</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DO</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mmcm_drp_do</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DRDY</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mmcm_drp_drdy</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DWE</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mmcm_drp_dwe</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DEN</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mmcm_drp_den</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>DI</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>mmcm_drp_di</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>video</spirit:name>
+      <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="video_rtl" spirit:version="1.0"/>
+      <spirit:monitor spirit:interfaceMode="master"/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>video_mode</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>video_mode</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>clk_200</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>CLK</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>clk_200</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>ASSOCIATED_RESET</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_200.ASSOCIATED_RESET">video_mode_locked</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  <spirit:model>
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagesynthesis</spirit:name>
+        <spirit:displayName>Synthesis</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:synthesis</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>videomode_wrapper</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_xlconstant_1_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>3db2ba8f</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_anylanguagebehavioralsimulation</spirit:name>
+        <spirit:displayName>Simulation</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:simulation</spirit:envIdentifier>
+        <spirit:language>Verilog</spirit:language>
+        <spirit:modelName>videomode_wrapper</spirit:modelName>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_xlconstant_1_1__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>f35c0fb5</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+      <spirit:view>
+        <spirit:name>xilinx_xpgui</spirit:name>
+        <spirit:displayName>UI Layout</spirit:displayName>
+        <spirit:envIdentifier>:vivado.xilinx.com:xgui.ui</spirit:envIdentifier>
+        <spirit:fileSetRef>
+          <spirit:localName>xilinx_xpgui_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>viewChecksum</spirit:name>
+            <spirit:value>f64a5dae</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:view>
+    </spirit:views>
+    <spirit:ports>
+      <spirit:port>
+        <spirit:name>clk_200</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>clock_reset</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>dclk</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>locked</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_drp_daddr</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">6</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_drp_den</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_drp_di</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_drp_do</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">15</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_drp_drdy</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>mmcm_drp_dwe</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>video_mode</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:vector>
+            <spirit:left spirit:format="long">2</spirit:left>
+            <spirit:right spirit:format="long">0</spirit:right>
+          </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>video_mode_locked</spirit:name>
+        <spirit:wire>
+          <spirit:direction>out</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+    </spirit:ports>
+  </spirit:model>
+  <spirit:fileSets>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>v:/srcs/sources/imports/Xilinx/mmcme2_drp_func.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/ip/videomode_mmcme2_drp_0_0/synth/videomode_mmcme2_drp_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/ip/videomode_video_mode_0_0/synth/videomode_video_mode_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/Xilinx/mmcme2_drp_func.h</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/Xilinx/mmcme2_drp.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/video/video_mode.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/ip/videomode_xlconstant_0_0/videomode_xlconstant_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconstant_low</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/synth/videomode.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/videomode_ooc.xdc</spirit:name>
+        <spirit:userFileType>xdc</spirit:userFileType>
+        <spirit:userFileType>SCOPED_TO_REF_videomode</spirit:userFileType>
+        <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/hdl/videomode_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_da8b0712</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_xlconstant_1_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xsi:type="xilinx:componentRefType" xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="xlconstant" xilinx:version="1.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>v:/srcs/sources/imports/Xilinx/mmcme2_drp_func.h</spirit:name>
+        <spirit:fileType>cSource</spirit:fileType>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/ip/videomode_mmcme2_drp_0_0/sim/videomode_mmcme2_drp_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/ip/videomode_video_mode_0_0/sim/videomode_video_mode_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/Xilinx/mmcme2_drp_func.h</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:isIncludeFile>true</spirit:isIncludeFile>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/imports/Xilinx/mmcme2_drp.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/video/video_mode.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/ip/videomode_xlconstant_0_0/videomode_xlconstant_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_xlconstant_low</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/sim/videomode.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/videomode/hdl/videomode_wrapper.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_xlconstant_1_1__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="xlconstant" xilinx:version="1.1">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_xpgui_view_fileset</spirit:name>
+      <spirit:file>
+        <spirit:name>xgui/zxvideomode_v1_0.tcl</spirit:name>
+        <spirit:fileType>tclSource</spirit:fileType>
+        <spirit:userFileType>CHECKSUM_f64a5dae</spirit:userFileType>
+        <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
+      </spirit:file>
+    </spirit:fileSet>
+  </spirit:fileSets>
+  <spirit:description>zxvideomode_v1_0</spirit:description>
+  <spirit:parameters>
+    <spirit:parameter>
+      <spirit:name>Component_Name</spirit:name>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.Component_Name" spirit:order="1">videomode_wrapper_v1_0</spirit:value>
+    </spirit:parameter>
+  </spirit:parameters>
+  <spirit:vendorExtensions>
+    <xilinx:coreExtensions>
+      <xilinx:supportedFamilies>
+        <xilinx:family xilinx:lifeCycle="Production">artix7</xilinx:family>
+      </xilinx:supportedFamilies>
+      <xilinx:taxonomies>
+        <xilinx:taxonomy>/specnext</xilinx:taxonomy>
+      </xilinx:taxonomies>
+      <xilinx:displayName>zxvideomode_v1_0</xilinx:displayName>
+      <xilinx:definitionSource>package_project</xilinx:definitionSource>
+      <xilinx:coreRevision>39</xilinx:coreRevision>
+      <xilinx:upgrades>
+        <xilinx:canUpgradeFrom>xilinx.com:user:videomode_wrapper:1.0</xilinx:canUpgradeFrom>
+      </xilinx:upgrades>
+      <xilinx:coreCreationDateTime>2022-02-22T16:13:22Z</xilinx:coreCreationDateTime>
+      <xilinx:tags>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@671f6fbc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41bd9064_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47ec4459_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@182950ae_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54e670da_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b57040e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4da53b40_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@209a0d2d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@36c09fe0_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f7da6dc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73683344_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75e74453_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1415abc2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66ca01b5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b8c5194_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f1795fd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62db795c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f1bfdd8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61e6c18e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d16338e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15c2e67a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a28ff97_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49aade47_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c2379e6_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76a42573_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c382a62_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@203863e8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31d78000_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53b143ca_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e55a0fe_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75b90fe9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@204eb72_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bd9c7ae_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29286cd4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b5187f2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6762231e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78cab46e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23cc0515_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27085792_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a64aca8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@661e39f7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c268a79_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73087c1a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@443d163e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@399cb11a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50f24ee3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65acc160_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c4649d2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c7daed8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a135f64_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f142132_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@205a01ba_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d454f2a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2eeb0188_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e74be1b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c92d685_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57881880_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d4b208d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77099771_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@251da93b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f712997_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54647e10_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17c4cd11_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cafec6e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24af1e0f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e25ffa8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e7a6b9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d4ed413_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69bdb446_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5af21f55_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f6db4ca_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@559d80b9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7809299d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63679306_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15e0a447_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@37fdbdf4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1887da76_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2691a28f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6094d4d1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43e483d1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73be6c19_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2935580e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76a59723_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78132303_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a2ff020_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5f338137_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@345aabe3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@179a6e7d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19514d9a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d4c24b2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29b489f5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5172bbd7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c37e15a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56789fff_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fb0ea24_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71141870_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3578c52e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7942c5d0_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2619bba9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fe9e6d2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2353e0f2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4288e78c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18efb0c3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42ecdb0e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54cd9f85_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e919473_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@553ef213_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b40c886_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@318fa89b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bb3bc76_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48f0bf66_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39468ef4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65edf3ef_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17406aa_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a17c58e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a585bf2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65916f05_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@280774f1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30a4bade_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ab7e117_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1dc2c43d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38f0cb9b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73003b66_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29a8cec9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d25d27b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4ac2b45d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d33bd2a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e8be982_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2631ac1a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@662cb88b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@434c1429_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e5bbf98_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@32141233_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@647b7d29_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e3c1c9b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39f93472_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68a75bc8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14e47e7f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3231f74e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59e64c8f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3341dc80_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f9155f2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@788c4bb_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66d24f9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62eb430b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d1def11_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42cd059d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@469879d6_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b8be855_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b37cd04_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@783f696b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c4a3f4a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31fd92dd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17c99bcc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fecf284_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a113581_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cf63a7e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18388d6_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@119ad616_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a14688f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4288f7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4319429_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f7c4b04_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d972463_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73988a52_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13f3145f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ad238d4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b82c35e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73a7d9af_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e2a9406_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5776478d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e9eac56_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b17ca2e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@642ee6eb_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c78c4bd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d9844ae_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@78eb0f62_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@286e1fd8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f8d9733_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22a87d77_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b66fd91_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b1031f3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1720b792_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@213bae1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68250e9f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@294f1dc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67e2a106_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@76d3bb66_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@695882cc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f1805e2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6daa5139_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@249880f1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bed50dc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@746937fd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48c83587_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68c11338_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fe407d6_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49438e22_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d998eb5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12d276e3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a890e56_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4e70afb7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@22687abe_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@253eebfd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d47b8d3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7427b6dc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@46fc6447_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@300e6e2_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c25660d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41da3c19_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55869a04_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f56c7af_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6cf75f9b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@321fc08b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56e33d53_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cec497c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23a6ce4b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1495e6b7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cb0dac4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@622991a5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70151b98_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69bfabb8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1837e6cd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2132a1a0_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7541eedc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@179c0c6b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@239e0a13_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21f8dd2f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d5b5615_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7426a3e7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68c88059_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@770e9706_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4f37aef1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7cf9a274_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bfb9097_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65f108c3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59db5b9a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@209dd2c4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b72f6fd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5fafab43_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7eff7e66_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@28ae402b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1bc1e3e8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@423fa11e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c615ed8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@137f3a57_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@677825dc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a1aaea6_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51a96163_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2e3e6396_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58ef5bb_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12dd2f64_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33c24293_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@26816f5b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@60234f16_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@55b2e5d8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b3a2905_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@418083a1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2dcc8ae_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1be0702b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e2b7717_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a5efc3d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38642165_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@314c30f5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31178c1c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c881307_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@528375fb_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64d3c93_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3527873f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c5977a6_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@42b73730_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79ca394f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d2f6887_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d5e1a1f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f7e310d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d9046ba_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@27674602_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c0ba94d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b7ad3d4_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cd62750_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d50d42e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7d932326_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24b7ac98_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@110304f3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11076eb8_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a1f3edd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cc3e904_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c3d254c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@282c3b3f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7de4e827_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5944819d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59c41cf3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2f91a9c9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7005f7fc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b2b8a92_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1f5f4cbd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d1eecb9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@472461cd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@184787cb_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7f3b9e59_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@702271b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5544b0ac_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@11b197ab_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1070822_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3f228d12_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@517bfebc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ebe8a54_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2539913a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6c077988_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73d2bb66_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@fbcbe84_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@56102f29_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@21be29fa_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@48a93df3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e44f595_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@a4ad086_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c47ce7c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14899cca_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b266b07_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4197ccdd_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@408d9fb0_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7b5aabb5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71ea740e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65fafb9a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d5066_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6e5ff256_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d2dab77_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@137a5058_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@569dad14_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e2b88fc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@758c3be1_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74403753_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bc7dbfe_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@29c56813_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bc60abc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14b1feb_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ba8331a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7412adc0_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e444ea7_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@f4044b5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6d36e075_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4d93e3c5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67d1afc5_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64db0e29_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6589755f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@410a0a4c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@779e1319_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d9352e9_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58eeea54_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@424be902_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@213a19d3_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ba8e541_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@33bb5f58_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66fd9690_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72816c0d_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@d9b56_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b53686b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c07ea2e_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@918c726_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@113f2897_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1edd400a_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66913f4c_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72dde1ac_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@10261b3f_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61c6d511_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3800d8bc_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38b2d573_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3a0f2445_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5eaf232b_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4aa3d561_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45274f17_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@192c4845_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@54a4d847_ARCHIVE_LOCATION">v:/ip/zxvideomode</xilinx:tag>
+      </xilinx:tags>
+    </xilinx:coreExtensions>
+    <xilinx:packagingInfo>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="4e2403cf"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8fc7170c"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="ea3cd9b8"/>
+      <xilinx:checksum xilinx:scope="parameters" xilinx:value="dedfcc80"/>
+    </xilinx:packagingInfo>
+  </spirit:vendorExtensions>
+</spirit:component>

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:51:13 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:39:08 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_xsd_0_0/zxnexys_pmod_xsd_0_0_sim_netlist.v
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "zxnexys_pmod_xsd_0_0,pmod_xsd,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "pmod_xsd,Vivado 2021.2" *) 
+(* X_CORE_INFO = "pmod_xsd,Vivado 2021.2.1" *) 
 (* NotValidForBitStream *)
 module zxnexys_pmod_xsd_0_0
    (pin1_i,
@@ -46,8 +46,7 @@ module zxnexys_pmod_xsd_0_0
     sd_dat0,
     sd_dat1,
     sd_dat2,
-    sd_dat3,
-    sd_wp);
+    sd_dat3);
   (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_xsd PIN1_I" *) (* X_INTERFACE_MODE = "MASTER" *) input pin1_i;
   (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_xsd PIN2_I" *) input pin2_i;
   (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_xsd PIN3_I" *) input pin3_i;
@@ -79,11 +78,9 @@ module zxnexys_pmod_xsd_0_0
   input sd_dat1;
   input sd_dat2;
   input sd_dat3;
-  output sd_wp;
 
   wire \<const0> ;
   wire \<const1> ;
-  wire pin10_i;
   wire pin3_i;
   wire pin9_i;
   wire sd_cmd;
@@ -110,7 +107,6 @@ module zxnexys_pmod_xsd_0_0
   assign pin9_t = \<const1> ;
   assign sd_cd = pin9_i;
   assign sd_dat0 = pin3_i;
-  assign sd_wp = pin10_i;
   GND GND
        (.G(\<const0> ));
   VCC VCC

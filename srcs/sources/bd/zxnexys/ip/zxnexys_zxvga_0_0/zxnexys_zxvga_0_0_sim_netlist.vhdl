@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:55:37 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:49:05 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxvga_0_0/zxnexys_zxvga_0_0_sim_netlist.vhdl
@@ -88,15 +88,15 @@ begin
     );
 \O_VIDEO_31[0]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"03C783CF0F07878F"
+      INIT => X"0088A0A85F5777FF"
     )
         port map (
-      I0 => scanlines(1),
-      I1 => impar_31,
-      I2 => video_31_s(0),
-      I3 => video_31_s(1),
-      I4 => video_31_s(2),
-      I5 => scanlines(0),
+      I0 => impar_31,
+      I1 => scanlines(1),
+      I2 => scanlines(0),
+      I3 => video_31_s(2),
+      I4 => video_31_s(1),
+      I5 => video_31_s(0),
       O => \O_VIDEO_31[0]_i_2_n_0\
     );
 \O_VIDEO_31[1]_i_1\: unisim.vcomponents.LUT5
@@ -4135,24 +4135,33 @@ entity zxnexys_zxvga_0_0_scandoubler is
     vga_b : out STD_LOGIC_VECTOR ( 2 downto 0 );
     h_sync_reg_0 : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
     v_sync_reg_0 : in STD_LOGIC;
+    resetn : in STD_LOGIC;
+    D : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_reg[3]_0\ : in STD_LOGIC;
     \r_reg[2]_0\ : in STD_LOGIC;
-    \r_reg[1]_0\ : in STD_LOGIC;
+    \g_reg[1]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \g_reg[3]_0\ : in STD_LOGIC;
     \g_reg[2]_0\ : in STD_LOGIC;
-    \g_reg[1]_0\ : in STD_LOGIC;
+    \b_reg[1]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \b_reg[3]_0\ : in STD_LOGIC;
-    \b_reg[2]_0\ : in STD_LOGIC;
-    \b_reg[1]_0\ : in STD_LOGIC
+    \b_reg[2]_0\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_scandoubler : entity is "scandoubler";
 end zxnexys_zxvga_0_0_scandoubler;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0_scandoubler is
+  signal \b[3]_i_1_n_0\ : STD_LOGIC;
 begin
+\b[3]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => \b[3]_i_1_n_0\
+    );
 \b_reg[0]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
@@ -4160,22 +4169,22 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      D => reset,
+      D => \b[3]_i_1_n_0\,
       Q => vga_r(0),
       R => '0'
     );
-\b_reg[1]\: unisim.vcomponents.FDSE
+\b_reg[1]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk_peripheral,
       CE => '1',
-      D => \b_reg[1]_0\,
+      D => \b_reg[1]_0\(0),
       Q => vga_b(0),
-      S => reset
+      R => '0'
     );
-\b_reg[2]\: unisim.vcomponents.FDSE
+\b_reg[2]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -4184,9 +4193,9 @@ begin
       CE => '1',
       D => \b_reg[2]_0\,
       Q => vga_b(1),
-      S => reset
+      R => \b[3]_i_1_n_0\
     );
-\b_reg[3]\: unisim.vcomponents.FDSE
+\b_reg[3]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -4195,20 +4204,20 @@ begin
       CE => '1',
       D => \b_reg[3]_0\,
       Q => vga_b(2),
-      S => reset
+      R => \b[3]_i_1_n_0\
     );
-\g_reg[1]\: unisim.vcomponents.FDSE
+\g_reg[1]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk_peripheral,
       CE => '1',
-      D => \g_reg[1]_0\,
+      D => \g_reg[1]_0\(0),
       Q => vga_g(0),
-      S => reset
+      R => '0'
     );
-\g_reg[2]\: unisim.vcomponents.FDSE
+\g_reg[2]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -4217,9 +4226,9 @@ begin
       CE => '1',
       D => \g_reg[2]_0\,
       Q => vga_g(1),
-      S => reset
+      R => \b[3]_i_1_n_0\
     );
-\g_reg[3]\: unisim.vcomponents.FDSE
+\g_reg[3]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -4228,7 +4237,7 @@ begin
       CE => '1',
       D => \g_reg[3]_0\,
       Q => vga_g(2),
-      S => reset
+      R => \b[3]_i_1_n_0\
     );
 h_sync_reg: unisim.vcomponents.FDRE
     generic map(
@@ -4241,18 +4250,18 @@ h_sync_reg: unisim.vcomponents.FDRE
       Q => scandoubler_0_h_sync,
       R => '0'
     );
-\r_reg[1]\: unisim.vcomponents.FDSE
+\r_reg[1]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
         port map (
       C => clk_peripheral,
       CE => '1',
-      D => \r_reg[1]_0\,
+      D => D(0),
       Q => vga_r(1),
-      S => reset
+      R => '0'
     );
-\r_reg[2]\: unisim.vcomponents.FDSE
+\r_reg[2]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -4261,9 +4270,9 @@ h_sync_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \r_reg[2]_0\,
       Q => vga_r(2),
-      S => reset
+      R => \b[3]_i_1_n_0\
     );
-\r_reg[3]\: unisim.vcomponents.FDSE
+\r_reg[3]\: unisim.vcomponents.FDRE
     generic map(
       IS_C_INVERTED => '1'
     )
@@ -4272,7 +4281,7 @@ h_sync_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \r_reg[3]_0\,
       Q => vga_r(3),
-      S => reset
+      R => \b[3]_i_1_n_0\
     );
 v_sync_reg: unisim.vcomponents.FDRE
     generic map(
@@ -4292,24 +4301,25 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxvga_0_0_scan_convert is
   port (
+    D : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \O_VIDEO_15_reg[3]_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \O_VIDEO_15_reg[0]_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     O_HSYNC_reg_0 : out STD_LOGIC;
     \O_VIDEO_31_reg[8]_0\ : out STD_LOGIC;
     \O_VIDEO_31_reg[7]_0\ : out STD_LOGIC;
-    \O_VIDEO_31_reg[6]_0\ : out STD_LOGIC;
     \O_VIDEO_31_reg[5]_0\ : out STD_LOGIC;
     \O_VIDEO_31_reg[4]_0\ : out STD_LOGIC;
-    \O_VIDEO_31_reg[3]_0\ : out STD_LOGIC;
     \O_VIDEO_31_reg[2]_0\ : out STD_LOGIC;
     \O_VIDEO_31_reg[1]_0\ : out STD_LOGIC;
-    \O_VIDEO_31_reg[0]_0\ : out STD_LOGIC;
     O_VSYNC_reg_0 : out STD_LOGIC;
     clk_video : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     rgb : in STD_LOGIC_VECTOR ( 8 downto 0 );
     hsync_n : in STD_LOGIC;
     vsync_n : in STD_LOGIC;
-    scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
     scandouble : in STD_LOGIC;
+    resetn : in STD_LOGIC;
+    scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
@@ -4785,15 +4795,16 @@ O_VSYNC_reg: unisim.vcomponents.FDRE
       Q => scan_convert_0_O_VSYNC,
       R => '0'
     );
-\b[1]_i_1\: unisim.vcomponents.LUT3
+\b[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"B8"
+      INIT => X"E2FF"
     )
         port map (
-      I0 => scan_convert_0_O_VIDEO_31(0),
+      I0 => scan_convert_0_O_VIDEO_15(0),
       I1 => scandouble,
-      I2 => scan_convert_0_O_VIDEO_15(0),
-      O => \O_VIDEO_31_reg[0]_0\
+      I2 => scan_convert_0_O_VIDEO_31(0),
+      I3 => resetn,
+      O => \O_VIDEO_15_reg[0]_0\(0)
     );
 \b[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -4805,7 +4816,7 @@ O_VSYNC_reg: unisim.vcomponents.FDRE
       I2 => scan_convert_0_O_VIDEO_15(1),
       O => \O_VIDEO_31_reg[1]_0\
     );
-\b[3]_i_1\: unisim.vcomponents.LUT3
+\b[3]_i_2\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"B8"
     )
@@ -4879,15 +4890,16 @@ eqOp_carry_i_4: unisim.vcomponents.LUT3
       I2 => hcnt_reg(0),
       O => eqOp_carry_i_4_n_0
     );
-\g[1]_i_1\: unisim.vcomponents.LUT3
+\g[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"B8"
+      INIT => X"E2FF"
     )
         port map (
-      I0 => scan_convert_0_O_VIDEO_31(3),
+      I0 => scan_convert_0_O_VIDEO_15(3),
       I1 => scandouble,
-      I2 => scan_convert_0_O_VIDEO_15(3),
-      O => \O_VIDEO_31_reg[3]_0\
+      I2 => scan_convert_0_O_VIDEO_31(3),
+      I3 => resetn,
+      O => \O_VIDEO_15_reg[3]_0\(0)
     );
 \g[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -6186,15 +6198,16 @@ ivsync_last_x2_reg: unisim.vcomponents.FDRE
       Q => trigger,
       R => '0'
     );
-\r[1]_i_1\: unisim.vcomponents.LUT3
+\r[1]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"B8"
+      INIT => X"E2FF"
     )
         port map (
-      I0 => scan_convert_0_O_VIDEO_31(6),
+      I0 => scan_convert_0_O_VIDEO_15(6),
       I1 => scandouble,
-      I2 => scan_convert_0_O_VIDEO_15(6),
-      O => \O_VIDEO_31_reg[6]_0\
+      I2 => scan_convert_0_O_VIDEO_31(6),
+      I3 => resetn,
+      O => D(0)
     );
 \r[2]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -6578,17 +6591,17 @@ entity zxnexys_zxvga_0_0_vga_scandoubler_0_0 is
     vga_b : out STD_LOGIC_VECTOR ( 2 downto 0 );
     h_sync_reg : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
     v_sync_reg : in STD_LOGIC;
+    resetn : in STD_LOGIC;
+    D : in STD_LOGIC_VECTOR ( 0 to 0 );
     \r_reg[3]\ : in STD_LOGIC;
     \r_reg[2]\ : in STD_LOGIC;
-    \r_reg[1]\ : in STD_LOGIC;
+    \g_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \g_reg[3]\ : in STD_LOGIC;
     \g_reg[2]\ : in STD_LOGIC;
-    \g_reg[1]\ : in STD_LOGIC;
+    \b_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \b_reg[3]\ : in STD_LOGIC;
-    \b_reg[2]\ : in STD_LOGIC;
-    \b_reg[1]\ : in STD_LOGIC
+    \b_reg[2]\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxvga_0_0_vga_scandoubler_0_0 : entity is "vga_scandoubler_0_0";
@@ -6598,18 +6611,18 @@ architecture STRUCTURE of zxnexys_zxvga_0_0_vga_scandoubler_0_0 is
 begin
 inst: entity work.zxnexys_zxvga_0_0_scandoubler
      port map (
-      \b_reg[1]_0\ => \b_reg[1]\,
+      D(0) => D(0),
+      \b_reg[1]_0\(0) => \b_reg[1]\(0),
       \b_reg[2]_0\ => \b_reg[2]\,
       \b_reg[3]_0\ => \b_reg[3]\,
       clk_peripheral => clk_peripheral,
-      \g_reg[1]_0\ => \g_reg[1]\,
+      \g_reg[1]_0\(0) => \g_reg[1]\(0),
       \g_reg[2]_0\ => \g_reg[2]\,
       \g_reg[3]_0\ => \g_reg[3]\,
       h_sync_reg_0 => h_sync_reg,
-      \r_reg[1]_0\ => \r_reg[1]\,
       \r_reg[2]_0\ => \r_reg[2]\,
       \r_reg[3]_0\ => \r_reg[3]\,
-      reset => reset,
+      resetn => resetn,
       scandoubler_0_h_sync => scandoubler_0_h_sync,
       scandoubler_0_v_sync => scandoubler_0_v_sync,
       v_sync_reg_0 => v_sync_reg,
@@ -6624,24 +6637,25 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxvga_0_0_vga_scan_convert_0_0 is
   port (
+    D : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \O_VIDEO_15_reg[3]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
+    \O_VIDEO_15_reg[0]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     O_HSYNC_reg : out STD_LOGIC;
     \O_VIDEO_31_reg[8]\ : out STD_LOGIC;
     \O_VIDEO_31_reg[7]\ : out STD_LOGIC;
-    \O_VIDEO_31_reg[6]\ : out STD_LOGIC;
     \O_VIDEO_31_reg[5]\ : out STD_LOGIC;
     \O_VIDEO_31_reg[4]\ : out STD_LOGIC;
-    \O_VIDEO_31_reg[3]\ : out STD_LOGIC;
     \O_VIDEO_31_reg[2]\ : out STD_LOGIC;
     \O_VIDEO_31_reg[1]\ : out STD_LOGIC;
-    \O_VIDEO_31_reg[0]\ : out STD_LOGIC;
     O_VSYNC_reg : out STD_LOGIC;
     clk_video : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     rgb : in STD_LOGIC_VECTOR ( 8 downto 0 );
     hsync_n : in STD_LOGIC;
     vsync_n : in STD_LOGIC;
-    scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
     scandouble : in STD_LOGIC;
+    resetn : in STD_LOGIC;
+    scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
@@ -6653,14 +6667,14 @@ architecture STRUCTURE of zxnexys_zxvga_0_0_vga_scan_convert_0_0 is
 begin
 inst: entity work.zxnexys_zxvga_0_0_scan_convert
      port map (
+      D(0) => D(0),
       O_HSYNC_reg_0 => O_HSYNC_reg,
-      \O_VIDEO_31_reg[0]_0\ => \O_VIDEO_31_reg[0]\,
+      \O_VIDEO_15_reg[0]_0\(0) => \O_VIDEO_15_reg[0]\(0),
+      \O_VIDEO_15_reg[3]_0\(0) => \O_VIDEO_15_reg[3]\(0),
       \O_VIDEO_31_reg[1]_0\ => \O_VIDEO_31_reg[1]\,
       \O_VIDEO_31_reg[2]_0\ => \O_VIDEO_31_reg[2]\,
-      \O_VIDEO_31_reg[3]_0\ => \O_VIDEO_31_reg[3]\,
       \O_VIDEO_31_reg[4]_0\ => \O_VIDEO_31_reg[4]\,
       \O_VIDEO_31_reg[5]_0\ => \O_VIDEO_31_reg[5]\,
-      \O_VIDEO_31_reg[6]_0\ => \O_VIDEO_31_reg[6]\,
       \O_VIDEO_31_reg[7]_0\ => \O_VIDEO_31_reg[7]\,
       \O_VIDEO_31_reg[8]_0\ => \O_VIDEO_31_reg[8]\,
       O_VSYNC_reg_0 => O_VSYNC_reg,
@@ -6669,6 +6683,7 @@ inst: entity work.zxnexys_zxvga_0_0_scan_convert
       csync_n => csync_n,
       hsync_n => hsync_n,
       machine_timing(0) => machine_timing(0),
+      resetn => resetn,
       rgb(8 downto 0) => rgb(8 downto 0),
       scandouble => scandouble,
       scanlines(1 downto 0) => scanlines(1 downto 0),
@@ -6686,14 +6701,14 @@ entity zxnexys_zxvga_0_0_vga is
     vga_b : out STD_LOGIC_VECTOR ( 2 downto 0 );
     vga_hs : out STD_LOGIC;
     vga_vs : out STD_LOGIC;
+    scandouble : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
     clk_video : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     rgb : in STD_LOGIC_VECTOR ( 8 downto 0 );
     hsync_n : in STD_LOGIC;
     vsync_n : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    scandouble : in STD_LOGIC;
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
@@ -6735,22 +6750,23 @@ s_fix_1: entity work.zxnexys_zxvga_0_0_vga_s_fix_1_0
     );
 scan_convert_0: entity work.zxnexys_zxvga_0_0_vga_scan_convert_0_0
      port map (
-      O_HSYNC_reg => scan_convert_0_n_0,
-      \O_VIDEO_31_reg[0]\ => scan_convert_0_n_9,
-      \O_VIDEO_31_reg[1]\ => scan_convert_0_n_8,
-      \O_VIDEO_31_reg[2]\ => scan_convert_0_n_7,
-      \O_VIDEO_31_reg[3]\ => scan_convert_0_n_6,
-      \O_VIDEO_31_reg[4]\ => scan_convert_0_n_5,
-      \O_VIDEO_31_reg[5]\ => scan_convert_0_n_4,
-      \O_VIDEO_31_reg[6]\ => scan_convert_0_n_3,
-      \O_VIDEO_31_reg[7]\ => scan_convert_0_n_2,
-      \O_VIDEO_31_reg[8]\ => scan_convert_0_n_1,
+      D(0) => scan_convert_0_n_0,
+      O_HSYNC_reg => scan_convert_0_n_3,
+      \O_VIDEO_15_reg[0]\(0) => scan_convert_0_n_2,
+      \O_VIDEO_15_reg[3]\(0) => scan_convert_0_n_1,
+      \O_VIDEO_31_reg[1]\ => scan_convert_0_n_9,
+      \O_VIDEO_31_reg[2]\ => scan_convert_0_n_8,
+      \O_VIDEO_31_reg[4]\ => scan_convert_0_n_7,
+      \O_VIDEO_31_reg[5]\ => scan_convert_0_n_6,
+      \O_VIDEO_31_reg[7]\ => scan_convert_0_n_5,
+      \O_VIDEO_31_reg[8]\ => scan_convert_0_n_4,
       O_VSYNC_reg => scan_convert_0_n_10,
       clk_peripheral => clk_peripheral,
       clk_video => clk_video,
       csync_n => csync_n,
       hsync_n => hsync_n,
       machine_timing(0) => machine_timing(0),
+      resetn => resetn,
       rgb(8 downto 0) => rgb(8 downto 0),
       scandouble => scandouble,
       scanlines(1 downto 0) => scanlines(1 downto 0),
@@ -6758,18 +6774,18 @@ scan_convert_0: entity work.zxnexys_zxvga_0_0_vga_scan_convert_0_0
     );
 scandoubler_0: entity work.zxnexys_zxvga_0_0_vga_scandoubler_0_0
      port map (
-      \b_reg[1]\ => scan_convert_0_n_9,
-      \b_reg[2]\ => scan_convert_0_n_8,
-      \b_reg[3]\ => scan_convert_0_n_7,
+      D(0) => scan_convert_0_n_0,
+      \b_reg[1]\(0) => scan_convert_0_n_2,
+      \b_reg[2]\ => scan_convert_0_n_9,
+      \b_reg[3]\ => scan_convert_0_n_8,
       clk_peripheral => clk_peripheral,
-      \g_reg[1]\ => scan_convert_0_n_6,
-      \g_reg[2]\ => scan_convert_0_n_5,
-      \g_reg[3]\ => scan_convert_0_n_4,
-      h_sync_reg => scan_convert_0_n_0,
-      \r_reg[1]\ => scan_convert_0_n_3,
-      \r_reg[2]\ => scan_convert_0_n_2,
-      \r_reg[3]\ => scan_convert_0_n_1,
-      reset => reset,
+      \g_reg[1]\(0) => scan_convert_0_n_1,
+      \g_reg[2]\ => scan_convert_0_n_7,
+      \g_reg[3]\ => scan_convert_0_n_6,
+      h_sync_reg => scan_convert_0_n_3,
+      \r_reg[2]\ => scan_convert_0_n_5,
+      \r_reg[3]\ => scan_convert_0_n_4,
+      resetn => resetn,
       scandoubler_0_h_sync => scandoubler_0_h_sync,
       scandoubler_0_v_sync => scandoubler_0_v_sync,
       v_sync_reg => scan_convert_0_n_10,
@@ -6789,14 +6805,14 @@ entity zxnexys_zxvga_0_0_vga_wrapper is
     vga_b : out STD_LOGIC_VECTOR ( 2 downto 0 );
     vga_hs : out STD_LOGIC;
     vga_vs : out STD_LOGIC;
+    scandouble : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
     clk_video : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     rgb : in STD_LOGIC_VECTOR ( 8 downto 0 );
     hsync_n : in STD_LOGIC;
     vsync_n : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    scandouble : in STD_LOGIC;
     csync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
@@ -6813,7 +6829,7 @@ vga_i: entity work.zxnexys_zxvga_0_0_vga
       csync_n => csync_n,
       hsync_n => hsync_n,
       machine_timing(0) => machine_timing(0),
-      reset => reset,
+      resetn => resetn,
       rgb(8 downto 0) => rgb(8 downto 0),
       scandouble => scandouble,
       scanlines(1 downto 0) => scanlines(1 downto 0),
@@ -6836,7 +6852,7 @@ entity zxnexys_zxvga_0_0 is
     csync_n : in STD_LOGIC;
     hsync_n : in STD_LOGIC;
     machine_timing : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     rgb : in STD_LOGIC_VECTOR ( 8 downto 0 );
     scandouble : in STD_LOGIC;
     scanlines : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -6856,7 +6872,7 @@ entity zxnexys_zxvga_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_zxvga_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxvga_0_0 : entity is "vga_wrapper,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_zxvga_0_0 : entity is "vga_wrapper,Vivado 2021.2.1";
 end zxnexys_zxvga_0_0;
 
 architecture STRUCTURE of zxnexys_zxvga_0_0 is
@@ -6871,8 +6887,8 @@ architecture STRUCTURE of zxnexys_zxvga_0_0 is
   attribute X_INTERFACE_PARAMETER of clk_video : signal is "XIL_INTERFACENAME clk_video, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_video, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of csync_n : signal is "specnext.com:specnext:video:1.0 video csync_n";
   attribute X_INTERFACE_INFO of hsync_n : signal is "specnext.com:specnext:video:1.0 video hsync_n";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of scandouble : signal is "specnext.com:specnext:video:1.0 video scandouble";
   attribute X_INTERFACE_INFO of vsync_n : signal is "specnext.com:specnext:video:1.0 video vsync_n";
   attribute X_INTERFACE_INFO of machine_timing : signal is "specnext.com:specnext:video:1.0 video machine_timing";
@@ -6891,7 +6907,7 @@ inst: entity work.zxnexys_zxvga_0_0_vga_wrapper
       csync_n => csync_n,
       hsync_n => hsync_n,
       machine_timing(0) => machine_timing(1),
-      reset => reset,
+      resetn => resetn,
       rgb(8 downto 0) => rgb(8 downto 0),
       scandouble => scandouble,
       scanlines(1 downto 0) => scanlines(1 downto 0),

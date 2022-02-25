@@ -50,9 +50,9 @@
 // IP VLNV: xilinx.com:ip:xlconstant:1.1
 // IP Revision: 7
 
-(* X_CORE_INFO = "xlconstant_v1_1_7_xlconstant,Vivado 2021.2" *)
+(* X_CORE_INFO = "xlconstant_v1_1_7_xlconstant,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "keyboard_xlconstant_selftest_ok_0,xlconstant_v1_1_7_xlconstant,{}" *)
-(* CORE_GENERATION_INFO = "keyboard_xlconstant_selftest_ok_0,xlconstant_v1_1_7_xlconstant,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlconstant,x_ipVersion=1.1,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CONST_WIDTH=8,CONST_VAL=0x55}" *)
+(* CORE_GENERATION_INFO = "keyboard_xlconstant_selftest_ok_0,xlconstant_v1_1_7_xlconstant,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlconstant,x_ipVersion=1.1,x_ipCoreRevision=7,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CONST_WIDTH=8,CONST_VAL=0x55}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module keyboard_xlconstant_selftest_ok_0 (
   dout

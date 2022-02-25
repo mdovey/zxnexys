@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -57,19 +57,26 @@
 module audio_audio_mono_1_0 (
   left_in,
   right_in,
-  mono_out
+  mono_out,
+  lrck,
+  clk
 );
 
-input wire [15 : 0] left_in;
-input wire [15 : 0] right_in;
-output wire [15 : 0] mono_out;
+input wire [12 : 0] left_in;
+input wire [12 : 0] right_in;
+output wire [12 : 0] mono_out;
+input wire lrck;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 22590010, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN audio_clk_12m288, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 
   audio_mono #(
-    .AUDIO_DW(16),
-    .SHIFT(2)
+    .AUDIO_DW(13)
   ) inst (
     .left_in(left_in),
     .right_in(right_in),
-    .mono_out(mono_out)
+    .mono_out(mono_out),
+    .lrck(lrck),
+    .clk(clk)
   );
 endmodule

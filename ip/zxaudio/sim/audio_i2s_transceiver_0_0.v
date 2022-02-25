@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -81,8 +81,8 @@ output wire [15 : 0] l_data_rx;
 output wire [15 : 0] r_data_rx;
 
   i2s_transceiver #(
-    .mclk_sclk_ratio(4),
-    .sclk_ws_ratio(64),
+    .mclk_sclk_ratio(8),
+    .sclk_ws_ratio(32),
     .d_width(16)
   ) inst (
     .reset_n(reset_n),

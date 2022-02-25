@@ -39,8 +39,11 @@ module ram_input(
 (* X_INTERFACE_INFO = "specnext.com:specnext:ram_port_a:1.0 ram_port_b ram_req" *)
     input               ram_b_req_t,
 
+(* ASYNC_REG = "TRUE" *)
     output reg          we_a,
+(* ASYNC_REG = "TRUE" *)
     output reg          re_a,
+(* ASYNC_REG = "TRUE" *)
     output reg          re_b,
 
 (* ASYNC_REG = "TRUE" *)

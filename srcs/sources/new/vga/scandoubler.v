@@ -38,18 +38,16 @@ module scandoubler(
     output reg          v_sync,
     
     input 				clk_peripheral,
-    
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input               reset    
+    input               resetn
     );
 
     always @(negedge clk_peripheral)
     begin
-        if (reset)
+        if (~resetn)
         begin
-            r <= 4'hF;
-            g <= 4'hF;
-            b <= 4'hF;        
+            r <= 4'b0011;
+            g <= 4'b0011;
+            b <= 4'b0011;
         end else if (scandouble) 
         begin
             r <= {video_31[8:6], 1'b0};

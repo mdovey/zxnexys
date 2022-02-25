@@ -108,7 +108,7 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
+      <spirit:name>resetn</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -118,14 +118,14 @@
             <spirit:name>RST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
+            <spirit:name>resetn</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -144,7 +144,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>634ad9e2</spirit:value>
+            <spirit:value>de5be4ef</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -160,7 +160,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>fdf201bb</spirit:value>
+            <spirit:value>d360b728</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -259,7 +259,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -422,6 +422,13 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
@@ -526,7 +533,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/imports/ZXNext/vga/scan_convert.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/vga/scan_convert.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -546,7 +553,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/vga/hdl/vga_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_9c0220df</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_0e0463e6</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -614,7 +621,7 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/imports/ZXNext/vga/scan_convert.vhd</spirit:name>
+        <spirit:name>../../srcs/sources/imports/ZXNext/video/vga/scan_convert.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -657,11 +664,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxvga_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>6</xilinx:coreRevision>
+      <xilinx:coreRevision>10</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:vga_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-30T11:23:32Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-02-21T21:29:11Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1f3773de_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@11dc41b2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
@@ -754,13 +761,57 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@54756b2b_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@3526e3ac_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@599a28ca_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@41728737_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25efb9de_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6151cded_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@687dec1e_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ca1488e_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@246ea099_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@132a59e8_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18243cdd_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@49d275c9_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@47586316_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@775c1fb2_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@640c1923_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e3670e0_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65d3f40a_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5cdd526d_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@70cd8971_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75fe76_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d065c37_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@389743f7_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69fc4bf9_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5007b064_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39000afb_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@160364c9_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1e2b51da_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69421853_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@219c81c6_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d047ade_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74c3c82d_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@359969a4_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d16ddc0_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d4885d_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6229b53_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66e5d714_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@de4c282_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31b55346_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c466483_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34fa67c3_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b3a4b5d_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@38479e89_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@51ec6f06_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@117c06c5_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3175e024_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d6ad9a0_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5502b1cf_ARCHIVE_LOCATION">v:/ip/zxvga</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="3494c1e5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="c0222d8c"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="3d43ed90"/>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="3101d5f1"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="8106f2e8"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="bb6b6e37"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="c46ec8ce"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

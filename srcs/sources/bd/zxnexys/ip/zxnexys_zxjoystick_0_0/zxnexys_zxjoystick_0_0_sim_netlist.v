@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Jan  1 02:57:04 2022
+// Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+// Date        : Fri Feb 25 10:44:07 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_sim_netlist.v
@@ -13,7 +13,7 @@
 `timescale 1 ps / 1 ps
 
 (* CHECK_LICENSE_TYPE = "zxnexys_zxjoystick_0_0,joystick_wrapper,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "joystick_wrapper,Vivado 2021.2" *) 
+(* X_CORE_INFO = "joystick_wrapper,Vivado 2021.2.1" *) 
 (* NotValidForBitStream *)
 module zxnexys_zxjoystick_0_0
    (btnc,
@@ -2731,7 +2731,7 @@ module zxnexys_zxjoystick_0_0_joystick
         .pmod_jstk2_0_wv(pmod_jstk2_0_wv),
         .\r_TX_Byte_reg[6] (SPI_Master_0_n_3),
         .\r_TX_Byte_reg[6]_0 (pmod_jstk2_0_n_2));
-  (* X_CORE_INFO = "debounce,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "debounce,Vivado 2021.2.1" *) 
   zxnexys_zxjoystick_0_0_joystick_debounce_0_0 debounce_0
        (.E(joy_clock_enable_0_n_10),
         .In0(debounce_0_button_o),
@@ -2840,7 +2840,7 @@ module zxnexys_zxjoystick_0_0_joystick
         .\counter_reg[4]_7 (\inst/counter_reg_0 ),
         .\counter_reg[4]_8 (\inst/counter_reg ),
         .joy_clk_en(joy_clk_en));
-  (* X_CORE_INFO = "pmod_jstk2,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "pmod_jstk2,Vivado 2021.2.1" *) 
   zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0 pmod_jstk2_0
        (.D(o_RX_Byte),
         .Q({\inst/p_1_in ,pmod_jstk2_0_n_4}),
@@ -2859,13 +2859,13 @@ module zxnexys_zxjoystick_0_0_joystick
         .\y_reg[7] (pmod_jstk2_0_n_8));
   (* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *) 
   zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 util_vector_logic_0
        (.Op1(reset),
         .Res(util_vector_logic_0_Res));
   (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
   zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 xlconcat_0
        (.In0(debounce_0_button_o),
         .In1(debounce_1_button_o),
@@ -2876,7 +2876,7 @@ module zxnexys_zxjoystick_0_0_joystick
         .dout({NLW_xlconcat_0_dout_UNCONNECTED[10:5],joy_left}));
   (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_1,xlconcat_v2_1_4_xlconcat,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
   zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1 xlconcat_1
        (.In0(debounce_5_button_o),
         .In1(debounce_6_button_o),
@@ -3431,7 +3431,7 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
 endmodule
 
 (* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_util_vector_logic_0_0" *) 
-(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2" *) 
+(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *) 
 module zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0
    (Op1,
     Res);
@@ -3512,7 +3512,7 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
 endmodule
 
 (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_xlconcat_0_0" *) 
-(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
 module zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0
    (In0,
     In1,
@@ -3552,7 +3552,7 @@ module zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0
 endmodule
 
 (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_1,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_xlconcat_0_1" *) 
-(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2" *) 
+(* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
 module zxnexys_zxjoystick_0_0_joystick_xlconcat_0_1
    (In0,
     In1,

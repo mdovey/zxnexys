@@ -1,12 +1,12 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x3EC6BDBCE51331D",
+      "boundary_crc": "0xE4BFB3C95622BD75",
       "device": "xc7a100tcsg324-1",
       "name": "vga",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
@@ -115,7 +115,7 @@
       "vsync_n": {
         "direction": "I"
       },
-      "reset": {
+      "resetn": {
         "type": "rst",
         "direction": "I",
         "parameters": {
@@ -124,7 +124,8 @@
             "value_src": "default"
           },
           "POLARITY": {
-            "value": "ACTIVE_HIGH"
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
           }
         }
       }
@@ -403,12 +404,12 @@
               }
             }
           },
-          "reset": {
+          "resetn": {
             "type": "rst",
             "direction": "I",
             "parameters": {
               "POLARITY": {
-                "value": "ACTIVE_HIGH",
+                "value": "ACTIVE_LOW",
                 "value_src": "constant"
               }
             }
@@ -457,10 +458,10 @@
           "front_porch_0/machine_timing"
         ]
       },
-      "reset_1": {
+      "resetn_1": {
         "ports": [
-          "reset",
-          "scandoubler_0/reset"
+          "resetn",
+          "scandoubler_0/resetn"
         ]
       },
       "rgb_1": {

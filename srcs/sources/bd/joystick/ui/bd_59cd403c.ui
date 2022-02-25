@@ -26,7 +26,6 @@ preplace inst xlconstant_000000 -pg 1 -lvl 4 -x 1140 -y 480 -defaultsOSRD
 preplace inst xlconstant_00000 -pg 1 -lvl 4 -x 1140 -y 1780 -defaultsOSRD
 preplace inst xlconcat_0 -pg 1 -lvl 5 -x 1420 -y 430 -defaultsOSRD
 preplace inst xlconcat_1 -pg 1 -lvl 5 -x 1420 -y 1300 -defaultsOSRD
-preplace inst debounce_0 -pg 1 -lvl 4 -x 1140 -y 220 -defaultsOSRD
 preplace inst debounce_1 -pg 1 -lvl 4 -x 1140 -y 80 -defaultsOSRD
 preplace inst debounce_2 -pg 1 -lvl 4 -x 1140 -y 360 -defaultsOSRD
 preplace inst debounce_3 -pg 1 -lvl 4 -x 1140 -y 740 -defaultsOSRD
@@ -37,8 +36,9 @@ preplace inst debounce_7 -pg 1 -lvl 4 -x 1140 -y 1480 -defaultsOSRD
 preplace inst debounce_8 -pg 1 -lvl 4 -x 1140 -y 1660 -defaultsOSRD
 preplace inst debounce_9 -pg 1 -lvl 4 -x 1140 -y 1320 -defaultsOSRD
 preplace inst debounce_10 -pg 1 -lvl 4 -x 1140 -y 1160 -defaultsOSRD
-preplace inst pmod_jstk2_0 -pg 1 -lvl 3 -x 830 -y 1250 -defaultsOSRD
 preplace inst joy_clock_enable_0 -pg 1 -lvl 5 -x 1420 -y 1630 -defaultsOSRD
+preplace inst debounce_0 -pg 1 -lvl 4 -x 1140 -y 220 -defaultsOSRD
+preplace inst pmod_jstk2_0 -pg 1 -lvl 3 -x 830 -y 1250 -defaultsOSRD
 preplace netloc Net 1 0 5 10J 1130 340 1360 680 1120 990 1580 1260J
 preplace netloc Net1 1 0 3 20 1260 320J 1370 700J
 preplace netloc SPI_Master_0_o_RX_Byte 1 2 1 690 1210n

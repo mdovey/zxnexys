@@ -86,7 +86,7 @@ module ram_read (
     assign ARREGION             = 4'b0000;
     assign ARSIZE               = 3'b000;
 
-    assign ready                = (cState == stIdle) | (cState == stWait);
+    assign ready                = aresetn && ((cState == stIdle) || (cState == stWait));
 
     assign caddr                = ARADDR[20:3];
 

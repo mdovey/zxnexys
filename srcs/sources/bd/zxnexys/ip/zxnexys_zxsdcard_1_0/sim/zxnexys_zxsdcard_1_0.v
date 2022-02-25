@@ -55,6 +55,7 @@
 (* IP_DEFINITION_SOURCE = "package_project" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module zxnexys_zxsdcard_1_0 (
+  sd_reset_n,
   sd_cd,
   sd_sck,
   sd_cmd,
@@ -62,7 +63,6 @@ module zxnexys_zxsdcard_1_0 (
   sd_dat1,
   sd_dat2,
   sd_dat3,
-  sd_wp,
   in_sck,
   in_mosi,
   in_miso,
@@ -71,6 +71,7 @@ module zxnexys_zxsdcard_1_0 (
   reset
 );
 
+output wire sd_reset_n;
 input wire sd_cd;
 output wire sd_sck;
 output wire sd_cmd;
@@ -78,7 +79,6 @@ input wire sd_dat0;
 output wire sd_dat1;
 output wire sd_dat2;
 output wire sd_dat3;
-input wire sd_wp;
 (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in sck" *)
 input wire in_sck;
 (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_in mosi" *)
@@ -99,7 +99,7 @@ input wire reset;
     .POWERUP_BITS(12),
     .POWERDOWN_BITS(12)
   ) inst (
-    .sd_reset_n(),
+    .sd_reset_n(sd_reset_n),
     .sd_cd(sd_cd),
     .sd_sck(sd_sck),
     .sd_cmd(sd_cmd),
@@ -107,7 +107,7 @@ input wire reset;
     .sd_dat1(sd_dat1),
     .sd_dat2(sd_dat2),
     .sd_dat3(sd_dat3),
-    .sd_wp(sd_wp),
+    .sd_wp(1'B0),
     .in_sck(in_sck),
     .in_mosi(in_mosi),
     .in_miso(in_miso),

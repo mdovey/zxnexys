@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Jan  1 02:51:13 2022
+-- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+-- Date        : Fri Feb 25 10:39:08 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_xsd_0_0/zxnexys_pmod_xsd_0_0_sim_netlist.vhdl
@@ -46,8 +46,7 @@ entity zxnexys_pmod_xsd_0_0 is
     sd_dat0 : out STD_LOGIC;
     sd_dat1 : in STD_LOGIC;
     sd_dat2 : in STD_LOGIC;
-    sd_dat3 : in STD_LOGIC;
-    sd_wp : out STD_LOGIC
+    sd_dat3 : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_pmod_xsd_0_0 : entity is true;
@@ -58,13 +57,12 @@ entity zxnexys_pmod_xsd_0_0 is
   attribute IP_DEFINITION_SOURCE : string;
   attribute IP_DEFINITION_SOURCE of zxnexys_pmod_xsd_0_0 : entity is "package_project";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_pmod_xsd_0_0 : entity is "pmod_xsd,Vivado 2021.2";
+  attribute X_CORE_INFO of zxnexys_pmod_xsd_0_0 : entity is "pmod_xsd,Vivado 2021.2.1";
 end zxnexys_pmod_xsd_0_0;
 
 architecture STRUCTURE of zxnexys_pmod_xsd_0_0 is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
-  signal \^pin10_i\ : STD_LOGIC;
   signal \^pin3_i\ : STD_LOGIC;
   signal \^pin9_i\ : STD_LOGIC;
   signal \^sd_cmd\ : STD_LOGIC;
@@ -100,7 +98,6 @@ architecture STRUCTURE of zxnexys_pmod_xsd_0_0 is
   attribute X_INTERFACE_INFO of pin9_o : signal is "digilentinc.com:interface:pmod:1.0 pmod_xsd PIN9_O";
   attribute X_INTERFACE_INFO of pin9_t : signal is "digilentinc.com:interface:pmod:1.0 pmod_xsd PIN9_T";
 begin
-  \^pin10_i\ <= pin10_i;
   \^pin3_i\ <= pin3_i;
   \^pin9_i\ <= pin9_i;
   \^sd_cmd\ <= sd_cmd;
@@ -126,7 +123,6 @@ begin
   pin9_t <= \<const1>\;
   sd_cd <= \^pin9_i\;
   sd_dat0 <= \^pin3_i\;
-  sd_wp <= \^pin10_i\;
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\

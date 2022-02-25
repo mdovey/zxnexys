@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x379529DF84F3F1FE",
+      "boundary_crc": "0xA735720C2EB6D36D",
       "device": "xc7a100tcsg324-1",
       "name": "mic_i2s",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -11,11 +11,11 @@
     },
     "design_tree": {
       "i2s_transceiver_0": "",
-      "mic_reset_0": "",
-      "pwm_decode_0": ""
+      "pwm_decode_0": "",
+      "mic_reset_0": ""
     },
     "ports": {
-      "clk_audio": {
+      "clk_12m288": {
         "type": "clk",
         "direction": "I",
         "parameters": {
@@ -170,57 +170,6 @@
           }
         }
       },
-      "mic_reset_0": {
-        "vlnv": "xilinx.com:module_ref:mic_reset:1.0",
-        "xci_name": "mic_i2s_mic_reset_0_0",
-        "xci_path": "ip\\mic_i2s_mic_reset_0_0\\mic_i2s_mic_reset_0_0.xci",
-        "inst_hier_path": "mic_reset_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "mic_reset",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "resetn": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "clk_audio": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "resetn",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "12280700",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "mic_i2s_clk_audio",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
       "pwm_decode_0": {
         "vlnv": "xilinx.com:module_ref:pwm_decode:1.0",
         "xci_name": "mic_i2s_pwm_decode_0_0",
@@ -269,16 +218,67 @@
             }
           }
         }
+      },
+      "mic_reset_0": {
+        "vlnv": "xilinx.com:module_ref:mic_reset:1.0",
+        "xci_name": "mic_i2s_mic_reset_0_0",
+        "xci_path": "ip\\mic_i2s_mic_reset_0_0\\mic_i2s_mic_reset_0_0.xci",
+        "inst_hier_path": "mic_reset_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "mic_reset",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "resetn": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk_12m288": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "resetn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "12280700",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "mic_i2s_clk_audio",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
-      "clk_audio_1": {
+      "clk_12m288_1": {
         "ports": [
-          "clk_audio",
+          "clk_12m288",
           "m_clk",
           "i2s_transceiver_0/mclk",
-          "mic_reset_0/clk_audio",
-          "pwm_decode_0/mclk"
+          "pwm_decode_0/mclk",
+          "mic_reset_0/clk_12m288"
         ]
       },
       "i2s_din_1": {
