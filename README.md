@@ -24,7 +24,7 @@ Optional Mouse via PMOD_PS2 (on connection JXADC top row)
 
 ## RTC
 
-Optional RTC support via PMOD_RTCC (on connection JD)
+Optional RTC support via PMOD_RTCC (on connection JD). If PMOD_RTCC not present, RTC is emulated (but with time and RAM reset on power reset).
 
 ## ESP32
 
@@ -34,9 +34,13 @@ Optional wifi via PMOD_ESP32 (on connection JC)
 
 Optional second SDCard via PMOD_SD or PMOD_MicroSD (on PMOD Connection JA)
 
-## LED Segment Display
+## LED Segment Display & RGB
 
-Displays clock speed, and memory address
+LED Segment Displays clock speed, and memory address, and briefly video timings\settings during boot and video setting changes. RGB Leds display startup process and CPU wait states. 
+
+RGB can be disabled by writing 0 to PI Accel GPIO Pin 12 (enabled by writing 1)
+
+LED Segment can be disabled by writing 0 to PI Accel GPIO Pin 13 (enabled by writing 1)
 
 ## PI Accelerator
 
