@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 10:46:38 2022
+// Date        : Fri Feb 25 12:43:11 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_rtcc_0_0/zxnexys_pmod_rtcc_0_0_stub.v

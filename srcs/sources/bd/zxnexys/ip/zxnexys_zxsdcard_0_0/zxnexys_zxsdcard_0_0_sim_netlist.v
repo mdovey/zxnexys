@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 10:58:30 2022
+// Date        : Fri Feb 25 12:45:22 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0_sim_netlist.v

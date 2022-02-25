@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 25 10:36:02 2022" VIVADOVERSION="2021.2.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 25 12:40:04 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxnexys" PACKAGE="csg324" SPEEDGRADE="-1"/>
 

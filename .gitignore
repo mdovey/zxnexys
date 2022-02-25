@@ -4,6 +4,6 @@
 **/*.runs/
 **/*.sim/
 **/*.tmp/
-/.cache/
-/settings_restore.bat
-*.dcp
+**/*.dcp
+/ZX_Spectrum_Next_FPGA
+/tbblue
