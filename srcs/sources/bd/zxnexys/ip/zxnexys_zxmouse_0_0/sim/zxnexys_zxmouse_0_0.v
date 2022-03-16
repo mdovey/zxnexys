@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxmouse:2.3
-// IP Revision: 4
+// IP Revision: 5
 
 `timescale 1ns/1ps
 
@@ -64,7 +64,7 @@ module zxnexys_zxmouse_0_0 (
   ps2_data_i,
   ps2_data_o,
   ps2_data_t,
-  reset,
+  resetn,
   wheel,
   x,
   y
@@ -72,7 +72,7 @@ module zxnexys_zxmouse_0_0 (
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse button" *)
 output wire [2 : 0] button;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
 (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse mouse_control" *)
@@ -89,9 +89,9 @@ input wire ps2_data_i;
 output wire ps2_data_o;
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_T" *)
 output wire ps2_data_t;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse wheel" *)
 output wire [3 : 0] wheel;
 (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse x" *)
@@ -109,7 +109,7 @@ output wire [7 : 0] y;
     .ps2_data_i(ps2_data_i),
     .ps2_data_o(ps2_data_o),
     .ps2_data_t(ps2_data_t),
-    .reset(reset),
+    .resetn(resetn),
     .wheel(wheel),
     .x(x),
     .y(y)

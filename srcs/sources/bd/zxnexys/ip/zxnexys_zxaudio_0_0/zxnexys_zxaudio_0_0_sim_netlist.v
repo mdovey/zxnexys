@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:54:24 2022
+// Date        : Wed Mar 16 11:15:06 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxaudio_0_0/zxnexys_zxaudio_0_0_sim_netlist.v
@@ -30,7 +30,7 @@ module zxnexys_zxaudio_0_0
     lineout_sclk,
     lineout_sdout,
     psg_en,
-    reset,
+    resetn,
     tape_ear,
     tape_mic,
     aud_pwm);
@@ -48,7 +48,7 @@ module zxnexys_zxaudio_0_0
   output lineout_sclk;
   output lineout_sdout;
   (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio psg_en" *) output psg_en;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
   (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_ear" *) output tape_ear;
   (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_mic" *) input tape_mic;
   output aud_pwm;
@@ -64,7 +64,7 @@ module zxnexys_zxaudio_0_0
   wire lineout_sclk;
   wire lineout_sdout;
   wire psg_en;
-  wire reset;
+  wire resetn;
   wire tape_ear;
 
   assign linein_lrck = lineout_lrck;
@@ -82,7 +82,7 @@ module zxnexys_zxaudio_0_0
         .lineout_sdout(lineout_sdout),
         .out({lineout_lrck,lineout_sclk}),
         .psg_en(psg_en),
-        .reset(reset),
+        .resetn(resetn),
         .tape_ear(tape_ear));
 endmodule
 
@@ -98,7 +98,7 @@ module zxnexys_zxaudio_0_0_audio
     clk_22m59,
     audio_right,
     audio_left,
-    reset,
+    resetn,
     clk_peripheral,
     linein_sdin);
   output linein_sclk;
@@ -111,7 +111,7 @@ module zxnexys_zxaudio_0_0_audio
   input clk_22m59;
   input [12:0]audio_right;
   input [12:0]audio_left;
-  input reset;
+  input resetn;
   input clk_peripheral;
   input linein_sdin;
 
@@ -153,7 +153,7 @@ module zxnexys_zxaudio_0_0_audio
   wire linein_sdin;
   wire lineout_sdout;
   wire psg_en;
-  wire reset;
+  wire resetn;
   wire tape_ear;
   wire tape_ear_0_n_1;
 
@@ -191,7 +191,7 @@ module zxnexys_zxaudio_0_0_audio
         .SR(audio_reset_0_n_2),
         .aud_sd(aud_sd),
         .clk_22m59(clk_22m59),
-        .reset(reset));
+        .resetn(resetn));
   (* X_CORE_INFO = "axis_i2s2,Vivado 2021.2.1" *) 
   zxnexys_zxaudio_0_0_audio_axis_i2s2_0_0 axis_i2s2_0
        (.D(audio_axis_master_0_axis_data),
@@ -352,26 +352,26 @@ module zxnexys_zxaudio_0_0_audio_audio_reset_0_0
    (AR,
     aud_sd,
     SR,
-    reset,
+    resetn,
     clk_22m59);
   output [0:0]AR;
   output aud_sd;
   output [0:0]SR;
-  input reset;
+  input resetn;
   input clk_22m59;
 
   wire [0:0]AR;
   wire [0:0]SR;
   wire aud_sd;
   wire clk_22m59;
-  wire reset;
+  wire resetn;
 
   zxnexys_zxaudio_0_0_audio_reset inst
        (.AR(AR),
         .SR(SR),
         .aud_sd(aud_sd),
         .clk_22m59(clk_22m59),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "audio_axis_i2s2_0_0" *) 
@@ -2282,42 +2282,42 @@ module zxnexys_zxaudio_0_0_audio_reset
    (AR,
     aud_sd,
     SR,
-    reset,
+    resetn,
     clk_22m59);
   output [0:0]AR;
   output aud_sd;
   output [0:0]SR;
-  input reset;
+  input resetn;
   input clk_22m59;
 
   (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) (* async_reg = "true" *) wire [0:0]AR;
   wire [0:0]SR;
   (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *) (* async_reg = "true" *) wire aud_sd;
   wire clk_22m59;
-  (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) wire reset;
-  wire rstn_i_1_n_0;
+  (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *) wire resetn;
+  wire rst_i_1_n_0;
 
+  LUT1 #(
+    .INIT(2'h1)) 
+    rst_i_1
+       (.I0(resetn),
+        .O(rst_i_1_n_0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *) 
   FDRE rst_reg
        (.C(clk_22m59),
         .CE(1'b1),
-        .D(reset),
+        .D(rst_i_1_n_0),
         .Q(AR),
         .R(1'b0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    rstn_i_1
-       (.I0(reset),
-        .O(rstn_i_1_n_0));
   (* ASYNC_REG *) 
   (* KEEP = "yes" *) 
   (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *) 
   FDRE rstn_reg
        (.C(clk_22m59),
         .CE(1'b1),
-        .D(rstn_i_1_n_0),
+        .D(resetn),
         .Q(aud_sd),
         .R(1'b0));
   LUT1 #(
@@ -2420,7 +2420,7 @@ module zxnexys_zxaudio_0_0_audio_wrapper
     clk_22m59,
     audio_right,
     audio_left,
-    reset,
+    resetn,
     clk_peripheral,
     linein_sdin);
   output [1:0]out;
@@ -2432,7 +2432,7 @@ module zxnexys_zxaudio_0_0_audio_wrapper
   input clk_22m59;
   input [12:0]audio_right;
   input [12:0]audio_left;
-  input reset;
+  input resetn;
   input clk_peripheral;
   input linein_sdin;
 
@@ -2446,7 +2446,7 @@ module zxnexys_zxaudio_0_0_audio_wrapper
   wire lineout_sdout;
   wire [1:0]out;
   wire psg_en;
-  wire reset;
+  wire resetn;
   wire tape_ear;
 
   zxnexys_zxaudio_0_0_audio audio_i
@@ -2461,7 +2461,7 @@ module zxnexys_zxaudio_0_0_audio_wrapper
         .linein_sdin(linein_sdin),
         .lineout_sdout(lineout_sdout),
         .psg_en(psg_en),
-        .reset(reset),
+        .resetn(resetn),
         .tape_ear(tape_ear));
 endmodule
 

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:45:29 2022
+// Date        : Wed Mar 16 11:17:52 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0_sim_netlist.v
@@ -25,12 +25,12 @@ module zxnexys_zxmouse_0_0
     ps2_data_i,
     ps2_data_o,
     ps2_data_t,
-    reset,
+    resetn,
     wheel,
     x,
     y);
   (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse button" *) output [2:0]button;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
   (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse mouse_control" *) input [2:0]mouse_control;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_I" *) input ps2_clk_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_clk TRI_O" *) output ps2_clk_o;
@@ -38,7 +38,7 @@ module zxnexys_zxmouse_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_I" *) input ps2_data_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_O" *) output ps2_data_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_T" *) output ps2_data_t;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
   (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse wheel" *) output [3:0]wheel;
   (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse x" *) output [7:0]x;
   (* X_INTERFACE_INFO = "specnext.com:specnext:mouse:1.0 mouse y" *) output [7:0]y;
@@ -50,7 +50,7 @@ module zxnexys_zxmouse_0_0
   wire ps2_clk_o;
   wire ps2_data_i;
   wire ps2_data_o;
-  wire reset;
+  wire resetn;
   wire [3:0]wheel;
   wire [7:0]x;
   wire [7:0]y;
@@ -65,7 +65,7 @@ module zxnexys_zxmouse_0_0
         .ps2_clk_o(ps2_clk_o),
         .ps2_data_i(ps2_data_i),
         .ps2_data_o(ps2_data_o),
-        .reset(reset),
+        .resetn(resetn),
         .wheel(wheel),
         .x(x),
         .y(y));
@@ -83,7 +83,7 @@ module zxnexys_zxmouse_0_0_mouse
     ps2_clk_i,
     ps2_data_i,
     mouse_control,
-    reset);
+    resetn);
   output ps2_data_o;
   output [7:0]y;
   output [7:0]x;
@@ -94,7 +94,7 @@ module zxnexys_zxmouse_0_0_mouse
   input ps2_clk_i;
   input ps2_data_i;
   input [2:0]mouse_control;
-  input reset;
+  input resetn;
 
   wire [2:0]button;
   wire clk_peripheral;
@@ -107,7 +107,8 @@ module zxnexys_zxmouse_0_0_mouse
   wire ps2_mouse_0_mright;
   wire ps2_mouse_0_mthird;
   wire [3:0]ps2_mouse_0_zcount;
-  wire reset;
+  wire resetn;
+  wire util_vector_logic_0_Res;
   wire [3:0]wheel;
   wire [7:0]x;
   wire [7:0]y;
@@ -117,16 +118,22 @@ module zxnexys_zxmouse_0_0_mouse
        (.In0(ps2_mouse_0_mleft),
         .In1(ps2_mouse_0_mright),
         .In2(ps2_mouse_0_mthird),
+        .Res(util_vector_logic_0_Res),
         .clk_peripheral(clk_peripheral),
         .mouse_control(mouse_control),
         .ps2_clk_i(ps2_clk_i),
         .ps2_clk_o(ps2_clk_o),
         .ps2_data_i(ps2_data_i),
         .ps2_data_o(ps2_data_o),
-        .reset(reset),
         .x(x),
         .y(y),
         .zcount(ps2_mouse_0_zcount));
+  (* CHECK_LICENSE_TYPE = "mouse_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) 
+  (* DowngradeIPIdentifiedWarnings = "yes" *) 
+  (* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *) 
+  zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 util_vector_logic_0
+       (.Op1(resetn),
+        .Res(util_vector_logic_0_Res));
   (* CHECK_LICENSE_TYPE = "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
   (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
@@ -157,7 +164,7 @@ module zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
     ps2_clk_i,
     ps2_data_i,
     mouse_control,
-    reset);
+    Res);
   output ps2_data_o;
   output [3:0]zcount;
   output [7:0]y;
@@ -170,18 +177,18 @@ module zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
   input ps2_clk_i;
   input ps2_data_i;
   input [2:0]mouse_control;
-  input reset;
+  input [0:0]Res;
 
   wire [0:0]In0;
   wire [0:0]In1;
   wire [0:0]In2;
+  wire [0:0]Res;
   wire clk_peripheral;
   wire [2:0]mouse_control;
   wire ps2_clk_i;
   wire ps2_clk_o;
   wire ps2_data_i;
   wire ps2_data_o;
-  wire reset;
   wire [7:0]x;
   wire [7:0]y;
   wire [3:0]zcount;
@@ -190,16 +197,34 @@ module zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
        (.In0(In0),
         .In1(In1),
         .In2(In2),
+        .Res(Res),
         .clk_peripheral(clk_peripheral),
         .mouse_control(mouse_control),
         .ps2_clk_i(ps2_clk_i),
         .ps2_clk_o(ps2_clk_o),
         .ps2_data_i(ps2_data_i),
         .ps2_data_o(ps2_data_o),
-        .reset(reset),
         .x(x),
         .y(y),
         .zcount(zcount));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "mouse_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "mouse_util_vector_logic_0_0" *) 
+(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *) 
+module zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0
+   (Op1,
+    Res);
+  input [0:0]Op1;
+  output [0:0]Res;
+
+  wire [0:0]Op1;
+  wire [0:0]Res;
+
+  LUT1 #(
+    .INIT(2'h1)) 
+    \Res[0]_INST_0 
+       (.I0(Op1),
+        .O(Res));
 endmodule
 
 (* ORIG_REF_NAME = "mouse_wrapper" *) 
@@ -214,7 +239,7 @@ module zxnexys_zxmouse_0_0_mouse_wrapper
     ps2_clk_i,
     ps2_data_i,
     mouse_control,
-    reset);
+    resetn);
   output ps2_data_o;
   output [7:0]y;
   output [7:0]x;
@@ -225,7 +250,7 @@ module zxnexys_zxmouse_0_0_mouse_wrapper
   input ps2_clk_i;
   input ps2_data_i;
   input [2:0]mouse_control;
-  input reset;
+  input resetn;
 
   wire [2:0]button;
   wire clk_peripheral;
@@ -234,7 +259,7 @@ module zxnexys_zxmouse_0_0_mouse_wrapper
   wire ps2_clk_o;
   wire ps2_data_i;
   wire ps2_data_o;
-  wire reset;
+  wire resetn;
   wire [3:0]wheel;
   wire [7:0]x;
   wire [7:0]y;
@@ -247,7 +272,7 @@ module zxnexys_zxmouse_0_0_mouse_wrapper
         .ps2_clk_o(ps2_clk_o),
         .ps2_data_i(ps2_data_i),
         .ps2_data_o(ps2_data_o),
-        .reset(reset),
+        .resetn(resetn),
         .wheel(wheel),
         .x(x),
         .y(y));
@@ -301,7 +326,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
     ps2_clk_i,
     ps2_data_i,
     mouse_control,
-    reset);
+    Res);
   output ps2_data_o;
   output [3:0]zcount;
   output [7:0]y;
@@ -314,7 +339,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
   input ps2_clk_i;
   input ps2_data_i;
   input [2:0]mouse_control;
-  input reset;
+  input [0:0]Res;
 
   wire \FSM_onehot_mstate[0]_i_1_n_0 ;
   wire \FSM_onehot_mstate[1]_i_1_n_0 ;
@@ -342,6 +367,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
   wire [0:0]In0;
   wire [0:0]In1;
   wire [0:0]In2;
+  wire [0:0]Res;
   wire clk_peripheral;
   wire [10:0]data0;
   wire [5:1]in;
@@ -445,7 +471,6 @@ module zxnexys_zxmouse_0_0_ps2_mouse
   wire ps2_clk_o;
   wire ps2_data_i;
   wire ps2_data_o;
-  wire reset;
   wire [7:0]x;
   wire [7:0]xcount0;
   wire xcount0_carry__0_i_1_n_0;
@@ -587,7 +612,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
        (.I0(\FSM_onehot_mstate[6]_i_3_n_0 ),
         .I1(\FSM_onehot_mstate[6]_i_4_n_0 ),
         .I2(\FSM_onehot_mstate[6]_i_5_n_0 ),
-        .I3(reset),
+        .I3(Res),
         .O(mstate0));
   LUT6 #(
     .INIT(64'hD8D8D8D8D8D8FFD8)) 
@@ -726,7 +751,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .I1(intellimouse_i_2_n_0),
         .I2(\zcount[3]_i_2_n_0 ),
         .I3(\FSM_onehot_mstate_reg_n_0_[5] ),
-        .I4(reset),
+        .I4(Res),
         .O(intellimouse_i_1_n_0));
   LUT6 #(
     .INIT(64'h0000100000000000)) 
@@ -809,7 +834,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(mcmd_cnt0),
         .D(p_0_in__0[0]),
         .Q(mcmd_cnt_reg[0]),
-        .R(reset));
+        .R(Res));
   FDRE #(
     .INIT(1'b0)) 
     \mcmd_cnt_reg[1] 
@@ -817,7 +842,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(mcmd_cnt0),
         .D(\mcmd_cnt[1]_i_1_n_0 ),
         .Q(mcmd_cnt_reg[1]),
-        .R(reset));
+        .R(Res));
   FDRE #(
     .INIT(1'b0)) 
     \mcmd_cnt_reg[2] 
@@ -825,7 +850,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(mcmd_cnt0),
         .D(p_0_in__0[2]),
         .Q(mcmd_cnt_reg[2]),
-        .R(reset));
+        .R(Res));
   FDRE #(
     .INIT(1'b0)) 
     \mcmd_cnt_reg[3] 
@@ -833,7 +858,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(mcmd_cnt0),
         .D(p_0_in__0[3]),
         .Q(mcmd_cnt_reg[3]),
-        .R(reset));
+        .R(Res));
   FDRE \mdatr_reg[0] 
        (.C(clk_peripheral),
         .CE(1'b1),
@@ -866,7 +891,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .I2(\mreceive_reg_n_0_[1] ),
         .I3(mreverse),
         .I4(\mreceive_reg_n_0_[2] ),
-        .I5(reset),
+        .I5(Res),
         .O(mleft_i_1_n_0));
   LUT5 #(
     .INIT(32'h00000010)) 
@@ -979,7 +1004,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .I2(\mreceive_reg_n_0_[2] ),
         .I3(mreverse),
         .I4(\mreceive_reg_n_0_[1] ),
-        .I5(reset),
+        .I5(Res),
         .O(mright_i_1_n_0));
   FDRE mright_reg
        (.C(clk_peripheral),
@@ -1198,7 +1223,7 @@ module zxnexys_zxmouse_0_0_ps2_mouse
        (.I0(In2),
         .I1(mleft_i_2_n_0),
         .I2(\mreceive_reg_n_0_[3] ),
-        .I3(reset),
+        .I3(Res),
         .O(mthird_i_1_n_0));
   FDRE mthird_reg
        (.C(clk_peripheral),
@@ -1447,49 +1472,49 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[0]),
         .Q(x[0]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[1] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[1]),
         .Q(x[1]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[2] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[2]),
         .Q(x[2]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[3] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[3]),
         .Q(x[3]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[4] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[4]),
         .Q(x[4]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[5] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[5]),
         .Q(x[5]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[6] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[6]),
         .Q(x[6]),
-        .R(reset));
+        .R(Res));
   FDRE \xcount_reg[7] 
        (.C(clk_peripheral),
         .CE(\xcount[7]_i_1_n_0 ),
         .D(xcount0[7]),
         .Q(x[7]),
-        .R(reset));
+        .R(Res));
   (* ADDER_THRESHOLD = "35" *) 
   CARRY4 ycount0_carry
        (.CI(1'b0),
@@ -1629,49 +1654,49 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[0]),
         .Q(y[0]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[1] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[1]),
         .Q(y[1]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[2] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[2]),
         .Q(y[2]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[3] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[3]),
         .Q(y[3]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[4] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[4]),
         .Q(y[4]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[5] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[5]),
         .Q(y[5]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[6] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[6]),
         .Q(y[6]),
-        .R(reset));
+        .R(Res));
   FDRE \ycount_reg[7] 
        (.C(clk_peripheral),
         .CE(\ycount[7]_i_1_n_0 ),
         .D(ycount0[7]),
         .Q(y[7]),
-        .R(reset));
+        .R(Res));
   CARRY4 zcount0_carry
        (.CI(1'b0),
         .CO({NLW_zcount0_carry_CO_UNCONNECTED[3],zcount0_carry_n_1,zcount0_carry_n_2,zcount0_carry_n_3}),
@@ -1727,25 +1752,25 @@ module zxnexys_zxmouse_0_0_ps2_mouse
         .CE(\zcount[3]_i_1_n_0 ),
         .D(zcount0[0]),
         .Q(zcount[0]),
-        .R(reset));
+        .R(Res));
   FDRE \zcount_reg[1] 
        (.C(clk_peripheral),
         .CE(\zcount[3]_i_1_n_0 ),
         .D(zcount0[1]),
         .Q(zcount[1]),
-        .R(reset));
+        .R(Res));
   FDRE \zcount_reg[2] 
        (.C(clk_peripheral),
         .CE(\zcount[3]_i_1_n_0 ),
         .D(zcount0[2]),
         .Q(zcount[2]),
-        .R(reset));
+        .R(Res));
   FDRE \zcount_reg[3] 
        (.C(clk_peripheral),
         .CE(\zcount[3]_i_1_n_0 ),
         .D(zcount0[3]),
         .Q(zcount[3]),
-        .R(reset));
+        .R(Res));
 endmodule
 `ifndef GLBL
 `define GLBL

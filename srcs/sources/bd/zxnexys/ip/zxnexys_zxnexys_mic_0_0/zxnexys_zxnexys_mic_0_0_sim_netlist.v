@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:47:40 2022
+// Date        : Wed Mar 16 11:17:50 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0_sim_netlist.v
@@ -24,7 +24,7 @@ module zxnexys_zxnexys_mic_0_0
     m_clk,
     m_data,
     m_lrsel,
-    reset);
+    resetn);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_12m288 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_12m288, ASSOCIATED_ASYNC_RESET reset, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0" *) input clk_12m288;
   input i2s_din;
   output i2s_dout;
@@ -33,7 +33,7 @@ module zxnexys_zxnexys_mic_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 m_clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxnexys_mic_0_0_m_clk, INSERT_VIP 0" *) output m_clk;
   input m_data;
   output m_lrsel;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
 
   wire \<const0> ;
   wire clk_12m288;
@@ -41,7 +41,7 @@ module zxnexys_zxnexys_mic_0_0
   wire i2s_sclk;
   wire i2s_wclk;
   wire m_data;
-  wire reset;
+  wire resetn;
 
   assign m_clk = clk_12m288;
   assign m_lrsel = \<const0> ;
@@ -52,7 +52,7 @@ module zxnexys_zxnexys_mic_0_0
         .i2s_dout(i2s_dout),
         .i2s_sclk(i2s_sclk),
         .m_data(m_data),
-        .reset(reset),
+        .resetn(resetn),
         .ws_int_reg(i2s_wclk));
 endmodule
 
@@ -2261,13 +2261,13 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
     AR,
     i2s_dout,
     clk_12m288,
-    reset,
+    resetn,
     m_data);
   output i2s_sclk;
   output [0:0]AR;
   output i2s_dout;
   input clk_12m288;
-  input reset;
+  input resetn;
   input m_data;
 
   wire [0:0]AR;
@@ -2282,7 +2282,7 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
   wire pwm_decode_0_n_0;
   wire pwm_decode_0_n_8;
   wire [7:1]r;
-  wire reset;
+  wire resetn;
 
   (* X_CORE_INFO = "i2s_transceiver,Vivado 2021.2" *) 
   zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0_0 i2s_transceiver_0
@@ -2297,11 +2297,11 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s
         .\ws_cnt_reg[0] (mic_reset_0_n_0),
         .ws_int_reg(AR),
         .ws_int_reg_0(i2s_transceiver_0_n_4));
-  (* X_CORE_INFO = "mic_reset,Vivado 2021.2" *) 
+  (* X_CORE_INFO = "mic_reset,Vivado 2021.2.1" *) 
   zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 mic_reset_0
        (.clk_12m288(clk_12m288),
-        .reset(reset),
-        .resetn_reg(mic_reset_0_n_0));
+        .reset_n_reg(mic_reset_0_n_0),
+        .resetn(resetn));
   (* X_CORE_INFO = "pwm_decode,Vivado 2021.2" *) 
   zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0 pwm_decode_0
        (.CLK(AR),
@@ -2368,21 +2368,21 @@ endmodule
 
 (* ORIG_REF_NAME = "mic_i2s_mic_reset_0_0" *) 
 module zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0
-   (resetn_reg,
+   (reset_n_reg,
     clk_12m288,
-    reset);
-  output resetn_reg;
+    resetn);
+  output reset_n_reg;
   input clk_12m288;
-  input reset;
+  input resetn;
 
   wire clk_12m288;
-  wire reset;
-  wire resetn_reg;
+  wire reset_n_reg;
+  wire resetn;
 
   zxnexys_zxnexys_mic_0_0_mic_reset inst
        (.clk_12m288(clk_12m288),
-        .reset(reset),
-        .resetn_reg_0(resetn_reg));
+        .reset_n_reg_0(reset_n_reg),
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "mic_i2s_pwm_decode_0_0" *) 
@@ -2434,20 +2434,20 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
     ws_int_reg,
     i2s_dout,
     clk_12m288,
-    reset,
+    resetn,
     m_data);
   output i2s_sclk;
   output ws_int_reg;
   output i2s_dout;
   input clk_12m288;
-  input reset;
+  input resetn;
   input m_data;
 
   wire clk_12m288;
   wire i2s_dout;
   wire i2s_sclk;
   wire m_data;
-  wire reset;
+  wire resetn;
   wire ws_int_reg;
 
   zxnexys_zxnexys_mic_0_0_mic_i2s mic_i2s_i
@@ -2456,36 +2456,42 @@ module zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
         .i2s_dout(i2s_dout),
         .i2s_sclk(i2s_sclk),
         .m_data(m_data),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "mic_reset" *) 
 module zxnexys_zxnexys_mic_0_0_mic_reset
-   (resetn_reg_0,
+   (reset_n_reg_0,
     clk_12m288,
-    reset);
-  output resetn_reg_0;
+    resetn);
+  output reset_n_reg_0;
   input clk_12m288;
-  input reset;
+  input resetn;
 
   wire clk_12m288;
-  wire reset;
+  wire reset_n;
+  wire reset_n_i_1_n_0;
+  wire reset_n_reg_0;
   wire resetn;
-  wire resetn_reg_0;
 
+  LUT1 #(
+    .INIT(2'h1)) 
+    reset_n_i_1
+       (.I0(resetn),
+        .O(reset_n_i_1_n_0));
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  resetn  RST" *) 
   (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *) 
-  FDCE resetn_reg
+  FDCE reset_n_reg
        (.C(clk_12m288),
         .CE(1'b1),
-        .CLR(reset),
+        .CLR(reset_n_i_1_n_0),
         .D(1'b1),
-        .Q(resetn));
+        .Q(reset_n));
   LUT1 #(
     .INIT(2'h1)) 
     sd_tx_i_2
-       (.I0(resetn),
-        .O(resetn_reg_0));
+       (.I0(reset_n),
+        .O(reset_n_reg_0));
 endmodule
 
 (* ORIG_REF_NAME = "pwm_decode" *) 

@@ -71,7 +71,6 @@ module status_status_display_0_0 (
   display7,
   clk,
   mb_reset,
-  peripheral_reset,
   mig_resetn
 );
 
@@ -94,12 +93,9 @@ output wire [5 : 0] display7;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN status_clk_200, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME video_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mb_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 mb_reset RST" *)
 input wire mb_reset;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *)
-input wire peripheral_reset;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mig_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 mig_resetn RST" *)
 input wire mig_resetn;
@@ -122,7 +118,6 @@ input wire mig_resetn;
     .display7(display7),
     .clk(clk),
     .mb_reset(mb_reset),
-    .peripheral_reset(peripheral_reset),
     .mig_resetn(mig_resetn)
   );
 endmodule

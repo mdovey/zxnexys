@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:54:24 2022
+-- Date        : Wed Mar 16 11:15:06 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxaudio_0_0/zxnexys_zxaudio_0_0_sim_netlist.vhdl
@@ -2433,7 +2433,7 @@ entity zxnexys_zxaudio_0_0_audio_reset is
     AR : out STD_LOGIC_VECTOR ( 0 to 0 );
     aud_sd : out STD_LOGIC;
     SR : out STD_LOGIC_VECTOR ( 0 to 0 );
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_22m59 : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -2446,7 +2446,7 @@ architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_reset is
   attribute X_INTERFACE_PARAMETER of aud_sd : signal is "POLARITY ACTIVE_LOW";
   attribute async_reg : string;
   attribute async_reg of aud_sd : signal is "true";
-  signal rstn_i_1_n_0 : STD_LOGIC;
+  signal rst_i_1_n_0 : STD_LOGIC;
   attribute ASYNC_REG_boolean : boolean;
   attribute ASYNC_REG_boolean of rst_reg : label is std.standard.true;
   attribute KEEP : string;
@@ -2457,27 +2457,27 @@ architecture STRUCTURE of zxnexys_zxaudio_0_0_audio_reset is
   attribute X_INTERFACE_PARAMETER of rstn_reg : label is "POLARITY ACTIVE_LOW";
 begin
   aud_sd <= \^aud_sd\;
-rst_reg: unisim.vcomponents.FDRE
-     port map (
-      C => clk_22m59,
-      CE => '1',
-      D => reset,
-      Q => AR(0),
-      R => '0'
-    );
-rstn_i_1: unisim.vcomponents.LUT1
+rst_i_1: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => reset,
-      O => rstn_i_1_n_0
+      I0 => resetn,
+      O => rst_i_1_n_0
+    );
+rst_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk_22m59,
+      CE => '1',
+      D => rst_i_1_n_0,
+      Q => AR(0),
+      R => '0'
     );
 rstn_reg: unisim.vcomponents.FDRE
      port map (
       C => clk_22m59,
       CE => '1',
-      D => rstn_i_1_n_0,
+      D => resetn,
       Q => \^aud_sd\,
       R => '0'
     );
@@ -5743,7 +5743,7 @@ entity zxnexys_zxaudio_0_0_audio_audio_reset_0_0 is
     AR : out STD_LOGIC_VECTOR ( 0 to 0 );
     aud_sd : out STD_LOGIC;
     SR : out STD_LOGIC_VECTOR ( 0 to 0 );
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_22m59 : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -5758,7 +5758,7 @@ inst: entity work.zxnexys_zxaudio_0_0_audio_reset
       SR(0) => SR(0),
       aud_sd => aud_sd,
       clk_22m59 => clk_22m59,
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;
 library IEEE;
@@ -5917,7 +5917,7 @@ entity zxnexys_zxaudio_0_0_audio is
     clk_22m59 : in STD_LOGIC;
     audio_right : in STD_LOGIC_VECTOR ( 12 downto 0 );
     audio_left : in STD_LOGIC_VECTOR ( 12 downto 0 );
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     linein_sdin : in STD_LOGIC
   );
@@ -6014,7 +6014,7 @@ audio_reset_0: entity work.zxnexys_zxaudio_0_0_audio_audio_reset_0_0
       SR(0) => audio_reset_0_n_2,
       aud_sd => \^aud_sd\,
       clk_22m59 => clk_22m59,
-      reset => reset
+      resetn => resetn
     );
 axis_i2s2_0: entity work.zxnexys_zxaudio_0_0_audio_axis_i2s2_0_0
      port map (
@@ -6090,7 +6090,7 @@ entity zxnexys_zxaudio_0_0_audio_wrapper is
     clk_22m59 : in STD_LOGIC;
     audio_right : in STD_LOGIC_VECTOR ( 12 downto 0 );
     audio_left : in STD_LOGIC_VECTOR ( 12 downto 0 );
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     linein_sdin : in STD_LOGIC
   );
@@ -6113,7 +6113,7 @@ audio_i: entity work.zxnexys_zxaudio_0_0_audio
       linein_sdin => linein_sdin,
       lineout_sdout => lineout_sdout,
       psg_en => psg_en,
-      reset => reset,
+      resetn => resetn,
       tape_ear => tape_ear
     );
 end STRUCTURE;
@@ -6137,7 +6137,7 @@ entity zxnexys_zxaudio_0_0 is
     lineout_sclk : out STD_LOGIC;
     lineout_sdout : out STD_LOGIC;
     psg_en : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     tape_ear : out STD_LOGIC;
     tape_mic : in STD_LOGIC;
     aud_pwm : out STD_LOGIC
@@ -6165,8 +6165,8 @@ architecture STRUCTURE of zxnexys_zxaudio_0_0 is
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of psg_en : signal is "specnext.com:specnext:audio:1.0 audio psg_en";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of tape_ear : signal is "specnext.com:specnext:tape:1.0 tape tape_ear";
   attribute X_INTERFACE_INFO of tape_mic : signal is "specnext.com:specnext:tape:1.0 tape tape_mic";
   attribute X_INTERFACE_INFO of audio_left : signal is "specnext.com:specnext:audio:1.0 audio left";
@@ -6192,7 +6192,7 @@ inst: entity work.zxnexys_zxaudio_0_0_audio_wrapper
       \out\(1) => \^lineout_lrck\,
       \out\(0) => \^lineout_sclk\,
       psg_en => psg_en,
-      reset => reset,
+      resetn => resetn,
       tape_ear => tape_ear
     );
 end STRUCTURE;

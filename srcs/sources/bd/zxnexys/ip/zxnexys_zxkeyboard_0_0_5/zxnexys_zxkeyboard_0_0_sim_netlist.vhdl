@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:53:32 2022
+-- Date        : Wed Mar 16 11:28:19 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxkeyboard_0_0_5/zxnexys_zxkeyboard_0_0_sim_netlist.vhdl
@@ -198,13 +198,13 @@ entity zxnexys_zxkeyboard_0_0_emu_fnkeys is
     emu_fnkeys_0_o_fnkeys : out STD_LOGIC_VECTOR ( 1 downto 0 );
     Q : out STD_LOGIC_VECTOR ( 0 to 0 );
     \timer_count_reg[0]_0\ : out STD_LOGIC;
-    row_2_sp_1 : out STD_LOGIC;
     \FSM_onehot_state_reg[0]_0\ : out STD_LOGIC;
-    row_3_sp_1 : out STD_LOGIC;
     \row[7]\ : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    \row[3]\ : out STD_LOGIC;
+    reset_1 : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    row : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    resetn : in STD_LOGIC;
+    row : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \timer_count_reg[0]_1\ : in STD_LOGIC;
     \timer_count_reg[0]_2\ : in STD_LOGIC
   );
@@ -224,26 +224,22 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_emu_fnkeys is
   signal \local_fnkeys[1]_i_1_n_0\ : STD_LOGIC;
   signal \local_fnkeys[4]_i_1_n_0\ : STD_LOGIC;
   signal p_0_out : STD_LOGIC_VECTOR ( 3 to 3 );
-  signal row_2_sn_1 : STD_LOGIC;
-  signal row_3_sn_1 : STD_LOGIC;
   signal \timer_count[0]_i_1_n_0\ : STD_LOGIC;
   signal \^timer_count_reg[0]_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_state[0]_i_1__0\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_1__0\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_1__1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[0]_i_1__0\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[1]_i_1__0\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_1__1\ : label is "soft_lutpair26";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[0]\ : label is "s_mf_row_a12:0010000,s_mf_check:0100000,s_idle:0000001,s_mf_row_a11:0001000,s_mf_done:1000000,s_reset_check:0000010,s_reset_done:0000100";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[1]\ : label is "s_mf_row_a12:0010000,s_mf_check:0100000,s_idle:0000001,s_mf_row_a11:0001000,s_mf_done:1000000,s_reset_check:0000010,s_reset_done:0000100";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[2]\ : label is "s_mf_row_a12:0010000,s_mf_check:0100000,s_idle:0000001,s_mf_row_a11:0001000,s_mf_done:1000000,s_reset_check:0000010,s_reset_done:0000100";
-  attribute SOFT_HLUTNM of \column[1]_INST_0_i_5\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \column[4]_INST_0_i_5\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \column[4]_INST_0_i_6\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \column[0]_INST_0_i_5\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \column[3]_INST_0_i_5\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \column[3]_INST_0_i_6\ : label is "soft_lutpair28";
 begin
   Q(0) <= \^q\(0);
   emu_fnkeys_0_o_fnkeys(1 downto 0) <= \^emu_fnkeys_0_o_fnkeys\(1 downto 0);
-  row_2_sp_1 <= row_2_sn_1;
-  row_3_sp_1 <= row_3_sn_1;
   \timer_count_reg[0]_0\ <= \^timer_count_reg[0]_0\;
 \FSM_onehot_state[0]_i_1__0\: unisim.vcomponents.LUT4
     generic map(
@@ -285,7 +281,7 @@ begin
       CE => '1',
       D => \FSM_onehot_state[0]_i_1__0_n_0\,
       Q => \^q\(0),
-      S => reset
+      S => reset_1
     );
 \FSM_onehot_state_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -296,7 +292,7 @@ begin
       CE => '1',
       D => \FSM_onehot_state[1]_i_1__0_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[1]\,
-      R => reset
+      R => reset_1
     );
 \FSM_onehot_state_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -307,7 +303,7 @@ begin
       CE => '1',
       D => \FSM_onehot_state[2]_i_1__1_n_0\,
       Q => p_0_out(3),
-      R => reset
+      R => reset_1
     );
 \button_m1_n_edge_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -318,7 +314,7 @@ begin
       CE => '1',
       D => '1',
       Q => button_m1_n_edge(0),
-      R => reset
+      R => reset_1
     );
 \button_reset_n_edge_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -329,62 +325,53 @@ begin
       CE => '1',
       D => button_m1_n_edge(0),
       Q => \button_reset_n_edge_reg_n_0_[1]\,
-      R => reset
+      R => reset_1
     );
-\column[1]_INST_0_i_5\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"B"
-    )
-        port map (
-      I0 => row(0),
-      I1 => \^q\(0),
-      O => row_2_sn_1
-    );
-\column[1]_INST_0_i_6\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"4"
-    )
-        port map (
-      I0 => row(3),
-      I1 => \^q\(0),
-      O => \row[7]\
-    );
-\column[4]_INST_0_i_5\: unisim.vcomponents.LUT2
+\column[0]_INST_0_i_5\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"7"
     )
         port map (
       I0 => \^q\(0),
-      I1 => row(2),
+      I1 => row(1),
       O => \FSM_onehot_state_reg[0]_0\
     );
-\column[4]_INST_0_i_6\: unisim.vcomponents.LUT2
+\column[3]_INST_0_i_5\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"4"
     )
         port map (
-      I0 => row(1),
+      I0 => row(0),
       I1 => \^q\(0),
-      O => row_3_sn_1
+      O => \row[3]\
+    );
+\column[3]_INST_0_i_6\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"4"
+    )
+        port map (
+      I0 => row(2),
+      I1 => \^q\(0),
+      O => \row[7]\
     );
 \local_fnkeys[1]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"000002CE"
+      INIT => X"02CE0000"
     )
         port map (
       I0 => \^emu_fnkeys_0_o_fnkeys\(0),
       I1 => p_0_out(3),
       I2 => \^q\(0),
       I3 => \^timer_count_reg[0]_0\,
-      I4 => reset,
+      I4 => resetn,
       O => \local_fnkeys[1]_i_1_n_0\
     );
 \local_fnkeys[4]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"55001010"
+      INIT => X"AA002020"
     )
         port map (
-      I0 => reset,
+      I0 => resetn,
       I1 => \^q\(0),
       I2 => \^emu_fnkeys_0_o_fnkeys\(1),
       I3 => \^timer_count_reg[0]_0\,
@@ -435,7 +422,7 @@ begin
       CE => '1',
       D => \timer_count[0]_i_1_n_0\,
       Q => \^timer_count_reg[0]_0\,
-      R => reset
+      R => reset_1
     );
 end STRUCTURE;
 library IEEE;
@@ -447,18 +434,20 @@ entity zxnexys_zxkeyboard_0_0_keyb_clocks is
     S : out STD_LOGIC_VECTOR ( 1 downto 0 );
     \clk_div_reg[8]_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \clk_div_reg[8]_1\ : out STD_LOGIC;
+    \clk_div_reg[6]_0\ : out STD_LOGIC;
     \clk_div_reg[10]_0\ : out STD_LOGIC;
-    \clk_div_reg[4]_0\ : out STD_LOGIC;
     \state_reg[0]\ : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     membrane_col0 : out STD_LOGIC;
+    \clk_div_reg[8]_2\ : out STD_LOGIC;
     keyb_clocks_0_membrane_enable : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    \matrix_work_ex_reg[9]\ : in STD_LOGIC;
+    reset_1 : in STD_LOGIC;
+    \matrix_work_ex_reg[3]\ : in STD_LOGIC;
     joy_clk_en : in STD_LOGIC;
     timer_count : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
     cancel : in STD_LOGIC;
     state : in STD_LOGIC;
     joy_io_mode_en : in STD_LOGIC
@@ -519,8 +508,10 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyb_clocks is
   attribute ADDER_THRESHOLD of \clk_div_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \clk_div_reg[8]_i_1\ : label is 11;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \matrix_work_ex[14]_i_2\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \state[8]_i_1\ : label is "soft_lutpair28";
+  attribute SOFT_HLUTNM of \matrix_state[1][6]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \matrix_work_ex[14]_i_2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \matrix_work_ex[4]_i_2\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \state[8]_i_1\ : label is "soft_lutpair30";
 begin
   S(1 downto 0) <= \^s\(1 downto 0);
   \clk_div_reg[8]_0\(0) <= \^clk_div_reg[8]_0\(0);
@@ -536,7 +527,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[0]_i_1_n_7\,
       Q => \clk_div_reg__0\(0)
     );
@@ -560,7 +551,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[8]_i_1_n_5\,
       Q => \clk_div_reg__0\(10)
     );
@@ -568,7 +559,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[8]_i_1_n_4\,
       Q => \clk_div_reg__0\(11)
     );
@@ -576,7 +567,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[12]_i_1_n_7\,
       Q => \clk_div_reg__0\(12)
     );
@@ -599,7 +590,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[12]_i_1_n_6\,
       Q => \clk_div_reg__0\(13)
     );
@@ -607,7 +598,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[12]_i_1_n_5\,
       Q => \clk_div_reg__0\(14)
     );
@@ -615,7 +606,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[12]_i_1_n_4\,
       Q => \clk_div_reg__0\(15)
     );
@@ -623,7 +614,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[16]_i_1_n_7\,
       Q => \clk_div_reg__0\(16)
     );
@@ -644,7 +635,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[16]_i_1_n_6\,
       Q => \clk_div_reg__0\(17)
     );
@@ -652,7 +643,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[0]_i_1_n_6\,
       Q => \clk_div_reg__0\(1)
     );
@@ -660,7 +651,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[0]_i_1_n_5\,
       Q => \clk_div_reg__0\(2)
     );
@@ -668,7 +659,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[0]_i_1_n_4\,
       Q => \clk_div_reg__0\(3)
     );
@@ -676,7 +667,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[4]_i_1_n_7\,
       Q => \clk_div_reg__0\(4)
     );
@@ -700,7 +691,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[4]_i_1_n_6\,
       Q => \clk_div_reg__0\(5)
     );
@@ -708,7 +699,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[4]_i_1_n_5\,
       Q => \^s\(0)
     );
@@ -716,7 +707,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[4]_i_1_n_4\,
       Q => \^s\(1)
     );
@@ -724,7 +715,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[8]_i_1_n_7\,
       Q => \^clk_div_reg[8]_0\(0)
     );
@@ -748,7 +739,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \clk_div_reg[8]_i_1_n_6\,
       Q => \clk_div_reg__0\(9)
     );
@@ -768,7 +759,7 @@ begin
       INIT => X"BFFF"
     )
         port map (
-      I0 => \matrix_work_ex_reg[9]\,
+      I0 => \matrix_work_ex_reg[3]\,
       I1 => \^clk_div_reg[8]_0\(0),
       I2 => \^s\(1),
       I3 => joy_clk_en,
@@ -776,28 +767,39 @@ begin
     );
 \matrix_work_ex[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFF4000"
+      INIT => X"FFFFFFFF4000FFFF"
     )
         port map (
       I0 => Q(0),
       I1 => joy_clk_en,
       I2 => \^s\(1),
       I3 => \^clk_div_reg[8]_0\(0),
-      I4 => cancel,
-      I5 => reset,
+      I4 => resetn,
+      I5 => cancel,
       O => \state_reg[0]\
+    );
+\matrix_work_ex[4]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"7FFF"
+    )
+        port map (
+      I0 => \^clk_div_reg[8]_0\(0),
+      I1 => \^s\(1),
+      I2 => joy_clk_en,
+      I3 => \matrix_work_ex_reg[3]\,
+      O => \clk_div_reg[8]_2\
     );
 \membrane_col[6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFF4000"
+      INIT => X"FFFFFFFF4000FFFF"
     )
         port map (
       I0 => state,
       I1 => joy_clk_en,
       I2 => \^s\(1),
       I3 => \^clk_div_reg[8]_0\(0),
-      I4 => joy_io_mode_en,
-      I5 => reset,
+      I4 => resetn,
+      I5 => joy_io_mode_en,
       O => membrane_col0
     );
 \state[8]_i_1\: unisim.vcomponents.LUT3
@@ -815,34 +817,34 @@ begin
       INIT => X"FFFFFF7F"
     )
         port map (
-      I0 => \clk_div_reg__0\(10),
-      I1 => \clk_div_reg__0\(12),
+      I0 => \^s\(0),
+      I1 => \clk_div_reg__0\(3),
       I2 => \clk_div_reg__0\(5),
       I3 => \timer_count[0]_i_4_n_0\,
       I4 => \timer_count[0]_i_5_n_0\,
-      O => \clk_div_reg[10]_0\
+      O => \clk_div_reg[6]_0\
     );
 \timer_count[0]_i_3\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"00008000"
     )
         port map (
-      I0 => \clk_div_reg__0\(4),
-      I1 => \clk_div_reg__0\(9),
-      I2 => timer_count,
-      I3 => \clk_div_reg__0\(15),
+      I0 => \clk_div_reg__0\(10),
+      I1 => \clk_div_reg__0\(15),
+      I2 => \clk_div_reg__0\(12),
+      I3 => \clk_div_reg__0\(17),
       I4 => \timer_count[0]_i_6_n_0\,
-      O => \clk_div_reg[4]_0\
+      O => \clk_div_reg[10]_0\
     );
 \timer_count[0]_i_4\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"7FFF"
     )
         port map (
-      I0 => \clk_div_reg__0\(13),
-      I1 => \clk_div_reg__0\(14),
-      I2 => \clk_div_reg__0\(11),
-      I3 => \clk_div_reg__0\(2),
+      I0 => \clk_div_reg__0\(9),
+      I1 => timer_count,
+      I2 => \clk_div_reg__0\(13),
+      I3 => \clk_div_reg__0\(4),
       O => \timer_count[0]_i_4_n_0\
     );
 \timer_count[0]_i_5\: unisim.vcomponents.LUT4
@@ -850,10 +852,10 @@ begin
       INIT => X"7FFF"
     )
         port map (
-      I0 => \clk_div_reg__0\(1),
-      I1 => \^s\(0),
-      I2 => \clk_div_reg__0\(17),
-      I3 => \clk_div_reg__0\(3),
+      I0 => \clk_div_reg__0\(14),
+      I1 => \clk_div_reg__0\(11),
+      I2 => \clk_div_reg__0\(1),
+      I3 => \clk_div_reg__0\(2),
       O => \timer_count[0]_i_5_n_0\
     );
 \timer_count[0]_i_6\: unisim.vcomponents.LUT4
@@ -1050,42 +1052,42 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keymaps is
   signal NLW_ram_q_reg_DOPADOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal NLW_ram_q_reg_DOPBDOP_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \matrix_state[1][6]_i_2\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \matrix_state[2][6]_i_2\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \matrix_state[3][0]_i_2\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \matrix_state[3][1]_i_2\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \matrix_state[3][2]_i_2\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \matrix_state[3][3]_i_2\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \matrix_state[3][4]_i_2\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \matrix_state[3][5]_i_2\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \matrix_state[3][6]_i_2\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \matrix_state[5][0]_i_2\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \matrix_state[5][1]_i_2\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \matrix_state[5][2]_i_2\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \matrix_state[5][3]_i_2\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \matrix_state[5][4]_i_2\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \matrix_state[5][5]_i_2\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \matrix_state[5][6]_i_2\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \matrix_state[5][6]_i_3\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \matrix_state[6][0]_i_2\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \matrix_state[6][1]_i_2\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \matrix_state[6][2]_i_2\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \matrix_state[6][3]_i_2\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \matrix_state[6][4]_i_2\ : label is "soft_lutpair50";
-  attribute SOFT_HLUTNM of \matrix_state[6][5]_i_2\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \matrix_state[6][6]_i_2\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \matrix_state[6][6]_i_3\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \matrix_state[7][0]_i_2\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \matrix_state[7][1]_i_2\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \matrix_state[7][2]_i_2\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \matrix_state[7][3]_i_2\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \matrix_state[7][4]_i_2\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \matrix_state[7][5]_i_2\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \matrix_state[7][6]_i_2\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \matrix_state[7][6]_i_3\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \matrix_state[7][6]_i_4\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \o_ps2_func_keys_n[7]_i_2\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \ps2_last_keycode[9]_i_4\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \matrix_state[1][6]_i_2\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \matrix_state[2][6]_i_2\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \matrix_state[3][0]_i_2\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \matrix_state[3][1]_i_2\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \matrix_state[3][2]_i_2\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \matrix_state[3][3]_i_2\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \matrix_state[3][4]_i_2\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \matrix_state[3][5]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \matrix_state[3][6]_i_2\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \matrix_state[5][0]_i_2\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \matrix_state[5][1]_i_2\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \matrix_state[5][2]_i_2\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \matrix_state[5][3]_i_2\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \matrix_state[5][4]_i_2\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \matrix_state[5][5]_i_2\ : label is "soft_lutpair43";
+  attribute SOFT_HLUTNM of \matrix_state[5][6]_i_2\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \matrix_state[5][6]_i_3\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \matrix_state[6][0]_i_2\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \matrix_state[6][1]_i_2\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \matrix_state[6][2]_i_2\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \matrix_state[6][3]_i_2\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \matrix_state[6][4]_i_2\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \matrix_state[6][5]_i_2\ : label is "soft_lutpair44";
+  attribute SOFT_HLUTNM of \matrix_state[6][6]_i_2\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \matrix_state[6][6]_i_3\ : label is "soft_lutpair53";
+  attribute SOFT_HLUTNM of \matrix_state[7][0]_i_2\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \matrix_state[7][1]_i_2\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \matrix_state[7][2]_i_2\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \matrix_state[7][3]_i_2\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \matrix_state[7][4]_i_2\ : label is "soft_lutpair49";
+  attribute SOFT_HLUTNM of \matrix_state[7][5]_i_2\ : label is "soft_lutpair45";
+  attribute SOFT_HLUTNM of \matrix_state[7][6]_i_2\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \matrix_state[7][6]_i_3\ : label is "soft_lutpair52";
+  attribute SOFT_HLUTNM of \matrix_state[7][6]_i_4\ : label is "soft_lutpair51";
+  attribute SOFT_HLUTNM of \o_ps2_func_keys_n[7]_i_2\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \ps2_last_keycode[9]_i_4\ : label is "soft_lutpair37";
   attribute \MEM.PORTA.DATA_BIT_LAYOUT\ : string;
   attribute \MEM.PORTA.DATA_BIT_LAYOUT\ of ram_q_reg : label is "p0_d8";
   attribute \MEM.PORTB.DATA_BIT_LAYOUT\ : string;
@@ -1677,28 +1679,31 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxkeyboard_0_0_membrane is
   port (
-    \state_reg[4]_0\ : out STD_LOGIC;
-    \state_reg[2]_0\ : out STD_LOGIC;
-    \state_reg[2]_1\ : out STD_LOGIC;
     Q : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    \state_reg[2]_0\ : out STD_LOGIC;
+    \state_reg[4]_0\ : out STD_LOGIC;
+    \state_reg[2]_1\ : out STD_LOGIC;
     column : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    SS : out STD_LOGIC_VECTOR ( 0 to 0 );
     state_reg : out STD_LOGIC;
     extended_keys : out STD_LOGIC_VECTOR ( 15 downto 0 );
     keyb_clocks_0_membrane_enable : in STD_LOGIC;
-    \column[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    reset : in STD_LOGIC;
+    \column[4]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
+    clk_div_reg : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    joy_clk_en : in STD_LOGIC;
     cancel : in STD_LOGIC;
     state : in STD_LOGIC;
     dpo : in STD_LOGIC_VECTOR ( 1 downto 0 );
     row : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    column_1_sp_1 : in STD_LOGIC;
-    \column[1]_0\ : in STD_LOGIC;
-    column_4_sp_1 : in STD_LOGIC;
-    \column[4]_0\ : in STD_LOGIC;
+    column_3_sp_1 : in STD_LOGIC;
+    column_0_sp_1 : in STD_LOGIC;
+    \column[3]_0\ : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     Res : in STD_LOGIC_VECTOR ( 6 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     \matrix_work_ex_reg[9]_0\ : in STD_LOGIC;
+    \matrix_work_ex_reg[3]_0\ : in STD_LOGIC;
     \matrix_work_ex_reg[0]_0\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -1707,15 +1712,17 @@ end zxnexys_zxkeyboard_0_0_membrane;
 
 architecture STRUCTURE of zxnexys_zxkeyboard_0_0_membrane is
   signal \^q\ : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal \^ss\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \column[0]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \column[0]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \column[0]_INST_0_i_3_n_0\ : STD_LOGIC;
   signal \column[0]_INST_0_i_4_n_0\ : STD_LOGIC;
-  signal \column[0]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \column[0]_INST_0_i_6_n_0\ : STD_LOGIC;
   signal \column[1]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \column[1]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \column[1]_INST_0_i_3_n_0\ : STD_LOGIC;
   signal \column[1]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \column[1]_INST_0_i_5_n_0\ : STD_LOGIC;
   signal \column[2]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \column[2]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \column[2]_INST_0_i_3_n_0\ : STD_LOGIC;
@@ -1728,8 +1735,8 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_membrane is
   signal \column[4]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal \column[4]_INST_0_i_3_n_0\ : STD_LOGIC;
   signal \column[4]_INST_0_i_4_n_0\ : STD_LOGIC;
-  signal column_1_sn_1 : STD_LOGIC;
-  signal column_4_sn_1 : STD_LOGIC;
+  signal column_0_sn_1 : STD_LOGIC;
+  signal column_3_sn_1 : STD_LOGIC;
   signal \matrix_state_ex_0[18]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_state_ex_0_reg_n_0_[0]\ : STD_LOGIC;
   signal \matrix_state_ex_0_reg_n_0_[10]\ : STD_LOGIC;
@@ -1817,17 +1824,17 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_membrane is
   signal \matrix_state_reg_n_0_[7][4]\ : STD_LOGIC;
   signal \matrix_state_reg_n_0_[7][5]\ : STD_LOGIC;
   signal \matrix_state_reg_n_0_[7][6]\ : STD_LOGIC;
-  signal \matrix_work[0]_0\ : STD_LOGIC;
+  signal \matrix_work[0][6]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work[1][6]_i_1_n_0\ : STD_LOGIC;
-  signal \matrix_work[2]_6\ : STD_LOGIC;
+  signal \matrix_work[2]_2\ : STD_LOGIC;
   signal \matrix_work[3]_5\ : STD_LOGIC;
-  signal \matrix_work[4]_7\ : STD_LOGIC;
-  signal \matrix_work[5]_1\ : STD_LOGIC;
-  signal \matrix_work[6]_2\ : STD_LOGIC;
-  signal \matrix_work[7]_3\ : STD_LOGIC;
+  signal \matrix_work[4]_6\ : STD_LOGIC;
+  signal \matrix_work[5]_0\ : STD_LOGIC;
+  signal \matrix_work[6]_3\ : STD_LOGIC;
+  signal \matrix_work[7]_4\ : STD_LOGIC;
   signal \matrix_work_ex[0]_i_1_n_0\ : STD_LOGIC;
+  signal \matrix_work_ex[0]_i_2_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[10]_i_1_n_0\ : STD_LOGIC;
-  signal \matrix_work_ex[10]_i_2_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[11]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[12]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[12]_i_2_n_0\ : STD_LOGIC;
@@ -1840,12 +1847,10 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_membrane is
   signal \matrix_work_ex[2]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[3]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[4]_i_1_n_0\ : STD_LOGIC;
-  signal \matrix_work_ex[4]_i_2_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[5]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[6]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[7]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[8]_i_1_n_0\ : STD_LOGIC;
-  signal \matrix_work_ex[8]_i_2_n_0\ : STD_LOGIC;
   signal \matrix_work_ex[9]_i_1_n_0\ : STD_LOGIC;
   signal \matrix_work_ex_reg_n_0_[0]\ : STD_LOGIC;
   signal \matrix_work_ex_reg_n_0_[10]\ : STD_LOGIC;
@@ -1882,74 +1887,88 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_membrane is
   signal \^state_reg[2]_1\ : STD_LOGIC;
   signal \^state_reg[4]_0\ : STD_LOGIC;
   signal \state_reg_n_0_[8]\ : STD_LOGIC;
+  signal util_vector_logic_0_i_27_n_0 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \matrix_work_ex[10]_i_1\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \matrix_work_ex[10]_i_2\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \matrix_work_ex[11]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \matrix_work_ex[11]_i_1\ : label is "soft_lutpair31";
   attribute SOFT_HLUTNM of \matrix_work_ex[12]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \matrix_work_ex[12]_i_2\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \matrix_work_ex[16]_i_3\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \matrix_work_ex[5]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \matrix_work_ex[6]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \matrix_work_ex[8]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \matrix_work_ex[8]_i_2\ : label is "soft_lutpair29";
 begin
   Q(1 downto 0) <= \^q\(1 downto 0);
-  column_1_sn_1 <= column_1_sp_1;
-  column_4_sn_1 <= column_4_sp_1;
+  SS(0) <= \^ss\(0);
+  column_0_sn_1 <= column_0_sp_1;
+  column_3_sn_1 <= column_3_sp_1;
   \state_reg[2]_0\ <= \^state_reg[2]_0\;
   \state_reg[2]_1\ <= \^state_reg[2]_1\;
   \state_reg[4]_0\ <= \^state_reg[4]_0\;
+\FSM_onehot_state[17]_i_2\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => \^ss\(0)
+    );
 \column[0]_INST_0\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"04FF"
+      INIT => X"10FF"
     )
         port map (
       I0 => \column[0]_INST_0_i_1_n_0\,
       I1 => \column[0]_INST_0_i_2_n_0\,
       I2 => \column[0]_INST_0_i_3_n_0\,
-      I3 => \column[0]\(0),
+      I3 => \column[4]\(0),
       O => column(0)
     );
-\column[0]_INST_0_i_1\: unisim.vcomponents.LUT6
+\column[0]_INST_0_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AABAAABAAABAFAFA"
+      INIT => X"AABFAAAA"
     )
         port map (
       I0 => \column[0]_INST_0_i_4_n_0\,
-      I1 => \matrix_state_reg_n_0_[1][0]\,
-      I2 => \column[0]\(0),
-      I3 => row(1),
-      I4 => \matrix_state_reg_n_0_[6][0]\,
-      I5 => row(6),
+      I1 => \matrix_state_ex_1_reg_n_0_[13]\,
+      I2 => \matrix_state_reg_n_0_[7][0]\,
+      I3 => row(7),
+      I4 => \column[4]\(0),
       O => \column[0]_INST_0_i_1_n_0\
     );
-\column[0]_INST_0_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"0000FBBB"
-    )
-        port map (
-      I0 => row(7),
-      I1 => \column[0]\(0),
-      I2 => \matrix_state_ex_1_reg_n_0_[13]\,
-      I3 => \matrix_state_reg_n_0_[7][0]\,
-      I4 => \column[0]_INST_0_i_5_n_0\,
-      O => \column[0]_INST_0_i_2_n_0\
-    );
-\column[0]_INST_0_i_3\: unisim.vcomponents.LUT6
+\column[0]_INST_0_i_2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"70FFFFFF70707070"
     )
         port map (
       I0 => p_0_in0_in(0),
       I1 => \matrix_state_reg_n_0_[3][0]\,
-      I2 => column_4_sn_1,
+      I2 => column_3_sn_1,
       I3 => \matrix_state_ex_1_reg_n_0_[6]\,
       I4 => \matrix_state_reg_n_0_[4][0]\,
-      I5 => \column[4]_0\,
+      I5 => column_0_sn_1,
+      O => \column[0]_INST_0_i_2_n_0\
+    );
+\column[0]_INST_0_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"00000000FBFBFB33"
+    )
+        port map (
+      I0 => \matrix_state_reg_n_0_[2][0]\,
+      I1 => \column[4]\(0),
+      I2 => row(2),
+      I3 => \matrix_state_reg_n_0_[6][0]\,
+      I4 => row(6),
+      I5 => \column[0]_INST_0_i_6_n_0\,
       O => \column[0]_INST_0_i_3_n_0\
     );
-\column[0]_INST_0_i_4\: unisim.vcomponents.LUT6
+\column[0]_INST_0_i_4\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"02222222"
+    )
+        port map (
+      I0 => \column[4]\(0),
+      I1 => row(0),
+      I2 => \matrix_state_ex_0_reg_n_0_[0]\,
+      I3 => \matrix_state_reg_n_0_[0][0]\,
+      I4 => \matrix_state_ex_1_reg_n_0_[0]\,
+      O => \column[0]_INST_0_i_4_n_0\
+    );
+\column[0]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0707000007FF0000"
     )
@@ -1957,86 +1976,84 @@ begin
       I0 => \matrix_state_ex_1_reg_n_0_[11]\,
       I1 => \matrix_state_reg_n_0_[5][0]\,
       I2 => row(5),
-      I3 => row(2),
-      I4 => \column[0]\(0),
-      I5 => \matrix_state_reg_n_0_[2][0]\,
-      O => \column[0]_INST_0_i_4_n_0\
+      I3 => row(1),
+      I4 => \column[4]\(0),
+      I5 => \matrix_state_reg_n_0_[1][0]\,
+      O => \column[0]_INST_0_i_6_n_0\
     );
-\column[0]_INST_0_i_5\: unisim.vcomponents.LUT5
+\column[1]_INST_0\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"02222222"
-    )
-        port map (
-      I0 => \column[0]\(0),
-      I1 => row(0),
-      I2 => \matrix_state_ex_0_reg_n_0_[0]\,
-      I3 => \matrix_state_reg_n_0_[0][0]\,
-      I4 => \matrix_state_ex_1_reg_n_0_[0]\,
-      O => \column[0]_INST_0_i_5_n_0\
-    );
-\column[1]_INST_0\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"0010FFFF"
+      INIT => X"00000100FFFFFFFF"
     )
         port map (
       I0 => \column[1]_INST_0_i_1_n_0\,
       I1 => \column[1]_INST_0_i_2_n_0\,
       I2 => \column[1]_INST_0_i_3_n_0\,
       I3 => \column[1]_INST_0_i_4_n_0\,
-      I4 => \column[0]\(0),
+      I4 => \column[1]_INST_0_i_5_n_0\,
+      I5 => \column[4]\(0),
       O => column(1)
     );
 \column[1]_INST_0_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"070707FF00000000"
+      INIT => X"11111FFF00000000"
     )
         port map (
-      I0 => p_0_in0_in(1),
-      I1 => \matrix_state_reg_n_0_[3][1]\,
-      I2 => row(3),
-      I3 => \matrix_state_reg_n_0_[0][1]\,
-      I4 => row(0),
-      I5 => \column[0]\(0),
+      I0 => \matrix_state_reg_n_0_[0][1]\,
+      I1 => row(0),
+      I2 => p_0_in0_in(1),
+      I3 => \matrix_state_reg_n_0_[3][1]\,
+      I4 => row(3),
+      I5 => \column[4]\(0),
       O => \column[1]_INST_0_i_1_n_0\
     );
-\column[1]_INST_0_i_2\: unisim.vcomponents.LUT6
+\column[1]_INST_0_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"0707777707FF7777"
+      INIT => X"0777"
     )
         port map (
-      I0 => \matrix_state_ex_1_reg_n_0_[7]\,
-      I1 => \matrix_state_reg_n_0_[4][1]\,
-      I2 => row(4),
-      I3 => row(6),
-      I4 => \column[0]\(0),
-      I5 => \matrix_state_reg_n_0_[6][1]\,
+      I0 => row(4),
+      I1 => \column[4]\(0),
+      I2 => \matrix_state_reg_n_0_[4][1]\,
+      I3 => \matrix_state_ex_1_reg_n_0_[7]\,
       O => \column[1]_INST_0_i_2_n_0\
     );
-\column[1]_INST_0_i_3\: unisim.vcomponents.LUT6
+\column[1]_INST_0_i_3\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"EEEEE000FFFFFFFF"
+      INIT => X"02222222"
     )
         port map (
-      I0 => row(1),
-      I1 => \matrix_state_reg_n_0_[1][1]\,
-      I2 => \matrix_state_ex_1_reg_n_0_[12]\,
-      I3 => \matrix_state_reg_n_0_[5][1]\,
-      I4 => row(5),
-      I5 => \column[0]\(0),
+      I0 => \column[4]\(0),
+      I1 => row(7),
+      I2 => p_0_in5_in,
+      I3 => \matrix_state_reg_n_0_[7][1]\,
+      I4 => p_1_in6_in,
       O => \column[1]_INST_0_i_3_n_0\
     );
-\column[1]_INST_0_i_4\: unisim.vcomponents.LUT6
+\column[1]_INST_0_i_4\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"1FFFFFFF11111111"
+      INIT => X"EEFFE0FF"
     )
         port map (
-      I0 => column_1_sn_1,
-      I1 => \matrix_state_reg_n_0_[2][1]\,
-      I2 => p_1_in6_in,
-      I3 => \matrix_state_reg_n_0_[7][1]\,
-      I4 => p_0_in5_in,
-      I5 => \column[1]_0\,
+      I0 => row(6),
+      I1 => \matrix_state_reg_n_0_[6][1]\,
+      I2 => row(2),
+      I3 => \column[4]\(0),
+      I4 => \matrix_state_reg_n_0_[2][1]\,
       O => \column[1]_INST_0_i_4_n_0\
+    );
+\column[1]_INST_0_i_5\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0707000007FF0000"
+    )
+        port map (
+      I0 => \matrix_state_ex_1_reg_n_0_[12]\,
+      I1 => \matrix_state_reg_n_0_[5][1]\,
+      I2 => row(5),
+      I3 => row(1),
+      I4 => \column[4]\(0),
+      I5 => \matrix_state_reg_n_0_[1][1]\,
+      O => \column[1]_INST_0_i_5_n_0\
     );
 \column[2]_INST_0\: unisim.vcomponents.LUT5
     generic map(
@@ -2047,20 +2064,19 @@ begin
       I1 => \column[2]_INST_0_i_2_n_0\,
       I2 => \column[2]_INST_0_i_3_n_0\,
       I3 => \column[2]_INST_0_i_4_n_0\,
-      I4 => \column[0]\(0),
+      I4 => \column[4]\(0),
       O => column(2)
     );
-\column[2]_INST_0_i_1\: unisim.vcomponents.LUT6
+\column[2]_INST_0_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"070707FF00000000"
+      INIT => X"11001F00"
     )
         port map (
-      I0 => \matrix_state_ex_1_reg_n_0_[15]\,
-      I1 => \matrix_state_reg_n_0_[7][2]\,
-      I2 => row(7),
-      I3 => \matrix_state_reg_n_0_[0][2]\,
-      I4 => row(0),
-      I5 => \column[0]\(0),
+      I0 => \matrix_state_reg_n_0_[5][2]\,
+      I1 => row(5),
+      I2 => row(1),
+      I3 => \column[4]\(0),
+      I4 => \matrix_state_reg_n_0_[1][2]\,
       O => \column[2]_INST_0_i_1_n_0\
     );
 \column[2]_INST_0_i_2\: unisim.vcomponents.LUT6
@@ -2068,140 +2084,115 @@ begin
       INIT => X"0707000007FF0000"
     )
         port map (
-      I0 => p_0_in0_in(2),
-      I1 => \matrix_state_reg_n_0_[3][2]\,
-      I2 => row(3),
-      I3 => row(1),
-      I4 => \column[0]\(0),
-      I5 => \matrix_state_reg_n_0_[1][2]\,
+      I0 => \matrix_state_ex_1_reg_n_0_[15]\,
+      I1 => \matrix_state_reg_n_0_[7][2]\,
+      I2 => row(7),
+      I3 => row(6),
+      I4 => \column[4]\(0),
+      I5 => \matrix_state_reg_n_0_[6][2]\,
       O => \column[2]_INST_0_i_2_n_0\
     );
-\column[2]_INST_0_i_3\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"EEE0FFFF"
-    )
-        port map (
-      I0 => row(2),
-      I1 => \matrix_state_reg_n_0_[2][2]\,
-      I2 => \matrix_state_reg_n_0_[5][2]\,
-      I3 => row(5),
-      I4 => \column[0]\(0),
-      O => \column[2]_INST_0_i_3_n_0\
-    );
-\column[2]_INST_0_i_4\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0707777707FF7777"
-    )
-        port map (
-      I0 => \matrix_state_ex_1_reg_n_0_[8]\,
-      I1 => \matrix_state_reg_n_0_[4][2]\,
-      I2 => row(4),
-      I3 => row(6),
-      I4 => \column[0]\(0),
-      I5 => \matrix_state_reg_n_0_[6][2]\,
-      O => \column[2]_INST_0_i_4_n_0\
-    );
-\column[3]_INST_0\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"0010FFFF"
-    )
-        port map (
-      I0 => \column[3]_INST_0_i_1_n_0\,
-      I1 => \column[3]_INST_0_i_2_n_0\,
-      I2 => \column[3]_INST_0_i_3_n_0\,
-      I3 => \column[3]_INST_0_i_4_n_0\,
-      I4 => \column[0]\(0),
-      O => column(3)
-    );
-\column[3]_INST_0_i_1\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"11001F00"
-    )
-        port map (
-      I0 => row(6),
-      I1 => \matrix_state_reg_n_0_[6][3]\,
-      I2 => row(2),
-      I3 => \column[0]\(0),
-      I4 => \matrix_state_reg_n_0_[2][3]\,
-      O => \column[3]_INST_0_i_1_n_0\
-    );
-\column[3]_INST_0_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"070707FF00000000"
-    )
-        port map (
-      I0 => \matrix_state_ex_1_reg_n_0_[16]\,
-      I1 => \matrix_state_reg_n_0_[7][3]\,
-      I2 => row(7),
-      I3 => \matrix_state_reg_n_0_[5][3]\,
-      I4 => row(5),
-      I5 => \column[0]\(0),
-      O => \column[3]_INST_0_i_2_n_0\
-    );
-\column[3]_INST_0_i_3\: unisim.vcomponents.LUT6
+\column[2]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"EAEAEA00C0C0C0C0"
     )
         port map (
       I0 => row(4),
-      I1 => \matrix_state_ex_1_reg_n_0_[9]\,
-      I2 => \matrix_state_reg_n_0_[4][3]\,
-      I3 => \matrix_state_reg_n_0_[0][3]\,
+      I1 => \matrix_state_ex_1_reg_n_0_[8]\,
+      I2 => \matrix_state_reg_n_0_[4][2]\,
+      I3 => \matrix_state_reg_n_0_[0][2]\,
       I4 => row(0),
-      I5 => \column[0]\(0),
-      O => \column[3]_INST_0_i_3_n_0\
+      I5 => \column[4]\(0),
+      O => \column[2]_INST_0_i_3_n_0\
     );
-\column[3]_INST_0_i_4\: unisim.vcomponents.LUT6
+\column[2]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"11111FFF00000000"
     )
         port map (
-      I0 => row(1),
-      I1 => \matrix_state_reg_n_0_[1][3]\,
-      I2 => p_0_in0_in(3),
-      I3 => \matrix_state_reg_n_0_[3][3]\,
+      I0 => row(2),
+      I1 => \matrix_state_reg_n_0_[2][2]\,
+      I2 => p_0_in0_in(2),
+      I3 => \matrix_state_reg_n_0_[3][2]\,
       I4 => row(3),
-      I5 => \column[0]\(0),
-      O => \column[3]_INST_0_i_4_n_0\
+      I5 => \column[4]\(0),
+      O => \column[2]_INST_0_i_4_n_0\
     );
-\column[4]_INST_0\: unisim.vcomponents.LUT4
+\column[3]_INST_0\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"04FF"
+    )
+        port map (
+      I0 => \column[3]_INST_0_i_1_n_0\,
+      I1 => \column[3]_INST_0_i_2_n_0\,
+      I2 => \column[3]_INST_0_i_3_n_0\,
+      I3 => \column[4]\(0),
+      O => column(3)
+    );
+\column[3]_INST_0_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFF020202AA"
+    )
+        port map (
+      I0 => \column[4]\(0),
+      I1 => row(0),
+      I2 => \matrix_state_reg_n_0_[0][3]\,
+      I3 => \matrix_state_reg_n_0_[6][3]\,
+      I4 => row(6),
+      I5 => \column[3]_INST_0_i_4_n_0\,
+      O => \column[3]_INST_0_i_1_n_0\
+    );
+\column[3]_INST_0_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"EEFFE0FF"
+    )
+        port map (
+      I0 => row(1),
+      I1 => \matrix_state_reg_n_0_[1][3]\,
+      I2 => row(2),
+      I3 => \column[4]\(0),
+      I4 => \matrix_state_reg_n_0_[2][3]\,
+      O => \column[3]_INST_0_i_2_n_0\
+    );
+\column[3]_INST_0_i_3\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"70FFFFFF70707070"
+    )
+        port map (
+      I0 => p_0_in0_in(3),
+      I1 => \matrix_state_reg_n_0_[3][3]\,
+      I2 => column_3_sn_1,
+      I3 => \matrix_state_ex_1_reg_n_0_[16]\,
+      I4 => \matrix_state_reg_n_0_[7][3]\,
+      I5 => \column[3]_0\,
+      O => \column[3]_INST_0_i_3_n_0\
+    );
+\column[3]_INST_0_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"070707FF77777777"
+    )
+        port map (
+      I0 => \matrix_state_ex_1_reg_n_0_[9]\,
+      I1 => \matrix_state_reg_n_0_[4][3]\,
+      I2 => row(4),
+      I3 => \matrix_state_reg_n_0_[5][3]\,
+      I4 => row(5),
+      I5 => \column[4]\(0),
+      O => \column[3]_INST_0_i_4_n_0\
+    );
+\column[4]_INST_0\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"0010FFFF"
     )
         port map (
       I0 => \column[4]_INST_0_i_1_n_0\,
       I1 => \column[4]_INST_0_i_2_n_0\,
       I2 => \column[4]_INST_0_i_3_n_0\,
-      I3 => \column[0]\(0),
+      I3 => \column[4]_INST_0_i_4_n_0\,
+      I4 => \column[4]\(0),
       O => column(4)
     );
-\column[4]_INST_0_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFF020202AA"
-    )
-        port map (
-      I0 => \column[0]\(0),
-      I1 => row(0),
-      I2 => \matrix_state_reg_n_0_[0][4]\,
-      I3 => row(7),
-      I4 => \matrix_state_reg_n_0_[7][4]\,
-      I5 => \column[4]_INST_0_i_4_n_0\,
-      O => \column[4]_INST_0_i_1_n_0\
-    );
-\column[4]_INST_0_i_2\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"D5000000D5D5D5D5"
-    )
-        port map (
-      I0 => \column[4]_0\,
-      I1 => \matrix_state_ex_1_reg_n_0_[10]\,
-      I2 => \matrix_state_reg_n_0_[4][4]\,
-      I3 => p_0_in0_in(4),
-      I4 => \matrix_state_reg_n_0_[3][4]\,
-      I5 => column_4_sn_1,
-      O => \column[4]_INST_0_i_2_n_0\
-    );
-\column[4]_INST_0_i_3\: unisim.vcomponents.LUT5
+\column[4]_INST_0_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"11001F00"
     )
@@ -2209,20 +2200,46 @@ begin
       I0 => row(2),
       I1 => \matrix_state_reg_n_0_[2][4]\,
       I2 => row(1),
-      I3 => \column[0]\(0),
+      I3 => \column[4]\(0),
       I4 => \matrix_state_reg_n_0_[1][4]\,
-      O => \column[4]_INST_0_i_3_n_0\
+      O => \column[4]_INST_0_i_1_n_0\
     );
-\column[4]_INST_0_i_4\: unisim.vcomponents.LUT5
+\column[4]_INST_0_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"111F0000"
+      INIT => X"0707777707FF7777"
     )
         port map (
-      I0 => row(6),
-      I1 => \matrix_state_reg_n_0_[6][4]\,
-      I2 => \matrix_state_reg_n_0_[5][4]\,
-      I3 => row(5),
-      I4 => \column[0]\(0),
+      I0 => \matrix_state_ex_1_reg_n_0_[10]\,
+      I1 => \matrix_state_reg_n_0_[4][4]\,
+      I2 => row(4),
+      I3 => row(6),
+      I4 => \column[4]\(0),
+      I5 => \matrix_state_reg_n_0_[6][4]\,
+      O => \column[4]_INST_0_i_2_n_0\
+    );
+\column[4]_INST_0_i_3\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"EEE0FFFF"
+    )
+        port map (
+      I0 => row(5),
+      I1 => \matrix_state_reg_n_0_[5][4]\,
+      I2 => \matrix_state_reg_n_0_[0][4]\,
+      I3 => row(0),
+      I4 => \column[4]\(0),
+      O => \column[4]_INST_0_i_3_n_0\
+    );
+\column[4]_INST_0_i_4\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"070707FF00000000"
+    )
+        port map (
+      I0 => p_0_in0_in(4),
+      I1 => \matrix_state_reg_n_0_[3][4]\,
+      I2 => row(3),
+      I3 => \matrix_state_reg_n_0_[7][4]\,
+      I4 => row(7),
+      I5 => \column[4]\(0),
       O => \column[4]_INST_0_i_4_n_0\
     );
 \extended_keys[0]_INST_0\: unisim.vcomponents.LUT1
@@ -2373,11 +2390,11 @@ begin
     );
 \matrix_state_ex_0[18]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"E"
+      INIT => X"B"
     )
         port map (
-      I0 => reset,
-      I1 => cancel,
+      I0 => cancel,
+      I1 => resetn,
       O => \matrix_state_ex_0[18]_i_1_n_0\
     );
 \matrix_state_ex_0_reg[0]\: unisim.vcomponents.FDSE
@@ -2693,7 +2710,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(0),
       Q => \matrix_state_reg_n_0_[0][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[0][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -2704,7 +2721,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(1),
       Q => \matrix_state_reg_n_0_[0][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[0][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -2715,7 +2732,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(2),
       Q => \matrix_state_reg_n_0_[0][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[0][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -2726,7 +2743,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(3),
       Q => \matrix_state_reg_n_0_[0][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[0][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -2737,7 +2754,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(4),
       Q => \matrix_state_reg_n_0_[0][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[0][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -2748,7 +2765,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(5),
       Q => \matrix_state_reg_n_0_[0][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[0][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -2759,7 +2776,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[0]\(6),
       Q => \matrix_state_reg_n_0_[0][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -2770,7 +2787,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(0),
       Q => \matrix_state_reg_n_0_[1][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -2781,7 +2798,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(1),
       Q => \matrix_state_reg_n_0_[1][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -2792,7 +2809,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(2),
       Q => \matrix_state_reg_n_0_[1][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -2803,7 +2820,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(3),
       Q => \matrix_state_reg_n_0_[1][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -2814,7 +2831,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(4),
       Q => \matrix_state_reg_n_0_[1][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -2825,7 +2842,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(5),
       Q => \matrix_state_reg_n_0_[1][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[1][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -2836,7 +2853,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[1]\(6),
       Q => \matrix_state_reg_n_0_[1][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -2847,7 +2864,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(0),
       Q => \matrix_state_reg_n_0_[2][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -2858,7 +2875,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(1),
       Q => \matrix_state_reg_n_0_[2][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -2869,7 +2886,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(2),
       Q => \matrix_state_reg_n_0_[2][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -2880,7 +2897,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(3),
       Q => \matrix_state_reg_n_0_[2][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -2891,7 +2908,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(4),
       Q => \matrix_state_reg_n_0_[2][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -2902,7 +2919,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(5),
       Q => \matrix_state_reg_n_0_[2][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[2][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -2913,7 +2930,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[2]\(6),
       Q => \matrix_state_reg_n_0_[2][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -2924,7 +2941,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(0),
       Q => \matrix_state_reg_n_0_[3][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -2935,7 +2952,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(1),
       Q => \matrix_state_reg_n_0_[3][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -2946,7 +2963,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(2),
       Q => \matrix_state_reg_n_0_[3][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -2957,7 +2974,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(3),
       Q => \matrix_state_reg_n_0_[3][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -2968,7 +2985,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(4),
       Q => \matrix_state_reg_n_0_[3][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -2979,7 +2996,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(5),
       Q => \matrix_state_reg_n_0_[3][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[3][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -2990,7 +3007,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[3]\(6),
       Q => \matrix_state_reg_n_0_[3][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3001,7 +3018,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(0),
       Q => \matrix_state_reg_n_0_[4][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3012,7 +3029,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(1),
       Q => \matrix_state_reg_n_0_[4][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3023,7 +3040,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(2),
       Q => \matrix_state_reg_n_0_[4][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3034,7 +3051,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(3),
       Q => \matrix_state_reg_n_0_[4][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3045,7 +3062,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(4),
       Q => \matrix_state_reg_n_0_[4][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -3056,7 +3073,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(5),
       Q => \matrix_state_reg_n_0_[4][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[4][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -3067,7 +3084,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[4]\(6),
       Q => \matrix_state_reg_n_0_[4][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3078,7 +3095,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(0),
       Q => \matrix_state_reg_n_0_[5][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3089,7 +3106,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(1),
       Q => \matrix_state_reg_n_0_[5][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3100,7 +3117,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(2),
       Q => \matrix_state_reg_n_0_[5][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3111,7 +3128,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(3),
       Q => \matrix_state_reg_n_0_[5][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3122,7 +3139,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(4),
       Q => \matrix_state_reg_n_0_[5][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -3133,7 +3150,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(5),
       Q => \matrix_state_reg_n_0_[5][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[5][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -3144,7 +3161,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[5]\(6),
       Q => \matrix_state_reg_n_0_[5][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3155,7 +3172,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(0),
       Q => \matrix_state_reg_n_0_[6][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3166,7 +3183,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(1),
       Q => \matrix_state_reg_n_0_[6][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3177,7 +3194,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(2),
       Q => \matrix_state_reg_n_0_[6][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3188,7 +3205,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(3),
       Q => \matrix_state_reg_n_0_[6][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3199,7 +3216,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(4),
       Q => \matrix_state_reg_n_0_[6][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -3210,7 +3227,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(5),
       Q => \matrix_state_reg_n_0_[6][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[6][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -3221,7 +3238,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[6]\(6),
       Q => \matrix_state_reg_n_0_[6][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3232,7 +3249,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(0),
       Q => \matrix_state_reg_n_0_[7][0]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3243,7 +3260,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(1),
       Q => \matrix_state_reg_n_0_[7][1]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3254,7 +3271,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(2),
       Q => \matrix_state_reg_n_0_[7][2]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3265,7 +3282,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(3),
       Q => \matrix_state_reg_n_0_[7][3]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3276,7 +3293,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(4),
       Q => \matrix_state_reg_n_0_[7][4]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -3287,7 +3304,7 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(5),
       Q => \matrix_state_reg_n_0_[7][5]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_state_reg[7][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -3298,20 +3315,20 @@ begin
       CE => E(0),
       D => \matrix_work_reg[7]\(6),
       Q => \matrix_state_reg_n_0_[7][6]\,
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work[0][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00005D0000000000"
+      INIT => X"00002F0000000000"
     )
         port map (
-      I0 => \^q\(1),
-      I1 => sel0(5),
-      I2 => sel0(4),
+      I0 => sel0(5),
+      I1 => sel0(4),
+      I2 => \^q\(1),
       I3 => \^q\(0),
-      I4 => \^state_reg[2]_1\,
+      I4 => \^state_reg[2]_0\,
       I5 => keyb_clocks_0_membrane_enable,
-      O => \matrix_work[0]_0\
+      O => \matrix_work[0][6]_i_1_n_0\
     );
 \matrix_work[1][6]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -3319,24 +3336,24 @@ begin
     )
         port map (
       I0 => \^state_reg[4]_0\,
-      I1 => \^state_reg[2]_0\,
+      I1 => \^state_reg[2]_1\,
       I2 => keyb_clocks_0_membrane_enable,
-      I3 => \^state_reg[2]_1\,
+      I3 => \^state_reg[2]_0\,
       I4 => \^q\(0),
       O => \matrix_work[1][6]_i_1_n_0\
     );
 \matrix_work[2][6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0080000080808080"
+      INIT => X"0080808000800080"
     )
         port map (
       I0 => \^q\(0),
       I1 => keyb_clocks_0_membrane_enable,
-      I2 => \^state_reg[2]_1\,
-      I3 => sel0(4),
-      I4 => sel0(5),
-      I5 => \^q\(1),
-      O => \matrix_work[2]_6\
+      I2 => \^state_reg[2]_0\,
+      I3 => \^q\(1),
+      I4 => sel0(4),
+      I5 => sel0(5),
+      O => \matrix_work[2]_2\
     );
 \matrix_work[3][6]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -3345,9 +3362,9 @@ begin
         port map (
       I0 => \^q\(0),
       I1 => \^state_reg[4]_0\,
-      I2 => \^state_reg[2]_0\,
+      I2 => \^state_reg[2]_1\,
       I3 => keyb_clocks_0_membrane_enable,
-      I4 => \^state_reg[2]_1\,
+      I4 => \^state_reg[2]_0\,
       O => \matrix_work[3]_5\
     );
 \matrix_work[4][6]_i_1\: unisim.vcomponents.LUT6
@@ -3360,8 +3377,8 @@ begin
       I2 => sel0(2),
       I3 => sel0(1),
       I4 => \^state_reg[4]_0\,
-      I5 => \^state_reg[2]_0\,
-      O => \matrix_work[4]_7\
+      I5 => \^state_reg[2]_1\,
+      O => \matrix_work[4]_6\
     );
 \matrix_work[5][6]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -3369,72 +3386,73 @@ begin
     )
         port map (
       I0 => \^state_reg[4]_0\,
+      I1 => \^state_reg[2]_1\,
+      I2 => keyb_clocks_0_membrane_enable,
+      I3 => \^state_reg[2]_0\,
+      I4 => \^q\(0),
+      O => \matrix_work[5]_0\
+    );
+\matrix_work[6][6]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"80000000"
+    )
+        port map (
+      I0 => \^q\(0),
+      I1 => \^state_reg[2]_1\,
+      I2 => \^state_reg[2]_0\,
+      I3 => keyb_clocks_0_membrane_enable,
+      I4 => \^state_reg[4]_0\,
+      O => \matrix_work[6]_3\
+    );
+\matrix_work[7][6]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00008000"
+    )
+        port map (
+      I0 => \^q\(0),
       I1 => \^state_reg[2]_0\,
       I2 => keyb_clocks_0_membrane_enable,
-      I3 => \^state_reg[2]_1\,
-      I4 => \^q\(0),
-      O => \matrix_work[5]_1\
-    );
-\matrix_work[6][6]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"8000000000000000"
-    )
-        port map (
-      I0 => \^q\(0),
-      I1 => sel0(2),
-      I2 => sel0(1),
       I3 => \^state_reg[4]_0\,
-      I4 => keyb_clocks_0_membrane_enable,
-      I5 => \^state_reg[2]_0\,
-      O => \matrix_work[6]_2\
+      I4 => \^state_reg[2]_1\,
+      O => \matrix_work[7]_4\
     );
-\matrix_work[7][6]_i_1\: unisim.vcomponents.LUT6
+\matrix_work_ex[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000080000000"
-    )
-        port map (
-      I0 => \^q\(0),
-      I1 => sel0(2),
-      I2 => sel0(1),
-      I3 => \^state_reg[4]_0\,
-      I4 => keyb_clocks_0_membrane_enable,
-      I5 => \^state_reg[2]_0\,
-      O => \matrix_work[7]_3\
-    );
-\matrix_work_ex[0]_i_1\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"8FFF8F8F00000000"
+      INIT => X"FF8F0000"
     )
         port map (
       I0 => Res(6),
       I1 => Res(5),
       I2 => keyb_clocks_0_membrane_enable,
-      I3 => \matrix_work_ex[16]_i_3_n_0\,
-      I4 => \^state_reg[4]_0\,
-      I5 => \matrix_work_ex_reg_n_0_[0]\,
+      I3 => \matrix_work_ex[0]_i_2_n_0\,
+      I4 => \matrix_work_ex_reg_n_0_[0]\,
       O => \matrix_work_ex[0]_i_1_n_0\
     );
-\matrix_work_ex[10]_i_1\: unisim.vcomponents.LUT3
+\matrix_work_ex[0]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"B8"
+      INIT => X"0000800080008000"
+    )
+        port map (
+      I0 => \^q\(1),
+      I1 => sel0(5),
+      I2 => sel0(4),
+      I3 => sel0(3),
+      I4 => sel0(1),
+      I5 => sel0(2),
+      O => \matrix_work_ex[0]_i_2_n_0\
+    );
+\matrix_work_ex[10]_i_1\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFBFFF00008000"
     )
         port map (
       I0 => Res(6),
-      I1 => \matrix_work_ex[10]_i_2_n_0\,
-      I2 => \matrix_work_ex_reg_n_0_[10]\,
+      I1 => \^state_reg[2]_0\,
+      I2 => keyb_clocks_0_membrane_enable,
+      I3 => \^state_reg[4]_0\,
+      I4 => \^state_reg[2]_1\,
+      I5 => \matrix_work_ex_reg_n_0_[10]\,
       O => \matrix_work_ex[10]_i_1_n_0\
-    );
-\matrix_work_ex[10]_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"40000000"
-    )
-        port map (
-      I0 => \^state_reg[2]_0\,
-      I1 => keyb_clocks_0_membrane_enable,
-      I2 => \^state_reg[4]_0\,
-      I3 => sel0(1),
-      I4 => sel0(2),
-      O => \matrix_work_ex[10]_i_2_n_0\
     );
 \matrix_work_ex[11]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -3461,7 +3479,7 @@ begin
       INIT => X"08880000"
     )
         port map (
-      I0 => \^state_reg[2]_0\,
+      I0 => \^state_reg[2]_1\,
       I1 => \^state_reg[4]_0\,
       I2 => sel0(1),
       I3 => sel0(2),
@@ -3475,9 +3493,9 @@ begin
         port map (
       I0 => Res(5),
       I1 => \^state_reg[4]_0\,
-      I2 => \^state_reg[2]_0\,
+      I2 => \^state_reg[2]_1\,
       I3 => keyb_clocks_0_membrane_enable,
-      I4 => \^state_reg[2]_1\,
+      I4 => \^state_reg[2]_0\,
       I5 => \matrix_work_ex_reg_n_0_[13]\,
       O => \matrix_work_ex[13]_i_1_n_0\
     );
@@ -3488,45 +3506,45 @@ begin
         port map (
       I0 => Res(6),
       I1 => Res(5),
-      I2 => \^state_reg[2]_0\,
+      I2 => \^state_reg[2]_1\,
       I3 => \^state_reg[4]_0\,
       I4 => \matrix_work_ex_reg[9]_0\,
       I5 => p_1_in,
       O => \matrix_work_ex[14]_i_1_n_0\
     );
-\matrix_work_ex[15]_i_1\: unisim.vcomponents.LUT6
+\matrix_work_ex[15]_i_1\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFEFFFFF00200000"
+      INIT => X"FE02"
     )
         port map (
       I0 => Res(6),
-      I1 => \^state_reg[2]_0\,
-      I2 => \^state_reg[4]_0\,
-      I3 => \matrix_work_ex[16]_i_3_n_0\,
-      I4 => keyb_clocks_0_membrane_enable,
-      I5 => \matrix_work_ex_reg_n_0_[15]\,
+      I1 => \^state_reg[2]_1\,
+      I2 => \matrix_work_ex[16]_i_3_n_0\,
+      I3 => \matrix_work_ex_reg_n_0_[15]\,
       O => \matrix_work_ex[15]_i_1_n_0\
     );
-\matrix_work_ex[16]_i_2\: unisim.vcomponents.LUT6
+\matrix_work_ex[16]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFEFFFFF00200000"
+      INIT => X"FE02"
     )
         port map (
       I0 => Res(5),
-      I1 => \^state_reg[2]_0\,
-      I2 => \^state_reg[4]_0\,
-      I3 => \matrix_work_ex[16]_i_3_n_0\,
-      I4 => keyb_clocks_0_membrane_enable,
-      I5 => \matrix_work_ex_reg_n_0_[16]\,
+      I1 => \^state_reg[2]_1\,
+      I2 => \matrix_work_ex[16]_i_3_n_0\,
+      I3 => \matrix_work_ex_reg_n_0_[16]\,
       O => \matrix_work_ex[16]_i_2_n_0\
     );
-\matrix_work_ex[16]_i_3\: unisim.vcomponents.LUT2
+\matrix_work_ex[16]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"8"
+      INIT => X"FF7F7F7FFFFFFFFF"
     )
         port map (
-      I0 => sel0(2),
-      I1 => sel0(1),
+      I0 => clk_div_reg(1),
+      I1 => clk_div_reg(0),
+      I2 => joy_clk_en,
+      I3 => sel0(2),
+      I4 => sel0(1),
+      I5 => \^state_reg[4]_0\,
       O => \matrix_work_ex[16]_i_3_n_0\
     );
 \matrix_work_ex[1]_i_1\: unisim.vcomponents.LUT6
@@ -3536,9 +3554,9 @@ begin
         port map (
       I0 => Res(6),
       I1 => \^state_reg[4]_0\,
-      I2 => \^state_reg[2]_0\,
+      I2 => \^state_reg[2]_1\,
       I3 => keyb_clocks_0_membrane_enable,
-      I4 => \^state_reg[2]_1\,
+      I4 => \^state_reg[2]_0\,
       I5 => \matrix_work_ex_reg_n_0_[1]\,
       O => \matrix_work_ex[1]_i_1_n_0\
     );
@@ -3549,64 +3567,62 @@ begin
         port map (
       I0 => Res(5),
       I1 => keyb_clocks_0_membrane_enable,
-      I2 => \^state_reg[2]_1\,
-      I3 => \^state_reg[2]_0\,
+      I2 => \^state_reg[2]_0\,
+      I3 => \^state_reg[2]_1\,
       I4 => \^state_reg[4]_0\,
       I5 => \matrix_work_ex_reg_n_0_[2]\,
       O => \matrix_work_ex[2]_i_1_n_0\
     );
-\matrix_work_ex[3]_i_1\: unisim.vcomponents.LUT5
+\matrix_work_ex[3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"FFFFFBAA000008AA"
     )
         port map (
       I0 => Res(5),
-      I1 => \matrix_work_ex[4]_i_2_n_0\,
-      I2 => \^state_reg[2]_1\,
-      I3 => keyb_clocks_0_membrane_enable,
-      I4 => \matrix_work_ex_reg_n_0_[3]\,
+      I1 => sel0(5),
+      I2 => sel0(4),
+      I3 => \^q\(1),
+      I4 => \matrix_work_ex_reg[3]_0\,
+      I5 => \matrix_work_ex_reg_n_0_[3]\,
       O => \matrix_work_ex[3]_i_1_n_0\
     );
-\matrix_work_ex[4]_i_1\: unisim.vcomponents.LUT5
+\matrix_work_ex[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"BFFF8000"
+      INIT => X"FFFFFBAA000008AA"
     )
         port map (
       I0 => Res(6),
-      I1 => \matrix_work_ex[4]_i_2_n_0\,
-      I2 => \^state_reg[2]_1\,
-      I3 => keyb_clocks_0_membrane_enable,
-      I4 => \matrix_work_ex_reg_n_0_[4]\,
+      I1 => sel0(5),
+      I2 => sel0(4),
+      I3 => \^q\(1),
+      I4 => \matrix_work_ex_reg[3]_0\,
+      I5 => \matrix_work_ex_reg_n_0_[4]\,
       O => \matrix_work_ex[4]_i_1_n_0\
     );
-\matrix_work_ex[4]_i_2\: unisim.vcomponents.LUT3
+\matrix_work_ex[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"4F"
-    )
-        port map (
-      I0 => sel0(4),
-      I1 => sel0(5),
-      I2 => \^q\(1),
-      O => \matrix_work_ex[4]_i_2_n_0\
-    );
-\matrix_work_ex[5]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"B8"
+      INIT => X"FFFFBFFF00008000"
     )
         port map (
       I0 => Res(5),
-      I1 => \matrix_work_ex[10]_i_2_n_0\,
-      I2 => \matrix_work_ex_reg_n_0_[5]\,
+      I1 => \^state_reg[2]_0\,
+      I2 => keyb_clocks_0_membrane_enable,
+      I3 => \^state_reg[4]_0\,
+      I4 => \^state_reg[2]_1\,
+      I5 => \matrix_work_ex_reg_n_0_[5]\,
       O => \matrix_work_ex[5]_i_1_n_0\
     );
-\matrix_work_ex[6]_i_1\: unisim.vcomponents.LUT3
+\matrix_work_ex[6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"B8"
+      INIT => X"BFFFFFFF80000000"
     )
         port map (
       I0 => Res(5),
-      I1 => \matrix_work_ex[8]_i_2_n_0\,
-      I2 => \matrix_work_ex_reg_n_0_[6]\,
+      I1 => \^state_reg[2]_1\,
+      I2 => \^state_reg[2]_0\,
+      I3 => keyb_clocks_0_membrane_enable,
+      I4 => \^state_reg[4]_0\,
+      I5 => \matrix_work_ex_reg_n_0_[6]\,
       O => \matrix_work_ex[6]_i_1_n_0\
     );
 \matrix_work_ex[7]_i_1\: unisim.vcomponents.LUT6
@@ -3616,43 +3632,34 @@ begin
         port map (
       I0 => Res(6),
       I1 => keyb_clocks_0_membrane_enable,
-      I2 => \^state_reg[2]_1\,
-      I3 => \^state_reg[2]_0\,
+      I2 => \^state_reg[2]_0\,
+      I3 => \^state_reg[2]_1\,
       I4 => \^state_reg[4]_0\,
       I5 => \matrix_work_ex_reg_n_0_[7]\,
       O => \matrix_work_ex[7]_i_1_n_0\
     );
-\matrix_work_ex[8]_i_1\: unisim.vcomponents.LUT3
+\matrix_work_ex[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"B8"
+      INIT => X"BFFFFFFF80000000"
     )
         port map (
       I0 => Res(6),
-      I1 => \matrix_work_ex[8]_i_2_n_0\,
-      I2 => \matrix_work_ex_reg_n_0_[8]\,
+      I1 => \^state_reg[2]_1\,
+      I2 => \^state_reg[2]_0\,
+      I3 => keyb_clocks_0_membrane_enable,
+      I4 => \^state_reg[4]_0\,
+      I5 => \matrix_work_ex_reg_n_0_[8]\,
       O => \matrix_work_ex[8]_i_1_n_0\
-    );
-\matrix_work_ex[8]_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"80000000"
-    )
-        port map (
-      I0 => \^state_reg[2]_0\,
-      I1 => keyb_clocks_0_membrane_enable,
-      I2 => \^state_reg[4]_0\,
-      I3 => sel0(1),
-      I4 => sel0(2),
-      O => \matrix_work_ex[8]_i_2_n_0\
     );
 \matrix_work_ex[9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFEEAE000022A2"
+      INIT => X"FFFFFBAA000008AA"
     )
         port map (
       I0 => Res(6),
-      I1 => \^q\(1),
-      I2 => sel0(5),
-      I3 => sel0(4),
+      I1 => sel0(5),
+      I2 => sel0(4),
+      I3 => \^q\(1),
       I4 => \matrix_work_ex_reg[9]_0\,
       I5 => \matrix_work_ex_reg_n_0_[9]\,
       O => \matrix_work_ex[9]_i_1_n_0\
@@ -3799,10 +3806,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(0),
       Q => \matrix_work_reg[0]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[0][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3810,10 +3817,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(1),
       Q => \matrix_work_reg[0]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[0][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3821,10 +3828,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(2),
       Q => \matrix_work_reg[0]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[0][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3832,10 +3839,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(3),
       Q => \matrix_work_reg[0]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[0][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3843,10 +3850,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(4),
       Q => \matrix_work_reg[0]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[0][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -3854,10 +3861,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(5),
       Q => \matrix_work_reg[0]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[0][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -3865,10 +3872,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[0]_0\,
+      CE => \matrix_work[0][6]_i_1_n_0\,
       D => Res(6),
       Q => \matrix_work_reg[0]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3879,7 +3886,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(0),
       Q => \matrix_work_reg[1]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3890,7 +3897,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(1),
       Q => \matrix_work_reg[1]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3901,7 +3908,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(2),
       Q => \matrix_work_reg[1]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3912,7 +3919,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(3),
       Q => \matrix_work_reg[1]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3923,7 +3930,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(4),
       Q => \matrix_work_reg[1]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -3934,7 +3941,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(5),
       Q => \matrix_work_reg[1]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[1][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -3945,7 +3952,7 @@ begin
       CE => \matrix_work[1][6]_i_1_n_0\,
       D => Res(6),
       Q => \matrix_work_reg[1]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -3953,10 +3960,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(0),
       Q => \matrix_work_reg[2]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -3964,10 +3971,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(1),
       Q => \matrix_work_reg[2]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -3975,10 +3982,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(2),
       Q => \matrix_work_reg[2]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -3986,10 +3993,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(3),
       Q => \matrix_work_reg[2]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -3997,10 +4004,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(4),
       Q => \matrix_work_reg[2]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4008,10 +4015,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(5),
       Q => \matrix_work_reg[2]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[2][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4019,10 +4026,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[2]_6\,
+      CE => \matrix_work[2]_2\,
       D => Res(6),
       Q => \matrix_work_reg[2]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -4033,7 +4040,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(0),
       Q => \matrix_work_reg[3]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -4044,7 +4051,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(1),
       Q => \matrix_work_reg[3]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -4055,7 +4062,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(2),
       Q => \matrix_work_reg[3]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -4066,7 +4073,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(3),
       Q => \matrix_work_reg[3]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -4077,7 +4084,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(4),
       Q => \matrix_work_reg[3]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4088,7 +4095,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(5),
       Q => \matrix_work_reg[3]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[3][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4099,7 +4106,7 @@ begin
       CE => \matrix_work[3]_5\,
       D => Res(6),
       Q => \matrix_work_reg[3]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -4107,10 +4114,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(0),
       Q => \matrix_work_reg[4]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -4118,10 +4125,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(1),
       Q => \matrix_work_reg[4]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -4129,10 +4136,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(2),
       Q => \matrix_work_reg[4]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -4140,10 +4147,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(3),
       Q => \matrix_work_reg[4]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -4151,10 +4158,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(4),
       Q => \matrix_work_reg[4]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4162,10 +4169,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(5),
       Q => \matrix_work_reg[4]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[4][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4173,10 +4180,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[4]_7\,
+      CE => \matrix_work[4]_6\,
       D => Res(6),
       Q => \matrix_work_reg[4]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -4184,10 +4191,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(0),
       Q => \matrix_work_reg[5]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -4195,10 +4202,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(1),
       Q => \matrix_work_reg[5]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -4206,10 +4213,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(2),
       Q => \matrix_work_reg[5]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -4217,10 +4224,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(3),
       Q => \matrix_work_reg[5]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -4228,10 +4235,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(4),
       Q => \matrix_work_reg[5]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4239,10 +4246,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(5),
       Q => \matrix_work_reg[5]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[5][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4250,10 +4257,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[5]_1\,
+      CE => \matrix_work[5]_0\,
       D => Res(6),
       Q => \matrix_work_reg[5]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -4261,10 +4268,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(0),
       Q => \matrix_work_reg[6]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -4272,10 +4279,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(1),
       Q => \matrix_work_reg[6]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -4283,10 +4290,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(2),
       Q => \matrix_work_reg[6]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -4294,10 +4301,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(3),
       Q => \matrix_work_reg[6]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -4305,10 +4312,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(4),
       Q => \matrix_work_reg[6]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4316,10 +4323,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(5),
       Q => \matrix_work_reg[6]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[6][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4327,10 +4334,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[6]_2\,
+      CE => \matrix_work[6]_3\,
       D => Res(6),
       Q => \matrix_work_reg[6]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -4338,10 +4345,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(0),
       Q => \matrix_work_reg[7]\(0),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -4349,10 +4356,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(1),
       Q => \matrix_work_reg[7]\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -4360,10 +4367,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(2),
       Q => \matrix_work_reg[7]\(2),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -4371,10 +4378,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(3),
       Q => \matrix_work_reg[7]\(3),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -4382,10 +4389,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(4),
       Q => \matrix_work_reg[7]\(4),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4393,10 +4400,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(5),
       Q => \matrix_work_reg[7]\(5),
-      S => reset
+      S => \^ss\(0)
     );
 \matrix_work_reg[7][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4404,10 +4411,10 @@ begin
     )
         port map (
       C => clk_peripheral,
-      CE => \matrix_work[7]_3\,
+      CE => \matrix_work[7]_4\,
       D => Res(6),
       Q => \matrix_work_reg[7]\(6),
-      S => reset
+      S => \^ss\(0)
     );
 \membrane_col[6]_i_5\: unisim.vcomponents.LUT5
     generic map(
@@ -4417,7 +4424,7 @@ begin
       I0 => state,
       I1 => \^state_reg[4]_0\,
       I2 => dpo(1),
-      I3 => \^state_reg[2]_1\,
+      I3 => \^state_reg[2]_0\,
       I4 => dpo(0),
       O => state_reg
     );
@@ -4430,7 +4437,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => \state_reg_n_0_[8]\,
       Q => \^q\(0),
-      R => reset
+      R => \^ss\(0)
     );
 \state_reg[1]\: unisim.vcomponents.FDSE
     generic map(
@@ -4441,7 +4448,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => \^q\(0),
       Q => \^q\(1),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[2]\: unisim.vcomponents.FDSE
     generic map(
@@ -4452,7 +4459,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => \^q\(1),
       Q => sel0(5),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[3]\: unisim.vcomponents.FDSE
     generic map(
@@ -4463,7 +4470,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => sel0(5),
       Q => sel0(4),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[4]\: unisim.vcomponents.FDSE
     generic map(
@@ -4474,7 +4481,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => sel0(4),
       Q => sel0(3),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[5]\: unisim.vcomponents.FDSE
     generic map(
@@ -4485,7 +4492,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => sel0(3),
       Q => sel0(2),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[6]\: unisim.vcomponents.FDSE
     generic map(
@@ -4496,7 +4503,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => sel0(2),
       Q => sel0(1),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[7]\: unisim.vcomponents.FDSE
     generic map(
@@ -4507,7 +4514,7 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => sel0(1),
       Q => sel0(0),
-      S => reset
+      S => \^ss\(0)
     );
 \state_reg[8]\: unisim.vcomponents.FDSE
     generic map(
@@ -4518,20 +4525,20 @@ begin
       CE => keyb_clocks_0_membrane_enable,
       D => sel0(0),
       Q => \state_reg_n_0_[8]\,
-      S => reset
+      S => \^ss\(0)
     );
 util_vector_logic_0_i_21: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AAEAEAEAAAEAAAEA"
+      INIT => X"08880808FFFFFFFF"
     )
         port map (
-      I0 => \matrix_work_ex[4]_i_2_n_0\,
-      I1 => sel0(5),
-      I2 => sel0(3),
-      I3 => sel0(2),
-      I4 => sel0(0),
-      I5 => sel0(1),
-      O => \^state_reg[2]_0\
+      I0 => sel0(5),
+      I1 => sel0(3),
+      I2 => sel0(2),
+      I3 => sel0(0),
+      I4 => sel0(1),
+      I5 => util_vector_logic_0_i_27_n_0,
+      O => \^state_reg[2]_1\
     );
 util_vector_logic_0_i_22: unisim.vcomponents.LUT6
     generic map(
@@ -4544,7 +4551,17 @@ util_vector_logic_0_i_22: unisim.vcomponents.LUT6
       I3 => sel0(1),
       I4 => sel0(4),
       I5 => sel0(3),
-      O => \^state_reg[2]_1\
+      O => \^state_reg[2]_0\
+    );
+util_vector_logic_0_i_27: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"8A"
+    )
+        port map (
+      I0 => \^q\(1),
+      I1 => sel0(4),
+      I2 => sel0(5),
+      O => util_vector_logic_0_i_27_n_0
     );
 util_vector_logic_0_i_8: unisim.vcomponents.LUT4
     generic map(
@@ -4568,7 +4585,7 @@ entity zxnexys_zxkeyboard_0_0_membrane_stick is
     joy_sel_reg_0 : out STD_LOGIC;
     Op1 : out STD_LOGIC_VECTOR ( 6 downto 0 );
     Q : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    reset : in STD_LOGIC;
+    reset_1 : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     dpo : in STD_LOGIC_VECTOR ( 3 downto 0 );
     clk_div_reg : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -4627,16 +4644,16 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_membrane_stick is
   signal state_next : STD_LOGIC;
   signal \^state_reg_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \bit_count[1]_i_1\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \bit_count[2]_i_1__0\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \bit_count[3]_i_3\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \bit_count_max[2]_i_2\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \bit_count_max[2]_i_3\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \bit_count_max[2]_i_4\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of joy_sel_i_1 : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \sram_addr[2]_i_1\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \sram_addr[4]_i_2\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of state_i_2 : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \bit_count[1]_i_1\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \bit_count[2]_i_1__0\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \bit_count[3]_i_3\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \bit_count_max[2]_i_2\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \bit_count_max[2]_i_3\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \bit_count_max[2]_i_4\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of joy_sel_i_1 : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \sram_addr[2]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \sram_addr[4]_i_2\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of state_i_2 : label is "soft_lutpair36";
 begin
   Op1(6 downto 0) <= \^op1\(6 downto 0);
   Q(4 downto 0) <= \^q\(4 downto 0);
@@ -5277,7 +5294,7 @@ state_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => state_next,
       Q => \^state_reg_0\,
-      R => reset
+      R => reset_1
     );
 end STRUCTURE;
 library IEEE;
@@ -5492,113 +5509,113 @@ IXAEoCcy11Cc8OIG8HgZCj2FvcOLzbLDjmu2tQ==
 `protect data_method = "AES128-CBC"
 `protect encoding = (enctype = "BASE64", line_length = 76, bytes = 6048)
 `protect data_block
-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
-y45S3Feo
+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
+MtEBDY1G
 `protect end_protected
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -5609,22 +5626,23 @@ entity zxnexys_zxkeyboard_0_0_Ps2Interface is
     ps2_data_t : out STD_LOGIC;
     ps2_clk_t : out STD_LOGIC;
     read_data_reg_0 : out STD_LOGIC;
+    \rx_data_reg[0]_0\ : out STD_LOGIC;
+    Q : out STD_LOGIC_VECTOR ( 7 downto 0 );
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
     \rx_data_reg[2]_0\ : out STD_LOGIC;
     \rx_data_reg[1]_0\ : out STD_LOGIC;
-    \rx_data_reg[7]_0\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \rx_data_reg[4]_0\ : out STD_LOGIC;
     \rx_data_reg[6]_0\ : out STD_LOGIC;
     \rx_data_reg[6]_1\ : out STD_LOGIC;
-    reset_0 : out STD_LOGIC;
-    \rx_data_reg[0]_0\ : out STD_LOGIC;
+    \rx_data_reg[0]_1\ : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
+    o_divmmc_nmi_n_reg : in STD_LOGIC;
+    \FSM_onehot_state_reg[1]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     ps2_receive_valid_d : in STD_LOGIC;
-    \o_ps2_func_keys_n_reg[0]\ : in STD_LOGIC;
     ps2_keyb_0_o_ps2_send_valid : in STD_LOGIC;
     ps2_current_keycode : in STD_LOGIC_VECTOR ( 0 to 0 );
+    reset_1 : in STD_LOGIC;
     ps2_clk_i : in STD_LOGIC;
     ps2_data_i : in STD_LOGIC
   );
@@ -5645,7 +5663,7 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal \FSM_onehot_state[16]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[16]_i_2_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[17]_i_1_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[17]_i_2_n_0\ : STD_LOGIC;
+  signal \FSM_onehot_state[17]_i_3_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[1]_i_1__1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_1__0_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[2]_i_3_n_0\ : STD_LOGIC;
@@ -5654,7 +5672,6 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal \FSM_onehot_state[5]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[6]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[7]_i_1_n_0\ : STD_LOGIC;
-  signal \FSM_onehot_state[7]_i_2_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[8]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state[9]_i_1_n_0\ : STD_LOGIC;
   signal \FSM_onehot_state_reg_n_0_[0]\ : STD_LOGIC;
@@ -5671,6 +5688,7 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal \FSM_onehot_state_reg_n_0_[7]\ : STD_LOGIC;
   signal \FSM_onehot_state_reg_n_0_[8]\ : STD_LOGIC;
   signal \FSM_onehot_state_reg_n_0_[9]\ : STD_LOGIC;
+  signal \^q\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal SyncAsyncClk_n_0 : STD_LOGIC;
   signal SyncAsyncClk_n_1 : STD_LOGIC;
   signal SyncAsyncClk_n_2 : STD_LOGIC;
@@ -5754,7 +5772,6 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal \frame_reg_n_0_[10]\ : STD_LOGIC;
   signal \frame_reg_n_0_[9]\ : STD_LOGIC;
   signal load_rx_data : STD_LOGIC;
-  signal p_3_in : STD_LOGIC;
   signal plusOp : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal \plusOp__0\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \plusOp__1\ : STD_LOGIC_VECTOR ( 10 downto 0 );
@@ -5762,15 +5779,17 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal ps2_clk_clean : STD_LOGIC;
   signal ps2_clk_clean_i_2_n_0 : STD_LOGIC;
   signal ps2_clk_h : STD_LOGIC;
+  signal ps2_clk_h_i_2_n_0 : STD_LOGIC;
   signal ps2_clk_h_i_3_n_0 : STD_LOGIC;
   signal ps2_clk_h_i_4_n_0 : STD_LOGIC;
   signal ps2_clk_h_i_5_n_0 : STD_LOGIC;
-  signal ps2_clk_h_i_6_n_0 : STD_LOGIC;
   signal ps2_clk_s : STD_LOGIC;
   signal ps2_data : STD_LOGIC;
   signal ps2_data_clean : STD_LOGIC;
   signal ps2_data_h : STD_LOGIC;
   signal ps2_data_h_i_2_n_0 : STD_LOGIC;
+  signal ps2_data_h_i_3_n_0 : STD_LOGIC;
+  signal ps2_data_h_i_4_n_0 : STD_LOGIC;
   signal ps2_data_s : STD_LOGIC;
   signal \ps2_last_keycode[9]_i_3_n_0\ : STD_LOGIC;
   signal ps2_send_valid_i_3_n_0 : STD_LOGIC;
@@ -5781,7 +5800,6 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal \^rx_data_reg[1]_0\ : STD_LOGIC;
   signal \^rx_data_reg[2]_0\ : STD_LOGIC;
   signal \^rx_data_reg[4]_0\ : STD_LOGIC;
-  signal \^rx_data_reg[7]_0\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal rx_parity : STD_LOGIC;
   signal rx_parity_i_1_n_0 : STD_LOGIC;
   signal rx_parity_i_2_n_0 : STD_LOGIC;
@@ -5790,20 +5808,19 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   signal \NLW_delay_100us_count_reg[12]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 1 );
   signal \NLW_delay_100us_count_reg[12]_i_1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_onehot_state[10]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[11]_i_3\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[16]_i_2\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[17]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[17]_i_2\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[10]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[11]_i_3\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[16]_i_2\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[17]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[17]_i_3\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \FSM_onehot_state[2]_i_2\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[3]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[4]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[5]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[6]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[7]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[7]_i_2\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[8]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \FSM_onehot_state[9]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[3]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[4]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[5]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[6]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[7]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[8]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \FSM_onehot_state[9]_i_1\ : label is "soft_lutpair17";
   attribute FSM_ENCODED_STATES : string;
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[0]\ : label is "tx_wait_up_edge_before_ack:000000000010000000,tx_clk_h:100000000000000000,tx_wait_up_edge:000000000001000000,rx_clk_l:000010000000000000,rx_clk_h:000100000000000000,tx_error_no_ack:000000010000000000,tx_received_ack:000000001000000000,reset_state:000000000000000001,tx_clk_l:000000000000100000,idle:000000100000000000,tx_first_wait_down_edge:000000000000010000,tx_force_clk_l:000000000000000010,rx_data_ready:010000000000000000,tx_release_clk:000000000000001000,tx_bring_data_down:000000000000000100,rx_error_parity:001000000000000000,rx_down_edge:000001000000000000,tx_wait_ack:000000000100000000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[10]\ : label is "tx_wait_up_edge_before_ack:000000000010000000,tx_clk_h:100000000000000000,tx_wait_up_edge:000000000001000000,rx_clk_l:000010000000000000,rx_clk_h:000100000000000000,tx_error_no_ack:000000010000000000,tx_received_ack:000000001000000000,reset_state:000000000000000001,tx_clk_l:000000000000100000,idle:000000100000000000,tx_first_wait_down_edge:000000000000010000,tx_force_clk_l:000000000000000010,rx_data_ready:010000000000000000,tx_release_clk:000000000000001000,tx_bring_data_down:000000000000000100,rx_error_parity:001000000000000000,rx_down_edge:000001000000000000,tx_wait_ack:000000000100000000";
@@ -5823,20 +5840,20 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[7]\ : label is "tx_wait_up_edge_before_ack:000000000010000000,tx_clk_h:100000000000000000,tx_wait_up_edge:000000000001000000,rx_clk_l:000010000000000000,rx_clk_h:000100000000000000,tx_error_no_ack:000000010000000000,tx_received_ack:000000001000000000,reset_state:000000000000000001,tx_clk_l:000000000000100000,idle:000000100000000000,tx_first_wait_down_edge:000000000000010000,tx_force_clk_l:000000000000000010,rx_data_ready:010000000000000000,tx_release_clk:000000000000001000,tx_bring_data_down:000000000000000100,rx_error_parity:001000000000000000,rx_down_edge:000001000000000000,tx_wait_ack:000000000100000000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[8]\ : label is "tx_wait_up_edge_before_ack:000000000010000000,tx_clk_h:100000000000000000,tx_wait_up_edge:000000000001000000,rx_clk_l:000010000000000000,rx_clk_h:000100000000000000,tx_error_no_ack:000000010000000000,tx_received_ack:000000001000000000,reset_state:000000000000000001,tx_clk_l:000000000000100000,idle:000000100000000000,tx_first_wait_down_edge:000000000000010000,tx_force_clk_l:000000000000000010,rx_data_ready:010000000000000000,tx_release_clk:000000000000001000,tx_bring_data_down:000000000000000100,rx_error_parity:001000000000000000,rx_down_edge:000001000000000000,tx_wait_ack:000000000100000000";
   attribute FSM_ENCODED_STATES of \FSM_onehot_state_reg[9]\ : label is "tx_wait_up_edge_before_ack:000000000010000000,tx_clk_h:100000000000000000,tx_wait_up_edge:000000000001000000,rx_clk_l:000010000000000000,rx_clk_h:000100000000000000,tx_error_no_ack:000000010000000000,tx_received_ack:000000001000000000,reset_state:000000000000000001,tx_clk_l:000000000000100000,idle:000000100000000000,tx_first_wait_down_edge:000000000000010000,tx_force_clk_l:000000000000000010,rx_data_ready:010000000000000000,tx_release_clk:000000000000001000,tx_bring_data_down:000000000000000100,rx_error_parity:001000000000000000,rx_down_edge:000001000000000000,tx_wait_ack:000000000100000000";
-  attribute SOFT_HLUTNM of \bit_count[1]_i_1__0\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \bit_count[2]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \bit_count[3]_i_2\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \clk_count[1]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \clk_count[2]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \bit_count[1]_i_1__0\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \bit_count[2]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \bit_count[3]_i_2\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \clk_count[1]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \clk_count[2]_i_1\ : label is "soft_lutpair22";
   attribute SOFT_HLUTNM of \clk_count[3]_i_1\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \clk_count[4]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \clk_count[6]_i_3\ : label is "soft_lutpair11";
   attribute SOFT_HLUTNM of \clk_count[6]_i_4\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \clk_count[6]_i_5\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \data_count[0]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \data_count[0]_i_1\ : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of \data_count[1]_i_3\ : label is "soft_lutpair10";
   attribute SOFT_HLUTNM of \data_count[2]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \data_count[3]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \data_count[3]_i_1\ : label is "soft_lutpair14";
   attribute SOFT_HLUTNM of \data_count[4]_i_1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \data_count[6]_i_3\ : label is "soft_lutpair2";
   attribute ADDER_THRESHOLD : integer;
@@ -5844,32 +5861,35 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_Ps2Interface is
   attribute ADDER_THRESHOLD of \delay_100us_count_reg[12]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \delay_100us_count_reg[4]_i_1\ : label is 11;
   attribute ADDER_THRESHOLD of \delay_100us_count_reg[8]_i_1\ : label is 11;
-  attribute SOFT_HLUTNM of \delay_20us_count[0]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of delay_100us_done_i_1 : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \delay_20us_count[0]_i_1\ : label is "soft_lutpair25";
   attribute SOFT_HLUTNM of \delay_20us_count[10]_i_4\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \delay_20us_count[1]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \delay_20us_count[1]_i_1\ : label is "soft_lutpair25";
   attribute SOFT_HLUTNM of \delay_20us_count[2]_i_1\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \delay_20us_count[3]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \delay_20us_count[4]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \delay_20us_count[6]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \delay_20us_count[7]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of \delay_20us_count[6]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \delay_20us_count[7]_i_1\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \delay_20us_count[8]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \delay_20us_count[9]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \delay_63clk_count[1]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \delay_63clk_count[2]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \delay_63clk_count[1]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \delay_63clk_count[2]_i_1\ : label is "soft_lutpair23";
   attribute SOFT_HLUTNM of \delay_63clk_count[3]_i_1\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \delay_63clk_count[4]_i_1\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \delay_63clk_count[6]_i_4\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \delay_63clk_count[6]_i_5\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of ps2_clk_clean_i_2 : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of ps2_clk_h_i_5 : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of ps2_clk_h_i_5 : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of ps2_data_h_i_2 : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of ps2_data_h_i_3 : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of ps2_data_h_i_4 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of ps2_key_release_i_2 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of reset_flag_i_1 : label is "soft_lutpair17";
 begin
+  Q(7 downto 0) <= \^q\(7 downto 0);
   read_data_reg_0 <= \^read_data_reg_0\;
   \rx_data_reg[1]_0\ <= \^rx_data_reg[1]_0\;
   \rx_data_reg[2]_0\ <= \^rx_data_reg[2]_0\;
   \rx_data_reg[4]_0\ <= \^rx_data_reg[4]_0\;
-  \rx_data_reg[7]_0\(7 downto 0) <= \^rx_data_reg[7]_0\(7 downto 0);
 \FSM_onehot_state[10]_i_1\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"0ECC"
@@ -5954,28 +5974,28 @@ begin
     );
 \FSM_onehot_state[15]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000600000000000"
+      INIT => X"0000080008000000"
     )
         port map (
-      I0 => \frame_reg_n_0_[9]\,
-      I1 => rx_parity,
-      I2 => \FSM_onehot_state[16]_i_2_n_0\,
-      I3 => bit_count_reg(3),
-      I4 => bit_count_reg(2),
-      I5 => \FSM_onehot_state_reg_n_0_[14]\,
+      I0 => \FSM_onehot_state[16]_i_2_n_0\,
+      I1 => bit_count_reg(3),
+      I2 => bit_count_reg(2),
+      I3 => \FSM_onehot_state_reg_n_0_[14]\,
+      I4 => \frame_reg_n_0_[9]\,
+      I5 => rx_parity,
       O => \FSM_onehot_state[15]_i_1_n_0\
     );
 \FSM_onehot_state[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000900000000000"
+      INIT => X"0800000000000800"
     )
         port map (
-      I0 => \frame_reg_n_0_[9]\,
-      I1 => rx_parity,
-      I2 => \FSM_onehot_state[16]_i_2_n_0\,
-      I3 => bit_count_reg(3),
-      I4 => bit_count_reg(2),
-      I5 => \FSM_onehot_state_reg_n_0_[14]\,
+      I0 => \FSM_onehot_state[16]_i_2_n_0\,
+      I1 => bit_count_reg(3),
+      I2 => bit_count_reg(2),
+      I3 => \FSM_onehot_state_reg_n_0_[14]\,
+      I4 => \frame_reg_n_0_[9]\,
+      I5 => rx_parity,
       O => \FSM_onehot_state[16]_i_1_n_0\
     );
 \FSM_onehot_state[16]_i_2\: unisim.vcomponents.LUT2
@@ -5993,11 +6013,11 @@ begin
     )
         port map (
       I0 => ps2_clk_s,
-      I1 => \FSM_onehot_state[17]_i_2_n_0\,
+      I1 => \FSM_onehot_state[17]_i_3_n_0\,
       I2 => \FSM_onehot_state_reg_n_0_[17]\,
       O => \FSM_onehot_state[17]_i_1_n_0\
     );
-\FSM_onehot_state[17]_i_2\: unisim.vcomponents.LUT5
+\FSM_onehot_state[17]_i_3\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"AA8AAAAA"
     )
@@ -6007,7 +6027,7 @@ begin
       I2 => bit_count_reg(1),
       I3 => bit_count_reg(2),
       I4 => bit_count_reg(3),
-      O => \FSM_onehot_state[17]_i_2_n_0\
+      O => \FSM_onehot_state[17]_i_3_n_0\
     );
 \FSM_onehot_state[1]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -6015,7 +6035,7 @@ begin
     )
         port map (
       I0 => \^rx_data_reg[2]_0\,
-      I1 => Q(0),
+      I1 => \FSM_onehot_state_reg[1]_0\(0),
       I2 => \^rx_data_reg[1]_0\,
       O => D(0)
     );
@@ -6038,8 +6058,8 @@ begin
     )
         port map (
       I0 => \ps2_last_keycode[9]_i_3_n_0\,
-      I1 => \^rx_data_reg[7]_0\(2),
-      I2 => \^rx_data_reg[7]_0\(0),
+      I1 => \^q\(2),
+      I2 => \^q\(0),
       I3 => \^rx_data_reg[4]_0\,
       I4 => \^read_data_reg_0\,
       I5 => ps2_receive_valid_d,
@@ -6063,10 +6083,10 @@ begin
     )
         port map (
       I0 => \FSM_onehot_state[2]_i_3_n_0\,
-      I1 => \^rx_data_reg[7]_0\(1),
-      I2 => \^rx_data_reg[7]_0\(3),
-      I3 => \^rx_data_reg[7]_0\(4),
-      I4 => \^rx_data_reg[7]_0\(6),
+      I1 => \^q\(1),
+      I2 => \^q\(3),
+      I3 => \^q\(4),
+      I4 => \^q\(6),
       O => \^rx_data_reg[1]_0\
     );
 \FSM_onehot_state[2]_i_3\: unisim.vcomponents.LUT4
@@ -6074,10 +6094,10 @@ begin
       INIT => X"FFF7"
     )
         port map (
-      I0 => \^rx_data_reg[7]_0\(7),
-      I1 => \^rx_data_reg[7]_0\(5),
-      I2 => \^rx_data_reg[7]_0\(0),
-      I3 => \^rx_data_reg[7]_0\(2),
+      I0 => \^q\(7),
+      I1 => \^q\(5),
+      I2 => \^q\(0),
+      I3 => \^q\(2),
       O => \FSM_onehot_state[2]_i_3_n_0\
     );
 \FSM_onehot_state[3]_i_1\: unisim.vcomponents.LUT4
@@ -6120,7 +6140,7 @@ begin
         port map (
       I0 => \FSM_onehot_state_reg_n_0_[5]\,
       I1 => ps2_clk_s,
-      I2 => \FSM_onehot_state[17]_i_2_n_0\,
+      I2 => \FSM_onehot_state[17]_i_3_n_0\,
       O => \FSM_onehot_state[6]_i_1_n_0\
     );
 \FSM_onehot_state[7]_i_1\: unisim.vcomponents.LUT3
@@ -6128,22 +6148,10 @@ begin
       INIT => X"BA"
     )
         port map (
-      I0 => \FSM_onehot_state[7]_i_2_n_0\,
+      I0 => ps2_data_h_i_4_n_0,
       I1 => ps2_clk_s,
       I2 => \FSM_onehot_state_reg_n_0_[7]\,
       O => \FSM_onehot_state[7]_i_1_n_0\
-    );
-\FSM_onehot_state[7]_i_2\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"04000000"
-    )
-        port map (
-      I0 => bit_count_reg(0),
-      I1 => bit_count_reg(1),
-      I2 => bit_count_reg(2),
-      I3 => bit_count_reg(3),
-      I4 => \FSM_onehot_state_reg_n_0_[6]\,
-      O => \FSM_onehot_state[7]_i_2_n_0\
     );
 \FSM_onehot_state[8]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -6174,7 +6182,7 @@ begin
       C => clk_peripheral,
       CE => '1',
       D => '0',
-      PRE => reset,
+      PRE => reset_1,
       Q => \FSM_onehot_state_reg_n_0_[0]\
     );
 \FSM_onehot_state_reg[10]\: unisim.vcomponents.FDCE
@@ -6184,7 +6192,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[10]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[10]\
     );
@@ -6195,7 +6203,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[11]_i_1_n_0\,
       Q => reset_bit_count
     );
@@ -6206,7 +6214,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[12]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[12]\
     );
@@ -6217,7 +6225,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[13]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[13]\
     );
@@ -6228,7 +6236,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[14]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[14]\
     );
@@ -6239,7 +6247,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[15]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[15]\
     );
@@ -6250,7 +6258,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[16]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[16]\
     );
@@ -6261,7 +6269,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[17]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[17]\
     );
@@ -6272,7 +6280,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[1]_i_1__1_n_0\,
       Q => delay_100us_counter_enable
     );
@@ -6283,7 +6291,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[2]_i_1__0_n_0\,
       Q => delay_20us_counter_enable
     );
@@ -6294,7 +6302,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[3]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[3]\
     );
@@ -6305,7 +6313,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[4]_i_1_n_0\,
       Q => delay_63clk_counter_enable
     );
@@ -6316,7 +6324,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[5]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[5]\
     );
@@ -6327,7 +6335,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[6]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[6]\
     );
@@ -6338,7 +6346,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[7]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[7]\
     );
@@ -6349,7 +6357,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[8]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[8]\
     );
@@ -6360,7 +6368,7 @@ begin
         port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => reset,
+      CLR => reset_1,
       D => \FSM_onehot_state[9]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[9]\
     );
@@ -7788,7 +7796,7 @@ load_rx_data_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk_peripheral,
-      CE => p_3_in,
+      CE => resetn,
       D => \FSM_onehot_state[16]_i_1_n_0\,
       Q => load_rx_data,
       R => '0'
@@ -7798,12 +7806,12 @@ o_mf_nmi_n_i_3: unisim.vcomponents.LUT6
       INIT => X"FFFFFFFEFFFFFFFF"
     )
         port map (
-      I0 => \^rx_data_reg[7]_0\(6),
-      I1 => \^rx_data_reg[7]_0\(4),
-      I2 => \^rx_data_reg[7]_0\(5),
-      I3 => \^rx_data_reg[7]_0\(7),
-      I4 => \^rx_data_reg[7]_0\(2),
-      I5 => \^rx_data_reg[7]_0\(0),
+      I0 => \^q\(6),
+      I1 => \^q\(4),
+      I2 => \^q\(5),
+      I3 => \^q\(7),
+      I4 => \^q\(2),
+      I5 => \^q\(0),
       O => \rx_data_reg[6]_1\
     );
 ps2_clk_clean_i_2: unisim.vcomponents.LUT4
@@ -7828,28 +7836,19 @@ ps2_clk_clean_reg: unisim.vcomponents.FDRE
       Q => ps2_clk_clean,
       R => '0'
     );
-ps2_clk_h_i_1: unisim.vcomponents.LUT1
+ps2_clk_h_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"1"
+      INIT => X"FEEEEEEE"
     )
         port map (
-      I0 => reset,
-      O => p_3_in
-    );
-ps2_clk_h_i_2: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
-    )
-        port map (
-      I0 => ps2_clk_h_i_3_n_0,
-      I1 => ps2_clk_h_i_4_n_0,
-      I2 => \FSM_onehot_state_reg_n_0_[3]\,
-      I3 => delay_63clk_counter_enable,
-      I4 => ps2_clk_h_i_5_n_0,
-      I5 => \FSM_onehot_state_reg_n_0_[6]\,
+      I0 => ps2_clk_h_i_2_n_0,
+      I1 => ps2_clk_h_i_3_n_0,
+      I2 => reset_flag_reg_n_0,
+      I3 => delay_100us_counter_enable,
+      I4 => delay_100us_done,
       O => ps2_clk_h
     );
-ps2_clk_h_i_3: unisim.vcomponents.LUT5
+ps2_clk_h_i_2: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFE"
     )
@@ -7858,32 +7857,22 @@ ps2_clk_h_i_3: unisim.vcomponents.LUT5
       I1 => \FSM_onehot_state_reg_n_0_[8]\,
       I2 => \FSM_onehot_state_reg_n_0_[15]\,
       I3 => \FSM_onehot_state_reg_n_0_[16]\,
-      I4 => ps2_clk_h_i_6_n_0,
+      I4 => ps2_clk_h_i_4_n_0,
+      O => ps2_clk_h_i_2_n_0
+    );
+ps2_clk_h_i_3: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[13]\,
+      I1 => \FSM_onehot_state_reg_n_0_[6]\,
+      I2 => delay_63clk_counter_enable,
+      I3 => \FSM_onehot_state_reg_n_0_[3]\,
+      I4 => ps2_clk_h_i_5_n_0,
       O => ps2_clk_h_i_3_n_0
     );
-ps2_clk_h_i_4: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFEFEFEFEFEFEFE"
-    )
-        port map (
-      I0 => \FSM_onehot_state_reg_n_0_[5]\,
-      I1 => \FSM_onehot_state_reg_n_0_[17]\,
-      I2 => \FSM_onehot_state_reg_n_0_[13]\,
-      I3 => delay_100us_done,
-      I4 => delay_100us_counter_enable,
-      I5 => reset_flag_reg_n_0,
-      O => ps2_clk_h_i_4_n_0
-    );
-ps2_clk_h_i_5: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => \FSM_onehot_state_reg_n_0_[0]\,
-      I1 => \FSM_onehot_state_reg_n_0_[14]\,
-      O => ps2_clk_h_i_5_n_0
-    );
-ps2_clk_h_i_6: unisim.vcomponents.LUT4
+ps2_clk_h_i_4: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFFE"
     )
@@ -7892,7 +7881,18 @@ ps2_clk_h_i_6: unisim.vcomponents.LUT4
       I1 => \FSM_onehot_state_reg_n_0_[9]\,
       I2 => reset_bit_count,
       I3 => \FSM_onehot_state_reg_n_0_[12]\,
-      O => ps2_clk_h_i_6_n_0
+      O => ps2_clk_h_i_4_n_0
+    );
+ps2_clk_h_i_5: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[17]\,
+      I1 => \FSM_onehot_state_reg_n_0_[5]\,
+      I2 => \FSM_onehot_state_reg_n_0_[14]\,
+      I3 => \FSM_onehot_state_reg_n_0_[0]\,
+      O => ps2_clk_h_i_5_n_0
     );
 ps2_clk_h_reg: unisim.vcomponents.FDRE
     generic map(
@@ -7900,7 +7900,7 @@ ps2_clk_h_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk_peripheral,
-      CE => p_3_in,
+      CE => resetn,
       D => ps2_clk_h,
       Q => ps2_clk_t,
       R => '0'
@@ -7929,29 +7929,48 @@ ps2_data_clean_reg: unisim.vcomponents.FDRE
     );
 ps2_data_h_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFE0000"
+      INIT => X"FFFFFFFFFFFFEEEA"
     )
         port map (
-      I0 => \FSM_onehot_state_reg_n_0_[6]\,
-      I1 => \FSM_onehot_state_reg_n_0_[5]\,
-      I2 => \FSM_onehot_state_reg_n_0_[17]\,
-      I3 => \FSM_onehot_state_reg_n_0_[13]\,
-      I4 => \frame_reg_n_0_[0]\,
-      I5 => ps2_data_h_i_2_n_0,
+      I0 => ps2_data_h_i_2_n_0,
+      I1 => \frame_reg_n_0_[0]\,
+      I2 => ps2_data_h_i_3_n_0,
+      I3 => \FSM_onehot_state_reg_n_0_[6]\,
+      I4 => ps2_clk_h_i_2_n_0,
+      I5 => ps2_data_h_i_4_n_0,
       O => ps2_data_h
     );
-ps2_data_h_i_2: unisim.vcomponents.LUT6
+ps2_data_h_i_2: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => \FSM_onehot_state[7]_i_2_n_0\,
-      I1 => \FSM_onehot_state_reg_n_0_[14]\,
-      I2 => \FSM_onehot_state_reg_n_0_[0]\,
-      I3 => \FSM_onehot_state_reg_n_0_[13]\,
-      I4 => delay_100us_counter_enable,
-      I5 => ps2_clk_h_i_3_n_0,
+      I0 => \FSM_onehot_state_reg_n_0_[14]\,
+      I1 => \FSM_onehot_state_reg_n_0_[0]\,
+      I2 => \FSM_onehot_state_reg_n_0_[13]\,
+      I3 => delay_100us_counter_enable,
       O => ps2_data_h_i_2_n_0
+    );
+ps2_data_h_i_3: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => \FSM_onehot_state_reg_n_0_[5]\,
+      I1 => \FSM_onehot_state_reg_n_0_[17]\,
+      O => ps2_data_h_i_3_n_0
+    );
+ps2_data_h_i_4: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"04000000"
+    )
+        port map (
+      I0 => bit_count_reg(0),
+      I1 => bit_count_reg(1),
+      I2 => bit_count_reg(2),
+      I3 => bit_count_reg(3),
+      I4 => \FSM_onehot_state_reg_n_0_[6]\,
+      O => ps2_data_h_i_4_n_0
     );
 ps2_data_h_reg: unisim.vcomponents.FDRE
     generic map(
@@ -7959,7 +7978,7 @@ ps2_data_h_reg: unisim.vcomponents.FDRE
     )
         port map (
       C => clk_peripheral,
-      CE => p_3_in,
+      CE => resetn,
       D => ps2_data_h,
       Q => ps2_data_t,
       R => '0'
@@ -7980,13 +7999,13 @@ ps2_key_extend_i_2: unisim.vcomponents.LUT6
       INIT => X"FFFFFFFF00000100"
     )
         port map (
-      I0 => \^rx_data_reg[7]_0\(0),
-      I1 => \^rx_data_reg[7]_0\(2),
+      I0 => \^q\(0),
+      I1 => \^q\(2),
       I2 => \ps2_last_keycode[9]_i_3_n_0\,
       I3 => \^read_data_reg_0\,
       I4 => ps2_receive_valid_d,
       I5 => ps2_current_keycode(0),
-      O => \rx_data_reg[0]_0\
+      O => \rx_data_reg[0]_1\
     );
 ps2_key_release_i_2: unisim.vcomponents.LUT5
     generic map(
@@ -7994,35 +8013,35 @@ ps2_key_release_i_2: unisim.vcomponents.LUT5
     )
         port map (
       I0 => \FSM_onehot_state[2]_i_3_n_0\,
-      I1 => \^rx_data_reg[7]_0\(4),
-      I2 => \^rx_data_reg[7]_0\(6),
-      I3 => \^rx_data_reg[7]_0\(1),
-      I4 => \^rx_data_reg[7]_0\(3),
+      I1 => \^q\(4),
+      I2 => \^q\(6),
+      I3 => \^q\(1),
+      I4 => \^q\(3),
       O => \^rx_data_reg[4]_0\
     );
 \ps2_last_keycode[9]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"AAAABAAA"
+      INIT => X"0040FFFF"
     )
         port map (
-      I0 => reset,
-      I1 => \ps2_last_keycode[9]_i_3_n_0\,
-      I2 => \o_ps2_func_keys_n_reg[0]\,
-      I3 => \^rx_data_reg[7]_0\(0),
-      I4 => \^rx_data_reg[7]_0\(2),
-      O => reset_0
+      I0 => \ps2_last_keycode[9]_i_3_n_0\,
+      I1 => o_divmmc_nmi_n_reg,
+      I2 => \^q\(0),
+      I3 => \^q\(2),
+      I4 => resetn,
+      O => \rx_data_reg[0]_0\
     );
 \ps2_last_keycode[9]_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FEFFFFFFFFFFFFFF"
     )
         port map (
-      I0 => \^rx_data_reg[7]_0\(3),
-      I1 => \^rx_data_reg[7]_0\(1),
-      I2 => \^rx_data_reg[7]_0\(4),
-      I3 => \^rx_data_reg[7]_0\(6),
-      I4 => \^rx_data_reg[7]_0\(5),
-      I5 => \^rx_data_reg[7]_0\(7),
+      I0 => \^q\(3),
+      I1 => \^q\(1),
+      I2 => \^q\(4),
+      I3 => \^q\(6),
+      I4 => \^q\(5),
+      I5 => \^q\(7),
       O => \ps2_last_keycode[9]_i_3_n_0\
     );
 ps2_send_valid_i_2: unisim.vcomponents.LUT6
@@ -8030,10 +8049,10 @@ ps2_send_valid_i_2: unisim.vcomponents.LUT6
       INIT => X"0000100000000000"
     )
         port map (
-      I0 => \^rx_data_reg[7]_0\(6),
-      I1 => \^rx_data_reg[7]_0\(4),
-      I2 => \^rx_data_reg[7]_0\(3),
-      I3 => \^rx_data_reg[7]_0\(1),
+      I0 => \^q\(6),
+      I1 => \^q\(4),
+      I2 => \^q\(3),
+      I3 => \^q\(1),
       I4 => \FSM_onehot_state[2]_i_3_n_0\,
       I5 => ps2_send_valid_i_3_n_0,
       O => \rx_data_reg[6]_0\
@@ -8050,17 +8069,17 @@ ps2_send_valid_i_3: unisim.vcomponents.LUT2
 read_data_reg: unisim.vcomponents.FDRE
      port map (
       C => clk_peripheral,
-      CE => p_3_in,
+      CE => resetn,
       D => \FSM_onehot_state_reg_n_0_[16]\,
       Q => \^read_data_reg_0\,
       R => '0'
     );
 reset_flag_i_1: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"EF44"
+      INIT => X"DF88"
     )
         port map (
-      I0 => reset,
+      I0 => resetn,
       I1 => \FSM_onehot_state_reg_n_0_[0]\,
       I2 => reset_bit_count,
       I3 => reset_flag_reg_n_0,
@@ -8082,7 +8101,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(0),
-      Q => \^rx_data_reg[7]_0\(0),
+      Q => \^q\(0),
       R => '0'
     );
 \rx_data_reg[1]\: unisim.vcomponents.FDRE
@@ -8090,7 +8109,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(1),
-      Q => \^rx_data_reg[7]_0\(1),
+      Q => \^q\(1),
       R => '0'
     );
 \rx_data_reg[2]\: unisim.vcomponents.FDRE
@@ -8098,7 +8117,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(2),
-      Q => \^rx_data_reg[7]_0\(2),
+      Q => \^q\(2),
       R => '0'
     );
 \rx_data_reg[3]\: unisim.vcomponents.FDRE
@@ -8106,7 +8125,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(3),
-      Q => \^rx_data_reg[7]_0\(3),
+      Q => \^q\(3),
       R => '0'
     );
 \rx_data_reg[4]\: unisim.vcomponents.FDRE
@@ -8114,7 +8133,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(4),
-      Q => \^rx_data_reg[7]_0\(4),
+      Q => \^q\(4),
       R => '0'
     );
 \rx_data_reg[5]\: unisim.vcomponents.FDRE
@@ -8122,7 +8141,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(5),
-      Q => \^rx_data_reg[7]_0\(5),
+      Q => \^q\(5),
       R => '0'
     );
 \rx_data_reg[6]\: unisim.vcomponents.FDRE
@@ -8130,7 +8149,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(6),
-      Q => \^rx_data_reg[7]_0\(6),
+      Q => \^q\(6),
       R => '0'
     );
 \rx_data_reg[7]\: unisim.vcomponents.FDRE
@@ -8138,7 +8157,7 @@ reset_flag_reg: unisim.vcomponents.FDRE
       C => clk_peripheral,
       CE => load_rx_data,
       D => CONV_INTEGER(7),
-      Q => \^rx_data_reg[7]_0\(7),
+      Q => \^q\(7),
       R => '0'
     );
 rx_parity_i_1: unisim.vcomponents.LUT4
@@ -8196,13 +8215,13 @@ entity zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0 is
     emu_fnkeys_0_o_fnkeys : out STD_LOGIC_VECTOR ( 1 downto 0 );
     Q : out STD_LOGIC_VECTOR ( 0 to 0 );
     timer_count : out STD_LOGIC;
-    row_2_sp_1 : out STD_LOGIC;
     \FSM_onehot_state_reg[0]\ : out STD_LOGIC;
-    row_3_sp_1 : out STD_LOGIC;
     \row[7]\ : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    \row[3]\ : out STD_LOGIC;
+    reset_1 : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    row : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    resetn : in STD_LOGIC;
+    row : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \timer_count_reg[0]\ : in STD_LOGIC;
     \timer_count_reg[0]_0\ : in STD_LOGIC
   );
@@ -8211,22 +8230,18 @@ entity zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0 is
 end zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0;
 
 architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0 is
-  signal row_2_sn_1 : STD_LOGIC;
-  signal row_3_sn_1 : STD_LOGIC;
 begin
-  row_2_sp_1 <= row_2_sn_1;
-  row_3_sp_1 <= row_3_sn_1;
 inst: entity work.zxnexys_zxkeyboard_0_0_emu_fnkeys
      port map (
       \FSM_onehot_state_reg[0]_0\ => \FSM_onehot_state_reg[0]\,
       Q(0) => Q(0),
       clk_peripheral => clk_peripheral,
       emu_fnkeys_0_o_fnkeys(1 downto 0) => emu_fnkeys_0_o_fnkeys(1 downto 0),
-      reset => reset,
-      row(3 downto 0) => row(3 downto 0),
+      reset_1 => reset_1,
+      resetn => resetn,
+      row(2 downto 0) => row(2 downto 0),
+      \row[3]\ => \row[3]\,
       \row[7]\ => \row[7]\,
-      row_2_sp_1 => row_2_sn_1,
-      row_3_sp_1 => row_3_sn_1,
       \timer_count_reg[0]_0\ => timer_count,
       \timer_count_reg[0]_1\ => \timer_count_reg[0]\,
       \timer_count_reg[0]_2\ => \timer_count_reg[0]_0\
@@ -8241,18 +8256,20 @@ entity zxnexys_zxkeyboard_0_0_keyboard_keyb_clocks_0_0 is
     S : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clk_div_reg : out STD_LOGIC_VECTOR ( 0 to 0 );
     \clk_div_reg[8]\ : out STD_LOGIC;
+    \clk_div_reg[6]\ : out STD_LOGIC;
     \clk_div_reg[10]\ : out STD_LOGIC;
-    \clk_div_reg[4]\ : out STD_LOGIC;
     \state_reg[0]\ : out STD_LOGIC;
     E : out STD_LOGIC_VECTOR ( 0 to 0 );
     membrane_col0 : out STD_LOGIC;
+    \clk_div_reg[8]_0\ : out STD_LOGIC;
     keyb_clocks_0_membrane_enable : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    \matrix_work_ex_reg[9]\ : in STD_LOGIC;
+    reset_1 : in STD_LOGIC;
+    \matrix_work_ex_reg[3]\ : in STD_LOGIC;
     joy_clk_en : in STD_LOGIC;
     timer_count : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
     cancel : in STD_LOGIC;
     state : in STD_LOGIC;
     joy_io_mode_en : in STD_LOGIC
@@ -8270,16 +8287,18 @@ inst: entity work.zxnexys_zxkeyboard_0_0_keyb_clocks
       S(1 downto 0) => S(1 downto 0),
       cancel => cancel,
       \clk_div_reg[10]_0\ => \clk_div_reg[10]\,
-      \clk_div_reg[4]_0\ => \clk_div_reg[4]\,
+      \clk_div_reg[6]_0\ => \clk_div_reg[6]\,
       \clk_div_reg[8]_0\(0) => clk_div_reg(0),
       \clk_div_reg[8]_1\ => \clk_div_reg[8]\,
+      \clk_div_reg[8]_2\ => \clk_div_reg[8]_0\,
       clk_peripheral => clk_peripheral,
       joy_clk_en => joy_clk_en,
       joy_io_mode_en => joy_io_mode_en,
       keyb_clocks_0_membrane_enable => keyb_clocks_0_membrane_enable,
-      \matrix_work_ex_reg[9]\ => \matrix_work_ex_reg[9]\,
+      \matrix_work_ex_reg[3]\ => \matrix_work_ex_reg[3]\,
       membrane_col0 => membrane_col0,
-      reset => reset,
+      reset_1 => reset_1,
+      resetn => resetn,
       state => state,
       \state_reg[0]\ => \state_reg[0]\,
       timer_count => timer_count
@@ -8291,28 +8310,31 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0 is
   port (
-    \state_reg[4]\ : out STD_LOGIC;
-    \state_reg[2]\ : out STD_LOGIC;
-    \state_reg[2]_0\ : out STD_LOGIC;
     Q : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    \state_reg[2]\ : out STD_LOGIC;
+    \state_reg[4]\ : out STD_LOGIC;
+    \state_reg[2]_0\ : out STD_LOGIC;
     column : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    reset_1 : out STD_LOGIC;
     state_reg : out STD_LOGIC;
     extended_keys : out STD_LOGIC_VECTOR ( 15 downto 0 );
     keyb_clocks_0_membrane_enable : in STD_LOGIC;
-    \column[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
-    reset : in STD_LOGIC;
+    \column[4]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
+    clk_div_reg : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    joy_clk_en : in STD_LOGIC;
     cancel : in STD_LOGIC;
     state : in STD_LOGIC;
     dpo : in STD_LOGIC_VECTOR ( 1 downto 0 );
     row : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    column_1_sp_1 : in STD_LOGIC;
-    \column[1]_0\ : in STD_LOGIC;
-    column_4_sp_1 : in STD_LOGIC;
-    \column[4]_0\ : in STD_LOGIC;
+    column_3_sp_1 : in STD_LOGIC;
+    column_0_sp_1 : in STD_LOGIC;
+    \column[3]_0\ : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     Res : in STD_LOGIC_VECTOR ( 6 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     \matrix_work_ex_reg[9]\ : in STD_LOGIC;
+    \matrix_work_ex_reg[3]\ : in STD_LOGIC;
     \matrix_work_ex_reg[0]\ : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -8320,30 +8342,33 @@ entity zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0 is
 end zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0;
 
 architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0 is
-  signal column_1_sn_1 : STD_LOGIC;
-  signal column_4_sn_1 : STD_LOGIC;
+  signal column_0_sn_1 : STD_LOGIC;
+  signal column_3_sn_1 : STD_LOGIC;
 begin
-  column_1_sn_1 <= column_1_sp_1;
-  column_4_sn_1 <= column_4_sp_1;
+  column_0_sn_1 <= column_0_sp_1;
+  column_3_sn_1 <= column_3_sp_1;
 inst: entity work.zxnexys_zxkeyboard_0_0_membrane
      port map (
       E(0) => E(0),
       Q(1 downto 0) => Q(1 downto 0),
       Res(6 downto 0) => Res(6 downto 0),
+      SS(0) => reset_1,
       cancel => cancel,
+      clk_div_reg(1 downto 0) => clk_div_reg(1 downto 0),
       clk_peripheral => clk_peripheral,
       column(4 downto 0) => column(4 downto 0),
-      \column[0]\(0) => \column[0]\(0),
-      \column[1]_0\ => \column[1]_0\,
-      \column[4]_0\ => \column[4]_0\,
-      column_1_sp_1 => column_1_sn_1,
-      column_4_sp_1 => column_4_sn_1,
+      \column[3]_0\ => \column[3]_0\,
+      \column[4]\(0) => \column[4]\(0),
+      column_0_sp_1 => column_0_sn_1,
+      column_3_sp_1 => column_3_sn_1,
       dpo(1 downto 0) => dpo(1 downto 0),
       extended_keys(15 downto 0) => extended_keys(15 downto 0),
+      joy_clk_en => joy_clk_en,
       keyb_clocks_0_membrane_enable => keyb_clocks_0_membrane_enable,
       \matrix_work_ex_reg[0]_0\ => \matrix_work_ex_reg[0]\,
+      \matrix_work_ex_reg[3]_0\ => \matrix_work_ex_reg[3]\,
       \matrix_work_ex_reg[9]_0\ => \matrix_work_ex_reg[9]\,
-      reset => reset,
+      resetn => resetn,
       row(7 downto 0) => row(7 downto 0),
       state => state,
       state_reg => state_reg,
@@ -8361,7 +8386,7 @@ entity zxnexys_zxkeyboard_0_0_keyboard_membrane_stick_0_0 is
     state : out STD_LOGIC;
     membrane_stick_0_joy_keymap_addr : out STD_LOGIC_VECTOR ( 5 downto 0 );
     Op1 : out STD_LOGIC_VECTOR ( 6 downto 0 );
-    reset : in STD_LOGIC;
+    reset_1 : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     dpo : in STD_LOGIC_VECTOR ( 3 downto 0 );
     clk_div_reg : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -8396,7 +8421,7 @@ inst: entity work.zxnexys_zxkeyboard_0_0_membrane_stick
       membrane_col0 => membrane_col0,
       \membrane_col_reg[0]_0\ => \membrane_col_reg[0]\,
       \membrane_col_reg[0]_1\ => \membrane_col_reg[0]_0\,
-      reset => reset,
+      reset_1 => reset_1,
       state_reg_0 => state
     );
 end STRUCTURE;
@@ -8477,15 +8502,16 @@ entity zxnexys_zxkeyboard_0_0_ps2_keyb is
     keymap_addr : in STD_LOGIC_VECTOR ( 8 downto 0 );
     ram_q_reg_0 : in STD_LOGIC_VECTOR ( 7 downto 0 );
     keymap_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    reset : in STD_LOGIC;
+    reset_1 : in STD_LOGIC;
     Ps2Interface_0_read_data : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     S : in STD_LOGIC_VECTOR ( 0 to 0 );
     ps2_key_extend_reg_0 : in STD_LOGIC;
-    \o_ps2_func_keys_n_reg[0]_0\ : in STD_LOGIC;
+    o_divmmc_nmi_n_reg_0 : in STD_LOGIC;
     \FSM_onehot_state_reg[0]_0\ : in STD_LOGIC;
     \FSM_onehot_state_reg[2]_0\ : in STD_LOGIC;
     ps2_send_valid_reg_0 : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     \matrix_work_reg[0][6]\ : in STD_LOGIC;
     \matrix_work_reg[0][1]\ : in STD_LOGIC;
     \matrix_work_reg[0][1]_0\ : in STD_LOGIC;
@@ -8755,7 +8781,7 @@ begin
       CE => '1',
       D => \FSM_onehot_state[0]_i_1_n_0\,
       Q => \^q\(0),
-      S => reset
+      S => reset_1
     );
 \FSM_onehot_state_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -8766,7 +8792,7 @@ begin
       CE => '1',
       D => \FSM_onehot_state_reg[1]_0\(0),
       Q => \FSM_onehot_state_reg_n_0_[1]\,
-      R => reset
+      R => reset_1
     );
 \FSM_onehot_state_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -8777,7 +8803,7 @@ begin
       CE => '1',
       D => \FSM_onehot_state[2]_i_1_n_0\,
       Q => \FSM_onehot_state_reg_n_0_[2]\,
-      R => reset
+      R => reset_1
     );
 \capshift_count[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -8824,7 +8850,7 @@ begin
       CE => '1',
       D => \capshift_count[0]_i_1_n_0\,
       Q => capshift_count(0),
-      R => \o_ps2_func_keys_n_reg[0]_0\
+      R => o_divmmc_nmi_n_reg_0
     );
 \capshift_count_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -8832,7 +8858,7 @@ begin
       CE => '1',
       D => \capshift_count[1]_i_1_n_0\,
       Q => capshift_count(1),
-      R => \o_ps2_func_keys_n_reg[0]_0\
+      R => o_divmmc_nmi_n_reg_0
     );
 \capshift_count_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -8840,7 +8866,7 @@ begin
       CE => '1',
       D => \capshift_count[2]_i_1_n_0\,
       Q => capshift_count(2),
-      R => \o_ps2_func_keys_n_reg[0]_0\
+      R => o_divmmc_nmi_n_reg_0
     );
 clk_ps2_d_reg: unisim.vcomponents.FDSE
      port map (
@@ -8848,7 +8874,7 @@ clk_ps2_d_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => S(0),
       Q => clk_ps2_d,
-      S => reset
+      S => reset_1
     );
 keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
      port map (
@@ -9643,7 +9669,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[0][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -9654,7 +9680,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[0][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -9665,7 +9691,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[0][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -9676,7 +9702,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[0][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -9687,7 +9713,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[0][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -9698,7 +9724,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[0][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -9709,7 +9735,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[0][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[0][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -9720,7 +9746,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -9731,7 +9757,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -9742,7 +9768,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -9753,7 +9779,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -9764,7 +9790,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -9775,7 +9801,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[1][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -9786,7 +9812,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[1][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[1][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -9797,7 +9823,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -9808,7 +9834,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -9819,7 +9845,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -9830,7 +9856,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -9841,7 +9867,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -9852,7 +9878,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[2][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -9863,7 +9889,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[2][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[2][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -9874,7 +9900,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -9885,7 +9911,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -9896,7 +9922,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -9907,7 +9933,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -9918,7 +9944,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -9929,7 +9955,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[3][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -9940,7 +9966,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[3][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[3][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -9951,7 +9977,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -9962,7 +9988,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -9973,7 +9999,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -9984,7 +10010,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -9995,7 +10021,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -10006,7 +10032,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[4][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -10017,7 +10043,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[4][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[4][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -10028,7 +10054,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -10039,7 +10065,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -10050,7 +10076,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -10061,7 +10087,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -10072,7 +10098,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -10083,7 +10109,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[5][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -10094,7 +10120,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[5][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[5][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -10105,7 +10131,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -10116,7 +10142,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -10127,7 +10153,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -10138,7 +10164,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -10149,7 +10175,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -10160,7 +10186,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[6][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -10171,7 +10197,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[6][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[6][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][0]\: unisim.vcomponents.FDSE
     generic map(
@@ -10182,7 +10208,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][0]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][0]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][1]\: unisim.vcomponents.FDSE
     generic map(
@@ -10193,7 +10219,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][1]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][1]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][2]\: unisim.vcomponents.FDSE
     generic map(
@@ -10204,7 +10230,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][2]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][2]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][3]\: unisim.vcomponents.FDSE
     generic map(
@@ -10215,7 +10241,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][3]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][3]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][4]\: unisim.vcomponents.FDSE
     generic map(
@@ -10226,7 +10252,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][4]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][4]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][5]\: unisim.vcomponents.FDSE
     generic map(
@@ -10237,7 +10263,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][5]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][5]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \matrix_state_reg[7][6]\: unisim.vcomponents.FDSE
     generic map(
@@ -10248,7 +10274,7 @@ keymap: entity work.zxnexys_zxkeyboard_0_0_keymaps
       CE => '1',
       D => \matrix_state[7][6]_i_1_n_0\,
       Q => \matrix_state_reg_n_0_[7][6]\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 neqOp_carry: unisim.vcomponents.CARRY4
      port map (
@@ -10319,7 +10345,7 @@ o_divmmc_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => keymap_n_43,
       Q => \^ps2_keyb_0_o_divmmc_nmi_n\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 o_mf_nmi_n_reg: unisim.vcomponents.FDSE
      port map (
@@ -10327,7 +10353,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => keymap_n_42,
       Q => \^ps2_keyb_0_o_mf_nmi_n\,
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -10439,7 +10465,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[0]_i_1_n_0\,
       Q => \^o_ps2_func_keys_n_reg[3]_0\(0),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[1]\: unisim.vcomponents.FDSE
      port map (
@@ -10447,7 +10473,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[1]_i_1_n_0\,
       Q => ps2_keyb_0_o_ps2_func_keys_n(1),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[2]\: unisim.vcomponents.FDSE
      port map (
@@ -10455,7 +10481,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[2]_i_1_n_0\,
       Q => ps2_keyb_0_o_ps2_func_keys_n(2),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[3]\: unisim.vcomponents.FDSE
      port map (
@@ -10463,7 +10489,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[3]_i_1_n_0\,
       Q => \^o_ps2_func_keys_n_reg[3]_0\(1),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[4]\: unisim.vcomponents.FDSE
      port map (
@@ -10471,7 +10497,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[4]_i_1_n_0\,
       Q => ps2_keyb_0_o_ps2_func_keys_n(4),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[5]\: unisim.vcomponents.FDSE
      port map (
@@ -10479,7 +10505,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[5]_i_1_n_0\,
       Q => ps2_keyb_0_o_ps2_func_keys_n(5),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[6]\: unisim.vcomponents.FDSE
      port map (
@@ -10487,7 +10513,7 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[6]_i_1_n_0\,
       Q => ps2_keyb_0_o_ps2_func_keys_n(6),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \o_ps2_func_keys_n_reg[7]\: unisim.vcomponents.FDSE
      port map (
@@ -10495,15 +10521,15 @@ o_mf_nmi_n_reg: unisim.vcomponents.FDSE
       CE => '1',
       D => \o_ps2_func_keys_n[7]_i_1_n_0\,
       Q => ps2_keyb_0_o_ps2_func_keys_n(7),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 ps2_key_extend_i_1: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"E"
+      INIT => X"B"
     )
         port map (
-      I0 => reset,
-      I1 => \FSM_onehot_state_reg_n_0_[2]\,
+      I0 => \FSM_onehot_state_reg_n_0_[2]\,
+      I1 => resetn,
       O => ps2_key_extend0
     );
 ps2_key_extend_reg: unisim.vcomponents.FDRE
@@ -10516,15 +10542,15 @@ ps2_key_extend_reg: unisim.vcomponents.FDRE
     );
 ps2_key_release_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"000000000000AABA"
+      INIT => X"00000000AABA0000"
     )
         port map (
       I0 => ps2_current_keycode(9),
       I1 => \^ps2_receive_valid_d\,
       I2 => Ps2Interface_0_read_data,
       I3 => ps2_key_release_reg_0,
-      I4 => \FSM_onehot_state_reg_n_0_[2]\,
-      I5 => reset,
+      I4 => resetn,
+      I5 => \FSM_onehot_state_reg_n_0_[2]\,
       O => ps2_key_release_i_1_n_0
     );
 ps2_key_release_reg: unisim.vcomponents.FDRE
@@ -10551,7 +10577,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(0),
       Q => ps2_last_keycode(0),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[1]\: unisim.vcomponents.FDSE
      port map (
@@ -10559,7 +10585,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(1),
       Q => ps2_last_keycode(1),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[2]\: unisim.vcomponents.FDSE
      port map (
@@ -10567,7 +10593,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(2),
       Q => ps2_last_keycode(2),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[3]\: unisim.vcomponents.FDSE
      port map (
@@ -10575,7 +10601,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(3),
       Q => ps2_last_keycode(3),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[4]\: unisim.vcomponents.FDSE
      port map (
@@ -10583,7 +10609,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(4),
       Q => ps2_last_keycode(4),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[5]\: unisim.vcomponents.FDSE
      port map (
@@ -10591,7 +10617,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(5),
       Q => ps2_last_keycode(5),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[6]\: unisim.vcomponents.FDSE
      port map (
@@ -10599,7 +10625,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(6),
       Q => ps2_last_keycode(6),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[7]\: unisim.vcomponents.FDSE
      port map (
@@ -10607,7 +10633,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ram_q_reg_0(7),
       Q => ps2_last_keycode(7),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[8]\: unisim.vcomponents.FDSE
      port map (
@@ -10615,7 +10641,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => \^d\(0),
       Q => ps2_last_keycode(8),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 \ps2_last_keycode_reg[9]\: unisim.vcomponents.FDSE
      port map (
@@ -10623,7 +10649,7 @@ ps2_key_release_reg: unisim.vcomponents.FDRE
       CE => p_9_in,
       D => ps2_current_keycode(9),
       Q => ps2_last_keycode(9),
-      S => \o_ps2_func_keys_n_reg[0]_0\
+      S => o_divmmc_nmi_n_reg_0
     );
 ps2_receive_valid_d_reg: unisim.vcomponents.FDRE
      port map (
@@ -10631,18 +10657,18 @@ ps2_receive_valid_d_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => Ps2Interface_0_read_data,
       Q => \^ps2_receive_valid_d\,
-      R => reset
+      R => reset_1
     );
 ps2_send_valid_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000DDF0"
+      INIT => X"DDF00000"
     )
         port map (
       I0 => S(0),
       I1 => clk_ps2_d,
       I2 => ps2_send_valid_reg_0,
       I3 => \^ps2_keyb_0_o_ps2_send_valid\,
-      I4 => reset,
+      I4 => resetn,
       O => ps2_send_valid_i_1_n_0
     );
 ps2_send_valid_reg: unisim.vcomponents.FDRE
@@ -10716,27 +10742,27 @@ ps2_send_valid_reg: unisim.vcomponents.FDRE
     );
 \symshift_count[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"F05A58F0F0F0F0F0"
+      INIT => X"F0585AF0F0F0F0F0"
     )
         port map (
       I0 => \^ram_q_reg\,
       I1 => symshift_count(2),
       I2 => symshift_count(1),
-      I3 => ps2_current_keycode(9),
-      I4 => symshift_count(0),
+      I3 => symshift_count(0),
+      I4 => ps2_current_keycode(9),
       I5 => ps2_keymap_data(7),
       O => \symshift_count[1]_i_1_n_0\
     );
 \symshift_count[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"CC6CC4CCCCCCCCCC"
+      INIT => X"CCC46CCCCCCCCCCC"
     )
         port map (
       I0 => \^ram_q_reg\,
       I1 => symshift_count(2),
       I2 => symshift_count(1),
-      I3 => ps2_current_keycode(9),
-      I4 => symshift_count(0),
+      I3 => symshift_count(0),
+      I4 => ps2_current_keycode(9),
       I5 => ps2_keymap_data(7),
       O => \symshift_count[2]_i_1_n_0\
     );
@@ -10746,7 +10772,7 @@ ps2_send_valid_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \symshift_count[0]_i_1_n_0\,
       Q => symshift_count(0),
-      R => \o_ps2_func_keys_n_reg[0]_0\
+      R => o_divmmc_nmi_n_reg_0
     );
 \symshift_count_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -10754,7 +10780,7 @@ ps2_send_valid_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \symshift_count[1]_i_1_n_0\,
       Q => symshift_count(1),
-      R => \o_ps2_func_keys_n_reg[0]_0\
+      R => o_divmmc_nmi_n_reg_0
     );
 \symshift_count_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -10762,7 +10788,7 @@ ps2_send_valid_reg: unisim.vcomponents.FDRE
       CE => '1',
       D => \symshift_count[2]_i_1_n_0\,
       Q => symshift_count(2),
-      R => \o_ps2_func_keys_n_reg[0]_0\
+      R => o_divmmc_nmi_n_reg_0
     );
 util_vector_logic_0_i_1: unisim.vcomponents.MUXF7
      port map (
@@ -10910,15 +10936,15 @@ util_vector_logic_0_i_2: unisim.vcomponents.MUXF7
     );
 util_vector_logic_0_i_20: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"AFA0CFCFAFA0C0C0"
+      INIT => X"AFAFCFC0A0A0CFC0"
     )
         port map (
       I0 => \matrix_state_reg_n_0_[6][1]\,
       I1 => \matrix_state_reg_n_0_[7][1]\,
       I2 => \matrix_work_reg[0][1]_0\,
-      I3 => \matrix_state_reg_n_0_[4][1]\,
+      I3 => \matrix_state_reg_n_0_[5][1]\,
       I4 => \matrix_work_reg[0][1]\,
-      I5 => \matrix_state_reg_n_0_[5][1]\,
+      I5 => \matrix_state_reg_n_0_[4][1]\,
       O => util_vector_logic_0_i_20_n_0
     );
 util_vector_logic_0_i_23: unisim.vcomponents.LUT3
@@ -11113,24 +11139,24 @@ IXAEoCcy11Cc8OIG8HgZCj2FvcOLzbLDjmu2tQ==
 `protect data_method = "AES128-CBC"
 `protect encoding = (enctype = "BASE64", line_length = 76, bytes = 1008)
 `protect data_block
-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
+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
 `protect end_protected
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -11141,22 +11167,23 @@ entity zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0 is
     ps2_data_t : out STD_LOGIC;
     ps2_clk_t : out STD_LOGIC;
     Ps2Interface_0_read_data : out STD_LOGIC;
+    \rx_data_reg[0]\ : out STD_LOGIC;
+    Q : out STD_LOGIC_VECTOR ( 7 downto 0 );
     D : out STD_LOGIC_VECTOR ( 0 to 0 );
     \rx_data_reg[2]\ : out STD_LOGIC;
     \rx_data_reg[1]\ : out STD_LOGIC;
-    \rx_data_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \rx_data_reg[4]\ : out STD_LOGIC;
     \rx_data_reg[6]\ : out STD_LOGIC;
     \rx_data_reg[6]_0\ : out STD_LOGIC;
-    reset_0 : out STD_LOGIC;
-    \rx_data_reg[0]\ : out STD_LOGIC;
+    \rx_data_reg[0]_0\ : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
-    Q : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
+    o_divmmc_nmi_n_reg : in STD_LOGIC;
+    \FSM_onehot_state_reg[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     ps2_receive_valid_d : in STD_LOGIC;
-    \o_ps2_func_keys_n_reg[0]\ : in STD_LOGIC;
     ps2_keyb_0_o_ps2_send_valid : in STD_LOGIC;
     ps2_current_keycode : in STD_LOGIC_VECTOR ( 0 to 0 );
+    reset_1 : in STD_LOGIC;
     ps2_clk_i : in STD_LOGIC;
     ps2_data_i : in STD_LOGIC
   );
@@ -11169,9 +11196,10 @@ begin
 inst: entity work.zxnexys_zxkeyboard_0_0_Ps2Interface
      port map (
       D(0) => D(0),
-      Q(0) => Q(0),
+      \FSM_onehot_state_reg[1]_0\(0) => \FSM_onehot_state_reg[1]\(0),
+      Q(7 downto 0) => Q(7 downto 0),
       clk_peripheral => clk_peripheral,
-      \o_ps2_func_keys_n_reg[0]\ => \o_ps2_func_keys_n_reg[0]\,
+      o_divmmc_nmi_n_reg => o_divmmc_nmi_n_reg,
       ps2_clk_i => ps2_clk_i,
       ps2_clk_t => ps2_clk_t,
       ps2_current_keycode(0) => ps2_current_keycode(0),
@@ -11180,15 +11208,15 @@ inst: entity work.zxnexys_zxkeyboard_0_0_Ps2Interface
       ps2_keyb_0_o_ps2_send_valid => ps2_keyb_0_o_ps2_send_valid,
       ps2_receive_valid_d => ps2_receive_valid_d,
       read_data_reg_0 => Ps2Interface_0_read_data,
-      reset => reset,
-      reset_0 => reset_0,
+      reset_1 => reset_1,
+      resetn => resetn,
       \rx_data_reg[0]_0\ => \rx_data_reg[0]\,
+      \rx_data_reg[0]_1\ => \rx_data_reg[0]_0\,
       \rx_data_reg[1]_0\ => \rx_data_reg[1]\,
       \rx_data_reg[2]_0\ => \rx_data_reg[2]\,
       \rx_data_reg[4]_0\ => \rx_data_reg[4]\,
       \rx_data_reg[6]_0\ => \rx_data_reg[6]\,
-      \rx_data_reg[6]_1\ => \rx_data_reg[6]_0\,
-      \rx_data_reg[7]_0\(7 downto 0) => \rx_data_reg[7]\(7 downto 0)
+      \rx_data_reg[6]_1\ => \rx_data_reg[6]_0\
     );
 end STRUCTURE;
 library IEEE;
@@ -11212,15 +11240,16 @@ entity zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0 is
     keymap_addr : in STD_LOGIC_VECTOR ( 8 downto 0 );
     D : in STD_LOGIC_VECTOR ( 7 downto 0 );
     keymap_data : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    reset : in STD_LOGIC;
+    reset_1 : in STD_LOGIC;
     Ps2Interface_0_read_data : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     S : in STD_LOGIC_VECTOR ( 0 to 0 );
     ps2_key_extend_reg_0 : in STD_LOGIC;
-    \o_ps2_func_keys_n_reg[0]\ : in STD_LOGIC;
+    o_divmmc_nmi_n_reg : in STD_LOGIC;
     \FSM_onehot_state_reg[0]\ : in STD_LOGIC;
     \FSM_onehot_state_reg[2]\ : in STD_LOGIC;
     ps2_send_valid_reg : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     \matrix_work_reg[0][6]\ : in STD_LOGIC;
     \matrix_work_reg[0][1]\ : in STD_LOGIC;
     \matrix_work_reg[0][1]_0\ : in STD_LOGIC;
@@ -11253,8 +11282,8 @@ inst: entity work.zxnexys_zxkeyboard_0_0_ps2_keyb
       \matrix_work_reg[0][1]\ => \matrix_work_reg[0][1]\,
       \matrix_work_reg[0][1]_0\ => \matrix_work_reg[0][1]_0\,
       \matrix_work_reg[0][6]\ => \matrix_work_reg[0][6]\,
+      o_divmmc_nmi_n_reg_0 => o_divmmc_nmi_n_reg,
       o_mf_nmi_n_reg_0 => o_mf_nmi_n_reg,
-      \o_ps2_func_keys_n_reg[0]_0\ => \o_ps2_func_keys_n_reg[0]\,
       \o_ps2_func_keys_n_reg[3]_0\(1 downto 0) => \o_ps2_func_keys_n_reg[3]\(1 downto 0),
       ps2_key_extend_reg_0 => ps2_key_extend_reg_0,
       ps2_key_release_reg_0 => ps2_key_release_reg,
@@ -11265,7 +11294,8 @@ inst: entity work.zxnexys_zxkeyboard_0_0_ps2_keyb
       ps2_send_valid_reg_0 => ps2_send_valid_reg,
       ram_q_reg => ram_q_reg,
       ram_q_reg_0(7 downto 0) => D(7 downto 0),
-      reset => reset,
+      reset_1 => reset_1,
+      resetn => resetn,
       spkey_function(5 downto 0) => spkey_function(5 downto 0),
       util_vector_logic_0_i_7_0(0) => util_vector_logic_0_i_7(0)
     );
@@ -11356,115 +11386,115 @@ IXAEoCcy11Cc8OIG8HgZCj2FvcOLzbLDjmu2tQ==
 `protect data_method = "AES128-CBC"
 `protect encoding = (enctype = "BASE64", line_length = 76, bytes = 6192)
 `protect data_block
-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
+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
 `protect end_protected
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -11595,8 +11625,8 @@ entity zxnexys_zxkeyboard_0_0_keyboard is
     ps2_clk_t : out STD_LOGIC;
     extended_keys : out STD_LOGIC_VECTOR ( 15 downto 0 );
     joy_clk_en : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_peripheral_n : in STD_LOGIC;
     keymap_we : in STD_LOGIC;
     keymap_addr : in STD_LOGIC_VECTOR ( 8 downto 0 );
@@ -11617,25 +11647,24 @@ entity zxnexys_zxkeyboard_0_0_keyboard is
 end zxnexys_zxkeyboard_0_0_keyboard;
 
 architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard is
+  signal Ps2Interface_0_n_12 : STD_LOGIC;
+  signal Ps2Interface_0_n_13 : STD_LOGIC;
   signal Ps2Interface_0_n_14 : STD_LOGIC;
   signal Ps2Interface_0_n_15 : STD_LOGIC;
   signal Ps2Interface_0_n_16 : STD_LOGIC;
   signal Ps2Interface_0_n_17 : STD_LOGIC;
   signal Ps2Interface_0_n_18 : STD_LOGIC;
   signal Ps2Interface_0_n_3 : STD_LOGIC;
-  signal Ps2Interface_0_n_4 : STD_LOGIC;
-  signal Ps2Interface_0_n_5 : STD_LOGIC;
   signal Ps2Interface_0_read_data : STD_LOGIC;
   signal Ps2Interface_0_rx_data : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal dist_mem_gen_0_dpo : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal emu_fnkeys_0_n_4 : STD_LOGIC;
   signal emu_fnkeys_0_n_5 : STD_LOGIC;
   signal emu_fnkeys_0_n_6 : STD_LOGIC;
-  signal emu_fnkeys_0_n_7 : STD_LOGIC;
   signal emu_fnkeys_0_o_fnkeys : STD_LOGIC_VECTOR ( 4 downto 1 );
   signal \inst/cancel_nmi\ : STD_LOGIC;
   signal \inst/clk_div_reg\ : STD_LOGIC_VECTOR ( 8 downto 7 );
-  signal \inst/matrix_state[7]_4\ : STD_LOGIC;
+  signal \inst/matrix_state[7]_1\ : STD_LOGIC;
   signal \inst/membrane_col0\ : STD_LOGIC;
   signal \inst/ps2_current_keycode\ : STD_LOGIC_VECTOR ( 8 to 8 );
   signal \inst/ps2_receive_valid_d\ : STD_LOGIC;
@@ -11647,11 +11676,12 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard is
   signal keyb_clocks_0_n_4 : STD_LOGIC;
   signal keyb_clocks_0_n_5 : STD_LOGIC;
   signal keyb_clocks_0_n_6 : STD_LOGIC;
+  signal keyb_clocks_0_n_9 : STD_LOGIC;
   signal membrane_0_n_0 : STD_LOGIC;
-  signal membrane_0_n_1 : STD_LOGIC;
-  signal membrane_0_n_10 : STD_LOGIC;
+  signal membrane_0_n_11 : STD_LOGIC;
   signal membrane_0_n_2 : STD_LOGIC;
   signal membrane_0_n_3 : STD_LOGIC;
+  signal membrane_0_n_4 : STD_LOGIC;
   signal membrane_stick_0_joy_keymap_addr : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal membrane_stick_0_o_membrane_col : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal ps2_keyb_0_n_13 : STD_LOGIC;
@@ -11666,6 +11696,7 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard is
   signal ps2_keyb_0_o_mf_nmi_n : STD_LOGIC;
   signal ps2_keyb_0_o_ps2_func_keys_n : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal ps2_keyb_0_o_ps2_send_valid : STD_LOGIC;
+  signal reset_1 : STD_LOGIC;
   signal timer_count : STD_LOGIC;
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 6 downto 0 );
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 5 downto 0 );
@@ -11676,7 +11707,7 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard is
   attribute X_CORE_INFO : string;
   attribute X_CORE_INFO of Ps2Interface_0 : label is "Ps2Interface,Vivado 2021.2";
   attribute X_CORE_INFO of emu_fnkeys_0 : label is "emu_fnkeys,Vivado 2021.2";
-  attribute X_CORE_INFO of keyb_clocks_0 : label is "keyb_clocks,Vivado 2021.2";
+  attribute X_CORE_INFO of keyb_clocks_0 : label is "keyb_clocks,Vivado 2021.2.1";
   attribute X_CORE_INFO of membrane_0 : label is "membrane,Vivado 2021.2";
   attribute X_CORE_INFO of membrane_stick_0 : label is "membrane_stick,Vivado 2021.2";
   attribute X_CORE_INFO of ps2_keyb_0 : label is "ps2_keyb,Vivado 2021.2";
@@ -11704,11 +11735,12 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0_keyboard is
 begin
 Ps2Interface_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
      port map (
-      D(0) => Ps2Interface_0_n_3,
+      D(0) => Ps2Interface_0_n_12,
+      \FSM_onehot_state_reg[1]\(0) => ps2_keyb_0_n_13,
       Ps2Interface_0_read_data => Ps2Interface_0_read_data,
-      Q(0) => ps2_keyb_0_n_13,
+      Q(7 downto 0) => Ps2Interface_0_rx_data(7 downto 0),
       clk_peripheral => clk_peripheral,
-      \o_ps2_func_keys_n_reg[0]\ => ps2_keyb_0_n_14,
+      o_divmmc_nmi_n_reg => ps2_keyb_0_n_14,
       ps2_clk_i => ps2_clk_i,
       ps2_clk_t => ps2_clk_t,
       ps2_current_keycode(0) => \inst/ps2_current_keycode\(8),
@@ -11716,81 +11748,86 @@ Ps2Interface_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_Ps2Interface_0_0
       ps2_data_t => ps2_data_t,
       ps2_keyb_0_o_ps2_send_valid => ps2_keyb_0_o_ps2_send_valid,
       ps2_receive_valid_d => \inst/ps2_receive_valid_d\,
-      reset => reset,
-      reset_0 => Ps2Interface_0_n_17,
-      \rx_data_reg[0]\ => Ps2Interface_0_n_18,
-      \rx_data_reg[1]\ => Ps2Interface_0_n_5,
-      \rx_data_reg[2]\ => Ps2Interface_0_n_4,
-      \rx_data_reg[4]\ => Ps2Interface_0_n_14,
-      \rx_data_reg[6]\ => Ps2Interface_0_n_15,
-      \rx_data_reg[6]_0\ => Ps2Interface_0_n_16,
-      \rx_data_reg[7]\(7 downto 0) => Ps2Interface_0_rx_data(7 downto 0)
+      reset_1 => reset_1,
+      resetn => resetn,
+      \rx_data_reg[0]\ => Ps2Interface_0_n_3,
+      \rx_data_reg[0]_0\ => Ps2Interface_0_n_18,
+      \rx_data_reg[1]\ => Ps2Interface_0_n_14,
+      \rx_data_reg[2]\ => Ps2Interface_0_n_13,
+      \rx_data_reg[4]\ => Ps2Interface_0_n_15,
+      \rx_data_reg[6]\ => Ps2Interface_0_n_16,
+      \rx_data_reg[6]_0\ => Ps2Interface_0_n_17
     );
 emu_fnkeys_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_emu_fnkeys_0_0
      port map (
-      \FSM_onehot_state_reg[0]\ => emu_fnkeys_0_n_5,
+      \FSM_onehot_state_reg[0]\ => emu_fnkeys_0_n_4,
       Q(0) => \inst/cancel_nmi\,
       clk_peripheral => clk_peripheral,
       emu_fnkeys_0_o_fnkeys(1) => emu_fnkeys_0_o_fnkeys(4),
       emu_fnkeys_0_o_fnkeys(0) => emu_fnkeys_0_o_fnkeys(1),
-      reset => reset,
-      row(3) => row(7),
-      row(2 downto 0) => row(4 downto 2),
-      \row[7]\ => emu_fnkeys_0_n_7,
-      row_2_sp_1 => emu_fnkeys_0_n_4,
-      row_3_sp_1 => emu_fnkeys_0_n_6,
+      reset_1 => reset_1,
+      resetn => resetn,
+      row(2) => row(7),
+      row(1 downto 0) => row(4 downto 3),
+      \row[3]\ => emu_fnkeys_0_n_6,
+      \row[7]\ => emu_fnkeys_0_n_5,
       timer_count => timer_count,
       \timer_count_reg[0]\ => keyb_clocks_0_n_4,
       \timer_count_reg[0]_0\ => keyb_clocks_0_n_5
     );
 keyb_clocks_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_keyb_clocks_0_0
      port map (
-      E(0) => \inst/matrix_state[7]_4\,
+      E(0) => \inst/matrix_state[7]_1\,
       Q(0) => \inst/state\(0),
       S(1) => \inst/clk_div_reg\(7),
       S(0) => keyb_clocks_0_clk_ps2,
       cancel => cancel,
       clk_div_reg(0) => \inst/clk_div_reg\(8),
-      \clk_div_reg[10]\ => keyb_clocks_0_n_4,
-      \clk_div_reg[4]\ => keyb_clocks_0_n_5,
+      \clk_div_reg[10]\ => keyb_clocks_0_n_5,
+      \clk_div_reg[6]\ => keyb_clocks_0_n_4,
       \clk_div_reg[8]\ => keyb_clocks_0_n_3,
+      \clk_div_reg[8]_0\ => keyb_clocks_0_n_9,
       clk_peripheral => clk_peripheral,
       joy_clk_en => joy_clk_en,
       joy_io_mode_en => joy_io_mode_en,
       keyb_clocks_0_membrane_enable => keyb_clocks_0_membrane_enable,
-      \matrix_work_ex_reg[9]\ => membrane_0_n_2,
+      \matrix_work_ex_reg[3]\ => membrane_0_n_2,
       membrane_col0 => \inst/membrane_col0\,
-      reset => reset,
+      reset_1 => reset_1,
+      resetn => resetn,
       state => \inst/state_0\,
       \state_reg[0]\ => keyb_clocks_0_n_6,
       timer_count => timer_count
     );
 membrane_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_membrane_0_0
      port map (
-      E(0) => \inst/matrix_state[7]_4\,
-      Q(1) => membrane_0_n_3,
+      E(0) => \inst/matrix_state[7]_1\,
+      Q(1) => membrane_0_n_0,
       Q(0) => \inst/state\(0),
       Res(6 downto 0) => util_vector_logic_0_Res(6 downto 0),
       cancel => cancel,
+      clk_div_reg(1 downto 0) => \inst/clk_div_reg\(8 downto 7),
       clk_peripheral => clk_peripheral,
       column(4 downto 0) => column(4 downto 0),
-      \column[0]\(0) => \inst/cancel_nmi\,
-      \column[1]_0\ => emu_fnkeys_0_n_7,
-      \column[4]_0\ => emu_fnkeys_0_n_5,
-      column_1_sp_1 => emu_fnkeys_0_n_4,
-      column_4_sp_1 => emu_fnkeys_0_n_6,
+      \column[3]_0\ => emu_fnkeys_0_n_5,
+      \column[4]\(0) => \inst/cancel_nmi\,
+      column_0_sp_1 => emu_fnkeys_0_n_4,
+      column_3_sp_1 => emu_fnkeys_0_n_6,
       dpo(1 downto 0) => dist_mem_gen_0_dpo(5 downto 4),
       extended_keys(15 downto 0) => extended_keys(15 downto 0),
+      joy_clk_en => joy_clk_en,
       keyb_clocks_0_membrane_enable => keyb_clocks_0_membrane_enable,
       \matrix_work_ex_reg[0]\ => keyb_clocks_0_n_6,
+      \matrix_work_ex_reg[3]\ => keyb_clocks_0_n_9,
       \matrix_work_ex_reg[9]\ => keyb_clocks_0_n_3,
-      reset => reset,
+      reset_1 => reset_1,
+      resetn => resetn,
       row(7 downto 0) => row(7 downto 0),
       state => \inst/state_0\,
-      state_reg => membrane_0_n_10,
-      \state_reg[2]\ => membrane_0_n_1,
-      \state_reg[2]_0\ => membrane_0_n_2,
-      \state_reg[4]\ => membrane_0_n_0
+      state_reg => membrane_0_n_11,
+      \state_reg[2]\ => membrane_0_n_2,
+      \state_reg[2]_0\ => membrane_0_n_4,
+      \state_reg[4]\ => membrane_0_n_3
     );
 membrane_stick_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_membrane_stick_0_0
      port map (
@@ -11804,18 +11841,18 @@ membrane_stick_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_membrane_stick_0_0
       joy_right(10 downto 0) => joy_right(10 downto 0),
       joy_right_type(2 downto 0) => joy_right_type(2 downto 0),
       membrane_col0 => \inst/membrane_col0\,
-      \membrane_col_reg[0]\ => membrane_0_n_1,
-      \membrane_col_reg[0]_0\ => membrane_0_n_10,
+      \membrane_col_reg[0]\ => membrane_0_n_4,
+      \membrane_col_reg[0]_0\ => membrane_0_n_11,
       membrane_stick_0_joy_keymap_addr(5 downto 0) => membrane_stick_0_joy_keymap_addr(5 downto 0),
-      reset => reset,
+      reset_1 => reset_1,
       state => \inst/state_0\
     );
 ps2_keyb_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
      port map (
       D(7 downto 0) => Ps2Interface_0_rx_data(7 downto 0),
-      \FSM_onehot_state_reg[0]\ => Ps2Interface_0_n_4,
-      \FSM_onehot_state_reg[1]\(0) => Ps2Interface_0_n_3,
-      \FSM_onehot_state_reg[2]\ => Ps2Interface_0_n_5,
+      \FSM_onehot_state_reg[0]\ => Ps2Interface_0_n_13,
+      \FSM_onehot_state_reg[1]\(0) => Ps2Interface_0_n_12,
+      \FSM_onehot_state_reg[2]\ => Ps2Interface_0_n_14,
       Op2(6) => ps2_keyb_0_n_15,
       Op2(5) => ps2_keyb_0_n_16,
       Op2(4) => ps2_keyb_0_n_17,
@@ -11830,26 +11867,27 @@ ps2_keyb_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_ps2_keyb_0_0
       keymap_addr(8 downto 0) => keymap_addr(8 downto 0),
       keymap_data(7 downto 0) => keymap_data(7 downto 0),
       keymap_we => keymap_we,
-      \matrix_work_reg[0][1]\ => membrane_0_n_1,
+      \matrix_work_reg[0][1]\ => membrane_0_n_4,
       \matrix_work_reg[0][1]_0\ => membrane_0_n_2,
-      \matrix_work_reg[0][6]\ => membrane_0_n_0,
-      o_mf_nmi_n_reg => Ps2Interface_0_n_16,
-      \o_ps2_func_keys_n_reg[0]\ => Ps2Interface_0_n_17,
+      \matrix_work_reg[0][6]\ => membrane_0_n_3,
+      o_divmmc_nmi_n_reg => Ps2Interface_0_n_3,
+      o_mf_nmi_n_reg => Ps2Interface_0_n_17,
       \o_ps2_func_keys_n_reg[3]\(1) => ps2_keyb_0_o_ps2_func_keys_n(3),
       \o_ps2_func_keys_n_reg[3]\(0) => ps2_keyb_0_o_ps2_func_keys_n(0),
       ps2_key_extend_reg(0) => \inst/ps2_current_keycode\(8),
       ps2_key_extend_reg_0 => Ps2Interface_0_n_18,
-      ps2_key_release_reg => Ps2Interface_0_n_14,
+      ps2_key_release_reg => Ps2Interface_0_n_15,
       ps2_keyb_0_o_divmmc_nmi_n => ps2_keyb_0_o_divmmc_nmi_n,
       ps2_keyb_0_o_mf_nmi_n => ps2_keyb_0_o_mf_nmi_n,
       ps2_keyb_0_o_ps2_send_valid => ps2_keyb_0_o_ps2_send_valid,
       ps2_receive_valid_d => \inst/ps2_receive_valid_d\,
-      ps2_send_valid_reg => Ps2Interface_0_n_15,
+      ps2_send_valid_reg => Ps2Interface_0_n_16,
       ram_q_reg => ps2_keyb_0_n_14,
-      reset => reset,
+      reset_1 => reset_1,
+      resetn => resetn,
       spkey_function(5 downto 2) => spkey_function(7 downto 4),
       spkey_function(1 downto 0) => spkey_function(2 downto 1),
-      util_vector_logic_0_i_7(0) => membrane_0_n_3
+      util_vector_logic_0_i_7(0) => membrane_0_n_0
     );
 special_keys_0: entity work.zxnexys_zxkeyboard_0_0_keyboard_special_keys_0_0
      port map (
@@ -11926,8 +11964,8 @@ entity zxnexys_zxkeyboard_0_0_keyboard_wrapper is
     ps2_clk_t : out STD_LOGIC;
     extended_keys : out STD_LOGIC_VECTOR ( 15 downto 0 );
     joy_clk_en : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_peripheral_n : in STD_LOGIC;
     keymap_we : in STD_LOGIC;
     keymap_addr : in STD_LOGIC_VECTOR ( 8 downto 0 );
@@ -11970,7 +12008,7 @@ keyboard_i: entity work.zxnexys_zxkeyboard_0_0_keyboard
       ps2_clk_t => ps2_clk_t,
       ps2_data_i => ps2_data_i,
       ps2_data_t => ps2_data_t,
-      reset => reset,
+      resetn => resetn,
       row(7 downto 0) => row(7 downto 0),
       spkey_function(8 downto 0) => spkey_function(8 downto 0)
     );
@@ -12002,7 +12040,7 @@ entity zxnexys_zxkeyboard_0_0 is
     ps2_data_i : in STD_LOGIC;
     ps2_data_o : out STD_LOGIC;
     ps2_data_t : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     row : in STD_LOGIC_VECTOR ( 7 downto 0 );
     spkey_buttons : out STD_LOGIC_VECTOR ( 1 downto 0 );
     spkey_function : out STD_LOGIC_VECTOR ( 10 downto 1 )
@@ -12028,7 +12066,7 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0 is
   attribute X_INTERFACE_INFO of cancel : signal is "specnext.com:specnext:keyboard:1.0 keyboard cancel";
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of clk_peripheral_n : signal is "xilinx.com:signal:clock:1.0 clk_peripheral_n CLK";
   attribute X_INTERFACE_PARAMETER of clk_peripheral_n : signal is "XIL_INTERFACENAME clk_peripheral_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral_n, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of joy_clk_en : signal is "xilinx.com:signal:clockenable:1.0 joy_clk_en CE";
@@ -12042,8 +12080,8 @@ architecture STRUCTURE of zxnexys_zxkeyboard_0_0 is
   attribute X_INTERFACE_INFO of ps2_data_i : signal is "xilinx.com:interface:gpio:1.0 ps2_data TRI_I";
   attribute X_INTERFACE_INFO of ps2_data_o : signal is "xilinx.com:interface:gpio:1.0 ps2_data TRI_O";
   attribute X_INTERFACE_INFO of ps2_data_t : signal is "xilinx.com:interface:gpio:1.0 ps2_data TRI_T";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of column : signal is "specnext.com:specnext:keyboard:1.0 keyboard column";
   attribute X_INTERFACE_INFO of extended_keys : signal is "specnext.com:specnext:keyboard:1.0 keyboard extended_keys";
   attribute X_INTERFACE_INFO of joy_left : signal is "specnext.com:specnext:joystick:1.0 joystick joy_left";
@@ -12089,7 +12127,7 @@ inst: entity work.zxnexys_zxkeyboard_0_0_keyboard_wrapper
       ps2_clk_t => \^ps2_clk_t\,
       ps2_data_i => ps2_data_i,
       ps2_data_t => \^ps2_data_t\,
-      reset => reset,
+      resetn => resetn,
       row(7 downto 0) => row(7 downto 0),
       spkey_function(8 downto 0) => \^spkey_function\(9 downto 1)
     );

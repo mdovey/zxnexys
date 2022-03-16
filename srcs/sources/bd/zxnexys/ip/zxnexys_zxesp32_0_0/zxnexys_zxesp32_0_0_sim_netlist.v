@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:43:11 2022
+// Date        : Wed Mar 16 11:17:48 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0_sim_netlist.v
@@ -23,6 +23,7 @@ module zxnexys_zxesp32_0_0
     gpio_enable,
     uart_tx_o,
     uart_rx_o,
+    enable,
     gpio0_i,
     gpio0_o,
     gpio0_t,
@@ -33,7 +34,7 @@ module zxnexys_zxesp32_0_0
     gpio2_o,
     gpio2_t,
     clk_peripheral,
-    reset);
+    resetn);
   (* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 esp32 uart_tx" *) input uart_tx_i;
   (* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 esp32 uart_rx" *) output uart_rx_i;
   (* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 esp32 gpio_in" *) output [2:0]gpio_in;
@@ -41,6 +42,7 @@ module zxnexys_zxesp32_0_0
   (* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 esp32 gpio_enable" *) input gpio_enable;
   output uart_tx_o;
   input uart_rx_o;
+  output enable;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *) input gpio0_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_O" *) output gpio0_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_T" *) output gpio0_t;
@@ -51,7 +53,7 @@ module zxnexys_zxesp32_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio2 TRI_O" *) output gpio2_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio2 TRI_T" *) output gpio2_t;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
 
   wire \<const0> ;
   wire \<const1> ;
@@ -61,9 +63,11 @@ module zxnexys_zxesp32_0_0
   wire gpio2_i;
   wire gpio_enable;
   wire gpio_out;
+  wire resetn;
   wire uart_rx_o;
   wire uart_tx_i;
 
+  assign enable = resetn;
   assign gpio0_o = gpio_out;
   assign gpio1_o = \<const0> ;
   assign gpio1_t = \<const1> ;

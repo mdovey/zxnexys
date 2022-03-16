@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:52:10 2022
+// Date        : Wed Mar 16 11:20:11 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0_sim_netlist.v
@@ -31,7 +31,7 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0
     sw,
     opt,
     clk_peripheral,
-    reset);
+    resetn);
   (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_o" *) input [27:0]gpio_o;
   (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_i" *) output [27:0]gpio_i;
   (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_t" *) input [27:0]gpio_t;
@@ -47,7 +47,7 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0
   input [15:0]sw;
   output [1:0]opt;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
 
   wire \<const0> ;
   wire clk_peripheral;
@@ -56,7 +56,7 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0
   wire [27:0]gpio_t;
   wire i2s_dout;
   wire [15:0]led;
-  wire reset;
+  wire resetn;
   wire [15:0]sw;
   wire uart_cts;
   wire uart_rx;
@@ -86,7 +86,7 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0
         .gpio_o({gpio_o[27:22],gpio_o[13:2]}),
         .gpio_t({gpio_t[27:22],gpio_t[13:2]}),
         .led(led),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "pi_led_sw_uart_i2s" *) 
@@ -95,14 +95,14 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
     led,
     gpio_t,
     gpio_o,
-    reset,
-    clk_peripheral);
+    clk_peripheral,
+    resetn);
   output [1:0]gpio_i;
   output [15:0]led;
   input [17:0]gpio_t;
   input [17:0]gpio_o;
-  input reset;
   input clk_peripheral;
+  input resetn;
 
   wire clk_peripheral;
   wire [1:0]gpio_i;
@@ -110,9 +110,10 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
   wire [17:0]gpio_t;
   wire [15:0]led;
   wire \opt[0]_i_1_n_0 ;
-  wire \opt[1]_i_1_n_0 ;
+  wire \opt[1]_i_2_n_0 ;
+  wire p_0_in;
   wire [15:0]p_4_out;
-  wire reset;
+  wire resetn;
 
   LUT3 #(
     .INIT(8'hE2)) 
@@ -231,97 +232,97 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
         .CE(1'b1),
         .D(p_4_out[0]),
         .Q(led[0]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[10] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[10]),
         .Q(led[10]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[11] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[11]),
         .Q(led[11]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[12] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[12]),
         .Q(led[12]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[13] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[13]),
         .Q(led[13]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[14] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[14]),
         .Q(led[14]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[15] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[15]),
         .Q(led[15]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[1]),
         .Q(led[1]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[2]),
         .Q(led[2]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[3]),
         .Q(led[3]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[4] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[4]),
         .Q(led[4]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[5] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[5]),
         .Q(led[5]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[6] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[6]),
         .Q(led[6]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[7] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[7]),
         .Q(led[7]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[8] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[8]),
         .Q(led[8]),
-        .R(reset));
+        .R(p_0_in));
   FDRE \led_reg[9] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(p_4_out[9]),
         .Q(led[9]),
-        .R(reset));
+        .R(p_0_in));
   LUT3 #(
     .INIT(8'hE2)) 
     \opt[0]_i_1 
@@ -329,25 +330,30 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
         .I1(gpio_t[10]),
         .I2(gpio_o[10]),
         .O(\opt[0]_i_1_n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \opt[1]_i_1 
+       (.I0(resetn),
+        .O(p_0_in));
   LUT3 #(
     .INIT(8'hE2)) 
-    \opt[1]_i_1 
+    \opt[1]_i_2 
        (.I0(gpio_i[1]),
         .I1(gpio_t[11]),
         .I2(gpio_o[11]),
-        .O(\opt[1]_i_1_n_0 ));
+        .O(\opt[1]_i_2_n_0 ));
   FDSE \opt_reg[0] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\opt[0]_i_1_n_0 ),
         .Q(gpio_i[0]),
-        .S(reset));
+        .S(p_0_in));
   FDSE \opt_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .D(\opt[1]_i_1_n_0 ),
+        .D(\opt[1]_i_2_n_0 ),
         .Q(gpio_i[1]),
-        .S(reset));
+        .S(p_0_in));
 endmodule
 `ifndef GLBL
 `define GLBL

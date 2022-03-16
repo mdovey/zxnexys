@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-//Date        : Thu Feb 17 19:44:02 2022
+//Date        : Tue Mar 15 12:51:10 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target audio_wrapper.bd
 //Design      : audio_wrapper
@@ -25,7 +25,7 @@ module audio_wrapper
     lineout_sclk,
     lineout_sdout,
     psg_en,
-    reset,
+    resetn,
     tape_ear,
     tape_mic,
     tape_pwm);
@@ -44,7 +44,7 @@ module audio_wrapper
   output lineout_sclk;
   output lineout_sdout;
   output psg_en;
-  input reset;
+  input resetn;
   output tape_ear;
   input tape_mic;
   output tape_pwm;
@@ -64,7 +64,7 @@ module audio_wrapper
   wire lineout_sclk;
   wire lineout_sdout;
   wire psg_en;
-  wire reset;
+  wire resetn;
   wire tape_ear;
   wire tape_mic;
   wire tape_pwm;
@@ -85,7 +85,7 @@ module audio_wrapper
         .lineout_sclk(lineout_sclk),
         .lineout_sdout(lineout_sdout),
         .psg_en(psg_en),
-        .reset(reset),
+        .resetn(resetn),
         .tape_ear(tape_ear),
         .tape_mic(tape_mic),
         .tape_pwm(tape_pwm));

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxkeyboard:2.4
-// IP Revision: 18
+// IP Revision: 20
 
 `timescale 1ns/1ps
 
@@ -76,7 +76,7 @@ module zxnexys_zxkeyboard_0_0 (
   ps2_data_i,
   ps2_data_o,
   ps2_data_t,
-  reset,
+  resetn,
   row,
   spkey_buttons,
   spkey_function
@@ -84,7 +84,7 @@ module zxnexys_zxkeyboard_0_0 (
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard cancel" *)
 input wire cancel;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral_n, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral_n, INSERT_VIP 0" *)
@@ -127,9 +127,9 @@ input wire ps2_data_i;
 output wire ps2_data_o;
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 ps2_data TRI_T" *)
 output wire ps2_data_t;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard row" *)
 input wire [7 : 0] row;
 (* X_INTERFACE_INFO = "specnext.com:specnext:keyboard:1.0 keyboard spkey_buttons" *)
@@ -159,7 +159,7 @@ output wire [10 : 1] spkey_function;
     .ps2_data_i(ps2_data_i),
     .ps2_data_o(ps2_data_o),
     .ps2_data_t(ps2_data_t),
-    .reset(reset),
+    .resetn(resetn),
     .row(row),
     .spkey_buttons(spkey_buttons),
     .spkey_function(spkey_function)

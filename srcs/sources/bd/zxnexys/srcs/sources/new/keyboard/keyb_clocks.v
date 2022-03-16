@@ -35,10 +35,16 @@ module keyb_clocks(
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input reset
+    output reset,
+
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    input resetn
 );
     
     reg [17:0] clk_div;
+    
+    assign reset            = ~resetn;
     
     assign fnkeys_enable    = (clk_div[17:0] == {18{1'b1}}) ? 1'b1 : 1'b0;              // 9.36ms period for debounce
     assign membrane_enable  = (clk_div[8:7] == 2'b11 && joy_clk_en) ? 1'b1 : 1'b0;      // complete scan every 2.5 scanlines (0.018ms per row)

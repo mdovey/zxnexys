@@ -29,25 +29,29 @@ module status_display #(
     input               freq_50_60,
     input               scandouble,
 
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display0,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display1,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display2,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display3,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display4,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display5,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display6,
+(* ASYNC_REG = "TRUE" *)
     output  reg [5:0]   display7,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
     input               clk,    
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 mb_reset RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)    
     input               mb_reset,
-
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)    
-    input               peripheral_reset,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 mig_resetn RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)    
@@ -72,8 +76,8 @@ module status_display #(
 
     always @(posedge clk)
     if (mb_reset) begin
-        display0  <= 6'h1_D;
-        display1  <= 6'h1_D;
+        display0  <= 6'h1_8;
+        display1  <= 6'h1_9;
     end else
         case (cpu_speed)
             2'b00:

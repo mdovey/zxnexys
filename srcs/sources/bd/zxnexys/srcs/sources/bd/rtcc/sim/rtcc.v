@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Thu Dec 30 01:16:15 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 14:49:49 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target rtcc.bd
 //Design      : rtcc
@@ -18,7 +18,7 @@ module rtcc
     iic_rtcc_sda_i,
     iic_rtcc_sda_o,
     iic_rtcc_sda_t,
-    reset,
+    resetn,
     scl_i,
     scl_o,
     sda_i,
@@ -30,7 +30,7 @@ module rtcc
   input iic_rtcc_sda_i;
   output iic_rtcc_sda_o;
   output iic_rtcc_sda_t;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetn;
   input scl_i;
   output scl_o;
   input sda_i;
@@ -69,6 +69,7 @@ module rtcc
   wire registers_0_fifo_write_WR_EN;
   wire [7:0]registers_0_rd_data_o;
   wire reset_1;
+  wire resetn_1;
   wire [7:0]rtc_0_data_o;
   wire [5:0]rtc_0_rd_reg_o;
   wire rtc_0_sda_o;
@@ -85,7 +86,7 @@ module rtcc
   assign iic_rtcc_scl_t = axi_iic_0_scl_t;
   assign iic_rtcc_sda_o = axi_iic_0_sda_o;
   assign iic_rtcc_sda_t = axi_iic_0_sda_t;
-  assign reset_1 = reset;
+  assign resetn_1 = resetn;
   assign rtcc_iic_scl_i_1 = iic_rtcc_scl_i;
   assign rtcc_iic_sda_i_1 = iic_rtcc_sda_i;
   assign scl_i_1 = scl_i;
@@ -183,5 +184,6 @@ module rtcc
   rtcc_rtc_reset_0_0 rtc_reset_0
        (.clk_peripheral(clk_peripheral_1),
         .reset(reset_1),
-        .reset_n(rtc_reset_0_reset_n));
+        .reset_n(rtc_reset_0_reset_n),
+        .resetn(resetn_1));
 endmodule

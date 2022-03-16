@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-//Date        : Fri Feb 25 10:23:57 2022
+//Date        : Wed Mar 16 11:04:57 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target status.bd
 //Design      : status
@@ -13,6 +13,7 @@
 module status
    (address,
     an,
+    bus_resetn,
     ca,
     clk_200,
     cpu_clk,
@@ -20,6 +21,7 @@ module status
     cpu_speed,
     cpu_wait_n,
     freq_50_60,
+    io_resetn,
     led16_b,
     led16_g,
     led16_r,
@@ -28,12 +30,12 @@ module status
     led17_r,
     mb_reset,
     mig_resetn,
-    peripheral_reset,
     pi_accel_opt,
     scandouble,
     video_mode);
   input [20:0]address;
   output [7:0]an;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.BUS_RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.BUS_RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input bus_resetn;
   output [7:0]ca;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_200 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_200, CLK_DOMAIN status_clk_200, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_200;
   input cpu_clk;
@@ -41,6 +43,7 @@ module status
   input [1:0]cpu_speed;
   input cpu_wait_n;
   input freq_50_60;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.IO_RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.IO_RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input io_resetn;
   output led16_b;
   output led16_g;
   output led16_r;
@@ -49,12 +52,12 @@ module status
   output led17_r;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.MB_RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.MB_RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input mb_reset;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.MIG_RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.MIG_RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input mig_resetn;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.PERIPHERAL_RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.PERIPHERAL_RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input peripheral_reset;
   input [1:0]pi_accel_opt;
   input scandouble;
   input [2:0]video_mode;
 
   wire [20:0]address_1;
+  wire bus_resetn_1;
   wire clk_system_1;
   wire cpu_clk_1;
   wire cpu_contend_1;
@@ -62,11 +65,11 @@ module status
   wire cpu_wait_n_1;
   wire [1:0]enables_1;
   wire freq_50_60_1;
+  wire io_resetn_1;
   wire [7:0]led_segment_0_an;
   wire [7:0]led_segment_0_ca;
   wire mb_reset_1;
   wire mig_resetn_1;
-  wire peripheral_reset_1;
   wire rgb_led_16_led_b;
   wire rgb_led_16_led_g;
   wire rgb_led_16_led_r;
@@ -94,6 +97,7 @@ module status
 
   assign address_1 = address[20:0];
   assign an[7:0] = led_segment_0_an;
+  assign bus_resetn_1 = bus_resetn;
   assign ca[7:0] = led_segment_0_ca;
   assign clk_system_1 = clk_200;
   assign cpu_clk_1 = cpu_clk;
@@ -102,6 +106,7 @@ module status
   assign cpu_wait_n_1 = cpu_wait_n;
   assign enables_1 = pi_accel_opt[1:0];
   assign freq_50_60_1 = freq_50_60;
+  assign io_resetn_1 = io_resetn;
   assign led16_b = rgb_led_16_led_b;
   assign led16_g = rgb_led_16_led_g;
   assign led16_r = rgb_led_16_led_r;
@@ -110,7 +115,6 @@ module status
   assign led17_r = rgb_led_17_led_r;
   assign mb_reset_1 = mb_reset;
   assign mig_resetn_1 = mig_resetn;
-  assign peripheral_reset_1 = peripheral_reset;
   assign scandouble_1 = scandouble;
   assign video_mode_1 = video_mode[2:0];
   status_led_segment_0_0 led_segment_0
@@ -159,23 +163,24 @@ module status
         .freq_50_60(freq_50_60_1),
         .mb_reset(mb_reset_1),
         .mig_resetn(mig_resetn_1),
-        .peripheral_reset(peripheral_reset_1),
         .scandouble(scandouble_1),
         .video_mode(video_mode_1));
   status_status_enables_0_0 status_enables_0
-       (.opt(enables_1),
+       (.clk(clk_system_1),
+        .opt(enables_1),
         .rgb_cs_n(status_enables_0_rgb_cs_n),
         .segment_cs_n(status_enables_0_segment_cs_n));
   status_status_leds_0_0 status_leds_0
-       (.cpu_clk(cpu_clk_1),
+       (.bus_resetn(bus_resetn_1),
+        .clk(clk_system_1),
+        .cpu_clk(cpu_clk_1),
         .cpu_contend(cpu_contend_1),
         .cpu_wait_n(cpu_wait_n_1),
+        .io_resetn(io_resetn_1),
         .led16_b(status_leds_0_led16_b),
         .led16_g(status_leds_0_led16_g),
         .led16_r(status_leds_0_led16_r),
         .led17_b(status_leds_0_led17_b),
         .led17_g(status_leds_0_led17_g),
-        .led17_r(status_leds_0_led17_r),
-        .mb_reset(mb_reset_1),
-        .peripheral_reset(peripheral_reset_1));
+        .led17_r(status_leds_0_led17_r));
 endmodule

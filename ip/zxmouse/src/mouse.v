@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 14:45:24 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 13:21:55 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target mouse.bd
 //Design      : mouse
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "mouse,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=mouse,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=3,numReposBlks=3,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "mouse.hwdef" *) 
+(* CORE_GENERATION_INFO = "mouse,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=mouse,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=4,numReposBlks=4,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "mouse.hwdef" *) 
 module mouse
    (button,
     clk_peripheral,
@@ -20,7 +20,7 @@ module mouse
     ps2_data_i,
     ps2_data_o,
     ps2_data_t,
-    reset,
+    resetn,
     wheel,
     x,
     y);
@@ -33,7 +33,7 @@ module mouse
   input ps2_data_i;
   output ps2_data_o;
   output ps2_data_t;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetn;
   output [3:0]wheel;
   output [7:0]x;
   output [7:0]y;
@@ -50,7 +50,8 @@ module mouse
   wire [7:0]ps2_mouse_0_xcount;
   wire [7:0]ps2_mouse_0_ycount;
   wire [7:0]ps2_mouse_0_zcount;
-  wire reset_1;
+  wire resetn_1;
+  wire [0:0]util_vector_logic_0_Res;
   wire [2:0]xlconcat_0_dout;
   wire [3:0]xlslice_0_Dout;
 
@@ -63,7 +64,7 @@ module mouse
   assign ps2_data_i_1 = ps2_data_i;
   assign ps2_data_o = ps2_mouse_0_ps2mdat_o;
   assign ps2_data_t = ps2_mouse_0_ps2mdat_o;
-  assign reset_1 = reset;
+  assign resetn_1 = resetn;
   assign wheel[3:0] = xlslice_0_Dout;
   assign x[7:0] = ps2_mouse_0_xcount;
   assign y[7:0] = ps2_mouse_0_ycount;
@@ -77,10 +78,13 @@ module mouse
         .ps2mclk_o(ps2_mouse_0_ps2mclk_o),
         .ps2mdat_i(ps2_data_i_1),
         .ps2mdat_o(ps2_mouse_0_ps2mdat_o),
-        .reset(reset_1),
+        .reset(util_vector_logic_0_Res),
         .xcount(ps2_mouse_0_xcount),
         .ycount(ps2_mouse_0_ycount),
         .zcount(ps2_mouse_0_zcount));
+  mouse_util_vector_logic_0_0 util_vector_logic_0
+       (.Op1(resetn_1),
+        .Res(util_vector_logic_0_Res));
   mouse_xlconcat_0_0 xlconcat_0
        (.In0(ps2_mouse_0_mleft),
         .In1(ps2_mouse_0_mright),

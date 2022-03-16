@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xEA7248BFEC013529",
+      "boundary_crc": "0xAE53B25C0A6E9E65",
       "device": "xc7a100tcsg324-1",
       "name": "audio",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -12,7 +12,6 @@
     "design_tree": {
       "sigma_delta_dac_1": "",
       "audio_psg_0": "",
-      "audio_reset_0": "",
       "sigma_delta_dac_0": "",
       "axis_i2s2_0": "",
       "audio_axis_master_0": "",
@@ -20,7 +19,8 @@
       "tape_mic_0": "",
       "debounce_0": "",
       "xlconstant_0": "",
-      "tape_ear_0": ""
+      "tape_ear_0": "",
+      "audio_reset_0": ""
     },
     "ports": {
       "audio_left": {
@@ -153,19 +153,6 @@
       "psg_en": {
         "direction": "O"
       },
-      "reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
-      },
       "tape_ear": {
         "direction": "O"
       },
@@ -174,6 +161,20 @@
       },
       "tape_pwm": {
         "direction": "O"
+      },
+      "resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -268,67 +269,6 @@
               },
               "CLK_DOMAIN": {
                 "value": "audio_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          }
-        }
-      },
-      "audio_reset_0": {
-        "vlnv": "xilinx.com:module_ref:audio_reset:1.0",
-        "xci_name": "audio_audio_reset_0_0",
-        "xci_path": "ip\\audio_audio_reset_0_0\\audio_audio_reset_0_0.xci",
-        "inst_hier_path": "audio_reset_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "audio_reset",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "rstn": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst:rstn",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "22590010",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "audio_clk_12m288",
                 "value_src": "default_prop"
               }
             }
@@ -766,6 +706,67 @@
             }
           }
         }
+      },
+      "audio_reset_0": {
+        "vlnv": "xilinx.com:module_ref:audio_reset:1.0",
+        "xci_name": "audio_audio_reset_0_0",
+        "xci_path": "ip\\audio_audio_reset_0_0\\audio_audio_reset_0_0.xci",
+        "inst_hier_path": "audio_reset_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "audio_reset",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst:rstn",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "22590010",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "audio_clk_12m288",
+                "value_src": "default_prop"
+              }
+            }
+          }
+        }
       }
     },
     "nets": {
@@ -901,12 +902,12 @@
         "ports": [
           "clk_22m59",
           "sigma_delta_dac_1/CLK",
-          "audio_reset_0/clk",
           "sigma_delta_dac_0/CLK",
           "axis_i2s2_0/axis_clk",
           "audio_axis_master_0/clk",
           "audio_mono_1/clk",
-          "tape_ear_0/clk"
+          "tape_ear_0/clk",
+          "audio_reset_0/clk"
         ]
       },
       "clk_peripheral_1": {
@@ -928,10 +929,10 @@
           "axis_i2s2_0/rx_sdin"
         ]
       },
-      "reset_1": {
+      "resetn_1": {
         "ports": [
-          "reset",
-          "audio_reset_0/reset"
+          "resetn",
+          "audio_reset_0/resetn"
         ]
       },
       "sigma_delta_dac_0_DACout": {

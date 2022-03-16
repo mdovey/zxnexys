@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:45:29 2022
+-- Date        : Wed Mar 16 11:17:52 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxmouse_0_0/zxnexys_zxmouse_0_0_sim_netlist.vhdl
@@ -10,6 +10,36 @@
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7a100tcsg324-1
 -- --------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+entity zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 is
+  port (
+    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
+    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
+  );
+  attribute CHECK_LICENSE_TYPE : string;
+  attribute CHECK_LICENSE_TYPE of zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 : entity is "mouse_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}";
+  attribute DowngradeIPIdentifiedWarnings : string;
+  attribute DowngradeIPIdentifiedWarnings of zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 : entity is "mouse_util_vector_logic_0_0";
+  attribute X_CORE_INFO : string;
+  attribute X_CORE_INFO of zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 : entity is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1";
+end zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0;
+
+architecture STRUCTURE of zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0 is
+begin
+\Res[0]_INST_0\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => Op1(0),
+      O => Res(0)
+    );
+end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
@@ -86,7 +116,7 @@ entity zxnexys_zxmouse_0_0_ps2_mouse is
     ps2_clk_i : in STD_LOGIC;
     ps2_data_i : in STD_LOGIC;
     mouse_control : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    reset : in STD_LOGIC
+    Res : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_ps2_mouse : entity is "ps2_mouse";
@@ -422,7 +452,7 @@ begin
       I0 => \FSM_onehot_mstate[6]_i_3_n_0\,
       I1 => \FSM_onehot_mstate[6]_i_4_n_0\,
       I2 => \FSM_onehot_mstate[6]_i_5_n_0\,
-      I3 => reset,
+      I3 => Res(0),
       O => mstate0
     );
 \FSM_onehot_mstate[6]_i_2\: unisim.vcomponents.LUT6
@@ -601,7 +631,7 @@ intellimouse_i_1: unisim.vcomponents.LUT5
       I1 => intellimouse_i_2_n_0,
       I2 => \zcount[3]_i_2_n_0\,
       I3 => \FSM_onehot_mstate_reg_n_0_[5]\,
-      I4 => reset,
+      I4 => Res(0),
       O => intellimouse_i_1_n_0
     );
 intellimouse_i_2: unisim.vcomponents.LUT6
@@ -711,7 +741,7 @@ intellimouse_reg: unisim.vcomponents.FDRE
       CE => mcmd_cnt0,
       D => \p_0_in__0\(0),
       Q => mcmd_cnt_reg(0),
-      R => reset
+      R => Res(0)
     );
 \mcmd_cnt_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -722,7 +752,7 @@ intellimouse_reg: unisim.vcomponents.FDRE
       CE => mcmd_cnt0,
       D => \mcmd_cnt[1]_i_1_n_0\,
       Q => mcmd_cnt_reg(1),
-      R => reset
+      R => Res(0)
     );
 \mcmd_cnt_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -733,7 +763,7 @@ intellimouse_reg: unisim.vcomponents.FDRE
       CE => mcmd_cnt0,
       D => \p_0_in__0\(2),
       Q => mcmd_cnt_reg(2),
-      R => reset
+      R => Res(0)
     );
 \mcmd_cnt_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -744,7 +774,7 @@ intellimouse_reg: unisim.vcomponents.FDRE
       CE => mcmd_cnt0,
       D => \p_0_in__0\(3),
       Q => mcmd_cnt_reg(3),
-      R => reset
+      R => Res(0)
     );
 \mdatr_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -788,7 +818,7 @@ mleft_i_1: unisim.vcomponents.LUT6
       I2 => \mreceive_reg_n_0_[1]\,
       I3 => mreverse,
       I4 => \mreceive_reg_n_0_[2]\,
-      I5 => reset,
+      I5 => Res(0),
       O => mleft_i_1_n_0
     );
 mleft_i_2: unisim.vcomponents.LUT5
@@ -939,7 +969,7 @@ mright_i_1: unisim.vcomponents.LUT6
       I2 => \mreceive_reg_n_0_[2]\,
       I3 => mreverse,
       I4 => \mreceive_reg_n_0_[1]\,
-      I5 => reset,
+      I5 => Res(0),
       O => mright_i_1_n_0
     );
 mright_reg: unisim.vcomponents.FDRE
@@ -1227,7 +1257,7 @@ mthird_i_1: unisim.vcomponents.LUT4
       I0 => \^in2\(0),
       I1 => mleft_i_2_n_0,
       I2 => \mreceive_reg_n_0_[3]\,
-      I3 => reset,
+      I3 => Res(0),
       O => mthird_i_1_n_0
     );
 mthird_reg: unisim.vcomponents.FDRE
@@ -1603,7 +1633,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(0),
       Q => \^x\(0),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -1611,7 +1641,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(1),
       Q => \^x\(1),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -1619,7 +1649,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(2),
       Q => \^x\(2),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -1627,7 +1657,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(3),
       Q => \^x\(3),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -1635,7 +1665,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(4),
       Q => \^x\(4),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -1643,7 +1673,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(5),
       Q => \^x\(5),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -1651,7 +1681,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(6),
       Q => \^x\(6),
-      R => reset
+      R => Res(0)
     );
 \xcount_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -1659,7 +1689,7 @@ xcount0_carry_i_4: unisim.vcomponents.LUT6
       CE => \xcount[7]_i_1_n_0\,
       D => xcount0(7),
       Q => \^x\(7),
-      R => reset
+      R => Res(0)
     );
 ycount0_carry: unisim.vcomponents.CARRY4
      port map (
@@ -1858,7 +1888,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(0),
       Q => \^y\(0),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -1866,7 +1896,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(1),
       Q => \^y\(1),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -1874,7 +1904,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(2),
       Q => \^y\(2),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -1882,7 +1912,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(3),
       Q => \^y\(3),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -1890,7 +1920,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(4),
       Q => \^y\(4),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -1898,7 +1928,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(5),
       Q => \^y\(5),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -1906,7 +1936,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(6),
       Q => \^y\(6),
-      R => reset
+      R => Res(0)
     );
 \ycount_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -1914,7 +1944,7 @@ ycount0_carry_i_7: unisim.vcomponents.LUT6
       CE => \ycount[7]_i_1_n_0\,
       D => ycount0(7),
       Q => \^y\(7),
-      R => reset
+      R => Res(0)
     );
 zcount0_carry: unisim.vcomponents.CARRY4
      port map (
@@ -1998,7 +2028,7 @@ zcount0_carry_i_4: unisim.vcomponents.LUT2
       CE => \zcount[3]_i_1_n_0\,
       D => zcount0(0),
       Q => \^zcount\(0),
-      R => reset
+      R => Res(0)
     );
 \zcount_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -2006,7 +2036,7 @@ zcount0_carry_i_4: unisim.vcomponents.LUT2
       CE => \zcount[3]_i_1_n_0\,
       D => zcount0(1),
       Q => \^zcount\(1),
-      R => reset
+      R => Res(0)
     );
 \zcount_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -2014,7 +2044,7 @@ zcount0_carry_i_4: unisim.vcomponents.LUT2
       CE => \zcount[3]_i_1_n_0\,
       D => zcount0(2),
       Q => \^zcount\(2),
-      R => reset
+      R => Res(0)
     );
 \zcount_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -2022,7 +2052,7 @@ zcount0_carry_i_4: unisim.vcomponents.LUT2
       CE => \zcount[3]_i_1_n_0\,
       D => zcount0(3),
       Q => \^zcount\(3),
-      R => reset
+      R => Res(0)
     );
 end STRUCTURE;
 library IEEE;
@@ -2043,7 +2073,7 @@ entity zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0 is
     ps2_clk_i : in STD_LOGIC;
     ps2_data_i : in STD_LOGIC;
     mouse_control : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    reset : in STD_LOGIC
+    Res : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0 : entity is "mouse_ps2_mouse_0_0";
@@ -2056,13 +2086,13 @@ inst: entity work.zxnexys_zxmouse_0_0_ps2_mouse
       In0(0) => In0(0),
       In1(0) => In1(0),
       In2(0) => In2(0),
+      Res(0) => Res(0),
       clk_peripheral => clk_peripheral,
       mouse_control(2 downto 0) => mouse_control(2 downto 0),
       ps2_clk_i => ps2_clk_i,
       ps2_clk_o => ps2_clk_o,
       ps2_data_i => ps2_data_i,
       ps2_data_o => ps2_data_o,
-      reset => reset,
       x(7 downto 0) => x(7 downto 0),
       y(7 downto 0) => y(7 downto 0),
       zcount(3 downto 0) => zcount(3 downto 0)
@@ -2084,7 +2114,7 @@ entity zxnexys_zxmouse_0_0_mouse is
     ps2_clk_i : in STD_LOGIC;
     ps2_data_i : in STD_LOGIC;
     mouse_control : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_mouse : entity is "mouse";
@@ -2095,11 +2125,15 @@ architecture STRUCTURE of zxnexys_zxmouse_0_0_mouse is
   signal ps2_mouse_0_mright : STD_LOGIC;
   signal ps2_mouse_0_mthird : STD_LOGIC;
   signal ps2_mouse_0_zcount : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal util_vector_logic_0_Res : STD_LOGIC;
   attribute X_CORE_INFO : string;
   attribute X_CORE_INFO of ps2_mouse_0 : label is "ps2_mouse,Vivado 2021.2";
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of xlconcat_0 : label is "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}";
+  attribute CHECK_LICENSE_TYPE of util_vector_logic_0 : label is "mouse_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
+  attribute DowngradeIPIdentifiedWarnings of util_vector_logic_0 : label is "yes";
+  attribute X_CORE_INFO of util_vector_logic_0 : label is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1";
+  attribute CHECK_LICENSE_TYPE of xlconcat_0 : label is "mouse_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}";
   attribute DowngradeIPIdentifiedWarnings of xlconcat_0 : label is "yes";
   attribute X_CORE_INFO of xlconcat_0 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE of xlslice_0 : label is "mouse_xlslice_0_0,xlslice_v1_0_2_xlslice,{}";
@@ -2111,16 +2145,21 @@ ps2_mouse_0: entity work.zxnexys_zxmouse_0_0_mouse_ps2_mouse_0_0
       In0(0) => ps2_mouse_0_mleft,
       In1(0) => ps2_mouse_0_mright,
       In2(0) => ps2_mouse_0_mthird,
+      Res(0) => util_vector_logic_0_Res,
       clk_peripheral => clk_peripheral,
       mouse_control(2 downto 0) => mouse_control(2 downto 0),
       ps2_clk_i => ps2_clk_i,
       ps2_clk_o => ps2_clk_o,
       ps2_data_i => ps2_data_i,
       ps2_data_o => ps2_data_o,
-      reset => reset,
       x(7 downto 0) => x(7 downto 0),
       y(7 downto 0) => y(7 downto 0),
       zcount(3 downto 0) => ps2_mouse_0_zcount(3 downto 0)
+    );
+util_vector_logic_0: entity work.zxnexys_zxmouse_0_0_mouse_util_vector_logic_0_0
+     port map (
+      Op1(0) => resetn,
+      Res(0) => util_vector_logic_0_Res
     );
 xlconcat_0: entity work.zxnexys_zxmouse_0_0_mouse_xlconcat_0_0
      port map (
@@ -2152,7 +2191,7 @@ entity zxnexys_zxmouse_0_0_mouse_wrapper is
     ps2_clk_i : in STD_LOGIC;
     ps2_data_i : in STD_LOGIC;
     mouse_control : in STD_LOGIC_VECTOR ( 2 downto 0 );
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxmouse_0_0_mouse_wrapper : entity is "mouse_wrapper";
@@ -2169,7 +2208,7 @@ mouse_i: entity work.zxnexys_zxmouse_0_0_mouse
       ps2_clk_o => ps2_clk_o,
       ps2_data_i => ps2_data_i,
       ps2_data_o => ps2_data_o,
-      reset => reset,
+      resetn => resetn,
       wheel(3 downto 0) => wheel(3 downto 0),
       x(7 downto 0) => x(7 downto 0),
       y(7 downto 0) => y(7 downto 0)
@@ -2190,7 +2229,7 @@ entity zxnexys_zxmouse_0_0 is
     ps2_data_i : in STD_LOGIC;
     ps2_data_o : out STD_LOGIC;
     ps2_data_t : out STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     wheel : out STD_LOGIC_VECTOR ( 3 downto 0 );
     x : out STD_LOGIC_VECTOR ( 7 downto 0 );
     y : out STD_LOGIC_VECTOR ( 7 downto 0 )
@@ -2213,15 +2252,15 @@ architecture STRUCTURE of zxnexys_zxmouse_0_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of ps2_clk_i : signal is "xilinx.com:interface:gpio:1.0 ps2_clk TRI_I";
   attribute X_INTERFACE_INFO of ps2_clk_o : signal is "xilinx.com:interface:gpio:1.0 ps2_clk TRI_O";
   attribute X_INTERFACE_INFO of ps2_clk_t : signal is "xilinx.com:interface:gpio:1.0 ps2_clk TRI_T";
   attribute X_INTERFACE_INFO of ps2_data_i : signal is "xilinx.com:interface:gpio:1.0 ps2_data TRI_I";
   attribute X_INTERFACE_INFO of ps2_data_o : signal is "xilinx.com:interface:gpio:1.0 ps2_data TRI_O";
   attribute X_INTERFACE_INFO of ps2_data_t : signal is "xilinx.com:interface:gpio:1.0 ps2_data TRI_T";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of button : signal is "specnext.com:specnext:mouse:1.0 mouse button";
   attribute X_INTERFACE_INFO of mouse_control : signal is "specnext.com:specnext:mouse:1.0 mouse mouse_control";
   attribute X_INTERFACE_INFO of wheel : signal is "specnext.com:specnext:mouse:1.0 mouse wheel";
@@ -2241,7 +2280,7 @@ inst: entity work.zxnexys_zxmouse_0_0_mouse_wrapper
       ps2_clk_o => \^ps2_clk_o\,
       ps2_data_i => ps2_data_i,
       ps2_data_o => \^ps2_data_o\,
-      reset => reset,
+      resetn => resetn,
       wheel(3 downto 0) => wheel(3 downto 0),
       x(7 downto 0) => x(7 downto 0),
       y(7 downto 0) => y(7 downto 0)

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:51:03 2022
+// Date        : Wed Mar 16 11:17:55 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_sim_netlist.v
@@ -29,13 +29,13 @@ module zxnexys_zxjoystick_0_0
     jstk_miso,
     jstk_mosi,
     jstk_sel,
-    reset);
+    resetn);
   input btnc;
   input btnd;
   input btnl;
   input btnr;
   input btnu;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clockenable:1.0 joy_clk_en CE" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME joy_clk_en, FREQ_HZ 100000000, PHASE 0, POLARITY ACTIVE_HIGH" *) output joy_clk_en;
   (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_left" *) output [10:0]joy_left;
   (* X_INTERFACE_INFO = "specnext.com:specnext:joystick:1.0 joystick joy_right" *) output [10:0]joy_right;
@@ -43,7 +43,7 @@ module zxnexys_zxjoystick_0_0
   (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 i_SPI miso" *) input jstk_miso;
   output jstk_mosi;
   output jstk_sel;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
 
   wire \<const0> ;
   wire btnc;
@@ -59,7 +59,7 @@ module zxnexys_zxjoystick_0_0
   wire jstk_miso;
   wire jstk_mosi;
   wire jstk_sel;
-  wire reset;
+  wire resetn;
 
   assign joy_left[10] = \<const0> ;
   assign joy_left[9] = \<const0> ;
@@ -90,12 +90,13 @@ module zxnexys_zxjoystick_0_0
         .jstk_miso(jstk_miso),
         .jstk_mosi(jstk_mosi),
         .jstk_sel(jstk_sel),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "SPI_Master" *) 
 module zxnexys_zxjoystick_0_0_SPI_Master
    (o_TX_Ready_reg_0,
+    resetn_0,
     jstk_clk,
     o_RX_DV,
     \r_TX_Byte_reg[6]_0 ,
@@ -104,9 +105,10 @@ module zxnexys_zxjoystick_0_0_SPI_Master
     clk_peripheral,
     pmod_jstk2_0_wv,
     \r_TX_Byte_reg[6]_1 ,
-    Res,
+    resetn,
     jstk_miso);
   output o_TX_Ready_reg_0;
+  output resetn_0;
   output jstk_clk;
   output o_RX_DV;
   output \r_TX_Byte_reg[6]_0 ;
@@ -115,11 +117,10 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   input clk_peripheral;
   input pmod_jstk2_0_wv;
   input \r_TX_Byte_reg[6]_1 ;
-  input [0:0]Res;
+  input resetn;
   input jstk_miso;
 
   wire [7:0]D;
-  wire [0:0]Res;
   wire clk_peripheral;
   wire jstk_clk;
   wire jstk_miso;
@@ -136,7 +137,6 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   wire \o_RX_Byte[7]_i_2_n_0 ;
   wire o_RX_DV;
   wire o_RX_DV5_out;
-  wire o_SPI_Clk_i_1_n_0;
   wire o_SPI_MOSI_i_1_n_0;
   wire o_SPI_MOSI_i_2_n_0;
   wire o_TX_Ready8_out;
@@ -177,6 +177,8 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   wire r_TX_DV;
   wire r_Trailing_Edge3_out;
   wire r_Trailing_Edge_reg_n_0;
+  wire resetn;
+  wire resetn_0;
 
   LUT5 #(
     .INIT(32'hFFFB0008)) 
@@ -269,49 +271,49 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE \o_RX_Byte_reg[0] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[0]_i_1_n_0 ),
         .Q(D[0]));
   FDCE \o_RX_Byte_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[1]_i_1_n_0 ),
         .Q(D[1]));
   FDCE \o_RX_Byte_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[2]_i_1_n_0 ),
         .Q(D[2]));
   FDCE \o_RX_Byte_reg[3] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[3]_i_1_n_0 ),
         .Q(D[3]));
   FDCE \o_RX_Byte_reg[4] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[4]_i_1_n_0 ),
         .Q(D[4]));
   FDCE \o_RX_Byte_reg[5] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[5]_i_1_n_0 ),
         .Q(D[5]));
   FDCE \o_RX_Byte_reg[6] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[6]_i_1_n_0 ),
         .Q(D[6]));
   FDCE \o_RX_Byte_reg[7] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\o_RX_Byte[7]_i_1_n_0 ),
         .Q(D[7]));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
@@ -327,18 +329,18 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE o_RX_DV_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(o_RX_DV5_out),
         .Q(o_RX_DV));
   LUT1 #(
     .INIT(2'h1)) 
     o_SPI_Clk_i_1
-       (.I0(Res),
-        .O(o_SPI_Clk_i_1_n_0));
+       (.I0(resetn),
+        .O(resetn_0));
   FDCE o_SPI_Clk_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk),
         .Q(jstk_clk));
   LUT5 #(
@@ -361,7 +363,7 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE o_SPI_MOSI_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(o_SPI_MOSI_i_1_n_0),
         .Q(jstk_mosi));
   LUT6 #(
@@ -377,7 +379,7 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE o_TX_Ready_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(o_TX_Ready8_out),
         .Q(o_TX_Ready_reg_0));
   LUT6 #(
@@ -403,7 +405,7 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE r_Leading_Edge_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_Leading_Edge7_out),
         .Q(r_Leading_Edge));
   (* SOFT_HLUTNM = "soft_lutpair6" *) 
@@ -437,19 +439,19 @@ module zxnexys_zxjoystick_0_0_SPI_Master
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_RX_Bit_Count[0]_i_1_n_0 ),
-        .PRE(o_SPI_Clk_i_1_n_0),
+        .PRE(resetn_0),
         .Q(\r_RX_Bit_Count_reg_n_0_[0] ));
   FDPE \r_RX_Bit_Count_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_RX_Bit_Count[1]_i_1_n_0 ),
-        .PRE(o_SPI_Clk_i_1_n_0),
+        .PRE(resetn_0),
         .Q(\r_RX_Bit_Count_reg_n_0_[1] ));
   FDPE \r_RX_Bit_Count_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_RX_Bit_Count[2]_i_1_n_0 ),
-        .PRE(o_SPI_Clk_i_1_n_0),
+        .PRE(resetn_0),
         .Q(\r_RX_Bit_Count_reg_n_0_[2] ));
   (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT1 #(
@@ -507,31 +509,31 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE \r_SPI_Clk_Count_reg[0] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Count[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk_Count[0]),
         .Q(\r_SPI_Clk_Count_reg_n_0_[0] ));
   FDCE \r_SPI_Clk_Count_reg[1] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Count[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk_Count[1]),
         .Q(\r_SPI_Clk_Count_reg_n_0_[1] ));
   FDCE \r_SPI_Clk_Count_reg[2] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Count[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk_Count[2]),
         .Q(\r_SPI_Clk_Count_reg_n_0_[2] ));
   FDCE \r_SPI_Clk_Count_reg[3] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Count[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk_Count[3]),
         .Q(\r_SPI_Clk_Count_reg_n_0_[3] ));
   FDCE \r_SPI_Clk_Count_reg[4] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Count[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk_Count[4]),
         .Q(\r_SPI_Clk_Count_reg_n_0_[4] ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
@@ -607,31 +609,31 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE \r_SPI_Clk_Edges_reg[0] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Edges[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\r_SPI_Clk_Edges[0]_i_1_n_0 ),
         .Q(r_SPI_Clk_Edges_reg[0]));
   FDCE \r_SPI_Clk_Edges_reg[1] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Edges[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(p_0_in[1]),
         .Q(r_SPI_Clk_Edges_reg[1]));
   FDCE \r_SPI_Clk_Edges_reg[2] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Edges[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(p_0_in[2]),
         .Q(r_SPI_Clk_Edges_reg[2]));
   FDCE \r_SPI_Clk_Edges_reg[3] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Edges[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(p_0_in[3]),
         .Q(r_SPI_Clk_Edges_reg[3]));
   FDCE \r_SPI_Clk_Edges_reg[4] 
        (.C(clk_peripheral),
         .CE(\r_SPI_Clk_Edges[4]_i_1_n_0 ),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(p_0_in[4]),
         .Q(r_SPI_Clk_Edges_reg[4]));
   LUT6 #(
@@ -647,7 +649,7 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE r_SPI_Clk_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_SPI_Clk_i_1_n_0),
         .Q(r_SPI_Clk));
   (* SOFT_HLUTNM = "soft_lutpair5" *) 
@@ -683,30 +685,30 @@ module zxnexys_zxjoystick_0_0_SPI_Master
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_TX_Bit_Count[0]_i_1_n_0 ),
-        .PRE(o_SPI_Clk_i_1_n_0),
+        .PRE(resetn_0),
         .Q(\r_TX_Bit_Count_reg_n_0_[0] ));
   FDPE \r_TX_Bit_Count_reg[1] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_TX_Bit_Count[1]_i_1_n_0 ),
-        .PRE(o_SPI_Clk_i_1_n_0),
+        .PRE(resetn_0),
         .Q(\r_TX_Bit_Count_reg_n_0_[1] ));
   FDPE \r_TX_Bit_Count_reg[2] 
        (.C(clk_peripheral),
         .CE(1'b1),
         .D(\r_TX_Bit_Count[2]_i_1_n_0 ),
-        .PRE(o_SPI_Clk_i_1_n_0),
+        .PRE(resetn_0),
         .Q(\r_TX_Bit_Count_reg_n_0_[2] ));
   FDCE \r_TX_Byte_reg[6] 
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(\r_TX_Byte_reg[6]_1 ),
         .Q(\r_TX_Byte_reg[6]_0 ));
   FDCE r_TX_DV_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(pmod_jstk2_0_wv),
         .Q(r_TX_DV));
   LUT6 #(
@@ -722,7 +724,7 @@ module zxnexys_zxjoystick_0_0_SPI_Master
   FDCE r_Trailing_Edge_reg
        (.C(clk_peripheral),
         .CE(1'b1),
-        .CLR(o_SPI_Clk_i_1_n_0),
+        .CLR(resetn_0),
         .D(r_Trailing_Edge3_out),
         .Q(r_Trailing_Edge_reg_n_0));
 endmodule
@@ -2631,21 +2633,20 @@ module zxnexys_zxjoystick_0_0_joystick
     jstk_sel,
     joy_clk_en,
     jstk_mosi,
-    reset,
     clk_peripheral,
     btnr,
     btnl,
     btnd,
     btnu,
     btnc,
-    jstk_miso);
+    jstk_miso,
+    resetn);
   output [4:0]joy_left;
   output [5:0]joy_right;
   output jstk_clk;
   output jstk_sel;
   output joy_clk_en;
   output jstk_mosi;
-  input reset;
   input clk_peripheral;
   input btnr;
   input btnl;
@@ -2653,8 +2654,10 @@ module zxnexys_zxjoystick_0_0_joystick
   input btnu;
   input btnc;
   input jstk_miso;
+  input resetn;
 
-  wire SPI_Master_0_n_3;
+  wire SPI_Master_0_n_1;
+  wire SPI_Master_0_n_4;
   wire SPI_Master_0_o_TX_Ready;
   wire btnc;
   wire btnd;
@@ -2713,15 +2716,13 @@ module zxnexys_zxjoystick_0_0_joystick
   wire pmod_jstk2_0_n_8;
   wire pmod_jstk2_0_wv;
   wire r00_in;
-  wire reset;
-  wire util_vector_logic_0_Res;
+  wire resetn;
   wire [10:5]NLW_xlconcat_0_dout_UNCONNECTED;
   wire [10:6]NLW_xlconcat_1_dout_UNCONNECTED;
 
   (* X_CORE_INFO = "SPI_Master,Vivado 2021.2" *) 
   zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0 SPI_Master_0
        (.D(o_RX_Byte),
-        .Res(util_vector_logic_0_Res),
         .SPI_Master_0_o_TX_Ready(SPI_Master_0_o_TX_Ready),
         .clk_peripheral(clk_peripheral),
         .jstk_clk(jstk_clk),
@@ -2729,8 +2730,10 @@ module zxnexys_zxjoystick_0_0_joystick
         .jstk_mosi(jstk_mosi),
         .o_RX_DV(o_RX_DV),
         .pmod_jstk2_0_wv(pmod_jstk2_0_wv),
-        .\r_TX_Byte_reg[6] (SPI_Master_0_n_3),
-        .\r_TX_Byte_reg[6]_0 (pmod_jstk2_0_n_2));
+        .\r_TX_Byte_reg[6] (SPI_Master_0_n_4),
+        .\r_TX_Byte_reg[6]_0 (pmod_jstk2_0_n_2),
+        .resetn(resetn),
+        .resetn_0(SPI_Master_0_n_1));
   (* X_CORE_INFO = "debounce,Vivado 2021.2.1" *) 
   zxnexys_zxjoystick_0_0_joystick_debounce_0_0 debounce_0
        (.E(joy_clock_enable_0_n_10),
@@ -2845,6 +2848,7 @@ module zxnexys_zxjoystick_0_0_joystick
        (.D(o_RX_Byte),
         .Q({\inst/p_1_in ,pmod_jstk2_0_n_4}),
         .SPI_Master_0_o_TX_Ready(SPI_Master_0_o_TX_Ready),
+        .SS(SPI_Master_0_n_1),
         .clk_peripheral(clk_peripheral),
         .d0(d0),
         .invalid(invalid),
@@ -2852,17 +2856,10 @@ module zxnexys_zxjoystick_0_0_joystick
         .o_RX_DV(o_RX_DV),
         .pmod_jstk2_0_wv(pmod_jstk2_0_wv),
         .r00_in(r00_in),
-        .\r_TX_Byte_reg[6] (SPI_Master_0_n_3),
-        .reset(reset),
+        .\r_TX_Byte_reg[6] (SPI_Master_0_n_4),
         .wv_reg(pmod_jstk2_0_n_2),
         .\x_reg[7] (pmod_jstk2_0_n_6),
         .\y_reg[7] (pmod_jstk2_0_n_8));
-  (* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) 
-  (* DowngradeIPIdentifiedWarnings = "yes" *) 
-  (* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *) 
-  zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 util_vector_logic_0
-       (.Op1(reset),
-        .Res(util_vector_logic_0_Res));
   (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) 
   (* DowngradeIPIdentifiedWarnings = "yes" *) 
   (* X_CORE_INFO = "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1" *) 
@@ -2891,6 +2888,7 @@ endmodule
 (* ORIG_REF_NAME = "joystick_SPI_Master_0_0" *) 
 module zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
    (SPI_Master_0_o_TX_Ready,
+    resetn_0,
     jstk_clk,
     o_RX_DV,
     \r_TX_Byte_reg[6] ,
@@ -2899,9 +2897,10 @@ module zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
     clk_peripheral,
     pmod_jstk2_0_wv,
     \r_TX_Byte_reg[6]_0 ,
-    Res,
+    resetn,
     jstk_miso);
   output SPI_Master_0_o_TX_Ready;
+  output resetn_0;
   output jstk_clk;
   output o_RX_DV;
   output \r_TX_Byte_reg[6] ;
@@ -2910,11 +2909,10 @@ module zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
   input clk_peripheral;
   input pmod_jstk2_0_wv;
   input \r_TX_Byte_reg[6]_0 ;
-  input [0:0]Res;
+  input resetn;
   input jstk_miso;
 
   wire [7:0]D;
-  wire [0:0]Res;
   wire SPI_Master_0_o_TX_Ready;
   wire clk_peripheral;
   wire jstk_clk;
@@ -2924,10 +2922,11 @@ module zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
   wire pmod_jstk2_0_wv;
   wire \r_TX_Byte_reg[6] ;
   wire \r_TX_Byte_reg[6]_0 ;
+  wire resetn;
+  wire resetn_0;
 
   zxnexys_zxjoystick_0_0_SPI_Master inst
        (.D(D),
-        .Res(Res),
         .clk_peripheral(clk_peripheral),
         .jstk_clk(jstk_clk),
         .jstk_miso(jstk_miso),
@@ -2936,7 +2935,9 @@ module zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
         .o_TX_Ready_reg_0(SPI_Master_0_o_TX_Ready),
         .pmod_jstk2_0_wv(pmod_jstk2_0_wv),
         .\r_TX_Byte_reg[6]_0 (\r_TX_Byte_reg[6] ),
-        .\r_TX_Byte_reg[6]_1 (\r_TX_Byte_reg[6]_0 ));
+        .\r_TX_Byte_reg[6]_1 (\r_TX_Byte_reg[6]_0 ),
+        .resetn(resetn),
+        .resetn_0(resetn_0));
 endmodule
 
 (* ORIG_REF_NAME = "joystick_debounce_0_0" *) 
@@ -3378,7 +3379,7 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
     SPI_Master_0_o_TX_Ready,
     o_RX_DV,
     \r_TX_Byte_reg[6] ,
-    reset,
+    SS,
     D);
   output pmod_jstk2_0_wv;
   output jstk_sel;
@@ -3393,12 +3394,13 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
   input SPI_Master_0_o_TX_Ready;
   input o_RX_DV;
   input \r_TX_Byte_reg[6] ;
-  input reset;
+  input [0:0]SS;
   input [7:0]D;
 
   wire [7:0]D;
   wire [1:0]Q;
   wire SPI_Master_0_o_TX_Ready;
+  wire [0:0]SS;
   wire clk_peripheral;
   wire d0;
   wire invalid;
@@ -3407,7 +3409,6 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
   wire pmod_jstk2_0_wv;
   wire r00_in;
   wire \r_TX_Byte_reg[6] ;
-  wire reset;
   wire wv_reg;
   wire \x_reg[7] ;
   wire \y_reg[7] ;
@@ -3416,6 +3417,7 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
        (.D(D),
         .Q(Q),
         .SPI_Master_0_o_TX_Ready(SPI_Master_0_o_TX_Ready),
+        .SS(SS),
         .clk_peripheral(clk_peripheral),
         .d0(d0),
         .invalid(invalid),
@@ -3423,29 +3425,10 @@ module zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
         .o_RX_DV(o_RX_DV),
         .r00_in(r00_in),
         .\r_TX_Byte_reg[6] (\r_TX_Byte_reg[6] ),
-        .reset(reset),
         .wv_reg_0(pmod_jstk2_0_wv),
         .wv_reg_1(wv_reg),
         .\x_reg[7]_0 (\x_reg[7] ),
         .\y_reg[7]_0 (\y_reg[7] ));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_util_vector_logic_0_0" *) 
-(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1" *) 
-module zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0
-   (Op1,
-    Res);
-  input [0:0]Op1;
-  output [0:0]Res;
-
-  wire [0:0]Op1;
-  wire [0:0]Res;
-
-  LUT1 #(
-    .INIT(2'h1)) 
-    \Res[0]_INST_0 
-       (.I0(Op1),
-        .O(Res));
 endmodule
 
 (* ORIG_REF_NAME = "joystick_wrapper" *) 
@@ -3456,21 +3439,20 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
     jstk_sel,
     joy_clk_en,
     jstk_mosi,
-    reset,
     clk_peripheral,
     btnr,
     btnl,
     btnd,
     btnu,
     btnc,
-    jstk_miso);
+    jstk_miso,
+    resetn);
   output [4:0]joy_left;
   output [5:0]joy_right;
   output jstk_clk;
   output jstk_sel;
   output joy_clk_en;
   output jstk_mosi;
-  input reset;
   input clk_peripheral;
   input btnr;
   input btnl;
@@ -3478,6 +3460,7 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
   input btnu;
   input btnc;
   input jstk_miso;
+  input resetn;
 
   wire btnc;
   wire btnd;
@@ -3492,7 +3475,7 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
   wire jstk_miso;
   wire jstk_mosi;
   wire jstk_sel;
-  wire reset;
+  wire resetn;
 
   zxnexys_zxjoystick_0_0_joystick joystick_i
        (.btnc(btnc),
@@ -3508,7 +3491,7 @@ module zxnexys_zxjoystick_0_0_joystick_wrapper
         .jstk_miso(jstk_miso),
         .jstk_mosi(jstk_mosi),
         .jstk_sel(jstk_sel),
-        .reset(reset));
+        .resetn(resetn));
 endmodule
 
 (* CHECK_LICENSE_TYPE = "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* ORIG_REF_NAME = "joystick_xlconcat_0_0" *) 
@@ -3609,7 +3592,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
     SPI_Master_0_o_TX_Ready,
     o_RX_DV,
     \r_TX_Byte_reg[6] ,
-    reset,
+    SS,
     D);
   output wv_reg_0;
   output jstk_sel;
@@ -3624,7 +3607,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
   input SPI_Master_0_o_TX_Ready;
   input o_RX_DV;
   input \r_TX_Byte_reg[6] ;
-  input reset;
+  input [0:0]SS;
   input [7:0]D;
 
   wire [7:0]D;
@@ -3653,6 +3636,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
   wire \FSM_onehot_cState_reg_n_0_[7] ;
   wire [1:0]Q;
   wire SPI_Master_0_o_TX_Ready;
+  wire [0:0]SS;
   wire [2:0]bc;
   wire bc0;
   wire \bc[0]_i_1_n_0 ;
@@ -3707,7 +3691,6 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
   wire \pause_reg_n_0_[9] ;
   wire r00_in;
   wire \r_TX_Byte_reg[6] ;
-  wire reset;
   wire s;
   wire \s_reg_n_0_[2] ;
   wire \s_reg_n_0_[3] ;
@@ -3902,7 +3885,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[0]_i_1_n_0 ),
         .Q(bc0),
-        .S(reset));
+        .S(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3911,7 +3894,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[1]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[1] ),
-        .R(reset));
+        .R(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3920,7 +3903,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[2]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[2] ),
-        .R(reset));
+        .R(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3929,7 +3912,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[3]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[3] ),
-        .R(reset));
+        .R(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3938,7 +3921,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[4]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[4] ),
-        .R(reset));
+        .R(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3947,7 +3930,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[5]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[5] ),
-        .R(reset));
+        .R(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3956,7 +3939,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[6]_i_1_n_0 ),
         .Q(bc_0),
-        .R(reset));
+        .R(SS));
   (* FSM_ENCODED_STATES = "stIdle:00000010,stEnable:00000100,stWrite:00010000,stRead:00100000,stStore:01000000,stStart:00000001,stWait:10000000,stInit:00001000" *) 
   FDRE #(
     .INIT(1'b0)) 
@@ -3965,7 +3948,7 @@ module zxnexys_zxjoystick_0_0_pmod_jstk2
         .CE(1'b1),
         .D(\FSM_onehot_cState[7]_i_1_n_0 ),
         .Q(\FSM_onehot_cState_reg_n_0_[7] ),
-        .R(reset));
+        .R(SS));
   (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'h06)) 

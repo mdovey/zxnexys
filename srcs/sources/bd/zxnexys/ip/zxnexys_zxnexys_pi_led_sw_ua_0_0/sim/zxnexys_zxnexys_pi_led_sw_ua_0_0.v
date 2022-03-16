@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0
-// IP Revision: 21
+// IP Revision: 22
 
 `timescale 1ns/1ps
 
@@ -70,7 +70,7 @@ module zxnexys_zxnexys_pi_led_sw_ua_0_0 (
   sw,
   opt,
   clk_peripheral,
-  reset
+  resetn
 );
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_o" *)
@@ -93,9 +93,9 @@ output wire [1 : 0] opt;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   pi_led_sw_uart_i2s inst (
     .gpio_o(gpio_o),
@@ -113,6 +113,6 @@ input wire reset;
     .sw(sw),
     .opt(opt),
     .clk_peripheral(clk_peripheral),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

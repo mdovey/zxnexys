@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-//Date        : Thu Feb 17 19:44:02 2022
+//Date        : Tue Mar 15 12:51:10 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target audio.bd
 //Design      : audio
@@ -26,7 +26,7 @@ module audio
     lineout_sclk,
     lineout_sdout,
     psg_en,
-    reset,
+    resetn,
     tape_ear,
     tape_mic,
     tape_pwm);
@@ -45,7 +45,7 @@ module audio
   output lineout_sclk;
   output lineout_sdout;
   output psg_en;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetn;
   output tape_ear;
   input tape_mic;
   output tape_pwm;
@@ -74,7 +74,7 @@ module audio
   wire clk_peripheral_1;
   wire debounce_0_button_o;
   wire linein_sdin_1;
-  wire reset_1;
+  wire resetn_1;
   wire sigma_delta_dac_0_DACout;
   wire sigma_delta_dac_1_DACout;
   wire tape_ear_0_ear;
@@ -97,7 +97,7 @@ module audio
   assign lineout_sclk = axis_i2s2_0_tx_sclk;
   assign lineout_sdout = axis_i2s2_0_tx_sdout;
   assign psg_en = audio_psg_0_psg_en;
-  assign reset_1 = reset;
+  assign resetn_1 = resetn;
   assign tape_ear = debounce_0_button_o;
   assign tape_mic_1 = tape_mic;
   assign tape_pwm = sigma_delta_dac_1_DACout;
@@ -121,7 +121,7 @@ module audio
         .psg_en(audio_psg_0_psg_en));
   audio_audio_reset_0_0 audio_reset_0
        (.clk(clk_22m59),
-        .reset(reset_1),
+        .resetn(resetn_1),
         .rst(audio_reset_0_rst),
         .rstn(audio_reset_0_rstn));
   audio_axis_i2s2_0_0 axis_i2s2_0

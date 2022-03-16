@@ -57,16 +57,21 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module status_status_enables_0_0 (
   opt,
+  clk,
   rgb_cs_n,
   segment_cs_n
 );
 
 input wire [1 : 0] opt;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN status_clk_200, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 output wire rgb_cs_n;
 output wire segment_cs_n;
 
   status_enables inst (
     .opt(opt),
+    .clk(clk),
     .rgb_cs_n(rgb_cs_n),
     .segment_cs_n(segment_cs_n)
   );

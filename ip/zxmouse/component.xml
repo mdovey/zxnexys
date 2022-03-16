@@ -54,7 +54,7 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
+      <spirit:name>resetn</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -64,14 +64,14 @@
             <spirit:name>RST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
+            <spirit:name>resetn</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_74b5137e">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -93,7 +93,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">resetn:reset</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -177,12 +177,15 @@
           <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_xlslice_1_0__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagesynthesis_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagesynthesis_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>bd532281</spirit:value>
+            <spirit:value>27ed35a9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -199,12 +202,15 @@
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_xlslice_1_0__ref_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:fileSetRef>
+          <spirit:localName>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:localName>
+        </spirit:fileSetRef>
+        <spirit:fileSetRef>
           <spirit:localName>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:localName>
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>95d1b0e8</spirit:value>
+            <spirit:value>13912422</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -353,7 +359,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -418,6 +424,13 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_74b5137e</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
@@ -484,6 +497,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/bd/mouse/ip/mouse_util_vector_logic_0_0/mouse_util_vector_logic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/mouse/mouse_ooc.xdc</spirit:name>
         <spirit:userFileType>xdc</spirit:userFileType>
         <spirit:userFileType>SCOPED_TO_REF_mouse</spirit:userFileType>
@@ -492,7 +510,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/mouse/hdl/mouse_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_5bdd5418</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_707c03f1</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -510,6 +528,16 @@
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="xlslice" xilinx:version="1.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagesynthesis_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="util_vector_logic" xilinx:version="2.0">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -562,6 +590,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/bd/mouse/ip/mouse_util_vector_logic_0_0/mouse_util_vector_logic_0_0.xci</spirit:name>
+        <spirit:userFileType>xci</spirit:userFileType>
+        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/mouse/hdl/mouse_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -581,6 +614,16 @@
       <spirit:vendorExtensions>
         <xilinx:subCoreRef>
           <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="xlslice" xilinx:version="1.0">
+            <xilinx:mode xilinx:name="create_mode"/>
+          </xilinx:componentRef>
+        </xilinx:subCoreRef>
+      </spirit:vendorExtensions>
+    </spirit:fileSet>
+    <spirit:fileSet>
+      <spirit:name>xilinx_anylanguagebehavioralsimulation_xilinx_com_ip_util_vector_logic_2_0__ref_view_fileset</spirit:name>
+      <spirit:vendorExtensions>
+        <xilinx:subCoreRef>
+          <xilinx:componentRef xilinx:vendor="xilinx.com" xilinx:library="ip" xilinx:name="util_vector_logic" xilinx:version="2.0">
             <xilinx:mode xilinx:name="create_mode"/>
           </xilinx:componentRef>
         </xilinx:subCoreRef>
@@ -613,11 +656,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxmouse_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:mouse_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2021-12-30T11:46:50Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-03-15T13:22:19Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@31494e50_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@46c6c310_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
@@ -684,13 +727,26 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@131310a1_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@75c25b3f_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@615051b3_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@157111f4_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b05196a_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c47af1f_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2ccb02c2_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2051a46_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c4d58a1_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e8a11b5_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@582c5f9b_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7cda2b94_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@ace0d22_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69a0d50b_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@529731fb_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15153f51_ARCHIVE_LOCATION">v:/ip/zxmouse</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="78156151"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e057a128"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="0c10f3d5"/>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="22df570e"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2198b204"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b1d41ba9"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="e39ca1db"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

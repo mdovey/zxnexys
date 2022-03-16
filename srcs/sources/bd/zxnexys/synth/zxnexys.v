@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-//Date        : Fri Feb 25 12:38:04 2022
+//Date        : Wed Mar 16 11:09:16 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target zxnexys.bd
 //Design      : zxnexys
@@ -372,7 +372,6 @@ module zxnexys
 
   wire CPU_RESETN_1;
   wire M_DATA_1;
-  wire Net;
   wire SD_CD_1;
   wire SD_DAT0_1;
   wire [15:0]SW_1;
@@ -559,6 +558,7 @@ module zxnexys
   wire zxclock_0_mb_clock_contend;
   wire zxclock_0_mb_clock_cpu_clk;
   wire [1:0]zxclock_0_mb_clock_speed;
+  wire zxesp32_0_enable;
   wire zxesp32_0_gpio0_TRI_I;
   wire zxesp32_0_gpio0_TRI_O;
   wire zxesp32_0_gpio0_TRI_T;
@@ -700,6 +700,7 @@ module zxnexys
   wire zxram_0_axi_mig_WREADY;
   wire [7:0]zxram_0_axi_mig_WSTRB;
   wire [0:0]zxram_0_axi_mig_WVALID;
+  wire zxreset_0_bus_resetn;
   wire zxreset_0_mb_reset_mb_reset;
   wire zxreset_0_mb_reset_reset_hard_req;
   wire zxreset_0_mb_reset_reset_peripheral_req;
@@ -1009,7 +1010,8 @@ module zxnexys
         .clk_reset(zxvideomode_0_clock_reset),
         .mig_resetn(clk_wiz_1_locked));
   zxnexys_pmod_esp32_0_0 pmod_esp32_0
-       (.gpio0_i(zxesp32_0_gpio0_TRI_I),
+       (.enable(zxesp32_0_enable),
+        .gpio0_i(zxesp32_0_gpio0_TRI_I),
         .gpio0_o(zxesp32_0_gpio0_TRI_O),
         .gpio0_t(zxesp32_0_gpio0_TRI_T),
         .gpio1_i(zxesp32_0_gpio1_TRI_I),
@@ -1191,7 +1193,7 @@ module zxnexys
         .lineout_sclk(zxaudio_0_lineout_sclk),
         .lineout_sdout(zxaudio_0_lineout_sdout),
         .psg_en(zxnext_0_audio_psg_en),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .tape_ear(zxnext_0_tape_tape_ear),
         .tape_mic(zxnext_0_tape_tape_mic));
   zxnexys_zxclock_0_0 zxclock_0
@@ -1213,6 +1215,7 @@ module zxnexys
         .mb_clk_7(zxclock_0_mb_clock_clk_7));
   zxnexys_zxesp32_0_0 zxesp32_0
        (.clk_peripheral(zxclock_0_clk_peripheral),
+        .enable(zxesp32_0_enable),
         .gpio0_i(zxesp32_0_gpio0_TRI_I),
         .gpio0_o(zxesp32_0_gpio0_TRI_O),
         .gpio0_t(zxesp32_0_gpio0_TRI_T),
@@ -1225,7 +1228,7 @@ module zxnexys
         .gpio_enable(zxnext_0_esp32_gpio_enable),
         .gpio_in(zxnext_0_esp32_gpio_in),
         .gpio_out(zxnext_0_esp32_gpio_out),
-        .reset(Net),
+        .resetn(zxreset_0_bus_resetn),
         .uart_rx_i(zxnext_0_esp32_uart_rx),
         .uart_rx_o(pmod_esp32_0_uart_rx),
         .uart_tx_i(zxnext_0_esp32_uart_tx),
@@ -1244,7 +1247,7 @@ module zxnexys
         .jstk_miso(pmod_ps2_jstk2_0_jstk_miso),
         .jstk_mosi(zxjoystick_0_jstk_mosi),
         .jstk_sel(zxjoystick_0_jstk_sel),
-        .reset(Net));
+        .resetn(zxreset_0_mb_resetn));
   zxnexys_zxkeyboard_0_0 zxkeyboard_0
        (.cancel(zxnext_0_keyboard_cancel),
         .clk_peripheral(zxclock_0_clk_peripheral),
@@ -1267,7 +1270,7 @@ module zxnexys
         .ps2_data_i(zxkeyboard_0_ps2_data_TRI_I),
         .ps2_data_o(zxkeyboard_0_ps2_data_TRI_O),
         .ps2_data_t(zxkeyboard_0_ps2_data_TRI_T),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .row(zxnext_0_keyboard_row),
         .spkey_buttons(zxnext_0_keyboard_spkey_buttons),
         .spkey_function(zxnext_0_keyboard_spkey_function));
@@ -1281,7 +1284,7 @@ module zxnexys
         .ps2_data_i(zxmouse_0_ps2_data_TRI_I),
         .ps2_data_o(zxmouse_0_ps2_data_TRI_O),
         .ps2_data_t(zxmouse_0_ps2_data_TRI_T),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .wheel(zxnext_0_mouse_wheel),
         .x(zxnext_0_mouse_x),
         .y(zxnext_0_mouse_y));
@@ -1375,7 +1378,7 @@ module zxnexys
         .m_clk(zxnexys_mic_0_m_clk),
         .m_data(M_DATA_1),
         .m_lrsel(zxnexys_mic_0_m_lrsel),
-        .reset(Net));
+        .resetn(zxreset_0_mb_resetn));
   zxnexys_zxnexys_pi_led_sw_ua_0_0 zxnexys_pi_led_sw_ua_0
        (.clk_peripheral(zxclock_0_clk_peripheral),
         .gpio_i(zxnext_0_pi_accel_gpio_i),
@@ -1387,7 +1390,7 @@ module zxnexys
         .i2s_wclk(zxnexys_mic_0_i2s_wclk),
         .led(zxnexys_pi_led_sw_ua_0_led),
         .opt(zxnexys_pi_led_sw_ua_0_opt),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .sw(SW_1),
         .uart_cts(UART_CTS_1),
         .uart_rts(zxnexys_pi_led_sw_ua_0_uart_rts),
@@ -1396,6 +1399,7 @@ module zxnexys
   zxnexys_zxnexys_status_0_0 zxnexys_status_0
        (.address(zxnext_0_ram_port_a_ram_addr),
         .an(zxnexys_status_0_an),
+        .bus_resetn(zxreset_0_bus_resetn),
         .ca(zxnexys_status_0_ca),
         .clk_200(clk_wiz_1_clk_200),
         .cpu_clk(zxclock_0_mb_clock_cpu_clk),
@@ -1403,6 +1407,7 @@ module zxnexys
         .cpu_speed(zxclock_0_mb_clock_speed),
         .cpu_wait_n(zxnext_0_ram_port_a_wait_n),
         .freq_50_60(zxnext_0_video_freq_50_60),
+        .io_resetn(zxreset_0_mb_resetn),
         .led16_b(zxnexys_status_0_led16_b),
         .led16_g(zxnexys_status_0_led16_g),
         .led16_r(zxnexys_status_0_led16_r),
@@ -1411,7 +1416,6 @@ module zxnexys
         .led17_r(zxnexys_status_0_led17_r),
         .mb_reset(zxreset_0_mb_reset_mb_reset),
         .mig_resetn(clk_wiz_1_locked),
-        .peripheral_reset(Net),
         .pi_accel_opt(zxnexys_pi_led_sw_ua_0_opt),
         .scandouble(zxnext_0_video_scandouble),
         .video_mode(zxnext_0_video_video_mode));
@@ -1468,12 +1472,12 @@ module zxnexys
         .ram_b_req_t(zxnext_0_ram_port_b_ram_req),
         .reset_ui(mig_7series_0_ui_clk_sync_rst));
   zxnexys_zxreset_0_0 zxreset_0
-       (.clk_peripheral(zxclock_0_clk_peripheral),
+       (.bus_resetn(zxreset_0_bus_resetn),
+        .clk_peripheral(zxclock_0_clk_peripheral),
         .clk_ui(mig_7series_0_ui_clk),
         .hard_resetn(clock_locks_0_hard_resetn),
+        .io_resetn(zxreset_0_mb_resetn),
         .mb_reset(zxreset_0_mb_reset_mb_reset),
-        .mb_resetn(zxreset_0_mb_resetn),
-        .peripheral_reset(Net),
         .reset_hard(zxreset_0_mb_reset_reset_hard_req),
         .reset_peripheral(zxreset_0_mb_reset_reset_peripheral_req),
         .reset_soft(zxreset_0_mb_reset_reset_soft_req),
@@ -1486,7 +1490,7 @@ module zxnexys
         .iic_rtcc_sda_i(zxrtc_0_iic_rtcc_SDA_I),
         .iic_rtcc_sda_o(zxrtc_0_iic_rtcc_SDA_O),
         .iic_rtcc_sda_t(zxrtc_0_iic_rtcc_SDA_T),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .scl_i(zxnext_0_rtc_scl_out),
         .scl_o(zxnext_0_rtc_scl_in),
         .sda_i(zxnext_0_rtc_sda_out),
@@ -1500,7 +1504,7 @@ module zxnexys
         .out_miso(zxsdcard_0_sdcard_out_miso),
         .out_mosi(zxsdcard_0_sdcard_out_mosi),
         .out_sck(zxsdcard_0_sdcard_out_sck),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .sd_cd(SD_CD_1),
         .sd_cmd(zxsdcard_0_sd_cmd),
         .sd_dat0(SD_DAT0_1),
@@ -1515,7 +1519,7 @@ module zxnexys
         .in_miso(zxsdcard_0_sdcard_out_miso),
         .in_mosi(zxsdcard_0_sdcard_out_mosi),
         .in_sck(zxsdcard_0_sdcard_out_sck),
-        .reset(Net),
+        .resetn(zxreset_0_mb_resetn),
         .sd_cd(pmod_xsd_0_sd_cd),
         .sd_cmd(zxsdcard_1_sd_cmd),
         .sd_dat0(pmod_xsd_0_sd_dat0),

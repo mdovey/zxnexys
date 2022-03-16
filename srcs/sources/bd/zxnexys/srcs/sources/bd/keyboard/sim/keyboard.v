@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Thu Dec 30 13:15:32 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 14:42:22 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target keyboard.bd
 //Design      : keyboard
@@ -32,7 +32,7 @@ module keyboard
     ps2_data_i,
     ps2_data_o,
     ps2_data_t,
-    reset,
+    resetn,
     row,
     spkey_buttons,
     spkey_function);
@@ -57,7 +57,7 @@ module keyboard
   input ps2_data_i;
   output ps2_data_o;
   output ps2_data_t;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetn;
   input [7:0]row;
   output [1:0]spkey_buttons;
   output [10:1]spkey_function;
@@ -101,6 +101,7 @@ module keyboard
   wire [7:0]ps2_keyb_0_o_ps2_func_keys_n;
   wire ps2_keyb_0_o_ps2_send_valid;
   wire reset_1;
+  wire resetn_1;
   wire [7:0]row_1;
   wire [1:0]special_keys_0_spkey_buttons;
   wire [10:1]special_keys_0_spkey_function;
@@ -133,7 +134,7 @@ module keyboard
   assign ps2_data_i_1 = ps2_data_i;
   assign ps2_data_o = Ps2Interface_0_PS2_Data_O;
   assign ps2_data_t = Ps2Interface_0_PS2_Data_T;
-  assign reset_1 = reset;
+  assign resetn_1 = resetn;
   assign row_1 = row[7:0];
   assign spkey_buttons[1:0] = special_keys_0_spkey_buttons;
   assign spkey_function[10:1] = special_keys_0_spkey_function;
@@ -167,7 +168,8 @@ module keyboard
         .fnkeys_enable(keyb_clocks_0_fnkeys_enable),
         .joy_clk_en(joy_clk_en_1),
         .membrane_enable(keyb_clocks_0_membrane_enable),
-        .reset(reset_1));
+        .reset(reset_1),
+        .resetn(resetn_1));
   keyboard_membrane_0_0 membrane_0
        (.i_CLK(clk_peripheral_1),
         .i_CLK_EN(keyb_clocks_0_membrane_enable),

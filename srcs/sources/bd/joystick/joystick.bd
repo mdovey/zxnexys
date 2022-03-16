@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC41476658727DCBC",
+      "boundary_crc": "0xAA7A7CEFA7566060",
       "device": "xc7a100tcsg324-1",
       "name": "joystick",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -11,7 +11,6 @@
     },
     "design_tree": {
       "SPI_Master_0": "",
-      "util_vector_logic_0": "",
       "xlconstant_0": "",
       "xlconstant_000000": "",
       "xlconstant_00000": "",
@@ -133,7 +132,17 @@
       "jstk_sel": {
         "direction": "O"
       },
-      "reset": {
+      "joy_clk_en": {
+        "type": "ce",
+        "direction": "O",
+        "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "resetn": {
         "type": "rst",
         "direction": "I",
         "parameters": {
@@ -141,15 +150,6 @@
             "value": "0",
             "value_src": "default"
           },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
-      },
-      "joy_clk_en": {
-        "type": "ce",
-        "direction": "O",
-        "parameters": {
           "POLARITY": {
             "value": "ACTIVE_LOW",
             "value_src": "default"
@@ -211,7 +211,7 @@
               },
               "POLARITY": {
                 "value": "ACTIVE_LOW",
-                "value_src": "ip_prop"
+                "value_src": "default_prop"
               }
             }
           },
@@ -251,20 +251,6 @@
           "o_SPI_Clk": {
             "type": "clk",
             "direction": "O"
-          }
-        }
-      },
-      "util_vector_logic_0": {
-        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
-        "xci_name": "joystick_util_vector_logic_0_0",
-        "xci_path": "ip\\joystick_util_vector_logic_0_0\\joystick_util_vector_logic_0_0.xci",
-        "inst_hier_path": "util_vector_logic_0",
-        "parameters": {
-          "C_OPERATION": {
-            "value": "not"
-          },
-          "C_SIZE": {
-            "value": "1"
           }
         }
       },
@@ -858,12 +844,12 @@
               }
             }
           },
-          "reset": {
+          "resetn": {
             "type": "rst",
             "direction": "I",
             "parameters": {
               "POLARITY": {
-                "value": "ACTIVE_HIGH",
+                "value": "ACTIVE_LOW",
                 "value_src": "constant"
               }
             }
@@ -889,13 +875,6 @@
           "joy_clock_enable_0/clk_peripheral",
           "debounce_0/clk_i",
           "pmod_jstk2_0/clk_peripheral"
-        ]
-      },
-      "Net1": {
-        "ports": [
-          "reset",
-          "util_vector_logic_0/Op1",
-          "pmod_jstk2_0/reset"
         ]
       },
       "SPI_Master_0_o_RX_Byte": {
@@ -1090,9 +1069,10 @@
           "SPI_Master_0/i_TX_DV"
         ]
       },
-      "util_vector_logic_0_Res": {
+      "resetn_1": {
         "ports": [
-          "util_vector_logic_0/Res",
+          "resetn",
+          "pmod_jstk2_0/resetn",
           "SPI_Master_0/i_Rst_L"
         ]
       },

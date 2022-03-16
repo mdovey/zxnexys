@@ -30,28 +30,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_peripheral</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -69,7 +47,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">resetn</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -119,6 +97,28 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_74b5137e">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -143,7 +143,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>9e708e5d</spirit:value>
+            <spirit:value>48225142</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -168,7 +168,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>e744d155</spirit:value>
+            <spirit:value>ab42dcba</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -397,7 +397,7 @@
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -411,6 +411,13 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_74b5137e</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
@@ -624,11 +631,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/imports/ZXNext/misc/debounce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -678,7 +680,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/joystick/hdl/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_f38354d0</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_f39efa59</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -915,11 +917,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/imports/ZXNext/misc/debounce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
@@ -1027,11 +1024,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxjoystick_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>16</xilinx:coreRevision>
+      <xilinx:coreRevision>17</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:joystick_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2022-02-21T20:25:47Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-03-15T13:14:01Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@46dfba1f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1bca74f7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
@@ -1245,13 +1242,27 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@630fc930_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@26ef7860_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6d9b9125_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@180f564_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25bd32a0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@682e2b07_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19aec170_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15b6eee0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@560a4655_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6aafb3ad_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c0bc107_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7965a6fc_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bd8c23d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23ab2f11_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c94a1c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cad7965_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ebc1624_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5f3bd425"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="711c5c39"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="d7be6f83"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f11de21b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="68a950cd"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="27fa5aab"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2bbc49bc"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

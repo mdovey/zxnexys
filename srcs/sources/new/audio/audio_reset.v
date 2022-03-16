@@ -23,8 +23,8 @@
 
 
 module audio_reset (
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)  
-    input   reset,
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)  
+    input   resetn,
     
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)  
 (* ASYNC_REG = "TRUE" *)
@@ -41,8 +41,8 @@ module audio_reset (
     
     always @(posedge clk)
     begin
-        rst  <=  reset;
-        rstn <= ~reset;
+        rst  <= ~resetn;
+        rstn <=  resetn;
     end
     
 endmodule

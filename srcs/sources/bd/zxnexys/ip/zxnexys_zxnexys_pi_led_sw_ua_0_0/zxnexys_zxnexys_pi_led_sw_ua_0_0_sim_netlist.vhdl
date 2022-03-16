@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:52:10 2022
+-- Date        : Wed Mar 16 11:20:11 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_pi_led_sw_ua_0_0/zxnexys_zxnexys_pi_led_sw_ua_0_0_sim_netlist.vhdl
@@ -20,8 +20,8 @@ entity zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s is
     led : out STD_LOGIC_VECTOR ( 15 downto 0 );
     gpio_t : in STD_LOGIC_VECTOR ( 17 downto 0 );
     gpio_o : in STD_LOGIC_VECTOR ( 17 downto 0 );
-    reset : in STD_LOGIC;
-    clk_peripheral : in STD_LOGIC
+    clk_peripheral : in STD_LOGIC;
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s : entity is "pi_led_sw_uart_i2s";
@@ -31,7 +31,8 @@ architecture STRUCTURE of zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s is
   signal \^gpio_i\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \^led\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \opt[0]_i_1_n_0\ : STD_LOGIC;
-  signal \opt[1]_i_1_n_0\ : STD_LOGIC;
+  signal \opt[1]_i_2_n_0\ : STD_LOGIC;
+  signal p_0_in : STD_LOGIC;
   signal p_4_out : STD_LOGIC_VECTOR ( 15 downto 0 );
 begin
   gpio_i(1 downto 0) <= \^gpio_i\(1 downto 0);
@@ -202,7 +203,7 @@ begin
       CE => '1',
       D => p_4_out(0),
       Q => \^led\(0),
-      R => reset
+      R => p_0_in
     );
 \led_reg[10]\: unisim.vcomponents.FDRE
      port map (
@@ -210,7 +211,7 @@ begin
       CE => '1',
       D => p_4_out(10),
       Q => \^led\(10),
-      R => reset
+      R => p_0_in
     );
 \led_reg[11]\: unisim.vcomponents.FDRE
      port map (
@@ -218,7 +219,7 @@ begin
       CE => '1',
       D => p_4_out(11),
       Q => \^led\(11),
-      R => reset
+      R => p_0_in
     );
 \led_reg[12]\: unisim.vcomponents.FDRE
      port map (
@@ -226,7 +227,7 @@ begin
       CE => '1',
       D => p_4_out(12),
       Q => \^led\(12),
-      R => reset
+      R => p_0_in
     );
 \led_reg[13]\: unisim.vcomponents.FDRE
      port map (
@@ -234,7 +235,7 @@ begin
       CE => '1',
       D => p_4_out(13),
       Q => \^led\(13),
-      R => reset
+      R => p_0_in
     );
 \led_reg[14]\: unisim.vcomponents.FDRE
      port map (
@@ -242,7 +243,7 @@ begin
       CE => '1',
       D => p_4_out(14),
       Q => \^led\(14),
-      R => reset
+      R => p_0_in
     );
 \led_reg[15]\: unisim.vcomponents.FDRE
      port map (
@@ -250,7 +251,7 @@ begin
       CE => '1',
       D => p_4_out(15),
       Q => \^led\(15),
-      R => reset
+      R => p_0_in
     );
 \led_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -258,7 +259,7 @@ begin
       CE => '1',
       D => p_4_out(1),
       Q => \^led\(1),
-      R => reset
+      R => p_0_in
     );
 \led_reg[2]\: unisim.vcomponents.FDRE
      port map (
@@ -266,7 +267,7 @@ begin
       CE => '1',
       D => p_4_out(2),
       Q => \^led\(2),
-      R => reset
+      R => p_0_in
     );
 \led_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -274,7 +275,7 @@ begin
       CE => '1',
       D => p_4_out(3),
       Q => \^led\(3),
-      R => reset
+      R => p_0_in
     );
 \led_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -282,7 +283,7 @@ begin
       CE => '1',
       D => p_4_out(4),
       Q => \^led\(4),
-      R => reset
+      R => p_0_in
     );
 \led_reg[5]\: unisim.vcomponents.FDRE
      port map (
@@ -290,7 +291,7 @@ begin
       CE => '1',
       D => p_4_out(5),
       Q => \^led\(5),
-      R => reset
+      R => p_0_in
     );
 \led_reg[6]\: unisim.vcomponents.FDRE
      port map (
@@ -298,7 +299,7 @@ begin
       CE => '1',
       D => p_4_out(6),
       Q => \^led\(6),
-      R => reset
+      R => p_0_in
     );
 \led_reg[7]\: unisim.vcomponents.FDRE
      port map (
@@ -306,7 +307,7 @@ begin
       CE => '1',
       D => p_4_out(7),
       Q => \^led\(7),
-      R => reset
+      R => p_0_in
     );
 \led_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -314,7 +315,7 @@ begin
       CE => '1',
       D => p_4_out(8),
       Q => \^led\(8),
-      R => reset
+      R => p_0_in
     );
 \led_reg[9]\: unisim.vcomponents.FDRE
      port map (
@@ -322,7 +323,7 @@ begin
       CE => '1',
       D => p_4_out(9),
       Q => \^led\(9),
-      R => reset
+      R => p_0_in
     );
 \opt[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -334,7 +335,15 @@ begin
       I2 => gpio_o(10),
       O => \opt[0]_i_1_n_0\
     );
-\opt[1]_i_1\: unisim.vcomponents.LUT3
+\opt[1]_i_1\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => p_0_in
+    );
+\opt[1]_i_2\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"E2"
     )
@@ -342,7 +351,7 @@ begin
       I0 => \^gpio_i\(1),
       I1 => gpio_t(11),
       I2 => gpio_o(11),
-      O => \opt[1]_i_1_n_0\
+      O => \opt[1]_i_2_n_0\
     );
 \opt_reg[0]\: unisim.vcomponents.FDSE
      port map (
@@ -350,15 +359,15 @@ begin
       CE => '1',
       D => \opt[0]_i_1_n_0\,
       Q => \^gpio_i\(0),
-      S => reset
+      S => p_0_in
     );
 \opt_reg[1]\: unisim.vcomponents.FDSE
      port map (
       C => clk_peripheral,
       CE => '1',
-      D => \opt[1]_i_1_n_0\,
+      D => \opt[1]_i_2_n_0\,
       Q => \^gpio_i\(1),
-      S => reset
+      S => p_0_in
     );
 end STRUCTURE;
 library IEEE;
@@ -382,7 +391,7 @@ entity zxnexys_zxnexys_pi_led_sw_ua_0_0 is
     sw : in STD_LOGIC_VECTOR ( 15 downto 0 );
     opt : out STD_LOGIC_VECTOR ( 1 downto 0 );
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_zxnexys_pi_led_sw_ua_0_0 : entity is true;
@@ -408,8 +417,8 @@ architecture STRUCTURE of zxnexys_zxnexys_pi_led_sw_ua_0_0 is
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of gpio_i : signal is "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_i";
   attribute X_INTERFACE_INFO of gpio_o : signal is "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_o";
   attribute X_INTERFACE_INFO of gpio_t : signal is "specnext.com:specnext:pi_accel:1.0 pi_accel gpio_t";
@@ -451,6 +460,6 @@ inst: entity work.zxnexys_zxnexys_pi_led_sw_ua_0_0_pi_led_sw_uart_i2s
       gpio_t(17 downto 12) => gpio_t(27 downto 22),
       gpio_t(11 downto 0) => gpio_t(13 downto 2),
       led(15 downto 0) => led(15 downto 0),
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;

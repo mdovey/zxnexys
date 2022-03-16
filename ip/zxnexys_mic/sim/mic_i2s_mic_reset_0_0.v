@@ -55,24 +55,24 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module mic_i2s_mic_reset_0_0 (
+  reset_n,
   resetn,
-  reset,
   clk_12m288
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
-output wire resetn;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
+output wire reset_n;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+input wire resetn;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_audio, ASSOCIATED_RESET resetn, FREQ_HZ 12280700, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN mic_i2s_clk_audio, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_audio CLK" *)
 input wire clk_12m288;
 
   mic_reset inst (
+    .reset_n(reset_n),
     .resetn(resetn),
-    .reset(reset),
     .clk_12m288(clk_12m288)
   );
 endmodule

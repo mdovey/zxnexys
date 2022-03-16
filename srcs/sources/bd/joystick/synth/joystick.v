@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-//Date        : Mon Feb 21 20:22:28 2022
+//Date        : Tue Mar 15 13:12:05 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target joystick.bd
 //Design      : joystick
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "joystick,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=joystick,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=20,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "joystick.hwdef" *) 
+(* CORE_GENERATION_INFO = "joystick,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=joystick,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=19,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=14,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "joystick.hwdef" *) 
 module joystick
    (btnc,
     btnd,
@@ -24,7 +24,7 @@ module joystick
     jstk_miso,
     jstk_mosi,
     jstk_sel,
-    reset);
+    resetn);
   input btnc;
   input btnd;
   input btnl;
@@ -38,10 +38,9 @@ module joystick
   input jstk_miso;
   output jstk_mosi;
   output jstk_sel;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input resetn;
 
   wire Net;
-  wire Net1;
   wire [7:0]SPI_Master_0_o_RX_Byte;
   wire SPI_Master_0_o_RX_DV;
   wire SPI_Master_0_o_SPI_Clk;
@@ -74,14 +73,13 @@ module joystick
   wire pmod_jstk2_0_sel;
   wire pmod_jstk2_0_u;
   wire pmod_jstk2_0_wv;
-  wire [0:0]util_vector_logic_0_Res;
+  wire resetn_1;
   wire [5:0]xlconstant_000000_dout;
   wire [4:0]xlconstant_00000_dout;
   wire [7:0]xlconstant_0_dout;
   wire xlconstant_1_dout;
 
   assign Net = clk_peripheral;
-  assign Net1 = reset;
   assign btnc_1 = btnc;
   assign btnd_1 = btnd;
   assign btnl_1 = btnl;
@@ -94,9 +92,10 @@ module joystick
   assign jstk_miso_1 = jstk_miso;
   assign jstk_mosi = SPI_Master_0_o_SPI_MOSI;
   assign jstk_sel = pmod_jstk2_0_sel;
+  assign resetn_1 = resetn;
   joystick_SPI_Master_0_0 SPI_Master_0
        (.i_Clk(Net),
-        .i_Rst_L(util_vector_logic_0_Res),
+        .i_Rst_L(resetn_1),
         .i_SPI_MISO(jstk_miso_1),
         .i_TX_Byte(xlconstant_0_dout),
         .i_TX_DV(pmod_jstk2_0_wv),
@@ -171,15 +170,12 @@ module joystick
         .dati(SPI_Master_0_o_RX_Byte),
         .l(pmod_jstk2_0_l),
         .r(pmod_jstk2_0_r),
-        .reset(Net1),
+        .resetn(resetn_1),
         .rv(SPI_Master_0_o_RX_DV),
         .sel(pmod_jstk2_0_sel),
         .u(pmod_jstk2_0_u),
         .wr(SPI_Master_0_o_TX_Ready),
         .wv(pmod_jstk2_0_wv));
-  joystick_util_vector_logic_0_0 util_vector_logic_0
-       (.Op1(Net1),
-        .Res(util_vector_logic_0_Res));
   joystick_xlconcat_0_0 xlconcat_0
        (.In0(debounce_0_button_o),
         .In1(debounce_1_button_o),

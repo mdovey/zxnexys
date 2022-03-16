@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:51:03 2022
+-- Date        : Wed Mar 16 11:17:55 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_sim_netlist.vhdl
@@ -17,6 +17,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxjoystick_0_0_SPI_Master is
   port (
     o_TX_Ready_reg_0 : out STD_LOGIC;
+    resetn_0 : out STD_LOGIC;
     jstk_clk : out STD_LOGIC;
     o_RX_DV : out STD_LOGIC;
     \r_TX_Byte_reg[6]_0\ : out STD_LOGIC;
@@ -25,7 +26,7 @@ entity zxnexys_zxjoystick_0_0_SPI_Master is
     clk_peripheral : in STD_LOGIC;
     pmod_jstk2_0_wv : in STD_LOGIC;
     \r_TX_Byte_reg[6]_1\ : in STD_LOGIC;
-    Res : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
     jstk_miso : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -46,7 +47,6 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0_SPI_Master is
   signal \o_RX_Byte[7]_i_1_n_0\ : STD_LOGIC;
   signal \o_RX_Byte[7]_i_2_n_0\ : STD_LOGIC;
   signal o_RX_DV5_out : STD_LOGIC;
-  signal o_SPI_Clk_i_1_n_0 : STD_LOGIC;
   signal o_SPI_MOSI_i_1_n_0 : STD_LOGIC;
   signal o_SPI_MOSI_i_2_n_0 : STD_LOGIC;
   signal o_TX_Ready8_out : STD_LOGIC;
@@ -85,6 +85,7 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0_SPI_Master is
   signal r_TX_DV : STD_LOGIC;
   signal r_Trailing_Edge3_out : STD_LOGIC;
   signal r_Trailing_Edge_reg_n_0 : STD_LOGIC;
+  signal \^resetn_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
   attribute SOFT_HLUTNM of \o_RX_Byte[3]_i_2\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \o_RX_Byte[7]_i_2\ : label is "soft_lutpair3";
@@ -109,6 +110,7 @@ begin
   jstk_mosi <= \^jstk_mosi\;
   o_TX_Ready_reg_0 <= \^o_tx_ready_reg_0\;
   \r_TX_Byte_reg[6]_0\ <= \^r_tx_byte_reg[6]_0\;
+  resetn_0 <= \^resetn_0\;
 \o_RX_Byte[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFB0008"
@@ -229,7 +231,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[0]_i_1_n_0\,
       Q => \^d\(0)
     );
@@ -237,7 +239,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[1]_i_1_n_0\,
       Q => \^d\(1)
     );
@@ -245,7 +247,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[2]_i_1_n_0\,
       Q => \^d\(2)
     );
@@ -253,7 +255,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[3]_i_1_n_0\,
       Q => \^d\(3)
     );
@@ -261,7 +263,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[4]_i_1_n_0\,
       Q => \^d\(4)
     );
@@ -269,7 +271,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[5]_i_1_n_0\,
       Q => \^d\(5)
     );
@@ -277,7 +279,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[6]_i_1_n_0\,
       Q => \^d\(6)
     );
@@ -285,7 +287,7 @@ begin
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \o_RX_Byte[7]_i_1_n_0\,
       Q => \^d\(7)
     );
@@ -305,7 +307,7 @@ o_RX_DV_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => o_RX_DV5_out,
       Q => o_RX_DV
     );
@@ -314,14 +316,14 @@ o_SPI_Clk_i_1: unisim.vcomponents.LUT1
       INIT => X"1"
     )
         port map (
-      I0 => Res(0),
-      O => o_SPI_Clk_i_1_n_0
+      I0 => resetn,
+      O => \^resetn_0\
     );
 o_SPI_Clk_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk,
       Q => jstk_clk
     );
@@ -352,7 +354,7 @@ o_SPI_MOSI_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => o_SPI_MOSI_i_1_n_0,
       Q => \^jstk_mosi\
     );
@@ -373,7 +375,7 @@ o_TX_Ready_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => o_TX_Ready8_out,
       Q => \^o_tx_ready_reg_0\
     );
@@ -407,7 +409,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_Leading_Edge7_out,
       Q => r_Leading_Edge
     );
@@ -449,7 +451,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
       C => clk_peripheral,
       CE => '1',
       D => \r_RX_Bit_Count[0]_i_1_n_0\,
-      PRE => o_SPI_Clk_i_1_n_0,
+      PRE => \^resetn_0\,
       Q => \r_RX_Bit_Count_reg_n_0_[0]\
     );
 \r_RX_Bit_Count_reg[1]\: unisim.vcomponents.FDPE
@@ -457,7 +459,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
       C => clk_peripheral,
       CE => '1',
       D => \r_RX_Bit_Count[1]_i_1_n_0\,
-      PRE => o_SPI_Clk_i_1_n_0,
+      PRE => \^resetn_0\,
       Q => \r_RX_Bit_Count_reg_n_0_[1]\
     );
 \r_RX_Bit_Count_reg[2]\: unisim.vcomponents.FDPE
@@ -465,7 +467,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
       C => clk_peripheral,
       CE => '1',
       D => \r_RX_Bit_Count[2]_i_1_n_0\,
-      PRE => o_SPI_Clk_i_1_n_0,
+      PRE => \^resetn_0\,
       Q => \r_RX_Bit_Count_reg_n_0_[2]\
     );
 \r_SPI_Clk_Count[0]_i_1\: unisim.vcomponents.LUT1
@@ -538,7 +540,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Count[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk_Count(0),
       Q => \r_SPI_Clk_Count_reg_n_0_[0]\
     );
@@ -546,7 +548,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Count[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk_Count(1),
       Q => \r_SPI_Clk_Count_reg_n_0_[1]\
     );
@@ -554,7 +556,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Count[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk_Count(2),
       Q => \r_SPI_Clk_Count_reg_n_0_[2]\
     );
@@ -562,7 +564,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Count[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk_Count(3),
       Q => \r_SPI_Clk_Count_reg_n_0_[3]\
     );
@@ -570,7 +572,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Count[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk_Count(4),
       Q => \r_SPI_Clk_Count_reg_n_0_[4]\
     );
@@ -667,7 +669,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Edges[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \r_SPI_Clk_Edges[0]_i_1_n_0\,
       Q => r_SPI_Clk_Edges_reg(0)
     );
@@ -675,7 +677,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Edges[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => p_0_in(1),
       Q => r_SPI_Clk_Edges_reg(1)
     );
@@ -683,7 +685,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Edges[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => p_0_in(2),
       Q => r_SPI_Clk_Edges_reg(2)
     );
@@ -691,7 +693,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Edges[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => p_0_in(3),
       Q => r_SPI_Clk_Edges_reg(3)
     );
@@ -699,7 +701,7 @@ r_Leading_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => \r_SPI_Clk_Edges[4]_i_1_n_0\,
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => p_0_in(4),
       Q => r_SPI_Clk_Edges_reg(4)
     );
@@ -720,7 +722,7 @@ r_SPI_Clk_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_SPI_Clk_i_1_n_0,
       Q => r_SPI_Clk
     );
@@ -765,7 +767,7 @@ r_SPI_Clk_reg: unisim.vcomponents.FDCE
       C => clk_peripheral,
       CE => '1',
       D => \r_TX_Bit_Count[0]_i_1_n_0\,
-      PRE => o_SPI_Clk_i_1_n_0,
+      PRE => \^resetn_0\,
       Q => \r_TX_Bit_Count_reg_n_0_[0]\
     );
 \r_TX_Bit_Count_reg[1]\: unisim.vcomponents.FDPE
@@ -773,7 +775,7 @@ r_SPI_Clk_reg: unisim.vcomponents.FDCE
       C => clk_peripheral,
       CE => '1',
       D => \r_TX_Bit_Count[1]_i_1_n_0\,
-      PRE => o_SPI_Clk_i_1_n_0,
+      PRE => \^resetn_0\,
       Q => \r_TX_Bit_Count_reg_n_0_[1]\
     );
 \r_TX_Bit_Count_reg[2]\: unisim.vcomponents.FDPE
@@ -781,14 +783,14 @@ r_SPI_Clk_reg: unisim.vcomponents.FDCE
       C => clk_peripheral,
       CE => '1',
       D => \r_TX_Bit_Count[2]_i_1_n_0\,
-      PRE => o_SPI_Clk_i_1_n_0,
+      PRE => \^resetn_0\,
       Q => \r_TX_Bit_Count_reg_n_0_[2]\
     );
 \r_TX_Byte_reg[6]\: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => \r_TX_Byte_reg[6]_1\,
       Q => \^r_tx_byte_reg[6]_0\
     );
@@ -796,7 +798,7 @@ r_TX_DV_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => pmod_jstk2_0_wv,
       Q => r_TX_DV
     );
@@ -817,7 +819,7 @@ r_Trailing_Edge_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_peripheral,
       CE => '1',
-      CLR => o_SPI_Clk_i_1_n_0,
+      CLR => \^resetn_0\,
       D => r_Trailing_Edge3_out,
       Q => r_Trailing_Edge_reg_n_0
     );
@@ -3273,36 +3275,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 is
-  port (
-    Op1 : in STD_LOGIC_VECTOR ( 0 to 0 );
-    Res : out STD_LOGIC_VECTOR ( 0 to 0 )
-  );
-  attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}";
-  attribute DowngradeIPIdentifiedWarnings : string;
-  attribute DowngradeIPIdentifiedWarnings of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "joystick_util_vector_logic_0_0";
-  attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 : entity is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1";
-end zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0;
-
-architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0 is
-begin
-\Res[0]_INST_0\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => Op1(0),
-      O => Res(0)
-    );
-end STRUCTURE;
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0 is
   port (
     In0 : in STD_LOGIC_VECTOR ( 0 to 0 );
@@ -3427,7 +3399,7 @@ entity zxnexys_zxjoystick_0_0_pmod_jstk2 is
     SPI_Master_0_o_TX_Ready : in STD_LOGIC;
     o_RX_DV : in STD_LOGIC;
     \r_TX_Byte_reg[6]\ : in STD_LOGIC;
-    reset : in STD_LOGIC;
+    SS : in STD_LOGIC_VECTOR ( 0 to 0 );
     D : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -3777,7 +3749,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[0]_i_1_n_0\,
       Q => bc0,
-      S => reset
+      S => SS(0)
     );
 \FSM_onehot_cState_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -3788,7 +3760,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[1]_i_1_n_0\,
       Q => \FSM_onehot_cState_reg_n_0_[1]\,
-      R => reset
+      R => SS(0)
     );
 \FSM_onehot_cState_reg[2]\: unisim.vcomponents.FDRE
     generic map(
@@ -3799,7 +3771,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[2]_i_1_n_0\,
       Q => \FSM_onehot_cState_reg_n_0_[2]\,
-      R => reset
+      R => SS(0)
     );
 \FSM_onehot_cState_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -3810,7 +3782,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[3]_i_1_n_0\,
       Q => \FSM_onehot_cState_reg_n_0_[3]\,
-      R => reset
+      R => SS(0)
     );
 \FSM_onehot_cState_reg[4]\: unisim.vcomponents.FDRE
     generic map(
@@ -3821,7 +3793,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[4]_i_1_n_0\,
       Q => \FSM_onehot_cState_reg_n_0_[4]\,
-      R => reset
+      R => SS(0)
     );
 \FSM_onehot_cState_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -3832,7 +3804,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[5]_i_1_n_0\,
       Q => \FSM_onehot_cState_reg_n_0_[5]\,
-      R => reset
+      R => SS(0)
     );
 \FSM_onehot_cState_reg[6]\: unisim.vcomponents.FDRE
     generic map(
@@ -3843,7 +3815,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[6]_i_1_n_0\,
       Q => bc_0,
-      R => reset
+      R => SS(0)
     );
 \FSM_onehot_cState_reg[7]\: unisim.vcomponents.FDRE
     generic map(
@@ -3854,7 +3826,7 @@ begin
       CE => '1',
       D => \FSM_onehot_cState[7]_i_1_n_0\,
       Q => \FSM_onehot_cState_reg_n_0_[7]\,
-      R => reset
+      R => SS(0)
     );
 \bc[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -4508,6 +4480,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0 is
   port (
     SPI_Master_0_o_TX_Ready : out STD_LOGIC;
+    resetn_0 : out STD_LOGIC;
     jstk_clk : out STD_LOGIC;
     o_RX_DV : out STD_LOGIC;
     \r_TX_Byte_reg[6]\ : out STD_LOGIC;
@@ -4516,7 +4489,7 @@ entity zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0 is
     clk_peripheral : in STD_LOGIC;
     pmod_jstk2_0_wv : in STD_LOGIC;
     \r_TX_Byte_reg[6]_0\ : in STD_LOGIC;
-    Res : in STD_LOGIC_VECTOR ( 0 to 0 );
+    resetn : in STD_LOGIC;
     jstk_miso : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -4528,7 +4501,6 @@ begin
 inst: entity work.zxnexys_zxjoystick_0_0_SPI_Master
      port map (
       D(7 downto 0) => D(7 downto 0),
-      Res(0) => Res(0),
       clk_peripheral => clk_peripheral,
       jstk_clk => jstk_clk,
       jstk_miso => jstk_miso,
@@ -4537,7 +4509,9 @@ inst: entity work.zxnexys_zxjoystick_0_0_SPI_Master
       o_TX_Ready_reg_0 => SPI_Master_0_o_TX_Ready,
       pmod_jstk2_0_wv => pmod_jstk2_0_wv,
       \r_TX_Byte_reg[6]_0\ => \r_TX_Byte_reg[6]\,
-      \r_TX_Byte_reg[6]_1\ => \r_TX_Byte_reg[6]_0\
+      \r_TX_Byte_reg[6]_1\ => \r_TX_Byte_reg[6]_0\,
+      resetn => resetn,
+      resetn_0 => resetn_0
     );
 end STRUCTURE;
 library IEEE;
@@ -4933,7 +4907,7 @@ entity zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0 is
     SPI_Master_0_o_TX_Ready : in STD_LOGIC;
     o_RX_DV : in STD_LOGIC;
     \r_TX_Byte_reg[6]\ : in STD_LOGIC;
-    reset : in STD_LOGIC;
+    SS : in STD_LOGIC_VECTOR ( 0 to 0 );
     D : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
@@ -4947,6 +4921,7 @@ inst: entity work.zxnexys_zxjoystick_0_0_pmod_jstk2
       D(7 downto 0) => D(7 downto 0),
       Q(1 downto 0) => Q(1 downto 0),
       SPI_Master_0_o_TX_Ready => SPI_Master_0_o_TX_Ready,
+      SS(0) => SS(0),
       clk_peripheral => clk_peripheral,
       d0 => d0,
       invalid => invalid,
@@ -4954,7 +4929,6 @@ inst: entity work.zxnexys_zxjoystick_0_0_pmod_jstk2
       o_RX_DV => o_RX_DV,
       r00_in => r00_in,
       \r_TX_Byte_reg[6]\ => \r_TX_Byte_reg[6]\,
-      reset => reset,
       wv_reg_0 => pmod_jstk2_0_wv,
       wv_reg_1 => wv_reg,
       \x_reg[7]_0\ => \x_reg[7]\,
@@ -4973,21 +4947,22 @@ entity zxnexys_zxjoystick_0_0_joystick is
     jstk_sel : out STD_LOGIC;
     joy_clk_en : out STD_LOGIC;
     jstk_mosi : out STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     btnr : in STD_LOGIC;
     btnl : in STD_LOGIC;
     btnd : in STD_LOGIC;
     btnu : in STD_LOGIC;
     btnc : in STD_LOGIC;
-    jstk_miso : in STD_LOGIC
+    jstk_miso : in STD_LOGIC;
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxjoystick_0_0_joystick : entity is "joystick";
 end zxnexys_zxjoystick_0_0_joystick;
 
 architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick is
-  signal SPI_Master_0_n_3 : STD_LOGIC;
+  signal SPI_Master_0_n_1 : STD_LOGIC;
+  signal SPI_Master_0_n_4 : STD_LOGIC;
   signal SPI_Master_0_o_TX_Ready : STD_LOGIC;
   signal d0 : STD_LOGIC;
   signal debounce_0_button_o : STD_LOGIC;
@@ -5033,7 +5008,6 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick is
   signal pmod_jstk2_0_n_8 : STD_LOGIC;
   signal pmod_jstk2_0_wv : STD_LOGIC;
   signal r00_in : STD_LOGIC;
-  signal util_vector_logic_0_Res : STD_LOGIC;
   signal NLW_xlconcat_0_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 10 downto 5 );
   signal NLW_xlconcat_1_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 10 downto 6 );
   attribute X_CORE_INFO : string;
@@ -5052,11 +5026,8 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0_joystick is
   attribute X_CORE_INFO of joy_clock_enable_0 : label is "joy_clock_enable,Vivado 2021.2";
   attribute X_CORE_INFO of pmod_jstk2_0 : label is "pmod_jstk2,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of util_vector_logic_0 : label is "joystick_util_vector_logic_0_0,util_vector_logic_v2_0_1_util_vector_logic,{}";
-  attribute DowngradeIPIdentifiedWarnings : string;
-  attribute DowngradeIPIdentifiedWarnings of util_vector_logic_0 : label is "yes";
-  attribute X_CORE_INFO of util_vector_logic_0 : label is "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE of xlconcat_0 : label is "joystick_xlconcat_0_0,xlconcat_v2_1_4_xlconcat,{}";
+  attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of xlconcat_0 : label is "yes";
   attribute X_CORE_INFO of xlconcat_0 : label is "xlconcat_v2_1_4_xlconcat,Vivado 2021.2.1";
   attribute CHECK_LICENSE_TYPE of xlconcat_1 : label is "joystick_xlconcat_0_1,xlconcat_v2_1_4_xlconcat,{}";
@@ -5066,7 +5037,6 @@ begin
 SPI_Master_0: entity work.zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
      port map (
       D(7 downto 0) => o_RX_Byte(7 downto 0),
-      Res(0) => util_vector_logic_0_Res,
       SPI_Master_0_o_TX_Ready => SPI_Master_0_o_TX_Ready,
       clk_peripheral => clk_peripheral,
       jstk_clk => jstk_clk,
@@ -5074,8 +5044,10 @@ SPI_Master_0: entity work.zxnexys_zxjoystick_0_0_joystick_SPI_Master_0_0
       jstk_mosi => jstk_mosi,
       o_RX_DV => o_RX_DV,
       pmod_jstk2_0_wv => pmod_jstk2_0_wv,
-      \r_TX_Byte_reg[6]\ => SPI_Master_0_n_3,
-      \r_TX_Byte_reg[6]_0\ => pmod_jstk2_0_n_2
+      \r_TX_Byte_reg[6]\ => SPI_Master_0_n_4,
+      \r_TX_Byte_reg[6]_0\ => pmod_jstk2_0_n_2,
+      resetn => resetn,
+      resetn_0 => SPI_Master_0_n_1
     );
 debounce_0: entity work.zxnexys_zxjoystick_0_0_joystick_debounce_0_0
      port map (
@@ -5204,6 +5176,7 @@ pmod_jstk2_0: entity work.zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
       Q(1) => \inst/p_1_in\,
       Q(0) => pmod_jstk2_0_n_4,
       SPI_Master_0_o_TX_Ready => SPI_Master_0_o_TX_Ready,
+      SS(0) => SPI_Master_0_n_1,
       clk_peripheral => clk_peripheral,
       d0 => d0,
       invalid => invalid,
@@ -5211,16 +5184,10 @@ pmod_jstk2_0: entity work.zxnexys_zxjoystick_0_0_joystick_pmod_jstk2_0_0
       o_RX_DV => o_RX_DV,
       pmod_jstk2_0_wv => pmod_jstk2_0_wv,
       r00_in => r00_in,
-      \r_TX_Byte_reg[6]\ => SPI_Master_0_n_3,
-      reset => reset,
+      \r_TX_Byte_reg[6]\ => SPI_Master_0_n_4,
       wv_reg => pmod_jstk2_0_n_2,
       \x_reg[7]\ => pmod_jstk2_0_n_6,
       \y_reg[7]\ => pmod_jstk2_0_n_8
-    );
-util_vector_logic_0: entity work.zxnexys_zxjoystick_0_0_joystick_util_vector_logic_0_0
-     port map (
-      Op1(0) => reset,
-      Res(0) => util_vector_logic_0_Res
     );
 xlconcat_0: entity work.zxnexys_zxjoystick_0_0_joystick_xlconcat_0_0
      port map (
@@ -5258,14 +5225,14 @@ entity zxnexys_zxjoystick_0_0_joystick_wrapper is
     jstk_sel : out STD_LOGIC;
     joy_clk_en : out STD_LOGIC;
     jstk_mosi : out STD_LOGIC;
-    reset : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
     btnr : in STD_LOGIC;
     btnl : in STD_LOGIC;
     btnd : in STD_LOGIC;
     btnu : in STD_LOGIC;
     btnc : in STD_LOGIC;
-    jstk_miso : in STD_LOGIC
+    jstk_miso : in STD_LOGIC;
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxjoystick_0_0_joystick_wrapper : entity is "joystick_wrapper";
@@ -5288,7 +5255,7 @@ joystick_i: entity work.zxnexys_zxjoystick_0_0_joystick
       jstk_miso => jstk_miso,
       jstk_mosi => jstk_mosi,
       jstk_sel => jstk_sel,
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;
 library IEEE;
@@ -5310,7 +5277,7 @@ entity zxnexys_zxjoystick_0_0 is
     jstk_miso : in STD_LOGIC;
     jstk_mosi : out STD_LOGIC;
     jstk_sel : out STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_zxjoystick_0_0 : entity is true;
@@ -5331,14 +5298,14 @@ architecture STRUCTURE of zxnexys_zxjoystick_0_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of joy_clk_en : signal is "xilinx.com:signal:clockenable:1.0 joy_clk_en CE";
   attribute X_INTERFACE_PARAMETER of joy_clk_en : signal is "XIL_INTERFACENAME joy_clk_en, FREQ_HZ 100000000, PHASE 0, POLARITY ACTIVE_HIGH";
   attribute X_INTERFACE_INFO of jstk_clk : signal is "xilinx.com:signal:clock:1.0 jstk_clk CLK";
   attribute X_INTERFACE_PARAMETER of jstk_clk : signal is "XIL_INTERFACENAME jstk_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxjoystick_0_0_jstk_clk, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of jstk_miso : signal is "specnext.com:specnext:sdcard:1.0 i_SPI miso";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of joy_left : signal is "specnext.com:specnext:joystick:1.0 joystick joy_left";
   attribute X_INTERFACE_INFO of joy_right : signal is "specnext.com:specnext:joystick:1.0 joystick joy_right";
 begin
@@ -5374,6 +5341,6 @@ inst: entity work.zxnexys_zxjoystick_0_0_joystick_wrapper
       jstk_miso => jstk_miso,
       jstk_mosi => jstk_mosi,
       jstk_sel => jstk_sel,
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;

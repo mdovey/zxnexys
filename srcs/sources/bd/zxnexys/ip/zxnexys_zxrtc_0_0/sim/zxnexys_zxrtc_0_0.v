@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxrtc:1.3
-// IP Revision: 7
+// IP Revision: 9
 
 `timescale 1ns/1ps
 
@@ -62,14 +62,14 @@ module zxnexys_zxrtc_0_0 (
   iic_rtcc_sda_i,
   iic_rtcc_sda_o,
   iic_rtcc_sda_t,
-  reset,
+  resetn,
   scl_i,
   scl_o,
   sda_i,
   sda_o
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
 (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 iic_rtcc SCL_I" *)
@@ -84,9 +84,9 @@ input wire iic_rtcc_sda_i;
 output wire iic_rtcc_sda_o;
 (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 iic_rtcc SDA_T" *)
 output wire iic_rtcc_sda_t;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 (* X_INTERFACE_INFO = "specnext.com:specnext:rtc:1.0 rtc scl_out" *)
 input wire scl_i;
 (* X_INTERFACE_INFO = "specnext.com:specnext:rtc:1.0 rtc scl_in" *)
@@ -104,7 +104,7 @@ output wire sda_o;
     .iic_rtcc_sda_i(iic_rtcc_sda_i),
     .iic_rtcc_sda_o(iic_rtcc_sda_o),
     .iic_rtcc_sda_t(iic_rtcc_sda_t),
-    .reset(reset),
+    .resetn(resetn),
     .scl_i(scl_i),
     .scl_o(scl_o),
     .sda_i(sda_i),

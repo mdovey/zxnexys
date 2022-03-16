@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 25 12:40:04 2022" VIVADOVERSION="2021.2.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 16 11:11:30 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="zxnexys" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -1678,8 +1678,8 @@
         </PORT>
         <PORT CLKFREQUENCY="22590011" DIR="O" NAME="clk_22m59" SIGIS="clk" SIGNAME="clk_wiz_audio_clk_22m59">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxnexys_mic_0" PORT="clk_12m288"/>
             <CONNECTION INSTANCE="zxaudio_0" PORT="clk_22m59"/>
+            <CONNECTION INSTANCE="zxnexys_mic_0" PORT="clk_12m288"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -4582,7 +4582,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="3" FULLNAME="/pmod_esp32_0" HWVERSION="1.1" INSTANCE="pmod_esp32_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pmod_esp32" VLNV="specnext.com:specnext:pmod_esp32:1.1">
+    <MODULE COREREVISION="4" FULLNAME="/pmod_esp32_0" HWVERSION="1.1" INSTANCE="pmod_esp32_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pmod_esp32" VLNV="specnext.com:specnext:pmod_esp32:1.1">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_pmod_esp32_0_0"/>
@@ -4717,6 +4717,11 @@
         <PORT DIR="I" NAME="uart_tx" SIGIS="undef" SIGNAME="zxesp32_0_uart_tx_o">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxesp32_0" PORT="uart_tx_o"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="enable" SIGIS="undef" SIGNAME="zxesp32_0_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxesp32_0" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="gpio0_i" SIGIS="undef" SIGNAME="pmod_esp32_0_gpio0_i">
@@ -5635,7 +5640,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="80" FULLNAME="/zxaudio_0" HWVERSION="2.5" INSTANCE="zxaudio_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxaudio" VLNV="specnext.com:specnext:zxaudio:2.5">
+    <MODULE COREREVISION="82" FULLNAME="/zxaudio_0" HWVERSION="2.5" INSTANCE="zxaudio_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxaudio" VLNV="specnext.com:specnext:zxaudio:2.5">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="mono_tape" VALUE="0"/>
@@ -5715,9 +5720,9 @@
             <CONNECTION INSTANCE="zxnext_0" PORT="i_CLK_PSG_EN"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="tape_ear" SIGIS="undef" SIGNAME="zxaudio_0_tape_ear">
@@ -5806,23 +5811,23 @@
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_peripheral" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="zxvga_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxaudio_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxesp32_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxjoystick_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxmouse_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxsdcard_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxsdcard_1" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxaudio_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxjoystick_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxreset_0" PORT="clk_peripheral"/>
             <CONNECTION INSTANCE="zxrtc_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxvga_0" PORT="clk_peripheral"/>
-            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="clk_peripheral"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_peripheral_n" SIGIS="clk" SIGNAME="zxclock_0_clk_peripheral_n">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral_n"/>
             <CONNECTION INSTANCE="zxram_0" PORT="clk_peripheral_n"/>
+            <CONNECTION INSTANCE="zxkeyboard_0" PORT="clk_peripheral_n"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk_video" SIGIS="clk" SIGNAME="zxclock_0_clk_video">
@@ -5866,7 +5871,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="3" FULLNAME="/zxesp32_0" HWVERSION="1.3" INSTANCE="zxesp32_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxesp32" VLNV="specnext.com:specnext:zxesp32:1.3">
+    <MODULE COREREVISION="5" FULLNAME="/zxesp32_0" HWVERSION="1.3" INSTANCE="zxesp32_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxesp32" VLNV="specnext.com:specnext:zxesp32:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxesp32_0_0"/>
@@ -5906,6 +5911,11 @@
         <PORT DIR="I" NAME="uart_rx_o" SIGIS="undef" SIGNAME="pmod_esp32_0_uart_rx">
           <CONNECTIONS>
             <CONNECTION INSTANCE="pmod_esp32_0" PORT="uart_rx"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="enable" SIGIS="undef" SIGNAME="zxesp32_0_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pmod_esp32_0" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="gpio0_i" SIGIS="undef" SIGNAME="pmod_esp32_0_gpio0_i">
@@ -5958,9 +5968,9 @@
             <CONNECTION INSTANCE="zxclock_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_bus_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="bus_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -5997,7 +6007,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="16" FULLNAME="/zxjoystick_0" HWVERSION="2.3" INSTANCE="zxjoystick_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxjoystick" VLNV="specnext.com:specnext:zxjoystick:2.3">
+    <MODULE COREREVISION="17" FULLNAME="/zxjoystick_0" HWVERSION="2.3" INSTANCE="zxjoystick_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxjoystick" VLNV="specnext.com:specnext:zxjoystick:2.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxjoystick_0_0"/>
@@ -6070,9 +6080,9 @@
             <CONNECTION INSTANCE="pmod_ps2_jstk2_0" PORT="jstk_sel"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -6085,7 +6095,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="18" FULLNAME="/zxkeyboard_0" HWVERSION="2.4" INSTANCE="zxkeyboard_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxkeyboard" VLNV="specnext.com:specnext:zxkeyboard:2.4">
+    <MODULE COREREVISION="20" FULLNAME="/zxkeyboard_0" HWVERSION="2.4" INSTANCE="zxkeyboard_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxkeyboard" VLNV="specnext.com:specnext:zxkeyboard:2.4">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxkeyboard_0_0"/>
@@ -6187,9 +6197,9 @@
             <CONNECTION INSTANCE="zxnexys_imp" PORT="PS2_DATA_tri_t"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="row" RIGHT="0" SIGIS="undef" SIGNAME="zxkeyboard_0_row">
@@ -6252,7 +6262,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="4" FULLNAME="/zxmouse_0" HWVERSION="2.3" INSTANCE="zxmouse_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxmouse" VLNV="specnext.com:specnext:zxmouse:2.3">
+    <MODULE COREREVISION="5" FULLNAME="/zxmouse_0" HWVERSION="2.3" INSTANCE="zxmouse_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxmouse" VLNV="specnext.com:specnext:zxmouse:2.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxmouse_0_0"/>
@@ -6304,9 +6314,9 @@
             <CONNECTION INSTANCE="pmod_ps2_jstk2_0" PORT="ps2_data_t"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="wheel" RIGHT="0" SIGIS="undef" SIGNAME="zxmouse_0_wheel">
@@ -6935,7 +6945,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="8" FULLNAME="/zxnexys_mic_0" HWVERSION="1.3" INSTANCE="zxnexys_mic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxnexys_mic" VLNV="specnext.com:specnext:zxnexys_mic:1.3">
+    <MODULE COREREVISION="11" FULLNAME="/zxnexys_mic_0" HWVERSION="1.3" INSTANCE="zxnexys_mic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxnexys_mic" VLNV="specnext.com:specnext:zxnexys_mic:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxnexys_mic_0_0"/>
@@ -6982,15 +6992,15 @@
             <CONNECTION INSTANCE="External_Ports" PORT="M_LRSEL"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="21" FULLNAME="/zxnexys_pi_led_sw_ua_0" HWVERSION="1.0" INSTANCE="zxnexys_pi_led_sw_ua_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxnexys_pi_led_sw_uart_i2s" VLNV="specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0">
+    <MODULE COREREVISION="22" FULLNAME="/zxnexys_pi_led_sw_ua_0" HWVERSION="1.0" INSTANCE="zxnexys_pi_led_sw_ua_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxnexys_pi_led_sw_uart_i2s" VLNV="specnext.com:specnext:zxnexys_pi_led_sw_uart_i2s:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxnexys_pi_led_sw_ua_0_0"/>
@@ -7072,9 +7082,9 @@
             <CONNECTION INSTANCE="zxclock_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7088,7 +7098,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="18" FULLNAME="/zxnexys_status_0" HWVERSION="1.2" INSTANCE="zxnexys_status_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxnexys_status" VLNV="specnext.com:specnext:zxnexys_status:1.2">
+    <MODULE COREREVISION="25" FULLNAME="/zxnexys_status_0" HWVERSION="1.2" INSTANCE="zxnexys_status_0" IPTYPE="MONITOR" IS_ENABLE="1" MODCLASS="MONITOR" MODTYPE="zxnexys_status" VLNV="specnext.com:specnext:zxnexys_status:1.2">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxnexys_status_0_0"/>
@@ -7101,6 +7111,11 @@
         <PORT DIR="O" LEFT="7" NAME="an" RIGHT="0" SIGIS="undef" SIGNAME="zxnexys_status_0_an">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="AN"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="bus_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_bus_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxreset_0" PORT="bus_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="7" NAME="ca" RIGHT="0" SIGIS="undef" SIGNAME="zxnexys_status_0_ca">
@@ -7118,6 +7133,11 @@
         <PORT DIR="I" LEFT="1" NAME="cpu_speed" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" NAME="cpu_wait_n" SIGIS="undef"/>
         <PORT DIR="I" NAME="freq_50_60" SIGIS="undef"/>
+        <PORT DIR="I" NAME="io_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="led16_b" SIGIS="undef" SIGNAME="zxnexys_status_0_led16_b">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="LED16_B"/>
@@ -7152,11 +7172,6 @@
         <PORT DIR="I" NAME="mig_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="mig_reset_0_mig_resetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="mig_reset_0" PORT="mig_resetn"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="pi_accel_opt" RIGHT="0" SIGIS="undef" SIGNAME="zxnexys_pi_led_sw_ua_0_opt">
@@ -7425,9 +7440,9 @@
             <CONNECTION INSTANCE="zxnext_0" PORT="i_RAM_B_DI"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="memory_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_mb_resetn">
+        <PORT DIR="I" NAME="memory_aresetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="mb_resetn"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="20" NAME="ram_a_addr" RIGHT="0" SIGIS="undef" SIGNAME="zxnext_0_o_RAM_A_ADDR">
@@ -7566,13 +7581,14 @@
         <PERIPHERAL INSTANCE="mig_7series_0"/>
       </PERIPHERALS>
     </MODULE>
-    <MODULE COREREVISION="20" FULLNAME="/zxreset_0" HWVERSION="1.3" INSTANCE="zxreset_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxreset" VLNV="specnext.com:specnext:zxreset:1.3">
+    <MODULE COREREVISION="25" FULLNAME="/zxreset_0" HWVERSION="1.3" INSTANCE="zxreset_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxreset" VLNV="specnext.com:specnext:zxreset:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="PERIPHERAL_RESET_HOLD" VALUE="18"/>
-        <PARAMETER NAME="MB_RESET_HOLD" VALUE="20"/>
+        <PARAMETER NAME="MB_RESET_HOLD" VALUE="22"/>
         <PARAMETER NAME="SYNC_STAGES" VALUE="3"/>
         <PARAMETER NAME="PIPELINE_STAGES" VALUE="1"/>
+        <PARAMETER NAME="IO_RESET_HOLD" VALUE="20"/>
+        <PARAMETER NAME="BUS_RESET_HOLD" VALUE="22"/>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxreset_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
@@ -7607,25 +7623,26 @@
             <CONNECTION INSTANCE="zxclock_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="zxesp32_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxmouse_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxsdcard_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxnexys_mic_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxsdcard_1" PORT="reset"/>
-            <CONNECTION INSTANCE="zxaudio_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxjoystick_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxkeyboard_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxrtc_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="reset"/>
-            <CONNECTION INSTANCE="zxnexys_status_0" PORT="peripheral_reset"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" NAME="mb_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_mb_resetn">
+        <PORT DIR="O" NAME="io_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="zxram_0" PORT="memory_aresetn"/>
             <CONNECTION INSTANCE="zxvga_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxjoystick_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxmouse_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxsdcard_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxnexys_pi_led_sw_ua_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxaudio_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxsdcard_1" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxkeyboard_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxnexys_mic_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxrtc_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxnexys_status_0" PORT="io_resetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="bus_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_bus_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="zxesp32_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="zxnexys_status_0" PORT="bus_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="hard_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="clock_locks_0_hard_resetn">
@@ -7651,7 +7668,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="7" FULLNAME="/zxrtc_0" HWVERSION="1.3" INSTANCE="zxrtc_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxrtc" VLNV="specnext.com:specnext:zxrtc:1.3">
+    <MODULE COREREVISION="9" FULLNAME="/zxrtc_0" HWVERSION="1.3" INSTANCE="zxrtc_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxrtc" VLNV="specnext.com:specnext:zxrtc:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="Component_Name" VALUE="zxnexys_zxrtc_0_0"/>
@@ -7693,9 +7710,9 @@
             <CONNECTION INSTANCE="pmod_rtcc_0" PORT="sda_t"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="scl_i" SIGIS="undef" SIGNAME="zxnext_0_o_I2C_SCL_n">
@@ -7740,7 +7757,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="6" FULLNAME="/zxsdcard_0" HWVERSION="1.3" INSTANCE="zxsdcard_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxsdcard" VLNV="specnext.com:specnext:zxsdcard:1.3">
+    <MODULE COREREVISION="7" FULLNAME="/zxsdcard_0" HWVERSION="1.3" INSTANCE="zxsdcard_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxsdcard" VLNV="specnext.com:specnext:zxsdcard:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="STARTUP_BITS" VALUE="8"/>
@@ -7832,9 +7849,9 @@
             <CONNECTION INSTANCE="zxclock_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7860,7 +7877,7 @@
         </BUSINTERFACE>
       </BUSINTERFACES>
     </MODULE>
-    <MODULE COREREVISION="6" FULLNAME="/zxsdcard_1" HWVERSION="1.3" INSTANCE="zxsdcard_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxsdcard" VLNV="specnext.com:specnext:zxsdcard:1.3">
+    <MODULE COREREVISION="7" FULLNAME="/zxsdcard_1" HWVERSION="1.3" INSTANCE="zxsdcard_1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="zxsdcard" VLNV="specnext.com:specnext:zxsdcard:1.3">
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="STARTUP_BITS" VALUE="8"/>
@@ -7933,9 +7950,9 @@
             <CONNECTION INSTANCE="zxclock_0" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="zxreset_0_peripheral_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -7986,9 +8003,9 @@
             <CONNECTION INSTANCE="zxnext_0" PORT="o_MACHINE_TIMING"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_mb_resetn">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zxreset_0_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zxreset_0" PORT="mb_resetn"/>
+            <CONNECTION INSTANCE="zxreset_0" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="8" NAME="rgb" RIGHT="0" SIGIS="undef" SIGNAME="zxnext_0_o_RGB">

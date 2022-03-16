@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x12D4DA664344E1AB",
+      "boundary_crc": "0xD4FF00C325A5A46E",
       "device": "xc7a100tcsg324-1",
       "name": "status",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -10,12 +10,12 @@
       "validated": "true"
     },
     "design_tree": {
-      "status_leds_0": "",
-      "status_display_0": "",
       "led_segment_0": "",
       "rgb_led_16": "",
       "rgb_led_17": "",
-      "status_enables_0": ""
+      "status_enables_0": "",
+      "status_display_0": "",
+      "status_leds_0": ""
     },
     "ports": {
       "cpu_contend": {
@@ -26,19 +26,6 @@
       },
       "cpu_clk": {
         "direction": "I"
-      },
-      "peripheral_reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
       },
       "freq_50_60": {
         "direction": "I"
@@ -145,222 +132,37 @@
         "direction": "I",
         "left": "1",
         "right": "0"
+      },
+      "io_resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "bus_resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
-      "status_leds_0": {
-        "vlnv": "xilinx.com:module_ref:status_leds:1.0",
-        "xci_name": "status_status_leds_0_0",
-        "xci_path": "ip\\status_status_leds_0_0\\status_status_leds_0_0.xci",
-        "inst_hier_path": "status_leds_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "status_leds",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "cpu": {
-            "mode": "Slave",
-            "vlnv_bus_definition": "specnext.com:specnext:mb_clock:1.0",
-            "vlnv": "specnext.com:specnext:mb_clock_rtl:1.0",
-            "port_maps": {
-              "contend": {
-                "physical_name": "cpu_contend",
-                "direction": "I"
-              },
-              "cpu_clk": {
-                "physical_name": "cpu_clk",
-                "direction": "I"
-              }
-            }
-          }
-        },
-        "ports": {
-          "cpu_wait_n": {
-            "direction": "I"
-          },
-          "led16_r": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "led16_g": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "led16_b": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "led17_r": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "led17_g": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "led17_b": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          },
-          "mb_reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "peripheral_reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          }
-        }
-      },
-      "status_display_0": {
-        "vlnv": "xilinx.com:module_ref:status_display:1.0",
-        "xci_name": "status_status_display_0_0",
-        "xci_path": "ip\\status_status_display_0_0\\status_status_display_0_0.xci",
-        "inst_hier_path": "status_display_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "status_display",
-          "boundary_crc": "0x0"
-        },
-        "interface_ports": {
-          "specnext_video": {
-            "mode": "Slave",
-            "vlnv_bus_definition": "specnext.com:specnext:video:1.0",
-            "vlnv": "specnext.com:specnext:video_rtl:1.0",
-            "port_maps": {
-              "freq_50_60": {
-                "physical_name": "freq_50_60",
-                "direction": "I"
-              },
-              "scandouble": {
-                "physical_name": "scandouble",
-                "direction": "I"
-              },
-              "video_mode": {
-                "physical_name": "video_mode",
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              }
-            }
-          }
-        },
-        "ports": {
-          "address": {
-            "direction": "I",
-            "left": "20",
-            "right": "0"
-          },
-          "cpu_speed": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "display0": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display1": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display2": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display3": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display4": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display5": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display6": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "display7": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "FREQ_HZ": {
-                "value": "200000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "status_clk_200",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "mb_reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "peripheral_reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          },
-          "mig_resetn": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          }
-        }
-      },
       "led_segment_0": {
         "vlnv": "xilinx.com:module_ref:led_segment:1.0",
         "xci_name": "status_led_segment_0_0",
@@ -565,11 +367,242 @@
             "left": "1",
             "right": "0"
           },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "status_clk_200",
+                "value_src": "default_prop"
+              }
+            }
+          },
           "rgb_cs_n": {
             "direction": "O"
           },
           "segment_cs_n": {
             "direction": "O"
+          }
+        }
+      },
+      "status_display_0": {
+        "vlnv": "xilinx.com:module_ref:status_display:1.0",
+        "xci_name": "status_status_display_0_0",
+        "xci_path": "ip\\status_status_display_0_0\\status_status_display_0_0.xci",
+        "inst_hier_path": "status_display_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "status_display",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "specnext_video": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:video:1.0",
+            "vlnv": "specnext.com:specnext:video_rtl:1.0",
+            "port_maps": {
+              "freq_50_60": {
+                "physical_name": "freq_50_60",
+                "direction": "I"
+              },
+              "scandouble": {
+                "physical_name": "scandouble",
+                "direction": "I"
+              },
+              "video_mode": {
+                "physical_name": "video_mode",
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "ports": {
+          "address": {
+            "direction": "I",
+            "left": "20",
+            "right": "0"
+          },
+          "cpu_speed": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "display0": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display1": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display2": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display3": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display4": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display5": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display6": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "display7": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "status_clk_200",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "mb_reset": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "mig_resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
+      },
+      "status_leds_0": {
+        "vlnv": "xilinx.com:module_ref:status_leds:1.0",
+        "xci_name": "status_status_leds_0_0",
+        "xci_path": "ip\\status_status_leds_0_0\\status_status_leds_0_0.xci",
+        "inst_hier_path": "status_leds_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "status_leds",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "cpu": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "specnext.com:specnext:mb_clock:1.0",
+            "vlnv": "specnext.com:specnext:mb_clock_rtl:1.0",
+            "port_maps": {
+              "contend": {
+                "physical_name": "cpu_contend",
+                "direction": "I"
+              },
+              "cpu_clk": {
+                "physical_name": "cpu_clk",
+                "direction": "I"
+              }
+            }
+          }
+        },
+        "ports": {
+          "cpu_wait_n": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "200000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "status_clk_200",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "led16_r": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "led16_g": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "led16_b": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "led17_r": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "led17_g": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "led17_b": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "io_resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "bus_resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
           }
         }
       }
@@ -581,13 +614,21 @@
           "status_display_0/address"
         ]
       },
+      "bus_resetn_1": {
+        "ports": [
+          "bus_resetn",
+          "status_leds_0/bus_resetn"
+        ]
+      },
       "clk_system_1": {
         "ports": [
           "clk_200",
-          "status_display_0/clk",
           "led_segment_0/clk",
           "rgb_led_16/clk",
-          "rgb_led_17/clk"
+          "rgb_led_17/clk",
+          "status_enables_0/clk",
+          "status_display_0/clk",
+          "status_leds_0/clk"
         ]
       },
       "cpu_clk_1": {
@@ -626,6 +667,12 @@
           "status_display_0/freq_50_60"
         ]
       },
+      "io_resetn_1": {
+        "ports": [
+          "io_resetn",
+          "status_leds_0/io_resetn"
+        ]
+      },
       "led_segment_0_an": {
         "ports": [
           "led_segment_0/an",
@@ -641,7 +688,6 @@
       "mb_reset_1": {
         "ports": [
           "mb_reset",
-          "status_leds_0/mb_reset",
           "status_display_0/mb_reset"
         ]
       },
@@ -649,13 +695,6 @@
         "ports": [
           "mig_resetn",
           "status_display_0/mig_resetn"
-        ]
-      },
-      "peripheral_reset_1": {
-        "ports": [
-          "peripheral_reset",
-          "status_leds_0/peripheral_reset",
-          "status_display_0/peripheral_reset"
         ]
       },
       "rgb_led_16_led_b": {

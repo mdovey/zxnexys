@@ -1,12 +1,12 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB11515D39EF84591",
+      "boundary_crc": "0x996C5737877FCD55",
       "device": "xc7a100tcsg324-1",
       "name": "keyboard",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
@@ -125,19 +125,6 @@
       "ps2_data_t": {
         "direction": "O"
       },
-      "reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
-      },
       "row": {
         "direction": "I",
         "left": "7",
@@ -183,6 +170,20 @@
         "type": "ce",
         "direction": "I",
         "parameters": {
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
           "POLARITY": {
             "value": "ACTIVE_LOW",
             "value_src": "default"
@@ -258,7 +259,7 @@
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
+                "value_src": "const_prop"
               }
             }
           },
@@ -330,7 +331,7 @@
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
+                "value_src": "const_prop"
               }
             }
           },
@@ -405,7 +406,7 @@
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
+                "value_src": "const_prop"
               }
             }
           },
@@ -536,7 +537,7 @@
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
+                "value_src": "const_prop"
               }
             }
           },
@@ -878,7 +879,7 @@
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
+                "value_src": "const_prop"
               }
             }
           },
@@ -966,10 +967,20 @@
           },
           "reset": {
             "type": "rst",
-            "direction": "I",
+            "direction": "O",
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
                 "value_src": "constant"
               }
             }
@@ -1219,13 +1230,18 @@
       },
       "reset_1": {
         "ports": [
-          "reset",
+          "keyb_clocks_0/reset",
           "Ps2Interface_0/rst",
           "emu_fnkeys_0/i_reset",
           "membrane_0/i_reset",
           "ps2_keyb_0/i_reset",
-          "membrane_stick_0/i_reset",
-          "keyb_clocks_0/reset"
+          "membrane_stick_0/i_reset"
+        ]
+      },
+      "resetn_1": {
+        "ports": [
+          "resetn",
+          "keyb_clocks_0/resetn"
         ]
       },
       "row_1": {

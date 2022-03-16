@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:51:03 2022
+// Date        : Wed Mar 16 11:17:55 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_stub.v
@@ -15,8 +15,8 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "joystick_wrapper,Vivado 2021.2.1" *)
 module zxnexys_zxjoystick_0_0(btnc, btnd, btnl, btnr, btnu, clk_peripheral, 
-  joy_clk_en, joy_left, joy_right, jstk_clk, jstk_miso, jstk_mosi, jstk_sel, reset)
-/* synthesis syn_black_box black_box_pad_pin="btnc,btnd,btnl,btnr,btnu,clk_peripheral,joy_clk_en,joy_left[10:0],joy_right[10:0],jstk_clk,jstk_miso,jstk_mosi,jstk_sel,reset" */;
+  joy_clk_en, joy_left, joy_right, jstk_clk, jstk_miso, jstk_mosi, jstk_sel, resetn)
+/* synthesis syn_black_box black_box_pad_pin="btnc,btnd,btnl,btnr,btnu,clk_peripheral,joy_clk_en,joy_left[10:0],joy_right[10:0],jstk_clk,jstk_miso,jstk_mosi,jstk_sel,resetn" */;
   input btnc;
   input btnd;
   input btnl;
@@ -30,5 +30,5 @@ module zxnexys_zxjoystick_0_0(btnc, btnd, btnl, btnr, btnu, clk_peripheral,
   input jstk_miso;
   output jstk_mosi;
   output jstk_sel;
-  input reset;
+  input resetn;
 endmodule

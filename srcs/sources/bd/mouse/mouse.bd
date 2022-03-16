@@ -1,18 +1,19 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x88D67633D659973B",
+      "boundary_crc": "0x42A70FCB717D40C0",
       "device": "xc7a100tcsg324-1",
       "name": "mouse",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
       "ps2_mouse_0": "",
       "xlconcat_0": "",
-      "xlslice_0": ""
+      "xlslice_0": "",
+      "util_vector_logic_0": ""
     },
     "ports": {
       "button": {
@@ -78,19 +79,6 @@
       "ps2_data_t": {
         "direction": "O"
       },
-      "reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
-      },
       "wheel": {
         "direction": "O",
         "left": "3",
@@ -105,6 +93,20 @@
         "direction": "O",
         "left": "7",
         "right": "0"
+      },
+      "resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -143,7 +145,7 @@
             "parameters": {
               "POLARITY": {
                 "value": "ACTIVE_HIGH",
-                "value_src": "user_prop"
+                "value_src": "ip_prop"
               }
             }
           },
@@ -215,6 +217,20 @@
           },
           "DOUT_WIDTH": {
             "value": "4"
+          }
+        }
+      },
+      "util_vector_logic_0": {
+        "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+        "xci_name": "mouse_util_vector_logic_0_0",
+        "xci_path": "ip\\mouse_util_vector_logic_0_0\\mouse_util_vector_logic_0_0.xci",
+        "inst_hier_path": "util_vector_logic_0",
+        "parameters": {
+          "C_OPERATION": {
+            "value": "not"
+          },
+          "C_SIZE": {
+            "value": "1"
           }
         }
       }
@@ -294,9 +310,15 @@
           "xlslice_0/Din"
         ]
       },
-      "reset_1": {
+      "resetn_1": {
         "ports": [
-          "reset",
+          "resetn",
+          "util_vector_logic_0/Op1"
+        ]
+      },
+      "util_vector_logic_0_Res": {
+        "ports": [
+          "util_vector_logic_0/Res",
           "ps2_mouse_0/reset"
         ]
       },

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:45:18 2022
+// Date        : Wed Mar 16 11:22:46 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_esp32_0_0/zxnexys_pmod_esp32_0_0_sim_netlist.v
@@ -42,6 +42,7 @@ module zxnexys_pmod_esp32_0_0
     pin10_t,
     uart_rx,
     uart_tx,
+    enable,
     gpio0_i,
     gpio0_o,
     gpio0_t,
@@ -77,6 +78,7 @@ module zxnexys_pmod_esp32_0_0
   (* X_INTERFACE_INFO = "digilentinc.com:interface:pmod:1.0 pmod_esp32 PIN10_T" *) output pin10_t;
   output uart_rx;
   input uart_tx;
+  input enable;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *) output gpio0_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_O" *) input gpio0_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_T" *) input gpio0_t;
@@ -89,6 +91,7 @@ module zxnexys_pmod_esp32_0_0
 
   wire \<const0> ;
   wire \<const1> ;
+  wire enable;
   wire gpio0_o;
   wire gpio0_t;
   wire gpio2_o;
@@ -113,7 +116,7 @@ module zxnexys_pmod_esp32_0_0
   assign pin4_t = \<const1> ;
   assign pin7_o = gpio2_o;
   assign pin7_t = gpio2_t;
-  assign pin8_o = \<const1> ;
+  assign pin8_o = enable;
   assign pin8_t = \<const0> ;
   assign pin9_o = \<const0> ;
   assign pin9_t = \<const0> ;

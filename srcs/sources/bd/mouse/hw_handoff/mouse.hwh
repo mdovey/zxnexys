@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 21 14:45:24 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 15 13:21:55 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="mouse" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -49,11 +49,6 @@
         <CONNECTION INSTANCE="ps2_mouse_0" PORT="ps2mdat_o"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="ps2_mouse_0" PORT="reset"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" LEFT="3" NAME="wheel" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
@@ -67,6 +62,11 @@
     <PORT DIR="O" LEFT="7" NAME="y" RIGHT="0" SIGIS="undef" SIGNAME="ps2_mouse_0_ycount">
       <CONNECTIONS>
         <CONNECTION INSTANCE="ps2_mouse_0" PORT="ycount"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="util_vector_logic_0" PORT="Op1"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -86,9 +86,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="util_vector_logic_0_Res">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="ps2mdat_i" SIGIS="undef" SIGNAME="External_Ports_ps2_data_i">
@@ -146,6 +146,29 @@
         <PORT DIR="O" NAME="mright" SIGIS="undef" SIGNAME="ps2_mouse_0_mright">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconcat_0" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/util_vector_logic_0" HWVERSION="2.0" INSTANCE="util_vector_logic_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_vector_logic" VLNV="xilinx.com:ip:util_vector_logic:2.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_OPERATION" VALUE="not"/>
+        <PARAMETER NAME="C_SIZE" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="mouse_util_vector_logic_0_0"/>
+        <PARAMETER NAME="LOGO_FILE" VALUE="data/sym_notgate.png"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="Op1" POLARITY="ACTIVE_LOW" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="resetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" POLARITY="ACTIVE_HIGH" RIGHT="0" SIGIS="undef" SIGNAME="util_vector_logic_0_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="ps2_mouse_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

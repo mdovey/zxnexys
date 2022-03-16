@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Feb 17 19:44:03 2022" VIVADOVERSION="2021.2.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 15 12:51:10 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="audio" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -29,12 +29,12 @@
     <PORT CLKFREQUENCY="22590010" DIR="I" NAME="clk_22m59" SIGIS="clk" SIGNAME="External_Ports_clk_22m59">
       <CONNECTIONS>
         <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="CLK"/>
-        <CONNECTION INSTANCE="audio_reset_0" PORT="clk"/>
         <CONNECTION INSTANCE="sigma_delta_dac_0" PORT="CLK"/>
         <CONNECTION INSTANCE="axis_i2s2_0" PORT="axis_clk"/>
         <CONNECTION INSTANCE="audio_axis_master_0" PORT="clk"/>
         <CONNECTION INSTANCE="audio_mono_1" PORT="clk"/>
         <CONNECTION INSTANCE="tape_ear_0" PORT="clk"/>
+        <CONNECTION INSTANCE="audio_reset_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="28000000" DIR="I" NAME="clk_peripheral" SIGIS="clk" SIGNAME="External_Ports_clk_peripheral">
@@ -88,11 +88,6 @@
         <CONNECTION INSTANCE="audio_psg_0" PORT="psg_en"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="audio_reset_0" PORT="reset"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="O" NAME="tape_ear" SIGIS="undef" SIGNAME="debounce_0_button_o">
       <CONNECTIONS>
         <CONNECTION INSTANCE="debounce_0" PORT="button_o"/>
@@ -106,6 +101,11 @@
     <PORT DIR="O" NAME="tape_pwm" SIGIS="undef" SIGNAME="sigma_delta_dac_1_DACout">
       <CONNECTIONS>
         <CONNECTION INSTANCE="sigma_delta_dac_1" PORT="DACout"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="audio_reset_0" PORT="resetn"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -235,9 +235,9 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="audio_reset_0_rst">

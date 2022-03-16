@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_mic:1.3
-// IP Revision: 8
+// IP Revision: 11
 
 `timescale 1ns/1ps
 
@@ -63,7 +63,7 @@ module zxnexys_zxnexys_mic_0_0 (
   m_clk,
   m_data,
   m_lrsel,
-  reset
+  resetn
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_12m288, ASSOCIATED_ASYNC_RESET reset, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0" *)
@@ -78,9 +78,9 @@ output wire i2s_wclk;
 output wire m_clk;
 input wire m_data;
 output wire m_lrsel;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   mic_i2s_wrapper inst (
     .clk_12m288(clk_12m288),
@@ -91,6 +91,6 @@ input wire reset;
     .m_clk(m_clk),
     .m_data(m_data),
     .m_lrsel(m_lrsel),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

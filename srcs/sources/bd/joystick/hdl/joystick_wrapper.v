@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-//Date        : Mon Feb 21 20:22:28 2022
+//Date        : Tue Mar 15 13:12:05 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target joystick_wrapper.bd
 //Design      : joystick_wrapper
@@ -23,7 +23,7 @@ module joystick_wrapper
     jstk_miso,
     jstk_mosi,
     jstk_sel,
-    reset);
+    resetn);
   input btnc;
   input btnd;
   input btnl;
@@ -37,7 +37,7 @@ module joystick_wrapper
   input jstk_miso;
   output jstk_mosi;
   output jstk_sel;
-  input reset;
+  input resetn;
 
   wire btnc;
   wire btnd;
@@ -52,7 +52,7 @@ module joystick_wrapper
   wire jstk_miso;
   wire jstk_mosi;
   wire jstk_sel;
-  wire reset;
+  wire resetn;
 
   joystick joystick_i
        (.btnc(btnc),
@@ -68,5 +68,5 @@ module joystick_wrapper
         .jstk_miso(jstk_miso),
         .jstk_mosi(jstk_mosi),
         .jstk_sel(jstk_sel),
-        .reset(reset));
+        .resetn(resetn));
 endmodule

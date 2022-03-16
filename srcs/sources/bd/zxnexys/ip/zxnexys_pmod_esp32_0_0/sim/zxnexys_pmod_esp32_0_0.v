@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:pmod_esp32:1.1
-// IP Revision: 3
+// IP Revision: 4
 
 `timescale 1ns/1ps
 
@@ -81,6 +81,7 @@ module zxnexys_pmod_esp32_0_0 (
   pin10_t,
   uart_rx,
   uart_tx,
+  enable,
   gpio0_i,
   gpio0_o,
   gpio0_t,
@@ -142,6 +143,7 @@ output wire pin9_t;
 output wire pin10_t;
 output wire uart_rx;
 input wire uart_tx;
+input wire enable;
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *)
 output wire gpio0_i;
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_O" *)
@@ -188,6 +190,7 @@ input wire gpio2_t;
     .pin10_t(pin10_t),
     .uart_rx(uart_rx),
     .uart_tx(uart_tx),
+    .enable(enable),
     .gpio0_i(gpio0_i),
     .gpio0_o(gpio0_o),
     .gpio0_t(gpio0_t),

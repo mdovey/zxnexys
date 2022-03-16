@@ -31,6 +31,8 @@ module esp32(
     output 			uart_tx_o,
     input 			uart_rx_o,
     
+    output          enable,
+    
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *)
     input 			gpio0_i,
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_O" *)
@@ -56,11 +58,13 @@ module esp32(
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)	
     input 		clk_peripheral,
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input	reset    
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  resetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    input	resetn    
     
     );
+    
+    assign enable       = resetn;
     
     assign uart_tx_o 	= uart_tx_i;
     assign uart_rx_i    = uart_rx_o;

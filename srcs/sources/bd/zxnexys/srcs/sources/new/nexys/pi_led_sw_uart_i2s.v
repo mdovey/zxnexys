@@ -55,9 +55,9 @@ module pi_led_sw_uart_i2s (
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)	
 	input           clk_peripheral,
 
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input           reset	
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    input           resetn	
     );
 
     assign  gpio_i[15]      = uart_rx; 
@@ -74,7 +74,7 @@ module pi_led_sw_uart_i2s (
     assign gpio_i[27:22]    = sw[15:10];
 
     always @(posedge clk_peripheral)
-    if (reset)
+    if (~resetn)
     begin 
         led[15:0]   <= 16'h00;
     end else begin
@@ -85,7 +85,7 @@ module pi_led_sw_uart_i2s (
     assign gpio_i[13:12]    = opt[1:0];
 
     always @(posedge clk_peripheral)
-    if (reset)
+    if (~resetn)
         opt[1:0]    <= 2'b11;
     else
         opt[1:0]   <= (opt[1:0]  & ~gpio_t[13:12])  | (gpio_o[13:12]  & gpio_t[13:12]);

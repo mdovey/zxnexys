@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:45:22 2022
+// Date        : Wed Mar 16 11:17:47 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxsdcard_0_0/zxnexys_zxsdcard_0_0_sim_netlist.v
@@ -32,7 +32,7 @@ module zxnexys_zxsdcard_0_0
     out_miso,
     enable_n,
     clk_peripheral,
-    reset);
+    resetn);
   output sd_reset_n;
   input sd_cd;
   output sd_sck;
@@ -48,8 +48,8 @@ module zxnexys_zxsdcard_0_0
   (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_out mosi" *) output out_mosi;
   (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard:1.0 sdcard_out miso" *) input out_miso;
   (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard_enable:1.0 sdcard_enable enable_n" *) input enable_n;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *) input clk_peripheral;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
 
   wire \<const1> ;
   wire clk_peripheral;
@@ -58,7 +58,7 @@ module zxnexys_zxsdcard_0_0
   wire in_mosi;
   wire in_sck;
   wire out_miso;
-  wire reset;
+  wire resetn;
   wire sd_cmd;
   wire sd_dat0;
   wire sd_dat3;
@@ -83,7 +83,7 @@ module zxnexys_zxsdcard_0_0
         .enable_n(enable_n),
         .in_mosi(in_mosi),
         .in_sck(in_sck),
-        .reset(reset),
+        .resetn(resetn),
         .sd_cmd(sd_cmd),
         .sd_dat3(sd_dat3),
         .sd_reset_n(sd_reset_n),
@@ -100,7 +100,7 @@ module zxnexys_zxsdcard_0_0_sdcard
     in_mosi,
     in_sck,
     enable_n,
-    reset);
+    resetn);
   output sd_reset_n;
   output sd_cmd;
   output sd_sck;
@@ -109,7 +109,7 @@ module zxnexys_zxsdcard_0_0_sdcard
   input in_mosi;
   input in_sck;
   input enable_n;
-  input reset;
+  input resetn;
 
   wire \FSM_sequential_cState[0]_i_2_n_0 ;
   wire \FSM_sequential_cState[0]_i_3_n_0 ;
@@ -120,6 +120,7 @@ module zxnexys_zxsdcard_0_0_sdcard
   wire \FSM_sequential_cState[1]_i_3_n_0 ;
   wire \FSM_sequential_cState[1]_i_4_n_0 ;
   wire \FSM_sequential_cState[1]_i_5_n_0 ;
+  wire \FSM_sequential_cState[1]_i_6_n_0 ;
   wire [1:0]cState;
   wire clk_peripheral;
   wire enable_n;
@@ -200,7 +201,7 @@ module zxnexys_zxsdcard_0_0_sdcard
   wire \power_up_counter_reg[8]_i_1_n_5 ;
   wire \power_up_counter_reg[8]_i_1_n_6 ;
   wire \power_up_counter_reg[8]_i_1_n_7 ;
-  wire reset;
+  wire resetn;
   wire sd_cmd;
   wire sd_dat3;
   wire sd_reset_n;
@@ -277,48 +278,53 @@ module zxnexys_zxsdcard_0_0_sdcard
     .INIT(16'hAAA8)) 
     \FSM_sequential_cState[1]_i_2 
        (.I0(cState[1]),
-        .I1(\FSM_sequential_cState[1]_i_3_n_0 ),
-        .I2(\FSM_sequential_cState[1]_i_4_n_0 ),
-        .I3(\FSM_sequential_cState[1]_i_5_n_0 ),
+        .I1(\FSM_sequential_cState[1]_i_4_n_0 ),
+        .I2(\FSM_sequential_cState[1]_i_5_n_0 ),
+        .I3(\FSM_sequential_cState[1]_i_6_n_0 ),
         .O(nState[1]));
+  LUT1 #(
+    .INIT(2'h1)) 
+    \FSM_sequential_cState[1]_i_3 
+       (.I0(resetn),
+        .O(\FSM_sequential_cState[1]_i_3_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
-    \FSM_sequential_cState[1]_i_3 
+    \FSM_sequential_cState[1]_i_4 
        (.I0(cState[0]),
         .I1(power_up_counter_reg[10]),
         .I2(power_up_counter_reg[11]),
         .I3(power_up_counter_reg[0]),
         .I4(power_up_counter_reg[1]),
-        .O(\FSM_sequential_cState[1]_i_3_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    \FSM_sequential_cState[1]_i_4 
-       (.I0(power_up_counter_reg[2]),
-        .I1(power_up_counter_reg[3]),
-        .I2(power_up_counter_reg[4]),
-        .I3(power_up_counter_reg[5]),
         .O(\FSM_sequential_cState[1]_i_4_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \FSM_sequential_cState[1]_i_5 
+       (.I0(power_up_counter_reg[2]),
+        .I1(power_up_counter_reg[3]),
+        .I2(power_up_counter_reg[4]),
+        .I3(power_up_counter_reg[5]),
+        .O(\FSM_sequential_cState[1]_i_5_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \FSM_sequential_cState[1]_i_6 
        (.I0(power_up_counter_reg[6]),
         .I1(power_up_counter_reg[7]),
         .I2(power_up_counter_reg[8]),
         .I3(power_up_counter_reg[9]),
-        .O(\FSM_sequential_cState[1]_i_5_n_0 ));
+        .O(\FSM_sequential_cState[1]_i_6_n_0 ));
   (* FSM_ENCODED_STATES = "stPowerDown:11,stPowerUp:10,stStartUp:00,iSTATE:01" *) 
   FDPE \FSM_sequential_cState_reg[0] 
        (.C(clk_peripheral),
         .CE(\FSM_sequential_cState[1]_i_1_n_0 ),
         .D(nState[0]),
-        .PRE(reset),
+        .PRE(\FSM_sequential_cState[1]_i_3_n_0 ),
         .Q(cState[0]));
   (* FSM_ENCODED_STATES = "stPowerDown:11,stPowerUp:10,stStartUp:00,iSTATE:01" *) 
   FDPE \FSM_sequential_cState_reg[1] 
        (.C(clk_peripheral),
         .CE(\FSM_sequential_cState[1]_i_1_n_0 ),
         .D(nState[1]),
-        .PRE(reset),
+        .PRE(\FSM_sequential_cState[1]_i_3_n_0 ),
         .Q(cState[1]));
   LUT2 #(
     .INIT(4'h7)) 

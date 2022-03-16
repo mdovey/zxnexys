@@ -28,28 +28,6 @@
       </spirit:parameters>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>peripheral_reset</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>peripheral_reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.PERIPHERAL_RESET.POLARITY">ACTIVE_HIGH</spirit:value>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>mb_clock</spirit:name>
       <spirit:busType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="specnext.com" spirit:library="specnext" spirit:name="mb_clock_rtl" spirit:version="1.0"/>
@@ -179,6 +157,50 @@
         </spirit:portMap>
       </spirit:portMaps>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>bus_resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>bus_resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.BUS_RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>io_resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>io_resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.IO_RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -197,7 +219,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ed9fd94e</spirit:value>
+            <spirit:value>4a664dc9</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -216,7 +238,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>b05f840f</spirit:value>
+            <spirit:value>46ccce28</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -261,6 +283,19 @@
             <spirit:left spirit:format="long">7</spirit:left>
             <spirit:right spirit:format="long">0</spirit:right>
           </spirit:vector>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
+        <spirit:name>bus_resetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
             <spirit:wireTypeDef>
               <spirit:typeName>wire</spirit:typeName>
@@ -382,6 +417,19 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>io_resetn</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
+              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>led16_b</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
@@ -474,19 +522,6 @@
       </spirit:port>
       <spirit:port>
         <spirit:name>mig_resetn</spirit:name>
-        <spirit:wire>
-          <spirit:direction>in</spirit:direction>
-          <spirit:wireTypeDefs>
-            <spirit:wireTypeDef>
-              <spirit:typeName>wire</spirit:typeName>
-              <spirit:viewNameRef>xilinx_anylanguagesynthesis</spirit:viewNameRef>
-              <spirit:viewNameRef>xilinx_anylanguagebehavioralsimulation</spirit:viewNameRef>
-            </spirit:wireTypeDef>
-          </spirit:wireTypeDefs>
-        </spirit:wire>
-      </spirit:port>
-      <spirit:port>
-        <spirit:name>peripheral_reset</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -637,7 +672,7 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/status/ip/status_status_leds_0_0/synth/status_status_leds_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/status/ip/status_led_segment_0_0/synth/status_led_segment_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -649,7 +684,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/status/ip/status_led_segment_0_0/synth/status_led_segment_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/status/ip/status_status_enables_0_0/synth/status_status_enables_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/status/ip/status_status_leds_0_0/synth/status_status_leds_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -657,11 +696,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/status/ip/status_status_enables_0_0/synth/status_status_enables_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/status_leds.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/nexys/led_segment.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -669,15 +704,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/led_segment.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/nexys/status_enables.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/nexys/status_leds.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/status_display.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/status_enables.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -693,7 +728,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/status/hdl/status_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_d184f974</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_f7168a59</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -734,7 +769,7 @@
         <spirit:userFileType>IMPORTED_FILE</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/status/ip/status_status_leds_0_0/sim/status_status_leds_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/status/ip/status_led_segment_0_0/sim/status_led_segment_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -746,7 +781,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/status/ip/status_led_segment_0_0/sim/status_led_segment_0_0.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/status/ip/status_status_enables_0_0/sim/status_status_enables_0_0.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/bd/status/ip/status_status_leds_0_0/sim/status_status_leds_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -754,11 +793,7 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/status/ip/status_status_enables_0_0/sim/status_status_enables_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/status_leds.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/nexys/led_segment.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -766,15 +801,15 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/led_segment.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/nexys/status_enables.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/nexys/status_leds.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/nexys/status_display.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/new/nexys/status_enables.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -828,11 +863,11 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_status_v_1_2</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>18</xilinx:coreRevision>
+      <xilinx:coreRevision>25</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>xilinx.com:user:status_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2022-02-25T10:26:17Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-03-16T11:05:32Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1807aeb9_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1d884c46_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
@@ -1057,13 +1092,117 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@b6acf20_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@35d105ca_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6eb0bf7d_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7dd3186e_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b94ec69_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3e2fe3d1_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4b9ee330_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@688342bb_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50dc5f83_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@227c9565_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@14476a8b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43cea5c4_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79d9ee4b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@afea546_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69f895d0_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@298f08b1_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4687eaef_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@59649168_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25a61ebf_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1d986454_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@141c47a7_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bd011f2_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6922c962_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6b683b29_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@644fcddf_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31f4a1a0_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@68dfb2b4_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@72190ed3_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50ce3e4d_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@31825162_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b0c4973_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a42077b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@e6b3dac_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4bd09975_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@389fea82_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@222c12e2_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@689aaad8_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@106ae768_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@63d99bab_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cb35947_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1b6d14df_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7bbbfc6b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2551a4f4_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4c3ecb40_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@335ed7a5_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@58950db2_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@eb2cc05_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3976cf93_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7550b58e_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3dc126d5_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a87fb12_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@323d8b0e_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3091ad51_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73023b5_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@79265496_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@44cc3406_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@738bffeb_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@564964b4_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7a5fd98b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4a24620b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@689737b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50774649_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@670f6a00_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6343db7b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a2f557_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12f63e8d_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@700ae030_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@57386955_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b49ddbe_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1460dd1a_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62890d0c_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ea4acf7_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@61b9d480_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5eb9860c_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@773cdee9_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b62dbea_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@18287e54_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d68940a_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30721416_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12aa5c1c_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e36800b_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@471e2912_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5987355a_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1a57c966_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@928bc97_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@692f189a_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@35282514_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9ddb5b9_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@12df2980_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25ab78d1_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d5a52a9_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66282890_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b971d35_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7cbd4460_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43db76b4_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ccd4fab_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2cd8775a_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a630395_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1ce4bb4c_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ffca37c_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d19a66e_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c7ef10d_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6bd85a15_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@65a9aee1_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2166ea1c_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@8511c2d_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4586f69_ARCHIVE_LOCATION">v:/ip/zxnexys_status</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f3f6a8f4"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5d8d2630"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="b1055910"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="e901bfd7"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e5c2df4c"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="b9c681da"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="fbeba878"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

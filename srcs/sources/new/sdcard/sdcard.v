@@ -58,8 +58,8 @@ module sdcard #(
     input               clk_peripheral,  
 
     (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
-    (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)    
-    input 			reset
+    (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)    
+    input 			resetn
     );
     
     
@@ -86,8 +86,8 @@ module sdcard #(
     assign sd_dat3      = (cState == stStartUp | cState == stPowerUp) ? 1'b0 : enable_n;
     assign sd_reset_n   = (cState == stStartUp | cState == stReady | cState == stPowerUp) ? 1'b0 : 1'b1;
     
-    always @(posedge clk_peripheral, posedge reset)
-        if (reset)
+    always @(posedge clk_peripheral, negedge resetn)
+        if (~resetn)
             cState  <=  stPowerDown;
         else
             cState  <=  nState;

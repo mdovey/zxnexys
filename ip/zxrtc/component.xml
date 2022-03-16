@@ -6,7 +6,7 @@
   <spirit:version>1.3</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
+      <spirit:name>resetn</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -16,14 +16,14 @@
             <spirit:name>RST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
+            <spirit:name>resetn</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -45,7 +45,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">resetn:reset</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -166,7 +166,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>7df50ddf</spirit:value>
+            <spirit:value>1c776d5d</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -188,7 +188,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>00e3fb68</spirit:value>
+            <spirit:value>8c2243d2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -321,7 +321,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -387,6 +387,13 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
@@ -471,10 +478,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/rtcc/ip/rtcc_rtc_reset_0_0/synth/rtcc_rtc_reset_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/rtcc/ip/rtcc_rtc_0_0/synth/rtcc_rtc_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -483,11 +486,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/rtc/axi_controller.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/rtcc/ip/rtcc_rtc_reset_0_0/synth/rtcc_rtc_reset_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/rtc/rtc_reset.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/rtc/axi_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -514,6 +517,10 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
+        <spirit:name>../../srcs/sources/new/rtc/rtc_reset.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>../../srcs/sources/bd/rtcc/synth/rtcc.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -526,7 +533,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/rtcc/hdl/rtcc_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_83051458</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_1cf657dc</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -599,10 +606,6 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/rtcc/ip/rtcc_rtc_reset_0_0/sim/rtcc_rtc_reset_0_0.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
         <spirit:name>../../srcs/sources/bd/rtcc/ip/rtcc_rtc_0_0/sim/rtcc_rtc_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
@@ -611,11 +614,11 @@
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/rtc/axi_controller.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/rtcc/ip/rtcc_rtc_reset_0_0/sim/rtcc_rtc_reset_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/rtc/rtc_reset.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/rtc/axi_controller.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -639,6 +642,10 @@
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/new/rtc/registers.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>../../srcs/sources/new/rtc/rtc_reset.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -735,11 +742,11 @@
         <xilinx:xpmLibrary>XPM_CDC</xilinx:xpmLibrary>
         <xilinx:xpmLibrary>XPM_MEMORY</xilinx:xpmLibrary>
       </xilinx:xpmLibraries>
-      <xilinx:coreRevision>7</xilinx:coreRevision>
+      <xilinx:coreRevision>9</xilinx:coreRevision>
       <xilinx:upgrades>
         <xilinx:canUpgradeFrom>specnext.com:specnext:rtcc_wrapper:1.0</xilinx:canUpgradeFrom>
       </xilinx:upgrades>
-      <xilinx:coreCreationDateTime>2022-02-21T21:26:25Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2022-03-15T14:53:28Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2163642e_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@28c7e036_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
@@ -824,13 +831,38 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@2f9b5a5d_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@4bb73f8f_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@2ba60281_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3fbe8c08_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1c15a033_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2daf0a36_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bfa4456_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@750a7117_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@330ce548_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4516a92b_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@579112cf_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2d5a8a5d_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67f8c106_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6fe00a5a_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2b707fdd_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1880bea0_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3c3c2040_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@50e1819_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5ee13aa1_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6123667a_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@485b2992_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39407667_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5d3c346f_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@66906585_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@621f720a_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5e7e27f5_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6baffe0d_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@172fef0_ARCHIVE_LOCATION">v:/ip/zxrtc</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f1016747"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="eeed5f4b"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="2134adce"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="858f71eb"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="0451d852"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="aa215419"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="acdc58fa"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

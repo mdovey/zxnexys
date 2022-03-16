@@ -18,15 +18,14 @@ preplace port port-id_lineout_mclk -pg 1 -lvl 3 -x 880 -y 330 -defaultsOSRD
 preplace port port-id_lineout_sclk -pg 1 -lvl 3 -x 880 -y 370 -defaultsOSRD
 preplace port port-id_lineout_sdout -pg 1 -lvl 3 -x 880 -y 390 -defaultsOSRD
 preplace port port-id_psg_en -pg 1 -lvl 3 -x 880 -y 930 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x -20 -y 830 -defaultsOSRD
 preplace port port-id_tape_ear -pg 1 -lvl 3 -x 880 -y 1010 -defaultsOSRD
 preplace port port-id_tape_mic -pg 1 -lvl 0 -x -20 -y 1130 -defaultsOSRD
 preplace port port-id_tape_pwm -pg 1 -lvl 3 -x 880 -y 1150 -defaultsOSRD
+preplace port port-id_resetn -pg 1 -lvl 0 -x -20 -y 830 -defaultsOSRD
 preplace portBus audio_left -pg 1 -lvl 0 -x -20 -y 60 -defaultsOSRD
 preplace portBus audio_right -pg 1 -lvl 0 -x -20 -y 80 -defaultsOSRD
 preplace inst sigma_delta_dac_1 -pg 1 -lvl 2 -x 650 -y 1150 -defaultsOSRD
 preplace inst audio_psg_0 -pg 1 -lvl 2 -x 650 -y 850 -defaultsOSRD
-preplace inst audio_reset_0 -pg 1 -lvl 1 -x 230 -y 840 -defaultsOSRD
 preplace inst sigma_delta_dac_0 -pg 1 -lvl 2 -x 650 -y 110 -defaultsOSRD
 preplace inst axis_i2s2_0 -pg 1 -lvl 2 -x 650 -y 350 -defaultsOSRD
 preplace inst audio_axis_master_0 -pg 1 -lvl 1 -x 230 -y 310 -defaultsOSRD
@@ -35,40 +34,41 @@ preplace inst tape_mic_0 -pg 1 -lvl 1 -x 230 -y 1130 -defaultsOSRD
 preplace inst debounce_0 -pg 1 -lvl 2 -x 650 -y 1010 -defaultsOSRD
 preplace inst xlconstant_0 -pg 1 -lvl 1 -x 230 -y 1010 -defaultsOSRD
 preplace inst tape_ear_0 -pg 1 -lvl 1 -x 230 -y 620 -defaultsOSRD
+preplace inst audio_reset_0 -pg 1 -lvl 1 -x 230 -y 840 -defaultsOSRD
 preplace netloc audio_axis_master_0_axis_data 1 1 1 390 290n
 preplace netloc audio_axis_master_0_axis_last 1 1 1 380 330n
-preplace netloc audio_axis_master_0_axis_valid 1 1 1 430 310n
+preplace netloc audio_axis_master_0_axis_valid 1 1 1 420 310n
 preplace netloc audio_left_1 1 0 1 20 60n
 preplace netloc audio_mono_1_mono_out 1 1 1 N 90
-preplace netloc audio_psg_0_psg_en 1 1 2 450 930 NJ
-preplace netloc audio_reset_0_rst 1 0 2 20 420 420
-preplace netloc audio_reset_0_rstn 1 1 2 440 770 NJ
+preplace netloc audio_psg_0_psg_en 1 1 2 440 930 NJ
+preplace netloc audio_reset_0_rst 1 0 2 50 420 410
+preplace netloc audio_reset_0_rstn 1 1 2 430 770 NJ
 preplace netloc audio_right_1 1 0 1 0 80n
-preplace netloc axis_i2s2_0_rx_axis_m_data 1 0 3 40 180 380J 20 850
-preplace netloc axis_i2s2_0_rx_axis_m_last 1 0 3 60 500 400J 510 830
-preplace netloc axis_i2s2_0_rx_axis_m_valid 1 0 3 50 200 390J 30 840
-preplace netloc axis_i2s2_0_rx_lrck 1 0 3 70 510 380J 520 840
+preplace netloc axis_i2s2_0_rx_axis_m_data 1 0 3 30 -10 NJ -10 850
+preplace netloc axis_i2s2_0_rx_axis_m_last 1 0 3 60 730 NJ 730 830
+preplace netloc axis_i2s2_0_rx_axis_m_valid 1 0 3 40 0 NJ 0 840
+preplace netloc axis_i2s2_0_rx_lrck 1 0 3 70 510 NJ 510 840
 preplace netloc axis_i2s2_0_rx_mclk 1 2 1 NJ 410
 preplace netloc axis_i2s2_0_rx_sclk 1 2 1 NJ 450
 preplace netloc axis_i2s2_0_tx_axis_s_ready 1 0 3 70 190 NJ 190 830
-preplace netloc axis_i2s2_0_tx_lrck 1 0 3 30 490 390J 530 850
+preplace netloc axis_i2s2_0_tx_lrck 1 0 3 60 500 380J 520 850
 preplace netloc axis_i2s2_0_tx_mclk 1 2 1 NJ 330
 preplace netloc axis_i2s2_0_tx_sclk 1 2 1 NJ 370
 preplace netloc axis_i2s2_0_tx_sdout 1 2 1 NJ 390
-preplace netloc clk_22m59 1 0 2 10 430 410
-preplace netloc clk_peripheral_1 1 0 2 NJ 920 440
+preplace netloc clk_22m59 1 0 2 10 430 400
+preplace netloc clk_peripheral_1 1 0 2 NJ 920 430
 preplace netloc debounce_0_button_o 1 2 1 NJ 1010
 preplace netloc linein_sdin_1 1 0 2 NJ 410 NJ
-preplace netloc reset_1 1 0 1 NJ 830
 preplace netloc sigma_delta_dac_0_DACout 1 2 1 NJ 110
 preplace netloc sigma_delta_dac_1_DACout 1 2 1 NJ 1150
 preplace netloc tape_ear_0_ear 1 1 1 380 610n
-preplace netloc tape_ear_0_ready 1 1 1 450 390n
+preplace netloc tape_ear_0_ready 1 1 1 440 390n
 preplace netloc tape_mic_0_dout 1 1 1 NJ 1130
 preplace netloc tape_mic_1 1 0 1 NJ 1130
 preplace netloc xlconstant_0_dout 1 1 1 NJ 1010
+preplace netloc resetn_1 1 0 1 N 830
 levelinfo -pg 1 -20 230 650 880
-pagesize -pg 1 -db -bbox -sgen -180 0 1020 1230
+pagesize -pg 1 -db -bbox -sgen -180 -20 1020 1230
 "
 }
 0

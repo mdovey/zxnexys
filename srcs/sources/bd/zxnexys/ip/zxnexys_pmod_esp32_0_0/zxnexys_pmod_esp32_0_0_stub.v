@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:45:18 2022
+// Date        : Wed Mar 16 11:22:46 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_esp32_0_0/zxnexys_pmod_esp32_0_0_stub.v
@@ -16,9 +16,9 @@
 (* X_CORE_INFO = "pmod_esp32,Vivado 2021.2.1" *)
 module zxnexys_pmod_esp32_0_0(pin1_i, pin2_i, pin3_i, pin4_i, pin7_i, pin8_i, 
   pin9_i, pin10_i, pin1_o, pin2_o, pin3_o, pin4_o, pin7_o, pin8_o, pin9_o, pin10_o, pin1_t, pin2_t, pin3_t, 
-  pin4_t, pin7_t, pin8_t, pin9_t, pin10_t, uart_rx, uart_tx, gpio0_i, gpio0_o, gpio0_t, gpio1_i, gpio1_o, 
-  gpio1_t, gpio2_i, gpio2_o, gpio2_t)
-/* synthesis syn_black_box black_box_pad_pin="pin1_i,pin2_i,pin3_i,pin4_i,pin7_i,pin8_i,pin9_i,pin10_i,pin1_o,pin2_o,pin3_o,pin4_o,pin7_o,pin8_o,pin9_o,pin10_o,pin1_t,pin2_t,pin3_t,pin4_t,pin7_t,pin8_t,pin9_t,pin10_t,uart_rx,uart_tx,gpio0_i,gpio0_o,gpio0_t,gpio1_i,gpio1_o,gpio1_t,gpio2_i,gpio2_o,gpio2_t" */;
+  pin4_t, pin7_t, pin8_t, pin9_t, pin10_t, uart_rx, uart_tx, enable, gpio0_i, gpio0_o, gpio0_t, gpio1_i, 
+  gpio1_o, gpio1_t, gpio2_i, gpio2_o, gpio2_t)
+/* synthesis syn_black_box black_box_pad_pin="pin1_i,pin2_i,pin3_i,pin4_i,pin7_i,pin8_i,pin9_i,pin10_i,pin1_o,pin2_o,pin3_o,pin4_o,pin7_o,pin8_o,pin9_o,pin10_o,pin1_t,pin2_t,pin3_t,pin4_t,pin7_t,pin8_t,pin9_t,pin10_t,uart_rx,uart_tx,enable,gpio0_i,gpio0_o,gpio0_t,gpio1_i,gpio1_o,gpio1_t,gpio2_i,gpio2_o,gpio2_t" */;
   input pin1_i;
   input pin2_i;
   input pin3_i;
@@ -45,6 +45,7 @@ module zxnexys_pmod_esp32_0_0(pin1_i, pin2_i, pin3_i, pin4_i, pin7_i, pin8_i,
   output pin10_t;
   output uart_rx;
   input uart_tx;
+  input enable;
   output gpio0_i;
   input gpio0_o;
   input gpio0_t;

@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxjoystick:2.3
-// IP Revision: 16
+// IP Revision: 17
 
 (* X_CORE_INFO = "joystick_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxjoystick_0_0,joystick_wrapper,{}" *)
@@ -68,7 +68,7 @@ module zxnexys_zxjoystick_0_0 (
   jstk_miso,
   jstk_mosi,
   jstk_sel,
-  reset
+  resetn
 );
 
 input wire btnc;
@@ -76,7 +76,7 @@ input wire btnd;
 input wire btnl;
 input wire btnr;
 input wire btnu;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME joy_clk_en, FREQ_HZ 100000000, PHASE 0, POLARITY ACTIVE_HIGH" *)
@@ -92,9 +92,9 @@ output wire jstk_clk;
 input wire jstk_miso;
 output wire jstk_mosi;
 output wire jstk_sel;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   joystick_wrapper inst (
     .btnc(btnc),
@@ -110,6 +110,6 @@ input wire reset;
     .jstk_miso(jstk_miso),
     .jstk_mosi(jstk_mosi),
     .jstk_sel(jstk_sel),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -60,7 +60,8 @@ module keyboard_keyb_clocks_0_0 (
   membrane_enable,
   joy_clk_en,
   clk_peripheral,
-  reset
+  reset,
+  resetn
 );
 
 output wire clk_ps2;
@@ -72,7 +73,10 @@ input wire joy_clk_en;
 input wire clk_peripheral;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+output wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   keyb_clocks inst (
     .clk_ps2(clk_ps2),
@@ -80,6 +84,7 @@ input wire reset;
     .membrane_enable(membrane_enable),
     .joy_clk_en(joy_clk_en),
     .clk_peripheral(clk_peripheral),
-    .reset(reset)
+    .reset(reset),
+    .resetn(resetn)
   );
 endmodule

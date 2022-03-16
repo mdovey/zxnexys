@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxaudio:2.5
-// IP Revision: 80
+// IP Revision: 82
 
 (* X_CORE_INFO = "audio_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxaudio_0_0,audio_wrapper,{}" *)
@@ -69,7 +69,7 @@ module zxnexys_zxaudio_0_0 (
   lineout_sclk,
   lineout_sdout,
   psg_en,
-  reset,
+  resetn,
   tape_ear,
   tape_mic,
   aud_pwm
@@ -96,9 +96,9 @@ output wire lineout_sclk;
 output wire lineout_sdout;
 (* X_INTERFACE_INFO = "specnext.com:specnext:audio:1.0 audio psg_en" *)
 output wire psg_en;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_ear" *)
 output wire tape_ear;
 (* X_INTERFACE_INFO = "specnext.com:specnext:tape:1.0 tape tape_mic" *)
@@ -122,7 +122,7 @@ output wire aud_pwm;
     .lineout_sclk(lineout_sclk),
     .lineout_sdout(lineout_sdout),
     .psg_en(psg_en),
-    .reset(reset),
+    .resetn(resetn),
     .tape_ear(tape_ear),
     .tape_mic(tape_mic),
     .aud_pwm(aud_pwm)

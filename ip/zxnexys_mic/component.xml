@@ -6,7 +6,7 @@
   <spirit:version>1.3</spirit:version>
   <spirit:busInterfaces>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
+      <spirit:name>resetn</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
       <spirit:slave/>
@@ -16,14 +16,14 @@
             <spirit:name>RST</spirit:name>
           </spirit:logicalPort>
           <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
+            <spirit:name>resetn</spirit:name>
           </spirit:physicalPort>
         </spirit:portMap>
       </spirit:portMaps>
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
@@ -80,7 +80,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>866104f1</spirit:value>
+            <spirit:value>89d8c628</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -96,7 +96,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>cf9416fb</spirit:value>
+            <spirit:value>7a92e3fc</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -221,7 +221,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -235,6 +235,13 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
@@ -323,7 +330,7 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/bd/mic_i2s/hdl/mic_i2s_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_323c5e52</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_e019e792</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -428,8 +435,8 @@
       </xilinx:taxonomies>
       <xilinx:displayName>zxnexys_mic_v1_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>8</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2022-01-04T14:36:43Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>11</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2022-03-15T14:40:09Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@b84fc22_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1e549304_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
@@ -512,13 +519,47 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@520adaeb_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@41545303_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@64028315_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@17bdd1b6_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@9e867b2_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5439cb67_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62d6e783_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3af9e14f_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@24d85980_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@623145ea_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30ef6b87_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7ee704c6_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@39ad0aed_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@45f55ba5_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@74297fff_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3cf2dc6b_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@64f5c208_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6803a636_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@53549bc3_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c565c60_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@221d9266_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c0ba95f_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@30378c17_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c4411fe_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@34744af6_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4247506a_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@77d85aa7_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15c2902f_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@623dcbee_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@43df95df_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@334d1105_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@62f5446d_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@73587f84_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3b4ce637_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@296f2bd9_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@703698ae_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5a90b535_ARCHIVE_LOCATION">v:/ip/zxnexys_mic</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2021.2</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="8de65bcc"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="5692e1e3"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="2b23851b"/>
+      <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="1e0aa6b4"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="82c6a3cb"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="0743e422"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="3d6cce2e"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

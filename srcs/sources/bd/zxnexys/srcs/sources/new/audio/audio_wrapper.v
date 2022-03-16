@@ -25,7 +25,7 @@ module audio_wrapper #(
     lineout_sclk,
     lineout_sdout,
     psg_en,
-    reset,
+    resetn,
     tape_ear,
     tape_mic,
     aud_pwm);
@@ -43,7 +43,7 @@ module audio_wrapper #(
   output lineout_sclk;
   output lineout_sdout;
   output psg_en;
-  input reset;
+  input resetn;
   output tape_ear;
   input tape_mic;
   output aud_pwm;
@@ -63,7 +63,7 @@ module audio_wrapper #(
   wire lineout_sclk;
   wire lineout_sdout;
   wire psg_en;
-  wire reset;
+  wire resetn;
   wire tape_ear;
   wire tape_mic;
   wire tape_pwm;
@@ -87,7 +87,7 @@ module audio_wrapper #(
         .lineout_sclk(lineout_sclk),
         .lineout_sdout(lineout_sdout),
         .psg_en(psg_en),
-        .reset(reset),
+        .resetn(resetn),
         .tape_ear(tape_ear),
         .tape_mic(tape_mic),
         .tape_pwm(tape_pwm));

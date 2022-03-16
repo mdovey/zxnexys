@@ -58,14 +58,15 @@ module status_status_leds_0_0 (
   cpu_clk,
   cpu_wait_n,
   cpu_contend,
+  clk,
   led16_r,
   led16_g,
   led16_b,
   led17_r,
   led17_g,
   led17_b,
-  mb_reset,
-  peripheral_reset
+  io_resetn,
+  bus_resetn
 );
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 cpu cpu_clk" *)
@@ -73,30 +74,34 @@ input wire cpu_clk;
 input wire cpu_wait_n;
 (* X_INTERFACE_INFO = "specnext.com:specnext:mb_clock:1.0 cpu contend" *)
 input wire cpu_contend;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN status_clk_200, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 output wire [7 : 0] led16_r;
 output wire [7 : 0] led16_g;
 output wire [7 : 0] led16_b;
 output wire [7 : 0] led17_r;
 output wire [7 : 0] led17_g;
 output wire [7 : 0] led17_b;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME video_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 video_reset RST" *)
-input wire mb_reset;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *)
-input wire peripheral_reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME io_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 io_resetn RST" *)
+input wire io_resetn;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bus_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bus_resetn RST" *)
+input wire bus_resetn;
 
   status_leds inst (
     .cpu_clk(cpu_clk),
     .cpu_wait_n(cpu_wait_n),
     .cpu_contend(cpu_contend),
+    .clk(clk),
     .led16_r(led16_r),
     .led16_g(led16_g),
     .led16_b(led16_b),
     .led17_r(led17_r),
     .led17_g(led17_g),
     .led17_b(led17_b),
-    .mb_reset(mb_reset),
-    .peripheral_reset(peripheral_reset)
+    .io_resetn(io_resetn),
+    .bus_resetn(bus_resetn)
   );
 endmodule

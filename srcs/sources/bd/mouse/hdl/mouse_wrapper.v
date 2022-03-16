@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Dec 21 14:45:24 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 13:21:55 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target mouse_wrapper.bd
 //Design      : mouse_wrapper
@@ -19,7 +19,7 @@ module mouse_wrapper
     ps2_data_i,
     ps2_data_o,
     ps2_data_t,
-    reset,
+    resetn,
     wheel,
     x,
     y);
@@ -32,7 +32,7 @@ module mouse_wrapper
   input ps2_data_i;
   output ps2_data_o;
   output ps2_data_t;
-  input reset;
+  input resetn;
   output [3:0]wheel;
   output [7:0]x;
   output [7:0]y;
@@ -46,7 +46,7 @@ module mouse_wrapper
   wire ps2_data_i;
   wire ps2_data_o;
   wire ps2_data_t;
-  wire reset;
+  wire resetn;
   wire [3:0]wheel;
   wire [7:0]x;
   wire [7:0]y;
@@ -61,7 +61,7 @@ module mouse_wrapper
         .ps2_data_i(ps2_data_i),
         .ps2_data_o(ps2_data_o),
         .ps2_data_t(ps2_data_t),
-        .reset(reset),
+        .resetn(resetn),
         .wheel(wheel),
         .x(x),
         .y(y));

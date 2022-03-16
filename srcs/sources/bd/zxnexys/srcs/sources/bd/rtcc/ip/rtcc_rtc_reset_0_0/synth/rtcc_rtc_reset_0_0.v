@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2021 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2022 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,30 +50,35 @@
 // IP VLNV: xilinx.com:module_ref:rtc_reset:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "rtc_reset,Vivado 2021.2" *)
+(* X_CORE_INFO = "rtc_reset,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "rtcc_rtc_reset_0_0,rtc_reset,{}" *)
-(* CORE_GENERATION_INFO = "rtcc_rtc_reset_0_0,rtc_reset,{x_ipProduct=Vivado 2021.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=rtc_reset,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "rtcc_rtc_reset_0_0,rtc_reset,{x_ipProduct=Vivado 2021.2.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=rtc_reset,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module rtcc_rtc_reset_0_0 (
   clk_peripheral,
+  reset,
   reset_n,
-  reset
+  resetn
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset:reset_n, ASSOCIATED_BUSIF interface_aximm, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN rtcc_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
+output wire reset;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset_n, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_n RST" *)
 output wire reset_n;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   rtc_reset inst (
     .clk_peripheral(clk_peripheral),
+    .reset(reset),
     .reset_n(reset_n),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

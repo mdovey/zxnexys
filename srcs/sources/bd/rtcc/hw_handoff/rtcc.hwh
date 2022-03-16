@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 30 01:16:16 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 15 14:49:49 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="rtcc" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -11,8 +11,8 @@
         <CONNECTION INSTANCE="fifo_generator_0" PORT="clk"/>
         <CONNECTION INSTANCE="fifo_generator_1" PORT="clk"/>
         <CONNECTION INSTANCE="rtc_0" PORT="clk"/>
-        <CONNECTION INSTANCE="rtc_reset_0" PORT="clk_peripheral"/>
         <CONNECTION INSTANCE="registers_0" PORT="clk_peripheral"/>
+        <CONNECTION INSTANCE="rtc_reset_0" PORT="clk_peripheral"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="iic_rtcc_scl_i" SIGIS="undef" SIGNAME="External_Ports_iic_rtcc_scl_i">
@@ -45,15 +45,6 @@
         <CONNECTION INSTANCE="axi_iic_0" PORT="sda_t"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_controller_0" PORT="reset"/>
-        <CONNECTION INSTANCE="fifo_generator_0" PORT="srst"/>
-        <CONNECTION INSTANCE="fifo_generator_1" PORT="srst"/>
-        <CONNECTION INSTANCE="rtc_0" PORT="reset"/>
-        <CONNECTION INSTANCE="rtc_reset_0" PORT="reset"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="scl_i" SIGIS="undef" SIGNAME="External_Ports_scl_i">
       <CONNECTIONS>
         <CONNECTION INSTANCE="External_Ports" PORT="scl_o"/>
@@ -73,6 +64,11 @@
     <PORT DIR="O" NAME="sda_o" SIGIS="undef" SIGNAME="rtc_0_sda_o">
       <CONNECTIONS>
         <CONNECTION INSTANCE="rtc_0" PORT="sda_o"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="rtc_reset_0" PORT="resetn"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -200,9 +196,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="rtc_reset_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="rtc_reset_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1614,9 +1610,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="srst" POLARITY="ACTIVE_HIGH" SIGIS="undef" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="srst" POLARITY="ACTIVE_HIGH" SIGIS="undef" SIGNAME="rtc_reset_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="rtc_reset_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="14" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="fifo_generator_0_din">
@@ -2045,9 +2041,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="srst" POLARITY="ACTIVE_HIGH" SIGIS="undef" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="srst" POLARITY="ACTIVE_HIGH" SIGIS="undef" SIGNAME="rtc_reset_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="rtc_reset_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="13" NAME="din" RIGHT="0" SIGIS="undef" SIGNAME="axi_controller_0_wr_data">
@@ -2192,9 +2188,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="rtc_reset_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="rtc_reset_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="data_i" RIGHT="0" SIGIS="undef" SIGNAME="registers_0_rd_data_o">
@@ -2252,14 +2248,22 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="rtc_reset_0_reset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="axi_controller_0" PORT="reset"/>
+            <CONNECTION INSTANCE="fifo_generator_0" PORT="srst"/>
+            <CONNECTION INSTANCE="fifo_generator_1" PORT="srst"/>
+            <CONNECTION INSTANCE="rtc_0" PORT="reset"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="reset_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="rtc_reset_0_reset_n">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_iic_0" PORT="s_axi_aresetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

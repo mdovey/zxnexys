@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:47:40 2022
+-- Date        : Wed Mar 16 11:17:50 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxnexys_mic_0_0/zxnexys_zxnexys_mic_0_0_sim_netlist.vhdl
@@ -3189,36 +3189,45 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_mic_0_0_mic_reset is
   port (
-    resetn_reg_0 : out STD_LOGIC;
+    reset_n_reg_0 : out STD_LOGIC;
     clk_12m288 : in STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_reset : entity is "mic_reset";
 end zxnexys_zxnexys_mic_0_0_mic_reset;
 
 architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_reset is
-  signal resetn : STD_LOGIC;
+  signal reset_n : STD_LOGIC;
+  signal reset_n_i_1_n_0 : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of resetn_reg : label is "xilinx.com:signal:reset:1.0  resetn  RST";
+  attribute X_INTERFACE_INFO of reset_n_reg : label is "xilinx.com:signal:reset:1.0  resetn  RST";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of resetn_reg : label is "POLARITY ACTIVE_LOW";
+  attribute X_INTERFACE_PARAMETER of reset_n_reg : label is "POLARITY ACTIVE_LOW";
 begin
-resetn_reg: unisim.vcomponents.FDCE
+reset_n_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => reset_n_i_1_n_0
+    );
+reset_n_reg: unisim.vcomponents.FDCE
      port map (
       C => clk_12m288,
       CE => '1',
-      CLR => reset,
+      CLR => reset_n_i_1_n_0,
       D => '1',
-      Q => resetn
+      Q => reset_n
     );
 sd_tx_i_2: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
-      I0 => resetn,
-      O => resetn_reg_0
+      I0 => reset_n,
+      O => reset_n_reg_0
     );
 end STRUCTURE;
 library IEEE;
@@ -3806,9 +3815,9 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 is
   port (
-    resetn_reg : out STD_LOGIC;
+    reset_n_reg : out STD_LOGIC;
     clk_12m288 : in STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0 : entity is "mic_i2s_mic_reset_0_0";
@@ -3819,8 +3828,8 @@ begin
 inst: entity work.zxnexys_zxnexys_mic_0_0_mic_reset
      port map (
       clk_12m288 => clk_12m288,
-      reset => reset,
-      resetn_reg_0 => resetn_reg
+      reset_n_reg_0 => reset_n_reg,
+      resetn => resetn
     );
 end STRUCTURE;
 library IEEE;
@@ -3868,7 +3877,7 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s is
     AR : out STD_LOGIC_VECTOR ( 0 to 0 );
     i2s_dout : out STD_LOGIC;
     clk_12m288 : in STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     m_data : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3886,7 +3895,7 @@ architecture STRUCTURE of zxnexys_zxnexys_mic_0_0_mic_i2s is
   signal r : STD_LOGIC_VECTOR ( 7 downto 1 );
   attribute X_CORE_INFO : string;
   attribute X_CORE_INFO of i2s_transceiver_0 : label is "i2s_transceiver,Vivado 2021.2";
-  attribute X_CORE_INFO of mic_reset_0 : label is "mic_reset,Vivado 2021.2";
+  attribute X_CORE_INFO of mic_reset_0 : label is "mic_reset,Vivado 2021.2.1";
   attribute X_CORE_INFO of pwm_decode_0 : label is "pwm_decode,Vivado 2021.2";
 begin
   AR(0) <= \^ar\(0);
@@ -3907,8 +3916,8 @@ i2s_transceiver_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_i2s_transceiver_0
 mic_reset_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_mic_reset_0_0
      port map (
       clk_12m288 => clk_12m288,
-      reset => reset,
-      resetn_reg => mic_reset_0_n_0
+      reset_n_reg => mic_reset_0_n_0,
+      resetn => resetn
     );
 pwm_decode_0: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_pwm_decode_0_0
      port map (
@@ -3933,7 +3942,7 @@ entity zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper is
     ws_int_reg : out STD_LOGIC;
     i2s_dout : out STD_LOGIC;
     clk_12m288 : in STD_LOGIC;
-    reset : in STD_LOGIC;
+    resetn : in STD_LOGIC;
     m_data : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -3949,7 +3958,7 @@ mic_i2s_i: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s
       i2s_dout => i2s_dout,
       i2s_sclk => i2s_sclk,
       m_data => m_data,
-      reset => reset
+      resetn => resetn
     );
 end STRUCTURE;
 library IEEE;
@@ -3966,7 +3975,7 @@ entity zxnexys_zxnexys_mic_0_0 is
     m_clk : out STD_LOGIC;
     m_data : in STD_LOGIC;
     m_lrsel : out STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_zxnexys_mic_0_0 : entity is true;
@@ -3989,8 +3998,8 @@ architecture STRUCTURE of zxnexys_zxnexys_mic_0_0 is
   attribute X_INTERFACE_PARAMETER of clk_12m288 : signal is "XIL_INTERFACENAME clk_12m288, ASSOCIATED_ASYNC_RESET reset, FREQ_HZ 22590011, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_audio_clk_out1, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_clk : signal is "xilinx.com:signal:clock:1.0 m_clk CLK";
   attribute X_INTERFACE_PARAMETER of m_clk : signal is "XIL_INTERFACENAME m_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxnexys_mic_0_0_m_clk, INSERT_VIP 0";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
   \^clk_12m288\ <= clk_12m288;
   m_clk <= \^clk_12m288\;
@@ -4005,7 +4014,7 @@ inst: entity work.zxnexys_zxnexys_mic_0_0_mic_i2s_wrapper
       i2s_dout => i2s_dout,
       i2s_sclk => i2s_sclk,
       m_data => m_data,
-      reset => reset,
+      resetn => resetn,
       ws_int_reg => i2s_wclk
     );
 end STRUCTURE;

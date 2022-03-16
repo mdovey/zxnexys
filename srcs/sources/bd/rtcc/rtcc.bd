@@ -1,12 +1,12 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xDB25FC72B39FED62",
+      "boundary_crc": "0x8DC5C8E3F70FE3A",
       "device": "xc7a100tcsg324-1",
       "name": "rtcc",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
@@ -15,8 +15,8 @@
       "fifo_generator_0": "",
       "fifo_generator_1": "",
       "rtc_0": "",
-      "rtc_reset_0": "",
-      "registers_0": ""
+      "registers_0": "",
+      "rtc_reset_0": ""
     },
     "ports": {
       "clk_peripheral": {
@@ -66,19 +66,6 @@
       "iic_rtcc_sda_t": {
         "direction": "O"
       },
-      "reset": {
-        "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_HIGH"
-          }
-        }
-      },
       "scl_i": {
         "direction": "I"
       },
@@ -90,6 +77,20 @@
       },
       "sda_o": {
         "direction": "O"
+      },
+      "resetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       }
     },
     "components": {
@@ -499,61 +500,6 @@
           }
         }
       },
-      "rtc_reset_0": {
-        "vlnv": "xilinx.com:module_ref:rtc_reset:1.0",
-        "xci_name": "rtcc_rtc_reset_0_0",
-        "xci_path": "ip\\rtcc_rtc_reset_0_0\\rtcc_rtc_reset_0_0.xci",
-        "inst_hier_path": "rtc_reset_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "rtc_reset",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk_peripheral": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "reset:reset_n",
-                "value_src": "constant"
-              },
-              "ASSOCIATED_BUSIF": {
-                "value": "interface_aximm",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "28000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "rtcc_clk_peripheral",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "reset_n": {
-            "type": "rst",
-            "direction": "O",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "reset": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_HIGH",
-                "value_src": "constant"
-              }
-            }
-          }
-        }
-      },
       "registers_0": {
         "vlnv": "xilinx.com:module_ref:registers:1.0",
         "xci_name": "rtcc_registers_0_0",
@@ -642,6 +588,71 @@
             }
           }
         }
+      },
+      "rtc_reset_0": {
+        "vlnv": "xilinx.com:module_ref:rtc_reset:1.0",
+        "xci_name": "rtcc_rtc_reset_0_0",
+        "xci_path": "ip\\rtcc_rtc_reset_0_0\\rtcc_rtc_reset_0_0.xci",
+        "inst_hier_path": "rtc_reset_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "rtc_reset",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_peripheral": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset:reset_n",
+                "value_src": "constant"
+              },
+              "ASSOCIATED_BUSIF": {
+                "value": "interface_aximm",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "28000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "rtcc_clk_peripheral",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_HIGH",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset_n": {
+            "type": "rst",
+            "direction": "O",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "resetn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -709,8 +720,8 @@
           "fifo_generator_0/clk",
           "fifo_generator_1/clk",
           "rtc_0/clk",
-          "rtc_reset_0/clk_peripheral",
-          "registers_0/clk_peripheral"
+          "registers_0/clk_peripheral",
+          "rtc_reset_0/clk_peripheral"
         ]
       },
       "fifo_generator_1_underflow": {
@@ -733,12 +744,17 @@
       },
       "reset_1": {
         "ports": [
-          "reset",
+          "rtc_reset_0/reset",
           "axi_controller_0/reset",
           "fifo_generator_0/srst",
           "fifo_generator_1/srst",
-          "rtc_0/reset",
-          "rtc_reset_0/reset"
+          "rtc_0/reset"
+        ]
+      },
+      "resetn_1": {
+        "ports": [
+          "resetn",
+          "rtc_reset_0/resetn"
         ]
       },
       "rtc_0_data_o": {

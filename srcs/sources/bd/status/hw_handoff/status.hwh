@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Feb 25 10:23:57 2022" VIVADOVERSION="2021.2.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 16 11:04:58 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="status" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -17,12 +17,6 @@
     <PORT DIR="I" NAME="cpu_clk" SIGIS="undef" SIGNAME="External_Ports_cpu_clk">
       <CONNECTIONS>
         <CONNECTION INSTANCE="status_leds_0" PORT="cpu_clk"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_peripheral_reset">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="status_leds_0" PORT="peripheral_reset"/>
-        <CONNECTION INSTANCE="status_display_0" PORT="peripheral_reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="freq_50_60" SIGIS="undef" SIGNAME="External_Ports_freq_50_60">
@@ -92,16 +86,17 @@
     </PORT>
     <PORT DIR="I" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_mb_reset">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="status_leds_0" PORT="mb_reset"/>
         <CONNECTION INSTANCE="status_display_0" PORT="mb_reset"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk_200" SIGIS="clk" SIGNAME="External_Ports_clk_200">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="status_display_0" PORT="clk"/>
         <CONNECTION INSTANCE="led_segment_0" PORT="clk"/>
         <CONNECTION INSTANCE="rgb_led_16" PORT="clk"/>
         <CONNECTION INSTANCE="rgb_led_17" PORT="clk"/>
+        <CONNECTION INSTANCE="status_enables_0" PORT="clk"/>
+        <CONNECTION INSTANCE="status_display_0" PORT="clk"/>
+        <CONNECTION INSTANCE="status_leds_0" PORT="clk"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="mig_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_mig_resetn">
@@ -112,6 +107,16 @@
     <PORT DIR="I" LEFT="1" NAME="pi_accel_opt" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pi_accel_opt">
       <CONNECTIONS>
         <CONNECTION INSTANCE="status_enables_0" PORT="opt"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="io_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_io_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="io_resetn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="bus_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_bus_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="status_leds_0" PORT="bus_resetn"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -373,11 +378,6 @@
             <CONNECTION INSTANCE="External_Ports" PORT="mb_reset"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_peripheral_reset">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="peripheral_reset"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" NAME="mig_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_mig_resetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="mig_resetn"/>
@@ -404,6 +404,11 @@
         <PORT DIR="I" LEFT="1" NAME="opt" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_pi_accel_opt">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="pi_accel_opt"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_200"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rgb_cs_n" SIGIS="undef" SIGNAME="status_enables_0_rgb_cs_n">
@@ -442,6 +447,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="cpu_contend"/>
           </CONNECTIONS>
         </PORT>
+        <PORT CLKFREQUENCY="200000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk_200">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk_200"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="7" NAME="led16_r" RIGHT="0" SIGIS="undef" SIGNAME="status_leds_0_led16_r">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rgb_led_16" PORT="r"/>
@@ -472,14 +482,14 @@
             <CONNECTION INSTANCE="rgb_led_17" PORT="b"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="mb_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_mb_reset">
+        <PORT DIR="I" NAME="io_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_io_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="mb_reset"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="io_resetn"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="peripheral_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_peripheral_reset">
+        <PORT DIR="I" NAME="bus_resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_bus_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="peripheral_reset"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="bus_resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

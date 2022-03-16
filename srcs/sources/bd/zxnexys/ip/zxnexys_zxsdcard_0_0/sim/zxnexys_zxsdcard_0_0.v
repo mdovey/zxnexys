@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxsdcard:1.3
-// IP Revision: 6
+// IP Revision: 7
 
 `timescale 1ns/1ps
 
@@ -71,7 +71,7 @@ module zxnexys_zxsdcard_0_0 (
   out_miso,
   enable_n,
   clk_peripheral,
-  reset
+  resetn
 );
 
 output wire sd_reset_n;
@@ -96,12 +96,12 @@ output wire out_mosi;
 input wire out_miso;
 (* X_INTERFACE_INFO = "specnext.com:specnext:sdcard_enable:1.0 sdcard_enable enable_n" *)
 input wire enable_n;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   sdcard #(
     .STARTUP_BITS(8),
@@ -125,6 +125,6 @@ input wire reset;
     .out_miso(out_miso),
     .enable_n(enable_n),
     .clk_peripheral(clk_peripheral),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

@@ -30,37 +30,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RESET.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_peripheral</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -78,7 +47,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">resetn</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
@@ -265,6 +234,37 @@
         </spirit:parameter>
       </spirit:parameters>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RESETN.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -279,11 +279,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 10:34:52 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:10 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d90d27ea</spirit:value>
+            <spirit:value>9:835b5e71</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -294,7 +294,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d90d27ea</spirit:value>
+            <spirit:value>9:835b5e71</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -310,11 +310,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 12:39:07 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:10 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d90d27ea</spirit:value>
+            <spirit:value>9:835b5e71</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -329,11 +329,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 10:34:52 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:10 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2cdf1191</spirit:value>
+            <spirit:value>9:5ba13bc8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -349,11 +349,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 12:39:07 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:11 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:2cdf1191</spirit:value>
+            <spirit:value>9:5ba13bc8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -367,11 +367,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 12:51:04 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:17:56 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d90d27ea</spirit:value>
+            <spirit:value>9:835b5e71</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -586,7 +586,7 @@
         </spirit:vendorExtensions>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -600,67 +600,74 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_SPI_Master_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_SPI_Master_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_btn_jstk_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_btn_jstk_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_pmod_jstk2_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_pmod_jstk2_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_0_1.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_0_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_0_2.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_0_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_1_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_0_3.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_0_3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_1_1.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_2_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_2_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_3_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_3_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_0_4.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_0_4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_1_2.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_1_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_debounce_2_1.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_debounce_2_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/SPI_Master.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/SPI_Master.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -674,15 +681,15 @@
         <spirit:userFileType>CELL_NAME_xlconstant_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/btn_jstk.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/btn_jstk.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/pmod_jstk2.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/pmod_jstk2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -711,7 +718,7 @@
         <spirit:userFileType>CELL_NAME_xlconcat_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/debounce.vhd</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/debounce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -721,7 +728,7 @@
         <spirit:userFileType>USED_IN_out_of_context</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -783,11 +790,6 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/imports/nandland/SPI_Master.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/imports/ZXNext/misc/debounce.vhd</spirit:name>
@@ -852,63 +854,63 @@
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagebehavioralsimulation_view_fileset</spirit:name>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_SPI_Master_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_SPI_Master_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_btn_jstk_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_btn_jstk_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_pmod_jstk2_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_pmod_jstk2_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_0_1.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_0_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_0_2.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_0_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_1_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_1_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_0_3.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_0_3.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_1_1.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_1_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_2_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_2_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_3_0.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_3_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_0_4.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_0_4.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_1_2.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_1_2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick_debounce_2_1.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick_debounce_2_1.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/SPI_Master.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/SPI_Master.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -921,15 +923,15 @@
         <spirit:userFileType>CELL_NAME_joystick_i/xlconstant_0/joystick_xlconstant_0_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/btn_jstk.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/btn_jstk.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/pmod_jstk2.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/pmod_jstk2.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/sim/joystick.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/sim/joystick.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -958,11 +960,11 @@
         <spirit:userFileType>CELL_NAME_joystick_i/xlconcat_1/joystick_xlconcat_0_1</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/debounce.vhd</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/debounce.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/570b/src/joystick_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/eb5b/src/joystick_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1024,11 +1026,6 @@
       <spirit:file>
         <spirit:name>../../srcs/sources/imports/nandland/SPI_Master.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>../../srcs/sources/bd/joystick/ip/joystick_util_vector_logic_0_0/joystick_util_vector_logic_0_0.xci</spirit:name>
-        <spirit:userFileType>xci</spirit:userFileType>
-        <spirit:userFileType>CELL_NAME_util_vector_logic_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
         <spirit:name>../../srcs/sources/imports/ZXNext/misc/debounce.vhd</spirit:name>
@@ -1137,7 +1134,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxjoystick_v2_3</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>16</xilinx:coreRevision>
+      <xilinx:coreRevision>17</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@46dfba1f_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@1bca74f7_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
@@ -1351,6 +1348,20 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@630fc930_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@26ef7860_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@6d9b9125_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@180f564_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@25bd32a0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@682e2b07_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@19aec170_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@15b6eee0_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@560a4655_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6aafb3ad_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5c0bc107_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7965a6fc_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2bd8c23d_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@23ab2f11_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@7c94a1c_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cad7965_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6ebc1624_ARCHIVE_LOCATION">v:/ip/zxjoystick</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
@@ -1370,14 +1381,14 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.JSTK_CLK.FREQ_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.JSTK_CLK.FREQ_TOLERANCE_HZ" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.JSTK_CLK.PHASE" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET.POLARITY" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESETN.POLARITY" xilinx:valuePermission="bd_and_user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="5f3bd425"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="711c5c39"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="d7be6f83"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="f11de21b"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="68a950cd"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="27fa5aab"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="2bbc49bc"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

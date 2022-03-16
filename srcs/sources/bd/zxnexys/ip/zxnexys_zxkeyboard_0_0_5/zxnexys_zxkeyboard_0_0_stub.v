@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
-// Date        : Fri Feb 25 12:53:31 2022
+// Date        : Wed Mar 16 11:28:19 2022
 // Host        : AW13R3 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxkeyboard_0_0_5/zxnexys_zxkeyboard_0_0_stub.v
@@ -17,8 +17,8 @@
 module zxnexys_zxkeyboard_0_0(cancel, clk_peripheral, clk_peripheral_n, 
   column, extended_keys, joy_clk_en, joy_io_mode_en, joy_left, joy_left_type, joy_right, 
   joy_right_type, joymap_we, keymap_addr, keymap_data, keymap_we, ps2_clk_i, ps2_clk_o, 
-  ps2_clk_t, ps2_data_i, ps2_data_o, ps2_data_t, reset, row, spkey_buttons, spkey_function)
-/* synthesis syn_black_box black_box_pad_pin="cancel,clk_peripheral,clk_peripheral_n,column[4:0],extended_keys[15:0],joy_clk_en,joy_io_mode_en,joy_left[10:0],joy_left_type[2:0],joy_right[10:0],joy_right_type[2:0],joymap_we,keymap_addr[8:0],keymap_data[7:0],keymap_we,ps2_clk_i,ps2_clk_o,ps2_clk_t,ps2_data_i,ps2_data_o,ps2_data_t,reset,row[7:0],spkey_buttons[1:0],spkey_function[10:1]" */;
+  ps2_clk_t, ps2_data_i, ps2_data_o, ps2_data_t, resetn, row, spkey_buttons, spkey_function)
+/* synthesis syn_black_box black_box_pad_pin="cancel,clk_peripheral,clk_peripheral_n,column[4:0],extended_keys[15:0],joy_clk_en,joy_io_mode_en,joy_left[10:0],joy_left_type[2:0],joy_right[10:0],joy_right_type[2:0],joymap_we,keymap_addr[8:0],keymap_data[7:0],keymap_we,ps2_clk_i,ps2_clk_o,ps2_clk_t,ps2_data_i,ps2_data_o,ps2_data_t,resetn,row[7:0],spkey_buttons[1:0],spkey_function[10:1]" */;
   input cancel;
   input clk_peripheral;
   input clk_peripheral_n;
@@ -40,7 +40,7 @@ module zxnexys_zxkeyboard_0_0(cancel, clk_peripheral, clk_peripheral_n,
   input ps2_data_i;
   output ps2_data_o;
   output ps2_data_t;
-  input reset;
+  input resetn;
   input [7:0]row;
   output [1:0]spkey_buttons;
   output [10:1]spkey_function;

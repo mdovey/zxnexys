@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Tue Jan  4 14:35:50 2022
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 14:39:45 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target mic_i2s_wrapper.bd
 //Design      : mic_i2s_wrapper
@@ -18,7 +18,7 @@ module mic_i2s_wrapper
     m_clk,
     m_data,
     m_lrsel,
-    reset);
+    resetn);
   input clk_12m288;
   input i2s_din;
   output i2s_dout;
@@ -27,7 +27,7 @@ module mic_i2s_wrapper
   output m_clk;
   input m_data;
   output m_lrsel;
-  input reset;
+  input resetn;
 
   wire clk_12m288;
   wire i2s_din;
@@ -37,7 +37,7 @@ module mic_i2s_wrapper
   wire m_clk;
   wire m_data;
   wire m_lrsel;
-  wire reset;
+  wire resetn;
 
   mic_i2s mic_i2s_i
        (.clk_12m288(clk_12m288),
@@ -48,5 +48,5 @@ module mic_i2s_wrapper
         .m_clk(m_clk),
         .m_data(m_data),
         .m_lrsel(m_lrsel),
-        .reset(reset));
+        .resetn(resetn));
 endmodule

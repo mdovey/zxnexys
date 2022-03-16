@@ -110,37 +110,6 @@
       </spirit:portMaps>
     </spirit:busInterface>
     <spirit:busInterface>
-      <spirit:name>reset</spirit:name>
-      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
-      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
-      <spirit:slave/>
-      <spirit:portMaps>
-        <spirit:portMap>
-          <spirit:logicalPort>
-            <spirit:name>RST</spirit:name>
-          </spirit:logicalPort>
-          <spirit:physicalPort>
-            <spirit:name>reset</spirit:name>
-          </spirit:physicalPort>
-        </spirit:portMap>
-      </spirit:portMaps>
-      <spirit:parameters>
-        <spirit:parameter>
-          <spirit:name>POLARITY</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESET.POLARITY">ACTIVE_HIGH</spirit:value>
-        </spirit:parameter>
-        <spirit:parameter>
-          <spirit:name>INSERT_VIP</spirit:name>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RESET.INSERT_VIP">0</spirit:value>
-          <spirit:vendorExtensions>
-            <xilinx:parameterInfo>
-              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
-            </xilinx:parameterInfo>
-          </spirit:vendorExtensions>
-        </spirit:parameter>
-      </spirit:parameters>
-    </spirit:busInterface>
-    <spirit:busInterface>
       <spirit:name>clk_peripheral</spirit:name>
       <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock" spirit:version="1.0"/>
       <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="clock_rtl" spirit:version="1.0"/>
@@ -158,7 +127,7 @@
       <spirit:parameters>
         <spirit:parameter>
           <spirit:name>ASSOCIATED_RESET</spirit:name>
-          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">reset</spirit:value>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_RESET">resetn</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>FREQ_HZ</spirit:name>
@@ -470,6 +439,37 @@
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
     </spirit:busInterface>
+    <spirit:busInterface>
+      <spirit:name>resetn</spirit:name>
+      <spirit:busType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset" spirit:version="1.0"/>
+      <spirit:abstractionType spirit:vendor="xilinx.com" spirit:library="signal" spirit:name="reset_rtl" spirit:version="1.0"/>
+      <spirit:slave/>
+      <spirit:portMaps>
+        <spirit:portMap>
+          <spirit:logicalPort>
+            <spirit:name>RST</spirit:name>
+          </spirit:logicalPort>
+          <spirit:physicalPort>
+            <spirit:name>resetn</spirit:name>
+          </spirit:physicalPort>
+        </spirit:portMap>
+      </spirit:portMaps>
+      <spirit:parameters>
+        <spirit:parameter>
+          <spirit:name>POLARITY</spirit:name>
+          <spirit:value spirit:id="BUSIFPARAM_VALUE.RESETN.POLARITY" spirit:choiceRef="choice_list_9d8b0d81">ACTIVE_LOW</spirit:value>
+        </spirit:parameter>
+        <spirit:parameter>
+          <spirit:name>INSERT_VIP</spirit:name>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.RESETN.INSERT_VIP">0</spirit:value>
+          <spirit:vendorExtensions>
+            <xilinx:parameterInfo>
+              <xilinx:parameterUsage>simulation.rtl</xilinx:parameterUsage>
+            </xilinx:parameterInfo>
+          </spirit:vendorExtensions>
+        </spirit:parameter>
+      </spirit:parameters>
+    </spirit:busInterface>
   </spirit:busInterfaces>
   <spirit:model>
     <spirit:views>
@@ -484,11 +484,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 10:34:56 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:17 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:194eaa57</spirit:value>
+            <spirit:value>9:bebb0511</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -499,7 +499,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:194eaa57</spirit:value>
+            <spirit:value>9:bebb0511</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -515,11 +515,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 12:39:11 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:17 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:194eaa57</spirit:value>
+            <spirit:value>9:bebb0511</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -534,11 +534,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 10:34:56 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:17 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:abe98559</spirit:value>
+            <spirit:value>9:0855b261</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -554,11 +554,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 12:39:11 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:11:17 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:abe98559</spirit:value>
+            <spirit:value>9:0855b261</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -572,11 +572,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Feb 25 12:53:32 UTC 2022</spirit:value>
+            <spirit:value>Wed Mar 16 11:28:20 UTC 2022</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:194eaa57</spirit:value>
+            <spirit:value>9:bebb0511</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -903,7 +903,7 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
-        <spirit:name>reset</spirit:name>
+        <spirit:name>resetn</spirit:name>
         <spirit:wire>
           <spirit:direction>in</spirit:direction>
           <spirit:wireTypeDefs>
@@ -971,6 +971,13 @@
       </spirit:port>
     </spirit:ports>
   </spirit:model>
+  <spirit:choices>
+    <spirit:choice>
+      <spirit:name>choice_list_9d8b0d81</spirit:name>
+      <spirit:enumeration>ACTIVE_HIGH</spirit:enumeration>
+      <spirit:enumeration>ACTIVE_LOW</spirit:enumeration>
+    </spirit:choice>
+  </spirit:choices>
   <spirit:fileSets>
     <spirit:fileSet>
       <spirit:name>xilinx_anylanguagesynthesis_view_fileset</spirit:name>
@@ -991,67 +998,67 @@
         <spirit:userFileType>CELL_NAME_xlconstant_high</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyb_clocks.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyb_clocks.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_Ps2Interface_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_Ps2Interface_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_emu_fnkeys_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_emu_fnkeys_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_keyb_clocks_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_keyb_clocks_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_membrane_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_membrane_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_ps2_keyb_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_ps2_keyb_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_special_keys_0_0.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_special_keys_0_0.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/special_keys.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/special_keys.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/SyncAsync.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/SyncAsync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/Ps2Interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/Ps2Interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/emu_fnkeys.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/emu_fnkeys.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keymaps.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keymaps.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/membrane.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/membrane.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/ps2_keyb.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/ps2_keyb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1159,11 +1166,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/keyboard/synth/keyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/keyboard/synth/keyboard.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1198,39 +1205,39 @@
         <spirit:userFileType>CELL_NAME_keyboard_i/xlconstant_high/keyboard_xlconstant_high_0</spirit:userFileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyb_clocks.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyb_clocks.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/special_keys.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/special_keys.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/SyncAsync.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/SyncAsync.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/Ps2Interface.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/Ps2Interface.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/emu_fnkeys.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/emu_fnkeys.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keymaps.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keymaps.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/membrane.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/membrane.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/ps2_keyb.vhd</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/ps2_keyb.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../ipshared/51c0/src/keyboard_wrapper.v</spirit:name>
+        <spirit:name>../../ipshared/5c82/src/keyboard_wrapper.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1338,11 +1345,11 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
+        <spirit:name>../../srcs/sources/bd/keyboard/sim/keyboard.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
-        <spirit:name>../../srcs/sources/bd/keyboard/sim/keyboard.v</spirit:name>
+        <spirit:name>../../srcs/sources/new/keyboard/keyb_clocks.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
       </spirit:file>
       <spirit:file>
@@ -1411,7 +1418,7 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>zxkeyboard_v2_4</xilinx:displayName>
       <xilinx:definitionSource>package_project</xilinx:definitionSource>
-      <xilinx:coreRevision>18</xilinx:coreRevision>
+      <xilinx:coreRevision>20</xilinx:coreRevision>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.df@531bd9c0_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@681670fb_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
@@ -1639,6 +1646,31 @@
         <xilinx:tag xilinx:name="ui.data.coregen.df@2a6dfb97_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@16b17ba3_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.df@175c4f8f_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@492c4fc0_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@75787da8_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@306916e8_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@144d2d6_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@b51453b_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@cfbe25d_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195162a7_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@2a3cc243_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@120d22ab_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@5b4f1eab_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@242403c2_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@6f196588_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@1cbed0f1_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@13083470_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@67cf4d54_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@c724e6d_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@69175947_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@151b60ec_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@627f65e1_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@4cef9259_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@294a02df_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@3d6a8e91_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@195275f7_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@415cddcd_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.df@71a4f205_ARCHIVE_LOCATION">v:/ip/zxkeyboard</xilinx:tag>
       </xilinx:tags>
       <xilinx:configElementInfos>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.CLK_PERIPHERAL.ASSOCIATED_BUSIF" xilinx:valuePermission="bd_and_user"/>
@@ -1662,14 +1694,14 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PS2_CLK.NUM_WRITE_OUTSTANDING" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PS2_DATA.NUM_READ_OUTSTANDING" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.PS2_DATA.NUM_WRITE_OUTSTANDING" xilinx:valuePermission="bd_and_user"/>
-        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESET.POLARITY" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.RESETN.POLARITY" xilinx:valuePermission="bd_and_user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2021.2.1</xilinx:xilinxVersion>
-      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="aee9190a"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="e5a9a517"/>
-      <xilinx:checksum xilinx:scope="ports" xilinx:value="d6d71e35"/>
+      <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="1ec9d691"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="b978db0b"/>
+      <xilinx:checksum xilinx:scope="ports" xilinx:value="c8ad6ab2"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="3f73a46c"/>
     </xilinx:packagingInfo>
   </spirit:vendorExtensions>

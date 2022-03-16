@@ -1,12 +1,12 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xA735720C2EB6D36D",
+      "boundary_crc": "0x26A0A964D2150AB8",
       "device": "xc7a100tcsg324-1",
       "name": "mic_i2s",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.2",
+      "tool_version": "2021.2.1",
       "validated": "true"
     },
     "design_tree": {
@@ -19,6 +19,10 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "resetn",
+            "value_src": "default"
+          },
           "CLK_DOMAIN": {
             "value": "mic_i2s_clk_audio",
             "value_src": "default"
@@ -75,7 +79,7 @@
       "m_lrsel": {
         "direction": "O"
       },
-      "reset": {
+      "resetn": {
         "type": "rst",
         "direction": "I",
         "parameters": {
@@ -84,7 +88,7 @@
             "value_src": "default"
           },
           "POLARITY": {
-            "value": "ACTIVE_HIGH"
+            "value": "ACTIVE_LOW"
           }
         }
       }
@@ -230,7 +234,7 @@
           "boundary_crc": "0x0"
         },
         "ports": {
-          "resetn": {
+          "reset_n": {
             "type": "rst",
             "direction": "O",
             "parameters": {
@@ -240,12 +244,12 @@
               }
             }
           },
-          "reset": {
+          "resetn": {
             "type": "rst",
             "direction": "I",
             "parameters": {
               "POLARITY": {
-                "value": "ACTIVE_HIGH",
+                "value": "ACTIVE_LOW",
                 "value_src": "constant"
               }
             }
@@ -332,13 +336,13 @@
       },
       "reset_1": {
         "ports": [
-          "reset",
-          "mic_reset_0/reset"
+          "resetn",
+          "mic_reset_0/resetn"
         ]
       },
       "util_vector_logic_0_Res": {
         "ports": [
-          "mic_reset_0/resetn",
+          "mic_reset_0/reset_n",
           "i2s_transceiver_0/reset_n"
         ]
       }

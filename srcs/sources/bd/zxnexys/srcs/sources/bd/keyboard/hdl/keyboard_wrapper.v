@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Thu Dec 30 13:15:32 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 14:42:22 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target keyboard_wrapper.bd
 //Design      : keyboard_wrapper
@@ -31,7 +31,7 @@ module keyboard_wrapper
     ps2_data_i,
     ps2_data_o,
     ps2_data_t,
-    reset,
+    resetn,
     row,
     spkey_buttons,
     spkey_function);
@@ -56,7 +56,7 @@ module keyboard_wrapper
   input ps2_data_i;
   output ps2_data_o;
   output ps2_data_t;
-  input reset;
+  input resetn;
   input [7:0]row;
   output [1:0]spkey_buttons;
   output [10:1]spkey_function;
@@ -82,7 +82,7 @@ module keyboard_wrapper
   wire ps2_data_i;
   wire ps2_data_o;
   wire ps2_data_t;
-  wire reset;
+  wire resetn;
   wire [7:0]row;
   wire [1:0]spkey_buttons;
   wire [10:1]spkey_function;
@@ -109,7 +109,7 @@ module keyboard_wrapper
         .ps2_data_i(ps2_data_i),
         .ps2_data_o(ps2_data_o),
         .ps2_data_t(ps2_data_t),
-        .reset(reset),
+        .resetn(resetn),
         .row(row),
         .spkey_buttons(spkey_buttons),
         .spkey_function(spkey_function));

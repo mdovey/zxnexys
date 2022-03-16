@@ -68,7 +68,7 @@ module joystick_pmod_jstk2_0_0 (
   wr,
   rv,
   clk_peripheral,
-  reset
+  resetn
 );
 
 output wire r;
@@ -85,9 +85,9 @@ input wire rv;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 28000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN joystick_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   pmod_jstk2 #(
     .LOW_MARGIN(8'B00100111),
@@ -105,6 +105,6 @@ input wire reset;
     .wr(wr),
     .rv(rv),
     .clk_peripheral(clk_peripheral),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

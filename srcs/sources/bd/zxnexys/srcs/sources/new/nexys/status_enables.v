@@ -22,11 +22,17 @@
 
 module status_enables(
     input [1:0] opt,
-    output      rgb_cs_n,
-    output      segment_cs_n
+    input       clk,
+(* ASYNC_REG = "TRUE" *)
+    output reg  rgb_cs_n,
+(* ASYNC_REG = "TRUE" *)
+    output reg  segment_cs_n
     );
     
-    assign  rgb_cs_n        = ~opt[0];
-    assign  segment_cs_n    = ~opt[1];
+    always @(clk)
+    begin
+        rgb_cs_n        <= ~opt[0];
+        segment_cs_n    <= ~opt[1];
+    end
 
 endmodule

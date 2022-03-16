@@ -44,9 +44,9 @@ module pmod_jstk2 #(
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET reset" *)	
     input 		       clk_peripheral,
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input	           reset
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  resetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    input	           resetn
 );
     
     localparam  stStart         = 3'h0;
@@ -80,7 +80,7 @@ module pmod_jstk2 #(
     assign  c  = s[0] && !invalid;
         
     always @(posedge clk_peripheral)
-        if (reset)
+        if (~resetn)
             cState  <= stStart;
         else
             cState  <= nState;

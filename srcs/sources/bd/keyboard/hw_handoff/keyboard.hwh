@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Dec 30 13:15:33 2021" VIVADOVERSION="2021.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 15 14:42:22 2022" VIVADOVERSION="2021.2.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys-a7-100t:part0:1.0" DEVICE="7a100t" NAME="keyboard" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -83,16 +83,6 @@
         <CONNECTION INSTANCE="Ps2Interface_0" PORT="PS2_Data_T"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="Ps2Interface_0" PORT="rst"/>
-        <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_reset"/>
-        <CONNECTION INSTANCE="membrane_0" PORT="i_reset"/>
-        <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_reset"/>
-        <CONNECTION INSTANCE="membrane_stick_0" PORT="i_reset"/>
-        <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" LEFT="7" NAME="row" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_row">
       <CONNECTIONS>
         <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_rows"/>
@@ -141,6 +131,11 @@
     <PORT DIR="I" NAME="joy_clk_en" POLARITY="ACTIVE_LOW" SIGIS="ce" SIGNAME="External_Ports_joy_clk_en">
       <CONNECTIONS>
         <CONNECTION INSTANCE="keyb_clocks_0" PORT="joy_clk_en"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="keyb_clocks_0" PORT="resetn"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -196,9 +191,9 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="rst" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="keyb_clocks_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="tx_data" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_selftest_ok_dout">
@@ -247,9 +242,9 @@
             <CONNECTION INSTANCE="keyb_clocks_0" PORT="fnkeys_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="keyb_clocks_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="i_rows" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_row">
@@ -323,9 +318,18 @@
             <CONNECTION INSTANCE="External_Ports" PORT="clk_peripheral"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="O" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="keyb_clocks_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="Ps2Interface_0" PORT="rst"/>
+            <CONNECTION INSTANCE="emu_fnkeys_0" PORT="i_reset"/>
+            <CONNECTION INSTANCE="membrane_0" PORT="i_reset"/>
+            <CONNECTION INSTANCE="ps2_keyb_0" PORT="i_reset"/>
+            <CONNECTION INSTANCE="membrane_stick_0" PORT="i_reset"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_resetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -348,9 +352,9 @@
             <CONNECTION INSTANCE="keyb_clocks_0" PORT="membrane_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="keyb_clocks_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="i_rows" RIGHT="0" SIGIS="undef" SIGNAME="emu_fnkeys_0_o_rows_filtered">
@@ -405,9 +409,9 @@
             <CONNECTION INSTANCE="keyb_clocks_0" PORT="membrane_enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="keyb_clocks_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="i_joy_en_n" SIGIS="undef" SIGNAME="External_Ports_joy_io_mode_en">
@@ -506,9 +510,9 @@
             <CONNECTION INSTANCE="keyb_clocks_0" PORT="clk_ps2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
+        <PORT DIR="I" NAME="i_reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="keyb_clocks_0_reset">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="External_Ports" PORT="reset"/>
+            <CONNECTION INSTANCE="keyb_clocks_0" PORT="reset"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="i_ps2_receive_valid" SIGIS="undef" SIGNAME="Ps2Interface_0_read_data">

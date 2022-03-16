@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:45:18 2022
+-- Date        : Wed Mar 16 11:22:46 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_pmod_esp32_0_0/zxnexys_pmod_esp32_0_0_sim_netlist.vhdl
@@ -42,6 +42,7 @@ entity zxnexys_pmod_esp32_0_0 is
     pin10_t : out STD_LOGIC;
     uart_rx : out STD_LOGIC;
     uart_tx : in STD_LOGIC;
+    enable : in STD_LOGIC;
     gpio0_i : out STD_LOGIC;
     gpio0_o : in STD_LOGIC;
     gpio0_t : in STD_LOGIC;
@@ -67,6 +68,7 @@ end zxnexys_pmod_esp32_0_0;
 architecture STRUCTURE of zxnexys_pmod_esp32_0_0 is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
+  signal \^enable\ : STD_LOGIC;
   signal \^gpio0_o\ : STD_LOGIC;
   signal \^gpio0_t\ : STD_LOGIC;
   signal \^gpio2_o\ : STD_LOGIC;
@@ -112,6 +114,7 @@ architecture STRUCTURE of zxnexys_pmod_esp32_0_0 is
   attribute X_INTERFACE_INFO of pin9_o : signal is "digilentinc.com:interface:pmod:1.0 pmod_esp32 PIN9_O";
   attribute X_INTERFACE_INFO of pin9_t : signal is "digilentinc.com:interface:pmod:1.0 pmod_esp32 PIN9_T";
 begin
+  \^enable\ <= enable;
   \^gpio0_o\ <= gpio0_o;
   \^gpio0_t\ <= gpio0_t;
   \^gpio2_o\ <= gpio2_o;
@@ -135,7 +138,7 @@ begin
   pin4_t <= \<const1>\;
   pin7_o <= \^gpio2_o\;
   pin7_t <= \^gpio2_t\;
-  pin8_o <= \<const1>\;
+  pin8_o <= \^enable\;
   pin8_t <= \<const0>\;
   pin9_o <= \<const0>\;
   pin9_t <= \<const0>\;

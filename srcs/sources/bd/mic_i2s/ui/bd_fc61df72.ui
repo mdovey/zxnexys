@@ -1,35 +1,35 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.0",
-   "Default View_TopLeft":"-289,-114",
+   "Default View_TopLeft":"-324,-123",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_clk_12m288 -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
-preplace port port-id_i2s_din -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
-preplace port port-id_i2s_dout -pg 1 -lvl 3 -x 680 -y 20 -defaultsOSRD
-preplace port port-id_i2s_sclk -pg 1 -lvl 3 -x 680 -y 40 -defaultsOSRD
-preplace port port-id_i2s_wclk -pg 1 -lvl 3 -x 680 -y 60 -defaultsOSRD
-preplace port port-id_m_clk -pg 1 -lvl 3 -x 680 -y 80 -defaultsOSRD
-preplace port port-id_m_data -pg 1 -lvl 0 -x -10 -y 60 -defaultsOSRD
-preplace port port-id_m_lrsel -pg 1 -lvl 3 -x 680 -y 100 -defaultsOSRD
-preplace port port-id_reset -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
-preplace inst i2s_transceiver_0 -pg 1 -lvl 1 -x 220 -y 100 -defaultsOSRD
-preplace inst pwm_decode_0 -pg 1 -lvl 2 -x 510 -y 80 -defaultsOSRD
-preplace inst mic_reset_0 -pg 1 -lvl 1 -x 220 -y 250 -defaultsOSRD
-preplace netloc clk_12m288_1 1 0 3 30 340 400 190 650J
-preplace netloc i2s_din_1 1 0 1 40 40n
-preplace netloc i2s_transceiver_0_sclk 1 1 2 360 160 630J
-preplace netloc i2s_transceiver_0_sd_tx 1 1 2 370J 170 620
-preplace netloc i2s_transceiver_0_ws 1 1 2 390 180 640
-preplace netloc m_data_1 1 0 2 20J 320 380
-preplace netloc pwm_decode_0_l 1 0 3 60 350 NJ 350 610
-preplace netloc pwm_decode_0_lrsel 1 2 1 N 100
-preplace netloc pwm_decode_0_r 1 0 3 70 360 NJ 360 600
-preplace netloc reset_1 1 0 1 10 80n
-preplace netloc util_vector_logic_0_Res 1 0 2 50 330 360
-levelinfo -pg 1 -10 220 510 680
-pagesize -pg 1 -db -bbox -sgen -140 0 790 370
+preplace port port-id_clk_12m288 -pg 1 -lvl 0 -x -10 -y 320 -defaultsOSRD
+preplace port port-id_i2s_din -pg 1 -lvl 0 -x -10 -y 220 -defaultsOSRD
+preplace port port-id_i2s_dout -pg 1 -lvl 3 -x 600 -y 100 -defaultsOSRD
+preplace port port-id_i2s_sclk -pg 1 -lvl 3 -x 600 -y 60 -defaultsOSRD
+preplace port port-id_i2s_wclk -pg 1 -lvl 3 -x 600 -y 80 -defaultsOSRD
+preplace port port-id_m_clk -pg 1 -lvl 3 -x 600 -y 200 -defaultsOSRD
+preplace port port-id_m_data -pg 1 -lvl 0 -x -10 -y 120 -defaultsOSRD
+preplace port port-id_m_lrsel -pg 1 -lvl 3 -x 600 -y 220 -defaultsOSRD
+preplace port port-id_resetn -pg 1 -lvl 0 -x -10 -y 300 -defaultsOSRD
+preplace inst i2s_transceiver_0 -pg 1 -lvl 2 -x 440 -y 100 -defaultsOSRD
+preplace inst pwm_decode_0 -pg 1 -lvl 1 -x 150 -y 140 -defaultsOSRD
+preplace inst mic_reset_0 -pg 1 -lvl 1 -x 150 -y 310 -defaultsOSRD
+preplace netloc clk_12m288_1 1 0 3 10 50 290 200 NJ
+preplace netloc i2s_din_1 1 0 2 20J 60 270J
+preplace netloc i2s_transceiver_0_sclk 1 2 1 NJ 60
+preplace netloc i2s_transceiver_0_sd_tx 1 2 1 NJ 100
+preplace netloc i2s_transceiver_0_ws 1 0 3 30 230 NJ 230 580
+preplace netloc m_data_1 1 0 1 NJ 120
+preplace netloc pwm_decode_0_l 1 1 1 N 120
+preplace netloc pwm_decode_0_lrsel 1 1 2 270J 220 NJ
+preplace netloc pwm_decode_0_r 1 1 1 N 140
+preplace netloc reset_1 1 0 1 NJ 300
+preplace netloc util_vector_logic_0_Res 1 1 1 280 60n
+levelinfo -pg 1 -10 150 440 600
+pagesize -pg 1 -db -bbox -sgen -140 0 710 380
 "
 }
 0

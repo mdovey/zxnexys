@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxnexys_status:1.2
-// IP Revision: 18
+// IP Revision: 25
 
 (* X_CORE_INFO = "status_wrapper,Vivado 2021.2.1" *)
 (* CHECK_LICENSE_TYPE = "zxnexys_zxnexys_status_0_0,status_wrapper,{}" *)
@@ -57,6 +57,7 @@
 module zxnexys_zxnexys_status_0_0 (
   address,
   an,
+  bus_resetn,
   ca,
   clk_200,
   cpu_clk,
@@ -64,6 +65,7 @@ module zxnexys_zxnexys_status_0_0 (
   cpu_speed,
   cpu_wait_n,
   freq_50_60,
+  io_resetn,
   led16_b,
   led16_g,
   led16_r,
@@ -72,7 +74,6 @@ module zxnexys_zxnexys_status_0_0 (
   led17_r,
   mb_reset,
   mig_resetn,
-  peripheral_reset,
   pi_accel_opt,
   scandouble,
   video_mode
@@ -81,6 +82,9 @@ module zxnexys_zxnexys_status_0_0 (
 (* X_INTERFACE_INFO = "specnext.com:specnext:ram_port_a:1.0 ram_port_a ram_addr" *)
 input wire [20 : 0] address;
 output wire [7 : 0] an;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME bus_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 bus_resetn RST" *)
+input wire bus_resetn;
 output wire [7 : 0] ca;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_200, FREQ_HZ 200000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_system_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_200 CLK" *)
@@ -95,6 +99,9 @@ input wire [1 : 0] cpu_speed;
 input wire cpu_wait_n;
 (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video freq_50_60" *)
 input wire freq_50_60;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME io_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 io_resetn RST" *)
+input wire io_resetn;
 output wire led16_b;
 output wire led16_g;
 output wire led16_r;
@@ -106,9 +113,6 @@ input wire mb_reset;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mig_resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 mig_resetn RST" *)
 input wire mig_resetn;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME peripheral_reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 peripheral_reset RST" *)
-input wire peripheral_reset;
 input wire [1 : 0] pi_accel_opt;
 (* X_INTERFACE_INFO = "specnext.com:specnext:video:1.0 video scandouble" *)
 input wire scandouble;
@@ -118,6 +122,7 @@ input wire [2 : 0] video_mode;
   status_wrapper inst (
     .address(address),
     .an(an),
+    .bus_resetn(bus_resetn),
     .ca(ca),
     .clk_200(clk_200),
     .cpu_clk(cpu_clk),
@@ -125,6 +130,7 @@ input wire [2 : 0] video_mode;
     .cpu_speed(cpu_speed),
     .cpu_wait_n(cpu_wait_n),
     .freq_50_60(freq_50_60),
+    .io_resetn(io_resetn),
     .led16_b(led16_b),
     .led16_g(led16_g),
     .led16_r(led16_r),
@@ -133,7 +139,6 @@ input wire [2 : 0] video_mode;
     .led17_r(led17_r),
     .mb_reset(mb_reset),
     .mig_resetn(mig_resetn),
-    .peripheral_reset(peripheral_reset),
     .pi_accel_opt(pi_accel_opt),
     .scandouble(scandouble),
     .video_mode(video_mode)

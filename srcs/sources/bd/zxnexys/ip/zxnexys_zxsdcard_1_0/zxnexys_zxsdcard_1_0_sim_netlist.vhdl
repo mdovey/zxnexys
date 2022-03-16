@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:43:12 2022
+-- Date        : Wed Mar 16 11:25:19 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxsdcard_1_0/zxnexys_zxsdcard_1_0_sim_netlist.vhdl
@@ -24,7 +24,7 @@ entity zxnexys_zxsdcard_1_0_sdcard is
     in_mosi : in STD_LOGIC;
     in_sck : in STD_LOGIC;
     enable_n : in STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of zxnexys_zxsdcard_1_0_sdcard : entity is "sdcard";
@@ -40,6 +40,7 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0_sdcard is
   signal \FSM_sequential_cState[1]_i_3_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[1]_i_4_n_0\ : STD_LOGIC;
   signal \FSM_sequential_cState[1]_i_5_n_0\ : STD_LOGIC;
+  signal \FSM_sequential_cState[1]_i_6_n_0\ : STD_LOGIC;
   signal cState : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal nState : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \power_down_counter[0]_i_1_n_0\ : STD_LOGIC;
@@ -232,12 +233,20 @@ begin
     )
         port map (
       I0 => cState(1),
-      I1 => \FSM_sequential_cState[1]_i_3_n_0\,
-      I2 => \FSM_sequential_cState[1]_i_4_n_0\,
-      I3 => \FSM_sequential_cState[1]_i_5_n_0\,
+      I1 => \FSM_sequential_cState[1]_i_4_n_0\,
+      I2 => \FSM_sequential_cState[1]_i_5_n_0\,
+      I3 => \FSM_sequential_cState[1]_i_6_n_0\,
       O => nState(1)
     );
-\FSM_sequential_cState[1]_i_3\: unisim.vcomponents.LUT5
+\FSM_sequential_cState[1]_i_3\: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => resetn,
+      O => \FSM_sequential_cState[1]_i_3_n_0\
+    );
+\FSM_sequential_cState[1]_i_4\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFE"
     )
@@ -247,9 +256,9 @@ begin
       I2 => power_up_counter_reg(11),
       I3 => power_up_counter_reg(0),
       I4 => power_up_counter_reg(1),
-      O => \FSM_sequential_cState[1]_i_3_n_0\
+      O => \FSM_sequential_cState[1]_i_4_n_0\
     );
-\FSM_sequential_cState[1]_i_4\: unisim.vcomponents.LUT4
+\FSM_sequential_cState[1]_i_5\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFFE"
     )
@@ -258,9 +267,9 @@ begin
       I1 => power_up_counter_reg(3),
       I2 => power_up_counter_reg(4),
       I3 => power_up_counter_reg(5),
-      O => \FSM_sequential_cState[1]_i_4_n_0\
+      O => \FSM_sequential_cState[1]_i_5_n_0\
     );
-\FSM_sequential_cState[1]_i_5\: unisim.vcomponents.LUT4
+\FSM_sequential_cState[1]_i_6\: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFFE"
     )
@@ -269,14 +278,14 @@ begin
       I1 => power_up_counter_reg(7),
       I2 => power_up_counter_reg(8),
       I3 => power_up_counter_reg(9),
-      O => \FSM_sequential_cState[1]_i_5_n_0\
+      O => \FSM_sequential_cState[1]_i_6_n_0\
     );
 \FSM_sequential_cState_reg[0]\: unisim.vcomponents.FDPE
      port map (
       C => clk_peripheral,
       CE => \FSM_sequential_cState[1]_i_1_n_0\,
       D => nState(0),
-      PRE => reset,
+      PRE => \FSM_sequential_cState[1]_i_3_n_0\,
       Q => cState(0)
     );
 \FSM_sequential_cState_reg[1]\: unisim.vcomponents.FDPE
@@ -284,7 +293,7 @@ begin
       C => clk_peripheral,
       CE => \FSM_sequential_cState[1]_i_1_n_0\,
       D => nState(1),
-      PRE => reset,
+      PRE => \FSM_sequential_cState[1]_i_3_n_0\,
       Q => cState(1)
     );
 \power_down_counter[0]_i_1\: unisim.vcomponents.LUT2
@@ -1035,7 +1044,7 @@ entity zxnexys_zxsdcard_1_0 is
     in_miso : out STD_LOGIC;
     enable_n : in STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_zxsdcard_1_0 : entity is true;
@@ -1054,15 +1063,15 @@ architecture STRUCTURE of zxnexys_zxsdcard_1_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk_peripheral : signal is "xilinx.com:signal:clock:1.0 clk_peripheral CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk_peripheral : signal is "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET resetn:reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of enable_n : signal is "specnext.com:specnext:sdcard_enable:1.0 sdcard_enable enable_n";
   attribute X_INTERFACE_INFO of in_miso : signal is "specnext.com:specnext:sdcard:1.0 sdcard_in miso";
   attribute X_INTERFACE_INFO of in_mosi : signal is "specnext.com:specnext:sdcard:1.0 sdcard_in mosi";
   attribute X_INTERFACE_INFO of in_sck : signal is "specnext.com:specnext:sdcard:1.0 sdcard_in sck";
   attribute X_INTERFACE_MODE : string;
   attribute X_INTERFACE_MODE of in_sck : signal is "SLAVE";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
   sd_dat1 <= \<const1>\;
   sd_dat2 <= \<const1>\;
@@ -1085,7 +1094,7 @@ inst: entity work.zxnexys_zxsdcard_1_0_sdcard
       enable_n => enable_n,
       in_mosi => in_mosi,
       in_sck => in_sck,
-      reset => reset,
+      resetn => resetn,
       sd_cmd => sd_cmd,
       sd_dat3 => sd_dat3,
       sd_reset_n => sd_reset_n,

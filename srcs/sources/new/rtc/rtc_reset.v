@@ -26,16 +26,20 @@ module rtc_reset (
 (* X_INTERFACE_PARAMETER = "ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET reset:reset_n" *)	
     input 		clk_peripheral,
 
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
+    output reg  reset,
+
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset_n  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
     output reg  reset_n,
     
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  reset  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    input	    reset
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  resetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    input	    resetn
     );
     
-    always @(posedge clk_peripheral, posedge reset)
-        reset_n <= reset ? 1'b0 : 1'b1;
+    always @(posedge clk_peripheral, negedge resetn)
+        {reset_n, reset} <= ~resetn ? 2'b01 : 2'b10;
     
 endmodule

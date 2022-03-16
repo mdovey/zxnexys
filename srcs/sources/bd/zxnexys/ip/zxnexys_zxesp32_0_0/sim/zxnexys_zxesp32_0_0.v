@@ -48,7 +48,7 @@
 
 
 // IP VLNV: specnext.com:specnext:zxesp32:1.3
-// IP Revision: 3
+// IP Revision: 5
 
 `timescale 1ns/1ps
 
@@ -62,6 +62,7 @@ module zxnexys_zxesp32_0_0 (
   gpio_enable,
   uart_tx_o,
   uart_rx_o,
+  enable,
   gpio0_i,
   gpio0_o,
   gpio0_t,
@@ -72,7 +73,7 @@ module zxnexys_zxesp32_0_0 (
   gpio2_o,
   gpio2_t,
   clk_peripheral,
-  reset
+  resetn
 );
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:esp32:1.0 esp32 uart_tx" *)
@@ -87,6 +88,7 @@ input wire gpio_out;
 input wire gpio_enable;
 output wire uart_tx_o;
 input wire uart_rx_o;
+output wire enable;
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *)
 input wire gpio0_i;
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_O" *)
@@ -108,9 +110,9 @@ output wire gpio2_t;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk_peripheral, ASSOCIATED_RESET reset, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN zxnexys_zxclock_0_0_clk_peripheral, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
 input wire clk_peripheral;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset RST" *)
-input wire reset;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
+input wire resetn;
 
   esp32 inst (
     .uart_tx_i(uart_tx_i),
@@ -120,6 +122,7 @@ input wire reset;
     .gpio_enable(gpio_enable),
     .uart_tx_o(uart_tx_o),
     .uart_rx_o(uart_rx_o),
+    .enable(enable),
     .gpio0_i(gpio0_i),
     .gpio0_o(gpio0_o),
     .gpio0_t(gpio0_t),
@@ -130,6 +133,6 @@ input wire reset;
     .gpio2_o(gpio2_o),
     .gpio2_t(gpio2_t),
     .clk_peripheral(clk_peripheral),
-    .reset(reset)
+    .resetn(resetn)
   );
 endmodule

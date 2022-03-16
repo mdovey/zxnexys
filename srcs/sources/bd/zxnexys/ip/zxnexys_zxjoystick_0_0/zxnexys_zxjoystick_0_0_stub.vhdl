@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:51:03 2022
+-- Date        : Wed Mar 16 11:17:55 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxjoystick_0_0/zxnexys_zxjoystick_0_0_stub.vhdl
@@ -27,7 +27,7 @@ entity zxnexys_zxjoystick_0_0 is
     jstk_miso : in STD_LOGIC;
     jstk_mosi : out STD_LOGIC;
     jstk_sel : out STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
 
 end zxnexys_zxjoystick_0_0;
@@ -36,7 +36,7 @@ architecture stub of zxnexys_zxjoystick_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "btnc,btnd,btnl,btnr,btnu,clk_peripheral,joy_clk_en,joy_left[10:0],joy_right[10:0],jstk_clk,jstk_miso,jstk_mosi,jstk_sel,reset";
+attribute black_box_pad_pin of stub : architecture is "btnc,btnd,btnl,btnr,btnu,clk_peripheral,joy_clk_en,joy_left[10:0],joy_right[10:0],jstk_clk,jstk_miso,jstk_mosi,jstk_sel,resetn";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "joystick_wrapper,Vivado 2021.2.1";
 begin

@@ -21,10 +21,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module sysreset #(
-    parameter PERIPHERAL_RESET_HOLD     = 18,
-    parameter MB_RESET_HOLD             = 20,
-    parameter SYNC_STAGES               = 3,
-    parameter PIPELINE_STAGES           = 1
+    parameter IO_RESET_HOLD        = 20,
+    parameter BUS_RESET_HOLD       = 22,
+    parameter MB_RESET_HOLD        = 24,
+    parameter SYNC_STAGES          = 3,
+    parameter PIPELINE_STAGES      = 1
 )(
 
 (* X_INTERFACE_INFO = "specnext.com:specnext:mb_reset:1.0 mb_reset  mb_reset" *)
@@ -46,16 +47,16 @@ module sysreset #(
     input 		clk_ui,
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk_peripheral CLK" *)
-(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET        mb_reset:mb_resetn:peripheral_reset" *)
+(* X_INTERFACE_PARAMETER = "ASSOCIATED_RESET        mb_reset:io_resetn:bus_resetn" *)
     input 		clk_peripheral,
 
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  peripheral_reset  RST" *)
-(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_HIGH" *)
-    output  	peripheral_reset,
-
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  mb_resetn  RST" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  io_resetn  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
-    output  	mb_resetn,
+    output  	io_resetn,
+
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  bus_resetn  RST" *)
+(* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
+    output  	bus_resetn,
     
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0  hard_resetn  RST" *)
 (* X_INTERFACE_PARAMETER = "POLARITY ACTIVE_LOW" *)
@@ -68,9 +69,12 @@ module sysreset #(
     
 	wire hard_rst;
 	wire soft_rst;
+	wire io_rst;
+	wire bus_rst;
 	wire peripheral_rst;
 	
-	assign mb_resetn = ~mb_reset;
+	assign io_resetn      = ~io_rst;
+	assign bus_resetn     = ~bus_rst;
 	
 	held_reset #(
 	   .HOLD(MB_RESET_HOLD)
@@ -81,10 +85,18 @@ module sysreset #(
 	);
 
 	held_reset #(
-	   .HOLD(PERIPHERAL_RESET_HOLD)
-	) held_peripheral_reset (
-	   .i_reset(peripheral_rst | hard_rst | soft_rst),
-	   .o_reset(peripheral_reset),
+	   .HOLD(BUS_RESET_HOLD)
+	) held_bus_reset (
+	   .i_reset(soft_rst | hard_rst | peripheral_rst),
+	   .o_reset(bus_rst),
+	   .clk(clk_peripheral)
+	);
+
+	held_reset #(
+	   .HOLD(IO_RESET_HOLD)
+	) held_io_reset (
+	   .i_reset(hard_rst | soft_rst),
+	   .o_reset(io_rst),
 	   .clk(clk_peripheral)
 	);
 

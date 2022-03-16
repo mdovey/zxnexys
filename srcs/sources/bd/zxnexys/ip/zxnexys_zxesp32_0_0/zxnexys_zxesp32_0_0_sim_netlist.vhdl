@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
--- Date        : Fri Feb 25 12:43:11 2022
+-- Date        : Wed Mar 16 11:17:48 2022
 -- Host        : AW13R3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               v:/srcs/sources/bd/zxnexys/ip/zxnexys_zxesp32_0_0/zxnexys_zxesp32_0_0_sim_netlist.vhdl
@@ -23,6 +23,7 @@ entity zxnexys_zxesp32_0_0 is
     gpio_enable : in STD_LOGIC;
     uart_tx_o : out STD_LOGIC;
     uart_rx_o : in STD_LOGIC;
+    enable : out STD_LOGIC;
     gpio0_i : in STD_LOGIC;
     gpio0_o : out STD_LOGIC;
     gpio0_t : out STD_LOGIC;
@@ -33,7 +34,7 @@ entity zxnexys_zxesp32_0_0 is
     gpio2_o : out STD_LOGIC;
     gpio2_t : out STD_LOGIC;
     clk_peripheral : in STD_LOGIC;
-    reset : in STD_LOGIC
+    resetn : in STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of zxnexys_zxesp32_0_0 : entity is true;
@@ -54,6 +55,7 @@ architecture STRUCTURE of zxnexys_zxesp32_0_0 is
   signal \^gpio1_i\ : STD_LOGIC;
   signal \^gpio2_i\ : STD_LOGIC;
   signal \^gpio_out\ : STD_LOGIC;
+  signal \^resetn\ : STD_LOGIC;
   signal \^uart_rx_o\ : STD_LOGIC;
   signal \^uart_tx_i\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
@@ -71,8 +73,8 @@ architecture STRUCTURE of zxnexys_zxesp32_0_0 is
   attribute X_INTERFACE_INFO of gpio2_t : signal is "xilinx.com:interface:gpio:1.0 gpio2 TRI_T";
   attribute X_INTERFACE_INFO of gpio_enable : signal is "specnext.com:specnext:esp32:1.0 esp32 gpio_enable";
   attribute X_INTERFACE_INFO of gpio_out : signal is "specnext.com:specnext:esp32:1.0 esp32 gpio_out";
-  attribute X_INTERFACE_INFO of reset : signal is "xilinx.com:signal:reset:1.0 reset RST";
-  attribute X_INTERFACE_PARAMETER of reset : signal is "XIL_INTERFACENAME reset, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
+  attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of uart_rx_i : signal is "specnext.com:specnext:esp32:1.0 esp32 uart_rx";
   attribute X_INTERFACE_INFO of uart_tx_i : signal is "specnext.com:specnext:esp32:1.0 esp32 uart_tx";
   attribute X_INTERFACE_INFO of gpio_in : signal is "specnext.com:specnext:esp32:1.0 esp32 gpio_in";
@@ -81,8 +83,10 @@ begin
   \^gpio1_i\ <= gpio1_i;
   \^gpio2_i\ <= gpio2_i;
   \^gpio_out\ <= gpio_out;
+  \^resetn\ <= resetn;
   \^uart_rx_o\ <= uart_rx_o;
   \^uart_tx_i\ <= uart_tx_i;
+  enable <= \^resetn\;
   gpio0_o <= \^gpio_out\;
   gpio1_o <= \<const0>\;
   gpio1_t <= \<const1>\;

@@ -76,6 +76,8 @@ module pmod_esp32(
     output uart_rx,
     input  uart_tx,
     
+    input  enable,
+    
 (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 gpio0 TRI_I" *)
 (* X_INTERFACE_MODE = "mirroredMaster" *)
     output gpio0_i,
@@ -115,7 +117,7 @@ module pmod_esp32(
     assign pin7_o 	= gpio2_o;
     assign pin7_t 	= gpio2_t;
 
-    assign pin8_o 	= 1'b1;
+    assign pin8_o 	= enable;
     assign pin8_t 	= 1'b0;
 
     assign pin9_o 	= 1'b0;

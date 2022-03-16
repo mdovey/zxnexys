@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-//Date        : Thu Dec 30 01:16:15 2021
+//Tool Version: Vivado v.2021.2.1 (win64) Build 3414424 Sun Dec 19 10:57:22 MST 2021
+//Date        : Tue Mar 15 14:49:49 2022
 //Host        : AW13R3 running 64-bit major release  (build 9200)
 //Command     : generate_target rtcc_wrapper.bd
 //Design      : rtcc_wrapper
@@ -17,7 +17,7 @@ module rtcc_wrapper
     iic_rtcc_sda_i,
     iic_rtcc_sda_o,
     iic_rtcc_sda_t,
-    reset,
+    resetn,
     scl_i,
     scl_o,
     sda_i,
@@ -29,7 +29,7 @@ module rtcc_wrapper
   input iic_rtcc_sda_i;
   output iic_rtcc_sda_o;
   output iic_rtcc_sda_t;
-  input reset;
+  input resetn;
   input scl_i;
   output scl_o;
   input sda_i;
@@ -42,7 +42,7 @@ module rtcc_wrapper
   wire iic_rtcc_sda_i;
   wire iic_rtcc_sda_o;
   wire iic_rtcc_sda_t;
-  wire reset;
+  wire resetn;
   wire scl_i;
   wire scl_o;
   wire sda_i;
@@ -56,7 +56,7 @@ module rtcc_wrapper
         .iic_rtcc_sda_i(iic_rtcc_sda_i),
         .iic_rtcc_sda_o(iic_rtcc_sda_o),
         .iic_rtcc_sda_t(iic_rtcc_sda_t),
-        .reset(reset),
+        .resetn(resetn),
         .scl_i(scl_i),
         .scl_o(scl_o),
         .sda_i(sda_i),
